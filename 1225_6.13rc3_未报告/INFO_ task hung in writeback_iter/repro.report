@@ -1,0 +1,100 @@
+INFO: task kworker/u19:3:118 blocked for more than 143 seconds.
+      Tainted: G    B              6.13.0-rc3 #5
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:kworker/u19:3   state:D stack:27144 pid:118   tgid:118   ppid:2      flags:0x00004000
+Workqueue: writeback wb_workfn (flush-7:0)
+Call Trace:
+ <TASK>
+ context_switch kernel/sched/core.c:5369 [inline]
+ __schedule+0xe60/0x4120 kernel/sched/core.c:6756
+ __schedule_loop kernel/sched/core.c:6833 [inline]
+ schedule+0xd4/0x210 kernel/sched/core.c:6848
+ io_schedule+0x1a/0x70 kernel/sched/core.c:7681
+ folio_wait_bit_common+0x3cc/0x970 mm/filemap.c:1308
+ folio_lock include/linux/pagemap.h:1151 [inline]
+ writeback_get_folio mm/page-writeback.c:2515 [inline]
+ writeback_iter+0x884/0x1100 mm/page-writeback.c:2609
+ iomap_writepages fs/iomap/buffered-io.c:2012 [inline]
+ iomap_writepages+0x180/0x2de0 fs/iomap/buffered-io.c:1996
+ gfs2_writepages+0x159/0x2a0 fs/gfs2/aops.c:161
+ do_writepages+0x19d/0x7d0 mm/page-writeback.c:2702
+ __writeback_single_inode+0x135/0x1010 fs/fs-writeback.c:1680
+ writeback_sb_inodes+0x5ee/0xf00 fs/fs-writeback.c:1976
+ __writeback_inodes_wb+0xbe/0x270 fs/fs-writeback.c:2047
+ wb_writeback+0x72f/0xb50 fs/fs-writeback.c:2158
+ wb_check_background_flush fs/fs-writeback.c:2228 [inline]
+ wb_do_writeback fs/fs-writeback.c:2316 [inline]
+ wb_workfn+0x8b8/0xe10 fs/fs-writeback.c:2343
+ process_one_work kernel/workqueue.c:3229 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3310
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3391
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+INFO: task syz-executor223:422 blocked for more than 143 seconds.
+      Tainted: G    B              6.13.0-rc3 #5
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:syz-executor223 state:D stack:25960 pid:422   tgid:422   ppid:421    flags:0x00004004
+Call Trace:
+ <TASK>
+ context_switch kernel/sched/core.c:5369 [inline]
+ __schedule+0xe60/0x4120 kernel/sched/core.c:6756
+ __schedule_loop kernel/sched/core.c:6833 [inline]
+ schedule+0xd4/0x210 kernel/sched/core.c:6848
+ io_schedule+0x1a/0x70 kernel/sched/core.c:7681
+ folio_wait_bit_common+0x3cc/0x970 mm/filemap.c:1308
+ folio_lock include/linux/pagemap.h:1151 [inline]
+ writeback_get_folio mm/page-writeback.c:2515 [inline]
+ writeback_iter+0x884/0x1100 mm/page-writeback.c:2609
+ iomap_writepages fs/iomap/buffered-io.c:2012 [inline]
+ iomap_writepages+0x180/0x2de0 fs/iomap/buffered-io.c:1996
+ gfs2_writepages+0x159/0x2a0 fs/gfs2/aops.c:161
+ do_writepages+0x19d/0x7d0 mm/page-writeback.c:2702
+ filemap_fdatawrite_wbc+0xe9/0x120 mm/filemap.c:397
+ __filemap_fdatawrite_range+0xc1/0x110 mm/filemap.c:430
+ gfs2_ordered_write fs/gfs2/log.c:728 [inline]
+ gfs2_log_flush+0x79a/0x2cc0 fs/gfs2/log.c:1097
+ gfs2_trans_end+0x6b9/0x9f0 fs/gfs2/trans.c:158
+ gfs2_page_mkwrite+0x18a3/0x1b30 fs/gfs2/file.c:534
+ do_page_mkwrite+0x180/0x390 mm/memory.c:3176
+ do_shared_fault mm/memory.c:5398 [inline]
+ do_fault mm/memory.c:5460 [inline]
+ do_pte_missing mm/memory.c:3979 [inline]
+ handle_pte_fault mm/memory.c:5801 [inline]
+ __handle_mm_fault+0x1579/0x3130 mm/memory.c:5944
+ handle_mm_fault+0x2aa/0x660 mm/memory.c:6112
+ do_user_addr_fault+0x953/0x18b0 arch/x86/mm/fault.c:1389
+ handle_page_fault arch/x86/mm/fault.c:1481 [inline]
+ exc_page_fault+0x9c/0x1a0 arch/x86/mm/fault.c:1539
+ asm_exc_page_fault+0x26/0x30 arch/x86/include/asm/idtentry.h:623
+RIP: 0033:0x7fd5e97ead7f
+RSP: 002b:00007ffd5e498100 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000020000040
+RDX: 0000000000000000 RSI: 0000000000004209 RDI: 0000000000000065
+RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000004 R11: 0000000000000246 R12: 00007ffd5e49811c
+R13: 00007ffd5e498120 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
+INFO: task gfs2_logd/syz:s:426 blocked for more than 143 seconds.
+      Tainted: G    B              6.13.0-rc3 #5
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:gfs2_logd/syz:s state:D stack:29296 pid:426   tgid:426   ppid:2      flags:0x00004000
+Call Trace:
+ <TASK>
+ context_switch kernel/sched/core.c:5369 [inline]
+ __schedule+0xe60/0x4120 kernel/sched/core.c:6756
+ __schedule_loop kernel/sched/core.c:6833 [inline]
+ schedule+0xd4/0x210 kernel/sched/core.c:6848
+ schedule_preempt_disabled+0x13/0x30 kernel/sched/core.c:6905
+ rwsem_down_write_slowpath+0x551/0x1660 kernel/locking/rwsem.c:1176
+ __down_write_common kernel/locking/rwsem.c:1304 [inline]
+ __down_write kernel/locking/rwsem.c:1313 [inline]
+ down_write+0x1d7/0x200 kernel/locking/rwsem.c:1578
+ gfs2_log_flush+0xd6/0x2cc0 fs/gfs2/log.c:1040
+ gfs2_logd+0x29b/0xf30 fs/gfs2/log.c:1318
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+INFO: lockdep is turned off.

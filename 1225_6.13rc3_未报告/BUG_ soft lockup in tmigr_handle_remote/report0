@@ -1,0 +1,220 @@
+watchdog: BUG: soft lockup - CPU#2 stuck for 26s! [syz.3.778:6432]
+Modules linked in:
+irq event stamp: 173889
+hardirqs last  enabled at (173888): [<ffffffffaa2f86c3>] __raw_spin_unlock_irq include/linux/spinlock_api_smp.h:159 [inline]
+hardirqs last  enabled at (173888): [<ffffffffaa2f86c3>] _raw_spin_unlock_irq+0x23/0x50 kernel/locking/spinlock.c:202
+hardirqs last disabled at (173889): [<ffffffffaa2ccfcf>] sysvec_apic_timer_interrupt+0xf/0xb0 arch/x86/kernel/apic/apic.c:1049
+softirqs last  enabled at (173872): [<ffffffffa230f4d4>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (173872): [<ffffffffa230f4d4>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (173877): [<ffffffffa231117e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (173877): [<ffffffffa231117e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (173877): [<ffffffffa231117e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (173877): [<ffffffffa231117e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+CPU: 2 UID: 0 PID: 6432 Comm: syz.3.778 Not tainted 6.13.0-rc3 #8
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:__walk_groups.isra.0+0x83/0x180 kernel/time/timer_migration.c:537
+Code: 07 31 ff 41 89 c5 89 c6 e8 3a 51 0d 00 45 84 ed 0f 85 bc 00 00 00 e8 5c 4f 0d 00 48 8d 7b 40 48 89 f8 48 c1 e8 03 80 3c 28 00 <0f> 85 e9 00 00 00 48 8d bb 98 00 00 00 48 8b 43 40 48 89 fa 48 c1
+RSP: 0018:ffa0000000240e40 EFLAGS: 00000246
+RAX: 1fe2200000381068 RBX: ff11000001c08300 RCX: ffffffffa25c52d6
+RDX: 0000000000000000 RSI: ff1100001df9a340 RDI: ff11000001c08340
+RBP: dffffc0000000000 R08: 0000000000000000 R09: fffffbfff691eaff
+R10: fffffbfff691eafe R11: 0000000000000001 R12: ffa0000000240eb8
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000001
+FS:  00007f6c9ba81700(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f6c9373fe00 CR3: 0000000014c7c004 CR4: 0000000000771ef0
+PKRU: 80000000
+Call Trace:
+ <IRQ>
+ tmigr_handle_remote+0x273/0x380 kernel/time/timer_migration.c:1080
+ run_timer_softirq+0x35/0x40 kernel/time/timer.c:2453
+ handle_softirqs+0x1ad/0x870 kernel/softirq.c:561
+ __do_softirq kernel/softirq.c:595 [inline]
+ invoke_softirq kernel/softirq.c:435 [inline]
+ __irq_exit_rcu kernel/softirq.c:662 [inline]
+ irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1049 [inline]
+ sysvec_apic_timer_interrupt+0x94/0xb0 arch/x86/kernel/apic/apic.c:1049
+ </IRQ>
+ <TASK>
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:702
+RIP: 0010:dtSplitRoot+0x96e/0x1750 fs/jfs/jfs_dtree.c:1979
+Code: 00 00 00 00 00 fc ff df e8 0f f0 c6 fe 48 63 db 48 81 fb 80 00 00 00 0f 87 a5 0a 00 00 48 89 df 48 c1 e7 05 48 01 ef 48 89 f8 <48> c1 e8 03 42 0f b6 04 38 84 c0 74 06 0f 8e 7b 0a 00 00 48 c1 e3
+RSP: 0018:ffa00000044675f8 EFLAGS: 00000286
+RAX: ff1100003ceca000 RBX: 0000000000000000 RCX: 0000000000040000
+RDX: ffa0000004961000 RSI: ff1100001df9a340 RDI: ff1100003ceca000
+RBP: ff1100003ceca000 R08: ff1100003ceca001 R09: ffe21c00079d9424
+R10: ffe21c00079d9423 R11: ff1100003ceca11f R12: ff11000011a45650
+R13: ff11000027d856c8 R14: ff1100003ceca000 R15: dffffc0000000000
+ dtSplitUp+0x11a1/0x54a0 fs/jfs/jfs_dtree.c:992
+ dtInsert+0x893/0xae0 fs/jfs/jfs_dtree.c:870
+ jfs_mkdir+0x638/0xb20 fs/jfs/namei.c:270
+ vfs_mkdir+0x4fd/0x820 fs/namei.c:4311
+ do_mkdirat+0x291/0x340 fs/namei.c:4334
+ __do_sys_mkdirat fs/namei.c:4349 [inline]
+ __se_sys_mkdirat fs/namei.c:4347 [inline]
+ __x64_sys_mkdirat+0x84/0xb0 fs/namei.c:4347
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f6c9ce2c34b
+Code: 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 02 01 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f6c9ba809b8 EFLAGS: 00000246 ORIG_RAX: 0000000000000102
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f6c9ce2c34b
+RDX: 00000000000001ff RSI: 0000000020000100 RDI: 00000000ffffff9c
+RBP: 00000000200000c0 R08: 000000000000000b R09: 0000000000000000
+R10: 0000000020000f40 R11: 0000000000000246 R12: 0000000020000f40
+R13: 0000000020000100 R14: 00007f6c9ba80a10 R15: 0000000020000080
+ </TASK>
+Sending NMI from CPU 2 to CPUs 0-1,3:
+NMI backtrace for cpu 3
+CPU: 3 UID: 0 PID: 1652 Comm: systemd-udevd Not tainted 6.13.0-rc3 #8
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:arch_stack_walk+0x8d/0xf0 arch/x86/kernel/stacktrace.c:24
+Code: 8b 95 68 ff ff ff 85 d2 75 24 eb 36 4c 89 e7 e8 a9 49 18 08 84 c0 74 2a 48 8d bd 68 ff ff ff e8 29 fd 07 00 8b 85 68 ff ff ff <85> c0 74 14 48 8d bd 68 ff ff ff e8 53 fc 07 00 48 89 c6 48 85 c0
+RSP: 0018:ffa0000014fdfac8 EFLAGS: 00000286
+RAX: 0000000000000001 RBX: ffffffffa2561e40 RCX: 0000000000000000
+RDX: dffffc0000000000 RSI: 0000000000000004 RDI: 0000000000000001
+RBP: ffa0000014fdfb60 R08: ffffffffaf1cb906 R09: ffffffffaf1cb8d8
+R10: 0000000000086001 R11: 0000000000026b1e R12: ffa0000014fdfb90
+R13: 0000000000000000 R14: ff11000029e44680 R15: ff1100000d580c60
+FS:  00007f8ee8c728c0(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f2e0f357000 CR3: 0000000010d38003 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <NMI>
+ </NMI>
+ <TASK>
+ stack_trace_save+0x8f/0xc0 kernel/stacktrace.c:122
+ kasan_save_stack+0x24/0x50 mm/kasan/common.c:47
+ __kasan_record_aux_stack+0xa6/0xc0 mm/kasan/generic.c:544
+ __call_rcu_common.constprop.0+0x99/0x790 kernel/rcu/tree.c:3086
+ file_free fs/file_table.c:76 [inline]
+ __fput+0x6ed/0xc70 fs/file_table.c:463
+ __fput_sync+0xa6/0xc0 fs/file_table.c:535
+ __do_sys_close fs/open.c:1554 [inline]
+ __se_sys_close fs/open.c:1539 [inline]
+ __x64_sys_close+0x8b/0x120 fs/open.c:1539
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f8ee92190f3
+Code: 8b 15 d9 ae 00 00 f7 d8 64 89 02 48 c7 c0 ff ff ff ff eb b7 0f 1f 00 64 8b 04 25 18 00 00 00 85 c0 75 14 b8 03 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 45 c3 0f 1f 40 00 48 83 ec 18 89 7c 24 0c e8
+RSP: 002b:00007ffe753a8228 EFLAGS: 00000246 ORIG_RAX: 0000000000000003
+RAX: ffffffffffffffda RBX: 00007f8ee8c726c0 RCX: 00007f8ee92190f3
+RDX: 0000000000000000 RSI: 0000000000000001 RDI: 0000000000000014
+RBP: 0000000000000014 R08: 0000000000000000 R09: 006c617574726976
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000002
+R13: 0000000000000014 R14: 00000000ffffffff R15: 0000000000000001
+ </TASK>
+NMI backtrace for cpu 0
+CPU: 0 UID: 0 PID: 6954 Comm: syz.8.850 Not tainted 6.13.0-rc3 #8
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:ioread8+0x48/0xa0 lib/iomap.c:81
+Code: ff ff 03 00 77 60 e8 07 57 44 fd 4c 89 e6 bf 00 00 01 00 e8 5a 59 44 fd 49 81 fc 00 00 01 00 76 1c e8 ec 56 44 fd 44 89 e2 ec <44> 0f b6 e0 e8 df 56 44 fd 44 89 e0 41 5c e9 a0 f5 2a 05 e8 d0 56
+RSP: 0018:ffa0000003b17260 EFLAGS: 00000082
+RAX: 0000000000000950 RBX: ff11000007d68000 RCX: 0000000000040000
+RDX: 0000000000010177 RSI: ff11000018368000 RDI: 0000000000000002
+RBP: ff11000007d68000 R08: ff11000007d68101 R09: fffffbfff5d379c3
+R10: fffffbfff5d379c2 R11: ffffffffae9bce17 R12: 0000000000010177
+R13: ff11000007d68008 R14: 00000000000003e7 R15: dffffc0000000000
+FS:  00007f8598285700(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff73746ff40 CR3: 0000000016262002 CR4: 0000000000771ef0
+PKRU: 80000000
+Call Trace:
+ <NMI>
+ </NMI>
+ <TASK>
+ ata_sff_check_status+0x31/0x40 drivers/ata/libata-sff.c:65
+ ata_sff_busy_wait include/linux/libata.h:2120 [inline]
+ ata_wait_idle include/linux/libata.h:2139 [inline]
+ ata_dev_select drivers/ata/libata-sff.c:290 [inline]
+ ata_sff_qc_issue+0x1ca/0x1890 drivers/ata/libata-sff.c:1292
+ ata_bmdma_qc_issue+0x898/0x13a0 drivers/ata/libata-sff.c:2653
+ ata_qc_issue+0x73e/0x1000 drivers/ata/libata-core.c:4982
+ ata_scsi_translate drivers/ata/libata-scsi.c:1751 [inline]
+ __ata_scsi_queuecmd+0xa3c/0x1460 drivers/ata/libata-scsi.c:4347
+ ata_scsi_queuecmd+0xad/0x170 drivers/ata/libata-scsi.c:4392
+ scsi_dispatch_cmd drivers/scsi/scsi_lib.c:1602 [inline]
+ scsi_queue_rq+0xe5e/0x3040 drivers/scsi/scsi_lib.c:1844
+ blk_mq_dispatch_rq_list+0x40d/0x1b60 block/blk-mq.c:2118
+ __blk_mq_sched_dispatch_requests+0x289/0x1560 block/blk-mq-sched.c:301
+ blk_mq_sched_dispatch_requests+0xd7/0x1b0 block/blk-mq-sched.c:331
+ blk_mq_run_hw_queue+0x874/0xf00 block/blk-mq.c:2352
+ blk_execute_rq+0x19f/0x420 block/blk-mq.c:1487
+ scsi_execute_cmd+0x3e7/0xe30 drivers/scsi/scsi_lib.c:325
+ sr_do_ioctl+0x20b/0x7c0 drivers/scsi/sr_ioctl.c:207
+ sr_select_speed+0x10f/0x1a0 drivers/scsi/sr_ioctl.c:448
+ cdrom_ioctl_select_speed drivers/cdrom/cdrom.c:2416 [inline]
+ cdrom_ioctl+0x1ee/0x3160 drivers/cdrom/cdrom.c:3349
+ sr_block_ioctl+0x1bf/0x270 drivers/scsi/sr.c:545
+ blkdev_ioctl+0x27e/0x6d0 block/ioctl.c:693
+ vfs_ioctl fs/ioctl.c:51 [inline]
+ __do_sys_ioctl fs/ioctl.c:906 [inline]
+ __se_sys_ioctl fs/ioctl.c:892 [inline]
+ __x64_sys_ioctl+0x19e/0x210 fs/ioctl.c:892
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f859963171d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f8598284ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 00007f85997f3f80 RCX: 00007f859963171d
+RDX: 0000000000000001 RSI: 0000000000005322 RDI: 0000000000000003
+RBP: 00007f85996a6425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f85997f3f8c R14: 00007f85997f4018 R15: 00007f8598284d40
+ </TASK>
+NMI backtrace for cpu 1
+CPU: 1 UID: 0 PID: 19 Comm: rcu_exp_gp_kthr Not tainted 6.13.0-rc3 #8
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:e1000_intr+0x106/0x420 drivers/net/ethernet/intel/e1000/e1000_main.c:3777
+Code: 48 c1 ea 03 80 3c 02 00 0f 85 dc 02 00 00 48 8b 93 e8 11 00 00 b8 ff ff ff ff 89 82 d8 00 00 00 48 8b 83 e8 11 00 00 8b 40 08 <4c> 8d a3 f0 0f 00 00 4c 89 e7 e8 fb 48 83 02 31 ff 89 c5 89 c6 e8
+RSP: 0018:ffa00000001e8e98 EFLAGS: 00000046
+RAX: 0000000080080783 RBX: ff11000003310000 RCX: ffffffffa69e1272
+RDX: ffa0000001cc0000 RSI: ff11000001c88000 RDI: 0000000000000002
+RBP: 0000000000000000 R08: 0000000000000000 R09: ffe21c00006622bb
+R10: ffe21c00006622ba R11: ff110000033115d7 R12: 0000000000000000
+R13: ff110000033115d0 R14: ff110000033111e8 R15: 000000000000000a
+FS:  0000000000000000(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffef766cd48 CR3: 000000003ca00003 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <NMI>
+ </NMI>
+ <IRQ>
+ __handle_irq_event_percpu+0x238/0x7d0 kernel/irq/handle.c:158
+ handle_irq_event_percpu+0x18/0xe0 kernel/irq/handle.c:193
+ handle_irq_event+0xa5/0x140 kernel/irq/handle.c:210
+ handle_fasteoi_irq+0x26f/0x880 kernel/irq/chip.c:720
+ generic_handle_irq_desc include/linux/irqdesc.h:173 [inline]
+ handle_irq arch/x86/kernel/irq.c:247 [inline]
+ call_irq_handler arch/x86/kernel/irq.c:259 [inline]
+ __common_interrupt+0xe3/0x250 arch/x86/kernel/irq.c:285
+ common_interrupt+0xde/0x100 arch/x86/kernel/irq.c:278
+ </IRQ>
+ <TASK>
+ asm_common_interrupt+0x26/0x40 arch/x86/include/asm/idtentry.h:693
+RIP: 0010:csd_lock_wait kernel/smp.c:340 [inline]
+RIP: 0010:csd_lock kernel/smp.c:355 [inline]
+RIP: 0010:smp_call_function_single+0x399/0x5a0 kernel/smp.c:666
+Code: 54 48 b8 00 00 00 00 00 fc ff df 48 8b 0c 24 49 89 cf 83 e1 07 49 c1 ef 03 49 01 c7 8d 41 03 88 44 24 1c e8 99 43 0b 00 f3 90 <41> 0f b6 07 38 44 24 1c 7c 08 84 c0 0f 85 67 01 00 00 41 8b 44 24
+RSP: 0018:ffa000000013fc80 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: 1ff4000000027f94 RCX: ffffffffa25e5ecf
+RDX: 0000000000000001 RSI: ff11000001c88000 RDI: 0000000000000002
+RBP: ffa000000013fd60 R08: 0000000000000000 R09: fffffbfff5d379c3
+R10: fffffbfff5d379c2 R11: ffffffffae9bce17 R12: ff1100006a2bd480
+R13: 0000000000000003 R14: 0000000000000001 R15: ffe21c000d457a91
+ __sync_rcu_exp_select_node_cpus+0x678/0xc90 kernel/rcu/tree_exp.h:413
+ sync_rcu_exp_select_node_cpus kernel/rcu/tree_exp.h:446 [inline]
+ sync_rcu_exp_select_cpus+0x345/0xa60 kernel/rcu/tree_exp.h:513
+ rcu_exp_sel_wait_wake kernel/rcu/tree_exp.h:709 [inline]
+ wait_rcu_exp_gp+0x2d/0x40 kernel/rcu/tree_exp.h:483
+ kthread_worker_fn+0x328/0xae0 kernel/kthread.c:844
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>

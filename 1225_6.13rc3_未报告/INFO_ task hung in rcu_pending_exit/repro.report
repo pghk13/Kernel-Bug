@@ -1,0 +1,85 @@
+INFO: task syz-executor:710 blocked for more than 143 seconds.
+      Not tainted 6.13.0-rc3 #5
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:syz-executor    state:D stack:18640 pid:710   tgid:710   ppid:1      flags:0x00004006
+Call Trace:
+ <TASK>
+ context_switch kernel/sched/core.c:5369 [inline]
+ __schedule+0xe60/0x4120 kernel/sched/core.c:6756
+ __schedule_loop kernel/sched/core.c:6833 [inline]
+ schedule+0xd4/0x210 kernel/sched/core.c:6848
+ schedule_timeout+0x239/0x280 kernel/time/sleep_timeout.c:75
+ do_wait_for_common kernel/sched/completion.c:95 [inline]
+ __wait_for_common kernel/sched/completion.c:116 [inline]
+ wait_for_common kernel/sched/completion.c:127 [inline]
+ wait_for_completion+0x181/0x2a0 kernel/sched/completion.c:148
+ srcu_barrier+0x47b/0x810 kernel/rcu/srcutree.c:1662
+ __rcu_barrier fs/bcachefs/rcu_pending.c:52 [inline]
+ rcu_pending_exit+0x5de/0xa30 fs/bcachefs/rcu_pending.c:595
+ bch2_fs_btree_key_cache_exit+0x8d8/0xad0 fs/bcachefs/btree_key_cache.c:741
+ __bch2_fs_free fs/bcachefs/super.c:556 [inline]
+ bch2_fs_release+0x10f/0x8e0 fs/bcachefs/super.c:611
+ kobject_cleanup lib/kobject.c:689 [inline]
+ kobject_release lib/kobject.c:720 [inline]
+ kref_put include/linux/kref.h:65 [inline]
+ kobject_put+0x1b2/0x4c0 lib/kobject.c:737
+ deactivate_locked_super+0xbb/0x130 fs/super.c:473
+ deactivate_super fs/super.c:506 [inline]
+ deactivate_super+0xb1/0xd0 fs/super.c:502
+ cleanup_mnt+0x378/0x510 fs/namespace.c:1373
+ task_work_run+0x173/0x280 kernel/task_work.c:239
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ exit_to_user_mode_loop kernel/entry/common.c:114 [inline]
+ exit_to_user_mode_prepare include/linux/entry-common.h:329 [inline]
+ __syscall_exit_to_user_mode_work kernel/entry/common.c:207 [inline]
+ syscall_exit_to_user_mode+0x261/0x270 kernel/entry/common.c:218
+ do_syscall_64+0xd0/0x1d0 arch/x86/entry/common.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fa9c55e608b
+RSP: 002b:00007fffa84c3578 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 00007fa9c55e608b
+RDX: 00007fa9c5480c50 RSI: 0000000000000009 RDI: 00007fffa84c3640
+RBP: 00007fffa84c3640 R08: 00007fa9c5658095 R09: 00007fffa84c3400
+R10: 00000000fffffffb R11: 0000000000000246 R12: 00007fa9c5658071
+R13: 00007fffa84c46e0 R14: 0000555573f318f0 R15: 00007fffa84c4720
+ </TASK>
+
+Showing all locks held in the system:
+1 lock held by khungtaskd/45:
+ #0: ffffffffae51ae20 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire include/linux/rcupdate.h:337 [inline]
+ #0: ffffffffae51ae20 (rcu_read_lock){....}-{1:3}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ #0: ffffffffae51ae20 (rcu_read_lock){....}-{1:3}, at: debug_show_all_locks+0x75/0x340 kernel/locking/lockdep.c:6744
+1 lock held by kswapd0/82:
+1 lock held by systemd-journal/221:
+ #0: ff1100000caa4068 (mapping.invalidate_lock){++++}-{4:4}, at: filemap_invalidate_lock_shared include/linux/fs.h:873 [inline]
+ #0: ff1100000caa4068 (mapping.invalidate_lock){++++}-{4:4}, at: filemap_fault+0x17c1/0x2ec0 mm/filemap.c:3351
+1 lock held by in:imklog/326:
+ #0: ff110000033d77b8 (&f->f_pos_lock){+.+.}-{4:4}, at: fdget_pos+0x27d/0x390 fs/file.c:1191
+3 locks held by rs:main Q:Reg/327:
+1 lock held by syz-execprog/420:
+1 lock held by syz-execprog/423:
+ #0: ff11000008f3a808 (&vma->vm_lock->lock){++++}-{4:4}, at: vma_start_read include/linux/mm.h:716 [inline]
+ #0: ff11000008f3a808 (&vma->vm_lock->lock){++++}-{4:4}, at: lock_vma_under_rcu+0x141/0x800 mm/memory.c:6278
+1 lock held by syz-executor/710:
+ #0: ff11000023192240 (&ssp->srcu_sup->srcu_barrier_mutex){+.+.}-{4:4}, at: srcu_barrier+0xd7/0x810 kernel/rcu/srcutree.c:1639
+5 locks held by syz.6.2119/17879:
+ #0: ff1100001ca00278 (&c->state_lock
+){+.+.}-{4:4}, at: bch2_fs_start+0x3f/0x610 fs/bcachefs/super.c:1007
+ #1: ff1100001ca266d0 (&c->gc_lock){++++}-{4:4}, at: bch2_check_allocations+0x7c/0x26b0 fs/bcachefs/btree_gc.c:1115
+ #2: ff1100001ca04398 (&c->btree_trans_barrier){.+.+}-{0:0}, at: srcu_lock_acquire include/linux/srcu.h:158 [inline]
+ #2: ff1100001ca04398 (&c->btree_trans_barrier){.+.+}-{0:0}, at: srcu_read_lock include/linux/srcu.h:249 [inline]
+ #2: ff1100001ca04398 (&c->btree_trans_barrier){.+.+}-{0:0}, at: bch2_trans_srcu_lock fs/bcachefs/btree_iter.c:3053 [inline]
+ #2: ff1100001ca04398 (&c->btree_trans_barrier){.+.+}-{0:0}, at: bch2_btree_path_traverse_one+0x2a69/0x35b0 fs/bcachefs/btree_iter.c:1145
+ #3: ff11000022e68128 (bcachefs_btree){+.+.}-{0:0}, at: trans_set_locked fs/bcachefs/btree_locking.h:194 [inline]
+ #3: ff11000022e68128 (bcachefs_btree){+.+.}-{0:0}, at: trans_set_locked fs/bcachefs/btree_locking.h:191 [inline]
+ #3: ff11000022e68128 (bcachefs_btree){+.+.}-{0:0}, at: bch2_trans_begin+0xd9f/0x20c0 fs/bcachefs/btree_iter.c:3125
+ #4: ff1100001ca049d0 (&c->mark_lock){++++}-{0:0}, at: bch2_accounting_mem_insert+0x2c9/0x1260 fs/bcachefs/disk_accounting.c:343
+1 lock held by syz.1.2132/17932:
+2 locks held by syz.5.2133/17935:
+ #0: ff1100001b100908 (&c->sb_lock){+.+.}-{4:4}, at: bch2_fs_alloc+0xe55/0x2bb0 fs/bcachefs/super.c:827
+ #1: ff1100001b1049d0 (&c->mark_lock){++++}-{0:0}, at: bch2_sb_replicas_to_cpu_replicas+0x11c/0x310 fs/bcachefs/replicas.c:600
+2 locks held by syz.9.2134/17966:
+1 lock held by syz.8.2135/17967:
+
+=============================================
+

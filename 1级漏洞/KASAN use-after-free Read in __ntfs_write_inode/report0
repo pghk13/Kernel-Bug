@@ -1,0 +1,88 @@
+==================================================================
+BUG: KASAN: use-after-free in __ntfs_write_inode+0xdc0/0xea0 fs/ntfs/inode.c:2988
+Read of size 8 at addr ffff88806736a807 by task syz.6.25/12294
+
+CPU: 0 PID: 12294 Comm: syz.6.25 Not tainted 5.15.0 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:88 [inline]
+ dump_stack_lvl+0xcd/0x134 lib/dump_stack.c:106
+ print_address_description.constprop.0.cold+0x93/0x334 mm/kasan/report.c:256
+ __kasan_report mm/kasan/report.c:442 [inline]
+ kasan_report.cold+0x83/0xdf mm/kasan/report.c:459
+ __ntfs_write_inode+0xdc0/0xea0 fs/ntfs/inode.c:2988
+ write_inode fs/fs-writeback.c:1469 [inline]
+ __writeback_single_inode+0xad0/0x1040 fs/fs-writeback.c:1674
+ writeback_single_inode+0x2d0/0x490 fs/fs-writeback.c:1729
+ write_inode_now+0x1ed/0x300 fs/fs-writeback.c:2728
+ ntfs_file_fsync+0x18f/0x400 fs/ntfs/file.c:1970
+ vfs_fsync_range+0x13a/0x220 fs/sync.c:200
+ generic_write_sync include/linux/fs.h:2955 [inline]
+ ntfs_file_write_iter+0x80c/0x23f0 fs/ntfs/file.c:1926
+ call_write_iter include/linux/fs.h:2163 [inline]
+ new_sync_write+0x432/0x660 fs/read_write.c:507
+ vfs_write+0x67a/0xae0 fs/read_write.c:594
+ ksys_write+0x12d/0x250 fs/read_write.c:647
+ do_syscall_x64 arch/x86/entry/common.c:50 [inline]
+ do_syscall_64+0x35/0xb0 arch/x86/entry/common.c:80
+ entry_SYSCALL_64_after_hwframe+0x44/0xae
+RIP: 0033:0x7fc8ec92571d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fc8ead77ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
+RAX: ffffffffffffffda RBX: 00007fc8ecae7f80 RCX: 00007fc8ec92571d
+RDX: 0000000000000010 RSI: 0000000020000600 RDI: 0000000000000004
+RBP: 00007fc8ec99a425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fc8ecae7f8c R14: 00007fc8ecae8018 R15: 00007fc8ead77d40
+
+The buggy address belongs to the page:
+page:ffffea00019cda80 refcount:0 mapcount:0 mapping:0000000000000000 index:0x1 pfn:0x6736a
+flags: 0x4fff00000000000(node=1|zone=1|lastcpupid=0x7ff)
+raw: 04fff00000000000 ffffea00019cdac8 ffffea00019cd608 0000000000000000
+raw: 0000000000000001 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+page_owner tracks the page as freed
+page last allocated via order 0, migratetype Movable, gfp_mask 0x1100dca(GFP_HIGHUSER_MOVABLE|__GFP_ZERO), pid 12294, ts 55595486983, free_ts 55615856070
+ set_page_owner include/linux/page_owner.h:31 [inline]
+ post_alloc_hook mm/page_alloc.c:2420 [inline]
+ prep_new_page+0x1a5/0x240 mm/page_alloc.c:2426
+ get_page_from_freelist+0x1f10/0x3b70 mm/page_alloc.c:4155
+ __alloc_pages+0x306/0x6e0 mm/page_alloc.c:5381
+ alloc_pages_vma+0xf3/0x6b0 mm/mempolicy.c:2152
+ do_anonymous_page mm/memory.c:3768 [inline]
+ handle_pte_fault mm/memory.c:4566 [inline]
+ __handle_mm_fault+0x2711/0x4d10 mm/memory.c:4703
+ handle_mm_fault+0x322/0xa80 mm/memory.c:4801
+ do_user_addr_fault+0x48b/0x11c0 arch/x86/mm/fault.c:1397
+ handle_page_fault arch/x86/mm/fault.c:1485 [inline]
+ exc_page_fault+0x9e/0x180 arch/x86/mm/fault.c:1541
+ asm_exc_page_fault+0x1e/0x30 arch/x86/include/asm/idtentry.h:568
+page last free stack trace:
+ reset_page_owner include/linux/page_owner.h:24 [inline]
+ free_pages_prepare mm/page_alloc.c:1340 [inline]
+ free_pcp_prepare+0x412/0x900 mm/page_alloc.c:1391
+ free_unref_page_prepare mm/page_alloc.c:3317 [inline]
+ free_unref_page_list+0x105/0xec0 mm/page_alloc.c:3433
+ release_pages+0x393/0x2920 mm/swap.c:963
+ tlb_batch_pages_flush mm/mmu_gather.c:49 [inline]
+ tlb_flush_mmu_free mm/mmu_gather.c:242 [inline]
+ tlb_flush_mmu+0x8d/0x610 mm/mmu_gather.c:249
+ tlb_finish_mmu+0x93/0x3c0 mm/mmu_gather.c:340
+ unmap_region+0x27f/0x350 mm/mmap.c:2653
+ __do_munmap+0xabc/0x11e0 mm/mmap.c:2884
+ __vm_munmap+0x101/0x230 mm/mmap.c:2907
+ __do_sys_munmap mm/mmap.c:2933 [inline]
+ __se_sys_munmap mm/mmap.c:2929 [inline]
+ __x64_sys_munmap+0x62/0x80 mm/mmap.c:2929
+ do_syscall_x64 arch/x86/entry/common.c:50 [inline]
+ do_syscall_64+0x35/0xb0 arch/x86/entry/common.c:80
+ entry_SYSCALL_64_after_hwframe+0x44/0xae
+
+Memory state around the buggy address:
+ ffff88806736a700: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ffff88806736a780: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+>ffff88806736a800: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+                   ^
+ ffff88806736a880: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ffff88806736a900: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+==================================================================

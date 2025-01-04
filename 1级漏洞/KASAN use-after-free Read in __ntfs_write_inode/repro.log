@@ -1,0 +1,849 @@
+Warning: Permanently added '[localhost]:23749' (ECDSA) to the list of known hosts.
+executing program
+syzkaller login: [   41.217347][ T7587] loop0: detected capacity change from 0 to 4096
+[   41.232981][ T7587] ntfs: volume version 3.1.
+[   41.248575][ T7587] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   41.284518][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   41.350090][ T7597] loop0: detected capacity change from 0 to 4096
+[   41.380547][ T7597] ntfs: volume version 3.1.
+[   41.392594][ T7597] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   41.432739][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   41.518378][ T7606] loop0: detected capacity change from 0 to 4096
+[   41.529281][ T7606] ntfs: volume version 3.1.
+[   41.541936][ T7606] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   41.574999][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   41.688363][ T7613] loop0: detected capacity change from 0 to 4096
+[   41.739621][ T7613] ntfs: volume version 3.1.
+[   41.755552][ T7613] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   41.783899][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   41.857025][ T7620] loop0: detected capacity change from 0 to 4096
+[   41.909101][ T7620] ntfs: volume version 3.1.
+[   41.914118][ T7620] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   41.944890][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   42.015850][ T7626] loop0: detected capacity change from 0 to 4096
+[   42.212560][ T7626] ntfs: volume version 3.1.
+executing program
+[   42.325508][ T7634] loop0: detected capacity change from 0 to 4096
+[   42.456374][ T7634] ntfs: volume version 3.1.
+executing program
+[   42.548466][ T7644] loop0: detected capacity change from 0 to 4096
+[   42.709489][ T7644] ntfs: volume version 3.1.
+executing program
+[   42.815751][ T7649] loop0: detected capacity change from 0 to 4096
+[   42.966729][ T7649] ntfs: volume version 3.1.
+executing program
+[   43.105071][ T7658] loop0: detected capacity change from 0 to 4096
+[   43.117544][ T7658] ntfs: volume version 3.1.
+executing program
+[   43.300921][ T7665] loop0: detected capacity change from 0 to 4096
+[   43.396927][ T7665] ntfs: volume version 3.1.
+executing program
+[   43.505217][ T7673] loop0: detected capacity change from 0 to 4096
+[   43.518319][ T7673] ntfs: volume version 3.1.
+executing program
+[   43.610079][ T7676] loop0: detected capacity change from 0 to 4096
+[   43.675758][ T7676] ntfs: volume version 3.1.
+executing program
+[   43.785694][ T7686] loop0: detected capacity change from 0 to 4096
+[   43.800434][ T7686] ntfs: volume version 3.1.
+executing program
+[   43.975524][ T7693] loop0: detected capacity change from 0 to 4096
+[   44.100367][ T7693] ntfs: volume version 3.1.
+executing program
+[   44.195460][ T7702] loop0: detected capacity change from 0 to 4096
+[   44.306688][ T7702] ntfs: volume version 3.1.
+executing program
+[   44.404833][ T7707] loop0: detected capacity change from 0 to 4096
+[   44.417016][ T7707] ntfs: volume version 3.1.
+executing program
+[   44.535983][ T7713] loop0: detected capacity change from 0 to 4096
+[   44.648125][ T7713] ntfs: volume version 3.1.
+executing program
+[   44.775747][ T7719] loop0: detected capacity change from 0 to 4096
+[   44.918663][ T7719] ntfs: volume version 3.1.
+executing program
+[   45.022547][ T7730] loop0: detected capacity change from 0 to 4096
+[   45.035978][ T7730] ntfs: volume version 3.1.
+executing program
+[   45.153684][ T7736] loop0: detected capacity change from 0 to 4096
+[   45.170490][ T7736] ntfs: volume version 3.1.
+executing program
+[   45.285765][ T7740] loop0: detected capacity change from 0 to 4096
+[   45.368183][ T7740] ntfs: volume version 3.1.
+executing program
+[   45.504516][ T7748] loop0: detected capacity change from 0 to 4096
+[   45.670498][ T7748] ntfs: volume version 3.1.
+executing program
+[   45.766012][ T7754] loop0: detected capacity change from 0 to 4096
+[   45.816485][ T7754] ntfs: volume version 3.1.
+executing program
+[   45.970436][ T7764] loop0: detected capacity change from 0 to 4096
+[   45.981689][ T7764] ntfs: volume version 3.1.
+executing program
+[   46.071516][ T7772] loop0: detected capacity change from 0 to 4096
+[   46.279285][ T7772] ntfs: volume version 3.1.
+[   46.293112][ T7772] __ntfs_error: 40 callbacks suppressed
+[   46.293144][ T7772] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   46.332034][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   46.453904][ T7781] loop0: detected capacity change from 0 to 4096
+[   46.466471][ T7781] ntfs: volume version 3.1.
+[   46.472734][ T7781] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   46.501007][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   46.588141][ T7788] loop0: detected capacity change from 0 to 4096
+[   46.738517][ T7788] ntfs: volume version 3.1.
+[   46.744544][ T7788] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   46.773094][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   46.841567][ T7796] loop0: detected capacity change from 0 to 4096
+[   46.928896][ T7796] ntfs: volume version 3.1.
+[   46.933906][ T7796] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   46.971715][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   47.026430][ T7801] loop0: detected capacity change from 0 to 4096
+[   47.110509][ T7801] ntfs: volume version 3.1.
+[   47.117753][ T7801] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   47.156258][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   47.249581][ T7809] loop0: detected capacity change from 0 to 4096
+[   47.379708][ T7809] ntfs: volume version 3.1.
+executing program
+[   47.545938][ T7814] loop0: detected capacity change from 0 to 4096
+[   47.688262][ T7814] ntfs: volume version 3.1.
+executing program
+[   47.775756][ T7820] loop0: detected capacity change from 0 to 4096
+[   47.792055][ T7820] ntfs: volume version 3.1.
+executing program
+[   47.964741][ T7830] loop0: detected capacity change from 0 to 4096
+[   48.082115][ T7830] ntfs: volume version 3.1.
+executing program
+[   48.216226][ T7834] loop0: detected capacity change from 0 to 4096
+[   48.333715][ T7834] ntfs: volume version 3.1.
+executing program
+[   48.445030][ T7840] loop0: detected capacity change from 0 to 4096
+[   48.510177][ T7840] ntfs: volume version 3.1.
+executing program
+[   48.622461][ T7850] loop0: detected capacity change from 0 to 4096
+[   48.636736][ T7850] ntfs: volume version 3.1.
+executing program
+[   48.755714][ T7853] loop0: detected capacity change from 0 to 4096
+[   48.788616][ T7853] ntfs: volume version 3.1.
+executing program
+[   48.875620][ T7859] loop0: detected capacity change from 0 to 4096
+[   48.906562][ T7859] ntfs: volume version 3.1.
+executing program
+[   49.057566][ T7868] loop0: detected capacity change from 0 to 4096
+[   49.073584][ T7868] ntfs: volume version 3.1.
+executing program
+[   49.186526][ T7874] loop0: detected capacity change from 0 to 4096
+[   49.366951][ T7874] ntfs: volume version 3.1.
+executing program
+[   49.494550][ T7883] loop0: detected capacity change from 0 to 4096
+[   49.559163][ T7883] ntfs: volume version 3.1.
+executing program
+[   49.664819][ T7889] loop0: detected capacity change from 0 to 4096
+[   49.675524][ T7889] ntfs: volume version 3.1.
+executing program
+[   49.762369][ T7896] loop0: detected capacity change from 0 to 4096
+[   49.909581][ T7896] ntfs: volume version 3.1.
+executing program
+[   50.063346][ T7905] loop0: detected capacity change from 0 to 4096
+[   50.075948][ T7905] ntfs: volume version 3.1.
+executing program
+[   50.184314][ T7913] loop0: detected capacity change from 0 to 4096
+[   50.419950][ T7913] ntfs: volume version 3.1.
+executing program
+[   50.556217][ T7921] loop0: detected capacity change from 0 to 4096
+[   50.662387][ T7921] ntfs: volume version 3.1.
+executing program
+[   50.817785][ T7927] loop0: detected capacity change from 0 to 4096
+[   50.980619][ T7927] ntfs: volume version 3.1.
+executing program
+[   51.105218][ T7934] loop0: detected capacity change from 0 to 4096
+[   51.119535][ T7934] ntfs: volume version 3.1.
+executing program
+[   51.266620][ T7942] loop0: detected capacity change from 0 to 4096
+[   51.380727][ T7942] ntfs: volume version 3.1.
+[   51.387468][ T7942] __ntfs_error: 38 callbacks suppressed
+[   51.387479][ T7942] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   51.421918][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   51.496822][ T7950] loop0: detected capacity change from 0 to 4096
+[   51.510289][ T7950] ntfs: volume version 3.1.
+[   51.518207][ T7950] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   51.554341][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   51.645951][ T7956] loop0: detected capacity change from 0 to 4096
+[   51.780073][ T7956] ntfs: volume version 3.1.
+[   51.788994][ T7956] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   51.819026][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   51.885883][ T7963] loop0: detected capacity change from 0 to 4096
+[   51.913841][ T7963] ntfs: volume version 3.1.
+[   51.919662][ T7963] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   51.960356][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   52.035748][ T7972] loop0: detected capacity change from 0 to 4096
+[   52.047416][ T7972] ntfs: volume version 3.1.
+[   52.053245][ T7972] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   52.082836][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   52.151927][ T7978] loop0: detected capacity change from 0 to 4096
+[   52.377475][ T7978] ntfs: volume version 3.1.
+executing program
+[   52.493749][ T7987] loop0: detected capacity change from 0 to 4096
+[   52.505579][ T7987] ntfs: volume version 3.1.
+executing program
+[   52.585714][ T7991] loop0: detected capacity change from 0 to 4096
+[   52.729118][ T7991] ntfs: volume version 3.1.
+executing program
+[   52.845651][ T7998] loop0: detected capacity change from 0 to 4096
+[   52.976880][ T7998] ntfs: volume version 3.1.
+executing program
+[   53.115347][ T8006] loop0: detected capacity change from 0 to 4096
+[   53.266752][ T8006] ntfs: volume version 3.1.
+executing program
+[   53.345068][ T8014] loop0: detected capacity change from 0 to 4096
+[   53.456670][ T8014] ntfs: volume version 3.1.
+executing program
+[   53.573238][ T8022] loop0: detected capacity change from 0 to 4096
+[   53.689147][ T8022] ntfs: volume version 3.1.
+executing program
+[   53.825793][ T8031] loop0: detected capacity change from 0 to 4096
+[   53.968938][ T8031] ntfs: volume version 3.1.
+executing program
+[   54.112963][ T8038] loop0: detected capacity change from 0 to 4096
+[   54.124976][ T8038] ntfs: volume version 3.1.
+executing program
+[   54.288048][ T8044] loop0: detected capacity change from 0 to 4096
+[   54.303436][ T8044] ntfs: volume version 3.1.
+executing program
+[   54.424155][ T8053] loop0: detected capacity change from 0 to 4096
+[   54.529509][ T8053] ntfs: volume version 3.1.
+executing program
+[   54.635496][ T8061] loop0: detected capacity change from 0 to 4096
+[   54.809065][ T8061] ntfs: volume version 3.1.
+executing program
+[   54.904727][ T8068] loop0: detected capacity change from 0 to 4096
+[   55.011125][ T8068] ntfs: volume version 3.1.
+executing program
+[   55.109691][ T8077] loop0: detected capacity change from 0 to 4096
+[   55.193671][ T8077] ntfs: volume version 3.1.
+executing program
+[   55.330136][ T8084] loop0: detected capacity change from 0 to 4096
+[   55.422912][ T8084] ntfs: volume version 3.1.
+executing program
+[   55.515755][ T8089] loop0: detected capacity change from 0 to 4096
+[   55.573914][ T8089] ntfs: volume version 3.1.
+executing program
+[   55.695592][ T8096] loop0: detected capacity change from 0 to 4096
+[   55.768238][ T8096] ntfs: volume version 3.1.
+executing program
+[   55.891813][ T8104] loop0: detected capacity change from 0 to 4096
+[   55.906453][ T8104] ntfs: volume version 3.1.
+executing program
+[   56.035407][ T8108] loop0: detected capacity change from 0 to 4096
+[   56.059629][ T8108] ntfs: volume version 3.1.
+executing program
+[   56.175914][ T8114] loop0: detected capacity change from 0 to 4096
+[   56.317050][ T8114] ntfs: volume version 3.1.
+executing program
+[   56.413406][ T8122] loop0: detected capacity change from 0 to 4096
+[   56.429261][ T8122] ntfs: volume version 3.1.
+[   56.435301][ T8122] __ntfs_error: 40 callbacks suppressed
+[   56.435312][ T8122] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   56.481206][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   56.564955][ T8128] loop0: detected capacity change from 0 to 4096
+[   56.668914][ T8128] ntfs: volume version 3.1.
+[   56.675418][ T8128] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   56.716861][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   56.782787][ T8137] loop0: detected capacity change from 0 to 4096
+[   56.886461][ T8137] ntfs: volume version 3.1.
+[   56.892160][ T8137] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   56.920723][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   57.022061][ T8146] loop0: detected capacity change from 0 to 4096
+[   57.033665][ T8146] ntfs: volume version 3.1.
+[   57.038759][ T8146] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   57.067709][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   57.195125][ T8153] loop0: detected capacity change from 0 to 4096
+[   57.326756][ T8153] ntfs: volume version 3.1.
+[   57.332108][ T8153] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   57.371752][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   57.474626][ T8161] loop0: detected capacity change from 0 to 4096
+[   57.517438][ T8161] ntfs: volume version 3.1.
+executing program
+[   57.677310][ T8167] loop0: detected capacity change from 0 to 4096
+[   57.838918][ T8167] ntfs: volume version 3.1.
+executing program
+[   57.975173][ T8178] loop0: detected capacity change from 0 to 4096
+[   58.137002][ T8178] ntfs: volume version 3.1.
+executing program
+[   58.263814][ T8186] loop0: detected capacity change from 0 to 4096
+[   58.313205][ T8186] ntfs: volume version 3.1.
+executing program
+[   58.434523][ T8195] loop0: detected capacity change from 0 to 4096
+[   58.497456][ T8195] ntfs: volume version 3.1.
+executing program
+[   58.606219][ T8202] loop0: detected capacity change from 0 to 4096
+[   58.659264][ T8202] ntfs: volume version 3.1.
+executing program
+[   58.774117][ T8211] loop0: detected capacity change from 0 to 4096
+[   58.786250][ T8211] ntfs: volume version 3.1.
+executing program
+[   58.947493][ T8214] loop0: detected capacity change from 0 to 4096
+[   58.969435][ T8214] ntfs: volume version 3.1.
+executing program
+[   59.055833][ T8220] loop0: detected capacity change from 0 to 4096
+[   59.072411][ T8220] ntfs: volume version 3.1.
+executing program
+[   59.226053][ T8226] loop0: detected capacity change from 0 to 4096
+[   59.239799][ T8226] ntfs: volume version 3.1.
+executing program
+[   59.376767][ T8232] loop0: detected capacity change from 0 to 4096
+[   59.606586][ T8232] ntfs: volume version 3.1.
+executing program
+[   59.723315][ T8242] loop0: detected capacity change from 0 to 4096
+[   59.922061][ T8242] ntfs: volume version 3.1.
+executing program
+[   60.088106][ T8249] loop0: detected capacity change from 0 to 4096
+[   60.226502][ T8249] ntfs: volume version 3.1.
+executing program
+[   60.338920][ T8258] loop0: detected capacity change from 0 to 4096
+[   60.350306][ T8258] ntfs: volume version 3.1.
+executing program
+[   60.518062][ T8264] loop0: detected capacity change from 0 to 4096
+[   60.592066][ T8264] ntfs: volume version 3.1.
+executing program
+[   60.723326][ T8273] loop0: detected capacity change from 0 to 4096
+[   60.811617][ T8273] ntfs: volume version 3.1.
+executing program
+[   60.946215][ T8280] loop0: detected capacity change from 0 to 4096
+[   61.089086][ T8280] ntfs: volume version 3.1.
+executing program
+[   61.261871][ T8290] loop0: detected capacity change from 0 to 4096
+[   61.389230][ T8290] ntfs: volume version 3.1.
+executing program
+[   61.503869][ T8296] loop0: detected capacity change from 0 to 4096
+[   61.522350][ T8296] ntfs: volume version 3.1.
+[   61.528702][ T8296] __ntfs_error: 36 callbacks suppressed
+[   61.528712][ T8296] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   61.558379][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   61.654805][ T8305] loop0: detected capacity change from 0 to 4096
+[   61.674376][ T8305] ntfs: volume version 3.1.
+[   61.679876][ T8305] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   61.710989][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   61.766920][ T8310] loop0: detected capacity change from 0 to 4096
+[   61.908647][ T8310] ntfs: volume version 3.1.
+[   61.915216][ T8310] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   61.944598][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   62.046050][ T8316] loop0: detected capacity change from 0 to 4096
+[   62.160782][ T8316] ntfs: volume version 3.1.
+[   62.173170][ T8316] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   62.208936][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   62.342524][ T8324] loop0: detected capacity change from 0 to 4096
+[   62.387072][ T8324] ntfs: volume version 3.1.
+[   62.392083][ T8324] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   62.419462][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   62.494746][ T8332] loop0: detected capacity change from 0 to 4096
+[   62.508525][ T8332] ntfs: volume version 3.1.
+executing program
+[   62.654561][ T8337] loop0: detected capacity change from 0 to 4096
+[   62.788876][ T8337] ntfs: volume version 3.1.
+executing program
+[   62.895901][ T8344] loop0: detected capacity change from 0 to 4096
+[   62.939536][ T8344] ntfs: volume version 3.1.
+executing program
+[   63.025938][ T8352] loop0: detected capacity change from 0 to 4096
+[   63.072167][ T8352] ntfs: volume version 3.1.
+executing program
+[   63.145155][ T8359] loop0: detected capacity change from 0 to 4096
+[   63.266297][ T8359] ntfs: volume version 3.1.
+executing program
+[   63.355177][ T8366] loop0: detected capacity change from 0 to 4096
+[   63.409580][ T8366] ntfs: volume version 3.1.
+executing program
+[   63.544709][ T8377] loop0: detected capacity change from 0 to 4096
+[   63.588757][ T8377] ntfs: volume version 3.1.
+executing program
+[   63.705429][ T8382] loop0: detected capacity change from 0 to 4096
+[   63.799075][ T8382] ntfs: volume version 3.1.
+executing program
+[   63.915509][ T8388] loop0: detected capacity change from 0 to 4096
+[   64.011327][ T8388] ntfs: volume version 3.1.
+executing program
+[   64.155880][ T8394] loop0: detected capacity change from 0 to 4096
+[   64.289416][ T8394] ntfs: volume version 3.1.
+executing program
+[   64.397183][ T8401] loop0: detected capacity change from 0 to 4096
+[   64.509303][ T8401] ntfs: volume version 3.1.
+executing program
+[   64.632326][ T8409] loop0: detected capacity change from 0 to 4096
+[   64.779670][ T8409] ntfs: volume version 3.1.
+executing program
+[   64.885710][ T8415] loop0: detected capacity change from 0 to 4096
+[   64.903482][ T8415] ntfs: volume version 3.1.
+executing program
+[   64.997832][ T8421] loop0: detected capacity change from 0 to 4096
+[   65.147200][ T8421] ntfs: volume version 3.1.
+executing program
+[   65.245429][ T8428] loop0: detected capacity change from 0 to 4096
+[   65.263478][ T8428] ntfs: volume version 3.1.
+executing program
+[   65.382770][ T8436] loop0: detected capacity change from 0 to 4096
+[   65.395160][ T8436] ntfs: volume version 3.1.
+executing program
+[   65.503049][ T8442] loop0: detected capacity change from 0 to 4096
+[   65.519228][ T8442] ntfs: volume version 3.1.
+executing program
+[   65.644716][ T8447] loop0: detected capacity change from 0 to 4096
+[   65.779583][ T8447] ntfs: volume version 3.1.
+executing program
+[   65.935143][ T8453] loop0: detected capacity change from 0 to 4096
+[   66.069696][ T8453] ntfs: volume version 3.1.
+executing program
+[   66.214990][ T8459] loop0: detected capacity change from 0 to 4096
+[   66.409552][ T8459] ntfs: volume version 3.1.
+executing program
+[   66.505191][ T8465] loop0: detected capacity change from 0 to 4096
+[   66.571981][ T8465] ntfs: volume version 3.1.
+[   66.579386][ T8465] __ntfs_error: 40 callbacks suppressed
+[   66.579397][ T8465] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   66.632169][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   66.697414][ T8472] loop0: detected capacity change from 0 to 4096
+[   66.740307][ T8472] ntfs: volume version 3.1.
+[   66.748645][ T8472] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   66.785364][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   66.846406][ T8480] loop0: detected capacity change from 0 to 4096
+[   67.025379][ T8480] ntfs: volume version 3.1.
+[   67.039676][ T8480] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   67.070397][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   67.146905][ T8489] loop0: detected capacity change from 0 to 4096
+[   67.218723][ T8489] ntfs: volume version 3.1.
+[   67.232075][ T8489] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   67.264453][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   67.324922][ T8495] loop0: detected capacity change from 0 to 4096
+[   67.489060][ T8495] ntfs: volume version 3.1.
+[   67.500427][ T8495] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   67.538015][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   67.643149][ T8503] loop0: detected capacity change from 0 to 4096
+[   67.659824][ T8503] ntfs: volume version 3.1.
+executing program
+[   67.786467][ T8511] loop0: detected capacity change from 0 to 4096
+[   67.846653][ T8511] ntfs: volume version 3.1.
+executing program
+[   67.966683][ T8516] loop0: detected capacity change from 0 to 4096
+[   67.982099][ T8516] ntfs: volume version 3.1.
+executing program
+[   68.125644][ T8525] loop0: detected capacity change from 0 to 4096
+[   68.137800][ T8525] ntfs: volume version 3.1.
+executing program
+[   68.255659][ T8529] loop0: detected capacity change from 0 to 4096
+[   68.318521][ T8529] ntfs: volume version 3.1.
+executing program
+[   68.405007][ T8537] loop0: detected capacity change from 0 to 4096
+[   68.418135][ T8537] ntfs: volume version 3.1.
+executing program
+[   68.535711][ T8545] loop0: detected capacity change from 0 to 4096
+[   68.726628][ T8545] ntfs: volume version 3.1.
+executing program
+[   68.835118][ T8553] loop0: detected capacity change from 0 to 4096
+[   68.926594][ T8553] ntfs: volume version 3.1.
+executing program
+[   69.035249][ T8562] loop0: detected capacity change from 0 to 4096
+[   69.047156][ T8562] ntfs: volume version 3.1.
+executing program
+[   69.185969][ T8569] loop0: detected capacity change from 0 to 4096
+[   69.200946][ T8569] ntfs: volume version 3.1.
+executing program
+[   69.305828][ T8575] loop0: detected capacity change from 0 to 4096
+[   69.321921][ T8575] ntfs: volume version 3.1.
+executing program
+[   69.434099][ T8584] loop0: detected capacity change from 0 to 4096
+[   69.447223][ T8584] ntfs: volume version 3.1.
+executing program
+[   69.566303][ T8590] loop0: detected capacity change from 0 to 4096
+[   69.709045][ T8590] ntfs: volume version 3.1.
+executing program
+[   69.826284][ T8598] loop0: detected capacity change from 0 to 4096
+[   70.018221][ T8598] ntfs: volume version 3.1.
+executing program
+[   70.204724][ T8607] loop0: detected capacity change from 0 to 4096
+[   70.410181][ T8607] ntfs: volume version 3.1.
+executing program
+[   70.562808][ T8614] loop0: detected capacity change from 0 to 4096
+[   70.666987][ T8614] ntfs: volume version 3.1.
+executing program
+[   70.791840][ T8623] loop0: detected capacity change from 0 to 4096
+[   70.804767][ T8623] ntfs: volume version 3.1.
+executing program
+[   70.969066][ T8631] loop0: detected capacity change from 0 to 4096
+[   70.980575][ T8631] ntfs: volume version 3.1.
+executing program
+[   71.093957][ T8637] loop0: detected capacity change from 0 to 4096
+[   71.198944][ T8637] ntfs: volume version 3.1.
+executing program
+[   71.306577][ T8642] loop0: detected capacity change from 0 to 4096
+[   71.373314][ T8642] ntfs: volume version 3.1.
+executing program
+[   71.476005][ T8648] loop0: detected capacity change from 0 to 4096
+[   71.490655][ T8648] ntfs: volume version 3.1.
+executing program
+[   71.638832][ T8658] loop0: detected capacity change from 0 to 4096
+[   71.650126][ T8658] ntfs: volume version 3.1.
+[   71.654884][ T8658] __ntfs_error: 42 callbacks suppressed
+[   71.654893][ T8658] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   71.686067][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   71.767465][ T8665] loop0: detected capacity change from 0 to 4096
+[   71.916553][ T8665] ntfs: volume version 3.1.
+[   71.921298][ T8665] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   71.947231][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   72.016957][ T8671] loop0: detected capacity change from 0 to 4096
+[   72.149302][ T8671] ntfs: volume version 3.1.
+[   72.156060][ T8671] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   72.207571][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   72.347535][ T8680] loop0: detected capacity change from 0 to 4096
+[   72.398656][ T8680] ntfs: volume version 3.1.
+[   72.403844][ T8680] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   72.433554][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   72.526043][ T8688] loop0: detected capacity change from 0 to 4096
+[   72.659351][ T8688] ntfs: volume version 3.1.
+[   72.667478][ T8688] ntfs: (device loop0): __ntfs_write_inode(): Failed (error 2):  Run chkdsk.
+[   72.705038][ T7582] ntfs: (device loop0): ntfs_put_super(): Volume has errors.  Leaving volume marked dirty.  Run chkdsk.
+executing program
+[   72.796883][ T8693] loop0: detected capacity change from 0 to 4096
+[   72.949241][ T8693] ntfs: volume version 3.1.
+executing program
+[   73.095396][ T8702] loop0: detected capacity change from 0 to 4096
+[   73.113499][ T8702] ntfs: volume version 3.1.
+executing program
+[   73.243316][ T8709] loop0: detected capacity change from 0 to 4096
+[   73.342514][ T8709] ntfs: volume version 3.1.
+executing program
+[   73.523163][ T8716] loop0: detected capacity change from 0 to 4096
+[   73.536404][ T8716] ntfs: volume version 3.1.
+executing program
+[   73.705369][ T8725] loop0: detected capacity change from 0 to 4096
+[   73.809389][ T8725] ntfs: volume version 3.1.
+executing program
+[   73.926389][ T8731] loop0: detected capacity change from 0 to 4096
+[   74.100884][ T8731] ntfs: volume version 3.1.
+executing program
+[   74.246171][ T8738] loop0: detected capacity change from 0 to 4096
+[   74.291310][ T8738] ntfs: volume version 3.1.
+executing program
+[   74.384747][ T8747] loop0: detected capacity change from 0 to 4096
+[   74.396621][ T8747] ntfs: volume version 3.1.
+executing program
+[   74.522932][ T8754] loop0: detected capacity change from 0 to 4096
+[   74.689280][ T8754] ntfs: volume version 3.1.
+executing program
+[   74.783646][ T8762] loop0: detected capacity change from 0 to 4096
+[   74.793945][ T8762] ntfs: volume version 3.1.
+executing program
+[   74.906855][ T8766] loop0: detected capacity change from 0 to 4096
+[   74.979844][ T8766] ntfs: volume version 3.1.
+executing program
+[   75.074966][ T8774] loop0: detected capacity change from 0 to 4096
+[   75.179034][ T8774] ntfs: volume version 3.1.
+executing program
+[   75.335991][ T8783] loop0: detected capacity change from 0 to 4096
+[   75.352806][ T8783] ntfs: volume version 3.1.
+executing program
+[   75.522992][ T8792] loop0: detected capacity change from 0 to 4096
+[   75.537645][ T8792] ntfs: volume version 3.1.
+executing program
+[   75.684348][ T8797] loop0: detected capacity change from 0 to 4096
+[   75.697054][ T8797] ntfs: volume version 3.1.
+executing program
+[   75.805166][ T8808] loop0: detected capacity change from 0 to 4096
+[   75.950134][ T8808] ntfs: volume version 3.1.
+executing program
+[   76.057222][ T8814] loop0: detected capacity change from 0 to 4096
+[   76.195973][ T8814] ntfs: volume version 3.1.
+[   76.201647][ T8814] ==================================================================
+[   76.205898][ T8814] BUG: KASAN: use-after-free in __ntfs_write_inode+0xdc0/0xea0
+[   76.209820][ T8814] Read of size 8 at addr ffff888053c48369 by task syz-executor181/8814
+[   76.210946][ T8814] 
+[   76.210946][ T8814] CPU: 0 PID: 8814 Comm: syz-executor181 Not tainted 5.15.0 #1
+[   76.210946][ T8814] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   76.210946][ T8814] Call Trace:
+[   76.210946][ T8814]  dump_stack_lvl+0xcd/0x134
+[   76.210946][ T8814]  print_address_description.constprop.0.cold+0x93/0x334
+[   76.210946][ T8814]  ? __ntfs_write_inode+0xdc0/0xea0
+[   76.210946][ T8814]  ? __ntfs_write_inode+0xdc0/0xea0
+[   76.210946][ T8814]  kasan_report.cold+0x83/0xdf
+[   76.210946][ T8814]  ? __ntfs_write_inode+0xdc0/0xea0
+[   76.210946][ T8814]  __ntfs_write_inode+0xdc0/0xea0
+[   76.210946][ T8814]  __writeback_single_inode+0xad0/0x1040
+[   76.210946][ T8814]  writeback_single_inode+0x2d0/0x490
+[   76.210946][ T8814]  write_inode_now+0x1ed/0x300
+[   76.210946][ T8814]  ? writeback_single_inode+0x490/0x490
+[   76.210946][ T8814]  ntfs_file_fsync+0x18f/0x400
+[   76.210946][ T8814]  ? ntfs_lookup_inode_by_name+0x3940/0x3940
+[   76.210946][ T8814]  vfs_fsync_range+0x13a/0x220
+[   76.210946][ T8814]  ntfs_file_write_iter+0x80c/0x23f0
+[   76.210946][ T8814]  ? write_comp_data+0x1c/0x70
+[   76.210946][ T8814]  ? iov_iter_init+0x45/0x180
+[   76.210946][ T8814]  new_sync_write+0x432/0x660
+[   76.210946][ T8814]  ? new_sync_read+0x6f0/0x6f0
+[   76.210946][ T8814]  ? rcu_read_lock_held+0xb0/0xb0
+[   76.210946][ T8814]  vfs_write+0x67a/0xae0
+[   76.210946][ T8814]  ksys_write+0x12d/0x250
+[   76.210946][ T8814]  ? __ia32_sys_read+0xb0/0xb0
+[   76.210946][ T8814]  ? syscall_enter_from_user_mode+0x21/0x70
+[   76.210946][ T8814]  do_syscall_64+0x35/0xb0
+[   76.210946][ T8814]  entry_SYSCALL_64_after_hwframe+0x44/0xae
+[   76.210946][ T8814] RIP: 0033:0x7ff87a6bf5cd
+[   76.210946][ T8814] Code: c3 e8 57 2e 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   76.210946][ T8814] RSP: 002b:00007ffc8e3e7dd8 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
+[   76.210946][ T8814] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007ff87a6bf5cd
+[   76.210946][ T8814] RDX: 0000000000000010 RSI: 0000000020000600 RDI: 0000000000000004
+[   76.210946][ T8814] RBP: 0000000000000003 R08: 0000000000000003 R09: 0000000000000003
+[   76.210946][ T8814] R10: 000000000001f1c9 R11: 0000000000000246 R12: 00007ffc8e3e7e1c
+[   76.210946][ T8814] R13: 00007ffc8e3e7e40 R14: 00007ffc8e3e7e20 R15: 00000000000000a9
+[   76.210946][ T8814] 
+[   76.210946][ T8814] The buggy address belongs to the page:
+[   76.210946][ T8814] page:ffffea00014f1200 refcount:0 mapcount:0 mapping:0000000000000000 index:0x1 pfn:0x53c48
+[   76.210946][ T8814] flags: 0x4fff00000000000(node=1|zone=1|lastcpupid=0x7ff)
+[   76.210946][ T8814] raw: 04fff00000000000 ffffea00014f1248 ffffea00014f1508 0000000000000000
+[   76.210946][ T8814] raw: 0000000000000001 0000000000000000 00000000ffffffff 0000000000000000
+[   76.210946][ T8814] page dumped because: kasan: bad access detected
+[   76.210946][ T8814] page_owner tracks the page as freed
+[   76.210946][ T8814] page last allocated via order 0, migratetype Movable, gfp_mask 0x1100dca(GFP_HIGHUSER_MOVABLE|__GFP_ZERO), pid 8814, ts 76009691204, free_ts 76022149315
+[   76.210946][ T8814]  prep_new_page+0x1a5/0x240
+[   76.210946][ T8814]  get_page_from_freelist+0x1f10/0x3b70
+[   76.210946][ T8814]  __alloc_pages+0x306/0x6e0
+[   76.210946][ T8814]  alloc_pages_vma+0xf3/0x6b0
+[   76.210946][ T8814]  __handle_mm_fault+0x2711/0x4d10
+[   76.210946][ T8814]  handle_mm_fault+0x322/0xa80
+[   76.210946][ T8814]  do_user_addr_fault+0x48b/0x11c0
+[   76.210946][ T8814]  exc_page_fault+0x9e/0x180
+[   76.210946][ T8814]  asm_exc_page_fault+0x1e/0x30
+[   76.210946][ T8814] page last free stack trace:
+[   76.210946][ T8814]  free_pcp_prepare+0x412/0x900
+[   76.210946][ T8814]  free_unref_page_list+0x105/0xec0
+[   76.210946][ T8814]  release_pages+0x393/0x2920
+[   76.210946][ T8814]  tlb_flush_mmu+0x8d/0x610
+[   76.210946][ T8814]  tlb_finish_mmu+0x93/0x3c0
+[   76.210946][ T8814]  unmap_region+0x27f/0x350
+[   76.210946][ T8814]  __do_munmap+0xabc/0x11e0
+[   76.210946][ T8814]  __vm_munmap+0x101/0x230
+[   76.210946][ T8814]  __x64_sys_munmap+0x62/0x80
+[   76.210946][ T8814]  do_syscall_64+0x35/0xb0
+[   76.210946][ T8814]  entry_SYSCALL_64_after_hwframe+0x44/0xae
+[   76.210946][ T8814] 
+[   76.210946][ T8814] Memory state around the buggy address:
+[   76.210946][ T8814]  ffff888053c48200: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   76.210946][ T8814]  ffff888053c48280: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   76.210946][ T8814] >ffff888053c48300: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   76.210946][ T8814]                                                           ^
+[   76.210946][ T8814]  ffff888053c48380: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   76.210946][ T8814]  ffff888053c48400: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   76.210946][ T8814] ==================================================================
+[   76.210946][ T8814] Disabling lock debugging due to kernel taint
+[   76.431481][ T8814] Kernel panic - not syncing: panic_on_warn set ...
+[   76.434422][ T8814] CPU: 0 PID: 8814 Comm: syz-executor181 Tainted: G    B             5.15.0 #1
+[   76.438748][ T8814] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   76.441306][ T8814] Call Trace:
+[   76.441306][ T8814]  dump_stack_lvl+0xcd/0x134
+[   76.441306][ T8814]  panic+0x2b0/0x6dd
+[   76.441306][ T8814]  ? print_oops_end_marker.cold+0x15/0x15
+[   76.441306][ T8814]  ? preempt_schedule_common+0x5e/0xc0
+[   76.441306][ T8814]  ? __ntfs_write_inode+0xdc0/0xea0
+[   76.441306][ T8814]  ? __ntfs_write_inode+0xdc0/0xea0
+[   76.441306][ T8814]  ? preempt_schedule_thunk+0x16/0x18
+[   76.441306][ T8814]  ? __ntfs_write_inode+0xdc0/0xea0
+[   76.441306][ T8814]  ? __ntfs_write_inode+0xdc0/0xea0
+[   76.441306][ T8814]  end_report.cold+0x63/0x6f
+[   76.441306][ T8814]  kasan_report.cold+0x71/0xdf
+[   76.441306][ T8814]  ? __ntfs_write_inode+0xdc0/0xea0
+[   76.441306][ T8814]  __ntfs_write_inode+0xdc0/0xea0
+[   76.441306][ T8814]  __writeback_single_inode+0xad0/0x1040
+[   76.441306][ T8814]  writeback_single_inode+0x2d0/0x490
+[   76.441306][ T8814]  write_inode_now+0x1ed/0x300
+[   76.441306][ T8814]  ? writeback_single_inode+0x490/0x490
+[   76.441306][ T8814]  ntfs_file_fsync+0x18f/0x400
+[   76.441306][ T8814]  ? ntfs_lookup_inode_by_name+0x3940/0x3940
+[   76.441306][ T8814]  vfs_fsync_range+0x13a/0x220
+[   76.441306][ T8814]  ntfs_file_write_iter+0x80c/0x23f0
+[   76.441306][ T8814]  ? write_comp_data+0x1c/0x70
+[   76.441306][ T8814]  ? iov_iter_init+0x45/0x180
+[   76.441306][ T8814]  new_sync_write+0x432/0x660
+[   76.441306][ T8814]  ? new_sync_read+0x6f0/0x6f0
+[   76.441306][ T8814]  ? rcu_read_lock_held+0xb0/0xb0
+[   76.441306][ T8814]  vfs_write+0x67a/0xae0
+[   76.441306][ T8814]  ksys_write+0x12d/0x250
+[   76.441306][ T8814]  ? __ia32_sys_read+0xb0/0xb0
+[   76.441306][ T8814]  ? syscall_enter_from_user_mode+0x21/0x70
+[   76.441306][ T8814]  do_syscall_64+0x35/0xb0
+[   76.441306][ T8814]  entry_SYSCALL_64_after_hwframe+0x44/0xae
+[   76.441306][ T8814] RIP: 0033:0x7ff87a6bf5cd
+[   76.441306][ T8814] Code: c3 e8 57 2e 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   76.441306][ T8814] RSP: 002b:00007ffc8e3e7dd8 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
+[   76.441306][ T8814] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007ff87a6bf5cd
+[   76.441306][ T8814] RDX: 0000000000000010 RSI: 0000000020000600 RDI: 0000000000000004
+[   76.441306][ T8814] RBP: 0000000000000003 R08: 0000000000000003 R09: 0000000000000003
+[   76.441306][ T8814] R10: 000000000001f1c9 R11: 0000000000000246 R12: 00007ffc8e3e7e1c
+[   76.441306][ T8814] R13: 00007ffc8e3e7e40 R14: 00007ffc8e3e7e20 R15: 00000000000000a9
+[   76.441306][ T8814] Kernel Offset: disabled
+[   76.441306][ T8814] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+19:15:12  Registers:
+info registers vcpu 0
+RAX=0000000000000020 RBX=00000000000003f8 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ffff888041e8c600 RDI=ffffffff969dda40 RBP=ffffffff969dda00 RSP=ffffc90008f3f568
+R8 =ffffffff8442d031 R9 =000000000000001f R10=0000000000000001 R11=fffff520011e7ea8
+R12=0000000000000000 R13=0000000000000020 R14=ffffffff969dda00 R15=dffffc0000000000
+RIP=ffffffff8442d05a RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000555555720940 00000000 00000000
+GS =0000 ffff88802c200000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe0000003000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000001000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007ff87a77c020 CR3=000000004ce67000 CR4=00750ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=ffffffffffffffffffffffff00000000 XMM01=01010101000101010101010100000000
+XMM02=6365786500646975756f6e2c00736678 XMM03=00000000000000000000000000000000
+XMM04=0000000000ff000000000000000000ff XMM05=68f2d65cffff0000017ffc7778000000
+XMM06=0af6ffcc707efbffbb5d6efece73dd42 XMM07=d0b42f74c6a311d3623dd49f8e27bb63
+XMM08=89eea4e462deea4cc623dd0984e47e37 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 1
+RAX=000000000007f8ff RBX=0000000000000001 RCX=ffffffff8992a7a2 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=0000000000000001 RSP=ffffc9000041fde0
+R8 =0000000000000001 R9 =ffffed100fd86542 R10=ffff88807ec32a0b R11=ffffed100fd86541
+R12=0000000000000001 R13=0000000000000001 R14=ffffffff8ddf8950 R15=0000000000000000
+RIP=ffffffff89959c7b RFL=00000206 [-----P-] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ffff88807ec00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe000003e000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe000003c000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007ffc8e3e7dd8 CR3=000000004d389000 CR4=00750ee0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000009896800000000000000000 XMM01=00000000000000000000000000989680
+XMM02=00000000000000000000000000000000 XMM03=00000000000000000000000000000000
+XMM04=0000000000ff000000000000000000ff XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 2
+RAX=00000000000900bb RBX=0000000000000002 RCX=ffffffff8992a7a2 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=0000000000000002 RSP=ffffc9000042fde0
+R8 =0000000000000001 R9 =ffffed1005866542 R10=ffff88802c332a0b R11=ffffed1005866541
+R12=0000000000000002 R13=0000000000000002 R14=ffffffff8ddf8950 R15=0000000000000000
+RIP=ffffffff89959c7b RFL=00000206 [-----P-] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ffff88802c300000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe0000079000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000077000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007ff87a780030 CR3=0000000024ce8000 CR4=00750ee0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=00007ffe56c3b0400000003000000028
+XMM02=ffffff0f0e0d0c0b0a09080706050403 XMM03=696e656420737365636341002f737973
+XMM04=00007fbd23b29c01000000725f6d616e XMM05=5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
+XMM06=20202020202020202020202020202020 XMM07=0000ffffffffffffffffff0000ff0000
+XMM08=00000000000000000000000000000000 XMM09=0000ff00000000000000ff0000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 3
+RAX=0000000000086dbf RBX=0000000000000003 RCX=ffffffff8992a7a2 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=0000000000000003 RSP=ffffc9000043fde0
+R8 =0000000000000001 R9 =ffffed100fda6542 R10=ffff88807ed32a0b R11=ffffed100fda6541
+R12=0000000000000003 R13=0000000000000003 R14=ffffffff8ddf8950 R15=0000000000000000
+RIP=ffffffff89959c7b RFL=00000202 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ffff88807ed00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe00000b4000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe00000b2000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f5fc35d0158 CR3=00000000211d4000 CR4=00750ee0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=00000000000000000000000000000000
+XMM02=ffffffffffffffff0f0e0d0c0b0a0908 XMM03=000055f2da34007366626c7465677568
+XMM04=40404040404040404040404040404040 XMM05=5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
+XMM06=20202020202020202020202020202020 XMM07=ffff00ffffffffffffffffff00ffffff
+XMM08=00200000000000000000002000000000 XMM09=ffffffffffffff00ffffffff00ffffff
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

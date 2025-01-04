@@ -1,0 +1,571 @@
+Warning: Permanently added '[localhost]:42440' (ECDSA) to the list of known hosts.
+executing program
+syzkaller login: [   43.481920][ T7618] loop0: detected capacity change from 0 to 32768
+executing program
+[   43.708049][ T7626] loop0: detected capacity change from 0 to 32768
+executing program
+[   43.935188][ T7632] loop0: detected capacity change from 0 to 32768
+executing program
+[   44.071558][ T7637] loop0: detected capacity change from 0 to 32768
+executing program
+[   44.309736][ T7645] loop0: detected capacity change from 0 to 32768
+executing program
+[   44.547093][ T7654] loop0: detected capacity change from 0 to 32768
+executing program
+[   44.783341][ T7663] loop0: detected capacity change from 0 to 32768
+executing program
+[   44.931522][ T7668] loop0: detected capacity change from 0 to 32768
+executing program
+[   45.114233][ T7680] loop0: detected capacity change from 0 to 32768
+executing program
+[   45.312615][ T7687] loop0: detected capacity change from 0 to 32768
+executing program
+[   45.473586][ T7693] loop0: detected capacity change from 0 to 32768
+executing program
+[   45.630225][ T7700] loop0: detected capacity change from 0 to 32768
+executing program
+[   45.792583][ T7707] loop0: detected capacity change from 0 to 32768
+executing program
+[   46.019993][ T7717] loop0: detected capacity change from 0 to 32768
+executing program
+[   46.303468][ T7723] loop0: detected capacity change from 0 to 32768
+executing program
+[   46.504142][ T7730] loop0: detected capacity change from 0 to 32768
+executing program
+[   46.729071][ T7740] loop0: detected capacity change from 0 to 32768
+executing program
+[   46.863316][ T7746] loop0: detected capacity change from 0 to 32768
+executing program
+[   47.084444][ T7754] loop0: detected capacity change from 0 to 32768
+executing program
+[   47.223793][ T7762] loop0: detected capacity change from 0 to 32768
+executing program
+[   47.474901][ T7772] loop0: detected capacity change from 0 to 32768
+executing program
+[   47.612095][ T7777] loop0: detected capacity change from 0 to 32768
+executing program
+[   47.837362][ T7786] loop0: detected capacity change from 0 to 32768
+executing program
+[   48.070448][ T7792] loop0: detected capacity change from 0 to 32768
+executing program
+[   48.241653][ T7800] loop0: detected capacity change from 0 to 32768
+executing program
+[   48.398941][ T7807] loop0: detected capacity change from 0 to 32768
+executing program
+[   48.603822][ T7816] loop0: detected capacity change from 0 to 32768
+executing program
+[   48.807435][ T7823] loop0: detected capacity change from 0 to 32768
+executing program
+[   48.955065][ T7829] loop0: detected capacity change from 0 to 32768
+executing program
+[   49.175201][ T7838] loop0: detected capacity change from 0 to 32768
+executing program
+[   49.310713][ T7844] loop0: detected capacity change from 0 to 32768
+executing program
+[   49.483479][ T7853] loop0: detected capacity change from 0 to 32768
+executing program
+[   49.722563][ T7860] loop0: detected capacity change from 0 to 32768
+executing program
+[   49.951110][ T7867] loop0: detected capacity change from 0 to 32768
+executing program
+[   50.178238][ T7875] loop0: detected capacity change from 0 to 32768
+executing program
+[   50.320769][ T7880] loop0: detected capacity change from 0 to 32768
+executing program
+[   50.459636][ T7886] loop0: detected capacity change from 0 to 32768
+executing program
+[   50.605689][ T7893] loop0: detected capacity change from 0 to 32768
+executing program
+[   50.794249][ T7902] loop0: detected capacity change from 0 to 32768
+executing program
+[   50.984718][ T7908] loop0: detected capacity change from 0 to 32768
+executing program
+[   51.174120][ T7916] loop0: detected capacity change from 0 to 32768
+executing program
+[   51.393252][ T7923] loop0: detected capacity change from 0 to 32768
+executing program
+[   51.593977][ T7931] loop0: detected capacity change from 0 to 32768
+executing program
+[   51.813740][ T7940] loop0: detected capacity change from 0 to 32768
+executing program
+[   52.034223][ T7947] loop0: detected capacity change from 0 to 32768
+executing program
+[   52.273625][ T7954] loop0: detected capacity change from 0 to 32768
+executing program
+[   52.426752][ T7960] loop0: detected capacity change from 0 to 32768
+executing program
+[   52.637426][ T7969] loop0: detected capacity change from 0 to 32768
+executing program
+[   52.829454][ T7976] loop0: detected capacity change from 0 to 32768
+executing program
+[   53.043962][ T7983] loop0: detected capacity change from 0 to 32768
+executing program
+[   53.232875][ T7990] loop0: detected capacity change from 0 to 32768
+executing program
+[   53.423242][ T7998] loop0: detected capacity change from 0 to 32768
+executing program
+[   53.604315][ T8005] loop0: detected capacity change from 0 to 32768
+executing program
+[   53.745347][ T8010] loop0: detected capacity change from 0 to 32768
+executing program
+[   53.896933][ T8017] loop0: detected capacity change from 0 to 32768
+executing program
+[   54.151234][ T8024] loop0: detected capacity change from 0 to 32768
+executing program
+[   54.282840][ T8031] loop0: detected capacity change from 0 to 32768
+executing program
+[   54.451901][ T8038] loop0: detected capacity change from 0 to 32768
+executing program
+[   54.612677][ T8046] loop0: detected capacity change from 0 to 32768
+executing program
+[   54.766926][ T8053] loop0: detected capacity change from 0 to 32768
+executing program
+[   54.931731][ T8059] loop0: detected capacity change from 0 to 32768
+executing program
+[   55.193217][ T8067] loop0: detected capacity change from 0 to 32768
+executing program
+[   55.392811][ T8075] loop0: detected capacity change from 0 to 32768
+executing program
+[   55.601946][ T8084] loop0: detected capacity change from 0 to 32768
+executing program
+[   55.834158][ T8091] loop0: detected capacity change from 0 to 32768
+executing program
+[   55.981530][ T8097] loop0: detected capacity change from 0 to 32768
+executing program
+[   56.229805][ T8106] loop0: detected capacity change from 0 to 32768
+executing program
+[   56.478545][ T8112] loop0: detected capacity change from 0 to 32768
+executing program
+[   56.710912][ T8120] loop0: detected capacity change from 0 to 32768
+executing program
+[   56.848674][ T8125] loop0: detected capacity change from 0 to 32768
+executing program
+[   57.069218][ T8133] loop0: detected capacity change from 0 to 32768
+executing program
+[   57.344380][ T8140] loop0: detected capacity change from 0 to 32768
+executing program
+[   57.491769][ T8147] loop0: detected capacity change from 0 to 32768
+executing program
+[   57.722170][ T8155] loop0: detected capacity change from 0 to 32768
+executing program
+[   57.866708][ T8161] loop0: detected capacity change from 0 to 32768
+executing program
+[   58.030238][ T8168] loop0: detected capacity change from 0 to 32768
+executing program
+[   58.245439][ T8177] loop0: detected capacity change from 0 to 32768
+executing program
+[   58.392118][ T8183] loop0: detected capacity change from 0 to 32768
+executing program
+[   58.524633][ T8190] loop0: detected capacity change from 0 to 32768
+executing program
+[   58.780572][ T8200] loop0: detected capacity change from 0 to 32768
+executing program
+[   58.952748][ T8207] loop0: detected capacity change from 0 to 32768
+executing program
+[   59.095533][ T8214] loop0: detected capacity change from 0 to 32768
+executing program
+[   59.372171][ T8222] loop0: detected capacity change from 0 to 32768
+executing program
+[   59.515390][ T8229] loop0: detected capacity change from 0 to 32768
+executing program
+[   59.864297][ T8239] loop0: detected capacity change from 0 to 32768
+executing program
+[   60.002756][ T8244] loop0: detected capacity change from 0 to 32768
+executing program
+[   60.224269][ T8254] loop0: detected capacity change from 0 to 32768
+executing program
+[   60.408209][ T8261] loop0: detected capacity change from 0 to 32768
+executing program
+[   60.606292][ T8268] loop0: detected capacity change from 0 to 32768
+executing program
+[   60.751993][ T8273] loop0: detected capacity change from 0 to 32768
+executing program
+[   60.907944][ T8280] loop0: detected capacity change from 0 to 32768
+executing program
+[   61.053145][ T8287] loop0: detected capacity change from 0 to 32768
+executing program
+[   61.203802][ T8294] loop0: detected capacity change from 0 to 32768
+executing program
+[   61.359389][ T8301] loop0: detected capacity change from 0 to 32768
+executing program
+[   61.693106][ T8308] loop0: detected capacity change from 0 to 32768
+executing program
+[   61.858920][ T8315] loop0: detected capacity change from 0 to 32768
+executing program
+[   62.153860][ T8325] loop0: detected capacity change from 0 to 32768
+executing program
+[   62.397305][ T8333] loop0: detected capacity change from 0 to 32768
+executing program
+[   62.587599][ T8340] loop0: detected capacity change from 0 to 32768
+executing program
+[   62.715009][ T8347] loop0: detected capacity change from 0 to 32768
+executing program
+[   62.885951][ T8354] loop0: detected capacity change from 0 to 32768
+executing program
+[   63.024640][ T8362] loop0: detected capacity change from 0 to 32768
+executing program
+[   63.174156][ T8368] loop0: detected capacity change from 0 to 32768
+executing program
+[   63.364092][ T8375] loop0: detected capacity change from 0 to 32768
+executing program
+[   63.543069][ T8382] loop0: detected capacity change from 0 to 32768
+executing program
+[   63.747695][ T8391] loop0: detected capacity change from 0 to 32768
+executing program
+[   63.934504][ T8396] loop0: detected capacity change from 0 to 32768
+executing program
+[   64.165182][ T8403] loop0: detected capacity change from 0 to 32768
+executing program
+[   64.397846][ T8413] loop0: detected capacity change from 0 to 32768
+executing program
+[   64.633106][ T8420] loop0: detected capacity change from 0 to 32768
+executing program
+[   64.799147][ T8425] loop0: detected capacity change from 0 to 32768
+executing program
+[   65.023549][ T8433] loop0: detected capacity change from 0 to 32768
+executing program
+[   65.164399][ T8440] loop0: detected capacity change from 0 to 32768
+executing program
+[   65.300265][ T8447] loop0: detected capacity change from 0 to 32768
+executing program
+[   65.512430][ T8456] loop0: detected capacity change from 0 to 32768
+executing program
+[   65.649491][ T8461] loop0: detected capacity change from 0 to 32768
+executing program
+[   65.902356][ T8469] loop0: detected capacity change from 0 to 32768
+executing program
+[   66.083038][ T8476] loop0: detected capacity change from 0 to 32768
+[   66.153112][ T7616] BUG: Bad page state in process syz-executor177  pfn:45740
+[   66.156293][ T7616] page:ffffea000115d000 refcount:0 mapcount:0 mapping:0000000000000000 index:0x4 pfn:0x45740
+[   66.162085][ T7616] flags: 0x4fff00000002006(referenced|uptodate|private|node=1|zone=1|lastcpupid=0x7ff)
+[   66.166697][ T7616] raw: 04fff00000002006 ffffea000112df88 ffffc900014d7aa8 0000000000000000
+[   66.171106][ T7616] raw: 0000000000000004 ffff88804529e6c8 00000000ffffffff 0000000000000000
+[   66.175009][ T7616] page dumped because: PAGE_FLAGS_CHECK_AT_FREE flag(s) set
+[   66.178801][ T7616] page_owner tracks the page as allocated
+[   66.181524][ T7616] page last allocated via order 0, migratetype Unmovable, gfp_mask 0xc40(GFP_NOFS), pid 8476, ts 66094576529, free_ts 65814587572
+[   66.187817][ T7616]  prep_new_page+0x1a5/0x240
+[   66.190002][ T7616]  get_page_from_freelist+0x1f10/0x3b70
+[   66.192585][ T7616]  __alloc_pages+0x306/0x6e0
+[   66.194781][ T7616]  alloc_pages+0x115/0x240
+[   66.196933][ T7616]  __page_cache_alloc+0x27b/0x3d0
+[   66.199532][ T7616]  do_read_cache_page+0x48b/0x1440
+[   66.202053][ T7616]  __get_metapage+0x70c/0x16d0
+[   66.204445][ T7616]  dbAllocCtl+0xe9/0x780
+[   66.206460][ T7616]  dbAllocAG+0x8dd/0xd20
+[   66.208549][ T7616]  dbDiscardAG+0x23c/0x7c0
+[   66.210586][ T7616]  jfs_ioc_trim+0x3fd/0x5c0
+[   66.212688][ T7616]  jfs_ioctl+0x2ea/0x3a0
+[   66.214796][ T7616]  __x64_sys_ioctl+0x193/0x200
+[   66.217092][ T7616]  do_syscall_64+0x35/0xb0
+[   66.219583][ T7616]  entry_SYSCALL_64_after_hwframe+0x44/0xae
+[   66.222431][ T7616] page last free stack trace:
+[   66.224712][ T7616]  free_pcp_prepare+0x412/0x900
+[   66.226989][ T7616]  free_unref_page_list+0x105/0xec0
+[   66.229535][ T7616]  release_pages+0x393/0x2920
+[   66.231757][ T7616]  __pagevec_release+0x83/0x120
+[   66.234050][ T7616]  truncate_inode_pages_range+0x320/0x1910
+[   66.236718][ T7616]  kill_bdev.isra.0+0x5f/0x80
+[   66.239112][ T7616]  blkdev_flush_mapping+0xdf/0x2e0
+[   66.241604][ T7616]  blkdev_put_whole+0xe8/0x110
+[   66.243780][ T7616]  blkdev_put+0x23c/0x6f0
+[   66.245778][ T7616]  blkdev_close+0x8d/0xb0
+[   66.248093][ T7616]  __fput+0x288/0x9f0
+[   66.250055][ T7616]  task_work_run+0xe0/0x1a0
+[   66.252251][ T7616]  exit_to_user_mode_prepare+0x28d/0x2a0
+[   66.254969][ T7616]  syscall_exit_to_user_mode+0x19/0x60
+[   66.257943][ T7616]  do_syscall_64+0x42/0xb0
+[   66.260105][ T7616]  entry_SYSCALL_64_after_hwframe+0x44/0xae
+[   66.262827][ T7616] Modules linked in:
+[   66.264672][ T7616] CPU: 0 PID: 7616 Comm: syz-executor177 Not tainted 5.15.0 #1
+[   66.267746][ T7616] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   66.267746][ T7616] Call Trace:
+[   66.267746][ T7616]  dump_stack_lvl+0xcd/0x134
+[   66.267746][ T7616]  bad_page.cold+0x9c/0xbd
+[   66.267746][ T7616]  free_pcp_prepare+0x479/0x900
+[   66.267746][ T7616]  free_unref_page_list+0x105/0xec0
+[   66.267746][ T7616]  release_pages+0x393/0x2920
+[   66.267746][ T7616]  ? put_devmap_managed_page+0x150/0x150
+[   66.267746][ T7616]  ? write_comp_data+0x1c/0x70
+[   66.267746][ T7616]  ? lru_add_drain_cpu+0x512/0x930
+[   66.267746][ T7616]  __pagevec_release+0x83/0x120
+[   66.267746][ T7616]  truncate_inode_pages_range+0x320/0x1910
+[   66.267746][ T7616]  ? generic_error_remove_page+0xc0/0xc0
+[   66.267746][ T7616]  ? debug_object_deactivate+0x320/0x320
+[   66.267746][ T7616]  ? mark_held_locks+0x9f/0xe0
+[   66.267746][ T7616]  ? lockdep_hardirqs_on+0x79/0x100
+[   66.267746][ T7616]  ? __sanitizer_cov_trace_pc+0x1a/0x40
+[   66.267746][ T7616]  ? __destroy_inode+0x2da/0x730
+[   66.267746][ T7616]  ? jfs_sync_fs+0xa0/0xa0
+[   66.267746][ T7616]  ? destroy_inode+0x129/0x1b0
+[   66.267746][ T7616]  ? __sanitizer_cov_trace_pc+0x1a/0x40
+[   66.267746][ T7616]  ? iput+0x4ad/0x870
+[   66.267746][ T7616]  dbUnmount+0xf7/0x140
+[   66.267746][ T7616]  jfs_umount+0x22b/0x3f0
+[   66.267746][ T7616]  jfs_put_super+0x81/0x190
+[   66.267746][ T7616]  ? jfs_quota_off+0x170/0x170
+[   66.267746][ T7616]  generic_shutdown_super+0x14c/0x370
+[   66.267746][ T7616]  kill_block_super+0x97/0xf0
+[   66.267746][ T7616]  deactivate_locked_super+0x8c/0xf0
+[   66.267746][ T7616]  deactivate_super+0xad/0xd0
+[   66.267746][ T7616]  cleanup_mnt+0x347/0x4b0
+[   66.267746][ T7616]  task_work_run+0xe0/0x1a0
+[   66.267746][ T7616]  exit_to_user_mode_prepare+0x28d/0x2a0
+[   66.267746][ T7616]  syscall_exit_to_user_mode+0x19/0x60
+[   66.267746][ T7616]  do_syscall_64+0x42/0xb0
+[   66.267746][ T7616]  entry_SYSCALL_64_after_hwframe+0x44/0xae
+[   66.267746][ T7616] RIP: 0033:0x7f4894493e8b
+[   66.267746][ T7616] Code: ff d0 48 89 c7 b8 3c 00 00 00 0f 05 48 c7 c1 b8 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 90 f3 0f 1e fa b8 a6 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b8 ff ff ff f7 d8 64 89 01 48
+[   66.267746][ T7616] RSP: 002b:00007ffd813d34e8 EFLAGS: 00000206 ORIG_RAX: 00000000000000a6
+[   66.267746][ T7616] RAX: 0000000000000000 RBX: 000000000000211b RCX: 00007f4894493e8b
+[   66.267746][ T7616] RDX: 00007f489443d362 RSI: 0000000000000009 RDI: 00007ffd813d35a0
+[   66.267746][ T7616] RBP: 00007ffd813d35a0 R08: 00007f48944ee00c R09: 00007ffd813d3370
+[   66.267746][ T7616] R10: 00000000fffffffd R11: 0000000000000206 R12: 00007ffd813d4660
+[   66.267746][ T7616] R13: 00005555569e2b70 R14: 00007ffd813d3508 R15: 0000000000000076
+[   66.381166][ T7616] Disabling lock debugging due to kernel taint
+executing program
+[   66.478675][ T8490] loop0: detected capacity change from 0 to 32768
+executing program
+[   66.650429][ T8497] loop0: detected capacity change from 0 to 32768
+executing program
+[   66.819824][ T8505] loop0: detected capacity change from 0 to 32768
+executing program
+[   66.945845][ T8510] loop0: detected capacity change from 0 to 32768
+executing program
+[   67.096643][ T8519] loop0: detected capacity change from 0 to 32768
+executing program
+[   67.241174][ T8527] loop0: detected capacity change from 0 to 32768
+executing program
+[   67.410840][ T8535] loop0: detected capacity change from 0 to 32768
+executing program
+[   67.612296][ T8542] loop0: detected capacity change from 0 to 32768
+executing program
+[   67.811011][ T8550] loop0: detected capacity change from 0 to 32768
+executing program
+[   67.954975][ T8555] loop0: detected capacity change from 0 to 32768
+executing program
+[   68.055367][ T8563] loop0: detected capacity change from 0 to 32768
+executing program
+[   68.237927][ T8572] loop0: detected capacity change from 0 to 32768
+executing program
+[   68.412154][ T8580] loop0: detected capacity change from 0 to 32768
+executing program
+[   68.578721][ T8587] loop0: detected capacity change from 0 to 32768
+executing program
+[   68.738533][ T8594] loop0: detected capacity change from 0 to 32768
+executing program
+[   68.870600][ T8601] loop0: detected capacity change from 0 to 32768
+executing program
+[   69.050504][ T8608] loop0: detected capacity change from 0 to 32768
+executing program
+[   69.208360][ T8615] loop0: detected capacity change from 0 to 32768
+executing program
+[   69.358798][ T8622] loop0: detected capacity change from 0 to 32768
+executing program
+[   69.538792][ T8629] loop0: detected capacity change from 0 to 32768
+executing program
+[   69.677285][ T8636] loop0: detected capacity change from 0 to 32768
+executing program
+[   69.779079][ T8641] loop0: detected capacity change from 0 to 32768
+executing program
+[   69.888738][ T8648] loop0: detected capacity change from 0 to 32768
+executing program
+[   69.989476][ T8655] loop0: detected capacity change from 0 to 32768
+executing program
+[   70.278482][ T8663] loop0: detected capacity change from 0 to 32768
+executing program
+[   70.428759][ T8670] loop0: detected capacity change from 0 to 32768
+executing program
+[   70.529457][ T8677] loop0: detected capacity change from 0 to 32768
+executing program
+[   70.649086][ T8684] loop0: detected capacity change from 0 to 32768
+executing program
+[   70.769009][ T8691] loop0: detected capacity change from 0 to 32768
+executing program
+[   70.979291][ T8700] loop0: detected capacity change from 0 to 32768
+executing program
+[   71.259054][ T8707] loop0: detected capacity change from 0 to 32768
+executing program
+[   71.471014][ T8716] loop0: detected capacity change from 0 to 32768
+executing program
+[   71.656268][ T8724] loop0: detected capacity change from 0 to 32768
+executing program
+[   71.779419][ T8730] loop0: detected capacity change from 0 to 32768
+executing program
+[   72.099819][ T8740] loop0: detected capacity change from 0 to 32768
+executing program
+[   72.252141][ T8748] loop0: detected capacity change from 0 to 32768
+executing program
+[   72.368853][ T8753] loop0: detected capacity change from 0 to 32768
+executing program
+[   72.536469][ T8762] loop0: detected capacity change from 0 to 32768
+executing program
+[   72.633192][ T8768] loop0: detected capacity change from 0 to 32768
+executing program
+[   72.824360][ T8778] loop0: detected capacity change from 0 to 32768
+executing program
+[   72.927207][ T8783] loop0: detected capacity change from 0 to 32768
+executing program
+[   73.211096][ T8793] loop0: detected capacity change from 0 to 32768
+executing program
+[   73.372271][ T8800] loop0: detected capacity change from 0 to 32768
+executing program
+[   73.520617][ T8808] loop0: detected capacity change from 0 to 32768
+executing program
+[   73.710514][ T8816] loop0: detected capacity change from 0 to 32768
+executing program
+[   73.839079][ T8823] loop0: detected capacity change from 0 to 32768
+executing program
+[   73.948557][ T8828] loop0: detected capacity change from 0 to 32768
+executing program
+[   74.310747][ T8837] loop0: detected capacity change from 0 to 32768
+executing program
+[   74.419221][ T8843] loop0: detected capacity change from 0 to 32768
+executing program
+[   74.670780][ T8851] loop0: detected capacity change from 0 to 32768
+executing program
+[   74.809229][ T8858] loop0: detected capacity change from 0 to 32768
+executing program
+[   75.069166][ T8866] loop0: detected capacity change from 0 to 32768
+executing program
+[   75.318811][ T8874] loop0: detected capacity change from 0 to 32768
+executing program
+[   75.598751][ T8882] loop0: detected capacity change from 0 to 32768
+executing program
+[   75.919889][ T8891] loop0: detected capacity change from 0 to 32768
+executing program
+[   76.130848][ T8900] loop0: detected capacity change from 0 to 32768
+
+VM DIAGNOSIS:
+12:17:48  Registers:
+info registers vcpu 0
+RAX=dffffc0000000060 RBX=00000000000003fd RCX=0000000000000000 RDX=00000000000003fd
+RSI=ffff88801cf74600 RDI=ffffffff969dda40 RBP=ffffffff969dda00 RSP=ffffc900014d7218
+R8 =ffffffff8442d0cc R9 =000000000000001f R10=0000000000000001 R11=fffff5200029ae49
+R12=0000000000000000 R13=fffffbfff2d3bb93 R14=fffffbfff2d3bb4a R15=dffffc0000000000
+RIP=ffffffff8442d0f2 RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00005555569e1880 00000000 00000000
+GS =0000 ffff88802c200000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe0000003000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000001000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007ffd813d2da8 CR3=00000000443c8000 CR4=00750ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00ff000000ff000000000000000000ff XMM01=25252525252525252525252525252525
+XMM02=00000000000000000000000000000000 XMM03=00000000000000000000000000000000
+XMM04=00ff00000000000000000000000000ff XMM05=0000ff0000000000ff00000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 1
+RAX=000000000005e437 RBX=0000000000000001 RCX=ffffffff8992a7a2 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=0000000000000001 RSP=ffffc9000041fde0
+R8 =0000000000000001 R9 =ffffed100fd86542 R10=ffff88807ec32a0b R11=ffffed100fd86541
+R12=0000000000000001 R13=0000000000000001 R14=ffffffff8ddf8950 R15=0000000000000000
+RIP=ffffffff89959c7b RFL=00000202 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ffff88807ec00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe000003e000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe000003c000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f488d011000 CR3=000000001cc6d000 CR4=00750ee0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=00007ffd0e5d60e00000003000000028
+XMM02=ffffff0f0e0d0c0b0a09080706050403 XMM03=696e656420737365636341002f737973
+XMM04=0000000000000000000000000000005d XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=0000ffff00ff00000000ffff00ff0000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 2
+RAX=0000000000000000 RBX=1ffff9200036ee82 RCX=dffffc0000000000 RDX=0000000000000000
+RSI=0000000000000000 RDI=ffff88801b7d802c RBP=ffffffff96777360 RSP=ffffc90001b773f0
+R8 =0000000001100c0a R9 =0000000000000000 R10=0000000000000007 R11=fffff5200036eec4
+R12=0000000001100c0a R13=ffff88801b7d8000 R14=ffffc90001b77560 R15=0000000000000000
+RIP=ffffffff81b55312 RFL=00000206 [-----P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ffff88802c300000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe0000079000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000077000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f587866f6c8 CR3=000000001c880000 CR4=00750ee0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=ffffffffffffffffffff0f0e0d0c0b0a
+XMM02=ff0f0e0d0c0b0a090807060504030201 XMM03=46423779362e72656c6c616b7a797300
+XMM04=00000000673579c20000000000000000 XMM05=00000000673579c200000000142fcdac
+XMM06=00000000673579c200000000142fcdac XMM07=000000000000000000000000142fcdac
+XMM08=00200000000000000000002000000000 XMM09=ffffffffffffff00ffffffff00ffffff
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 3
+RAX=0000000000000001 RBX=ffffc90002c47610 RCX=ffffffff815cb881 RDX=0000000000000000
+RSI=0000000000000008 RDI=ffffc90002c47610 RBP=1ffff92000588ece RSP=ffffc90002c475d8
+R8 =0000000000000001 R9 =fffffbfff1bbf12b R10=ffffffff8ddf8957 R11=fffffbfff1bbf12a
+R12=ffffffff8bf83fe0 R13=0000000000000000 R14=ffff88801ff34600 R15=0000000000000001
+RIP=ffffffff8992a54b RFL=00000246 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007f74ee2548c0 00000000 00000000
+GS =0000 ffff88807ed00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe00000b4000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe00000b2000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f48944ed300 CR3=00000000444e8000 CR4=00750ee0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=0000000000000000002f2e2e2f002e2e XMM01=000000000000000000006c696146002f
+XMM02=ffffffffffffffffff0f0e0d0c0b0a09 XMM03=3437326236006b636f6c622f6c617574
+XMM04=00000000000000000000000000000000 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=0000ffff00ff00000000ffff00ff0000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

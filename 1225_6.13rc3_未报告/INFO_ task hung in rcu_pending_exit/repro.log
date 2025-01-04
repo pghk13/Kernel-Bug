@@ -1,0 +1,1702 @@
+8771, fixing
+[  440.300593][T17057] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  440.300626][T17057]   gen 0 oldest_gen 0 data_type journal
+[  440.300654][T17057]   journal_seq       1
+[  440.300678][T17057]   need_discard      1
+[  440.300702][T17057]   need_inc_gen      1
+[  440.300726][T17057]   dirty_sectors     256
+[  440.300750][T17057]   stripe_sectors    0
+[  440.300774][T17057]   cached_sectors    0
+[  440.300798][T17057]   stripe            67108864
+[  440.300823][T17057]   stripe_redundancy 0
+[  440.300921][T17057]   io_time[READ]     1
+[  440.300946][T17057]   io_time[WRITE]    1
+[  440.300980][T17057]   fragmentation     0
+[  440.301003][T17057]   bp_start          8
+[  440.301027][T17057] 
+[  440.301048][T17057]   invalid data type (got 2 should be 7): delete?, fixing
+[  440.346638][T17057] bcachefs (loop7): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  440.362165][T17072] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  440.365238][T17072] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  440.379987][T17057] bcachefs (loop7): error validating btree node on loop7 at btree freespace level 0/0
+[  440.380029][T17057]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  440.380074][T17057]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  440.387835][T17088] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  440.389181][T17088] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  440.401248][T17072] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  440.416246][T17057] bcachefs (loop7): error validating btree node at btree freespace level 0/0
+[  440.416319][T17057]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  440.416366][T17057]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  440.464838][T17088] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  440.478746][T17057] bcachefs (loop7): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  440.513498][T17057] bcachefs (loop7): accounting_read... done
+[  440.523090][T17057] bcachefs (loop7): alloc_read... done
+[  440.537782][T17057] bcachefs (loop7): stripes_read... done
+[  440.545485][T17057] bcachefs (loop7): snapshots_read... done
+[  440.552380][T17057] bcachefs (loop7): check_allocations...
+[  440.566517][T17057] btree ptr not marked in member info btree allocated bitmap
+[  440.566557][T17057]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  440.604334][T17057] btree ptr not marked in member info btree allocated bitmap
+[  440.604371][T17057]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  440.619633][T17057] btree ptr not marked in member info btree allocated bitmap
+[  440.619670][T17057]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  440.731507][T17057] btree ptr not marked in member info btree allocated bitmap
+[  440.731544][T17057]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  440.747143][T17057] btree ptr not marked in member info btree allocated bitmap
+[  440.747179][T17057]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  440.776266][T17057] btree ptr not marked in member info btree allocated bitmap
+[  440.776304][T17057]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  440.810927][T17057] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  440.820919][T17057] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  440.861083][T17057]  done
+[  440.883118][T17057] bcachefs (loop7): going read-write
+[  440.900541][T17057] bcachefs (loop7): Fixed errors, running fsck a second time to verify fs is clean
+[  440.904162][T17109] loop5: detected capacity change from 0 to 32768
+[  440.918655][T17057] bcachefs (loop7): done starting filesystem
+[  440.995526][T17109] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  440.999055][  T757] bcachefs (loop7): shutting down
+[  441.000676][  T757] bcachefs (loop7): going read-only
+[  441.001635][T17109] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  441.045040][  T757] bcachefs (loop7): finished waiting for writes to stop
+[  441.050679][T17111] loop3: detected capacity change from 0 to 32768
+[  441.067538][  T757] bcachefs (loop7): flushing journal and stopping allocators, journal seq 11
+[  441.092771][T17109] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  441.134397][  T757] bcachefs (loop7): flushing journal and stopping allocators complete, journal seq 14
+[  441.142103][  T757] bcachefs (loop7): unshutdown complete, journal seq 15
+[  441.146680][  T757] bcachefs (loop7): done going read-only, filesystem not clean
+[  441.182003][  T757] bcachefs (loop7): shutdown complete
+[  441.318512][T17113] loop0: detected capacity change from 0 to 32768
+[  441.370094][T17115] loop1: detected capacity change from 0 to 32768
+[  441.463534][T17111] bcachefs (loop3): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  441.474167][T17111] bcachefs (loop3): recovering from clean shutdown, journal seq 7
+[  441.477267][T17111] bcachefs (loop3): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  441.477267][T17111]   running recovery passes: check_allocations,check_inodes
+[  441.488256][T17111] bcachefs (loop3): error validating btree node on loop3 at btree inodes level 0/0
+[  441.488296][T17111]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  441.488341][T17111]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  441.501317][T17111] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  441.501357][T17111]   invalid variable length fields: delete?, fixing
+[  441.507335][T17111] bcachefs (loop3): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  441.558801][T17111] bcachefs (loop3): error validating btree node on loop3 at btree alloc level 0/0
+[  441.558952][T17111]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  441.559000][T17111]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  441.597199][T17111] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  441.597234][T17111]   gen 0 oldest_gen 0 data_type journal
+[  441.597262][T17111]   journal_seq       1
+[  441.597287][T17111]   need_discard      1
+[  441.597311][T17111]   need_inc_gen      1
+[  441.597334][T17111]   dirty_sectors     256
+[  441.597359][T17111]   stripe_sectors    0
+[  441.597383][T17111]   cached_sectors    0
+[  441.597407][T17111]   stripe            67108864
+[  441.597432][T17111]   stripe_redundancy 0
+[  441.597456][T17111]   io_time[READ]     1
+[  441.597479][T17111]   io_time[WRITE]    1
+[  441.597503][T17111]   fragmentation     0
+[  441.597529][T17111]   bp_start          8
+[  441.597553][T17111] 
+[  441.597573][T17111]   invalid data type (got 2 should be 7): delete?, fixing
+[  441.635499][T17115] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  441.635586][T17115] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  441.693513][T17115] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  441.699318][T17113] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  441.701191][T17111] bcachefs (loop3): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  441.704006][T17113] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  441.727983][T17111] bcachefs (loop3): error validating btree node on loop3 at btree freespace level 0/0
+[  441.728025][T17111]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  441.728070][T17111]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  441.740276][T17111] bcachefs (loop3): error validating btree node at btree freespace level 0/0
+2024/12/19 15:55:51 executed programs: 1996
+[  441.740313][T17111]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  441.740358][T17111]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  441.757298][T17113] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  441.757377][T17111] bcachefs (loop3): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  441.769505][T17111] bcachefs (loop3): accounting_read... done
+[  441.780169][T17111] bcachefs (loop3): alloc_read... done
+[  441.783022][T17111] bcachefs (loop3): stripes_read... done
+[  441.786714][T17111] bcachefs (loop3): snapshots_read... done
+[  441.788746][T17111] bcachefs (loop3): check_allocations...
+[  441.800197][T17111] btree ptr not marked in member info btree allocated bitmap
+[  441.800237][T17111]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  441.824281][T17111] btree ptr not marked in member info btree allocated bitmap
+[  441.824319][T17111]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  441.835798][T17111] btree ptr not marked in member info btree allocated bitmap
+[  441.835835][T17111]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  441.862245][T17111] btree ptr not marked in member info btree allocated bitmap
+[  441.862283][T17111]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  441.875593][T17111] btree ptr not marked in member info btree allocated bitmap
+[  441.875628][T17111]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  441.898258][T17111] btree ptr not marked in member info btree allocated bitmap
+[  441.898295][T17111]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  441.944277][T17111] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  441.947973][T17111] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  441.967081][T17111]  done
+[  441.975528][T17111] bcachefs (loop3): going read-write
+[  441.987048][T17111] bcachefs (loop3): Fixed errors, running fsck a second time to verify fs is clean
+[  441.998755][T17111] bcachefs (loop3): done starting filesystem
+[  442.021255][  T723] bcachefs (loop3): shutting down
+[  442.024044][  T723] bcachefs (loop3): going read-only
+[  442.028153][  T723] bcachefs (loop3): finished waiting for writes to stop
+[  442.046101][  T723] bcachefs (loop3): flushing journal and stopping allocators, journal seq 9
+[  442.094625][  T723] bcachefs (loop3): flushing journal and stopping allocators complete, journal seq 11
+[  442.102313][  T723] bcachefs (loop3): unshutdown complete, journal seq 12
+[  442.107520][  T723] bcachefs (loop3): done going read-only, filesystem not clean
+[  442.157986][  T723] bcachefs (loop3): shutdown complete
+[  442.629236][T17156] loop0: detected capacity change from 0 to 32768
+[  442.715367][T17156] bcachefs (loop0): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  442.727360][T17158] loop1: detected capacity change from 0 to 32768
+[  442.729164][T17156] bcachefs (loop0): recovering from clean shutdown, journal seq 7
+[  442.734207][T17156] bcachefs (loop0): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  442.734207][T17156]   running recovery passes: check_allocations,check_inodes
+[  442.747488][T17156] bcachefs (loop0): error validating btree node on loop0 at btree inodes level 0/0
+[  442.747539][T17156]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  442.747593][T17156]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  442.760682][T17156] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  442.760722][T17156]   invalid variable length fields: delete?, fixing
+[  442.768101][T17156] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  442.777540][T17156] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[  442.777590][T17156]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  442.777647][T17156]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  442.794563][T17156] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  442.794599][T17156]   gen 0 oldest_gen 0 data_type journal
+[  442.794626][T17156]   journal_seq       1
+[  442.794651][T17156]   need_discard      1
+[  442.794675][T17156]   need_inc_gen      1
+[  442.794699][T17156]   dirty_sectors     256
+[  442.794723][T17156]   stripe_sectors    0
+[  442.794748][T17156]   cached_sectors    0
+[  442.794771][T17156]   stripe            67108864
+[  442.794797][T17156]   stripe_redundancy 0
+[  442.794820][T17156]   io_time[READ]     1
+[  442.794973][T17156]   io_time[WRITE]    1
+[  442.794997][T17156]   fragmentation     0
+[  442.795022][T17156]   bp_start          8
+[  442.795046][T17156] 
+[  442.795067][T17156]   invalid data type (got 2 should be 7): delete?, fixing
+[  442.831465][T17156] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  442.841415][T17156] bcachefs (loop0): error validating btree node on loop0 at btree freespace level 0/0
+[  442.841456][T17156]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  442.841501][T17156]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  442.853675][T17156] bcachefs (loop0): error validating btree node at btree freespace level 0/0
+[  442.853713][T17156]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  442.853759][T17156]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  442.866280][T17156] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  442.876271][T17156] bcachefs (loop0): accounting_read... done
+[  442.885238][T17156] bcachefs (loop0): alloc_read... done
+[  442.887200][T17156] bcachefs (loop0): stripes_read... done
+[  442.889402][T17156] bcachefs (loop0): snapshots_read... done
+[  442.891444][T17156] bcachefs (loop0): check_allocations...
+[  442.908238][T17156] btree ptr not marked in member info btree allocated bitmap
+[  442.908286][T17156]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  442.940376][T17156] btree ptr not marked in member info btree allocated bitmap
+[  442.940424][T17156]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  442.963769][T17156] btree ptr not marked in member info btree allocated bitmap
+[  442.963816][T17156]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  442.999195][T17156] btree ptr not marked in member info btree allocated bitmap
+[  442.999243][T17156]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  443.028774][T17156] btree ptr not marked in member info btree allocated bitmap
+[  443.028821][T17156]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  443.052325][T17156] btree ptr not marked in member info btree allocated bitmap
+[  443.052374][T17156]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  443.082282][T17156] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  443.091118][T17156] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  443.099187][T17169] loop3: detected capacity change from 0 to 32768
+[  443.114199][T17156]  done
+[  443.132639][T17156] bcachefs (loop0): going read-write
+[  443.148097][T17156] bcachefs (loop0): Fixed errors, running fsck a second time to verify fs is clean
+[  443.180000][T17156] bcachefs (loop0): done starting filesystem
+[  443.226017][T17158] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  443.287717][  T707] bcachefs (loop0): shutting down
+[  443.295027][  T707] bcachefs (loop0): going read-only
+[  443.297090][  T707] bcachefs (loop0): finished waiting for writes to stop
+[  443.305475][T17158] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  443.366113][  T707] bcachefs (loop0): flushing journal and stopping allocators, journal seq 9
+[  443.412615][T17169] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  443.415826][T17169] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  443.602617][  T707] bcachefs (loop0): flushing journal and stopping allocators complete, journal seq 12
+[  443.611746][  T707] bcachefs (loop0): unshutdown complete, journal seq 13
+[  443.617463][  T707] bcachefs (loop0): done going read-only, filesystem not clean
+[  443.647369][T17158] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  443.654036][  T707] bcachefs (loop0): shutdown complete
+[  443.658268][T17169] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  443.689840][T17181] loop5: detected capacity change from 0 to 32768
+[  444.040060][T17181] bcachefs (loop5): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  444.066307][T17181] bcachefs (loop5): recovering from clean shutdown, journal seq 7
+[  444.078283][T17181] bcachefs (loop5): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  444.078283][T17181]   running recovery passes: check_allocations,check_inodes
+[  444.104704][T17181] bcachefs (loop5): error validating btree node on loop5 at btree inodes level 0/0
+[  444.104746][T17181]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  444.104792][T17181]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  444.128960][T17181] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  444.129002][T17181]   invalid variable length fields: delete?, fixing
+[  444.142140][T17181] bcachefs (loop5): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  444.155658][T17181] bcachefs (loop5): error validating btree node on loop5 at btree alloc level 0/0
+[  444.155698][T17181]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  444.155742][T17181]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  444.187119][T17181] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  444.187155][T17181]   gen 0 oldest_gen 0 data_type journal
+[  444.187181][T17181]   journal_seq       1
+[  444.187206][T17181]   need_discard      1
+[  444.187229][T17181]   need_inc_gen      1
+[  444.187254][T17181]   dirty_sectors     256
+[  444.187278][T17181]   stripe_sectors    0
+[  444.187301][T17181]   cached_sectors    0
+[  444.187325][T17181]   stripe            67108864
+[  444.187350][T17181]   stripe_redundancy 0
+[  444.187374][T17181]   io_time[READ]     1
+[  444.187398][T17181]   io_time[WRITE]    1
+[  444.187421][T17181]   fragmentation     0
+[  444.187446][T17181]   bp_start          8
+[  444.187469][T17181] 
+[  444.187489][T17181]   invalid data type (got 2 should be 7): delete?, fixing
+[  444.238983][T17181] bcachefs (loop5): error validating btree node on loop5 at btree freespace level 0/0
+[  444.239025][T17181]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  444.239069][T17181]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  444.239425][T17197] loop1: detected capacity change from 0 to 32768
+[  444.252340][T17181] bcachefs (loop5): error validating btree node at btree freespace level 0/0
+[  444.252381][T17181]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  444.252426][T17181]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  444.275030][T17181] bcachefs (loop5): accounting_read... done
+[  444.286923][T17181] bcachefs (loop5): alloc_read... done
+[  444.293359][T17181] bcachefs (loop5): stripes_read... done
+[  444.298942][T17181] bcachefs (loop5): snapshots_read... done
+[  444.301095][T17181] bcachefs (loop5): check_allocations...
+[  444.318033][T17181] btree ptr not marked in member info btree allocated bitmap
+[  444.318073][T17181]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  444.350167][T17197] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  444.359131][T17197] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  444.379161][T17181] btree ptr not marked in member info btree allocated bitmap
+[  444.379199][T17181]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  444.395679][T17181] btree ptr not marked in member info btree allocated bitmap
+[  444.395716][T17181]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  444.421185][T17181] btree ptr not marked in member info btree allocated bitmap
+[  444.421222][T17181]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  444.443078][T17197] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  444.453472][T17181] btree ptr not marked in member info btree allocated bitmap
+[  444.453510][T17181]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  444.454018][T17204] loop3: detected capacity change from 0 to 32768
+[  444.462669][T17181] btree ptr not marked in member info btree allocated bitmap
+[  444.462705][T17181]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  444.491220][T17181] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  444.501726][T17181] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  444.530012][T17181]  done
+[  444.535281][T17181] bcachefs (loop5): going read-write
+[  444.549188][T17181] bcachefs (loop5): Fixed errors, running fsck a second time to verify fs is clean
+[  444.554722][T17181] bcachefs (loop5): done starting filesystem
+[  444.606302][T17204] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  444.616038][T17204] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  444.634031][  T735] bcachefs (loop5): shutting down
+[  444.636225][  T735] bcachefs (loop5): going read-only
+[  444.639583][  T735] bcachefs (loop5): finished waiting for writes to stop
+[  444.657941][  T735] bcachefs (loop5): flushing journal and stopping allocators, journal seq 10
+[  444.712088][  T735] bcachefs (loop5): flushing journal and stopping allocators complete, journal seq 12
+[  444.721116][  T735] bcachefs (loop5): unshutdown complete, journal seq 13
+[  444.725170][  T735] bcachefs (loop5): done going read-only, filesystem not clean
+[  444.736487][T17204] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  444.751367][  T735] bcachefs (loop5): shutdown complete
+[  444.788235][T17206] loop0: detected capacity change from 0 to 32768
+[  445.091444][T17206] bcachefs (loop0): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  445.104120][T17206] bcachefs (loop0): recovering from clean shutdown, journal seq 7
+[  445.115096][T17206] bcachefs (loop0): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  445.115096][T17206]   running recovery passes: check_allocations,check_inodes
+[  445.138997][T17206] bcachefs (loop0): error validating btree node on loop0 at btree inodes level 0/0
+[  445.139039][T17206]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  445.139084][T17206]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  445.142592][T17228] loop1: detected capacity change from 0 to 32768
+[  445.160174][T17206] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  445.160215][T17206]   invalid variable length fields: delete?, fixing
+[  445.178582][T17206] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[  445.178623][T17206]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  445.178668][T17206]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  445.195061][T17206] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  445.195097][T17206]   gen 0 oldest_gen 0 data_type journal
+[  445.195125][T17206]   journal_seq       1
+[  445.195149][T17206]   need_discard      1
+[  445.195173][T17206]   need_inc_gen      1
+[  445.195197][T17206]   dirty_sectors     256
+[  445.195221][T17206]   stripe_sectors    0
+[  445.195245][T17206]   cached_sectors    0
+[  445.195269][T17206]   stripe            67108864
+[  445.195294][T17206]   stripe_redundancy 0
+[  445.195319][T17206]   io_time[READ]     1
+[  445.195342][T17206]   io_time[WRITE]    1
+[  445.195366][T17206]   fragmentation     0
+[  445.195389][T17206]   bp_start          8
+[  445.195414][T17206] 
+[  445.195434][T17206]   invalid data type (got 2 should be 7): delete?, fixing
+[  445.221179][T17228] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  445.221263][T17228] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  445.231160][T17206] bcachefs (loop0): error validating btree node on loop0 at btree freespace level 0/0
+[  445.231201][T17206]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  445.231245][T17206]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  445.268428][T17206] bcachefs (loop0): error validating btree node at btree freespace level 0/0
+[  445.268466][T17206]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  445.268511][T17206]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  445.275651][T17228] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  445.278293][T17206] btree_node_read_work: 4 callbacks suppressed
+[  445.278324][T17206] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  445.303552][T17206] bcachefs (loop0): accounting_read... done
+[  445.313949][T17206] bcachefs (loop0): alloc_read... done
+[  445.317266][T17206] bcachefs (loop0): stripes_read... done
+[  445.319122][T17206] bcachefs (loop0): snapshots_read... done
+[  445.324557][T17206] bcachefs (loop0): check_allocations...
+[  445.338726][T17206] btree ptr not marked in member info btree allocated bitmap
+[  445.338766][T17206]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  445.352799][T17206] btree ptr not marked in member info btree allocated bitmap
+[  445.352836][T17206]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  445.373202][T17206] btree ptr not marked in member info btree allocated bitmap
+[  445.373240][T17206]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  445.402654][T17206] btree ptr not marked in member info btree allocated bitmap
+[  445.402691][T17206]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  445.421711][T17206] btree ptr not marked in member info btree allocated bitmap
+[  445.421757][T17206]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  445.449240][T17206] btree ptr not marked in member info btree allocated bitmap
+[  445.449286][T17206]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  445.485164][T17206] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  445.491155][T17206] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  445.514645][T17206]  done
+[  445.518182][T17239] loop3: detected capacity change from 0 to 32768
+[  445.521667][T17206] bcachefs (loop0): going read-write
+[  445.531593][T17206] bcachefs (loop0): Fixed errors, running fsck a second time to verify fs is clean
+[  445.550344][T17206] bcachefs (loop0): done starting filesystem
+[  445.573347][T17239] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  445.579052][T17239] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  445.613992][  T707] bcachefs (loop0): shutting down
+[  445.616019][  T707] bcachefs (loop0): going read-only
+[  445.619775][  T707] bcachefs (loop0): finished waiting for writes to stop
+[  445.621437][T17239] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  445.658208][  T707] bcachefs (loop0): flushing journal and stopping allocators, journal seq 8
+[  445.810149][  T707] bcachefs (loop0): flushing journal and stopping allocators complete, journal seq 12
+[  445.817777][  T707] bcachefs (loop0): unshutdown complete, journal seq 13
+[  445.821564][  T707] bcachefs (loop0): done going read-only, filesystem not clean
+[  445.864815][  T707] bcachefs (loop0): shutdown complete
+[  445.994017][T17253] loop1: detected capacity change from 0 to 32768
+[  446.171567][T17253] bcachefs (loop1): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  446.191317][T17253] bcachefs (loop1): recovering from clean shutdown, journal seq 7
+[  446.202345][T17266] loop3: detected capacity change from 0 to 32768
+[  446.203069][T17253] bcachefs (loop1): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  446.203069][T17253]   running recovery passes: check_allocations,check_inodes
+[  446.233248][T17253] bcachefs (loop1): error validating btree node on loop1 at btree inodes level 0/0
+[  446.233290][T17253]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  446.233334][T17253]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  446.271402][T17253] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  446.271443][T17253]   invalid variable length fields: delete?, fixing
+[  446.293074][T17253] bcachefs (loop1): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  446.319583][T17253] bcachefs (loop1): error validating btree node on loop1 at btree alloc level 0/0
+[  446.319624][T17253]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  446.319669][T17253]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  446.368784][T17253] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  446.368820][T17253]   gen 0 oldest_gen 0 data_type journal
+[  446.368993][T17253]   journal_seq       1
+[  446.369018][T17253]   need_discard      1
+[  446.369042][T17253]   need_inc_gen      1
+[  446.369065][T17253]   dirty_sectors     256
+[  446.369089][T17253]   stripe_sectors    0
+[  446.369114][T17253]   cached_sectors    0
+[  446.369137][T17253]   stripe            67108864
+[  446.369163][T17253]   stripe_redundancy 0
+[  446.369187][T17253]   io_time[READ]     1
+[  446.369211][T17253]   io_time[WRITE]    1
+[  446.369234][T17253]   fragmentation     0
+[  446.369259][T17253]   bp_start          8
+[  446.369283][T17253] 
+[  446.369303][T17253]   invalid data type (got 2 should be 7): delete?, fixing
+[  446.414423][T17264] loop5: detected capacity change from 0 to 32768
+[  446.441091][T17253] bcachefs (loop1): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  446.448587][T17266] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  446.452199][T17253] bcachefs (loop1): error validating btree node on loop1 at btree freespace level 0/0
+[  446.452241][T17253]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  446.452285][T17253]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  446.464428][T17253] bcachefs (loop1): error validating btree node at btree freespace level 0/0
+[  446.464467][T17253]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  446.464510][T17253]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  446.465172][T17266] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  446.467717][T17253] bcachefs (loop1): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  446.488285][T17253] bcachefs (loop1): accounting_read... done
+[  446.497271][T17253] bcachefs (loop1): alloc_read... done
+[  446.499834][T17253] bcachefs (loop1): stripes_read... done
+[  446.502012][T17253] bcachefs (loop1): snapshots_read... done
+[  446.507936][T17253] bcachefs (loop1): check_allocations...
+[  446.525694][T17253] btree ptr not marked in member info btree allocated bitmap
+[  446.525734][T17253]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  446.530680][T17264] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  446.530787][T17264] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  446.606472][T17253] btree ptr not marked in member info btree allocated bitmap
+[  446.606512][T17253]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  446.682512][T17253] btree ptr not marked in member info btree allocated bitmap
+[  446.682559][T17253]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  446.707706][T17264] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  446.760398][T17253] btree ptr not marked in member info btree allocated bitmap
+[  446.760446][T17253]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  446.787473][T17266] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  446.821694][T17253] btree ptr not marked in member info btree allocated bitmap
+2024/12/19 15:55:57 executed programs: 2023
+[  446.821741][T17253]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  446.886231][T17253] btree ptr not marked in member info btree allocated bitmap
+[  446.886279][T17253]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  446.939350][T17253] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  446.945120][T17253] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  446.979316][T17253]  done
+[  447.005707][T17253] bcachefs (loop1): going read-write
+[  447.014089][T17253] bcachefs (loop1): Fixed errors, running fsck a second time to verify fs is clean
+[  447.019699][T17287] loop0: detected capacity change from 0 to 32768
+[  447.031657][T17253] bcachefs (loop1): done starting filesystem
+[  447.076776][T17287] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  447.080707][T17287] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  447.098178][  T711] bcachefs (loop1): shutting down
+[  447.111506][  T711] bcachefs (loop1): going read-only
+[  447.125910][  T711] bcachefs (loop1): finished waiting for writes to stop
+[  447.146165][  T711] bcachefs (loop1): flushing journal and stopping allocators, journal seq 9
+[  447.215064][  T711] bcachefs (loop1): flushing journal and stopping allocators complete, journal seq 11
+[  447.221090][  T711] bcachefs (loop1): unshutdown complete, journal seq 12
+[  447.225685][  T711] bcachefs (loop1): done going read-only, filesystem not clean
+[  447.250697][T17287] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  447.252465][T17298] loop7: detected capacity change from 0 to 32768
+[  447.256557][  T711] bcachefs (loop1): shutdown complete
+[  447.569377][T17313] loop3: detected capacity change from 0 to 32768
+[  447.583715][T17289] loop6: detected capacity change from 0 to 32768
+[  447.895412][T17324] loop0: detected capacity change from 0 to 32768
+[  447.945091][T17320] loop5: detected capacity change from 0 to 32768
+[  448.141524][T17289] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  448.145213][T17298] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  448.145677][T17313] bcachefs (loop3): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  448.155808][T17289] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  448.160507][T17313] bcachefs (loop3): recovering from clean shutdown, journal seq 7
+[  448.161553][T17298] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  448.166702][T17313] bcachefs (loop3): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  448.166702][T17313]   running recovery passes: check_allocations,check_inodes
+[  448.179120][T17313] bcachefs (loop3): error validating btree node on loop3 at btree inodes level 0/0
+[  448.179171][T17313]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  448.179228][T17313]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  448.204648][T17313] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  448.204699][T17313]   invalid variable length fields: delete?, fixing
+[  448.219607][T17313] bcachefs (loop3): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  448.236356][T17313] bcachefs (loop3): error validating btree node on loop3 at btree alloc level 0/0
+[  448.236409][T17313]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  448.236463][T17313]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  448.250721][T17324] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  448.258634][T17313] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  448.258680][T17313]   gen 0 oldest_gen 0 data_type journal
+[  448.258715][T17313]   journal_seq       1
+[  448.258745][T17313]   need_discard      1
+[  448.258776][T17313]   need_inc_gen      1
+[  448.258807][T17313]   dirty_sectors     256
+[  448.258839][T17313]   stripe_sectors    0
+[  448.259078][T17313]   cached_sectors    0
+[  448.259110][T17313]   stripe            67108864
+[  448.259142][T17313]   stripe_redundancy 0
+[  448.259173][T17313]   io_time[READ]     1
+[  448.259204][T17313]   io_time[WRITE]    1
+[  448.259234][T17313]   fragmentation     0
+[  448.259264][T17313]   bp_start          8
+[  448.259295][T17313] 
+[  448.259321][T17313]   invalid data type (got 2 should be 7): delete?, fixing
+[  448.282283][T17289] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  448.292151][T17324] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  448.297478][T17320] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  448.299104][T17313] bcachefs (loop3): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  448.311066][T17320] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  448.333259][T17298] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  448.348616][T17313] bcachefs (loop3): error validating btree node on loop3 at btree freespace level 0/0
+[  448.348668][T17313]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  448.348725][T17313]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  448.390428][T17324] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  448.455637][T17313] bcachefs (loop3): error validating btree node at btree freespace level 0/0
+[  448.455686][T17313]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  448.455741][T17313]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  448.496361][T17313] bcachefs (loop3): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  448.513394][T17313] bcachefs (loop3): accounting_read... done
+[  448.532651][T17313] bcachefs (loop3): alloc_read... done
+[  448.540028][T17313] bcachefs (loop3): stripes_read... done
+[  448.550181][T17313] bcachefs (loop3): snapshots_read... done
+[  448.555966][T17313] bcachefs (loop3): check_allocations...
+[  448.571790][T17313] btree ptr not marked in member info btree allocated bitmap
+[  448.571931][T17313]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  448.579830][T17320] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  448.622014][T17313] btree ptr not marked in member info btree allocated bitmap
+[  448.622052][T17313]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  448.653705][T17313] btree ptr not marked in member info btree allocated bitmap
+[  448.653744][T17313]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  448.686409][T17313] btree ptr not marked in member info btree allocated bitmap
+[  448.686457][T17313]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  448.721582][T17313] btree ptr not marked in member info btree allocated bitmap
+[  448.721628][T17313]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  448.757059][T17313] btree ptr not marked in member info btree allocated bitmap
+[  448.757096][T17313]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  448.769705][T17313] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  448.777802][T17313] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  448.804640][T17313]  done
+[  448.813770][T17313] bcachefs (loop3): going read-write
+[  448.835700][T17313] bcachefs (loop3): Fixed errors, running fsck a second time to verify fs is clean
+[  448.849813][T17361] loop1: detected capacity change from 0 to 32768
+[  448.863832][T17313] bcachefs (loop3): done starting filesystem
+[  448.921702][T17361] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  448.928488][T17361] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  448.977323][  T723] bcachefs (loop3): shutting down
+[  448.979184][  T723] bcachefs (loop3): going read-only
+[  448.982085][  T723] bcachefs (loop3): finished waiting for writes to stop
+[  449.016141][  T723] bcachefs (loop3): flushing journal and stopping allocators, journal seq 8
+[  449.039317][T17361] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  449.213803][T17367] loop6: detected capacity change from 0 to 32768
+[  449.242332][  T723] bcachefs (loop3): flushing journal and stopping allocators complete, journal seq 11
+[  449.248614][  T723] bcachefs (loop3): unshutdown complete, journal seq 12
+[  449.254567][T17363] loop0: detected capacity change from 0 to 32768
+[  449.255556][  T723] bcachefs (loop3): done going read-only, filesystem not clean
+[  449.266722][T17367] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  449.270427][T17367] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  449.281054][T17365] loop7: detected capacity change from 0 to 32768
+[  449.286969][  T723] bcachefs (loop3): shutdown complete
+[  449.317436][T17380] loop5: detected capacity change from 0 to 32768
+[  449.379732][T17367] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  449.415774][T17363] bcachefs (loop0): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  449.425198][T17363] bcachefs (loop0): recovering from clean shutdown, journal seq 7
+[  449.429423][T17363] bcachefs (loop0): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  449.429423][T17363]   running recovery passes: check_allocations,check_inodes
+[  449.446826][T17380] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  449.451077][T17380] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  449.457229][T17363] bcachefs (loop0): error validating btree node on loop0 at btree inodes level 0/0
+[  449.457270][T17363]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  449.457315][T17363]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  449.473694][T17363] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  449.473734][T17363]   invalid variable length fields: delete?, fixing
+[  449.474303][T17365] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  449.476699][T17363] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  449.487013][T17363] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[  449.487054][T17363]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  449.487098][T17363]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  449.487815][T17365] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  449.501023][T17363] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  449.501060][T17363]   gen 0 oldest_gen 0 data_type journal
+[  449.501088][T17363]   journal_seq       1
+[  449.501111][T17363]   need_discard      1
+[  449.501135][T17363]   need_inc_gen      1
+[  449.501159][T17363]   dirty_sectors     256
+[  449.501183][T17363]   stripe_sectors    0
+[  449.501207][T17363]   cached_sectors    0
+[  449.501231][T17363]   stripe            67108864
+[  449.501256][T17363]   stripe_redundancy 0
+[  449.501280][T17363]   io_time[READ]     1
+[  449.501304][T17363]   io_time[WRITE]    1
+[  449.501329][T17363]   fragmentation     0
+[  449.501353][T17363]   bp_start          8
+[  449.501579][T17363] 
+[  449.501635][T17363]   invalid data type (got 2 should be 7): delete?, fixing
+[  449.546587][T17363] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  449.548290][T17365] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  449.554590][T17380] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  449.556713][T17363] bcachefs (loop0): error validating btree node on loop0 at btree freespace level 0/0
+[  449.556753][T17363]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  449.556797][T17363]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  449.574637][T17363] bcachefs (loop0): error validating btree node at btree freespace level 0/0
+[  449.574676][T17363]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  449.574987][T17363]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  449.591358][T17363] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  449.603333][T17363] bcachefs (loop0): accounting_read... done
+[  449.612695][T17363] bcachefs (loop0): alloc_read... done
+[  449.615053][T17363] bcachefs (loop0): stripes_read... done
+[  449.617751][T17363] bcachefs (loop0): snapshots_read... done
+[  449.625028][T17363] bcachefs (loop0): check_allocations...
+[  449.636354][T17363] btree ptr not marked in member info btree allocated bitmap
+[  449.636394][T17363]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  449.668022][T17363] btree ptr not marked in member info btree allocated bitmap
+[  449.668061][T17363]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  449.687425][T17363] btree ptr not marked in member info btree allocated bitmap
+[  449.687465][T17363]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  449.718672][T17363] btree ptr not marked in member info btree allocated bitmap
+[  449.718710][T17363]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  449.764598][T17363] btree ptr not marked in member info btree allocated bitmap
+[  449.764635][T17363]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  449.794702][T17363] btree ptr not marked in member info btree allocated bitmap
+[  449.794740][T17363]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  449.826154][T17363] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  449.830087][T17363] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  449.855032][T17363]  done
+[  449.871344][T17363] bcachefs (loop0): going read-write
+[  449.884488][T17363] bcachefs (loop0): Fixed errors, running fsck a second time to verify fs is clean
+[  449.915139][T17363] bcachefs (loop0): done starting filesystem
+[  449.982046][T17409] loop1: detected capacity change from 0 to 32768
+[  449.992535][  T707] bcachefs (loop0): shutting down
+[  449.995458][  T707] bcachefs (loop0): going read-only
+[  450.000553][  T707] bcachefs (loop0): finished waiting for writes to stop
+[  450.018178][  T707] bcachefs (loop0): flushing journal and stopping allocators, journal seq 10
+[  450.105646][  T707] bcachefs (loop0): flushing journal and stopping allocators complete, journal seq 12
+[  450.108096][T17409] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  450.110432][  T707] bcachefs (loop0): unshutdown complete, journal seq 13
+[  450.115474][  T707] bcachefs (loop0): done going read-only, filesystem not clean
+[  450.118630][T17409] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  450.138097][  T707] bcachefs (loop0): shutdown complete
+[  450.226382][T17409] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  450.441262][T17415] loop5: detected capacity change from 0 to 32768
+[  450.504450][T17415] bcachefs (loop5): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  450.510087][T17415] bcachefs (loop5): recovering from clean shutdown, journal seq 7
+[  450.513548][T17415] bcachefs (loop5): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  450.513548][T17415]   running recovery passes: check_allocations,check_inodes
+[  450.527578][T17415] bcachefs (loop5): error validating btree node on loop5 at btree inodes level 0/0
+[  450.527630][T17415]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  450.527686][T17415]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  450.541693][T17415] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  450.541744][T17415]   invalid variable length fields: delete?, fixing
+[  450.548377][T17415] bcachefs (loop5): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  450.558590][T17415] bcachefs (loop5): error validating btree node on loop5 at btree alloc level 0/0
+[  450.558639][T17415]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  450.558694][T17415]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  450.575147][T17415] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  450.575191][T17415]   gen 0 oldest_gen 0 data_type journal
+[  450.575226][T17415]   journal_seq       1
+[  450.575258][T17415]   need_discard      1
+[  450.575289][T17415]   need_inc_gen      1
+[  450.575319][T17415]   dirty_sectors     256
+[  450.575350][T17415]   stripe_sectors    0
+[  450.575380][T17415]   cached_sectors    0
+[  450.575411][T17415]   stripe            67108864
+[  450.575443][T17415]   stripe_redundancy 0
+[  450.575473][T17415]   io_time[READ]     1
+[  450.575504][T17415]   io_time[WRITE]    1
+[  450.575534][T17415]   fragmentation     0
+[  450.575564][T17415]   bp_start          8
+[  450.575595][T17415] 
+[  450.575621][T17415]   invalid data type (got 2 should be 7): delete?, fixing
+[  450.617617][T17415] bcachefs (loop5): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  450.631709][T17415] bcachefs (loop5): error validating btree node on loop5 at btree freespace level 0/0
+[  450.631759][T17415]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  450.631814][T17415]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  450.645555][T17415] bcachefs (loop5): error validating btree node at btree freespace level 0/0
+[  450.645688][T17415]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  450.646023][T17415]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  450.663711][T17415] bcachefs (loop5): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  450.676423][T17415] bcachefs (loop5): accounting_read... done
+[  450.690745][T17415] bcachefs (loop5): alloc_read... done
+[  450.693105][T17415] bcachefs (loop5): stripes_read... done
+[  450.695460][T17415] bcachefs (loop5): snapshots_read... done
+[  450.698247][T17415] bcachefs (loop5): check_allocations...
+[  450.707201][T17421] loop3: detected capacity change from 0 to 32768
+[  450.712393][T17415] btree ptr not marked in member info btree allocated bitmap
+[  450.712440][T17415]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  450.742190][T17415] btree ptr not marked in member info btree allocated bitmap
+[  450.742237][T17415]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  450.782194][T17415] btree ptr not marked in member info btree allocated bitmap
+[  450.782231][T17415]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  450.841142][T17415] btree ptr not marked in member info btree allocated bitmap
+[  450.841180][T17415]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  450.850980][T17421] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  450.851127][T17421] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  450.876262][T17447] loop0: detected capacity change from 0 to 32768
+[  450.973257][T17447] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  450.976688][T17447] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  450.982609][T17415] btree ptr not marked in member info btree allocated bitmap
+[  450.982647][T17415]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  451.066407][T17442] loop6: detected capacity change from 0 to 32768
+[  451.116916][T17433] loop1: detected capacity change from 0 to 32768
+[  451.122225][T17415] btree ptr not marked in member info btree allocated bitmap
+[  451.122259][T17415]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  451.136736][T17421] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  451.281421][T17415] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  451.284409][T17446] loop7: detected capacity change from 0 to 32768
+[  451.291057][T17415] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  451.345205][T17447] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  451.354568][T17415]  done
+[  451.446411][T17415] bcachefs (loop5): going read-write
+[  451.573595][T17415] bcachefs (loop5): Fixed errors, running fsck a second time to verify fs is clean
+[  451.589458][T17415] bcachefs (loop5): done starting filesystem
+[  451.688462][  T735] bcachefs (loop5): shutting down
+[  451.690446][  T735] bcachefs (loop5): going read-only
+[  451.697596][  T735] bcachefs (loop5): finished waiting for writes to stop
+[  451.722441][  T735] bcachefs (loop5): flushing journal and stopping allocators, journal seq 9
+[  451.763264][T17442] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  451.766014][T17442] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  451.802137][  T735] bcachefs (loop5): flushing journal and stopping allocators complete, journal seq 11
+[  451.813195][  T735] bcachefs (loop5): unshutdown complete, journal seq 12
+[  451.819352][  T735] bcachefs (loop5): done going read-only, filesystem not clean
+[  451.854219][T17442] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  451.887072][T17446] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  451.890510][T17446] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  451.892100][T17477] loop3: detected capacity change from 0 to 32768
+[  451.899595][  T735] bcachefs (loop5): shutdown complete
+2024/12/19 15:56:02 executed programs: 2052
+[  452.185188][T17501] loop0: detected capacity change from 0 to 32768
+[  452.211307][T17433] bcachefs (loop1): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  452.215249][T17477] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  452.217221][T17433] bcachefs (loop1): recovering from clean shutdown, journal seq 7
+[  452.225908][T17433] bcachefs (loop1): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  452.225908][T17433]   running recovery passes: check_allocations,check_inodes
+[  452.244125][T17433] bcachefs (loop1): error validating btree node on loop1 at btree inodes level 0/0
+[  452.244167][T17433]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  452.244243][T17433]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  452.247022][T17477] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  452.260656][T17433] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  452.260700][T17433]   invalid variable length fields: delete?, fixing
+[  452.268663][T17433] bcachefs (loop1): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  452.280766][T17433] bcachefs (loop1): error validating btree node on loop1 at btree alloc level 0/0
+[  452.280826][T17433]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  452.281070][T17433]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  452.299086][T17433] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  452.299123][T17433]   gen 0 oldest_gen 0 data_type journal
+[  452.299151][T17433]   journal_seq       1
+[  452.299175][T17433]   need_discard      1
+[  452.299199][T17433]   need_inc_gen      1
+[  452.299223][T17433]   dirty_sectors     256
+[  452.299247][T17433]   stripe_sectors    0
+[  452.299271][T17433]   cached_sectors    0
+[  452.299294][T17433]   stripe            67108864
+[  452.299320][T17433]   stripe_redundancy 0
+[  452.299343][T17433]   io_time[READ]     1
+[  452.299367][T17433]   io_time[WRITE]    1
+[  452.299390][T17433]   fragmentation     0
+[  452.299414][T17433]   bp_start          8
+[  452.299438][T17433] 
+[  452.299458][T17433]   invalid data type (got 2 should be 7): delete?, fixing
+[  452.335085][T17501] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  452.336338][T17433] bcachefs (loop1): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  452.337688][T17501] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  452.353220][T17433] bcachefs (loop1): error validating btree node on loop1 at btree freespace level 0/0
+[  452.353263][T17433]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  452.353309][T17433]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  452.357355][T17446] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  452.369370][T17433] bcachefs (loop1): error validating btree node at btree freespace level 0/0
+[  452.369409][T17433]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  452.369454][T17433]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  452.384452][T17433] bcachefs (loop1): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  452.393175][T17433] bcachefs (loop1): accounting_read...
+[  452.395378][T17477] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  452.406946][T17433]  done
+[  452.407938][T17433] bcachefs (loop1): alloc_read... done
+[  452.415959][T17433] bcachefs (loop1): stripes_read... done
+[  452.418584][T17433] bcachefs (loop1): snapshots_read... done
+[  452.420724][T17433] bcachefs (loop1): check_allocations...
+[  452.433317][T17433] btree ptr not marked in member info btree allocated bitmap
+[  452.433356][T17433]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  452.454546][T17433] btree ptr not marked in member info btree allocated bitmap
+[  452.454583][T17433]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  452.470218][T17501] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  452.484661][T17433] btree ptr not marked in member info btree allocated bitmap
+[  452.484697][T17433]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  452.503096][T17433] btree ptr not marked in member info btree allocated bitmap
+[  452.503133][T17433]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  452.543518][T17433] btree ptr not marked in member info btree allocated bitmap
+[  452.543556][T17433]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  452.581371][T17433] btree ptr not marked in member info btree allocated bitmap
+[  452.581409][T17433]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  452.627430][T17433] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  452.639133][T17433] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  452.678484][T17433]  done
+[  452.690626][T17433] bcachefs (loop1): going read-write
+[  452.707385][T17433] bcachefs (loop1): Fixed errors, running fsck a second time to verify fs is clean
+[  452.749024][T17433] bcachefs (loop1): done starting filesystem
+[  452.828033][  T711] bcachefs (loop1): shutting down
+[  452.829668][  T711] bcachefs (loop1): going read-only
+[  452.838217][  T711] bcachefs (loop1): finished waiting for writes to stop
+[  452.858496][  T711] bcachefs (loop1): flushing journal and stopping allocators, journal seq 10
+[  452.934226][T17505] loop6: detected capacity change from 0 to 32768
+[  453.009220][  T711] bcachefs (loop1): flushing journal and stopping allocators complete, journal seq 12
+[  453.038656][T17505] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  453.050027][T17505] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  453.058046][  T711] bcachefs (loop1): unshutdown complete, journal seq 13
+[  453.064962][  T711] bcachefs (loop1): done going read-only, filesystem not clean
+[  453.104786][  T711] bcachefs (loop1): shutdown complete
+[  453.218063][T17521] loop0: detected capacity change from 0 to 32768
+[  453.218607][T17505] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  453.242980][T17515] loop3: detected capacity change from 0 to 32768
+[  453.299669][T17517] loop5: detected capacity change from 0 to 32768
+[  453.457670][T17521] bcachefs (loop0): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  453.477377][T17523] loop7: detected capacity change from 0 to 32768
+[  453.479065][T17521] bcachefs (loop0): recovering from clean shutdown, journal seq 7
+[  453.490062][T17521] bcachefs (loop0): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  453.490062][T17521]   running recovery passes: check_allocations,check_inodes
+[  453.526481][T17521] bcachefs (loop0): error validating btree node on loop0 at btree inodes level 0/0
+[  453.526523][T17521]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  453.526567][T17521]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  453.571475][T17521] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  453.571580][T17521]   invalid variable length fields: delete?, fixing
+[  453.616397][T17521] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  453.677554][T17555] loop6: detected capacity change from 0 to 32768
+[  453.712151][T17517] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  453.715712][T17517] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  453.775935][T17523] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  453.778729][T17523] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  453.822572][T17521] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[  453.822612][T17521]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  453.822657][T17521]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  453.845076][T17521] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  453.845112][T17521]   gen 0 oldest_gen 0 data_type journal
+[  453.845139][T17521]   journal_seq       1
+[  453.845163][T17521]   need_discard      1
+[  453.845217][T17521]   need_inc_gen      1
+[  453.845241][T17521]   dirty_sectors     256
+[  453.845266][T17521]   stripe_sectors    0
+[  453.845289][T17521]   cached_sectors    0
+[  453.845313][T17521]   stripe            67108864
+[  453.845339][T17521]   stripe_redundancy 0
+[  453.845362][T17521]   io_time[READ]     1
+[  453.845386][T17521]   io_time[WRITE]    1
+[  453.845409][T17521]   fragmentation     0
+[  453.845433][T17521]   bp_start          8
+[  453.845457][T17521] 
+[  453.845477][T17521]   invalid data type (got 2 should be 7): delete?, fixing
+[  453.893547][T17521] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  453.893779][T17523] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  453.931947][T17517] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  453.971577][T17521] bcachefs (loop0): error validating btree node on loop0 at btree freespace level 0/0
+[  453.971631][T17521]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  453.971685][T17521]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  453.989555][T17515] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  453.989695][T17515] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  454.016518][T17555] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  454.019009][T17555] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  454.068746][T17555] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  454.076975][T17521] bcachefs (loop0): error validating btree node at btree freespace level 0/0
+[  454.077025][T17521]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  454.077081][T17521]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  454.095390][T17521] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  454.116011][T17521] bcachefs (loop0): accounting_read... done
+[  454.129185][T17521] bcachefs (loop0): alloc_read... done
+[  454.132302][T17521] bcachefs (loop0): stripes_read... done
+[  454.135093][T17521] bcachefs (loop0): snapshots_read... done
+[  454.138718][T17521] bcachefs (loop0): check_allocations...
+[  454.140225][T17515] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  454.151611][T17521] btree ptr not marked in member info btree allocated bitmap
+[  454.151659][T17521]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  454.200698][T17521] btree ptr not marked in member info btree allocated bitmap
+[  454.200742][T17521]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  454.254792][T17521] btree ptr not marked in member info btree allocated bitmap
+[  454.254831][T17521]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  454.285747][T17521] btree ptr not marked in member info btree allocated bitmap
+[  454.285800][T17521]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  454.317645][T17521] btree ptr not marked in member info btree allocated bitmap
+[  454.317693][T17521]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  454.358962][T17521] btree ptr not marked in member info btree allocated bitmap
+[  454.359000][T17521]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  454.386924][T17521] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  454.391467][T17521] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  454.405484][T17521]  done
+[  454.419297][T17521] bcachefs (loop0): going read-write
+[  454.426943][T17521] bcachefs (loop0): Fixed errors, running fsck a second time to verify fs is clean
+[  454.458963][T17521] bcachefs (loop0): done starting filesystem
+[  454.486746][T17574] loop1: detected capacity change from 0 to 32768
+[  454.559939][T17574] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  454.563312][T17574] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  454.595788][  T707] bcachefs (loop0): shutting down
+[  454.597376][  T707] bcachefs (loop0): going read-only
+[  454.608007][  T707] bcachefs (loop0): finished waiting for writes to stop
+[  454.619123][  T707] bcachefs (loop0): flushing journal and stopping allocators, journal seq 11
+[  454.643510][T17574] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  454.663251][  T707] bcachefs (loop0): flushing journal and stopping allocators complete, journal seq 13
+[  454.667802][  T707] bcachefs (loop0): unshutdown complete, journal seq 14
+[  454.684277][  T707] bcachefs (loop0): done going read-only, filesystem not clean
+[  454.727606][  T707] bcachefs (loop0): shutdown complete
+[  454.729180][T17578] loop3: detected capacity change from 0 to 32768
+[  454.972205][T17578] bcachefs (loop3): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  454.998348][T17578] bcachefs (loop3): recovering from clean shutdown, journal seq 7
+[  455.016061][T17578] bcachefs (loop3): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  455.016061][T17578]   running recovery passes: check_allocations,check_inodes
+[  455.030061][T17578] bcachefs (loop3): error validating btree node on loop3 at btree inodes level 0/0
+[  455.030100][T17578]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  455.030145][T17578]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  455.045997][T17578] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  455.046037][T17578]   invalid variable length fields: delete?, fixing
+[  455.053930][T17578] bcachefs (loop3): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  455.062450][T17578] bcachefs (loop3): error validating btree node on loop3 at btree alloc level 0/0
+[  455.062490][T17578]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  455.062536][T17578]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  455.074998][T17578] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  455.075032][T17578]   gen 0 oldest_gen 0 data_type journal
+[  455.075059][T17578]   journal_seq       1
+[  455.075084][T17578]   need_discard      1
+[  455.075108][T17578]   need_inc_gen      1
+[  455.075133][T17578]   dirty_sectors     256
+[  455.075158][T17578]   stripe_sectors    0
+[  455.075182][T17578]   cached_sectors    0
+[  455.075207][T17578]   stripe            67108864
+[  455.075232][T17578]   stripe_redundancy 0
+[  455.075257][T17578]   io_time[READ]     1
+[  455.075281][T17578]   io_time[WRITE]    1
+[  455.075305][T17578]   fragmentation     0
+[  455.075330][T17578]   bp_start          8
+[  455.075354][T17578] 
+[  455.075374][T17578]   invalid data type (got 2 should be 7): delete?, fixing
+[  455.107522][T17578] bcachefs (loop3): error validating btree node on loop3 at btree freespace level 0/0
+[  455.107563][T17578]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  455.107607][T17578]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  455.119707][T17578] bcachefs (loop3): error validating btree node at btree freespace level 0/0
+[  455.119744][T17578]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  455.119800][T17578]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  455.137395][T17578] bcachefs (loop3): accounting_read... done
+[  455.149553][T17578] bcachefs (loop3): alloc_read... done
+[  455.159739][T17578] bcachefs (loop3): stripes_read... done
+[  455.161731][T17578] bcachefs (loop3): snapshots_read... done
+[  455.163980][T17578] bcachefs (loop3): check_allocations...
+[  455.174739][T17578] btree ptr not marked in member info btree allocated bitmap
+[  455.174926][T17578]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  455.196653][T17578] btree ptr not marked in member info btree allocated bitmap
+[  455.196691][T17578]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  455.211439][T17578] btree ptr not marked in member info btree allocated bitmap
+[  455.211475][T17578]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  455.236935][T17578] btree ptr not marked in member info btree allocated bitmap
+[  455.236973][T17578]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  455.264341][T17598] loop1: detected capacity change from 0 to 32768
+[  455.267442][T17578] btree ptr not marked in member info btree allocated bitmap
+[  455.267480][T17578]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  455.296551][T17578] btree ptr not marked in member info btree allocated bitmap
+[  455.296599][T17578]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  455.312043][T17578] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  455.329291][T17578] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  455.346025][T17598] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  455.348750][T17598] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  455.367640][T17578]  done
+[  455.396253][T17578] bcachefs (loop3): going read-write
+[  455.415696][T17578] bcachefs (loop3): Fixed errors, running fsck a second time to verify fs is clean
+[  455.418687][T17605] loop0: detected capacity change from 0 to 32768
+[  455.450505][T17598] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  455.453201][T17578] bcachefs (loop3): done starting filesystem
+[  455.511037][T17605] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  455.518338][T17605] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  455.528805][  T723] bcachefs (loop3): shutting down
+[  455.543172][  T723] bcachefs (loop3): going read-only
+[  455.556010][  T723] bcachefs (loop3): finished waiting for writes to stop
+[  455.579372][  T723] bcachefs (loop3): flushing journal and stopping allocators, journal seq 10
+[  455.579648][T17605] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  455.637591][T17603] loop5: detected capacity change from 0 to 32768
+[  455.665810][  T723] bcachefs (loop3): flushing journal and stopping allocators complete, journal seq 12
+[  455.673790][  T723] bcachefs (loop3): unshutdown complete, journal seq 13
+[  455.679481][  T723] bcachefs (loop3): done going read-only, filesystem not clean
+[  455.718314][T17603] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  455.728047][T17603] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  455.729028][  T723] bcachefs (loop3): shutdown complete
+[  455.795048][T17616] loop7: detected capacity change from 0 to 32768
+[  455.827600][T17603] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  455.970749][T17607] loop6: detected capacity change from 0 to 32768
+[  456.104488][T17607] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  456.104595][T17616] bcachefs (loop7): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  456.110418][T17607] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  456.118806][T17616] bcachefs (loop7): recovering from clean shutdown, journal seq 7
+[  456.124258][T17616] bcachefs (loop7): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  456.124258][T17616]   running recovery passes: check_allocations,check_inodes
+[  456.140829][T17616] bcachefs (loop7): error validating btree node on loop7 at btree inodes level 0/0
+[  456.140951][T17616]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  456.140996][T17616]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  456.167298][T17616] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  456.167393][T17616]   invalid variable length fields: delete?, fixing
+[  456.180143][T17616] btree_node_read_work: 2 callbacks suppressed
+[  456.180173][T17616] bcachefs (loop7): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  456.203584][T17616] bcachefs (loop7): error validating btree node on loop7 at btree alloc level 0/0
+[  456.203625][T17616]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  456.203669][T17616]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  456.228353][T17607] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  456.241776][T17616] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  456.241812][T17616]   gen 0 oldest_gen 0 data_type journal
+[  456.241839][T17616]   journal_seq       1
+[  456.241989][T17616]   need_discard      1
+[  456.242014][T17616]   need_inc_gen      1
+[  456.242038][T17616]   dirty_sectors     256
+[  456.242062][T17616]   stripe_sectors    0
+[  456.242086][T17616]   cached_sectors    0
+[  456.242110][T17616]   stripe            67108864
+[  456.242135][T17616]   stripe_redundancy 0
+[  456.242159][T17616]   io_time[READ]     1
+[  456.242183][T17616]   io_time[WRITE]    1
+[  456.242207][T17616]   fragmentation     0
+[  456.242231][T17616]   bp_start          8
+[  456.242276][T17616] 
+[  456.242296][T17616]   invalid data type (got 2 should be 7): delete?, fixing
+[  456.271262][T17616] bcachefs (loop7): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  456.281376][T17616] bcachefs (loop7): error validating btree node on loop7 at btree freespace level 0/0
+[  456.281417][T17616]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  456.281463][T17616]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  456.293775][T17616] bcachefs (loop7): error validating btree node at btree freespace level 0/0
+[  456.293812][T17616]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  456.294034][T17616]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  456.308440][T17616] bcachefs (loop7): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  456.318497][T17616] bcachefs (loop7): accounting_read... done
+[  456.337607][T17616] bcachefs (loop7): alloc_read... done
+[  456.339582][T17616] bcachefs (loop7): stripes_read... done
+[  456.343152][T17616] bcachefs (loop7): snapshots_read... done
+[  456.345324][T17616] bcachefs (loop7): check_allocations...
+[  456.355681][T17616] btree ptr not marked in member info btree allocated bitmap
+[  456.355719][T17616]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  456.381358][T17616] btree ptr not marked in member info btree allocated bitmap
+[  456.381395][T17616]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  456.394663][T17616] btree ptr not marked in member info btree allocated bitmap
+[  456.394700][T17616]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  456.414111][T17616] btree ptr not marked in member info btree allocated bitmap
+[  456.414148][T17616]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  456.425621][T17616] btree ptr not marked in member info btree allocated bitmap
+[  456.425657][T17616]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  456.438781][T17616] btree ptr not marked in member info btree allocated bitmap
+[  456.438817][T17616]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  456.452426][T17616] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  456.457050][T17616] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  456.471564][T17616]  done
+[  456.478001][T17616] bcachefs (loop7): going read-write
+[  456.486533][T17616] bcachefs (loop7): Fixed errors, running fsck a second time to verify fs is clean
+[  456.503235][T17616] bcachefs (loop7): done starting filesystem
+[  456.524045][  T757] bcachefs (loop7): shutting down
+[  456.527143][  T757] bcachefs (loop7): going read-only
+[  456.531650][  T757] bcachefs (loop7): finished waiting for writes to stop
+[  456.558216][  T757] bcachefs (loop7): flushing journal and stopping allocators, journal seq 9
+[  456.579122][T17651] loop0: detected capacity change from 0 to 32768
+[  456.636362][T17651] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  456.643289][T17651] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  456.658183][  T757] bcachefs (loop7): flushing journal and stopping allocators complete, journal seq 11
+[  456.666416][  T757] bcachefs (loop7): unshutdown complete, journal seq 12
+[  456.670137][  T757] bcachefs (loop7): done going read-only, filesystem not clean
+[  456.711542][T17651] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  456.717356][  T757] bcachefs (loop7): shutdown complete
+[  456.800603][T17655] loop1: detected capacity change from 0 to 32768
+[  457.047782][T17655] bcachefs (loop1): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  457.062785][T17655] bcachefs (loop1): recovering from clean shutdown, journal seq 7
+[  457.064389][T17666] loop3: detected capacity change from 0 to 32768
+[  457.071155][T17655] bcachefs (loop1): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  457.071155][T17655]   running recovery passes: check_allocations,check_inodes
+[  457.095150][T17655] bcachefs (loop1): error validating btree node on loop1 at btree inodes level 0/0
+[  457.095191][T17655]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+2024/12/19 15:56:07 executed programs: 2076
+[  457.095235][T17655]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  457.114522][T17655] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  457.114563][T17655]   invalid variable length fields: delete?, fixing
+[  457.127156][T17655] bcachefs (loop1): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  457.129089][T17666] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  457.137075][T17666] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  457.143907][T17655] bcachefs (loop1): error validating btree node on loop1 at btree alloc level 0/0
+[  457.143947][T17655]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  457.143991][T17655]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  457.161526][T17655] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  457.161563][T17655]   gen 0 oldest_gen 0 data_type journal
+[  457.161590][T17655]   journal_seq       1
+[  457.161614][T17655]   need_discard      1
+[  457.161637][T17655]   need_inc_gen      1
+[  457.161662][T17655]   dirty_sectors     256
+[  457.161686][T17655]   stripe_sectors    0
+[  457.161709][T17655]   cached_sectors    0
+[  457.161733][T17655]   stripe            67108864
+[  457.161777][T17655]   stripe_redundancy 0
+[  457.161801][T17655]   io_time[READ]     1
+[  457.161825][T17655]   io_time[WRITE]    1
+[  457.161935][T17655]   fragmentation     0
+[  457.161959][T17655]   bp_start          8
+[  457.161983][T17655] 
+[  457.162004][T17655]   invalid data type (got 2 should be 7): delete?, fixing
+[  457.185316][T17666] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  457.205061][T17655] bcachefs (loop1): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  457.223127][T17655] bcachefs (loop1): error validating btree node on loop1 at btree freespace level 0/0
+[  457.223168][T17655]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  457.223274][T17655]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  457.246575][T17655] bcachefs (loop1): error validating btree node at btree freespace level 0/0
+[  457.246614][T17655]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  457.246658][T17655]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  457.267434][T17655] bcachefs (loop1): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  457.285559][T17655] bcachefs (loop1): accounting_read... done
+[  457.296122][T17655] bcachefs (loop1): alloc_read... done
+[  457.297979][T17655] bcachefs (loop1): stripes_read... done
+[  457.300226][T17655] bcachefs (loop1): snapshots_read... done
+[  457.302359][T17655] bcachefs (loop1): check_allocations...
+[  457.313386][T17655] btree ptr not marked in member info btree allocated bitmap
+[  457.313425][T17655]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  457.325540][T17655] btree ptr not marked in member info btree allocated bitmap
+[  457.325576][T17655]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  457.335414][T17655] btree ptr not marked in member info btree allocated bitmap
+[  457.335450][T17655]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  457.348180][T17655] btree ptr not marked in member info btree allocated bitmap
+[  457.348215][T17655]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  457.357537][T17655] btree ptr not marked in member info btree allocated bitmap
+[  457.357572][T17655]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  457.367625][T17655] btree ptr not marked in member info btree allocated bitmap
+[  457.367660][T17655]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  457.379930][T17655] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  457.382358][T17675] loop0: detected capacity change from 0 to 32768
+[  457.385504][T17655] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  457.402563][T17655]  done
+[  457.413622][T17655] bcachefs (loop1): going read-write
+[  457.423638][T17655] bcachefs (loop1): Fixed errors, running fsck a second time to verify fs is clean
+[  457.443121][T17655] bcachefs (loop1): done starting filesystem
+[  457.450121][T17675] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  457.459958][T17675] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  457.470673][  T711] bcachefs (loop1): shutting down
+[  457.479102][  T711] bcachefs (loop1): going read-only
+[  457.483021][  T711] bcachefs (loop1): finished waiting for writes to stop
+[  457.546926][  T711] bcachefs (loop1): flushing journal and stopping allocators, journal seq 9
+[  457.581638][T17675] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  457.668318][  T711] bcachefs (loop1): flushing journal and stopping allocators complete, journal seq 12
+[  457.692326][  T711] bcachefs (loop1): unshutdown complete, journal seq 13
+[  457.696659][  T711] bcachefs (loop1): done going read-only, filesystem not clean
+[  457.741819][  T711] bcachefs (loop1): shutdown complete
+[  458.030680][T17698] loop0: detected capacity change from 0 to 32768
+[  458.295429][T17712] loop3: detected capacity change from 0 to 32768
+[  458.532131][T17708] loop7: detected capacity change from 0 to 32768
+[  458.533616][T17712] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  458.538073][T17698] bcachefs (loop0): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  458.551989][T17712] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  458.579287][T17698] bcachefs (loop0): recovering from clean shutdown, journal seq 7
+[  458.588982][T17698] bcachefs (loop0): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  458.588982][T17698]   running recovery passes: check_allocations,check_inodes
+[  458.621832][T17708] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  458.625129][T17708] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  458.642673][T17698] bcachefs (loop0): error validating btree node on loop0 at btree inodes level 0/0
+[  458.642714][T17698]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  458.642776][T17698]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  458.674500][T17708] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  458.725777][T17698] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  458.725817][T17698]   invalid variable length fields: delete?, fixing
+[  458.734390][T17712] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  458.758365][T17698] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  458.809219][T17698] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[  458.809261][T17698]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  458.809306][T17698]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  458.849116][T17698] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  458.849153][T17698]   gen 0 oldest_gen 0 data_type journal
+[  458.849180][T17698]   journal_seq       1
+[  458.849205][T17698]   need_discard      1
+[  458.849228][T17698]   need_inc_gen      1
+[  458.849252][T17698]   dirty_sectors     256
+[  458.849276][T17698]   stripe_sectors    0
+[  458.849301][T17698]   cached_sectors    0
+[  458.849324][T17698]   stripe            67108864
+[  458.849350][T17698]   stripe_redundancy 0
+[  458.849373][T17698]   io_time[READ]     1
+[  458.849398][T17698]   io_time[WRITE]    1
+[  458.849422][T17698]   fragmentation     0
+[  458.849445][T17698]   bp_start          8
+[  458.849470][T17698] 
+[  458.849489][T17698]   invalid data type (got 2 should be 7): delete?, fixing
+[  458.935172][T17715] loop1: detected capacity change from 0 to 32768
+[  458.936696][T17698] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  459.014571][T17715] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  459.020028][T17715] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  459.024578][T17698] bcachefs (loop0): error validating btree node on loop0 at btree freespace level 0/0
+[  459.024618][T17698]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  459.024663][T17698]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  459.093495][T17711] loop5: detected capacity change from 0 to 32768
+[  459.093840][T17715] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  459.120657][T17698] bcachefs (loop0): error validating btree node at btree freespace level 0/0
+[  459.120695][T17698]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  459.120748][T17698]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  459.181382][T17698] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  459.198419][T17713] loop6: detected capacity change from 0 to 32768
+[  459.230066][T17698] bcachefs (loop0): accounting_read...
+[  459.241266][T17711] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  459.250275][T17698]  done
+[  459.262761][T17698] bcachefs (loop0): alloc_read... done
+[  459.267136][T17698] bcachefs (loop0): stripes_read... done
+[  459.280325][T17711] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  459.293950][T17698] bcachefs (loop0): snapshots_read... done
+[  459.306373][T17739] loop7: detected capacity change from 0 to 32768
+[  459.338044][T17698] bcachefs (loop0): check_allocations...
+[  459.370163][T17698] btree ptr not marked in member info btree allocated bitmap
+[  459.370226][T17698]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  459.424205][T17739] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  459.424324][T17739] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  459.502698][T17711] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  459.532223][T17739] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  459.544967][T17713] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  459.545060][T17713] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  459.649767][T17698] btree ptr not marked in member info btree allocated bitmap
+[  459.649806][T17698]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  459.764026][T17698] btree ptr not marked in member info btree allocated bitmap
+[  459.764064][T17698]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  459.846381][T17698] btree ptr not marked in member info btree allocated bitmap
+[  459.846419][T17698]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  459.864356][T17747] loop3: detected capacity change from 0 to 32768
+[  459.870151][T17713] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  459.919991][T17698] btree ptr not marked in member info btree allocated bitmap
+[  459.920030][T17698]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  459.947018][T17768] loop1: detected capacity change from 0 to 32768
+[  459.970789][T17747] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  459.971034][T17747] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  460.023198][T17768] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  460.023313][T17768] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  460.102460][T17747] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  460.109507][T17698] btree ptr not marked in member info btree allocated bitmap
+[  460.109547][T17698]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  460.178719][T17698] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  460.212125][T17698] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  460.235362][T17768] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  460.280656][T17698]  done
+[  460.303810][T17698] bcachefs (loop0): going read-write
+[  460.333516][T17698] bcachefs (loop0): Fixed errors, running fsck a second time to verify fs is clean
+[  460.364030][T17698] bcachefs (loop0): done starting filesystem
+[  460.408986][  T707] bcachefs (loop0): shutting down
+[  460.416144][T17778] loop5: detected capacity change from 0 to 32768
+[  460.420596][  T707] bcachefs (loop0): going read-only
+[  460.430534][  T707] bcachefs (loop0): finished waiting for writes to stop
+[  460.455023][  T707] bcachefs (loop0): flushing journal and stopping allocators, journal seq 8
+[  460.540096][T17778] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  460.544098][T17778] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  460.548177][  T707] bcachefs (loop0): flushing journal and stopping allocators complete, journal seq 11
+[  460.563967][  T707] bcachefs (loop0): unshutdown complete, journal seq 12
+[  460.567557][  T707] bcachefs (loop0): done going read-only, filesystem not clean
+[  460.588075][T17778] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  460.624202][  T707] bcachefs (loop0): shutdown complete
+[  460.770468][T17777] loop7: detected capacity change from 0 to 32768
+[  460.841328][T17796] loop6: detected capacity change from 0 to 32768
+[  460.966031][T17800] loop3: detected capacity change from 0 to 32768
+[  460.971265][T17810] loop1: detected capacity change from 0 to 32768
+[  461.048602][T17777] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  461.049312][T17796] bcachefs (loop6): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  461.058503][T17777] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  461.059512][T17796] bcachefs (loop6): recovering from clean shutdown, journal seq 7
+[  461.067095][T17796] bcachefs (loop6): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  461.067095][T17796]   running recovery passes: check_allocations,check_inodes
+[  461.091594][T17796] bcachefs (loop6): error validating btree node on loop6 at btree inodes level 0/0
+[  461.091641][T17796]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  461.091692][T17796]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  461.132477][T17796] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  461.132519][T17796]   invalid variable length fields: delete?, fixing
+[  461.157295][T17796] bcachefs (loop6): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  461.170992][T17796] bcachefs (loop6): error validating btree node on loop6 at btree alloc level 0/0
+[  461.171033][T17796]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  461.171077][T17796]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  461.173602][T17800] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  461.188504][T17796] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  461.188554][T17796]   gen 0 oldest_gen 0 data_type journal
+[  461.188588][T17796]   journal_seq       1
+[  461.188618][T17796]   need_discard      1
+[  461.188649][T17796]   need_inc_gen      1
+[  461.188678][T17796]   dirty_sectors     256
+[  461.188730][T17796]   stripe_sectors    0
+[  461.188759][T17796]   cached_sectors    0
+[  461.188788][T17796]   stripe            67108864
+[  461.188820][T17796]   stripe_redundancy 0
+[  461.188954][T17796]   io_time[READ]     1
+[  461.188985][T17796]   io_time[WRITE]    1
+[  461.189016][T17796]   fragmentation     0
+[  461.189294][T17796]   bp_start          8
+[  461.189326][T17796] 
+[  461.189353][T17796]   invalid data type (got 2 should be 7): delete?, fixing
+[  461.199184][T17810] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  461.200496][T17796] bcachefs (loop6): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  461.213688][T17810] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  461.232138][T17800] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  461.239224][T17796] bcachefs (loop6): error validating btree node on loop6 at btree freespace level 0/0
+[  461.239278][T17796]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  461.239332][T17796]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  461.257402][T17796] bcachefs (loop6): error validating btree node at btree freespace level 0/0
+[  461.257450][T17796]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  461.257506][T17796]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  461.267715][T17777] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  461.272665][T17796] bcachefs (loop6): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  461.281159][T17810] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  461.288555][T17796] bcachefs (loop6): accounting_read... done
+[  461.302423][T17796] bcachefs (loop6): alloc_read... done
+[  461.304542][T17796] bcachefs (loop6): stripes_read... done
+[  461.322160][T17796] bcachefs (loop6): snapshots_read... done
+[  461.345086][T17796] bcachefs (loop6): check_allocations...
+[  461.360960][T17796] btree ptr not marked in member info btree allocated bitmap
+[  461.361001][T17796]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  461.389553][T17796] btree ptr not marked in member info btree allocated bitmap
+[  461.389600][T17796]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  461.401351][T17800] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  461.413005][T17796] btree ptr not marked in member info btree allocated bitmap
+[  461.413052][T17796]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  461.439582][T17796] btree ptr not marked in member info btree allocated bitmap
+[  461.439622][T17796]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  461.454169][T17796] btree ptr not marked in member info btree allocated bitmap
+[  461.454230][T17796]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  461.495491][T17796] btree ptr not marked in member info btree allocated bitmap
+[  461.495529][T17796]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  461.507624][T17796] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  461.515445][T17796] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  461.541137][T17796]  done
+[  461.548136][T17796] bcachefs (loop6): going read-write
+[  461.561158][T17796] bcachefs (loop6): Fixed errors, running fsck a second time to verify fs is clean
+[  461.567151][T17796] bcachefs (loop6): done starting filesystem
+[  461.595439][T17817] loop5: detected capacity change from 0 to 32768
+[  461.609152][  T746] bcachefs (loop6): shutting down
+[  461.611307][  T746] bcachefs (loop6): going read-only
+[  461.641941][  T746] bcachefs (loop6): finished waiting for writes to stop
+[  461.662110][T17817] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  461.668043][T17817] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  461.682228][  T746] bcachefs (loop6): flushing journal and stopping allocators, journal seq 8
+[  461.718340][T17817] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  461.897647][T17846] loop0: detected capacity change from 0 to 32768
+[  461.922231][  T746] bcachefs (loop6): flushing journal and stopping allocators complete, journal seq 11
+[  461.958128][  T746] bcachefs (loop6): unshutdown complete, journal seq 12
+[  461.961382][  T746] bcachefs (loop6): done going read-only, filesystem not clean
+[  461.987244][  T746] bcachefs (loop6): shutdown complete
+[  462.158584][T17846] bcachefs (loop0): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  462.181155][T17846] bcachefs (loop0): recovering from clean shutdown, journal seq 7
+[  462.189161][T17846] bcachefs (loop0): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  462.189161][T17846]   running recovery passes: check_allocations,check_inodes
+2024/12/19 15:56:12 executed programs: 2120
+[  462.235018][T17846] bcachefs (loop0): error validating btree node on loop0 at btree inodes level 0/0
+[  462.235060][T17846]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  462.235105][T17846]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  462.260501][T17846] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  462.260553][T17846]   invalid variable length fields: delete?, fixing
+[  462.268237][T17846] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  462.279741][T17846] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[  462.279793][T17846]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  462.279950][T17846]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  462.296090][T17846] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  462.296135][T17846]   gen 0 oldest_gen 0 data_type journal
+[  462.296170][T17846]   journal_seq       1
+[  462.296200][T17846]   need_discard      1
+[  462.296231][T17846]   need_inc_gen      1
+[  462.296260][T17846]   dirty_sectors     256
+[  462.296291][T17846]   stripe_sectors    0
+[  462.296321][T17846]   cached_sectors    0
+[  462.296352][T17846]   stripe            67108864
+[  462.296384][T17846]   stripe_redundancy 0
+[  462.296415][T17846]   io_time[READ]     1
+[  462.296446][T17846]   io_time[WRITE]    1
+[  462.296476][T17846]   fragmentation     0
+[  462.296507][T17846]   bp_start          8
+[  462.296537][T17846] 
+[  462.296562][T17846]   invalid data type (got 2 should be 7): delete?, fixing
+[  462.330378][T17846] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  462.343749][T17846] bcachefs (loop0): error validating btree node on loop0 at btree freespace level 0/0
+[  462.343802][T17846]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  462.344028][T17846]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  462.362939][T17846] bcachefs (loop0): error validating btree node at btree freespace level 0/0
+[  462.362988][T17846]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  462.363044][T17846]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  462.378622][T17846] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  462.388424][T17846] bcachefs (loop0): accounting_read... done
+[  462.399030][T17846] bcachefs (loop0): alloc_read... done
+[  462.404043][T17846] bcachefs (loop0): stripes_read... done
+[  462.407968][T17846] bcachefs (loop0): snapshots_read... done
+[  462.411639][T17846] bcachefs (loop0): check_allocations...
+[  462.441578][T17846] btree ptr not marked in member info btree allocated bitmap
+[  462.441619][T17846]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  462.480563][T17846] btree ptr not marked in member info btree allocated bitmap
+[  462.480671][T17846]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  462.494251][T17846] btree ptr not marked in member info btree allocated bitmap
+[  462.494289][T17846]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  462.511161][T17846] btree ptr not marked in member info btree allocated bitmap
+[  462.511198][T17846]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7675f41d391e5d36 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[  462.522302][T17846] btree ptr not marked in member info btree allocated bitmap
+[  462.522339][T17846]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq bcb9905dfb2993d5 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[  462.534953][T17846] btree ptr not marked in member info btree allocated bitmap
+[  462.534990][T17846]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[  462.551789][T17846] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[  462.553290][T17862] loop7: detected capacity change from 0 to 32768
+[  462.569034][T17846] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[  462.593987][T17846]  done
+[  462.614388][T17846] bcachefs (loop0): going read-write
+[  462.618990][T17862] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  462.628099][T17862] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  462.631773][T17846] bcachefs (loop0): Fixed errors, running fsck a second time to verify fs is clean
+[  462.662838][T17848] loop1: detected capacity change from 0 to 32768
+[  462.667094][T17846] bcachefs (loop0): done starting filesystem
+[  462.769525][  T707] bcachefs (loop0): shutting down
+[  462.773202][  T707] bcachefs (loop0): going read-only
+[  462.778042][  T707] bcachefs (loop0): finished waiting for writes to stop
+[  462.800376][  T707] bcachefs (loop0): flushing journal and stopping allocators, journal seq 9
+[  462.825243][T17874] loop5: detected capacity change from 0 to 32768
+[  462.881601][T17848] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  462.894021][T17848] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  462.898536][  T707] bcachefs (loop0): flushing journal and stopping allocators complete, journal seq 12
+[  462.908391][  T707] bcachefs (loop0): unshutdown complete, journal seq 13
+[  462.913147][  T707] bcachefs (loop0): done going read-only, filesystem not clean
+[  462.915521][T17872] loop3: detected capacity change from 0 to 32768
+[  463.038531][T17862] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  463.044315][T17874] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  463.047712][T17872] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  463.051976][T17872] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  463.061004][T17874] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  463.071542][  T707] bcachefs (loop0): shutdown complete
+[  463.110359][T17879] loop6: detected capacity change from 0 to 32768
+[  463.250646][T17872] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  463.264745][T17848] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  463.506787][T17874] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  463.526637][T17879] bcachefs (loop6): starting version 1.7: mi_btree_bitmap opts=errors=continue,compression=lz4,norecovery,recovery_pass_last=journal_replay,nojournal_transaction_names,nocow
+[  463.548136][T17879] bcachefs (loop6): recovering from clean shutdown, journal seq 7
+[  463.563093][T17879] bcachefs (loop6): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[  463.563093][T17879]   running recovery passes: check_allocations,check_inodes
+[  463.591517][T17879] bcachefs (loop6): error validating btree node on loop6 at btree inodes level 0/0
+[  463.591559][T17879]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  463.591603][T17879]   node offset 16/24 bset u64s 110: checksum error, type crc32c_nonzero: got 71d1ed47 should be 08a3f5a5, fixing
+[  463.627410][T17879] invalid bkey u64s 18 type inode_v3 0:1073741824:U32_MAX len 0 ver 0: (unpack error)
+[  463.627451][T17879]   invalid variable length fields: delete?, fixing
+[  463.649076][T17879] bcachefs (loop6): btree_node_read_work: rewriting btree node at btree=inodes level=0 SPOS_MAX due to error
+[  463.682275][T17879] bcachefs (loop6): error validating btree node on loop6 at btree alloc level 0/0
+[  463.682318][T17879]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[  463.682362][T17879]   node offset 8/32 bset u64s 375: checksum error, type crc32c_nonzero: got 6ceb3c57 should be 1bdb8771, fixing
+[  463.722591][T17879] invalid bkey u64s 11 type alloc_v4 0:14:0 len 0 ver 0: 
+[  463.722628][T17879]   gen 0 oldest_gen 0 data_type journal
+[  463.722656][T17879]   journal_seq       1
+[  463.722699][T17879]   need_discard      1
+[  463.722723][T17879]   need_inc_gen      1
+[  463.722747][T17879]   dirty_sectors     256
+[  463.722772][T17879]   stripe_sectors    0
+[  463.722795][T17879]   cached_sectors    0
+[  463.722819][T17879]   stripe            67108864
+[  463.722965][T17879]   stripe_redundancy 0
+[  463.722989][T17879]   io_time[READ]     1
+[  463.723013][T17879]   io_time[WRITE]    1
+[  463.723037][T17879]   fragmentation     0
+[  463.723061][T17879]   bp_start          8
+[  463.723084][T17879] 
+[  463.723104][T17879]   invalid data type (got 2 should be 7): delete?, fixing
+[  463.794754][T17922] loop7: detected capacity change from 0 to 32768
+[  463.833606][T17879] bcachefs (loop6): btree_node_read_work: rewriting btree node at btree=alloc level=0 SPOS_MAX due to error
+[  463.870062][T17879] bcachefs (loop6): error validating btree node on loop6 at btree freespace level 0/0
+[  463.870104][T17879]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  463.870175][T17879]   node offset 8/32 bset u64s 35: checksum error, type crc32c_nonzero: got c358c5c0 should be d5280583, fixing
+[  463.946489][T17879] bcachefs (loop6): error validating btree node at btree freespace level 0/0
+[  463.946527][T17879]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 9a831b4a3f983356 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[  463.946572][T17879]   node offset 8/32 bset u64s 35 bset byte offset 280: keys out of order: u64s 5 type set 0:16425:0 len 2 ver 0 > u64s 5 type set 0:120:0 len 78 ver 0, fixing
+[  464.020012][T17932] loop1: detected capacity change from 0 to 32768
+[  464.025148][T17879] bcachefs (loop6): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[  464.027297][T17930] loop0: detected capacity change from 0 to 32768
+[  464.055566][T17879] bcachefs (loop6): accounting_read...
+[  464.063300][T17922] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  464.066821][T17929] loop3: detected capacity change from 0 to 32768
+[  464.070997][T17879]  done
+[  464.077778][T17879] bcachefs (loop6): alloc_read... done
+[  464.081603][T17922] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  464.087469][T17879] bcachefs (loop6): stripes_read... done
+[  464.089610][T17879] bcachefs (loop6): snapshots_read... done
+[  464.091699][T17879] bcachefs (loop6): check_allocations...
+[  464.111752][T17879] btree ptr not marked in member info btree allocated bitmap
+[  464.111791][T17879]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 75277f57b0c8c24 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0, fixing
+[  464.165392][T17922] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  464.169547][T17879] btree ptr not marked in member info btree allocated bitmap
+[  464.169585][T17879]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 19bc58a6c09b6540 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[  464.213439][T17930] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  464.213537][T17930] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  464.217081][   T45] INFO: task syz-executor:710 blocked for more than 143 seconds.
+[  464.225082][T17929] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  464.225752][   T45]       Not tainted 6.13.0-rc3 #5
+[  464.229179][T17929] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  464.232398][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  464.232432][   T45] task:syz-executor    state:D stack:18640 pid:710   tgid:710   ppid:1      flags:0x00004006
+[  464.232619][   T45] Call Trace:
+[  464.232642][   T45]  <TASK>
+[  464.247325][   T45]  __schedule+0xe60/0x4120
+[  464.250044][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  464.253283][   T45]  ? __pfx___schedule+0x10/0x10
+[  464.255468][   T45]  ? schedule+0x19d/0x210
+[  464.260031][   T45]  ? __pfx_lock_release+0x10/0x10
+[  464.262332][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  464.264963][   T45]  schedule+0xd4/0x210
+[  464.266966][   T45]  schedule_timeout+0x239/0x280
+[  464.268934][   T45]  ? __pfx_schedule_timeout+0x10/0x10
+[  464.271346][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  464.273805][   T45]  ? mark_held_locks+0x9e/0xe0
+[  464.275916][   T45]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  464.278284][   T45]  ? _raw_spin_unlock_irq+0x23/0x50
+[  464.280539][   T45]  ? _raw_spin_unlock_irq+0x23/0x50
+[  464.282804][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  464.285506][   T45]  wait_for_completion+0x181/0x2a0
+[  464.287793][   T45]  ? __pfx_wait_for_completion+0x10/0x10
+[  464.290183][   T45]  ? _raw_spin_unlock_irq+0x23/0x50
+[  464.292480][   T45]  ? _raw_spin_unlock_irq+0x23/0x50
+[  464.294798][   T45]  srcu_barrier+0x47b/0x810
+[  464.296967][   T45]  rcu_pending_exit+0x5de/0xa30
+[  464.299224][   T45]  bch2_fs_btree_key_cache_exit+0x8d8/0xad0
+[  464.301814][   T45]  ? __pfx_bch2_fs_btree_key_cache_exit+0x10/0x10
+[  464.304442][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  464.306943][   T45]  ? mempool_exit+0x122/0x1c0
+[  464.308813][   T45]  bch2_fs_release+0x10f/0x8e0
+[  464.310777][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  464.312944][   T45]  kobject_put+0x1b2/0x4c0
+[  464.314576][   T45]  deactivate_locked_super+0xbb/0x130
+[  464.316639][   T45]  deactivate_super+0xb1/0xd0
+[  464.318300][   T45]  cleanup_mnt+0x378/0x510
+[  464.319528][T17932] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): filesystem UUID already open
+[  464.327266][   T45]  task_work_run+0x173/0x280
+[  464.334494][   T45]  ? __pfx_task_work_run+0x10/0x10
+[  464.336690][   T45]  ? syscall_exit_to_user_mode+0x1b4/0x270
+[  464.343497][   T45]  syscall_exit_to_user_mode+0x261/0x270
+[  464.345767][   T45]  do_syscall_64+0xd0/0x1d0
+[  464.347768][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  464.358961][   T45] RIP: 0033:0x7fa9c55e608b
+[  464.361211][   T45] RSP: 002b:00007fffa84c3578 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+[  464.372089][   T45] RAX: 0000000000000000 RBX: 0000000000000000 RCX: 00007fa9c55e608b
+[  464.375087][   T45] RDX: 00007fa9c5480c50 RSI: 0000000000000009 RDI: 00007fffa84c3640
+[  464.377986][   T45] RBP: 00007fffa84c3640 R08: 00007fa9c5658095 R09: 00007fffa84c3400
+[  464.380837][   T45] R10: 00000000fffffffb R11: 0000000000000246 R12: 00007fa9c5658071
+[  464.389189][   T45] R13: 00007fffa84c46e0 R14: 0000555573f318f0 R15: 00007fffa84c4720
+[  464.392643][   T45]  </TASK>
+[  464.396007][T17932] bcachefs (1e246536-b1b3-4f86-83c2-3dfcc2979a4c): shutdown complete
+[  464.421975][T17879] btree ptr not marked in member info btree allocated bitmap
+[  464.422017][T17879]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c18f4a4face03c6 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[  464.445000][   T45] 
+[  464.445000][   T45] Showing all locks held in the system:
+[  464.447562][   T45] 1 lock held by khungtaskd/45:
+[  464.449190][   T45]  #0: ffffffffae51ae20 (rcu_read_lock){....}-{1:3}, at: debug_show_all_locks+0x75/0x340
+[  464.452567][   T45] 1 lock held by kswapd0/82:
+[  464.454181][   T45] 1 lock held by systemd-journal/221:
+[  464.456067][   T45]  #0: ff1100000caa4068 (mapping.invalidate_lock){++++}-{4:4}, at: filemap_fault+0x17c1/0x2ec0
+[  464.459293][   T45] 1 lock held by in:imklog/326:
+[  464.460789][   T45]  #0: ff110000033d77b8 (&f->f_pos_lock){+.+.}-{4:4}, at: fdget_pos+0x27d/0x390
+[  464.463583][   T45] 3 locks held by rs:main Q:Reg/327:
+[  464.465201][   T45] 1 lock held by syz-execprog/420:
+[  464.466766][   T45] 1 lock held by syz-execprog/423:
+[  464.470181][   T45]  #0: ff11000008f3a808 (&vma->vm_lock->lock){++++}-{4:4}, at: lock_vma_under_rcu+0x141/0x800
+[  464.474791][   T45] 1 lock held by syz-executor/710:
+[  464.476975][   T45]  #0: ff11000023192240 (&ssp->srcu_sup->srcu_barrier_mutex){+.+.}-{4:4}, at: srcu_barrier+0xd7/0x810
+[  464.493045][T17930] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  464.498763][   T45] 5 locks held by syz.6.2119/17879:
+[  464.498809][   T45]  #0: ff1100001ca00278 (&c->state_lock
+[  464.507357][T17935] loop5: detected capacity change from 0 to 32768
+[  464.512176][   T45] ){+.+.}-{4:4}, at: bch2_fs_start+0x3f/0x610
+[  464.512296][   T45]  #1: ff1100001ca266d0 (&c->gc_lock){++++}-{4:4}, at: bch2_check_allocations+0x7c/0x26b0
+[  464.512460][T17929] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  464.512489][   T45]  #2: ff1100001ca04398 (&c->btree_trans_barrier){.+.+}-{0:0}, at: bch2_btree_path_traverse_one+0x2a69/0x35b0
+[  464.512700][   T45]  #3: ff11000022e68128 (bcachefs_btree){+.+.}-{0:0}, at: bch2_trans_begin+0xd9f/0x20c0
+[  464.523787][T17932] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  464.526276][   T45]  #4: ff1100001ca049d0 (&c->mark_lock){++++}-{0:0}, at: bch2_accounting_mem_insert+0x2c9/0x1260
+[  464.546260][   T45] 1 lock held by syz.1.2132/17932:
+[  464.551244][   T45] 2 locks held by syz.5.2133/17935:
+[  464.553201][   T45]  #0: ff1100001b100908 (&c->sb_lock){+.+.}-{4:4}, at: bch2_fs_alloc+0xe55/0x2bb0
+[  464.556622][   T45]  #1: ff1100001b1049d0 (&c->mark_lock){++++}-{0:0}, at: bch2_sb_replicas_to_cpu_replicas+0x11c/0x310
+[  464.560624][   T45] 2 locks held by syz.9.2134/17966:
+[  464.562426][   T45] 1 lock held by syz.8.2135/17967:
+[  464.564452][   T45] 
+[  464.565727][   T45] =============================================
+[  464.565727][   T45] 
+[  464.568947][   T45] Kernel panic - not syncing: hung_task: blocked tasks
+[  464.569874][   T45] CPU: 2 UID: 0 PID: 45 Comm: khungtaskd Not tainted 6.13.0-rc3 #5
+[  464.569874][   T45] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  464.569874][   T45] Call Trace:
+[  464.569874][   T45]  <TASK>
+[  464.569874][   T45]  dump_stack_lvl+0x3d/0x1b0
+[  464.569874][   T45]  panic+0x70b/0x7c0
+[  464.569874][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  464.569874][   T45]  ? __pfx_panic+0x10/0x10
+[  464.569874][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  464.569874][   T45]  ? watchdog+0xb29/0x11c0
+[  464.569874][   T45]  watchdog+0xb47/0x11c0
+[  464.569874][   T45]  ? __pfx_watchdog+0x10/0x10
+[  464.569874][   T45]  kthread+0x345/0x450
+[  464.569874][   T45]  ? __pfx_kthread+0x10/0x10
+[  464.569874][   T45]  ret_from_fork+0x48/0x80
+[  464.569874][   T45]  ? __pfx_kthread+0x10/0x10
+[  464.569874][   T45]  ret_from_fork_asm+0x1a/0x30
+[  464.600384][   T45]  </TASK>
+[  464.600384][   T45] Kernel Offset: 0x22a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[  464.600384][   T45] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+23:56:15  Registers:
+info registers vcpu 0
+RAX=0000000000000000 RBX=1ff4000000064f9d RCX=ffffffffa3ea5317 RDX=0000000000000001
+RSI=ff1100000215c680 RDI=0000000000000002 RBP=0000000000000001 RSP=ffa0000000327ce0
+R8 =0000000000000000 R9 =fffffbfff6c5ead6 R10=fffffbfff6c5ead5 R11=ffffffffb62f56af
+R12=000000000000001f R13=0000000000000200 R14=ff110000373e2340 R15=0000000000000000
+RIP=ffffffffa3ea5307 RFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff1100006a200000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe7c27c02000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe7c27c00000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007efd7ffae000 CR3=0000000022794006 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=000000000000000000000000000000ff XMM01=25252525252525252525252525252525
+XMM02=00007efd88a6f31800007efd88a6f2f0 XMM03=00000000000000000000000000000000
+XMM04=000000000000000000000000000000ff XMM05=00007efd88a6f2f800007efd88a6f340
+XMM06=00007efd88a6f33800007efd88a6f330 XMM07=00007efd88a6f32800007efd88a6f320
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 1
+RAX=ffffffffa7ff6c90 RBX=ff110000086f02c0 RCX=0000000000000000 RDX=1ffffffff5e6a924
+RSI=0000000000000000 RDI=ff110000086f03b8 RBP=ffffffffaf354880 RSP=ffa0000003af7920
+R8 =0000000000000000 R9 =ff110000086f04ac R10=ffe21c00010de099 R11=ff110000086f04cb
+R12=0000000000000000 R13=ff11000008c66000 R14=ff11000008c66000 R15=ff11000008c86000
+RIP=ffffffffa7ff6c94 RFL=00000246 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff1100006a280000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe6894d33000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe6894d31000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=000000c0026cbfa8 CR3=0000000008f98003 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=000000000000000000006c696146002f XMM01=0000000000000000000000000064002f
+XMM02=ffffffffffffffffffffffffff0f0e0d XMM03=6572206f742064656c69614600737973
+XMM04=0000000000000000000000000000002c XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=20202020000000000000000000000000 XMM09=ffffffff000000000000000000000000
+XMM10=20202020000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 2
+RAX=dffffc0000000000 RBX=0000000000000000 RCX=ffd4000000d17a88 RDX=ffd4000000d17ac8
+RSI=ffd4000000d17ac8 RDI=ffd4000000d17ad0 RBP=00000000000000bd RSP=ffa0000003b777b0
+R8 =fff3fc000076eee8 R9 =fff3fc000076eee9 R10=fff3fc000076eee8 R11=0000000000000003
+R12=ffd4000000d17ac0 R13=ffd4000000d17ac8 R14=dffffc0000000000 R15=ff1100006a341cc0
+RIP=ffffffffa6c60a61 RFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff1100006a300000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe2472d99000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe2472d97000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=000000c0070e8000 CR3=000000001b002004 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000009896800000000000000000 XMM01=00000000000000000000000000989680
+XMM02=00000000000000000000000000000000 XMM03=00000000000000000000000000000000
+XMM04=00ff00000000000000ff000000000000 XMM05=00000000000000000000000000000000
+XMM06=0000000000000000000000524f525245 XMM07=00000000000000000000000000000000
+XMM08=000000000000000000524f5252450040 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 3
+RAX=0000000000000000 RBX=1ff4000000786e3f RCX=ffffffffa3ea5317 RDX=0000000000000001
+RSI=ff110000373e2340 RDI=0000000000000002 RBP=0000000000000001 RSP=ffa0000003c371f0
+R8 =0000000000000000 R9 =fffffbfff6c5ead6 R10=fffffbfff6c5ead5 R11=ffffffffb62f56af
+R12=0000000000000042 R13=0000000000000200 R14=ff1100000215c680 R15=0000000000000000
+RIP=ffffffffa3ea5307 RFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007f71cea06700 00000000 00000000
+GS =0000 ff1100006a380000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe0b98abc000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0b98aba000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f08dd1bba8c CR3=00000000592e2002 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000009896800000000000000000 XMM01=00000000000000000000000000989680
+XMM02=00000000000000000000000000000000 XMM03=00000000000000000000000000000000
+XMM04=00ff00000000000000ff000000000000 XMM05=00000000000000000000000000000000
+XMM06=0000000000000000000000524f525245 XMM07=00000000000000000000000000000000
+XMM08=000000000000000000524f5252450040 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

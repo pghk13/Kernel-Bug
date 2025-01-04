@@ -1,0 +1,1857 @@
+Warning: Permanently added '[localhost]:51004' (ECDSA) to the list of known hosts.
+[   84.547523][   T44] audit: type=1400 audit(1734619244.245:10): avc:  denied  { execmem } for  pid=420 comm="syz-executor142" scontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tcontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tclass=process permissive=1
+executing program
+[   84.773592][  T421] loop0: detected capacity change from 0 to 32768
+[   84.845503][  T421] bcachefs (loop0): starting version 1.7: mi_btree_bitmap opts=errors=continue,metadata_checksum=none,data_checksum=none,nojournal_transaction_names
+[   84.850254][  T421] bcachefs (loop0): recovering from clean shutdown, journal seq 10
+[   84.855228][  T421] bcachefs (loop0): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[   84.855228][  T421]   running recovery passes: check_allocations,check_inodes
+[   84.873561][  T421] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   84.873607][  T421]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   84.873658][  T421]   node offset 0/32 bset u64s 0: checksum error, type chacha20_poly1305_128: got f77931e9593bf647aa8fec5bf6021736 should be 4d6ef06fa123b3893965c96f48b0ee06, fixing
+[   84.886253][  T421] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   84.886290][  T421]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   84.886518][  T421]   node offset 24/32 bset u64s 65535: checksum error, type chacha20_poly1305_128: got 062491d0147e181261b6f951dfd8671b should be d2cdc9df8ab78b6377596a61c9f86ccb, fixing
+[   84.900801][  T421] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   84.900850][  T421]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   84.900892][  T421]   node offset 24/32 bset u64s 65535: unsupported bset version 63.1023
+[   84.910479][  T421] bcachefs (loop0): flagging btree alloc lost data
+[   84.915662][  T421] error reading btree root alloc l=0: btree_node_read_error, fixing
+[   84.925972][  T421] bcachefs (loop0): error validating btree node on loop0 at btree freespace level 0/0
+[   84.926022][  T421]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[   84.926075][  T421]   node offset 8/32 bset u64s 35: checksum error, type chacha20_poly1305_128: got 4ac69fe2da8315b4f61b05046e8b861d should be 9b102ec2b3ee8e25f975b140433141dc, fixing
+[   84.940088][  T421] bcachefs (loop0): error validating btree node at btree freespace level 0/0
+[   84.940134][  T421]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[   84.940186][  T421]   node offset 8/32 bset u64s 35 bset byte offset 160: keys out of order: u64s 5 type set 0:270479860432928:0 len 2 ver 0 > u64s 5 type set 0:35:0 len 2 ver 0, fixing
+[   84.953993][  T421] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[   84.963136][  T421] bcachefs (loop0): accounting_read... done
+[   84.985923][  T421] bcachefs (loop0): alloc_read... done
+[   84.987681][  T421] bcachefs (loop0): stripes_read... done
+[   84.989538][  T421] bcachefs (loop0): snapshots_read... done
+[   84.991666][  T421] bcachefs (loop0): check_allocations...
+[   84.994063][  T421] bucket 0:34 data type user ptr gen 0 missing in alloc btree
+[   84.994107][  T421] while marking u64s 8 type extent 1073741825:8:U32_MAX len 8 ver 1: durability: 1 crc: c_size 8 size 8 offset 0 nonce 0 csum chacha20_poly1305_80 c2b0:471dbdea2c899e3f  compress none ptr: 0:34:0 gen 0, fixing
+[   85.004877][  T421] bucket 0:27 data type btree ptr gen 0 missing in alloc btree
+[   85.004911][  T421] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 83426fcb67886cbe written 16 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0, fixing
+[   85.012650][  T421] btree ptr not marked in member info btree allocated bitmap
+[   85.012692][  T421]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a22d880bb51b703b written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[   85.020903][  T421] bucket 0:38 data type btree ptr gen 0 missing in alloc btree
+[   85.020937][  T421] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a22d880bb51b703b written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[   85.028473][  T421] btree ptr not marked in member info btree allocated bitmap
+[   85.028506][  T421]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq b5d608e41b3af1cf written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[   85.036459][  T421] bucket 0:41 data type btree ptr gen 0 missing in alloc btree
+[   85.036492][  T421] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq b5d608e41b3af1cf written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[   85.043809][  T421] bucket 0:31 data type btree ptr gen 0 missing in alloc btree
+[   85.043842][  T421] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 27c2ec7b8e70cb08 written 16 min_key POS_MIN durability: 1 ptr: 0:31:0 gen 0, fixing
+[   85.051985][  T421] btree ptr not marked in member info btree allocated bitmap
+[   85.052018][  T421]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 92b180ffcc5b04f1 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[   85.060168][  T421] bucket 0:35 data type btree ptr gen 0 missing in alloc btree
+[   85.060203][  T421] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 92b180ffcc5b04f1 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[   85.067944][  T421] btree ptr not marked in member info btree allocated bitmap
+[   85.067977][  T421]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 8aae33f84eb959b0 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[   85.075995][  T421] bucket 0:32 data type btree ptr gen 0 missing in alloc btree
+[   85.076030][  T421] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 8aae33f84eb959b0 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[   85.083591][  T421] bucket 0:28 data type btree ptr gen 0 missing in alloc btree
+[   85.083651][  T421] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a11787a6b9c68820 written 16 min_key POS_MIN durability: 1 ptr: 0:28:0 gen 0, fixing
+[   85.091180][  T421] btree ptr not marked in member info btree allocated bitmap
+[   85.091213][  T421]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[   85.099060][  T421] bucket 0:29 data type btree ptr gen 0 missing in alloc btree
+[   85.099094][  T421] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[   85.106984][  T421] bucket 0:36 data type btree ptr gen 0 missing in alloc btree
+[   85.107019][  T421] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq afc6cc17f332ffe0 written 24 min_key POS_MIN durability: 1 ptr: 0:36:0 gen 0, fixing
+[   85.114789][  T421] bucket 0:40 data type btree ptr gen 0 missing in alloc btree
+[   85.114823][  T421] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 2b7c77101c276712 written 8 min_key POS_MIN durability: 1 ptr: 0:40:0 gen 0, fixing
+[   85.122527][  T421] bucket 0:0 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.125065][  T421] bucket 0:0 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.128527][  T421] bucket 0:1 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.131053][  T421] bucket 0:1 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.134295][  T421] bucket 0:2 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.137134][  T421] bucket 0:2 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.140435][  T421] bucket 0:3 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.143103][  T421] bucket 0:3 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.146254][  T421] bucket 0:4 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.149030][  T421] bucket 0:4 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.152257][  T421] bucket 0:5 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.154891][  T421] bucket 0:5 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.157957][  T421] bucket 0:6 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.160465][  T421] bucket 0:6 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.163601][  T421] bucket 0:7 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.166210][  T421] bucket 0:7 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.169425][  T421] bucket 0:8 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.171970][  T421] bucket 0:8 gen 0 data type sb has wrong dirty_sectors: got 0, should be 8, fixing
+[   85.175087][  T421] bucket 0:9 gen 0 has wrong data_type: got free, should be journal, fixing
+[   85.178175][  T421] bucket 0:9 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.181712][  T421] bucket 0:10 gen 0 has wrong data_type: got free, should be journal, fixing
+[   85.184663][  T421] bucket 0:10 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.188451][  T421] bucket 0:11 gen 0 has wrong data_type: got free, should be journal, fixing
+[   85.191727][  T421] bucket 0:11 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.195092][  T421] bucket 0:12 gen 0 has wrong data_type: got free, should be journal, fixing
+[   85.198367][  T421] bucket 0:12 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.202146][  T421] bucket 0:13 gen 0 has wrong data_type: got free, should be journal, fixing
+[   85.205448][  T421] bucket 0:13 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.209036][  T421] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[   85.212187][  T421] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.216039][  T421] bucket 0:15 gen 0 has wrong data_type: got free, should be journal, fixing
+[   85.219157][  T421] bucket 0:15 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.223015][  T421] bucket 0:16 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.226044][  T421] bucket 0:16 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.229641][  T421] bucket 0:17 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.232580][  T421] bucket 0:17 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.236058][  T421] bucket 0:18 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.238717][  T421] bucket 0:18 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.242214][  T421] bucket 0:19 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.244882][  T421] bucket 0:19 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.248059][  T421] bucket 0:20 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.250860][  T421] bucket 0:20 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.254154][  T421] bucket 0:21 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.257012][  T421] bucket 0:21 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.260125][  T421] bucket 0:22 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.262777][  T421] bucket 0:22 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.266178][  T421] bucket 0:23 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.269066][  T421] bucket 0:23 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.272285][  T421] bucket 0:24 gen 0 has wrong data_type: got free, should be journal, fixing
+[   85.275023][  T421] bucket 0:24 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.278208][  T421] bucket 0:27 gen 0 has wrong data_type: got free, should be btree, fixing
+[   85.280813][  T421] bucket 0:27 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.284099][  T421] bucket 0:28 gen 0 has wrong data_type: got free, should be btree, fixing
+[   85.286943][  T421] bucket 0:28 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.290486][  T421] bucket 0:29 gen 0 has wrong data_type: got free, should be btree, fixing
+[   85.293499][  T421] bucket 0:29 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.296675][  T421] bucket 0:31 gen 0 has wrong data_type: got free, should be btree, fixing
+[   85.299365][  T421] bucket 0:31 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.302415][  T421] bucket 0:32 gen 0 has wrong data_type: got free, should be btree, fixing
+[   85.305056][  T421] bucket 0:32 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.308132][  T421] bucket 0:34 gen 0 has wrong data_type: got free, should be user, fixing
+[   85.310685][  T421] bucket 0:34 gen 0 data type user has wrong dirty_sectors: got 0, should be 32, fixing
+[   85.313693][  T421] bucket 0:35 gen 0 has wrong data_type: got free, should be btree, fixing
+[   85.316460][  T421] bucket 0:35 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.319525][  T421] bucket 0:36 gen 0 has wrong data_type: got free, should be btree, fixing
+[   85.322030][  T421] bucket 0:36 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.325251][  T421] bucket 0:38 gen 0 has wrong data_type: got free, should be btree, fixing
+[   85.328099][  T421] bucket 0:38 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.331199][  T421] bucket 0:40 gen 0 has wrong data_type: got free, should be btree, fixing
+[   85.333864][  T421] bucket 0:40 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.336818][  T421] bucket 0:41 gen 0 has wrong data_type: got free, should be btree, fixing
+[   85.339445][  T421] bucket 0:41 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.345039][  T421] bucket 0:120 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.347824][  T421] bucket 0:120 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.351082][  T421] bucket 0:121 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.353960][  T421] bucket 0:121 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.357070][  T421] bucket 0:122 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.359578][  T421] bucket 0:122 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.362648][  T421] bucket 0:123 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.365239][  T421] bucket 0:123 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.368418][  T421] bucket 0:124 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.371037][  T421] bucket 0:124 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.374165][  T421] bucket 0:125 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.376982][  T421] bucket 0:125 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.380153][  T421] bucket 0:126 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.382795][  T421] bucket 0:126 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.385969][  T421] bucket 0:127 gen 0 has wrong data_type: got free, should be sb, fixing
+[   85.388722][  T421] bucket 0:127 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   85.411454][  T421]  done
+[   85.414513][  T421] bcachefs (loop0): going read-write
+[   85.418670][  T421] bcachefs (loop0): journal_replay...
+[   85.438860][  T421] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   85.438860][  T421]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   85.446158][  T421] 2 transaction updates for bch2_journal_replay journal seq 0
+[   85.446201][  T421]   update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   85.446234][  T421]     old u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   85.446262][  T421]     gen 0 oldest_gen 0 data_type sb
+[   85.446287][  T421]     journal_seq       0
+[   85.446474][  T421]     need_discard      0
+[   85.446498][  T421]     need_inc_gen      0
+[   85.446521][  T421]     dirty_sectors     256
+[   85.446545][  T421]     stripe_sectors    0
+[   85.446568][  T421]     cached_sectors    0
+[   85.446591][  T421]     stripe            0
+[   85.446624][  T421]     stripe_redundancy 0
+[   85.446647][  T421]     io_time[READ]     0
+[   85.446671][  T421]     io_time[WRITE]    0
+[   85.446694][  T421]     fragmentation     0
+[   85.446717][  T421]     bp_start          8
+[   85.446740][  T421]   
+[   85.446760][  T421]     new u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   85.446788][  T421]     gen 0 oldest_gen 0 data_type sb
+[   85.446813][  T421]     journal_seq       0
+[   85.446837][  T421]     need_discard      0
+[   85.446860][  T421]     need_inc_gen      0
+[   85.446883][  T421]     dirty_sectors     256
+[   85.446907][  T421]     stripe_sectors    0
+[   85.446930][  T421]     cached_sectors    0
+[   85.446953][  T421]     stripe            0
+[   85.446977][  T421]     stripe_redundancy 0
+[   85.447000][  T421]     io_time[READ]     0
+[   85.447023][  T421]     io_time[WRITE]    0
+[   85.447046][  T421]     fragmentation     0
+[   85.447069][  T421]     bp_start          8
+[   85.447093][  T421]   
+[   85.447112][  T421]   update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   85.447144][  T421]     old u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   85.447172][  T421]     gen 0 oldest_gen 0 data_type sb
+[   85.447198][  T421]     journal_seq       0
+[   85.447221][  T421]     need_discard      0
+[   85.447244][  T421]     need_inc_gen      0
+[   85.447268][  T421]     dirty_sectors     256
+[   85.447411][  T421]     stripe_sectors    0
+[   85.447435][  T421]     cached_sectors    0
+[   85.447458][  T421]     stripe            0
+[   85.447482][  T421]     stripe_redundancy 0
+[   85.447505][  T421]     io_time[READ]     0
+[   85.447528][  T421]     io_time[WRITE]    0
+[   85.447551][  T421]     fragmentation     0
+[   85.447575][  T421]     bp_start          8
+[   85.447598][  T421]   
+[   85.447626][  T421]     new u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   85.447654][  T421]     gen 0 oldest_gen 0 data_type sb
+[   85.447679][  T421]     journal_seq       0
+[   85.447702][  T421]     need_discard      0
+[   85.447726][  T421]     need_inc_gen      0
+[   85.447749][  T421]     dirty_sectors     256
+[   85.447772][  T421]     stripe_sectors    0
+[   85.447796][  T421]     cached_sectors    0
+[   85.447819][  T421]     stripe            0
+[   85.447842][  T421]     stripe_redundancy 0
+[   85.447865][  T421]     io_time[READ]     0
+[   85.447888][  T421]     io_time[WRITE]    0
+[   85.447912][  T421]     fragmentation     0
+[   85.447935][  T421]     bp_start          8
+[   85.447958][  T421]   
+[   85.447977][  T421] 
+[   85.540670][  T421] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   85.545884][  T421] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   85.545884][  T421]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   85.551665][  T421] 2 transaction updates for bch2_journal_replay journal seq 0
+[   85.551698][  T421]   update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   85.551731][  T421]     old u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   85.551759][  T421]     gen 0 oldest_gen 0 data_type sb
+[   85.551785][  T421]     journal_seq       0
+[   85.551809][  T421]     need_discard      0
+[   85.551832][  T421]     need_inc_gen      0
+[   85.551856][  T421]     dirty_sectors     256
+[   85.551880][  T421]     stripe_sectors    0
+[   85.551904][  T421]     cached_sectors    0
+[   85.551927][  T421]     stripe            0
+[   85.551951][  T421]     stripe_redundancy 0
+[   85.551975][  T421]     io_time[READ]     0
+[   85.551998][  T421]     io_time[WRITE]    0
+[   85.552022][  T421]     fragmentation     0
+[   85.552045][  T421]     bp_start          8
+[   85.552069][  T421]   
+[   85.552089][  T421]     new u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   85.552117][  T421]     gen 0 oldest_gen 0 data_type sb
+[   85.552142][  T421]     journal_seq       0
+[   85.552166][  T421]     need_discard      0
+[   85.552189][  T421]     need_inc_gen      0
+[   85.552213][  T421]     dirty_sectors     256
+[   85.552237][  T421]     stripe_sectors    0
+[   85.552260][  T421]     cached_sectors    0
+[   85.552284][  T421]     stripe            0
+[   85.552307][  T421]     stripe_redundancy 0
+[   85.552402][  T421]     io_time[READ]     0
+[   85.552425][  T421]     io_time[WRITE]    0
+[   85.552449][  T421]     fragmentation     0
+[   85.552472][  T421]     bp_start          8
+[   85.552495][  T421]   
+[   85.552515][  T421]   update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   85.552547][  T421]     old u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   85.552576][  T421]     gen 0 oldest_gen 0 data_type sb
+[   85.552601][  T421]     journal_seq       0
+[   85.552636][  T421]     need_discard      0
+[   85.552660][  T421]     need_inc_gen      0
+[   85.552683][  T421]     dirty_sectors     256
+[   85.552707][  T421]     stripe_sectors    0
+[   85.552731][  T421]     cached_sectors    0
+[   85.552754][  T421]     stripe            0
+[   85.552778][  T421]     stripe_redundancy 0
+[   85.552801][  T421]     io_time[READ]     0
+[   85.552825][  T421]     io_time[WRITE]    0
+[   85.552849][  T421]     fragmentation     0
+[   85.552872][  T421]     bp_start          8
+[   85.552896][  T421]   
+[   85.552915][  T421]     new u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   85.552944][  T421]     gen 0 oldest_gen 0 data_type sb
+[   85.552969][  T421]     journal_seq       0
+[   85.552993][  T421]     need_discard      0
+[   85.553016][  T421]     need_inc_gen      0
+[   85.553040][  T421]     dirty_sectors     256
+[   85.553064][  T421]     stripe_sectors    0
+[   85.553087][  T421]     cached_sectors    0
+[   85.553111][  T421]     stripe            0
+[   85.553135][  T421]     stripe_redundancy 0
+[   85.553158][  T421]     io_time[READ]     0
+[   85.553182][  T421]     io_time[WRITE]    0
+[   85.553205][  T421]     fragmentation     0
+[   85.553228][  T421]     bp_start          8
+[   85.553252][  T421]   
+[   85.553271][  T421] 
+[   85.641297][  T421] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   85.690038][  T421] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   85.690038][  T421]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   85.695987][  T421] 1 transaction updates for bch2_btree_write_buffer_journal_flush journal seq 11
+[   85.696046][  T421]   update: btree=accounting cached=0 wb_flush_one_slowpath+0x102/0x1f0
+[   85.696087][  T421]     old u64s 5 type deleted POS_MIN len 0 ver 0
+[   85.696122][  T421]     new u64s 6 type accounting POS_MIN len 0 ver 47244641050: nr_inodes  8
+[   85.696163][  T421] 
+[   85.708758][  T421] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   85.711589][  T421] bcachefs (loop0): bch2_btree_write_buffer_flush_locked(): fatal error EIO
+[   85.715122][  T421] bcachefs (loop0): fatal error - emergency read only
+[   85.717888][  T421] bcachefs (loop0): bch2_journal_replay(): error erofs_journal_err
+[   85.721578][  T421] bcachefs (loop0): bch2_fs_recovery(): error erofs_journal_err
+[   85.724288][  T421] bcachefs (loop0): bch2_fs_start(): error starting filesystem erofs_journal_err
+[   85.727466][  T421] bcachefs (loop0): shutting down
+[   85.729301][  T119] bcachefs (loop0): going read-only
+[   85.731466][  T119] bcachefs (loop0): finished waiting for writes to stop
+[   85.734169][  T119] bcachefs (loop0): flushing journal and stopping allocators, journal seq 11
+[   85.737383][  T119] bcachefs (loop0): flushing journal and stopping allocators complete, journal seq 11
+[   85.741691][  T119] bcachefs (loop0): unshutdown complete, journal seq 11
+[   85.744707][  T119] bcachefs (loop0): done going read-only, filesystem not clean
+[   85.767731][  T421] bcachefs (loop0): shutdown complete
+[   86.052675][  T421] bcachefs: bch2_fs_get_tree() error: erofs_journal_err
+[   86.157285][  T421] syz-executor142 (421) used greatest stack depth: 17024 bytes left
+executing program
+[   86.373140][  T434] loop0: detected capacity change from 0 to 32768
+[   86.430239][  T434] bcachefs (loop0): starting version 1.7: mi_btree_bitmap opts=errors=continue,metadata_checksum=none,data_checksum=none,nojournal_transaction_names
+[   86.434847][  T434] bcachefs (loop0): recovering from clean shutdown, journal seq 10
+[   86.437384][  T434] bcachefs (loop0): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[   86.437384][  T434]   running recovery passes: check_allocations,check_inodes
+[   86.451526][  T434] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   86.451564][  T434]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   86.451621][  T434]   node offset 0/32 bset u64s 0: checksum error, type chacha20_poly1305_128: got f77931e9593bf647aa8fec5bf6021736 should be 4d6ef06fa123b3893965c96f48b0ee06, fixing
+[   86.463776][  T434] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   86.463812][  T434]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   86.463854][  T434]   node offset 24/32 bset u64s 65535: checksum error, type chacha20_poly1305_128: got a6e3f4bba9a4dece95deddc0898dddf2 should be d2cdc9df8ab78b6377596a61c9f86ccb, fixing
+[   86.475037][  T434] ==================================================================
+[   86.475687][  T434] BUG: KASAN: use-after-free in scatterwalk_copychunks+0x230/0x5d0
+[   86.475687][  T434] Read of size 40 at addr ff1100001a5c0000 by task syz-executor142/434
+[   86.475687][  T434] 
+[   86.475687][  T434] CPU: 0 UID: 0 PID: 434 Comm: syz-executor142 Not tainted 6.13.0-rc3 #3
+[   86.475687][  T434] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   86.475687][  T434] Call Trace:
+[   86.475687][  T434]  <TASK>
+[   86.475687][  T434]  dump_stack_lvl+0x116/0x1b0
+[   86.475687][  T434]  print_report+0xcf/0x5f0
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __phys_addr+0xeb/0x180
+[   86.475687][  T434]  ? scatterwalk_copychunks+0x230/0x5d0
+[   86.475687][  T434]  kasan_report+0x93/0xc0
+[   86.475687][  T434]  ? scatterwalk_copychunks+0x230/0x5d0
+[   86.475687][  T434]  kasan_check_range+0xf6/0x1b0
+[   86.475687][  T434]  __asan_memcpy+0x24/0x60
+[   86.475687][  T434]  scatterwalk_copychunks+0x230/0x5d0
+[   86.475687][  T434]  skcipher_walk_next+0x842/0x17a0
+[   86.475687][  T434]  skcipher_walk_done+0x71d/0xdc0
+[   86.475687][  T434]  chacha_simd_stream_xor+0x4bb/0x690
+[   86.475687][  T434]  ? __pfx_chacha_simd_stream_xor+0x10/0x10
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? unwind_next_frame+0x14db/0x1fb0
+[   86.475687][  T434]  ? kasan_save_track+0x14/0x30
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __kernel_text_address+0xd/0x40
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? unwind_get_return_address+0x62/0xb0
+[   86.475687][  T434]  ? __pfx_stack_trace_consume_entry+0x10/0x10
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? arch_stack_walk+0x9d/0xf0
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  crypto_skcipher_encrypt+0xff/0x170
+[   86.475687][  T434]  do_encrypt_sg+0xe2/0x170
+[   86.475687][  T434]  ? __pfx_do_encrypt_sg+0x10/0x10
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? kasan_save_stack+0x34/0x50
+[   86.475687][  T434]  ? kasan_save_stack+0x24/0x50
+[   86.475687][  T434]  ? kasan_save_track+0x14/0x30
+[   86.475687][  T434]  ? kasan_save_free_info+0x3a/0x60
+[   86.475687][  T434]  ? __kasan_slab_free+0x54/0x70
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? mark_lock+0xfe/0x12d0
+[   86.475687][  T434]  ? btree_node_read_work+0xa7a/0x1b60
+[   86.475687][  T434]  ? bch2_btree_node_read+0xbfe/0x1ad0
+[   86.475687][  T434]  ? bch2_btree_root_read+0x2c4/0x460
+[   86.475687][  T434]  ? bch2_fs_recovery+0x2340/0x4f00
+[   86.475687][  T434]  ? bch2_fs_start+0x2f6/0x610
+[   86.475687][  T434]  ? bch2_fs_get_tree+0x4b6/0x2020
+[   86.475687][  T434]  ? __pfx_mark_lock+0x10/0x10
+[   86.475687][  T434]  ? entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[   86.475687][  T434]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   86.475687][  T434]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? lockdep_hardirqs_on+0x7c/0x110
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? debug_check_no_obj_freed+0x3c8/0x5c0
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? write_comp_data+0x29/0x90
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  do_encrypt+0x9e6/0xb70
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? lockdep_hardirqs_on+0x7c/0x110
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __pfx_do_encrypt+0x10/0x10
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __btree_err+0x4d0/0x950
+[   86.475687][  T434]  ? __pfx___btree_err+0x10/0x10
+[   86.475687][  T434]  ? bch2_printbuf_make_room+0x219/0x2e0
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? write_comp_data+0x29/0x90
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? bch2_csum_err_msg.constprop.0+0xf06/0x18e0
+[   86.475687][  T434]  ? __pfx_bch2_csum_err_msg.constprop.0+0x10/0x10
+[   86.475687][  T434]  bch2_encrypt+0x9e/0xb0
+[   86.475687][  T434]  bch2_btree_node_read_done+0x1338/0x5530
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __sanitizer_cov_trace_switch+0x54/0x90
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? write_comp_data+0x29/0x90
+[   86.475687][  T434]  ? __pfx_bch2_btree_node_read_done+0x10/0x10
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? bch2_bkey_pick_read_device+0x4c7/0x1ab0
+[   86.475687][  T434]  ? __pfx_bch2_bkey_pick_read_device+0x10/0x10
+[   86.475687][  T434]  ? write_comp_data+0x29/0x90
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? bch2_mark_io_failure+0x1fc/0x400
+[   86.475687][  T434]  ? btree_node_read_work+0xa7a/0x1b60
+[   86.475687][  T434]  btree_node_read_work+0xa7a/0x1b60
+[   86.475687][  T434]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   86.475687][  T434]  ? __bch2_time_stats_update+0x240/0x880
+[   86.475687][  T434]  ? __pfx_btree_node_read_work+0x10/0x10
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __entry_text_end+0x102145/0x102149
+[   86.475687][  T434]  ? bch2_latency_acct+0x308/0x4f0
+[   86.475687][  T434]  ? __pfx_bch2_latency_acct+0x10/0x10
+[   86.475687][  T434]  bch2_btree_node_read+0xbfe/0x1ad0
+[   86.475687][  T434]  ? __pfx_bch2_btree_node_read+0x10/0x10
+[   86.475687][  T434]  ? __pfx_lock_release+0x10/0x10
+[   86.475687][  T434]  ? __bch2_btree_node_hash_insert+0xcd1/0x1dd0
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? write_comp_data+0x29/0x90
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? bch2_trans_unlock+0x4a3/0x5b0
+[   86.475687][  T434]  bch2_btree_root_read+0x2c4/0x460
+[   86.475687][  T434]  ? __pfx_bch2_btree_root_read+0x10/0x10
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  bch2_fs_recovery+0x2340/0x4f00
+[   86.475687][  T434]  ? __pfx_bch2_fs_recovery+0x10/0x10
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? bch2_recalc_capacity+0x14ba/0x1aa0
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __pfx_lock_release+0x10/0x10
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? write_comp_data+0x29/0x90
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? bch2_recalc_capacity+0x155d/0x1aa0
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? llist_reverse_order+0x4d/0x70
+[   86.475687][  T434]  bch2_fs_start+0x2f6/0x610
+[   86.475687][  T434]  bch2_fs_get_tree+0x4b6/0x2020
+[   86.475687][  T434]  ? avc_has_perm_noaudit+0x260/0x520
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __pfx_bch2_fs_get_tree+0x10/0x10
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? write_comp_data+0x29/0x90
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? write_comp_data+0x29/0x90
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? write_comp_data+0x29/0x90
+[   86.475687][  T434]  ? write_comp_data+0x29/0x90
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? write_comp_data+0x29/0x90
+[   86.475687][  T434]  vfs_get_tree+0x93/0x340
+[   86.475687][  T434]  path_mount+0x1287/0x1d60
+[   86.475687][  T434]  ? __pfx_path_mount+0x10/0x10
+[   86.475687][  T434]  ? putname.part.0+0x105/0x150
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? putname.part.0+0x105/0x150
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   86.475687][  T434]  do_mount+0xf8/0x110
+[   86.475687][  T434]  ? __pfx_do_mount+0x10/0x10
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   86.475687][  T434]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.475687][  T434]  __x64_sys_mount+0x193/0x230
+[   86.475687][  T434]  do_syscall_64+0xc3/0x1d0
+[   86.475687][  T434]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[   86.475687][  T434] RIP: 0033:0x7f6a446fda2e
+[   86.475687][  T434] Code: 83 c4 08 5b 5d c3 66 0f 1f 44 00 00 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   86.475687][  T434] RSP: 002b:00007ffee71f1978 EFLAGS: 00000282 ORIG_RAX: 00000000000000a5
+[   86.475687][  T434] RAX: ffffffffffffffda RBX: 0000000000000003 RCX: 00007f6a446fda2e
+[   86.475687][  T434] RDX: 0000000020011a00 RSI: 0000000020011a40 RDI: 00007ffee71f1990
+[   86.475687][  T434] RBP: 00007ffee71f1990 R08: 00007ffee71f19d0 R09: 0000000000000000
+[   86.475687][  T434] R10: 0000000000800000 R11: 0000000000000282 R12: 000055555592d840
+[   86.475687][  T434] R13: 00007ffee71f19d0 R14: 0000000000800000 R15: 0000000000000000
+[   86.475687][  T434]  </TASK>
+[   86.475687][  T434] 
+[   86.475687][  T434] The buggy address belongs to the physical page:
+[   86.475687][  T434] page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x1a5c0
+[   86.475687][  T434] flags: 0x100000000000000(node=0|zone=1)
+[   86.475687][  T434] page_type: f0(buddy)
+[   86.475687][  T434] raw: 0100000000000000 ff1100007ffdce10 ff1100007ffdce10 0000000000000000
+[   86.475687][  T434] raw: 0000000000000000 0000000000000006 00000000f0000000 0000000000000000
+[   86.475687][  T434] page dumped because: kasan: bad access detected
+[   86.475687][  T434] 
+[   86.475687][  T434] Memory state around the buggy address:
+[   86.475687][  T434]  ff1100001a5bff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   86.475687][  T434]  ff1100001a5bff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   86.475687][  T434] >ff1100001a5c0000: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   86.475687][  T434]                    ^
+[   86.475687][  T434]  ff1100001a5c0080: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   86.475687][  T434]  ff1100001a5c0100: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   86.475687][  T434] ==================================================================
+[   86.790640][  T434] Disabling lock debugging due to kernel taint
+[   86.799248][  T434] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   86.799356][  T434]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   86.799397][  T434]   node offset 24/32 bset u64s 65535: unsupported bset version 63.1023
+[   86.807983][  T434] bcachefs (loop0): flagging btree alloc lost data
+[   86.810856][  T434] error reading btree root alloc l=0: btree_node_read_error, fixing
+[   86.817631][  T434] bcachefs (loop0): error validating btree node on loop0 at btree freespace level 0/0
+[   86.817666][  T434]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[   86.817707][  T434]   node offset 8/32 bset u64s 35: checksum error, type chacha20_poly1305_128: got 4ac69fe2da8315b4f61b05046e8b861d should be 9b102ec2b3ee8e25f975b140433141dc, fixing
+[   86.828995][  T434] bcachefs (loop0): error validating btree node at btree freespace level 0/0
+[   86.829028][  T434]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[   86.829068][  T434]   node offset 8/32 bset u64s 35 bset byte offset 160: keys out of order: u64s 5 type set 0:270479860432928:0 len 2 ver 0 > u64s 5 type set 0:35:0 len 2 ver 0, fixing
+[   86.840111][  T434] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[   86.846122][  T434] bcachefs (loop0): accounting_read... done
+[   86.867190][  T434] bcachefs (loop0): alloc_read... done
+[   86.868975][  T434] bcachefs (loop0): stripes_read... done
+[   86.870725][  T434] bcachefs (loop0): snapshots_read... done
+[   86.872648][  T434] bcachefs (loop0): check_allocations...
+[   86.873948][  T434] bucket 0:34 data type user ptr gen 0 missing in alloc btree
+[   86.873985][  T434] while marking u64s 8 type extent 1073741825:8:U32_MAX len 8 ver 1: durability: 1 crc: c_size 8 size 8 offset 0 nonce 0 csum chacha20_poly1305_80 c2b0:471dbdea2c899e3f  compress none ptr: 0:34:0 gen 0, fixing
+[   86.883965][  T434] bucket 0:27 data type btree ptr gen 0 missing in alloc btree
+[   86.883996][  T434] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 83426fcb67886cbe written 16 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0, fixing
+[   86.891193][  T434] btree ptr not marked in member info btree allocated bitmap
+[   86.891224][  T434]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a22d880bb51b703b written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[   86.898367][  T434] bucket 0:38 data type btree ptr gen 0 missing in alloc btree
+[   86.898398][  T434] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a22d880bb51b703b written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[   86.916937][  T434] btree ptr not marked in member info btree allocated bitmap
+[   86.916969][  T434]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq b5d608e41b3af1cf written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[   86.924065][  T434] bucket 0:41 data type btree ptr gen 0 missing in alloc btree
+[   86.924097][  T434] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq b5d608e41b3af1cf written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[   86.947868][  T434] bucket 0:31 data type btree ptr gen 0 missing in alloc btree
+[   86.947901][  T434] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 27c2ec7b8e70cb08 written 16 min_key POS_MIN durability: 1 ptr: 0:31:0 gen 0, fixing
+[   86.955308][  T434] btree ptr not marked in member info btree allocated bitmap
+[   86.955408][  T434]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 92b180ffcc5b04f1 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[   86.962650][  T434] bucket 0:35 data type btree ptr gen 0 missing in alloc btree
+[   86.962681][  T434] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 92b180ffcc5b04f1 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[   86.969796][  T434] btree ptr not marked in member info btree allocated bitmap
+[   86.969826][  T434]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 8aae33f84eb959b0 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[   86.977105][  T434] bucket 0:32 data type btree ptr gen 0 missing in alloc btree
+[   86.977136][  T434] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 8aae33f84eb959b0 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[   86.984097][  T434] bucket 0:28 data type btree ptr gen 0 missing in alloc btree
+[   86.984128][  T434] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a11787a6b9c68820 written 16 min_key POS_MIN durability: 1 ptr: 0:28:0 gen 0, fixing
+[   86.991642][  T434] btree ptr not marked in member info btree allocated bitmap
+[   86.991675][  T434]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[   86.999557][  T434] bucket 0:29 data type btree ptr gen 0 missing in alloc btree
+[   86.999588][  T434] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[   87.007459][  T434] bucket 0:36 data type btree ptr gen 0 missing in alloc btree
+[   87.007491][  T434] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq afc6cc17f332ffe0 written 24 min_key POS_MIN durability: 1 ptr: 0:36:0 gen 0, fixing
+[   87.014765][  T434] bucket 0:40 data type btree ptr gen 0 missing in alloc btree
+[   87.014796][  T434] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 2b7c77101c276712 written 8 min_key POS_MIN durability: 1 ptr: 0:40:0 gen 0, fixing
+[   87.022300][  T434] bucket 0:0 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.024985][  T434] bucket 0:0 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.028173][  T434] bucket 0:1 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.030715][  T434] bucket 0:1 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.033779][  T434] bucket 0:2 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.036373][  T434] bucket 0:2 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.039468][  T434] bucket 0:3 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.041996][  T434] bucket 0:3 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.044970][  T434] bucket 0:4 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.047569][  T434] bucket 0:4 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.050516][  T434] bucket 0:5 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.053135][  T434] bucket 0:5 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.056183][  T434] bucket 0:6 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.058661][  T434] bucket 0:6 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.061573][  T434] bucket 0:7 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.064102][  T434] bucket 0:7 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.067068][  T434] bucket 0:8 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.069687][  T434] bucket 0:8 gen 0 data type sb has wrong dirty_sectors: got 0, should be 8, fixing
+[   87.072654][  T434] bucket 0:9 gen 0 has wrong data_type: got free, should be journal, fixing
+[   87.075413][  T434] bucket 0:9 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.078559][  T434] bucket 0:10 gen 0 has wrong data_type: got free, should be journal, fixing
+[   87.081234][  T434] bucket 0:10 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.084417][  T434] bucket 0:11 gen 0 has wrong data_type: got free, should be journal, fixing
+[   87.086970][  T434] bucket 0:11 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.090167][  T434] bucket 0:12 gen 0 has wrong data_type: got free, should be journal, fixing
+[   87.092850][  T434] bucket 0:12 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.096034][  T434] bucket 0:13 gen 0 has wrong data_type: got free, should be journal, fixing
+[   87.098655][  T434] bucket 0:13 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.102197][  T434] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[   87.104899][  T434] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.108085][  T434] bucket 0:15 gen 0 has wrong data_type: got free, should be journal, fixing
+[   87.110752][  T434] bucket 0:15 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.113966][  T434] bucket 0:16 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.116526][  T434] bucket 0:16 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.119648][  T434] bucket 0:17 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.122187][  T434] bucket 0:17 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.125305][  T434] bucket 0:18 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.127950][  T434] bucket 0:18 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.131006][  T434] bucket 0:19 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.133565][  T434] bucket 0:19 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.136665][  T434] bucket 0:20 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.139106][  T434] bucket 0:20 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.142138][  T434] bucket 0:21 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.144702][  T434] bucket 0:21 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.147719][  T434] bucket 0:22 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.150212][  T434] bucket 0:22 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.153222][  T434] bucket 0:23 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.155788][  T434] bucket 0:23 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.158853][  T434] bucket 0:24 gen 0 has wrong data_type: got free, should be journal, fixing
+[   87.161548][  T434] bucket 0:24 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.164695][  T434] bucket 0:27 gen 0 has wrong data_type: got free, should be btree, fixing
+[   87.167226][  T434] bucket 0:27 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.170434][  T434] bucket 0:28 gen 0 has wrong data_type: got free, should be btree, fixing
+[   87.173077][  T434] bucket 0:28 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.176148][  T434] bucket 0:29 gen 0 has wrong data_type: got free, should be btree, fixing
+[   87.178818][  T434] bucket 0:29 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.181969][  T434] bucket 0:31 gen 0 has wrong data_type: got free, should be btree, fixing
+[   87.184620][  T434] bucket 0:31 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.187773][  T434] bucket 0:32 gen 0 has wrong data_type: got free, should be btree, fixing
+[   87.190432][  T434] bucket 0:32 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.193677][  T434] bucket 0:34 gen 0 has wrong data_type: got free, should be user, fixing
+[   87.196289][  T434] bucket 0:34 gen 0 data type user has wrong dirty_sectors: got 0, should be 32, fixing
+[   87.199421][  T434] bucket 0:35 gen 0 has wrong data_type: got free, should be btree, fixing
+[   87.202070][  T434] bucket 0:35 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.205154][  T434] bucket 0:36 gen 0 has wrong data_type: got free, should be btree, fixing
+[   87.207859][  T434] bucket 0:36 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.211036][  T434] bucket 0:38 gen 0 has wrong data_type: got free, should be btree, fixing
+[   87.213751][  T434] bucket 0:38 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.216864][  T434] bucket 0:40 gen 0 has wrong data_type: got free, should be btree, fixing
+[   87.219568][  T434] bucket 0:40 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.222654][  T434] bucket 0:41 gen 0 has wrong data_type: got free, should be btree, fixing
+[   87.225398][  T434] bucket 0:41 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.230001][  T434] bucket 0:120 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.232640][  T434] bucket 0:120 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.235700][  T434] bucket 0:121 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.238184][  T434] bucket 0:121 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.241258][  T434] bucket 0:122 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.243863][  T434] bucket 0:122 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.246890][  T434] bucket 0:123 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.249628][  T434] bucket 0:123 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.252671][  T434] bucket 0:124 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.255354][  T434] bucket 0:124 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.258404][  T434] bucket 0:125 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.261070][  T434] bucket 0:125 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.264168][  T434] bucket 0:126 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.266803][  T434] bucket 0:126 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.269863][  T434] bucket 0:127 gen 0 has wrong data_type: got free, should be sb, fixing
+[   87.272512][  T434] bucket 0:127 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   87.294689][  T434]  done
+[   87.297228][  T434] bcachefs (loop0): going read-write
+[   87.299952][  T434] bcachefs (loop0): journal_replay...
+[   87.315514][  T434] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   87.315514][  T434]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   87.322208][  T434] 2 transaction updates for bch2_journal_replay journal seq 0
+[   87.322238][  T434]   update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   87.322268][  T434]     old u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   87.322294][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.322427][  T434]     journal_seq       0
+[   87.322449][  T434]     need_discard      0
+[   87.322470][  T434]     need_inc_gen      0
+[   87.322491][  T434]     dirty_sectors     256
+[   87.322512][  T434]     stripe_sectors    0
+[   87.322533][  T434]     cached_sectors    0
+[   87.322554][  T434]     stripe            0
+[   87.322575][  T434]     stripe_redundancy 0
+[   87.322617][  T434]     io_time[READ]     0
+[   87.322638][  T434]     io_time[WRITE]    0
+[   87.322659][  T434]     fragmentation     0
+[   87.322680][  T434]     bp_start          8
+[   87.322700][  T434]   
+[   87.322718][  T434]     new u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   87.322744][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.322767][  T434]     journal_seq       0
+[   87.322787][  T434]     need_discard      0
+[   87.322808][  T434]     need_inc_gen      0
+[   87.322829][  T434]     dirty_sectors     256
+[   87.322851][  T434]     stripe_sectors    0
+[   87.322871][  T434]     cached_sectors    0
+[   87.322893][  T434]     stripe            0
+[   87.322913][  T434]     stripe_redundancy 0
+[   87.322934][  T434]     io_time[READ]     0
+[   87.322955][  T434]     io_time[WRITE]    0
+[   87.322976][  T434]     fragmentation     0
+[   87.322997][  T434]     bp_start          8
+[   87.323018][  T434]   
+[   87.323035][  T434]   update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   87.323065][  T434]     old u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   87.323091][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.323114][  T434]     journal_seq       0
+[   87.323135][  T434]     need_discard      0
+[   87.323156][  T434]     need_inc_gen      0
+[   87.323177][  T434]     dirty_sectors     256
+[   87.323198][  T434]     stripe_sectors    0
+[   87.323219][  T434]     cached_sectors    0
+[   87.323240][  T434]     stripe            0
+[   87.323282][  T434]     stripe_redundancy 0
+[   87.323303][  T434]     io_time[READ]     0
+[   87.323382][  T434]     io_time[WRITE]    0
+[   87.323403][  T434]     fragmentation     0
+[   87.323424][  T434]     bp_start          8
+[   87.323445][  T434]   
+[   87.323463][  T434]     new u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   87.323489][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.323512][  T434]     journal_seq       0
+[   87.323533][  T434]     need_discard      0
+[   87.323554][  T434]     need_inc_gen      0
+[   87.323575][  T434]     dirty_sectors     256
+[   87.323605][  T434]     stripe_sectors    0
+[   87.323626][  T434]     cached_sectors    0
+[   87.323647][  T434]     stripe            0
+[   87.323669][  T434]     stripe_redundancy 0
+[   87.323690][  T434]     io_time[READ]     0
+[   87.323711][  T434]     io_time[WRITE]    0
+[   87.323732][  T434]     fragmentation     0
+[   87.323753][  T434]     bp_start          8
+[   87.323774][  T434]   
+[   87.323792][  T434] 
+[   87.415436][  T434] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   87.419658][  T434] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   87.419658][  T434]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   87.425641][  T434] 2 transaction updates for bch2_journal_replay journal seq 0
+[   87.425678][  T434]   update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   87.425713][  T434]     old u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   87.425741][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.425768][  T434]     journal_seq       0
+[   87.425793][  T434]     need_discard      0
+[   87.425817][  T434]     need_inc_gen      0
+[   87.425842][  T434]     dirty_sectors     256
+[   87.425867][  T434]     stripe_sectors    0
+[   87.425889][  T434]     cached_sectors    0
+[   87.425911][  T434]     stripe            0
+[   87.425932][  T434]     stripe_redundancy 0
+[   87.425953][  T434]     io_time[READ]     0
+[   87.425974][  T434]     io_time[WRITE]    0
+[   87.425995][  T434]     fragmentation     0
+[   87.426016][  T434]     bp_start          8
+[   87.426037][  T434]   
+[   87.426054][  T434]     new u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   87.426079][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.426102][  T434]     journal_seq       0
+[   87.426123][  T434]     need_discard      0
+[   87.426145][  T434]     need_inc_gen      0
+[   87.426165][  T434]     dirty_sectors     256
+[   87.426187][  T434]     stripe_sectors    0
+[   87.426208][  T434]     cached_sectors    0
+[   87.426228][  T434]     stripe            0
+[   87.426249][  T434]     stripe_redundancy 0
+[   87.426270][  T434]     io_time[READ]     0
+[   87.426291][  T434]     io_time[WRITE]    0
+[   87.426422][  T434]     fragmentation     0
+[   87.426444][  T434]     bp_start          8
+[   87.426465][  T434]   
+[   87.426483][  T434]   update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   87.426513][  T434]     old u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   87.426538][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.426561][  T434]     journal_seq       0
+[   87.426582][  T434]     need_discard      0
+[   87.426625][  T434]     need_inc_gen      0
+[   87.426650][  T434]     dirty_sectors     256
+[   87.426675][  T434]     stripe_sectors    0
+[   87.426700][  T434]     cached_sectors    0
+[   87.426724][  T434]     stripe            0
+[   87.426748][  T434]     stripe_redundancy 0
+[   87.426772][  T434]     io_time[READ]     0
+[   87.426796][  T434]     io_time[WRITE]    0
+[   87.426821][  T434]     fragmentation     0
+[   87.426846][  T434]     bp_start          8
+[   87.426871][  T434]   
+[   87.426892][  T434]     new u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   87.426921][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.426948][  T434]     journal_seq       0
+[   87.426972][  T434]     need_discard      0
+[   87.426998][  T434]     need_inc_gen      0
+[   87.427021][  T434]     dirty_sectors     256
+[   87.427044][  T434]     stripe_sectors    0
+[   87.427065][  T434]     cached_sectors    0
+[   87.427086][  T434]     stripe            0
+[   87.427108][  T434]     stripe_redundancy 0
+[   87.427129][  T434]     io_time[READ]     0
+[   87.427150][  T434]     io_time[WRITE]    0
+[   87.427172][  T434]     fragmentation     0
+[   87.427192][  T434]     bp_start          8
+[   87.427213][  T434]   
+[   87.427231][  T434] 
+[   87.535387][  T434] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   87.541739][  T434] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   87.541739][  T434]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   87.549585][  T434] 2 transaction updates for bch2_journal_replay journal seq 0
+[   87.549640][  T434]   update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   87.549677][  T434]     old u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   87.549709][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.549738][  T434]     journal_seq       0
+[   87.549765][  T434]     need_discard      0
+[   87.549790][  T434]     need_inc_gen      0
+[   87.549817][  T434]     dirty_sectors     256
+[   87.549844][  T434]     stripe_sectors    0
+[   87.549869][  T434]     cached_sectors    0
+[   87.549896][  T434]     stripe            0
+[   87.549923][  T434]     stripe_redundancy 0
+[   87.549949][  T434]     io_time[READ]     0
+[   87.549976][  T434]     io_time[WRITE]    0
+[   87.550003][  T434]     fragmentation     0
+[   87.550030][  T434]     bp_start          8
+[   87.550056][  T434]   
+[   87.550079][  T434]     new u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   87.550111][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.550140][  T434]     journal_seq       0
+[   87.550167][  T434]     need_discard      0
+[   87.550194][  T434]     need_inc_gen      0
+[   87.550220][  T434]     dirty_sectors     256
+[   87.550247][  T434]     stripe_sectors    0
+[   87.550273][  T434]     cached_sectors    0
+[   87.550301][  T434]     stripe            0
+[   87.550487][  T434]     stripe_redundancy 0
+[   87.550516][  T434]     io_time[READ]     0
+[   87.550543][  T434]     io_time[WRITE]    0
+[   87.550571][  T434]     fragmentation     0
+[   87.550607][  T434]     bp_start          8
+[   87.550634][  T434]   
+[   87.550657][  T434]   update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   87.550695][  T434]     old u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   87.550727][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.550756][  T434]     journal_seq       0
+[   87.550783][  T434]     need_discard      0
+[   87.550810][  T434]     need_inc_gen      0
+[   87.550836][  T434]     dirty_sectors     256
+[   87.550863][  T434]     stripe_sectors    0
+[   87.550889][  T434]     cached_sectors    0
+[   87.550914][  T434]     stripe            0
+[   87.550941][  T434]     stripe_redundancy 0
+[   87.550968][  T434]     io_time[READ]     0
+[   87.550995][  T434]     io_time[WRITE]    0
+[   87.551023][  T434]     fragmentation     0
+[   87.551049][  T434]     bp_start          8
+[   87.551076][  T434]   
+[   87.551099][  T434]     new u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   87.551132][  T434]     gen 0 oldest_gen 0 data_type sb
+[   87.551161][  T434]     journal_seq       0
+[   87.551187][  T434]     need_discard      0
+[   87.551214][  T434]     need_inc_gen      0
+[   87.551242][  T434]     dirty_sectors     256
+[   87.551433][  T434]     stripe_sectors    0
+[   87.551459][  T434]     cached_sectors    0
+[   87.551482][  T434]     stripe            0
+[   87.551505][  T434]     stripe_redundancy 0
+[   87.551528][  T434]     io_time[READ]     0
+[   87.551555][  T434]     io_time[WRITE]    0
+[   87.551582][  T434]     fragmentation     0
+[   87.551618][  T434]     bp_start          8
+[   87.551644][  T434]   
+[   87.551667][  T434] 
+[   87.662528][  T434] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   87.701639][  T434] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   87.701639][  T434]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   87.706882][  T434] 1 transaction updates for bch2_btree_write_buffer_journal_flush journal seq 11
+[   87.706917][  T434]   update: btree=accounting cached=0 wb_flush_one_slowpath+0x102/0x1f0
+[   87.706947][  T434]     old u64s 5 type deleted POS_MIN len 0 ver 0
+[   87.706973][  T434]     new u64s 6 type accounting POS_MIN len 0 ver 47244641036: nr_inodes  8
+[   87.707003][  T434] 
+[   87.718032][  T434] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   87.720121][  T434] bcachefs (loop0): bch2_btree_write_buffer_flush_locked(): fatal error EIO
+[   87.722808][  T434] bcachefs (loop0): fatal error - emergency read only
+[   87.725147][  T434] bcachefs (loop0): bch2_journal_replay(): error erofs_journal_err
+[   87.727935][  T434] bcachefs (loop0): bch2_fs_recovery(): error erofs_journal_err
+[   87.730277][  T434] bcachefs (loop0): bch2_fs_start(): error starting filesystem erofs_journal_err
+[   87.733050][  T434] bcachefs (loop0): shutting down
+[   87.734701][  T350] bcachefs (loop0): going read-only
+[   87.736476][  T350] bcachefs (loop0): finished waiting for writes to stop
+[   87.738608][  T350] bcachefs (loop0): flushing journal and stopping allocators, journal seq 11
+[   87.741480][  T350] bcachefs (loop0): flushing journal and stopping allocators complete, journal seq 11
+[   87.744516][  T350] bcachefs (loop0): unshutdown complete, journal seq 11
+[   87.747160][  T350] bcachefs (loop0): done going read-only, filesystem not clean
+[   87.762719][  T434] bcachefs (loop0): shutdown complete
+[   88.047293][  T434] bcachefs: bch2_fs_get_tree() error: erofs_journal_err
+executing program
+[   88.260153][  T444] loop0: detected capacity change from 0 to 32768
+[   88.304548][  T444] bcachefs (loop0): starting version 1.7: mi_btree_bitmap opts=errors=continue,metadata_checksum=none,data_checksum=none,nojournal_transaction_names
+[   88.308859][  T444] bcachefs (loop0): recovering from clean shutdown, journal seq 10
+[   88.311166][  T444] bcachefs (loop0): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[   88.311166][  T444]   running recovery passes: check_allocations,check_inodes
+[   88.323443][  T444] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   88.323479][  T444]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   88.323519][  T444]   node offset 0/32 bset u64s 0: checksum error, type chacha20_poly1305_128: got f77931e9593bf647aa8fec5bf6021736 should be 4d6ef06fa123b3893965c96f48b0ee06, fixing
+[   88.334961][  T444] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   88.334995][  T444]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   88.335036][  T444]   node offset 24/32 bset u64s 65535: checksum error, type chacha20_poly1305_128: got 8e6b49c1a59d424e4f9178c7c64b4621 should be d2cdc9df8ab78b6377596a61c9f86ccb, fixing
+[   88.346622][  T444] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   88.346656][  T444]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   88.346697][  T444]   node offset 24/32 bset u64s 65535: unsupported bset version 63.1023
+[   88.355529][  T444] bcachefs (loop0): flagging btree alloc lost data
+[   88.358486][  T444] error reading btree root alloc l=0: btree_node_read_error, fixing
+[   88.365261][  T444] bcachefs (loop0): error validating btree node on loop0 at btree freespace level 0/0
+[   88.365296][  T444]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[   88.365499][  T444]   node offset 8/32 bset u64s 35: checksum error, type chacha20_poly1305_128: got 4ac69fe2da8315b4f61b05046e8b861d should be 9b102ec2b3ee8e25f975b140433141dc, fixing
+[   88.376676][  T444] bcachefs (loop0): error validating btree node at btree freespace level 0/0
+[   88.376708][  T444]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[   88.376749][  T444]   node offset 8/32 bset u64s 35 bset byte offset 160: keys out of order: u64s 5 type set 0:270479860432928:0 len 2 ver 0 > u64s 5 type set 0:35:0 len 2 ver 0, fixing
+[   88.387542][  T444] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[   88.393553][  T444] bcachefs (loop0): accounting_read... done
+[   88.411177][  T444] bcachefs (loop0): alloc_read... done
+[   88.413072][  T444] bcachefs (loop0): stripes_read... done
+[   88.414871][  T444] bcachefs (loop0): snapshots_read... done
+[   88.416689][  T444] bcachefs (loop0): check_allocations...
+[   88.432663][  T444] bucket 0:34 data type user ptr gen 0 missing in alloc btree
+[   88.432698][  T444] while marking u64s 8 type extent 1073741825:8:U32_MAX len 8 ver 1: durability: 1 crc: c_size 8 size 8 offset 0 nonce 0 csum chacha20_poly1305_80 c2b0:471dbdea2c899e3f  compress none ptr: 0:34:0 gen 0, fixing
+[   88.443023][  T444] bucket 0:27 data type btree ptr gen 0 missing in alloc btree
+[   88.443053][  T444] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 83426fcb67886cbe written 16 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0, fixing
+[   88.450199][  T444] btree ptr not marked in member info btree allocated bitmap
+[   88.450230][  T444]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a22d880bb51b703b written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[   88.457215][  T444] bucket 0:38 data type btree ptr gen 0 missing in alloc btree
+[   88.457246][  T444] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a22d880bb51b703b written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[   88.464140][  T444] btree ptr not marked in member info btree allocated bitmap
+[   88.464170][  T444]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq b5d608e41b3af1cf written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[   88.471079][  T444] bucket 0:41 data type btree ptr gen 0 missing in alloc btree
+[   88.471109][  T444] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq b5d608e41b3af1cf written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[   88.478023][  T444] bucket 0:31 data type btree ptr gen 0 missing in alloc btree
+[   88.478054][  T444] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 27c2ec7b8e70cb08 written 16 min_key POS_MIN durability: 1 ptr: 0:31:0 gen 0, fixing
+[   88.485128][  T444] btree ptr not marked in member info btree allocated bitmap
+[   88.485159][  T444]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 92b180ffcc5b04f1 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[   88.492138][  T444] bucket 0:35 data type btree ptr gen 0 missing in alloc btree
+[   88.492168][  T444] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 92b180ffcc5b04f1 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[   88.499011][  T444] btree ptr not marked in member info btree allocated bitmap
+[   88.499041][  T444]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 8aae33f84eb959b0 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[   88.506205][  T444] bucket 0:32 data type btree ptr gen 0 missing in alloc btree
+[   88.506237][  T444] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 8aae33f84eb959b0 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[   88.513698][  T444] bucket 0:28 data type btree ptr gen 0 missing in alloc btree
+[   88.513731][  T444] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a11787a6b9c68820 written 16 min_key POS_MIN durability: 1 ptr: 0:28:0 gen 0, fixing
+[   88.520536][  T444] btree ptr not marked in member info btree allocated bitmap
+[   88.520567][  T444]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[   88.527464][  T444] bucket 0:29 data type btree ptr gen 0 missing in alloc btree
+[   88.527494][  T444] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[   88.534494][  T444] bucket 0:36 data type btree ptr gen 0 missing in alloc btree
+[   88.534524][  T444] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq afc6cc17f332ffe0 written 24 min_key POS_MIN durability: 1 ptr: 0:36:0 gen 0, fixing
+[   88.541762][  T444] bucket 0:40 data type btree ptr gen 0 missing in alloc btree
+[   88.541792][  T444] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 2b7c77101c276712 written 8 min_key POS_MIN durability: 1 ptr: 0:40:0 gen 0, fixing
+[   88.548692][  T444] bucket 0:0 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.551077][  T444] bucket 0:0 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.554054][  T444] bucket 0:1 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.556504][  T444] bucket 0:1 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.559408][  T444] bucket 0:2 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.561773][  T444] bucket 0:2 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.564686][  T444] bucket 0:3 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.567101][  T444] bucket 0:3 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.570271][  T444] bucket 0:4 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.572836][  T444] bucket 0:4 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.575770][  T444] bucket 0:5 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.578198][  T444] bucket 0:5 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.581178][  T444] bucket 0:6 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.583676][  T444] bucket 0:6 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.586606][  T444] bucket 0:7 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.589094][  T444] bucket 0:7 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.592103][  T444] bucket 0:8 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.594620][  T444] bucket 0:8 gen 0 data type sb has wrong dirty_sectors: got 0, should be 8, fixing
+[   88.597563][  T444] bucket 0:9 gen 0 has wrong data_type: got free, should be journal, fixing
+[   88.600279][  T444] bucket 0:9 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.603628][  T444] bucket 0:10 gen 0 has wrong data_type: got free, should be journal, fixing
+[   88.606392][  T444] bucket 0:10 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.609472][  T444] bucket 0:11 gen 0 has wrong data_type: got free, should be journal, fixing
+[   88.612053][  T444] bucket 0:11 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.615218][  T444] bucket 0:12 gen 0 has wrong data_type: got free, should be journal, fixing
+[   88.617912][  T444] bucket 0:12 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.621017][  T444] bucket 0:13 gen 0 has wrong data_type: got free, should be journal, fixing
+[   88.623655][  T444] bucket 0:13 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.626785][  T444] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[   88.629439][  T444] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.632596][  T444] bucket 0:15 gen 0 has wrong data_type: got free, should be journal, fixing
+[   88.635209][  T444] bucket 0:15 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.638434][  T444] bucket 0:16 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.641017][  T444] bucket 0:16 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.644091][  T444] bucket 0:17 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.646595][  T444] bucket 0:17 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.649669][  T444] bucket 0:18 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.652282][  T444] bucket 0:18 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.655453][  T444] bucket 0:19 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.658000][  T444] bucket 0:19 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.661044][  T444] bucket 0:20 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.663586][  T444] bucket 0:20 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.666595][  T444] bucket 0:21 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.669163][  T444] bucket 0:21 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.672177][  T444] bucket 0:22 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.674725][  T444] bucket 0:22 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.677765][  T444] bucket 0:23 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.680365][  T444] bucket 0:23 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.683467][  T444] bucket 0:24 gen 0 has wrong data_type: got free, should be journal, fixing
+[   88.686058][  T444] bucket 0:24 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.689237][  T444] bucket 0:27 gen 0 has wrong data_type: got free, should be btree, fixing
+[   88.691913][  T444] bucket 0:27 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.694846][  T444] bucket 0:28 gen 0 has wrong data_type: got free, should be btree, fixing
+[   88.697416][  T444] bucket 0:28 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.700470][  T444] bucket 0:29 gen 0 has wrong data_type: got free, should be btree, fixing
+[   88.702984][  T444] bucket 0:29 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.706022][  T444] bucket 0:31 gen 0 has wrong data_type: got free, should be btree, fixing
+[   88.708611][  T444] bucket 0:31 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.711636][  T444] bucket 0:32 gen 0 has wrong data_type: got free, should be btree, fixing
+[   88.714205][  T444] bucket 0:32 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.717295][  T444] bucket 0:34 gen 0 has wrong data_type: got free, should be user, fixing
+[   88.719860][  T444] bucket 0:34 gen 0 data type user has wrong dirty_sectors: got 0, should be 32, fixing
+[   88.722827][  T444] bucket 0:35 gen 0 has wrong data_type: got free, should be btree, fixing
+[   88.725441][  T444] bucket 0:35 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.728546][  T444] bucket 0:36 gen 0 has wrong data_type: got free, should be btree, fixing
+[   88.731141][  T444] bucket 0:36 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.734246][  T444] bucket 0:38 gen 0 has wrong data_type: got free, should be btree, fixing
+[   88.736866][  T444] bucket 0:38 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.739924][  T444] bucket 0:40 gen 0 has wrong data_type: got free, should be btree, fixing
+[   88.742449][  T444] bucket 0:40 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.745542][  T444] bucket 0:41 gen 0 has wrong data_type: got free, should be btree, fixing
+[   88.748094][  T444] bucket 0:41 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.752639][  T444] bucket 0:120 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.755155][  T444] bucket 0:120 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.758184][  T444] bucket 0:121 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.760667][  T444] bucket 0:121 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.763642][  T444] bucket 0:122 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.766119][  T444] bucket 0:122 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.769064][  T444] bucket 0:123 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.771600][  T444] bucket 0:123 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.774620][  T444] bucket 0:124 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.777153][  T444] bucket 0:124 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.780196][  T444] bucket 0:125 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.782862][  T444] bucket 0:125 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.786019][  T444] bucket 0:126 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.788606][  T444] bucket 0:126 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.791603][  T444] bucket 0:127 gen 0 has wrong data_type: got free, should be sb, fixing
+[   88.794087][  T444] bucket 0:127 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   88.812686][  T444]  done
+[   88.815128][  T444] bcachefs (loop0): going read-write
+[   88.817791][  T444] bcachefs (loop0): journal_replay...
+[   88.833232][  T444] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   88.833232][  T444]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   88.840154][  T444] 2 transaction updates for bch2_journal_replay journal seq 0
+[   88.840184][  T444]   update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   88.840214][  T444]     old u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   88.840240][  T444]     gen 0 oldest_gen 0 data_type sb
+[   88.840263][  T444]     journal_seq       0
+[   88.840283][  T444]     need_discard      0
+[   88.840304][  T444]     need_inc_gen      0
+[   88.840475][  T444]     dirty_sectors     256
+[   88.840497][  T444]     stripe_sectors    0
+[   88.840519][  T444]     cached_sectors    0
+[   88.840540][  T444]     stripe            0
+[   88.840561][  T444]     stripe_redundancy 0
+[   88.840594][  T444]     io_time[READ]     0
+[   88.840615][  T444]     io_time[WRITE]    0
+[   88.840637][  T444]     fragmentation     0
+[   88.840658][  T444]     bp_start          8
+[   88.840679][  T444]   
+[   88.840696][  T444]     new u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   88.840722][  T444]     gen 0 oldest_gen 0 data_type sb
+[   88.840746][  T444]     journal_seq       0
+[   88.840767][  T444]     need_discard      0
+[   88.840788][  T444]     need_inc_gen      0
+[   88.840810][  T444]     dirty_sectors     256
+[   88.840831][  T444]     stripe_sectors    0
+[   88.840852][  T444]     cached_sectors    0
+[   88.840873][  T444]     stripe            0
+[   88.840895][  T444]     stripe_redundancy 0
+[   88.840916][  T444]     io_time[READ]     0
+[   88.840937][  T444]     io_time[WRITE]    0
+[   88.840958][  T444]     fragmentation     0
+[   88.840980][  T444]     bp_start          8
+[   88.841001][  T444]   
+[   88.841018][  T444]   update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   88.841048][  T444]     old u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   88.841075][  T444]     gen 0 oldest_gen 0 data_type sb
+[   88.841098][  T444]     journal_seq       0
+[   88.841119][  T444]     need_discard      0
+[   88.841141][  T444]     need_inc_gen      0
+[   88.841162][  T444]     dirty_sectors     256
+[   88.841183][  T444]     stripe_sectors    0
+[   88.841205][  T444]     cached_sectors    0
+[   88.841226][  T444]     stripe            0
+[   88.841248][  T444]     stripe_redundancy 0
+[   88.841270][  T444]     io_time[READ]     0
+[   88.841291][  T444]     io_time[WRITE]    0
+[   88.841369][  T444]     fragmentation     0
+[   88.841391][  T444]     bp_start          8
+[   88.841412][  T444]   
+[   88.841430][  T444]     new u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   88.841456][  T444]     gen 0 oldest_gen 0 data_type sb
+[   88.841480][  T444]     journal_seq       0
+[   88.841501][  T444]     need_discard      0
+[   88.841522][  T444]     need_inc_gen      0
+[   88.841543][  T444]     dirty_sectors     256
+[   88.841565][  T444]     stripe_sectors    0
+[   88.841609][  T444]     cached_sectors    0
+[   88.841630][  T444]     stripe            0
+[   88.841651][  T444]     stripe_redundancy 0
+[   88.841673][  T444]     io_time[READ]     0
+[   88.841694][  T444]     io_time[WRITE]    0
+[   88.841715][  T444]     fragmentation     0
+[   88.841736][  T444]     bp_start          8
+[   88.841758][  T444]   
+[   88.841775][  T444] 
+[   88.936831][  T444] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   88.940528][  T444] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   88.940528][  T444]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   88.946157][  T444] 2 transaction updates for bch2_journal_replay journal seq 0
+[   88.946187][  T444]   update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   88.946217][  T444]     old u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   88.946243][  T444]     gen 0 oldest_gen 0 data_type sb
+[   88.946266][  T444]     journal_seq       0
+[   88.946287][  T444]     need_discard      0
+[   88.946307][  T444]     need_inc_gen      0
+[   88.946479][  T444]     dirty_sectors     256
+[   88.946501][  T444]     stripe_sectors    0
+[   88.946522][  T444]     cached_sectors    0
+[   88.946543][  T444]     stripe            0
+[   88.946565][  T444]     stripe_redundancy 0
+[   88.946602][  T444]     io_time[READ]     0
+[   88.946623][  T444]     io_time[WRITE]    0
+[   88.946644][  T444]     fragmentation     0
+[   88.946666][  T444]     bp_start          8
+[   88.946686][  T444]   
+[   88.946704][  T444]     new u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   88.946730][  T444]     gen 0 oldest_gen 0 data_type sb
+[   88.946753][  T444]     journal_seq       0
+[   88.946774][  T444]     need_discard      0
+[   88.946795][  T444]     need_inc_gen      0
+[   88.946817][  T444]     dirty_sectors     256
+[   88.946838][  T444]     stripe_sectors    0
+[   88.946860][  T444]     cached_sectors    0
+[   88.946881][  T444]     stripe            0
+[   88.946902][  T444]     stripe_redundancy 0
+[   88.946924][  T444]     io_time[READ]     0
+[   88.946945][  T444]     io_time[WRITE]    0
+[   88.946966][  T444]     fragmentation     0
+[   88.946987][  T444]     bp_start          8
+[   88.947009][  T444]   
+[   88.947026][  T444]   update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   88.947057][  T444]     old u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   88.947082][  T444]     gen 0 oldest_gen 0 data_type sb
+[   88.947106][  T444]     journal_seq       0
+[   88.947127][  T444]     need_discard      0
+[   88.947148][  T444]     need_inc_gen      0
+[   88.947170][  T444]     dirty_sectors     256
+[   88.947191][  T444]     stripe_sectors    0
+[   88.947213][  T444]     cached_sectors    0
+[   88.947234][  T444]     stripe            0
+[   88.947280][  T444]     stripe_redundancy 0
+[   88.947301][  T444]     io_time[READ]     0
+[   88.947380][  T444]     io_time[WRITE]    0
+[   88.947402][  T444]     fragmentation     0
+[   88.947423][  T444]     bp_start          8
+[   88.947444][  T444]   
+[   88.947462][  T444]     new u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   88.947488][  T444]     gen 0 oldest_gen 0 data_type sb
+[   88.947511][  T444]     journal_seq       0
+[   88.947532][  T444]     need_discard      0
+[   88.947554][  T444]     need_inc_gen      0
+[   88.947582][  T444]     dirty_sectors     256
+[   88.947604][  T444]     stripe_sectors    0
+[   88.947626][  T444]     cached_sectors    0
+[   88.947647][  T444]     stripe            0
+[   88.947668][  T444]     stripe_redundancy 0
+[   88.947690][  T444]     io_time[READ]     0
+[   88.947711][  T444]     io_time[WRITE]    0
+[   88.947732][  T444]     fragmentation     0
+[   88.947753][  T444]     bp_start          8
+[   88.947774][  T444]   
+[   88.947792][  T444] 
+[   89.032293][  T444] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   89.037455][  T444] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   89.037455][  T444]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   89.042624][  T444] 2 transaction updates for bch2_journal_replay journal seq 0
+[   89.042654][  T444]   update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   89.042684][  T444]     old u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   89.042710][  T444]     gen 0 oldest_gen 0 data_type sb
+[   89.042733][  T444]     journal_seq       0
+[   89.042754][  T444]     need_discard      0
+[   89.042775][  T444]     need_inc_gen      0
+[   89.042795][  T444]     dirty_sectors     256
+[   89.042817][  T444]     stripe_sectors    0
+[   89.042838][  T444]     cached_sectors    0
+[   89.042859][  T444]     stripe            0
+[   89.042880][  T444]     stripe_redundancy 0
+[   89.042901][  T444]     io_time[READ]     0
+[   89.042922][  T444]     io_time[WRITE]    0
+[   89.042942][  T444]     fragmentation     0
+[   89.042963][  T444]     bp_start          8
+[   89.042984][  T444]   
+[   89.043001][  T444]     new u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   89.043027][  T444]     gen 0 oldest_gen 0 data_type sb
+[   89.043050][  T444]     journal_seq       0
+[   89.043071][  T444]     need_discard      0
+[   89.043092][  T444]     need_inc_gen      0
+[   89.043112][  T444]     dirty_sectors     256
+[   89.043134][  T444]     stripe_sectors    0
+[   89.043155][  T444]     cached_sectors    0
+[   89.043176][  T444]     stripe            0
+[   89.043197][  T444]     stripe_redundancy 0
+[   89.043218][  T444]     io_time[READ]     0
+[   89.043260][  T444]     io_time[WRITE]    0
+[   89.043281][  T444]     fragmentation     0
+[   89.043302][  T444]     bp_start          8
+[   89.043429][  T444]   
+[   89.043447][  T444]   update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   89.043477][  T444]     old u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   89.043503][  T444]     gen 0 oldest_gen 0 data_type sb
+[   89.043526][  T444]     journal_seq       0
+[   89.043547][  T444]     need_discard      0
+[   89.043568][  T444]     need_inc_gen      0
+[   89.043610][  T444]     dirty_sectors     256
+[   89.043631][  T444]     stripe_sectors    0
+[   89.043653][  T444]     cached_sectors    0
+[   89.043674][  T444]     stripe            0
+[   89.043695][  T444]     stripe_redundancy 0
+[   89.043716][  T444]     io_time[READ]     0
+[   89.043737][  T444]     io_time[WRITE]    0
+[   89.043758][  T444]     fragmentation     0
+[   89.043779][  T444]     bp_start          8
+[   89.043800][  T444]   
+[   89.043817][  T444]     new u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   89.043843][  T444]     gen 0 oldest_gen 0 data_type sb
+[   89.043866][  T444]     journal_seq       0
+[   89.043888][  T444]     need_discard      0
+[   89.043909][  T444]     need_inc_gen      0
+[   89.043930][  T444]     dirty_sectors     256
+[   89.043951][  T444]     stripe_sectors    0
+[   89.043972][  T444]     cached_sectors    0
+[   89.043993][  T444]     stripe            0
+[   89.044014][  T444]     stripe_redundancy 0
+[   89.044036][  T444]     io_time[READ]     0
+[   89.044057][  T444]     io_time[WRITE]    0
+[   89.044078][  T444]     fragmentation     0
+[   89.044099][  T444]     bp_start          8
+[   89.044120][  T444]   
+[   89.044137][  T444] 
+[   89.126115][  T444] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   89.168753][  T444] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   89.168753][  T444]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   89.174565][  T444] 1 transaction updates for bch2_btree_write_buffer_journal_flush journal seq 11
+[   89.174658][  T444]   update: btree=accounting cached=0 wb_flush_one_slowpath+0x102/0x1f0
+[   89.174697][  T444]     old u64s 5 type deleted POS_MIN len 0 ver 0
+[   89.174730][  T444]     new u64s 6 type accounting POS_MIN len 0 ver 47244641036: nr_inodes  8
+[   89.174768][  T444] 
+[   89.186801][  T444] bcachefs (loop0): bch2_btree_write_buffer_flush_locked(): fatal error EIO
+[   89.189688][  T444] bcachefs (loop0): fatal error - emergency read only
+[   89.192286][  T444] bcachefs (loop0): bch2_journal_replay(): error erofs_journal_err
+[   89.195779][  T444] bcachefs (loop0): bch2_fs_recovery(): error erofs_journal_err
+[   89.198555][  T444] bcachefs (loop0): bch2_fs_start(): error starting filesystem erofs_journal_err
+[   89.202023][  T444] bcachefs (loop0): shutting down
+[   89.204098][  T350] bcachefs (loop0): going read-only
+[   89.206188][  T350] bcachefs (loop0): finished waiting for writes to stop
+[   89.208867][  T350] bcachefs (loop0): flushing journal and stopping allocators, journal seq 11
+[   89.212018][  T350] bcachefs (loop0): flushing journal and stopping allocators complete, journal seq 11
+[   89.215911][  T350] bcachefs (loop0): unshutdown complete, journal seq 11
+[   89.218984][  T350] bcachefs (loop0): done going read-only, filesystem not clean
+[   89.232628][  T444] bcachefs (loop0): shutdown complete
+[   89.486961][  T444] bcachefs: bch2_fs_get_tree() error: erofs_journal_err
+executing program
+[   89.719474][  T454] loop0: detected capacity change from 0 to 32768
+[   89.758941][  T454] bcachefs (loop0): starting version 1.7: mi_btree_bitmap opts=errors=continue,metadata_checksum=none,data_checksum=none,nojournal_transaction_names
+[   89.763525][  T454] bcachefs (loop0): recovering from clean shutdown, journal seq 10
+[   89.766173][  T454] bcachefs (loop0): Doing compatible version upgrade from 1.7: mi_btree_bitmap to 1.13: inode_has_child_snapshots
+[   89.766173][  T454]   running recovery passes: check_allocations,check_inodes
+[   89.778809][  T454] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   89.778846][  T454]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   89.778886][  T454]   node offset 0/32 bset u64s 0: checksum error, type chacha20_poly1305_128: got f77931e9593bf647aa8fec5bf6021736 should be 4d6ef06fa123b3893965c96f48b0ee06, fixing
+[   89.790886][  T454] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   89.790920][  T454]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   89.790961][  T454]   node offset 24/32 bset u64s 65535: checksum error, type chacha20_poly1305_128: got 4a67dd312e605f8053f8a65ab22b9d81 should be d2cdc9df8ab78b6377596a61c9f86ccb, fixing
+[   89.803448][  T454] bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+[   89.803483][  T454]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+[   89.803523][  T454]   node offset 24/32 bset u64s 65535: unsupported bset version 63.1023
+[   89.812282][  T454] bcachefs (loop0): flagging btree alloc lost data
+[   89.815295][  T454] error reading btree root alloc l=0: btree_node_read_error, fixing
+[   89.822092][  T454] bcachefs (loop0): error validating btree node on loop0 at btree freespace level 0/0
+[   89.822129][  T454]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[   89.822170][  T454]   node offset 8/32 bset u64s 35: checksum error, type chacha20_poly1305_128: got 4ac69fe2da8315b4f61b05046e8b861d should be 9b102ec2b3ee8e25f975b140433141dc, fixing
+[   89.833588][  T454] bcachefs (loop0): error validating btree node at btree freespace level 0/0
+[   89.833621][  T454]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+[   89.833662][  T454]   node offset 8/32 bset u64s 35 bset byte offset 160: keys out of order: u64s 5 type set 0:270479860432928:0 len 2 ver 0 > u64s 5 type set 0:35:0 len 2 ver 0, fixing
+[   89.844785][  T454] bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+[   89.850939][  T454] bcachefs (loop0): accounting_read... done
+[   89.863269][  T454] bcachefs (loop0): alloc_read... done
+[   89.865148][  T454] bcachefs (loop0): stripes_read... done
+[   89.866908][  T454] bcachefs (loop0): snapshots_read... done
+[   89.868872][  T454] bcachefs (loop0): check_allocations...
+[   89.876598][  T454] bucket 0:34 data type user ptr gen 0 missing in alloc btree
+[   89.876632][  T454] while marking u64s 8 type extent 1073741825:8:U32_MAX len 8 ver 1: durability: 1 crc: c_size 8 size 8 offset 0 nonce 0 csum chacha20_poly1305_80 c2b0:471dbdea2c899e3f  compress none ptr: 0:34:0 gen 0, fixing
+[   89.887665][  T454] bucket 0:27 data type btree ptr gen 0 missing in alloc btree
+[   89.887696][  T454] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 83426fcb67886cbe written 16 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0, fixing
+[   89.895762][  T454] btree ptr not marked in member info btree allocated bitmap
+[   89.895795][  T454]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a22d880bb51b703b written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[   89.903223][  T454] bucket 0:38 data type btree ptr gen 0 missing in alloc btree
+[   89.903290][  T454] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a22d880bb51b703b written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+[   89.912136][  T454] btree ptr not marked in member info btree allocated bitmap
+[   89.912167][  T454]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq b5d608e41b3af1cf written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[   89.919782][  T454] bucket 0:41 data type btree ptr gen 0 missing in alloc btree
+[   89.919814][  T454] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq b5d608e41b3af1cf written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+[   89.941883][  T454] bucket 0:31 data type btree ptr gen 0 missing in alloc btree
+[   89.941917][  T454] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 27c2ec7b8e70cb08 written 16 min_key POS_MIN durability: 1 ptr: 0:31:0 gen 0, fixing
+[   89.949876][  T454] btree ptr not marked in member info btree allocated bitmap
+[   89.949910][  T454]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 92b180ffcc5b04f1 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[   89.957301][  T454] bucket 0:35 data type btree ptr gen 0 missing in alloc btree
+[   89.957464][  T454] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 92b180ffcc5b04f1 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+[   89.964931][  T454] btree ptr not marked in member info btree allocated bitmap
+[   89.964962][  T454]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 8aae33f84eb959b0 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[   89.971975][  T454] bucket 0:32 data type btree ptr gen 0 missing in alloc btree
+[   89.972007][  T454] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 8aae33f84eb959b0 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+[   89.978885][  T454] bucket 0:28 data type btree ptr gen 0 missing in alloc btree
+[   89.978916][  T454] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a11787a6b9c68820 written 16 min_key POS_MIN durability: 1 ptr: 0:28:0 gen 0, fixing
+[   89.985887][  T454] btree ptr not marked in member info btree allocated bitmap
+[   89.985918][  T454]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[   89.993025][  T454] bucket 0:29 data type btree ptr gen 0 missing in alloc btree
+[   89.993057][  T454] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+[   90.000176][  T454] bucket 0:36 data type btree ptr gen 0 missing in alloc btree
+[   90.000207][  T454] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq afc6cc17f332ffe0 written 24 min_key POS_MIN durability: 1 ptr: 0:36:0 gen 0, fixing
+[   90.007291][  T454] bucket 0:40 data type btree ptr gen 0 missing in alloc btree
+[   90.007386][  T454] while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 2b7c77101c276712 written 8 min_key POS_MIN durability: 1 ptr: 0:40:0 gen 0, fixing
+[   90.014429][  T454] bucket 0:0 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.016939][  T454] bucket 0:0 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.020101][  T454] bucket 0:1 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.022508][  T454] bucket 0:1 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.025519][  T454] bucket 0:2 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.027951][  T454] bucket 0:2 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.030887][  T454] bucket 0:3 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.033290][  T454] bucket 0:3 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.036279][  T454] bucket 0:4 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.038882][  T454] bucket 0:4 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.041797][  T454] bucket 0:5 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.044202][  T454] bucket 0:5 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.047133][  T454] bucket 0:6 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.049665][  T454] bucket 0:6 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.052550][  T454] bucket 0:7 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.055012][  T454] bucket 0:7 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.057952][  T454] bucket 0:8 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.060447][  T454] bucket 0:8 gen 0 data type sb has wrong dirty_sectors: got 0, should be 8, fixing
+[   90.063613][  T454] bucket 0:9 gen 0 has wrong data_type: got free, should be journal, fixing
+[   90.066467][  T454] bucket 0:9 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.069769][  T454] bucket 0:10 gen 0 has wrong data_type: got free, should be journal, fixing
+[   90.072698][  T454] bucket 0:10 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.076126][  T454] bucket 0:11 gen 0 has wrong data_type: got free, should be journal, fixing
+[   90.078939][  T454] bucket 0:11 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.082376][  T454] bucket 0:12 gen 0 has wrong data_type: got free, should be journal, fixing
+[   90.085098][  T454] bucket 0:12 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.088163][  T454] bucket 0:13 gen 0 has wrong data_type: got free, should be journal, fixing
+[   90.091081][  T454] bucket 0:13 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.094735][  T454] bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+[   90.097848][  T454] bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.101556][  T454] bucket 0:15 gen 0 has wrong data_type: got free, should be journal, fixing
+[   90.104650][  T454] bucket 0:15 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.108173][  T454] bucket 0:16 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.111079][  T454] bucket 0:16 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.114412][  T454] bucket 0:17 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.116956][  T454] bucket 0:17 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.120298][  T454] bucket 0:18 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.123418][  T454] bucket 0:18 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.126635][  T454] bucket 0:19 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.129237][  T454] bucket 0:19 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.132623][  T454] bucket 0:20 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.135281][  T454] bucket 0:20 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.138493][  T454] bucket 0:21 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.141146][  T454] bucket 0:21 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.144524][  T454] bucket 0:22 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.147373][  T454] bucket 0:22 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.150906][  T454] bucket 0:23 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.153845][  T454] bucket 0:23 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.156961][  T454] bucket 0:24 gen 0 has wrong data_type: got free, should be journal, fixing
+[   90.159693][  T454] bucket 0:24 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.163132][  T454] bucket 0:27 gen 0 has wrong data_type: got free, should be btree, fixing
+[   90.165960][  T454] bucket 0:27 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.169195][  T454] bucket 0:28 gen 0 has wrong data_type: got free, should be btree, fixing
+[   90.171799][  T454] bucket 0:28 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.174769][  T454] bucket 0:29 gen 0 has wrong data_type: got free, should be btree, fixing
+[   90.177407][  T454] bucket 0:29 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.180553][  T454] bucket 0:31 gen 0 has wrong data_type: got free, should be btree, fixing
+[   90.183117][  T454] bucket 0:31 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.186147][  T454] bucket 0:32 gen 0 has wrong data_type: got free, should be btree, fixing
+[   90.188693][  T454] bucket 0:32 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.191757][  T454] bucket 0:34 gen 0 has wrong data_type: got free, should be user, fixing
+[   90.194299][  T454] bucket 0:34 gen 0 data type user has wrong dirty_sectors: got 0, should be 32, fixing
+[   90.197601][  T454] bucket 0:35 gen 0 has wrong data_type: got free, should be btree, fixing
+[   90.200208][  T454] bucket 0:35 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.203219][  T454] bucket 0:36 gen 0 has wrong data_type: got free, should be btree, fixing
+[   90.205833][  T454] bucket 0:36 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.208862][  T454] bucket 0:38 gen 0 has wrong data_type: got free, should be btree, fixing
+[   90.211457][  T454] bucket 0:38 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.214543][  T454] bucket 0:40 gen 0 has wrong data_type: got free, should be btree, fixing
+[   90.217249][  T454] bucket 0:40 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.220502][  T454] bucket 0:41 gen 0 has wrong data_type: got free, should be btree, fixing
+[   90.223096][  T454] bucket 0:41 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.227884][  T454] bucket 0:120 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.230370][  T454] bucket 0:120 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.233434][  T454] bucket 0:121 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.235906][  T454] bucket 0:121 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.238818][  T454] bucket 0:122 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.241365][  T454] bucket 0:122 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.244276][  T454] bucket 0:123 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.246849][  T454] bucket 0:123 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.249789][  T454] bucket 0:124 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.252253][  T454] bucket 0:124 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.255188][  T454] bucket 0:125 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.257692][  T454] bucket 0:125 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.260669][  T454] bucket 0:126 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.263213][  T454] bucket 0:126 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.266491][  T454] bucket 0:127 gen 0 has wrong data_type: got free, should be sb, fixing
+[   90.269057][  T454] bucket 0:127 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+[   90.289687][  T454]  done
+[   90.292225][  T454] bcachefs (loop0): going read-write
+[   90.294765][  T454] bcachefs (loop0): journal_replay...
+[   90.310035][  T454] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   90.310035][  T454]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   90.317243][  T454] 2 transaction updates for bch2_journal_replay journal seq 0
+[   90.317274][  T454]   update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   90.317304][  T454]     old u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   90.317509][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.317534][  T454]     journal_seq       0
+[   90.317555][  T454]     need_discard      0
+[   90.317595][  T454]     need_inc_gen      0
+[   90.317616][  T454]     dirty_sectors     256
+[   90.317638][  T454]     stripe_sectors    0
+[   90.317658][  T454]     cached_sectors    0
+[   90.317679][  T454]     stripe            0
+[   90.317701][  T454]     stripe_redundancy 0
+[   90.317722][  T454]     io_time[READ]     0
+[   90.317743][  T454]     io_time[WRITE]    0
+[   90.317764][  T454]     fragmentation     0
+[   90.317785][  T454]     bp_start          8
+[   90.317806][  T454]   
+[   90.317823][  T454]     new u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   90.317849][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.317873][  T454]     journal_seq       0
+[   90.317894][  T454]     need_discard      0
+[   90.317915][  T454]     need_inc_gen      0
+[   90.317936][  T454]     dirty_sectors     256
+[   90.317957][  T454]     stripe_sectors    0
+[   90.317978][  T454]     cached_sectors    0
+[   90.317999][  T454]     stripe            0
+[   90.318020][  T454]     stripe_redundancy 0
+[   90.318042][  T454]     io_time[READ]     0
+[   90.318063][  T454]     io_time[WRITE]    0
+[   90.318084][  T454]     fragmentation     0
+[   90.318105][  T454]     bp_start          8
+[   90.318126][  T454]   
+[   90.318144][  T454]   update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   90.318174][  T454]     old u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   90.318200][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.318223][  T454]     journal_seq       0
+[   90.318244][  T454]     need_discard      0
+[   90.318265][  T454]     need_inc_gen      0
+[   90.318286][  T454]     dirty_sectors     256
+[   90.318308][  T454]     stripe_sectors    0
+[   90.318390][  T454]     cached_sectors    0
+[   90.318412][  T454]     stripe            0
+[   90.318433][  T454]     stripe_redundancy 0
+[   90.318454][  T454]     io_time[READ]     0
+[   90.318475][  T454]     io_time[WRITE]    0
+[   90.318496][  T454]     fragmentation     0
+[   90.318518][  T454]     bp_start          8
+[   90.318539][  T454]   
+[   90.318556][  T454]     new u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+[   90.318601][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.318624][  T454]     journal_seq       0
+[   90.318645][  T454]     need_discard      0
+[   90.318666][  T454]     need_inc_gen      0
+[   90.318687][  T454]     dirty_sectors     256
+[   90.318708][  T454]     stripe_sectors    0
+[   90.318729][  T454]     cached_sectors    0
+[   90.318750][  T454]     stripe            0
+[   90.318771][  T454]     stripe_redundancy 0
+[   90.318792][  T454]     io_time[READ]     0
+[   90.318813][  T454]     io_time[WRITE]    0
+[   90.318834][  T454]     fragmentation     0
+[   90.318855][  T454]     bp_start          8
+[   90.318876][  T454]   
+[   90.318894][  T454] 
+[   90.405582][  T454] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   90.405582][  T454]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   90.411078][  T454] 2 transaction updates for bch2_journal_replay journal seq 0
+[   90.411109][  T454]   update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   90.411139][  T454]     old u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   90.411165][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.411194][  T454]     journal_seq       0
+[   90.411243][  T454]     need_discard      0
+[   90.411265][  T454]     need_inc_gen      0
+[   90.411286][  T454]     dirty_sectors     256
+[   90.411443][  T454]     stripe_sectors    0
+[   90.411465][  T454]     cached_sectors    0
+[   90.411487][  T454]     stripe            0
+[   90.411508][  T454]     stripe_redundancy 0
+[   90.411529][  T454]     io_time[READ]     0
+[   90.411550][  T454]     io_time[WRITE]    0
+[   90.411584][  T454]     fragmentation     0
+[   90.411605][  T454]     bp_start          8
+[   90.411626][  T454]   
+[   90.411643][  T454]     new u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   90.411669][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.411692][  T454]     journal_seq       0
+[   90.411713][  T454]     need_discard      0
+[   90.411734][  T454]     need_inc_gen      0
+[   90.411755][  T454]     dirty_sectors     256
+[   90.411777][  T454]     stripe_sectors    0
+[   90.411798][  T454]     cached_sectors    0
+[   90.411819][  T454]     stripe            0
+[   90.411840][  T454]     stripe_redundancy 0
+[   90.411861][  T454]     io_time[READ]     0
+[   90.411882][  T454]     io_time[WRITE]    0
+[   90.411902][  T454]     fragmentation     0
+[   90.411923][  T454]     bp_start          8
+[   90.411944][  T454]   
+[   90.411962][  T454]   update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   90.411992][  T454]     old u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   90.412017][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.412040][  T454]     journal_seq       0
+[   90.412062][  T454]     need_discard      0
+[   90.412083][  T454]     need_inc_gen      0
+[   90.412104][  T454]     dirty_sectors     256
+[   90.412125][  T454]     stripe_sectors    0
+[   90.412147][  T454]     cached_sectors    0
+[   90.412167][  T454]     stripe            0
+[   90.412189][  T454]     stripe_redundancy 0
+[   90.412210][  T454]     io_time[READ]     0
+[   90.412231][  T454]     io_time[WRITE]    0
+[   90.412252][  T454]     fragmentation     0
+[   90.412273][  T454]     bp_start          8
+[   90.412294][  T454]   
+[   90.412365][  T454]     new u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+[   90.412392][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.412415][  T454]     journal_seq       0
+[   90.412436][  T454]     need_discard      0
+[   90.412457][  T454]     need_inc_gen      0
+[   90.412478][  T454]     dirty_sectors     256
+[   90.412499][  T454]     stripe_sectors    0
+[   90.412520][  T454]     cached_sectors    0
+[   90.412541][  T454]     stripe            0
+[   90.412570][  T454]     stripe_redundancy 0
+[   90.412591][  T454]     io_time[READ]     0
+[   90.412612][  T454]     io_time[WRITE]    0
+[   90.412633][  T454]     fragmentation     0
+[   90.412654][  T454]     bp_start          8
+[   90.412675][  T454]   
+[   90.412692][  T454] 
+[   90.512850][  T454] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   90.512850][  T454]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   90.518032][  T454] 2 transaction updates for bch2_journal_replay journal seq 0
+[   90.518062][  T454]   update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   90.518093][  T454]     old u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   90.518118][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.518141][  T454]     journal_seq       0
+[   90.518162][  T454]     need_discard      0
+[   90.518183][  T454]     need_inc_gen      0
+[   90.518204][  T454]     dirty_sectors     256
+[   90.518226][  T454]     stripe_sectors    0
+[   90.518246][  T454]     cached_sectors    0
+[   90.518267][  T454]     stripe            0
+[   90.518288][  T454]     stripe_redundancy 0
+[   90.518309][  T454]     io_time[READ]     0
+[   90.518442][  T454]     io_time[WRITE]    0
+[   90.518463][  T454]     fragmentation     0
+[   90.518485][  T454]     bp_start          8
+[   90.518506][  T454]   
+[   90.518523][  T454]     new u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   90.518549][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.518579][  T454]     journal_seq       0
+[   90.518600][  T454]     need_discard      0
+[   90.518621][  T454]     need_inc_gen      0
+[   90.518642][  T454]     dirty_sectors     256
+[   90.518664][  T454]     stripe_sectors    0
+[   90.518685][  T454]     cached_sectors    0
+[   90.518706][  T454]     stripe            0
+[   90.518727][  T454]     stripe_redundancy 0
+[   90.518748][  T454]     io_time[READ]     0
+[   90.518769][  T454]     io_time[WRITE]    0
+[   90.518790][  T454]     fragmentation     0
+[   90.518811][  T454]     bp_start          8
+[   90.518832][  T454]   
+[   90.518849][  T454]   update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0
+[   90.518879][  T454]     old u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   90.518905][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.518928][  T454]     journal_seq       0
+[   90.518949][  T454]     need_discard      0
+[   90.518970][  T454]     need_inc_gen      0
+[   90.518991][  T454]     dirty_sectors     256
+[   90.519013][  T454]     stripe_sectors    0
+[   90.519034][  T454]     cached_sectors    0
+[   90.519055][  T454]     stripe            0
+[   90.519076][  T454]     stripe_redundancy 0
+[   90.519097][  T454]     io_time[READ]     0
+[   90.519118][  T454]     io_time[WRITE]    0
+[   90.519139][  T454]     fragmentation     0
+[   90.519160][  T454]     bp_start          8
+[   90.519181][  T454]   
+[   90.519198][  T454]     new u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+[   90.519246][  T454]     gen 0 oldest_gen 0 data_type sb
+[   90.519269][  T454]     journal_seq       0
+[   90.519290][  T454]     need_discard      0
+[   90.519375][  T454]     need_inc_gen      0
+[   90.519397][  T454]     dirty_sectors     256
+[   90.519418][  T454]     stripe_sectors    0
+[   90.519440][  T454]     cached_sectors    0
+[   90.519460][  T454]     stripe            0
+[   90.519482][  T454]     stripe_redundancy 0
+[   90.519503][  T454]     io_time[READ]     0
+[   90.519524][  T454]     io_time[WRITE]    0
+[   90.519545][  T454]     fragmentation     0
+[   90.519576][  T454]     bp_start          8
+[   90.519597][  T454]   
+[   90.519615][  T454] 
+[   90.602837][  T454] bch2_btree_update_start: 3 callbacks suppressed
+[   90.602868][  T454] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   90.649075][  T454] bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+[   90.649075][  T454]   freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+[   90.654780][  T454] 1 transaction updates for bch2_btree_write_buffer_journal_flush journal seq 11
+[   90.654821][  T454]   update: btree=accounting cached=0 wb_flush_one_slowpath+0x102/0x1f0
+[   90.654858][  T454]     old u64s 5 type deleted POS_MIN len 0 ver 0
+[   90.654889][  T454]     new u64s 6 type accounting POS_MIN len 0 ver 47244641036: nr_inodes  8
+[   90.654927][  T454] 
+[   90.667548][  T454] bcachefs (loop0): bch2_btree_update_start(): error EIO
+[   90.670110][  T454] bcachefs (loop0): bch2_btree_write_buffer_flush_locked(): fatal error EIO
+[   90.673286][  T454] bcachefs (loop0): fatal error - emergency read only
+[   90.676166][  T454] bcachefs (loop0): bch2_journal_replay(): error erofs_journal_err
+[   90.679720][  T454] bcachefs (loop0): bch2_fs_recovery(): error erofs_journal_err
+[   90.682372][  T454] bcachefs (loop0): bch2_fs_start(): error starting filesystem erofs_journal_err
+[   90.685597][  T454] bcachefs (loop0): shutting down
+[   90.687642][  T119] bcachefs (loop0): going read-only
+[   90.689678][  T119] bcachefs (loop0): finished waiting for writes to stop
+[   90.692099][  T119] bcachefs (loop0): flushing journal and stopping allocators, journal seq 11
+[   90.695055][  T119] bcachefs (loop0): flushing journal and stopping allocators complete, journal seq 11
+[   90.698730][  T119] bcachefs (loop0): unshutdown complete, journal seq 11
+[   90.701676][  T119] bcachefs (loop0): done going read-only, filesystem not clean
+[   90.711713][  T454] bcachefs (loop0): shutdown complete
+[   90.735641][  T454] Oops: general protection fault, probably for non-canonical address 0x42fb0178b815d9c2: 0000 [#1] PREEMPT SMP KASAN NOPTI
+[   90.736358][  T454] CPU: 3 UID: 0 PID: 454 Comm: syz-executor142 Tainted: G    B              6.13.0-rc3 #3
+[   90.736358][  T454] Tainted: [B]=BAD_PAGE
+[   90.736358][  T454] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   90.736358][  T454] RIP: 0010:qlist_move_cache+0x64/0x110
+[   90.736358][  T454] Code: 26 49 83 3e 00 0f 84 b2 00 00 00 49 8b 46 08 4c 89 28 4d 89 6e 08 49 c7 45 00 00 00 00 00 49 01 56 10 4d 85 ff 74 61 4d 89 fd <4d> 8b 3f 4c 89 ef e8 31 a9 7a ff 48 c1 e8 0c 48 c1 e0 06 48 03 05
+[   90.736358][  T454] RSP: 0018:ffa00000039a7930 EFLAGS: 00010002
+[   90.736358][  T454] RAX: ff11000017746f00 RBX: ffa00000039a7968 RCX: ff1100000103da40
+[   90.736358][  T454] RDX: 0000000000000100 RSI: ff1100000821a340 RDI: 0000000000000002
+[   90.736358][  T454] RBP: ff1100000adb5400 R08: fff3fc0000734f00 R09: fff3fc0000734f1c
+[   90.736358][  T454] R10: fff3fc0000734f1b R11: 0000000000000003 R12: 0000000000000000
+[   90.736358][  T454] R13: 42fb0178b815d9c2 R14: ffffffffb3b0e380 R15: 42fb0178b815d9c2
+[   90.736358][  T454] FS:  000055555592d880(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   90.736358][  T454] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   90.736358][  T454] CR2: 00007ffee71f1af8 CR3: 000000000e04c003 CR4: 0000000000771ef0
+[   90.736358][  T454] PKRU: 55555554
+[   90.736358][  T454] Call Trace:
+[   90.736358][  T454]  <TASK>
+[   90.736358][  T454]  ? __die_body+0x1a/0x60
+[   90.736358][  T454]  ? die_addr+0x42/0x70
+[   90.736358][  T454]  ? exc_general_protection+0x1a3/0x330
+[   90.736358][  T454]  ? asm_exc_general_protection+0x26/0x30
+[   90.736358][  T454]  ? qlist_move_cache+0x64/0x110
+[   90.736358][  T454]  kasan_quarantine_remove_cache+0xfd/0x180
+[   90.736358][  T454]  kmem_cache_destroy+0x5b/0x150
+[   90.736358][  T454]  bioset_exit+0x30a/0x580
+[   90.736358][  T454]  ? kfree+0x248/0x3e0
+[   90.736358][  T454]  ? genradix_free_recurse+0x98/0xf0
+[   90.736358][  T454]  bch2_fs_fs_io_direct_exit+0x19/0x30
+[   90.736358][  T454]  bch2_fs_release+0xb3/0x8e0
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  kobject_put+0x1b2/0x4c0
+[   90.736358][  T454]  bch2_fs_get_tree+0x5a2/0x2020
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  ? lock_release+0x52e/0x750
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  ? __pfx_bch2_fs_get_tree+0x10/0x10
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  ? write_comp_data+0x29/0x90
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  ? write_comp_data+0x29/0x90
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  ? write_comp_data+0x29/0x90
+[   90.736358][  T454]  ? write_comp_data+0x29/0x90
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  ? write_comp_data+0x29/0x90
+[   90.736358][  T454]  vfs_get_tree+0x93/0x340
+[   90.736358][  T454]  path_mount+0x1287/0x1d60
+[   90.736358][  T454]  ? __pfx_path_mount+0x10/0x10
+[   90.736358][  T454]  ? putname.part.0+0x105/0x150
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  ? putname.part.0+0x105/0x150
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   90.736358][  T454]  do_mount+0xf8/0x110
+[   90.736358][  T454]  ? __pfx_do_mount+0x10/0x10
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   90.736358][  T454]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   90.736358][  T454]  __x64_sys_mount+0x193/0x230
+[   90.736358][  T454]  do_syscall_64+0xc3/0x1d0
+[   90.736358][  T454]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[   90.736358][  T454] RIP: 0033:0x7f6a446fda2e
+[   90.736358][  T454] Code: 83 c4 08 5b 5d c3 66 0f 1f 44 00 00 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   90.736358][  T454] RSP: 002b:00007ffee71f1978 EFLAGS: 00000282 ORIG_RAX: 00000000000000a5
+[   90.736358][  T454] RAX: ffffffffffffffda RBX: 0000000000000003 RCX: 00007f6a446fda2e
+[   90.736358][  T454] RDX: 0000000020011a00 RSI: 0000000020011a40 RDI: 00007ffee71f1990
+[   90.736358][  T454] RBP: 00007ffee71f1990 R08: 00007ffee71f19d0 R09: 0000000000000000
+[   90.736358][  T454] R10: 0000000000800000 R11: 0000000000000282 R12: 000055555592d840
+[   90.736358][  T454] R13: 00007ffee71f19d0 R14: 0000000000800000 R15: 0000000000000000
+[   90.736358][  T454]  </TASK>
+[   90.736358][  T454] Modules linked in:
+[   90.736358][  T454] ---[ end trace 0000000000000000 ]---
+[   90.736358][  T454] RIP: 0010:qlist_move_cache+0x64/0x110
+[   90.736358][  T454] Code: 26 49 83 3e 00 0f 84 b2 00 00 00 49 8b 46 08 4c 89 28 4d 89 6e 08 49 c7 45 00 00 00 00 00 49 01 56 10 4d 85 ff 74 61 4d 89 fd <4d> 8b 3f 4c 89 ef e8 31 a9 7a ff 48 c1 e8 0c 48 c1 e0 06 48 03 05
+[   90.736358][  T454] RSP: 0018:ffa00000039a7930 EFLAGS: 00010002
+[   90.736358][  T454] RAX: ff11000017746f00 RBX: ffa00000039a7968 RCX: ff1100000103da40
+[   90.736358][  T454] RDX: 0000000000000100 RSI: ff1100000821a340 RDI: 0000000000000002
+[   90.736358][  T454] RBP: ff1100000adb5400 R08: fff3fc0000734f00 R09: fff3fc0000734f1c
+[   90.736358][  T454] R10: fff3fc0000734f1b R11: 0000000000000003 R12: 0000000000000000
+[   90.736358][  T454] R13: 42fb0178b815d9c2 R14: ffffffffb3b0e380 R15: 42fb0178b815d9c2
+[   90.736358][  T454] FS:  000055555592d880(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   90.736358][  T454] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   90.736358][  T454] CR2: 00007ffee71f1af8 CR3: 000000000e04c003 CR4: 0000000000771ef0
+[   90.736358][  T454] PKRU: 55555554
+[   90.736358][  T454] Kernel panic - not syncing: Fatal exception
+[   90.736358][  T454] Kernel Offset: 0x1c800000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   90.736358][  T454] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+22:40:46  Registers:
+info registers vcpu 0
+RAX=0000000000000079 RBX=0000000000000000 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ff11000009f70000 RDI=ffffffffb3d4c180 RBP=ffffffffb3d4c140 RSP=ffa0000003826230
+R8 =fff3fc0000704c00 R9 =ffe21c0000e11047 R10=ffe21c0000e11046 R11=ff11000007088237
+R12=0000000000000000 R13=0000000000000079 R14=0000000000000000 R15=0000000000000010
+RIP=ffffffffa1158a4f RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 000055555592d880 00000000 00000000
+GS =0000 ff11000053a00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe36d735f000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe36d735d000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007ffee71f1af8 CR3=000000000e5a8001 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=45f1a567453168040af1723c3f35c57f XMM01=bcebc821f3794748bd3513563131fb96
+XMM02=e668953ce39f85f01a67b7ff02d6e7e0 XMM03=a7155031ef990d88bb75f2496a612df5
+XMM04=1967a06cb7527f17c2dacd6e2e7510db XMM05=2825aed9805c4ddc6c6e82d35376994f
+XMM06=3c404029df77a01a2800eb454b0f4379 XMM07=45f1a567453168040af1723c3f35c57f
+XMM08=90dbaeb510222d33785b78e2ab5a3e78 XMM09=917954cea49b0407b4bec087e1cbfec2
+XMM10=8071f00e053b2e54941dbdfda4f39b95 XMM11=aec1a9b73e7f80b4a8b121421baaa4d2
+XMM12=b18feadd290203bddb9d403c856a8b5a XMM13=6cf3d85ab7bad6d406a0064bdc07e8b0
+XMM14=3079a8737ffcafa32d4f881f66b0a4bb XMM15=6772f74aadd676e2c47f914a9a9c7db6
+info registers vcpu 1
+RAX=000000000002ec51 RBX=0000000000000001 RCX=ffffffffa5acef91 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=dffffc0000000000 RSP=ffa000000015fe00
+R8 =0000000000000001 R9 =ffe21c000a756cc3 R10=ffe21c000a756cc2 R11=ff11000053ab6613
+R12=0000000000000001 R13=ffffffffaa1bce10 R14=0000000000000000 R15=0000000000000000
+RIP=ffffffffa5ad04de RFL=00000202 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff11000053a80000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe2c581d2000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe2c581d0000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007ff2f7d0a050 CR3=0000000009012004 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=01456c4509677b8e874752589020e8af
+XMM02=ffffffffffffff0f0e0d0c0b0a090807 XMM03=3032343d6469702020726f66207d206d
+XMM04=40404040404040404040404040404040 XMM05=5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
+XMM06=20202020202020202020202020202020 XMM07=ffffffffff0000ff000000ffffff0000
+XMM08=00000000000000000000000000000000 XMM09=ffff00000000ffffffffffffffff0000
+XMM10=20200000000020202020202020200000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 2
+RAX=0000000000024991 RBX=0000000000000002 RCX=ffffffffa5acef91 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=dffffc0000000000 RSP=ffa000000016fe00
+R8 =0000000000000001 R9 =ffe21c000a766cc3 R10=ffe21c000a766cc2 R11=ff11000053b36613
+R12=0000000000000002 R13=ffffffffaa1bce10 R14=0000000000000000 R15=0000000000000000
+RIP=ffffffffa5ad04de RFL=00000202 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff11000053b00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe34bf1f6000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe34bf1f4000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000561a77e93ae0 CR3=00000000121f2001 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000009896800000000000000000 XMM01=00000000000000000000000000989680
+XMM02=0000000000ff00000000000000000000 XMM03=00000000000000000000000000000000
+XMM04=0000000000ff000000000000000000ff XMM05=0000ff0000000000ff00000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 3
+RAX=00000000000221cf RBX=0000000000000003 RCX=ffffffffa5acef91 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=dffffc0000000000 RSP=ffa000000017fe00
+R8 =0000000000000001 R9 =ffe21c000a776cc3 R10=ffe21c000a776cc2 R11=ff11000053bb6613
+R12=0000000000000003 R13=ffffffffaa1bce10 R14=0000000000000000 R15=0000000000000000
+RIP=ffffffffa5ad04de RFL=00000206 [-----P-] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff11000053b80000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe2b0a2cb000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe2b0a2c9000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000562a4bd80410 CR3=0000000009854004 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=000000696e656420737365636341002f
+XMM02=ffffff0f0e0d0c0b0a09080706050403 XMM03=696e656420737365636341002f737973
+XMM04=00000000000000000000000000000000 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=20202020000000000000000000000000 XMM09=ffffffff000000000000000000000000
+XMM10=20202020000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

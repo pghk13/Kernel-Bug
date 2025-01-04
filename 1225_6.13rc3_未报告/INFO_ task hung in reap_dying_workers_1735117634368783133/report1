@@ -1,0 +1,44 @@
+INFO: task kworker/u20:1:81 blocked for more than 144 seconds.
+      Not tainted 6.13.0-rc3 #5
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:kworker/u20:1   state:D stack:26000 pid:81    tgid:81    ppid:2      flags:0x00004000
+Workqueue: events_unbound idle_cull_fn
+Call Trace:
+ <TASK>
+ context_switch kernel/sched/core.c:5369 [inline]
+ __schedule+0xe60/0x4120 kernel/sched/core.c:6756
+ __schedule_loop kernel/sched/core.c:6833 [inline]
+ schedule+0xd4/0x210 kernel/sched/core.c:6848
+ schedule_timeout+0x239/0x280 kernel/time/sleep_timeout.c:75
+ do_wait_for_common kernel/sched/completion.c:95 [inline]
+ __wait_for_common kernel/sched/completion.c:116 [inline]
+ wait_for_common kernel/sched/completion.c:127 [inline]
+ wait_for_completion+0x181/0x2a0 kernel/sched/completion.c:148
+ kthread_stop+0x197/0x660 kernel/kthread.c:712
+ kthread_stop_put+0x23/0xf0 kernel/kthread.c:733
+ reap_dying_workers+0x13a/0x210 kernel/workqueue.c:2851
+ idle_cull_fn+0x221/0x440 kernel/workqueue.c:2973
+ process_one_work kernel/workqueue.c:3229 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3310
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3391
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+
+Showing all locks held in the system:
+4 locks held by swapper/0/1:
+1 lock held by khungtaskd/45:
+ #0: ffffffff9e31ae20 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire include/linux/rcupdate.h:337 [inline]
+ #0: ffffffff9e31ae20 (rcu_read_lock){....}-{1:3}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ #0: ffffffff9e31ae20 (rcu_read_lock){....}-{1:3}, at: debug_show_all_locks+0x75/0x340 kernel/locking/lockdep.c:6744
+2 locks held by kworker/u20:1/81:
+ #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3204 [inline]
+ #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0 kernel/workqueue.c:3310
+ #1: ffa0000000567d98 ((work_completion)(&pool->idle_cull_work)){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3205 [inline]
+ #1: ffa0000000567d98 ((work_completion)(&pool->idle_cull_work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0 kernel/workqueue.c:3310
+1 lock held by hwrng/104:
+ #0: ffffffff9eed1dc8 (reading_mutex){+.+.}-{4:4}, at: hwrng_fillfn+0x86/0x3d0 drivers/char/hw_random/core.c:491
+
+=============================================
+

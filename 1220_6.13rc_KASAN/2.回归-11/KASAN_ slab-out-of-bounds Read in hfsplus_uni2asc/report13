@@ -1,0 +1,77 @@
+==================================================================
+BUG: KASAN: slab-out-of-bounds in hfsplus_uni2asc+0x96a/0xa60 fs/hfsplus/unicode.c:179
+Read of size 2 at addr ff1100001777240c by task syz.2.2211/13854
+
+CPU: 0 UID: 0 PID: 13854 Comm: syz.2.2211 Not tainted 6.13.0-rc3 #3
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 mm/kasan/report.c:489
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ hfsplus_uni2asc+0x96a/0xa60 fs/hfsplus/unicode.c:179
+ hfsplus_readdir+0x83e/0xfd0 fs/hfsplus/dir.c:207
+ iterate_dir+0x534/0xb40 fs/readdir.c:108
+ __do_sys_getdents64 fs/readdir.c:403 [inline]
+ __se_sys_getdents64 fs/readdir.c:389 [inline]
+ __x64_sys_getdents64+0x154/0x2e0 fs/readdir.c:389
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f3027f0b71d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f3026b5eba8 EFLAGS: 00000246 ORIG_RAX: 00000000000000d9
+RAX: ffffffffffffffda RBX: 00007f30280cdf80 RCX: 00007f3027f0b71d
+RDX: 00000000000000f4 RSI: 0000000020000140 RDI: 0000000000000007
+RBP: 00007f3027f80425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f30280cdf8c R14: 00007f30280ce018 R15: 00007f3026b5ed40
+ </TASK>
+
+Allocated by task 13854:
+ kasan_save_stack+0x24/0x50 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ poison_kmalloc_redzone mm/kasan/common.c:377 [inline]
+ __kasan_kmalloc+0xaa/0xb0 mm/kasan/common.c:394
+ kasan_kmalloc include/linux/kasan.h:260 [inline]
+ __do_kmalloc_node mm/slub.c:4298 [inline]
+ __kmalloc_noprof+0x1ef/0x570 mm/slub.c:4310
+ kmalloc_noprof include/linux/slab.h:905 [inline]
+ hfsplus_find_init+0x95/0x1f0 fs/hfsplus/bfind.c:21
+ hfsplus_readdir+0x222/0xfd0 fs/hfsplus/dir.c:144
+ iterate_dir+0x534/0xb40 fs/readdir.c:108
+ __do_sys_getdents64 fs/readdir.c:403 [inline]
+ __se_sys_getdents64 fs/readdir.c:389 [inline]
+ __x64_sys_getdents64+0x154/0x2e0 fs/readdir.c:389
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+The buggy address belongs to the object at ff11000017772000
+ which belongs to the cache kmalloc-2k of size 2048
+The buggy address is located 0 bytes to the right of
+ allocated 1036-byte region [ff11000017772000, ff1100001777240c)
+
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x17770
+head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0x100000000000040(head|node=0|zone=1)
+page_type: f5(slab)
+raw: 0100000000000040 ff1100000103cf00 ffd4000001253400 0000000000000002
+raw: 0000000000000000 0000000000080008 00000001f5000000 0000000000000000
+head: 0100000000000040 ff1100000103cf00 ffd4000001253400 0000000000000002
+head: 0000000000000000 0000000000080008 00000001f5000000 0000000000000000
+head: 0100000000000003 ffd40000005ddc01 ffffffffffffffff 0000000000000000
+head: 0000000000000008 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ff11000017772300: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ff11000017772380: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+>ff11000017772400: 00 04 fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+                      ^
+ ff11000017772480: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+ ff11000017772500: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+==================================================================

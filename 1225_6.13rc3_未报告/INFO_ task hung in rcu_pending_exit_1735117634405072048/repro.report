@@ -1,0 +1,46 @@
+INFO: task syz-executor:739 blocked for more than 143 seconds.
+      Tainted: G    B              6.13.0-rc3 #5
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:syz-executor    state:D stack:18960 pid:739   tgid:739   ppid:1      flags:0x00004006
+Call Trace:
+ <TASK>
+ context_switch kernel/sched/core.c:5369 [inline]
+ __schedule+0xe60/0x4120 kernel/sched/core.c:6756
+ __schedule_loop kernel/sched/core.c:6833 [inline]
+ schedule+0xd4/0x210 kernel/sched/core.c:6848
+ schedule_timeout+0x239/0x280 kernel/time/sleep_timeout.c:75
+ do_wait_for_common kernel/sched/completion.c:95 [inline]
+ __wait_for_common kernel/sched/completion.c:116 [inline]
+ wait_for_common kernel/sched/completion.c:127 [inline]
+ wait_for_completion+0x181/0x2a0 kernel/sched/completion.c:148
+ srcu_barrier+0x47b/0x810 kernel/rcu/srcutree.c:1662
+ __rcu_barrier fs/bcachefs/rcu_pending.c:52 [inline]
+ rcu_pending_exit+0x5de/0xa30 fs/bcachefs/rcu_pending.c:595
+ bch2_fs_btree_key_cache_exit+0x8d8/0xad0 fs/bcachefs/btree_key_cache.c:741
+ __bch2_fs_free fs/bcachefs/super.c:556 [inline]
+ bch2_fs_release+0x10f/0x8e0 fs/bcachefs/super.c:611
+ kobject_cleanup lib/kobject.c:689 [inline]
+ kobject_release lib/kobject.c:720 [inline]
+ kref_put include/linux/kref.h:65 [inline]
+ kobject_put+0x1b2/0x4c0 lib/kobject.c:737
+ deactivate_locked_super+0xbb/0x130 fs/super.c:473
+ deactivate_super fs/super.c:506 [inline]
+ deactivate_super+0xb1/0xd0 fs/super.c:502
+ cleanup_mnt+0x378/0x510 fs/namespace.c:1373
+ task_work_run+0x173/0x280 kernel/task_work.c:239
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ exit_to_user_mode_loop kernel/entry/common.c:114 [inline]
+ exit_to_user_mode_prepare include/linux/entry-common.h:329 [inline]
+ __syscall_exit_to_user_mode_work kernel/entry/common.c:207 [inline]
+ syscall_exit_to_user_mode+0x261/0x270 kernel/entry/common.c:218
+ do_syscall_64+0xd0/0x1d0 arch/x86/entry/common.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f2a2ab8a08b
+RSP: 002b:00007ffd4f6b6f88 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 00007f2a2ab8a08b
+RDX: 00007f2a2aa24c50 RSI: 0000000000000009 RDI: 00007ffd4f6b7050
+RBP: 00007ffd4f6b7050 R08: 00007f2a2abfc095 R09: 00007ffd4f6b6e10
+R10: 00000000fffffffb R11: 0000000000000246 R12: 00007f2a2abfc071
+R13: 00007ffd4f6b80f0 R14: 00005555790948f0 R15: 00007ffd4f6b8130
+ </TASK>
+INFO: lockdep is turned off.

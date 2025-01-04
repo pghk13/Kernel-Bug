@@ -1,0 +1,164 @@
+==================================================================
+BUG: KASAN: use-after-free in le32_add_cpu include/linux/byteorder/generic.h:151 [inline]
+BUG: KASAN: use-after-free in udf_add_fid_counter+0x264/0x2d0 fs/udf/namei.c:341
+Read of size 4 at addr ff1100002e37cd40 by task syz-executor356/418
+
+CPU: 3 UID: 0 PID: 418 Comm: syz-executor356 Not tainted 6.13.0-rc3 #5
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 mm/kasan/report.c:489
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ le32_add_cpu include/linux/byteorder/generic.h:151 [inline]
+ udf_add_fid_counter+0x264/0x2d0 fs/udf/namei.c:341
+ udf_unlink+0x2e5/0x470 fs/udf/namei.c:561
+ vfs_unlink+0x30e/0x9f0 fs/namei.c:4523
+ do_unlinkat+0x574/0x750 fs/namei.c:4587
+ __do_sys_unlink fs/namei.c:4635 [inline]
+ __se_sys_unlink fs/namei.c:4633 [inline]
+ __x64_sys_unlink+0x40/0x50 fs/namei.c:4633
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f706af0a28b
+Code: 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffca6f6d3f8 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f706af0a28b
+RDX: 00007ffca6f6d420 RSI: 00007ffca6f6d420 RDI: 00007ffca6f6d4b0
+RBP: 00007ffca6f6d4b0 R08: 0000000000000001 R09: 00007ffca6f6d280
+R10: 00000000fffffffb R11: 0000000000000206 R12: 00007ffca6f6e5b0
+R13: 00005555877d0bf0 R14: 00007ffca6f6d418 R15: 0000000000000001
+ </TASK>
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x2e37c
+flags: 0x100000000000000(node=0|zone=1)
+raw: 0100000000000000 ffd4000000b8df08 ffd4000000b8df08 0000000000000000
+raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ff1100002e37cc00: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ff1100002e37cc80: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+>ff1100002e37cd00: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+                                           ^
+ ff1100002e37cd80: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ff1100002e37ce00: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+==================================================================
+------------[ cut here ]------------
+WARNING: CPU: 3 PID: 418 at fs/udf/udfdecl.h:121 udf_updated_lvid fs/udf/udfdecl.h:121 [inline]
+WARNING: CPU: 3 PID: 418 at fs/udf/udfdecl.h:121 udf_add_fid_counter fs/udf/namei.c:342 [inline]
+WARNING: CPU: 3 PID: 418 at fs/udf/udfdecl.h:121 udf_add_fid_counter+0x257/0x2d0 fs/udf/namei.c:331
+Modules linked in:
+CPU: 3 UID: 0 PID: 418 Comm: syz-executor356 Tainted: G    B              6.13.0-rc3 #5
+Tainted: [B]=BAD_PAGE
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:udf_updated_lvid fs/udf/udfdecl.h:121 [inline]
+RIP: 0010:udf_add_fid_counter fs/udf/namei.c:342 [inline]
+RIP: 0010:udf_add_fid_counter+0x257/0x2d0 fs/udf/namei.c:331
+Code: 14 02 48 89 f8 83 e0 07 83 c0 03 38 d0 7c 04 84 d2 75 1f 44 01 6d 20 e9 67 fe ff ff e8 42 50 ce fe 90 0f 0b e8 3a 50 ce fe 90 <0f> 0b 90 e9 40 ff ff ff e8 6c 98 0a ff eb da e8 65 98 0a ff e9 3c
+RSP: 0018:ffa0000003577c10 EFLAGS: 00010246
+RAX: 00000000f2cf8800 RBX: ff1100000b240000 RCX: ffffffff8d7b5146
+RDX: 00000000841a2068 RSI: ff11000009e04680 RDI: 0000000000000002
+RBP: ff1100000b2f0800 R08: fffffbfff2cf8800 R09: fffffbfff360bf3d
+R10: fffffbfff360bf3c R11: ffffffff9b05f9e7 R12: 00000000841a2068
+R13: 00000000ffffffff R14: ff1100000b240638 R15: ffa0000003577c88
+FS:  00005555877bf880(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffca6f6ccb8 CR3: 00000000109b6003 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ udf_unlink+0x2e5/0x470 fs/udf/namei.c:561
+ vfs_unlink+0x30e/0x9f0 fs/namei.c:4523
+ do_unlinkat+0x574/0x750 fs/namei.c:4587
+ __do_sys_unlink fs/namei.c:4635 [inline]
+ __se_sys_unlink fs/namei.c:4633 [inline]
+ __x64_sys_unlink+0x40/0x50 fs/namei.c:4633
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f706af0a28b
+Code: 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffca6f6d3f8 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f706af0a28b
+RDX: 00007ffca6f6d420 RSI: 00007ffca6f6d420 RDI: 00007ffca6f6d4b0
+RBP: 00007ffca6f6d4b0 R08: 0000000000000001 R09: 00007ffca6f6d280
+R10: 00000000fffffffb R11: 0000000000000206 R12: 00007ffca6f6e5b0
+R13: 00005555877d0bf0 R14: 00007ffca6f6d418 R15: 0000000000000001
+ </TASK>
+irq event stamp: 18021
+hardirqs last  enabled at (18021): [<ffffffff940ce9fb>] irqentry_exit+0x3b/0x90 kernel/entry/common.c:357
+hardirqs last disabled at (18020): [<ffffffff8c10f634>] handle_softirqs+0x6a4/0x870 kernel/softirq.c:576
+softirqs last  enabled at (17826): [<ffffffff8c10f4d4>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (17826): [<ffffffff8c10f4d4>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (17819): [<ffffffff8c11117e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (17819): [<ffffffff8c11117e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (17819): [<ffffffff8c11117e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (17819): [<ffffffff8c11117e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 418 at fs/udf/udfdecl.h:121 udf_updated_lvid fs/udf/udfdecl.h:121 [inline]
+WARNING: CPU: 0 PID: 418 at fs/udf/udfdecl.h:121 udf_add_free_space fs/udf/balloc.c:116 [inline]
+WARNING: CPU: 0 PID: 418 at fs/udf/udfdecl.h:121 udf_table_free_blocks fs/udf/balloc.c:377 [inline]
+WARNING: CPU: 0 PID: 418 at fs/udf/udfdecl.h:121 udf_free_blocks+0x12f1/0x1500 fs/udf/balloc.c:677
+Modules linked in:
+CPU: 0 UID: 0 PID: 418 Comm: syz-executor356 Tainted: G    B   W          6.13.0-rc3 #5
+Tainted: [B]=BAD_PAGE, [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:udf_updated_lvid fs/udf/udfdecl.h:121 [inline]
+RIP: 0010:udf_add_free_space fs/udf/balloc.c:116 [inline]
+RIP: 0010:udf_table_free_blocks fs/udf/balloc.c:377 [inline]
+RIP: 0010:udf_free_blocks+0x12f1/0x1500 fs/udf/balloc.c:677
+Code: 00 00 80 3c 02 00 0f 85 19 02 00 00 41 2b 6f 18 89 ac 24 c8 00 00 00 e9 6c ff ff ff e8 68 0d d0 fe 90 0f 0b e8 60 0d d0 fe 90 <0f> 0b 90 e9 62 f8 ff ff 48 8b bc 24 80 00 00 00 e8 ba 55 0c ff e9
+RSP: 0018:ffa00000035776a8 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: ffa0000003577a00 RCX: ffffffff8d798d42
+RDX: 00000000841a2068 RSI: ff11000009e04680 RDI: 0000000000000002
+RBP: 0000000000000000 R08: 0000000000000000 R09: fffffbfff30f79c3
+R10: ffa00000035776a8 R11: ffffffff987bce17 R12: ff110000122f8158
+R13: ff1100000b2f0800 R14: 00000000841a2068 R15: ff1100000b240000
+FS:  00005555877bf880(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fe1297d3ef0 CR3: 00000000109b6004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ extent_trunc+0x35d/0x3d0 fs/udf/truncate.c:52
+ udf_truncate_extents+0x37e/0xa50 fs/udf/truncate.c:228
+ udf_setsize+0x2f0/0xf60 fs/udf/inode.c:1316
+ udf_evict_inode+0x259/0x450 fs/udf/inode.c:144
+ evict+0x403/0x880 fs/inode.c:796
+ iput_final fs/inode.c:1946 [inline]
+ iput fs/inode.c:1972 [inline]
+ iput+0x51c/0x830 fs/inode.c:1958
+ do_unlinkat+0x5c7/0x750 fs/namei.c:4594
+ __do_sys_unlink fs/namei.c:4635 [inline]
+ __se_sys_unlink fs/namei.c:4633 [inline]
+ __x64_sys_unlink+0x40/0x50 fs/namei.c:4633
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f706af0a28b
+Code: 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffca6f6d3f8 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f706af0a28b
+RDX: 00007ffca6f6d420 RSI: 00007ffca6f6d420 RDI: 00007ffca6f6d4b0
+RBP: 00007ffca6f6d4b0 R08: 0000000000000001 R09: 00007ffca6f6d280
+R10: 00000000fffffffb R11: 0000000000000206 R12: 00007ffca6f6e5b0
+R13: 00005555877d0bf0 R14: 00007ffca6f6d418 R15: 0000000000000001
+ </TASK>
+irq event stamp: 18021
+hardirqs last  enabled at (18021): [<ffffffff940ce9fb>] irqentry_exit+0x3b/0x90 kernel/entry/common.c:357
+hardirqs last disabled at (18020): [<ffffffff8c10f634>] handle_softirqs+0x6a4/0x870 kernel/softirq.c:576
+softirqs last  enabled at (17826): [<ffffffff8c10f4d4>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (17826): [<ffffffff8c10f4d4>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (17819): [<ffffffff8c11117e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (17819): [<ffffffff8c11117e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (17819): [<ffffffff8c11117e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (17819): [<ffffffff8c11117e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+UDF-fs: error (device loop0): udf_read_inode: (ino 1317) failed !bh
+UDF-fs: error (device loop0): udf_read_inode: (ino 1317) failed !bh

@@ -1,0 +1,68 @@
+==================================================================
+BUG: KASAN: wild-memory-access in instrument_atomic_read_write include/linux/instrumented.h:96 [inline]
+BUG: KASAN: wild-memory-access in atomic_try_cmpxchg_acquire include/linux/atomic/atomic-instrumented.h:1300 [inline]
+BUG: KASAN: wild-memory-access in queued_spin_lock include/asm-generic/qspinlock.h:111 [inline]
+BUG: KASAN: wild-memory-access in do_raw_spin_lock+0x115/0x290 kernel/locking/spinlock_debug.c:116
+Write of size 4 at addr ff110000010798a8 by task swapper/0/0
+
+CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 6.13.0-rc3 #3
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <IRQ>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_report+0x3f0/0x5f0 mm/kasan/report.c:492
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ check_region_inline mm/kasan/generic.c:183 [inline]
+ kasan_check_range+0xf6/0x1b0 mm/kasan/generic.c:189
+ instrument_atomic_read_write include/linux/instrumented.h:96 [inline]
+ atomic_try_cmpxchg_acquire include/linux/atomic/atomic-instrumented.h:1300 [inline]
+ queued_spin_lock include/asm-generic/qspinlock.h:111 [inline]
+ do_raw_spin_lock+0x115/0x290 kernel/locking/spinlock_debug.c:116
+ handle_edge_irq+0x32/0x8c0 kernel/irq/chip.c:789
+ generic_handle_irq_desc include/linux/irqdesc.h:173 [inline]
+ handle_irq arch/x86/kernel/irq.c:247 [inline]
+ call_irq_handler arch/x86/kernel/irq.c:259 [inline]
+ __common_interrupt+0xe3/0x250 arch/x86/kernel/irq.c:285
+ common_interrupt+0xde/0x100 arch/x86/kernel/irq.c:278
+ </IRQ>
+ <TASK>
+ asm_common_interrupt+0x26/0x40 arch/x86/include/asm/idtentry.h:693
+RIP: 0010:get_cpu_cap+0xd2/0xc40 arch/x86/kernel/cpu/common.c:986
+Code: 4c 89 fa 48 c1 ea 03 0f b6 04 02 84 c0 74 08 3c 03 0f 8e fd 09 00 00 83 7d 28 05 0f 8e 3c 08 00 00 b8 06 00 00 00 31 c9 0f a2 <48> ba 00 00 00 00 00 fc ff df 48 8d 7d 68 48 89 f9 48 c1 e9 03 0f
+RSP: 0000:ffffffffaec07e18 EFLAGS: 00000246
+RAX: 0000000000000004 RBX: 0000000000000000 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: 1ffffffff61b76fc RDI: ffffffffb0dbb7e0
+RBP: ffffffffb0dbb7a0 R08: ffffffffb0dbb7a0 R09: 0000000000000004
+R10: ffffffffb0dbb7c8 R11: ffffffffb0dbb7bf R12: ffffffffb0dbb840
+R13: ffffffffb0dbb8b4 R14: ffffffffb0dbb7d0 R15: ffffffffb0dbb7c8
+ generic_identify arch/x86/kernel/cpu/common.c:1759 [inline]
+ identify_cpu+0x3d1/0x2090 arch/x86/kernel/cpu/common.c:1812
+ identify_boot_cpu arch/x86/kernel/cpu/common.c:1943 [inline]
+ arch_cpu_finalize_init+0x58/0x3b0 arch/x86/kernel/cpu/common.c:2344
+ start_kernel+0x37d/0x510 init/main.c:1068
+ x86_64_start_reservations+0x18/0x30 arch/x86/kernel/head64.c:507
+ x86_64_start_kernel+0xba/0x110 arch/x86/kernel/head64.c:488
+ common_startup_64+0x12c/0x138
+ </TASK>
+==================================================================
+----------------
+Code disassembly (best guess):
+   0:	4c 89 fa             	mov    %r15,%rdx
+   3:	48 c1 ea 03          	shr    $0x3,%rdx
+   7:	0f b6 04 02          	movzbl (%rdx,%rax,1),%eax
+   b:	84 c0                	test   %al,%al
+   d:	74 08                	je     0x17
+   f:	3c 03                	cmp    $0x3,%al
+  11:	0f 8e fd 09 00 00    	jle    0xa14
+  17:	83 7d 28 05          	cmpl   $0x5,0x28(%rbp)
+  1b:	0f 8e 3c 08 00 00    	jle    0x85d
+  21:	b8 06 00 00 00       	mov    $0x6,%eax
+  26:	31 c9                	xor    %ecx,%ecx
+  28:	0f a2                	cpuid
+* 2a:	48 ba 00 00 00 00 00 	movabs $0xdffffc0000000000,%rdx <-- trapping instruction
+  31:	fc ff df
+  34:	48 8d 7d 68          	lea    0x68(%rbp),%rdi
+  38:	48 89 f9             	mov    %rdi,%rcx
+  3b:	48 c1 e9 03          	shr    $0x3,%rcx
+  3f:	0f                   	.byte 0xf

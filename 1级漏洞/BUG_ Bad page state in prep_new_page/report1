@@ -1,0 +1,83 @@
+BUG: Bad page state in process syz.4.48  pfn:60af1
+page:ffffea000182bc40 refcount:0 mapcount:0 mapping:0000000000000000 index:0x4 pfn:0x60af1
+flags: 0x4fff00000002006(referenced|uptodate|private|node=1|zone=1|lastcpupid=0x7ff)
+raw: 04fff00000002006 ffffea00017ad508 ffffc900048bf8b8 0000000000000000
+raw: 0000000000000004 ffff888063170ba0 00000000ffffffff 0000000000000000
+page dumped because: PAGE_FLAGS_CHECK_AT_FREE flag(s) set
+page_owner tracks the page as allocated
+page last allocated via order 0, migratetype Unmovable, gfp_mask 0x100c40(GFP_NOFS|__GFP_HARDWALL), pid 12737, ts 54399378270, free_ts 54390644892
+ set_page_owner include/linux/page_owner.h:31 [inline]
+ post_alloc_hook mm/page_alloc.c:2420 [inline]
+ prep_new_page+0x1a5/0x240 mm/page_alloc.c:2426
+ get_page_from_freelist+0x1f10/0x3b70 mm/page_alloc.c:4155
+ __alloc_pages+0x306/0x6e0 mm/page_alloc.c:5381
+ alloc_pages+0x115/0x240 mm/mempolicy.c:2191
+ __page_cache_alloc+0x27b/0x3d0 mm/filemap.c:1022
+ do_read_cache_page+0x48b/0x1440 mm/filemap.c:3442
+ read_mapping_page include/linux/pagemap.h:515 [inline]
+ __get_metapage+0x70c/0x16d0 fs/jfs/jfs_metapage.c:621
+ dbAllocCtl+0xe9/0x780 fs/jfs/jfs_dmap.c:1846
+ dbAllocAG+0x8dd/0xd20 fs/jfs/jfs_dmap.c:1394
+ dbDiscardAG+0x23c/0x7c0 fs/jfs/jfs_dmap.c:1643
+ jfs_ioc_trim+0x3fd/0x5c0 fs/jfs/jfs_discard.c:100
+ jfs_ioctl+0x2ea/0x3a0 fs/jfs/ioctl.c:132
+ vfs_ioctl fs/ioctl.c:51 [inline]
+ __do_sys_ioctl fs/ioctl.c:874 [inline]
+ __se_sys_ioctl fs/ioctl.c:860 [inline]
+ __x64_sys_ioctl+0x193/0x200 fs/ioctl.c:860
+ do_syscall_x64 arch/x86/entry/common.c:50 [inline]
+ do_syscall_64+0x35/0xb0 arch/x86/entry/common.c:80
+ entry_SYSCALL_64_after_hwframe+0x44/0xae
+page last free stack trace:
+ reset_page_owner include/linux/page_owner.h:24 [inline]
+ free_pages_prepare mm/page_alloc.c:1340 [inline]
+ free_pcp_prepare+0x412/0x900 mm/page_alloc.c:1391
+ free_unref_page_prepare mm/page_alloc.c:3317 [inline]
+ free_unref_page+0x19/0x580 mm/page_alloc.c:3396
+ mm_free_pgd kernel/fork.c:648 [inline]
+ __mmdrop+0xcd/0x3f0 kernel/fork.c:699
+ mmdrop include/linux/sched/mm.h:49 [inline]
+ __mmput kernel/fork.c:1125 [inline]
+ mmput+0x36f/0x440 kernel/fork.c:1136
+ free_bprm+0x66/0x2e0 fs/exec.c:1483
+ kernel_execve+0x37b/0x460 fs/exec.c:1980
+ call_usermodehelper_exec_async+0x2e3/0x580 kernel/umh.c:112
+ ret_from_fork+0x1f/0x30 arch/x86/entry/entry_64.S:295
+Modules linked in:
+CPU: 0 PID: 12796 Comm: syz.4.48 Not tainted 5.15.0 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ __dump_stack lib/dump_stack.c:88 [inline]
+ dump_stack_lvl+0xcd/0x134 lib/dump_stack.c:106
+ bad_page.cold+0x9c/0xbd mm/page_alloc.c:652
+ check_free_page_bad mm/page_alloc.c:1199 [inline]
+ check_free_page mm/page_alloc.c:1209 [inline]
+ free_pages_prepare mm/page_alloc.c:1334 [inline]
+ free_pcp_prepare+0x479/0x900 mm/page_alloc.c:1391
+ free_unref_page_prepare mm/page_alloc.c:3317 [inline]
+ free_unref_page_list+0x105/0xec0 mm/page_alloc.c:3433
+ release_pages+0x393/0x2920 mm/swap.c:963
+ __pagevec_release+0x83/0x120 mm/swap.c:983
+ pagevec_release include/linux/pagevec.h:81 [inline]
+ truncate_inode_pages_range+0x320/0x1910 mm/truncate.c:329
+ jfs_mount_rw+0x1b4/0x5d0 fs/jfs/jfs_mount.c:243
+ jfs_remount+0x51c/0x640 fs/jfs/super.c:459
+ legacy_reconfigure+0x115/0x180 fs/fs_context.c:633
+ reconfigure_super+0x408/0x930 fs/super.c:906
+ do_remount fs/namespace.c:2650 [inline]
+ path_mount+0x17bc/0x1cb0 fs/namespace.c:3310
+ do_mount+0xf3/0x110 fs/namespace.c:3331
+ __do_sys_mount fs/namespace.c:3539 [inline]
+ __se_sys_mount fs/namespace.c:3516 [inline]
+ __x64_sys_mount+0x18f/0x230 fs/namespace.c:3516
+ do_syscall_x64 arch/x86/entry/common.c:50 [inline]
+ do_syscall_64+0x35/0xb0 arch/x86/entry/common.c:80
+ entry_SYSCALL_64_after_hwframe+0x44/0xae
+RIP: 0033:0x7f4849f4f71d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f484835fba8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 00007f484a112130 RCX: 00007f4849f4f71d
+RDX: 0000000000000000 RSI: 00000000200001c0 RDI: 0000000000000000
+RBP: 00007f4849fc4425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000804020 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f484a11213c R14: 00007f484a1121c8 R15: 00007f484835fd40

@@ -1,0 +1,57 @@
+==================================================================
+BUG: KASAN: use-after-free in udf_close_lvid+0x51b/0x5e0 fs/udf/super.c:2090
+Write of size 1 at addr ff11000045506460 by task syz-executor415/436
+
+CPU: 2 UID: 0 PID: 436 Comm: syz-executor415 Not tainted 6.13.0-rc3 #5
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 mm/kasan/report.c:489
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ udf_close_lvid+0x51b/0x5e0 fs/udf/super.c:2090
+ udf_put_super+0x186/0x1e0 fs/udf/super.c:2366
+ generic_shutdown_super+0x14e/0x380 fs/super.c:642
+ kill_block_super+0x3b/0x90 fs/super.c:1710
+ deactivate_locked_super+0xbb/0x130 fs/super.c:473
+ deactivate_super fs/super.c:506 [inline]
+ deactivate_super+0xb1/0xd0 fs/super.c:502
+ cleanup_mnt+0x378/0x510 fs/namespace.c:1373
+ task_work_run+0x173/0x280 kernel/task_work.c:239
+ exit_task_work include/linux/task_work.h:43 [inline]
+ do_exit+0xa68/0x2fe0 kernel/exit.c:938
+ do_group_exit+0xd3/0x2a0 kernel/exit.c:1087
+ __do_sys_exit_group kernel/exit.c:1098 [inline]
+ __se_sys_exit_group kernel/exit.c:1096 [inline]
+ __x64_sys_exit_group+0x3e/0x50 kernel/exit.c:1096
+ x64_sys_call+0xf6a/0x1890 arch/x86/include/generated/asm/syscalls_64.h:232
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7754215d26
+Code: Unable to access opcode bytes at 0x7f7754215cfc.
+RSP: 002b:00007ffe6057ff68 EFLAGS: 00000246 ORIG_RAX: 00000000000000e7
+RAX: ffffffffffffffda RBX: 00007f77542a12d0 RCX: 00007f7754215d26
+RDX: 0000000000000001 RSI: 000000000000003c RDI: 0000000000000001
+RBP: 0000000000000001 R08: 00000000000000e7 R09: ffffffffffffffc0
+R10: 00000000fffffffb R11: 0000000000000246 R12: 00007f77542a12d0
+R13: 0000000000000001 R14: 0000000000000000 R15: 0000000000000001
+ </TASK>
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x45506
+flags: 0x100000000000000(node=0|zone=1)
+raw: 0100000000000000 ffd4000001154188 ffd4000001154188 0000000000000000
+raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ff11000045506300: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ff11000045506380: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+>ff11000045506400: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+                                                       ^
+ ff11000045506480: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ff11000045506500: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+==================================================================

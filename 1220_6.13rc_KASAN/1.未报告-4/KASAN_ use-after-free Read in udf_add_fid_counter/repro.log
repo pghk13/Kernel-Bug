@@ -1,0 +1,416 @@
+Warning: Permanently added '[localhost]:45337' (ECDSA) to the list of known hosts.
+[   84.893721][   T44] audit: type=1400 audit(1734649915.372:11): avc:  denied  { execmem } for  pid=418 comm="syz-executor356" scontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tcontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tclass=process permissive=1
+executing program
+[   84.931736][  T419] loop0: detected capacity change from 0 to 2048
+[   84.945210][  T419] UDF-fs: error (device loop0): udf_process_sequence: Primary Volume Descriptor not found!
+[   84.953108][  T419] UDF-fs: INFO Mounting volume 'LinuxUDF', timestamp 2022/11/22 14:59 (1000)
+[   85.075024][  T418] ==================================================================
+[   85.081613][  T418] BUG: KASAN: use-after-free in udf_add_fid_counter+0x264/0x2d0
+[   85.085597][  T418] Read of size 4 at addr ff1100002e37cd40 by task syz-executor356/418
+[   85.094657][  T418] 
+[   85.096692][  T418] CPU: 3 UID: 0 PID: 418 Comm: syz-executor356 Not tainted 6.13.0-rc3 #5
+[   85.101684][  T418] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   85.105761][  T418] Call Trace:
+[   85.108844][  T418]  <TASK>
+[   85.109740][  T418]  dump_stack_lvl+0x116/0x1b0
+[   85.112840][  T418]  print_report+0xcf/0x5f0
+[   85.113656][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.117742][  T418]  ? __phys_addr+0xeb/0x180
+[   85.120844][  T418]  ? udf_add_fid_counter+0x264/0x2d0
+[   85.122734][  T418]  kasan_report+0x93/0xc0
+[   85.126737][  T418]  ? udf_add_fid_counter+0x264/0x2d0
+[   85.128845][  T418]  udf_add_fid_counter+0x264/0x2d0
+[   85.132731][  T418]  udf_unlink+0x2e5/0x470
+[   85.134628][  T418]  ? __pfx_udf_unlink+0x10/0x10
+[   85.137816][  T418]  ? write_comp_data+0x29/0x90
+[   85.140625][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.141791][  T418]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.141791][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.141791][  T418]  ? may_link+0x24d/0x3c0
+[   85.141791][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.141791][  T418]  ? down_write+0x14e/0x200
+[   85.141791][  T418]  ? __pfx_down_write+0x10/0x10
+[   85.141791][  T418]  ? may_delete+0x578/0x830
+[   85.141791][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.141791][  T418]  ? write_comp_data+0x29/0x90
+[   85.141791][  T418]  vfs_unlink+0x30e/0x9f0
+[   85.141791][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.141791][  T418]  do_unlinkat+0x574/0x750
+[   85.141791][  T418]  ? write_comp_data+0x29/0x90
+[   85.141791][  T418]  ? __pfx_do_unlinkat+0x10/0x10
+[   85.141791][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.141791][  T418]  ? __check_object_size+0x3c9/0x810
+[   85.141791][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.141791][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.141791][  T418]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.141791][  T418]  ? strncpy_from_user+0x21a/0x2f0
+[   85.141791][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.141791][  T418]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.141791][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.141791][  T418]  __x64_sys_unlink+0x40/0x50
+[   85.141791][  T418]  do_syscall_64+0xc3/0x1d0
+[   85.141791][  T418]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[   85.141791][  T418] RIP: 0033:0x7f706af0a28b
+[   85.141791][  T418] Code: 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   85.141791][  T418] RSP: 002b:00007ffca6f6d3f8 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+[   85.141791][  T418] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f706af0a28b
+[   85.141791][  T418] RDX: 00007ffca6f6d420 RSI: 00007ffca6f6d420 RDI: 00007ffca6f6d4b0
+[   85.141791][  T418] RBP: 00007ffca6f6d4b0 R08: 0000000000000001 R09: 00007ffca6f6d280
+[   85.141791][  T418] R10: 00000000fffffffb R11: 0000000000000206 R12: 00007ffca6f6e5b0
+[   85.141791][  T418] R13: 00005555877d0bf0 R14: 00007ffca6f6d418 R15: 0000000000000001
+[   85.141791][  T418]  </TASK>
+[   85.141791][  T418] 
+[   85.141791][  T418] The buggy address belongs to the physical page:
+[   85.141791][  T418] page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x2e37c
+[   85.141791][  T418] flags: 0x100000000000000(node=0|zone=1)
+[   85.141791][  T418] raw: 0100000000000000 ffd4000000b8df08 ffd4000000b8df08 0000000000000000
+[   85.141791][  T418] raw: 0000000000000000 0000000000000000 00000000ffffffff 0000000000000000
+[   85.141791][  T418] page dumped because: kasan: bad access detected
+[   85.141791][  T418] 
+[   85.141791][  T418] Memory state around the buggy address:
+[   85.141791][  T418]  ff1100002e37cc00: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   85.141791][  T418]  ff1100002e37cc80: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   85.141791][  T418] >ff1100002e37cd00: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   85.141791][  T418]                                            ^
+[   85.141791][  T418]  ff1100002e37cd80: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   85.141791][  T418]  ff1100002e37ce00: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[   85.141791][  T418] ==================================================================
+[   85.300369][  T418] Disabling lock debugging due to kernel taint
+[   85.304086][  T418] ------------[ cut here ]------------
+[   85.306138][  T418] WARNING: CPU: 3 PID: 418 at fs/udf/udfdecl.h:121 udf_add_fid_counter+0x257/0x2d0
+[   85.309386][  T418] Modules linked in:
+[   85.310982][  T418] CPU: 3 UID: 0 PID: 418 Comm: syz-executor356 Tainted: G    B              6.13.0-rc3 #5
+[   85.314917][  T418] Tainted: [B]=BAD_PAGE
+[   85.316620][  T418] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   85.320148][  T418] RIP: 0010:udf_add_fid_counter+0x257/0x2d0
+[   85.322324][  T418] Code: 14 02 48 89 f8 83 e0 07 83 c0 03 38 d0 7c 04 84 d2 75 1f 44 01 6d 20 e9 67 fe ff ff e8 42 50 ce fe 90 0f 0b e8 3a 50 ce fe 90 <0f> 0b 90 e9 40 ff ff ff e8 6c 98 0a ff eb da e8 65 98 0a ff e9 3c
+[   85.329125][  T418] RSP: 0018:ffa0000003577c10 EFLAGS: 00010246
+[   85.331627][  T418] RAX: 00000000f2cf8800 RBX: ff1100000b240000 RCX: ffffffff8d7b5146
+[   85.334605][  T418] RDX: 00000000841a2068 RSI: ff11000009e04680 RDI: 0000000000000002
+[   85.337595][  T418] RBP: ff1100000b2f0800 R08: fffffbfff2cf8800 R09: fffffbfff360bf3d
+[   85.340494][  T418] R10: fffffbfff360bf3c R11: ffffffff9b05f9e7 R12: 00000000841a2068
+[   85.343498][  T418] R13: 00000000ffffffff R14: ff1100000b240638 R15: ffa0000003577c88
+[   85.347119][  T418] FS:  00005555877bf880(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+[   85.350062][  T418] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   85.352137][  T418] CR2: 00007ffca6f6ccb8 CR3: 00000000109b6003 CR4: 0000000000771ef0
+[   85.354605][  T418] PKRU: 55555554
+[   85.355864][  T418] Call Trace:
+[   85.356989][  T418]  <TASK>
+[   85.358001][  T418]  ? __warn+0xea/0x3d0
+[   85.359398][  T418]  ? udf_add_fid_counter+0x257/0x2d0
+[   85.361146][  T418]  ? report_bug+0x386/0x5e0
+[   85.362629][  T418]  ? udf_add_fid_counter+0x257/0x2d0
+[   85.364389][  T418]  ? udf_add_fid_counter+0x258/0x2d0
+[   85.366476][  T418]  ? handle_bug+0xe5/0x180
+[   85.368036][  T418]  ? exc_invalid_op+0x35/0x80
+[   85.370009][  T418]  ? asm_exc_invalid_op+0x1a/0x20
+[   85.371782][  T418]  ? udf_add_fid_counter+0x196/0x2d0
+[   85.373622][  T418]  ? udf_add_fid_counter+0x257/0x2d0
+[   85.375379][  T418]  udf_unlink+0x2e5/0x470
+[   85.376901][  T418]  ? __pfx_udf_unlink+0x10/0x10
+[   85.378476][  T418]  ? write_comp_data+0x29/0x90
+[   85.380039][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.381753][  T418]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.383594][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.385452][  T418]  ? may_link+0x24d/0x3c0
+[   85.386883][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.388679][  T418]  ? down_write+0x14e/0x200
+[   85.390199][  T418]  ? __pfx_down_write+0x10/0x10
+[   85.391802][  T418]  ? may_delete+0x578/0x830
+[   85.393351][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.395142][  T418]  ? write_comp_data+0x29/0x90
+[   85.396732][  T418]  vfs_unlink+0x30e/0x9f0
+[   85.398170][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.400200][  T418]  do_unlinkat+0x574/0x750
+[   85.401674][  T418]  ? write_comp_data+0x29/0x90
+[   85.403123][  T418]  ? __pfx_do_unlinkat+0x10/0x10
+[   85.404794][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.406613][  T418]  ? __check_object_size+0x3c9/0x810
+[   85.408361][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.410199][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.411987][  T418]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.413751][  T418]  ? strncpy_from_user+0x21a/0x2f0
+[   85.415315][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.416934][  T418]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.418605][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.420266][  T418]  __x64_sys_unlink+0x40/0x50
+[   85.421651][  T418]  do_syscall_64+0xc3/0x1d0
+[   85.422955][  T418]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[   85.424687][  T418] RIP: 0033:0x7f706af0a28b
+[   85.425930][  T418] Code: 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   85.430872][  T418] RSP: 002b:00007ffca6f6d3f8 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+[   85.433080][  T418] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f706af0a28b
+[   85.435273][  T418] RDX: 00007ffca6f6d420 RSI: 00007ffca6f6d420 RDI: 00007ffca6f6d4b0
+[   85.438236][  T418] RBP: 00007ffca6f6d4b0 R08: 0000000000000001 R09: 00007ffca6f6d280
+[   85.441805][  T418] R10: 00000000fffffffb R11: 0000000000000206 R12: 00007ffca6f6e5b0
+[   85.444496][  T418] R13: 00005555877d0bf0 R14: 00007ffca6f6d418 R15: 0000000000000001
+[   85.446786][  T418]  </TASK>
+[   85.447869][  T418] irq event stamp: 18021
+[   85.449311][  T418] hardirqs last  enabled at (18021): [<ffffffff940ce9fb>] irqentry_exit+0x3b/0x90
+[   85.452275][  T418] hardirqs last disabled at (18020): [<ffffffff8c10f634>] handle_softirqs+0x6a4/0x870
+[   85.455359][  T418] softirqs last  enabled at (17826): [<ffffffff8c10f4d4>] handle_softirqs+0x544/0x870
+[   85.458371][  T418] softirqs last disabled at (17819): [<ffffffff8c11117e>] irq_exit_rcu+0xee/0x140
+[   85.461600][  T418] ---[ end trace 0000000000000000 ]---
+[   85.464484][  T418] ------------[ cut here ]------------
+[   85.466605][  T418] WARNING: CPU: 0 PID: 418 at fs/udf/udfdecl.h:121 udf_free_blocks+0x12f1/0x1500
+[   85.469648][  T418] Modules linked in:
+[   85.471045][  T418] CPU: 0 UID: 0 PID: 418 Comm: syz-executor356 Tainted: G    B   W          6.13.0-rc3 #5
+[   85.474234][  T418] Tainted: [B]=BAD_PAGE, [W]=WARN
+[   85.475972][  T418] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   85.480649][  T418] RIP: 0010:udf_free_blocks+0x12f1/0x1500
+[   85.482464][  T418] Code: 00 00 80 3c 02 00 0f 85 19 02 00 00 41 2b 6f 18 89 ac 24 c8 00 00 00 e9 6c ff ff ff e8 68 0d d0 fe 90 0f 0b e8 60 0d d0 fe 90 <0f> 0b 90 e9 62 f8 ff ff 48 8b bc 24 80 00 00 00 e8 ba 55 0c ff e9
+[   85.488112][  T418] RSP: 0018:ffa00000035776a8 EFLAGS: 00010246
+[   85.490111][  T418] RAX: 0000000000000000 RBX: ffa0000003577a00 RCX: ffffffff8d798d42
+[   85.492597][  T418] RDX: 00000000841a2068 RSI: ff11000009e04680 RDI: 0000000000000002
+[   85.498360][  T418] RBP: 0000000000000000 R08: 0000000000000000 R09: fffffbfff30f79c3
+[   85.501215][  T418] R10: ffa00000035776a8 R11: ffffffff987bce17 R12: ff110000122f8158
+[   85.504283][  T418] R13: ff1100000b2f0800 R14: 00000000841a2068 R15: ff1100000b240000
+[   85.507462][  T418] FS:  00005555877bf880(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+[   85.510636][  T418] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   85.513031][  T418] CR2: 00007fe1297d3ef0 CR3: 00000000109b6004 CR4: 0000000000771ef0
+[   85.515885][  T418] PKRU: 55555554
+[   85.517354][  T418] Call Trace:
+[   85.518801][  T418]  <TASK>
+[   85.520009][  T418]  ? __warn+0xea/0x3d0
+[   85.521717][  T418]  ? udf_free_blocks+0x12f1/0x1500
+[   85.523738][  T418]  ? report_bug+0x386/0x5e0
+[   85.525729][  T418]  ? udf_free_blocks+0x12f1/0x1500
+[   85.527713][  T418]  ? udf_free_blocks+0x12f2/0x1500
+[   85.529710][  T418]  ? handle_bug+0xe5/0x180
+[   85.531645][  T418]  ? exc_invalid_op+0x35/0x80
+[   85.533445][  T418]  ? asm_exc_invalid_op+0x1a/0x20
+[   85.535672][  T418]  ? udf_free_blocks+0xb52/0x1500
+[   85.538061][  T418]  ? udf_free_blocks+0x12f1/0x1500
+[   85.540163][  T418]  ? udf_free_blocks+0x12f0/0x1500
+[   85.542045][  T418]  ? __is_insn_slot_addr+0x136/0x290
+[   85.544084][  T418]  ? rcu_is_watching+0x12/0xc0
+[   85.546052][  T418]  ? lock_release+0x52e/0x750
+[   85.548036][  T418]  ? get_reg+0xf7/0x180
+[   85.549776][  T418]  ? __pfx_lock_release+0x10/0x10
+[   85.551859][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.554285][  T418]  ? __pfx_udf_free_blocks+0x10/0x10
+[   85.556463][  T418]  ? truncate_inode_pages_range+0x5d7/0xe60
+[   85.558966][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.561033][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.563224][  T418]  ? write_comp_data+0x29/0x90
+[   85.565143][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.567447][  T418]  ? __mark_inode_dirty+0x2a4/0xdd0
+[   85.569640][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.572627][  T418]  ? write_comp_data+0x29/0x90
+[   85.574321][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.576424][  T418]  ? write_comp_data+0x29/0x90
+[   85.578468][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.580616][  T418]  ? __mark_inode_dirty+0x2a4/0xdd0
+[   85.583145][  T418]  extent_trunc+0x35d/0x3d0
+[   85.585027][  T418]  ? __pfx_extent_trunc+0x10/0x10
+[   85.587286][  T418]  ? inode_bmap+0x2e9/0x7c0
+[   85.589140][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.591338][  T418]  udf_truncate_extents+0x37e/0xa50
+[   85.593469][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.595625][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.597883][  T418]  ? __pfx_udf_truncate_extents+0x10/0x10
+[   85.600096][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.602273][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.604602][  T418]  ? lock_release+0x52e/0x750
+[   85.606462][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.608621][  T418]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   85.610742][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.612864][  T418]  ? write_comp_data+0x29/0x90
+[   85.614849][  T418]  udf_setsize+0x2f0/0xf60
+[   85.616746][  T418]  ? __pfx_lock_release+0x10/0x10
+[   85.618880][  T418]  ? __pfx_udf_setsize+0x10/0x10
+[   85.620743][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.622890][  T418]  ? rcu_is_watching+0x12/0xc0
+[   85.624756][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.627104][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.629320][  T418]  ? evict+0x3c2/0x880
+[   85.631069][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.633159][  T418]  ? rcu_is_watching+0x12/0xc0
+[   85.635048][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.637275][  T418]  ? lock_release+0x52e/0x750
+[   85.639652][  T418]  ? __pfx_lock_release+0x10/0x10
+[   85.641614][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.644279][  T418]  ? do_raw_spin_lock+0x124/0x290
+[   85.646216][  T418]  ? __pfx_udf_evict_inode+0x10/0x10
+[   85.648337][  T418]  udf_evict_inode+0x259/0x450
+[   85.650269][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.652336][  T418]  ? do_raw_spin_unlock+0x53/0x250
+[   85.654460][  T418]  ? __pfx_udf_evict_inode+0x10/0x10
+[   85.656681][  T418]  evict+0x403/0x880
+[   85.658393][  T418]  ? lock_release+0x52e/0x750
+[   85.660402][  T418]  ? __pfx_evict+0x10/0x10
+[   85.662270][  T418]  ? __pfx_lock_release+0x10/0x10
+[   85.664497][  T418]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   85.666667][  T418]  ? __pfx_lock_release+0x10/0x10
+[   85.668861][  T418]  ? __pfx_lock_release+0x10/0x10
+[   85.670887][  T418]  ? do_raw_spin_lock+0x124/0x290
+[   85.672931][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.675105][  T418]  ? write_comp_data+0x29/0x90
+[   85.677074][  T418]  iput+0x51c/0x830
+[   85.678625][  T418]  do_unlinkat+0x5c7/0x750
+[   85.680345][  T418]  ? write_comp_data+0x29/0x90
+[   85.682250][  T418]  ? __pfx_do_unlinkat+0x10/0x10
+[   85.684226][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.686389][  T418]  ? __check_object_size+0x3c9/0x810
+[   85.688513][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.690716][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.692812][  T418]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.694830][  T418]  ? strncpy_from_user+0x21a/0x2f0
+[   85.696719][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.698947][  T418]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.700922][  T418]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.703085][  T418]  __x64_sys_unlink+0x40/0x50
+[   85.704941][  T418]  do_syscall_64+0xc3/0x1d0
+[   85.706649][  T418]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[   85.708814][  T418] RIP: 0033:0x7f706af0a28b
+[   85.710492][  T418] Code: 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   85.717757][  T418] RSP: 002b:00007ffca6f6d3f8 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+[   85.720819][  T418] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f706af0a28b
+[   85.723660][  T418] RDX: 00007ffca6f6d420 RSI: 00007ffca6f6d420 RDI: 00007ffca6f6d4b0
+[   85.726639][  T418] RBP: 00007ffca6f6d4b0 R08: 0000000000000001 R09: 00007ffca6f6d280
+[   85.729591][  T418] R10: 00000000fffffffb R11: 0000000000000206 R12: 00007ffca6f6e5b0
+[   85.732523][  T418] R13: 00005555877d0bf0 R14: 00007ffca6f6d418 R15: 0000000000000001
+[   85.735321][  T418]  </TASK>
+[   85.736613][  T418] irq event stamp: 18021
+[   85.738259][  T418] hardirqs last  enabled at (18021): [<ffffffff940ce9fb>] irqentry_exit+0x3b/0x90
+[   85.741505][  T418] hardirqs last disabled at (18020): [<ffffffff8c10f634>] handle_softirqs+0x6a4/0x870
+[   85.744845][  T418] softirqs last  enabled at (17826): [<ffffffff8c10f4d4>] handle_softirqs+0x544/0x870
+[   85.748067][  T418] softirqs last disabled at (17819): [<ffffffff8c11117e>] irq_exit_rcu+0xee/0x140
+[   85.751515][  T418] ---[ end trace 0000000000000000 ]---
+[   85.755101][  T418] UDF-fs: error (device loop0): udf_read_inode: (ino 1317) failed !bh
+[   85.758322][  T418] UDF-fs: error (device loop0): udf_read_inode: (ino 1317) failed !bh
+
+VM DIAGNOSIS:
+07:11:56  Registers:
+info registers vcpu 0
+RAX=0000000000000000 RBX=ff1100006a22cec0 RCX=0000000000000000 RDX=0000000000000000
+RSI=ffffffff9667c780 RDI=0000000000000002 RBP=ff1100006a23ce00 RSP=ffa0000000007b30
+R8 =0000000000000000 R9 =fffffbfff30f79c3 R10=fffffbfff30f79c2 R11=ffffffff987bce17
+R12=ff1100006a22ce40 R13=0000000000000000 R14=ff1100006a23ce00 R15=ff1100006a22cec0
+RIP=ffffffff8c49a28d RFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff1100006a200000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe30f268a000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe30f2688000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000564e78b19aa8 CR3=0000000001ef8001 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=00007ffd3af69f600000003000000028
+XMM02=ffffffffffff0f0e0d0c0b0a09080706 XMM03=696e656420737365636341002f737973
+XMM04=000000000000000000000000000000a2 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=20202020000000000000000000000000 XMM09=ffffffff000000000000000000000000
+XMM10=20202020000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 1
+RAX=0000000000024333 RBX=0000000000000001 RCX=ffffffff940cef91 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=dffffc0000000000 RSP=ffa000000015fe00
+R8 =0000000000000001 R9 =ffe21c000d456cc3 R10=ffe21c000d456cc2 R11=ff1100006a2b6613
+R12=0000000000000001 R13=ffffffff987bce10 R14=0000000000000000 R15=0000000000000000
+RIP=ffffffff940d04de RFL=00000206 [-----P-] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff1100006a280000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe1ae5aa8000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe1ae5aa6000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000564e78c2de40 CR3=0000000010a46005 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=000000696e656420737365636341002f
+XMM02=ffffff0f0e0d0c0b0a09080706050403 XMM03=696e656420737365636341002f737973
+XMM04=00000000000000000000000000000000 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=20202020000000000000000000000000 XMM09=ffffffff000000000000000000000000
+XMM10=20202020000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 2
+RAX=000000000001e1a5 RBX=0000000000000002 RCX=ffffffff940cef91 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=dffffc0000000000 RSP=ffa000000016fe00
+R8 =0000000000000001 R9 =ffe21c000d466cc3 R10=ffe21c000d466cc2 R11=ff1100006a336613
+R12=0000000000000002 R13=ffffffff987bce10 R14=0000000000000000 R15=0000000000000000
+RIP=ffffffff940d04de RFL=00000206 [-----P-] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff1100006a300000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe6602e57000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe6602e55000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f706af579a0 CR3=00000000083e2003 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=ffffffffffffffffffff0f0e0d0c0b0a
+XMM02=ffffffffffffffffffffff0f0e0d0c0b XMM03=00000000000000510000000000007400
+XMM04=000000006764a83b0000000000000000 XMM05=000000006764a82600000000176e29f3
+XMM06=000000006764a8260000000018dc5ff3 XMM07=00000000000000000000000018dc5ff3
+XMM08=00000000000000000000000000000000 XMM09=00ffffff000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 3
+RAX=0000000000000030 RBX=0000000000000000 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ff11000009e04680 RDI=ffffffffa234c180 RBP=ffffffffa234c140 RSP=ffa0000003577648
+R8 =fff3fc00006aee00 R9 =ffe21c0000e58047 R10=ffe21c0000e58046 R11=ff110000072c0237
+R12=0000000000000000 R13=0000000000000030 R14=0000000000000000 R15=0000000000000010
+RIP=ffffffff8f758a4f RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00005555877bf880 00000000 00000000
+GS =0000 ff1100006a380000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe15feeda000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe15feed8000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007ffca6f6ccb8 CR3=00000000109b6003 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00ff000000ff000000000000000000ff XMM01=25252525252525252525252525252525
+XMM02=00000000000000000000000000000000 XMM03=00000000000000000000000000000000
+XMM04=00ff00000000000000000000000000ff XMM05=0000ff0000000000ff00000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

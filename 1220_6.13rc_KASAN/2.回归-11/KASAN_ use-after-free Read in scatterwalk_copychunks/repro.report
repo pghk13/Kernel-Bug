@@ -1,0 +1,431 @@
+  node offset 24/32 bset u64s 65535: checksum error, type chacha20_poly1305_128: got a6e3f4bba9a4dece95deddc0898dddf2 should be d2cdc9df8ab78b6377596a61c9f86ccb, fixing
+==================================================================
+BUG: KASAN: use-after-free in memcpy_dir home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/crypto/scatterwalk.c:23 [inline]
+BUG: KASAN: use-after-free in scatterwalk_copychunks+0x230/0x5d0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/crypto/scatterwalk.c:38
+Read of size 40 at addr ff1100001a5c0000 by task syz-executor142/434
+
+CPU: 0 UID: 0 PID: 434 Comm: syz-executor142 Not tainted 6.13.0-rc3 #3
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/lib/dump_stack.c:120
+ print_address_description home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/mm/kasan/report.c:489
+ kasan_report+0x93/0xc0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/mm/kasan/report.c:602
+ check_region_inline home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/mm/kasan/generic.c:183 [inline]
+ kasan_check_range+0xf6/0x1b0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/mm/kasan/generic.c:189
+ __asan_memcpy+0x24/0x60 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/mm/kasan/shadow.c:105
+ memcpy_dir home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/crypto/scatterwalk.c:23 [inline]
+ scatterwalk_copychunks+0x230/0x5d0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/crypto/scatterwalk.c:38
+ skcipher_next_slow home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/crypto/skcipher.c:276 [inline]
+ skcipher_walk_next+0x842/0x17a0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/crypto/skcipher.c:361
+ skcipher_walk_done+0x71d/0xdc0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/crypto/skcipher.c:157
+ chacha_simd_stream_xor+0x4bb/0x690 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/arch/x86/crypto/chacha_glue.c:192
+ crypto_skcipher_encrypt+0xff/0x170 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/crypto/skcipher.c:643
+ do_encrypt_sg+0xe2/0x170 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/checksum.c:108
+ do_encrypt+0x9e6/0xb70 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/checksum.c:124
+ bch2_encrypt+0x9e/0xb0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/checksum.c:255
+ bset_encrypt home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/btree_io.h:118 [inline]
+ bch2_btree_node_read_done+0x1338/0x5530 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/btree_io.c:1111
+ btree_node_read_work+0xa7a/0x1b60 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/btree_io.c:1323
+ bch2_btree_node_read+0xbfe/0x1ad0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/btree_io.c:1708
+ __bch2_btree_root_read home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/btree_io.c:1749 [inline]
+ bch2_btree_root_read+0x2c4/0x460 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/btree_io.c:1771
+ read_btree_roots home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/recovery.c:523 [inline]
+ bch2_fs_recovery+0x2340/0x4f00 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/recovery.c:853
+ bch2_fs_start+0x2f6/0x610 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/super.c:1037
+ bch2_fs_get_tree+0x4b6/0x2020 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/fs.c:2170
+ vfs_get_tree+0x93/0x340 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/super.c:1814
+ do_new_mount home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/namespace.c:3507 [inline]
+ path_mount+0x1287/0x1d60 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/namespace.c:3834
+ do_mount+0xf8/0x110 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/namespace.c:3847
+ __do_sys_mount home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/namespace.c:4057 [inline]
+ __se_sys_mount home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/namespace.c:4034 [inline]
+ __x64_sys_mount+0x193/0x230 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/namespace.c:4034
+ do_syscall_x64 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f6a446fda2e
+Code: 83 c4 08 5b 5d c3 66 0f 1f 44 00 00 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffee71f1978 EFLAGS: 00000282 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 0000000000000003 RCX: 00007f6a446fda2e
+RDX: 0000000020011a00 RSI: 0000000020011a40 RDI: 00007ffee71f1990
+RBP: 00007ffee71f1990 R08: 00007ffee71f19d0 R09: 0000000000000000
+R10: 0000000000800000 R11: 0000000000000282 R12: 000055555592d840
+R13: 00007ffee71f19d0 R14: 0000000000800000 R15: 0000000000000000
+ </TASK>
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x1a5c0
+flags: 0x100000000000000(node=0|zone=1)
+page_type: f0(buddy)
+raw: 0100000000000000 ff1100007ffdce10 ff1100007ffdce10 0000000000000000
+raw: 0000000000000000 0000000000000006 00000000f0000000 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ff1100001a5bff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ff1100001a5bff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+>ff1100001a5c0000: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+                   ^
+ ff1100001a5c0080: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ff1100001a5c0100: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+==================================================================
+bcachefs (loop0): error validating btree node on loop0 at btree alloc level 0/0
+  u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 4fe84214937890c3 written 32 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0  
+  node offset 24/32 bset u64s 65535: unsupported bset version 63.1023
+bcachefs (loop0): flagging btree alloc lost data
+error reading btree root alloc l=0: btree_node_read_error, fixing
+bcachefs (loop0): error validating btree node on loop0 at btree freespace level 0/0
+  u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+  node offset 8/32 bset u64s 35: checksum error, type chacha20_poly1305_128: got 4ac69fe2da8315b4f61b05046e8b861d should be 9b102ec2b3ee8e25f975b140433141dc, fixing
+bcachefs (loop0): error validating btree node at btree freespace level 0/0
+  u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0  
+  node offset 8/32 bset u64s 35 bset byte offset 160: keys out of order: u64s 5 type set 0:270479860432928:0 len 2 ver 0 > u64s 5 type set 0:35:0 len 2 ver 0, fixing
+bcachefs (loop0): btree_node_read_work: rewriting btree node at btree=freespace level=0 SPOS_MAX due to error
+bcachefs (loop0): accounting_read... done
+bcachefs (loop0): alloc_read... done
+bcachefs (loop0): stripes_read... done
+bcachefs (loop0): snapshots_read... done
+bcachefs (loop0): check_allocations...
+bucket 0:34 data type user ptr gen 0 missing in alloc btree
+while marking u64s 8 type extent 1073741825:8:U32_MAX len 8 ver 1: durability: 1 crc: c_size 8 size 8 offset 0 nonce 0 csum chacha20_poly1305_80 c2b0:471dbdea2c899e3f  compress none ptr: 0:34:0 gen 0, fixing
+bucket 0:27 data type btree ptr gen 0 missing in alloc btree
+while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 83426fcb67886cbe written 16 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0, fixing
+btree ptr not marked in member info btree allocated bitmap
+  u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a22d880bb51b703b written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+bucket 0:38 data type btree ptr gen 0 missing in alloc btree
+while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a22d880bb51b703b written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0, fixing
+btree ptr not marked in member info btree allocated bitmap
+  u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq b5d608e41b3af1cf written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+bucket 0:41 data type btree ptr gen 0 missing in alloc btree
+while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq b5d608e41b3af1cf written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0, fixing
+bucket 0:31 data type btree ptr gen 0 missing in alloc btree
+while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 27c2ec7b8e70cb08 written 16 min_key POS_MIN durability: 1 ptr: 0:31:0 gen 0, fixing
+btree ptr not marked in member info btree allocated bitmap
+  u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 92b180ffcc5b04f1 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+bucket 0:35 data type btree ptr gen 0 missing in alloc btree
+while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 92b180ffcc5b04f1 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0, fixing
+btree ptr not marked in member info btree allocated bitmap
+  u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 8aae33f84eb959b0 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+bucket 0:32 data type btree ptr gen 0 missing in alloc btree
+while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 8aae33f84eb959b0 written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0, fixing
+bucket 0:28 data type btree ptr gen 0 missing in alloc btree
+while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq a11787a6b9c68820 written 16 min_key POS_MIN durability: 1 ptr: 0:28:0 gen 0, fixing
+btree ptr not marked in member info btree allocated bitmap
+  u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+bucket 0:29 data type btree ptr gen 0 missing in alloc btree
+while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 487388c888b02d23 written 32 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0, fixing
+bucket 0:36 data type btree ptr gen 0 missing in alloc btree
+while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq afc6cc17f332ffe0 written 24 min_key POS_MIN durability: 1 ptr: 0:36:0 gen 0, fixing
+bucket 0:40 data type btree ptr gen 0 missing in alloc btree
+while marking u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 2b7c77101c276712 written 8 min_key POS_MIN durability: 1 ptr: 0:40:0 gen 0, fixing
+bucket 0:0 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:0 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:1 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:1 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:2 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:2 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:3 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:3 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:4 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:4 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:5 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:5 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:6 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:6 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:7 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:7 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:8 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:8 gen 0 data type sb has wrong dirty_sectors: got 0, should be 8, fixing
+bucket 0:9 gen 0 has wrong data_type: got free, should be journal, fixing
+bucket 0:9 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:10 gen 0 has wrong data_type: got free, should be journal, fixing
+bucket 0:10 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:11 gen 0 has wrong data_type: got free, should be journal, fixing
+bucket 0:11 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:12 gen 0 has wrong data_type: got free, should be journal, fixing
+bucket 0:12 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:13 gen 0 has wrong data_type: got free, should be journal, fixing
+bucket 0:13 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:14 gen 0 has wrong data_type: got free, should be journal, fixing
+bucket 0:14 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:15 gen 0 has wrong data_type: got free, should be journal, fixing
+bucket 0:15 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:16 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:16 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:17 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:17 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:18 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:18 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:19 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:19 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:20 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:20 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:21 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:21 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:22 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:22 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:23 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:23 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:24 gen 0 has wrong data_type: got free, should be journal, fixing
+bucket 0:24 gen 0 data type journal has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:27 gen 0 has wrong data_type: got free, should be btree, fixing
+bucket 0:27 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:28 gen 0 has wrong data_type: got free, should be btree, fixing
+bucket 0:28 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:29 gen 0 has wrong data_type: got free, should be btree, fixing
+bucket 0:29 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:31 gen 0 has wrong data_type: got free, should be btree, fixing
+bucket 0:31 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:32 gen 0 has wrong data_type: got free, should be btree, fixing
+bucket 0:32 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:34 gen 0 has wrong data_type: got free, should be user, fixing
+bucket 0:34 gen 0 data type user has wrong dirty_sectors: got 0, should be 32, fixing
+bucket 0:35 gen 0 has wrong data_type: got free, should be btree, fixing
+bucket 0:35 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:36 gen 0 has wrong data_type: got free, should be btree, fixing
+bucket 0:36 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:38 gen 0 has wrong data_type: got free, should be btree, fixing
+bucket 0:38 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:40 gen 0 has wrong data_type: got free, should be btree, fixing
+bucket 0:40 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:41 gen 0 has wrong data_type: got free, should be btree, fixing
+bucket 0:41 gen 0 data type btree has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:120 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:120 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:121 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:121 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:122 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:122 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:123 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:123 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:124 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:124 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:125 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:125 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:126 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:126 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+bucket 0:127 gen 0 has wrong data_type: got free, should be sb, fixing
+bucket 0:127 gen 0 data type sb has wrong dirty_sectors: got 0, should be 256, fixing
+ done
+bcachefs (loop0): going read-write
+bcachefs (loop0): journal_replay...
+bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+  freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+2 transaction updates for bch2_journal_replay journal seq 0
+  update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/recovery.c:232
+    old u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+    new u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+  update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/recovery.c:232
+    old u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+    new u64s 13 type alloc_v4 POS_MIN len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+
+bcachefs (loop0): bch2_btree_update_start(): error EIO
+bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+  freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+2 transaction updates for bch2_journal_replay journal seq 0
+  update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/recovery.c:232
+    old u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+    new u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+  update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/recovery.c:232
+    old u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+    new u64s 13 type alloc_v4 0:1:0 len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+
+bcachefs (loop0): bch2_btree_update_start(): error EIO
+bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+  freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+2 transaction updates for bch2_journal_replay journal seq 0
+  update: btree=alloc cached=0 bch2_journal_replay_key.part.0+0x3d7/0xad0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/recovery.c:232
+    old u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+    new u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+  update: btree=alloc cached=1 bch2_journal_replay_key.part.0+0x3d7/0xad0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/recovery.c:232
+    old u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+    new u64s 13 type alloc_v4 0:2:0 len 0 ver 0: 
+    gen 0 oldest_gen 0 data_type sb
+    journal_seq       0
+    need_discard      0
+    need_inc_gen      0
+    dirty_sectors     256
+    stripe_sectors    0
+    cached_sectors    0
+    stripe            0
+    stripe_redundancy 0
+    io_time[READ]     0
+    io_time[WRITE]    0
+    fragmentation     0
+    bp_start          8
+  
+
+bcachefs (loop0): bch2_btree_update_start(): error EIO
+bcachefs (loop0): freespace btree has bucket outside allowed range 0-128
+  freespace key u64s 5 type set 0:270479860432928:0 len 2 ver 0
+1 transaction updates for bch2_btree_write_buffer_journal_flush journal seq 11
+  update: btree=accounting cached=0 wb_flush_one_slowpath+0x102/0x1f0 home/qjj/go1.22.1_projects/go_projects/linux-6.13-rc3/fs/bcachefs/btree_write_buffer.c:127
+    old u64s 5 type deleted POS_MIN len 0 ver 0
+    new u64s 6 type accounting POS_MIN len 0 ver 47244641036: nr_inodes  8
+
+bcachefs (loop0): bch2_btree_update_start(): error EIO
+bcachefs (loop0): bch2_btree_write_buffer_flush_locked(): fatal error EIO
+bcachefs (loop0): fatal error - emergency read only
+bcachefs (loop0): bch2_journal_replay(): error erofs_journal_err
+bcachefs (loop0): bch2_fs_recovery(): error erofs_journal_err
+bcachefs (loop0): bch2_fs_start(): error starting filesystem erofs_journal_err
+bcachefs (loop0): shutting down
+bcachefs (loop0): shutdown complete
+bcachefs: bch2_fs_get_tree() error: erofs_journal_err

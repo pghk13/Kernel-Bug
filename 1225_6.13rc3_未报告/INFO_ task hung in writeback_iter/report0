@@ -1,0 +1,106 @@
+INFO: task syz.7.2690:19293 blocked for more than 143 seconds.
+      Not tainted 6.13.0-rc3 #3
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:syz.7.2690      state:D stack:25256 pid:19293 tgid:19293 ppid:15068  flags:0x00004004
+Call Trace:
+ <TASK>
+ context_switch kernel/sched/core.c:5369 [inline]
+ __schedule+0xe60/0x4120 kernel/sched/core.c:6756
+ __schedule_loop kernel/sched/core.c:6833 [inline]
+ schedule+0xd4/0x210 kernel/sched/core.c:6848
+ io_schedule+0x1a/0x70 kernel/sched/core.c:7681
+ folio_wait_bit_common+0x3cc/0x970 mm/filemap.c:1308
+ folio_lock include/linux/pagemap.h:1151 [inline]
+ writeback_get_folio mm/page-writeback.c:2515 [inline]
+ writeback_iter+0x884/0x1100 mm/page-writeback.c:2609
+ iomap_writepages fs/iomap/buffered-io.c:2012 [inline]
+ iomap_writepages+0x180/0x2de0 fs/iomap/buffered-io.c:1996
+ gfs2_writepages+0x159/0x2a0 fs/gfs2/aops.c:161
+ do_writepages+0x19d/0x7d0 mm/page-writeback.c:2702
+ filemap_fdatawrite_wbc+0xe9/0x120 mm/filemap.c:397
+ __filemap_fdatawrite_range+0xc1/0x110 mm/filemap.c:430
+ gfs2_ordered_write fs/gfs2/log.c:728 [inline]
+ gfs2_log_flush+0x79a/0x2cc0 fs/gfs2/log.c:1097
+ gfs2_trans_end+0x6b9/0x9f0 fs/gfs2/trans.c:158
+ gfs2_page_mkwrite+0x18a3/0x1b30 fs/gfs2/file.c:534
+ do_page_mkwrite+0x180/0x390 mm/memory.c:3176
+ wp_page_shared mm/memory.c:3577 [inline]
+ do_wp_page+0x40f/0x3860 mm/memory.c:3727
+ handle_pte_fault mm/memory.c:5817 [inline]
+ __handle_mm_fault+0x10f4/0x3130 mm/memory.c:5944
+ handle_mm_fault+0x2aa/0x660 mm/memory.c:6112
+ do_user_addr_fault+0x6b7/0x18b0 arch/x86/mm/fault.c:1338
+ handle_page_fault arch/x86/mm/fault.c:1481 [inline]
+ exc_page_fault+0x9c/0x1a0 arch/x86/mm/fault.c:1539
+ asm_exc_page_fault+0x26/0x30 arch/x86/include/asm/idtentry.h:623
+RIP: 0033:0x7f255c23c71d
+RSP: 002b:00007ffcdbf78d40 EFLAGS: 00010246
+RAX: 0000000000000001 RBX: 0000000020000040 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: 0000000000000004 RDI: 0000000000000001
+RBP: 00007ffcdbf78e48 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000000 R12: 0000000000000000
+R13: 20c49ba5e353f7cf R14: 00007f255c55bf80 R15: 00007f255c55bf80
+ </TASK>
+
+Showing all locks held in the system:
+1 lock held by rcu_preempt/17:
+ #0: ff1100006a23c458 (&rq->__lock){-.-.}-{2:2}, at: raw_spin_rq_lock_nested+0x22/0x30 kernel/sched/core.c:598
+1 lock held by khungtaskd/45:
+ #0: ffffffffa391ae20 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire include/linux/rcupdate.h:337 [inline]
+ #0: ffffffffa391ae20 (rcu_read_lock){....}-{1:3}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ #0: ffffffffa391ae20 (rcu_read_lock){....}-{1:3}, at: debug_show_all_locks+0x75/0x340 kernel/locking/lockdep.c:6744
+2 locks held by kworker/u19:1/59:
+ #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3204 [inline]
+ #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0 kernel/workqueue.c:3310
+ #1: ffa0000000407d98 ((work_completion)(&sub_info->work)){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3205 [inline]
+ #1: ffa0000000407d98 ((work_completion)(&sub_info->work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0 kernel/workqueue.c:3310
+4 locks held by kworker/u18:2/224:
+ #0: ff11000002348148 ((wq_completion)writeback){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3204 [inline]
+ #0: ff11000002348148 ((wq_completion)writeback){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0 kernel/workqueue.c:3310
+ #1: ffa0000003597d98 ((work_completion)(&(&wb->dwork)->work)){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3205 [inline]
+ #1: ffa0000003597d98 ((work_completion)(&(&wb->dwork)->work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0 kernel/workqueue.c:3310
+ #2: ff11000036c6e0e0 (&type->s_umount_key#100){++++}-{4:4}, at: super_trylock_shared+0x21/0x100 fs/super.c:562
+ #3: ff110000154c0fd0 (&sdp->sd_log_flush_lock){++++}-{4:4}, at: gfs2_log_flush+0xd6/0x2cc0 fs/gfs2/log.c:1040
+1 lock held by in:imklog/327:
+2 locks held by agetty/370:
+ #0: ff1100000b37a0a0 (&tty->ldisc_sem){++++}-{0:0}, at: tty_ldisc_ref_wait+0x26/0x80 drivers/tty/tty_ldisc.c:243
+ #1: ffa00000035bb2f0 (&ldata->atomic_read_lock){+.+.}-{4:4}, at: n_tty_read+0x44e/0x14c0 drivers/tty/n_tty.c:2211
+2 locks held by agetty/372:
+ #0: ff11000008f1e0a0 (&tty->ldisc_sem){++++}-{0:0}, at: tty_ldisc_ref_wait+0x26/0x80 drivers/tty/tty_ldisc.c:243
+ #1: ffa000000354b2f0 (&ldata->atomic_read_lock){+.+.}-{4:4}, at: n_tty_read+0x44e/0x14c0 drivers/tty/n_tty.c:2211
+2 locks held by kworker/u19:4/441:
+ #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3204 [inline]
+ #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0 kernel/workqueue.c:3310
+ #1: ffa0000013bafd98 ((work_completion)(&sub_info->work)){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3205 [inline]
+ #1: ffa0000013bafd98 ((work_completion)(&sub_info->work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0 kernel/workqueue.c:3310
+2 locks held by kworker/u19:5/469:
+ #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3204 [inline]
+ #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0 kernel/workqueue.c:3310
+ #1: ffa0000013c6fd98 ((work_completion)(&sub_info->work)){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3205 [inline]
+ #1: ffa0000013c6fd98 ((work_completion)(&sub_info->work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0 kernel/workqueue.c:3310
+2 locks held by kworker/u17:5/1424:
+ #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3204 [inline]
+ #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0 kernel/workqueue.c:3310
+ #1: ffa0000014ecfd98 ((work_completion)(&sub_info->work)){+.+.}-{0:0}, at: process_one_work kernel/workqueue.c:3205 [inline]
+ #1: ffa0000014ecfd98 ((work_completion)(&sub_info->work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0 kernel/workqueue.c:3310
+1 lock held by systemd-udevd/1639:
+4 locks held by syz.7.2690/19293:
+ #0: ff1100001c5aeb68 (&vma->vm_lock->lock){++++}-{4:4}, at: vma_start_read include/linux/mm.h:716 [inline]
+ #0: ff1100001c5aeb68 (&vma->vm_lock->lock){++++}-{4:4}, at: lock_vma_under_rcu+0x141/0x800 mm/memory.c:6278
+ #1: ff11000036c6e518 (sb_pagefaults#9){.+.+}-{0:0}, at: do_page_mkwrite+0x180/0x390 mm/memory.c:3176
+ #2: ff11000036c6e610 (sb_internal#6){.+.+}-{0:0}, at: gfs2_trans_begin+0x70/0xf0 fs/gfs2/trans.c:118
+ #3: ff110000154c0fd0 (&sdp->sd_log_flush_lock){++++}-{4:4}, at: gfs2_log_flush+0xd6/0x2cc0 fs/gfs2/log.c:1040
+1 lock held by syz.9.2853/20286:
+ #0: ff11000036c6e0e0 (&type->s_umount_key#100){++++}-{4:4}, at: __super_lock fs/super.c:58 [inline]
+ #0: ff11000036c6e0e0 (&type->s_umount_key#100){++++}-{4:4}, at: super_lock+0x17a/0x3e0 fs/super.c:120
+1 lock held by syz.1.2921/20876:
+ #0: ff11000036c6e0e0 (&type->s_umount_key#100){++++}-{4:4}, at: __super_lock fs/super.c:58 [inline]
+ #0: ff11000036c6e0e0 (&type->s_umount_key#100){++++}-{4:4}, at: super_lock+0x17a/0x3e0 fs/super.c:120
+2 locks held by syz.7.3272/23139:
+2 locks held by syz.0.3274/23143:
+1 lock held by syz.2.3275/23148:
+1 lock held by modprobe/23152:
+1 lock held by modprobe/23153:
+
+=============================================
+

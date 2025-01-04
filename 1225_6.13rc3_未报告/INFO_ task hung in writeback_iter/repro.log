@@ -1,0 +1,448 @@
+Warning: Permanently added '[localhost]:21853' (ECDSA) to the list of known hosts.
+executing program
+[   74.591691][   T44] audit: type=1400 audit(1734785498.496:10): avc:  denied  { execmem } for  pid=421 comm="syz-executor223" scontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tcontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tclass=process permissive=1
+[   74.793670][  T422] loop0: detected capacity change from 0 to 32768
+[   74.803190][  T422] gfs2: fsid=syz:syz: Trying to join cluster "lock_nolock", "syz:syz"
+[   74.805639][  T422] gfs2: fsid=syz:syz: Now mounting FS (format 1801)...
+[   74.818617][  T422] gfs2: fsid=syz:syz.0: journal 0 mapped with 1 extents in 1ms
+[   74.821832][   T35] gfs2: fsid=syz:syz.0: jid=0, already locked for use
+[   74.824116][   T35] gfs2: fsid=syz:syz.0: jid=0: Looking at journal...
+[   74.882174][   T35] gfs2: fsid=syz:syz.0: jid=0: Journal head lookup took 58ms
+[   74.884746][   T35] gfs2: fsid=syz:syz.0: jid=0: Done
+[   74.887784][  T422] gfs2: fsid=syz:syz.0: first mount done, others may mount
+[  288.598534][   T45] INFO: task kworker/u19:3:118 blocked for more than 143 seconds.
+[  288.600916][   T45]       Tainted: G    B              6.13.0-rc3 #5
+[  288.603077][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  288.606490][   T45] task:kworker/u19:3   state:D stack:27144 pid:118   tgid:118   ppid:2      flags:0x00004000
+[  288.609637][   T45] Workqueue: writeback wb_workfn (flush-7:0)
+[  288.611620][   T45] Call Trace:
+[  288.612778][   T45]  <TASK>
+[  288.613822][   T45]  __schedule+0xe60/0x4120
+[  288.615327][   T45]  ? __pfx___schedule+0x10/0x10
+[  288.616923][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.618673][   T45]  ? lock_release+0x52e/0x750
+[  288.620263][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.622062][   T45]  ? __pfx_lock_release+0x10/0x10
+[  288.623691][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.625512][   T45]  ? write_comp_data+0x29/0x90
+[  288.627068][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.628879][   T45]  ? write_comp_data+0x29/0x90
+[  288.630433][   T45]  schedule+0xd4/0x210
+[  288.631775][   T45]  io_schedule+0x1a/0x70
+[  288.633320][   T45]  folio_wait_bit_common+0x3cc/0x970
+[  288.634987][   T45]  ? __pfx_folio_wait_bit_common+0x10/0x10
+[  288.636860][   T45]  ? __pfx_filemap_get_folios_tag+0x10/0x10
+[  288.638678][   T45]  ? rcu_is_watching+0x12/0xc0
+[  288.640259][   T45]  ? __pfx_wake_page_function+0x10/0x10
+[  288.642116][   T45]  ? __pfx_lock_release+0x10/0x10
+[  288.643817][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.645586][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.647363][   T45]  ? xas_find_marked+0x359/0x10c0
+[  288.648982][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.650788][   T45]  ? write_comp_data+0x29/0x90
+[  288.652340][   T45]  writeback_iter+0x884/0x1100
+[  288.653890][   T45]  iomap_writepages+0x180/0x2de0
+[  288.655497][   T45]  ? __pfx_filemap_get_folios_tag+0x10/0x10
+[  288.657365][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.659066][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.660847][   T45]  ? __pfx_iomap_writepages+0x10/0x10
+[  288.662583][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.664344][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.666117][   T45]  ? write_cache_pages+0xde/0x120
+[  288.667719][   T45]  ? __pfx_write_cache_pages+0x10/0x10
+[  288.669464][   T45]  gfs2_writepages+0x159/0x2a0
+[  288.671128][   T45]  ? __pfx_gfs2_writepages+0x10/0x10
+[  288.672867][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.674664][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.676457][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.678257][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.679975][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.681681][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.683468][   T45]  ? __pfx_gfs2_writepages+0x10/0x10
+[  288.685143][   T45]  do_writepages+0x19d/0x7d0
+[  288.686661][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.688442][   T45]  ? __pfx_do_writepages+0x10/0x10
+[  288.690121][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.691824][   T45]  ? rcu_is_watching+0x12/0xc0
+[  288.694501][   T45]  ? writeback_sb_inodes+0x4bb/0xf00
+[  288.696398][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.698439][   T45]  ? rcu_is_watching+0x12/0xc0
+[  288.700126][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.702109][   T45]  ? lock_release+0x52e/0x750
+[  288.703958][   T45]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  288.705855][   T45]  ? __pfx_lock_release+0x10/0x10
+[  288.707595][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.709523][   T45]  ? do_raw_spin_lock+0x124/0x290
+[  288.711315][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.713340][   T45]  __writeback_single_inode+0x135/0x1010
+[  288.715515][   T45]  writeback_sb_inodes+0x5ee/0xf00
+[  288.717632][   T45]  ? __pfx_writeback_sb_inodes+0x10/0x10
+[  288.719893][   T45]  ? __pfx___up_read+0x10/0x10
+[  288.721837][   T45]  ? __pfx_move_expired_inodes+0x10/0x10
+[  288.723931][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.726263][   T45]  ? write_comp_data+0x29/0x90
+[  288.728182][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.730406][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.732492][   T45]  __writeback_inodes_wb+0xbe/0x270
+[  288.734537][   T45]  wb_writeback+0x72f/0xb50
+[  288.736358][   T45]  ? wb_over_bg_thresh+0xcc/0x230
+[  288.738175][   T45]  ? __pfx_wb_writeback+0x10/0x10
+[  288.740045][   T45]  ? write_comp_data+0x29/0x90
+[  288.741783][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.743767][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.745736][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.747665][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.749657][   T45]  wb_workfn+0x8b8/0xe10
+[  288.751359][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.753478][   T45]  ? __pfx_wb_workfn+0x10/0x10
+[  288.755106][   T45]  ? write_comp_data+0x29/0x90
+[  288.756867][   T45]  ? _raw_spin_unlock_irq+0x23/0x50
+[  288.758829][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.760782][   T45]  ? rcu_is_watching+0x12/0xc0
+[  288.762368][   T45]  process_scheduled_works+0x5ee/0x1ba0
+[  288.764138][   T45]  ? __pfx_process_scheduled_works+0x10/0x10
+[  288.766366][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.768287][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.770345][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.772381][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.774488][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.776527][   T45]  ? assign_work+0x195/0x240
+[  288.778312][   T45]  worker_thread+0x59f/0xcf0
+[  288.780019][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.782358][   T45]  ? __pfx_worker_thread+0x10/0x10
+[  288.784457][   T45]  kthread+0x345/0x450
+[  288.786010][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.787998][   T45]  ? __pfx_kthread+0x10/0x10
+[  288.789916][   T45]  ret_from_fork+0x48/0x80
+[  288.791732][   T45]  ? __pfx_kthread+0x10/0x10
+[  288.793568][   T45]  ret_from_fork_asm+0x1a/0x30
+[  288.795340][   T45]  </TASK>
+[  288.796587][   T45] INFO: task syz-executor223:422 blocked for more than 143 seconds.
+[  288.799603][   T45]       Tainted: G    B              6.13.0-rc3 #5
+[  288.801974][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  288.805011][   T45] task:syz-executor223 state:D stack:25960 pid:422   tgid:422   ppid:421    flags:0x00004004
+[  288.808726][   T45] Call Trace:
+[  288.810013][   T45]  <TASK>
+[  288.811283][   T45]  __schedule+0xe60/0x4120
+[  288.813067][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.815054][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.816968][   T45]  ? __pfx___schedule+0x10/0x10
+[  288.818765][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.820802][   T45]  ? lock_release+0x52e/0x750
+[  288.822566][   T45]  ? rcu_is_watching+0x12/0xc0
+[  288.824291][   T45]  ? __pfx_lock_release+0x10/0x10
+[  288.826068][   T45]  ? __pfx_lock_release+0x10/0x10
+[  288.827874][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.829827][   T45]  ? do_raw_spin_lock+0x124/0x290
+[  288.831670][   T45]  schedule+0xd4/0x210
+[  288.833300][   T45]  io_schedule+0x1a/0x70
+[  288.834905][   T45]  folio_wait_bit_common+0x3cc/0x970
+[  288.836732][   T45]  ? __pfx_folio_wait_bit_common+0x10/0x10
+[  288.838787][   T45]  ? __pfx_filemap_get_folios_tag+0x10/0x10
+[  288.840756][   T45]  ? __pfx_wake_page_function+0x10/0x10
+[  288.842717][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.844698][   T45]  ? write_comp_data+0x29/0x90
+[  288.846463][   T45]  writeback_iter+0x884/0x1100
+[  288.848338][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.850279][   T45]  iomap_writepages+0x180/0x2de0
+[  288.852039][   T45]  ? rcu_is_watching+0x12/0xc0
+[  288.853819][   T45]  ? filemap_get_entry+0x5ba/0xbc0
+[  288.855596][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.857564][   T45]  ? rcu_is_watching+0x12/0xc0
+[  288.859386][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.861395][   T45]  ? lock_release+0x52e/0x750
+[  288.863102][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.864995][   T45]  ? __pfx_lock_release+0x10/0x10
+[  288.866790][   T45]  ? write_comp_data+0x29/0x90
+[  288.868460][   T45]  ? xas_load+0x67/0x560
+[  288.870042][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.872060][   T45]  ? __pfx_iomap_writepages+0x10/0x10
+[  288.874007][   T45]  ? __pfx_filemap_get_entry+0x10/0x10
+[  288.875845][   T45]  gfs2_writepages+0x159/0x2a0
+[  288.877581][   T45]  ? __pfx_gfs2_writepages+0x10/0x10
+[  288.879403][   T45]  ? rcu_is_watching+0x12/0xc0
+[  288.881108][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.883139][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.885152][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.887144][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.889299][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.891266][   T45]  ? __pfx_gfs2_writepages+0x10/0x10
+[  288.893322][   T45]  do_writepages+0x19d/0x7d0
+[  288.894959][   T45]  ? __pfx_do_writepages+0x10/0x10
+[  288.896790][   T45]  ? __gfs2_iomap_get+0xaeb/0x1920
+[  288.898744][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.900819][   T45]  ? rcu_is_watching+0x12/0xc0
+[  288.902633][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.904652][   T45]  ? lock_release+0x52e/0x750
+[  288.906315][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.908319][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.910345][   T45]  ? __up_read+0x1fd/0x770
+[  288.911980][   T45]  ? __pfx___up_read+0x10/0x10
+[  288.913860][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.915880][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.917857][   T45]  filemap_fdatawrite_wbc+0xe9/0x120
+[  288.919692][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.921565][   T45]  __filemap_fdatawrite_range+0xc1/0x110
+[  288.923620][   T45]  ? __pfx___filemap_fdatawrite_range+0x10/0x10
+[  288.925970][   T45]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  288.927886][   T45]  ? __pfx_down_write+0x10/0x10
+[  288.929718][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.931765][   T45]  gfs2_log_flush+0x79a/0x2cc0
+[  288.933594][   T45]  ? __pfx_gfs2_log_flush+0x10/0x10
+[  288.935643][   T45]  ? gfs2_log_commit+0xc86/0x1470
+[  288.937616][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.939790][   T45]  gfs2_trans_end+0x6b9/0x9f0
+[  288.941694][   T45]  gfs2_page_mkwrite+0x18a3/0x1b30
+[  288.943748][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.945877][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.948038][   T45]  ? __pfx_gfs2_page_mkwrite+0x10/0x10
+[  288.950270][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.952396][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.954552][   T45]  ? gfs2_fault+0x1a5/0x240
+[  288.956420][   T45]  ? do_page_mkwrite+0x180/0x390
+[  288.958454][   T45]  ? write_comp_data+0x29/0x90
+[  288.960443][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.962681][   T45]  ? write_comp_data+0x29/0x90
+[  288.964666][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.966937][   T45]  ? write_comp_data+0x29/0x90
+[  288.968942][   T45]  ? do_page_mkwrite+0x180/0x390
+[  288.970924][   T45]  do_page_mkwrite+0x180/0x390
+[  288.972898][   T45]  __handle_mm_fault+0x1579/0x3130
+[  288.975006][   T45]  ? __pfx_down_read_trylock+0x10/0x10
+[  288.977185][   T45]  ? __pfx___handle_mm_fault+0x10/0x10
+[  288.979373][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  288.981567][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  288.983801][   T45]  ? __pfx_find_vma+0x10/0x10
+[  288.985767][   T45]  handle_mm_fault+0x2aa/0x660
+[  288.987748][   T45]  do_user_addr_fault+0x953/0x18b0
+[  288.989882][   T45]  exc_page_fault+0x9c/0x1a0
+[  288.991746][   T45]  asm_exc_page_fault+0x26/0x30
+[  288.993786][   T45] RIP: 0033:0x7fd5e97ead7f
+[  288.995620][   T45] RSP: 002b:00007ffd5e498100 EFLAGS: 00010246
+[  288.997962][   T45] RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000020000040
+[  289.000863][   T45] RDX: 0000000000000000 RSI: 0000000000004209 RDI: 0000000000000065
+[  289.003424][   T45] RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+[  289.005818][   T45] R10: 0000000000000004 R11: 0000000000000246 R12: 00007ffd5e49811c
+[  289.008143][   T45] R13: 00007ffd5e498120 R14: 0000000000000000 R15: 0000000000000000
+[  289.010582][   T45]  </TASK>
+[  289.011742][   T45] INFO: task gfs2_logd/syz:s:426 blocked for more than 143 seconds.
+[  289.014132][   T45]       Tainted: G    B              6.13.0-rc3 #5
+[  289.016145][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  289.018739][   T45] task:gfs2_logd/syz:s state:D stack:29296 pid:426   tgid:426   ppid:2      flags:0x00004000
+[  289.021808][   T45] Call Trace:
+[  289.022922][   T45]  <TASK>
+[  289.023958][   T45]  __schedule+0xe60/0x4120
+[  289.025423][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.027172][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  289.028938][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.030653][   T45]  ? arch_scale_cpu_capacity+0x17/0xb0
+[  289.032433][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.034278][   T45]  ? __pfx___schedule+0x10/0x10
+[  289.035895][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.037662][   T45]  ? lock_release+0x52e/0x750
+[  289.039247][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.040990][   T45]  ? __pfx_lock_release+0x10/0x10
+[  289.043045][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.045590][   T45]  ? do_raw_spin_lock+0x124/0x290
+[  289.048992][   T45]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  289.050983][   T45]  schedule+0xd4/0x210
+[  289.052366][   T45]  schedule_preempt_disabled+0x13/0x30
+[  289.054102][   T45]  rwsem_down_write_slowpath+0x551/0x1660
+[  289.056007][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.057790][   T45]  ? __pfx_rwsem_down_write_slowpath+0x10/0x10
+[  289.059726][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.061550][   T45]  ? lock_acquire+0x31f/0x580
+[  289.063143][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.065058][   T45]  ? rcu_is_watching+0x12/0xc0
+[  289.066629][   T45]  ? __entry_text_end+0x102145/0x102149
+[  289.068416][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.070147][   T45]  down_write+0x1d7/0x200
+[  289.071672][   T45]  ? __pfx_down_write+0x10/0x10
+[  289.073337][   T45]  ? __pfx_lock_release+0x10/0x10
+[  289.074996][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.076802][   T45]  ? do_raw_spin_lock+0x124/0x290
+[  289.078462][   T45]  gfs2_log_flush+0xd6/0x2cc0
+[  289.079976][   T45]  ? gfs2_logd+0x9ed/0xf30
+[  289.081482][   T45]  ? __entry_text_end+0x102145/0x102149
+[  289.083265][   T45]  ? do_raw_spin_unlock+0x53/0x250
+[  289.084941][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.086731][   T45]  ? _raw_spin_unlock+0x28/0x50
+[  289.088350][   T45]  ? gfs2_ail1_empty+0x7d6/0x9c0
+[  289.090023][   T45]  ? __pfx_gfs2_log_flush+0x10/0x10
+[  289.091793][   T45]  gfs2_logd+0x29b/0xf30
+[  289.093272][   T45]  ? __pfx_gfs2_logd+0x10/0x10
+[  289.094852][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.096603][   T45]  ? rcu_is_watching+0x12/0xc0
+[  289.098135][   T45]  ? __pfx_autoremove_wake_function+0x10/0x10
+[  289.100113][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.101882][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  289.103605][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.105420][   T45]  ? __kthread_parkme+0x152/0x230
+[  289.107138][   T45]  ? __pfx_gfs2_logd+0x10/0x10
+[  289.108844][   T45]  kthread+0x345/0x450
+[  289.110257][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.112115][   T45]  ? __pfx_kthread+0x10/0x10
+[  289.113818][   T45]  ret_from_fork+0x48/0x80
+[  289.115287][   T45]  ? __pfx_kthread+0x10/0x10
+[  289.116810][   T45]  ret_from_fork_asm+0x1a/0x30
+[  289.118477][   T45]  </TASK>
+[  289.119577][   T45] INFO: lockdep is turned off.
+[  289.121256][   T45] Kernel panic - not syncing: hung_task: blocked tasks
+[  289.122214][   T45] CPU: 1 UID: 0 PID: 45 Comm: khungtaskd Tainted: G    B              6.13.0-rc3 #5
+[  289.122214][   T45] Tainted: [B]=BAD_PAGE
+[  289.122214][   T45] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  289.122214][   T45] Call Trace:
+[  289.122214][   T45]  <TASK>
+[  289.122214][   T45]  dump_stack_lvl+0x3d/0x1b0
+[  289.122214][   T45]  panic+0x70b/0x7c0
+[  289.122214][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  289.122214][   T45]  ? __pfx_panic+0x10/0x10
+[  289.122214][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.122214][   T45]  ? __pfx_sched_show_task+0x10/0x10
+[  289.122214][   T45]  ? watchdog+0xb29/0x11c0
+[  289.122214][   T45]  watchdog+0xb47/0x11c0
+[  289.122214][   T45]  ? __pfx_watchdog+0x10/0x10
+[  289.122214][   T45]  kthread+0x345/0x450
+[  289.122214][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  289.122214][   T45]  ? __pfx_kthread+0x10/0x10
+[  289.122214][   T45]  ret_from_fork+0x48/0x80
+[  289.122214][   T45]  ? __pfx_kthread+0x10/0x10
+[  289.122214][   T45]  ret_from_fork_asm+0x1a/0x30
+[  289.122214][   T45]  </TASK>
+[  289.122214][   T45] Kernel Offset: 0x6e00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[  289.122214][   T45] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+20:55:13  Registers:
+info registers vcpu 0
+RAX=0000000000000000 RBX=ff11000053a2d740 RCX=ffffffff883770c9 RDX=0000000000000001
+RSI=ffffffff9267c780 RDI=0000000000000002 RBP=000000000002d860 RSP=ffffffff92607d78
+R8 =0000000000000000 R9 =fffffbfff28f79c3 R10=fffffbfff28f79c2 R11=ffffffff947bce17
+R12=0000004314fcc4dd R13=0000000000000002 R14=0000000000000000 R15=ffffffff9267c780
+RIP=ffffffff8849a240 RFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff11000053a00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe7669ea5000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe7669ea3000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000563e540c0128 CR3=000000000d8b8001 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=000000150000000c0000003700000001 XMM01=00007ffe45269e000000003000000020
+XMM02=00000000000000000000000000000000 XMM03=00000000000000000000007770746567
+XMM04=40404040404040404040404040404040 XMM05=5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
+XMM06=20202020202020202020202020202020 XMM07=00ffffff00ffffff00ffffff00ffffff
+XMM08=00000020000000200000002000000020 XMM09=0000ff00ff0000000000ff00ff000000
+XMM10=00000000200000000000000020000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 1
+RAX=0000000000000001 RBX=0000000000000001 RCX=ffffffff900cef91 RDX=0000000000000001
+RSI=0000000000000000 RDI=ffffffff8822025d RBP=dffffc0000000000 RSP=ffa000000015fe00
+R8 =0000000000000000 R9 =ffe21c000a756cc3 R10=ffe21c000a756cc2 R11=ff11000053ab6613
+R12=0000000000000001 R13=ffffffff947bce10 R14=0000000000000000 R15=0000000000000000
+RIP=ffffffff900d04de RFL=00000246 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff11000053a80000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe4c6c4c0000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe4c6c4be000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000000020000040 CR3=0000000009268003 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=be5f880d1f4078ed3a4151da2b5a8718 XMM01=3e5334a3e46ce35afd6e31a41052e7a5
+XMM02=683fd22f40ae47d5dc4b1cf8f55d6b86 XMM03=431f8d58435172d9856f913c98144381
+XMM04=00000000000000000000000000000100 XMM05=00000000000000000000000000000040
+XMM06=f59cb0ad696fc22e04fe75bca5cdbb95 XMM07=a238cb1744935ed3411aa6a77eea7db4
+XMM08=817730fee0ddcd8b35068325abb5d5ab XMM09=5c5bf280bf107ddd7ec008fc34d2a87b
+XMM10=e0ca98124db37c202615ee570b9d1a41 XMM11=13ed362f3cc1a5f9603a0331c21006cf
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=a54ff53a3c6ef372bb67ae856a09e667 XMM15=5be0cd191f83d9ab9b05688c510e527f
+info registers vcpu 2
+RAX=0000000000000069 RBX=0000000000000000 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ff11000002154680 RDI=ffffffff9e34c180 RBP=ffffffff9e34c140 RSP=ffa00000003279a0
+R8 =fff3fc0000064f00 R9 =ffe21c0000dc1047 R10=ffe21c0000dc1046 R11=ff11000006e08237
+R12=0000000000000000 R13=0000000000000069 R14=0000000000000000 R15=0000000000000010
+RIP=ffffffff8b758a4f RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff11000053b00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe43d6665000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe43d6663000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000555772e05aec CR3=00000000096d2003 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=f95db6c6593cc198a11e441e857ac2f5 XMM01=7a2aa46614cbf06341eb07cb4cc1a1e5
+XMM02=13309ac525b2235339287fe32e201224 XMM03=74d6bf114ea736663b0ca27eaeb56fa0
+XMM04=00000000000000000000000000000300 XMM05=00000000000000000000000000000040
+XMM06=6385081b7763659eae82a3c082bef953 XMM07=687b7f5e5a43d1e1e5799bb4d6a962d0
+XMM08=025cd20f1dfc3b2dc973127157327b14 XMM09=f301abebf06652825889b0b6ae114bcc
+XMM10=2c4c5ebc98177166f269ea1816166f50 XMM11=793eab5c248077f043574258e15ab246
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=a54ff53a3c6ef372bb67ae856a09e667 XMM15=5be0cd191f83d9ab9b05688c510e527f
+info registers vcpu 3
+RAX=0000000000000003 RBX=0000000000000003 RCX=ffffffff900cef91 RDX=0000000000000001
+RSI=0000000000000000 RDI=ffffffff8822025d RBP=dffffc0000000000 RSP=ffa000000017fe00
+R8 =0000000000000000 R9 =ffe21c000a776cc3 R10=ffe21c000a776cc2 R11=ff11000053bb6613
+R12=0000000000000003 R13=ffffffff947bce10 R14=0000000000000000 R15=0000000000000000
+RIP=ffffffff900d04de RFL=00000246 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff11000053b80000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe332dff3000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe332dff1000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f0627cd8f30 CR3=0000000006bbc002 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=69615fa45f6156b4df48d58fcdd8b5de
+XMM02=ffffffffffffff0f0e0d0c0b0a090807 XMM03=3132343d6469702020726f66207d206d
+XMM04=40404040404040404040404040404040 XMM05=5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
+XMM06=20202020202020202020202020202020 XMM07=ffffffffff0000ff000000ffffff0000
+XMM08=00000000000000000000000000000000 XMM09=ffff00000000ffffffffffffffff0000
+XMM10=20200000000020202020202020200000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

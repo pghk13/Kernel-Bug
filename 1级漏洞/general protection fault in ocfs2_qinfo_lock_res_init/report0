@@ -1,0 +1,79 @@
+(syz.4.84,12807,2):ocfs2_block_check_validate:400 ERROR: CRC32 failed: stored: 0xcde76f4d, computed 0x57a518a3. Applying ECC.
+JBD2: Ignoring recovery information on journal
+ocfs2: Mounting device (7,4) on (node local, slot 0) with ordered data mode.
+general protection fault, probably for non-canonical address 0xdffffc00000000cf: 0000 [#1] PREEMPT SMP KASAN
+KASAN: null-ptr-deref in range [0x0000000000000678-0x000000000000067f]
+CPU: 2 PID: 12807 Comm: syz.4.84 Not tainted 5.15.0 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:ocfs2_qinfo_lock_res_init+0x98/0xf0 fs/ocfs2/dlmglue.c:750
+Code: 48 c1 ea 03 80 3c 02 00 75 6d 4c 8b a3 50 02 00 00 48 b8 00 00 00 00 00 fc ff df 49 8d bc 24 78 06 00 00 48 89 fa 48 c1 ea 03 <80> 3c 02 00 75 40 49 8b bc 24 78 06 00 00 48 83 c4 08 49 89 d8 48
+RSP: 0018:ffffc90013b07788 EFLAGS: 00010216
+RAX: dffffc0000000000 RBX: ffff888022633800 RCX: 0000000000040000
+RDX: 00000000000000cf RSI: ffff88801bf72300 RDI: 0000000000000678
+RBP: ffff888022633830 R08: ffffffff83218eaa R09: 000000000000001f
+R10: 0000000000000005 R11: ffffed10044c6744 R12: 0000000000000000
+R13: 0000000000000000 R14: ffff88801d81e000 R15: ffff88801d81e000
+FS:  00007f4e9213c700(0000) GS:ffff88802c300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f50abe97f80 CR3: 0000000063f90000 CR4: 0000000000750ee0
+PKRU: 80000000
+Call Trace:
+ ocfs2_local_read_info+0x27a/0x1500 fs/ocfs2/quota_local.c:706
+ dquot_load_quota_sb+0x715/0xfd0 fs/quota/dquot.c:2385
+ dquot_load_quota_inode fs/quota/dquot.c:2421 [inline]
+ dquot_load_quota_inode+0x200/0x390 fs/quota/dquot.c:2413
+ ocfs2_enable_quotas+0x29b/0x550 fs/ocfs2/super.c:937
+ ocfs2_fill_super.cold+0x252/0x4b4 fs/ocfs2/super.c:1160
+ mount_bdev+0x34d/0x410 fs/super.c:1368
+ legacy_get_tree+0x105/0x220 fs/fs_context.c:610
+ vfs_get_tree+0x89/0x2f0 fs/super.c:1498
+ do_new_mount fs/namespace.c:2988 [inline]
+ path_mount+0x693/0x1cb0 fs/namespace.c:3318
+ do_mount+0xf3/0x110 fs/namespace.c:3331
+ __do_sys_mount fs/namespace.c:3539 [inline]
+ __se_sys_mount fs/namespace.c:3516 [inline]
+ __x64_sys_mount+0x18f/0x230 fs/namespace.c:3516
+ do_syscall_x64 arch/x86/entry/common.c:50 [inline]
+ do_syscall_64+0x35/0xb0 arch/x86/entry/common.c:80
+ entry_SYSCALL_64_after_hwframe+0x44/0xae
+RIP: 0033:0x7f4e93cec15e
+Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f4e9213b9b8 EFLAGS: 00000206 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 000000000000470a RCX: 00007f4e93cec15e
+RDX: 0000000020004740 RSI: 0000000020004780 RDI: 00007f4e9213ba10
+RBP: 00007f4e9213ba50 R08: 00007f4e9213ba50 R09: 0000000000000400
+R10: 0000000000000400 R11: 0000000000000206 R12: 0000000020004740
+R13: 0000000020004780 R14: 00007f4e9213ba10 R15: 0000000020000000
+Modules linked in:
+---[ end trace 3ef0546df8fb404b ]---
+RIP: 0010:ocfs2_qinfo_lock_res_init+0x98/0xf0 fs/ocfs2/dlmglue.c:750
+Code: 48 c1 ea 03 80 3c 02 00 75 6d 4c 8b a3 50 02 00 00 48 b8 00 00 00 00 00 fc ff df 49 8d bc 24 78 06 00 00 48 89 fa 48 c1 ea 03 <80> 3c 02 00 75 40 49 8b bc 24 78 06 00 00 48 83 c4 08 49 89 d8 48
+RSP: 0018:ffffc90013b07788 EFLAGS: 00010216
+RAX: dffffc0000000000 RBX: ffff888022633800 RCX: 0000000000040000
+RDX: 00000000000000cf RSI: ffff88801bf72300 RDI: 0000000000000678
+RBP: ffff888022633830 R08: ffffffff83218eaa R09: 000000000000001f
+R10: 0000000000000005 R11: ffffed10044c6744 R12: 0000000000000000
+R13: 0000000000000000 R14: ffff88801d81e000 R15: ffff88801d81e000
+FS:  00007f4e9213c700(0000) GS:ffff88802c300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00005555558a0d08 CR3: 0000000063f90000 CR4: 0000000000750ee0
+PKRU: 80000000
+----------------
+Code disassembly (best guess):
+   0:	48 c1 ea 03          	shr    $0x3,%rdx
+   4:	80 3c 02 00          	cmpb   $0x0,(%rdx,%rax,1)
+   8:	75 6d                	jne    0x77
+   a:	4c 8b a3 50 02 00 00 	mov    0x250(%rbx),%r12
+  11:	48 b8 00 00 00 00 00 	movabs $0xdffffc0000000000,%rax
+  18:	fc ff df
+  1b:	49 8d bc 24 78 06 00 	lea    0x678(%r12),%rdi
+  22:	00
+  23:	48 89 fa             	mov    %rdi,%rdx
+  26:	48 c1 ea 03          	shr    $0x3,%rdx
+* 2a:	80 3c 02 00          	cmpb   $0x0,(%rdx,%rax,1) <-- trapping instruction
+  2e:	75 40                	jne    0x70
+  30:	49 8b bc 24 78 06 00 	mov    0x678(%r12),%rdi
+  37:	00
+  38:	48 83 c4 08          	add    $0x8,%rsp
+  3c:	49 89 d8             	mov    %rbx,%r8
+  3f:	48                   	rex.W
