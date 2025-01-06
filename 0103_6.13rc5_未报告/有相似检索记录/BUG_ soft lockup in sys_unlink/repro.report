@@ -1,0 +1,53 @@
+watchdog: BUG: soft lockup - CPU#1 stuck for 26s! [syz-executor140:420]
+Modules linked in:
+irq event stamp: 163590
+hardirqs last  enabled at (163589): [<ffffffff9c4d07eb>] irqentry_exit+0x3b/0x90 kernel/entry/common.c:357
+hardirqs last disabled at (163590): [<ffffffff9c4cedbf>] sysvec_apic_timer_interrupt+0xf/0xb0 arch/x86/kernel/apic/apic.c:1049
+softirqs last  enabled at (163576): [<ffffffff9450f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (163576): [<ffffffff9450f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (163555): [<ffffffff9451120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (163555): [<ffffffff9451120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (163555): [<ffffffff9451120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (163555): [<ffffffff9451120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+CPU: 1 UID: 0 PID: 420 Comm: syz-executor140 Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:exfat_clear_bitmap+0x3f1/0x580 fs/exfat/balloc.c:174
+Code: 24 60 01 00 00 b9 40 0c 00 00 4c 89 fa e8 57 10 ff 01 bf a1 ff ff ff 89 c3 89 c6 e8 49 52 5f ff 83 fb a1 74 13 48 83 c4 18 5b <5d> 41 5c 41 5d 41 5e 41 5f e9 01 50 5f ff e8 fc 4f 5f ff 49 8d b4
+RSP: 0018:ffa00000035f7a90 EFLAGS: 00000286
+RAX: 0000000000000000 RBX: 0000000000006ccc RCX: ffffffff952a4d03
+RDX: 0000000000000011 RSI: ff110000118ba340 RDI: 0000000000000003
+RBP: ff110000131cc000 R08: 0000000000000000 R09: fffffbfff4d5f0ed
+R10: fffffbfff4d5f0ec R11: 0000000000000001 R12: ff110000131ce000
+R13: 0000000000000011 R14: 0000000000000000 R15: 0000000006cccf6b
+FS:  000055556ed2d880(0000) GS:ff11000053a80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffe1b6fdd18 CR3: 000000000db32002 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <IRQ>
+ </IRQ>
+ <TASK>
+ __exfat_free_cluster+0x775/0x980 fs/exfat/fatent.c:192
+ exfat_free_cluster+0x7a/0x100 fs/exfat/fatent.c:232
+ __exfat_truncate+0x6bf/0x900 fs/exfat/file.c:235
+ exfat_evict_inode+0x10d/0x1a0 fs/exfat/inode.c:683
+ evict+0x403/0x880 fs/inode.c:796
+ iput_final fs/inode.c:1946 [inline]
+ iput fs/inode.c:1972 [inline]
+ iput+0x51c/0x830 fs/inode.c:1958
+ do_unlinkat+0x5c7/0x750 fs/namei.c:4594
+ __do_sys_unlink fs/namei.c:4635 [inline]
+ __se_sys_unlink fs/namei.c:4633 [inline]
+ __x64_sys_unlink+0x40/0x50 fs/namei.c:4633
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7ff5d82fb1db
+Code: 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffe1b6ff558 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007ff5d82fb1db
+RDX: 00007ffe1b6ff580 RSI: 00007ffe1b6ff580 RDI: 00007ffe1b6ff610
+RBP: 00007ffe1b6ff610 R08: 0000000000000001 R09: 00007ffe1b6ff3e0
+R10: 00000000fffffff7 R11: 0000000000000206 R12: 00007ffe1b700710
+R13: 000055556ed36bb0 R14: 00007ffe1b6ff578 R15: 0000000000000001
+ </TASK>

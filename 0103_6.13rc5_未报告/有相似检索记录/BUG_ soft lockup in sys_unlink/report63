@@ -1,0 +1,223 @@
+watchdog: BUG: soft lockup - CPU#1 stuck for 26s! [syz-executor:422]
+Modules linked in:
+irq event stamp: 549880
+hardirqs last  enabled at (549879): [<ffffffff92ed07eb>] irqentry_exit+0x3b/0x90 kernel/entry/common.c:357
+hardirqs last disabled at (549880): [<ffffffff92ecedbf>] sysvec_apic_timer_interrupt+0xf/0xb0 arch/x86/kernel/apic/apic.c:1049
+softirqs last  enabled at (549862): [<ffffffff8af0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (549862): [<ffffffff8af0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (549855): [<ffffffff8af1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (549855): [<ffffffff8af1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (549855): [<ffffffff8af1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (549855): [<ffffffff8af1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+CPU: 1 UID: 0 PID: 422 Comm: syz-executor Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:__exfat_free_cluster+0x7d3/0x980 fs/exfat/fatent.c:182
+Code: 44 89 fe 44 8b 68 04 44 89 ef e8 68 19 60 ff 45 39 fd 0f 86 2b fc ff ff e8 ea 17 60 ff 44 89 f6 89 ef e8 50 19 60 ff 44 39 f5 <0f> 82 52 fe ff ff e8 d2 17 60 ff 44 89 f6 89 ef e8 38 19 60 ff 44
+RSP: 0018:ffa00000036a7ac0 EFLAGS: 00000297
+RAX: 0000000000000000 RBX: 0000000000005ef3 RCX: ffffffff8bc98860
+RDX: 000000004000000c RSI: ff110000096cc680 RDI: 0000000000000003
+RBP: 0000000005ef38c0 R08: 0000000000000000 R09: fffffbfff3a9f0fe
+R10: fffffbfff3a9f0fd R11: 0000000000000001 R12: ff110000293ba110
+R13: 0000000040000001 R14: 000000004000000c R15: 0000000005ef38b4
+FS:  000055556da37a00(0000) GS:ff11000053a80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055556da629a8 CR3: 0000000009ae6005 CR4: 0000000000771ef0
+PKRU: 00000000
+Call Trace:
+ <IRQ>
+ </IRQ>
+ <TASK>
+ exfat_free_cluster+0x7a/0x100 fs/exfat/fatent.c:232
+ __exfat_truncate+0x6bf/0x900 fs/exfat/file.c:235
+ exfat_evict_inode+0x10d/0x1a0 fs/exfat/inode.c:683
+ evict+0x403/0x880 fs/inode.c:796
+ iput_final fs/inode.c:1946 [inline]
+ iput fs/inode.c:1972 [inline]
+ iput+0x51c/0x830 fs/inode.c:1958
+ do_unlinkat+0x5c7/0x750 fs/namei.c:4594
+ __do_sys_unlink fs/namei.c:4635 [inline]
+ __se_sys_unlink fs/namei.c:4633 [inline]
+ __x64_sys_unlink+0x40/0x50 fs/namei.c:4633
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f1e3705fd3b
+Code: 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fff08fc30d8 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f1e3705fd3b
+RDX: 00007fff08fc3110 RSI: 00007fff08fc3110 RDI: 00007fff08fc31a0
+RBP: 00007fff08fc31a0 R08: 0000000000000001 R09: 00007fff08fc2f60
+R10: 00000000fffffff7 R11: 0000000000000206 R12: 00007f1e370d5071
+R13: 00007fff08fc42b0 R14: 000055556da52930 R15: 00007fff08fc5390
+ </TASK>
+Sending NMI from CPU 1 to CPUs 0,2-3:
+NMI backtrace for cpu 2
+CPU: 2 UID: 0 PID: 2269 Comm: systemd-udevd Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:__sanitizer_cov_trace_pc+0x22/0x60 kernel/kcov.c:217
+Code: 90 90 90 90 90 90 90 90 f3 0f 1e fa 55 bf 02 00 00 00 53 48 8b 6c 24 10 65 48 8b 1d 28 11 da 74 48 89 de e8 40 ff ff ff 84 c0 <74> 27 48 8b 93 e0 14 00 00 8b 8b dc 14 00 00 48 8b 02 48 83 c0 01
+RSP: 0018:ffa0000014a8fa08 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: ff1100000c272340 RCX: 0000000000000000
+RDX: 0000000000000001 RSI: ff1100000c272340 RDI: 0000000000000002
+RBP: ffffffff8b8fbc24 R08: 0000000000000000 R09: ffe21c000184e58d
+R10: ffe21c000184e58c R11: ff1100000c272c63 R12: ff11000011050584
+R13: 0000000000000000 R14: ff1100000c272c60 R15: 0000000000000000
+FS:  00007fbb3a1e98c0(0000) GS:ff11000053b00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000110c2a42b2 CR3: 00000000233a4004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <NMI>
+ </NMI>
+ <TASK>
+ task_dump_owner+0x1b4/0x540 fs/proc/base.c:1926
+ tid_fd_update_inode+0x26/0xe0 fs/proc/fd.c:130
+ tid_fd_revalidate+0x11e/0x2c0 fs/proc/fd.c:159
+ d_revalidate fs/namei.c:927 [inline]
+ d_revalidate fs/namei.c:924 [inline]
+ lookup_fast+0x441/0x520 fs/namei.c:1747
+ walk_component+0x5e/0x5b0 fs/namei.c:2108
+ lookup_last fs/namei.c:2610 [inline]
+ path_lookupat.isra.0+0x180/0x560 fs/namei.c:2634
+ filename_lookup+0x211/0x470 fs/namei.c:2663
+ user_path_at+0x3e/0x90 fs/namei.c:3070
+ do_utimes_path+0xd5/0x1a0 fs/utimes.c:95
+ do_utimes+0x35/0x100 fs/utimes.c:140
+ __do_sys_utimensat fs/utimes.c:159 [inline]
+ __se_sys_utimensat fs/utimes.c:143 [inline]
+ __x64_sys_utimensat+0x19d/0x260 fs/utimes.c:143
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fbb3a69a13f
+Code: 44 00 00 48 8b 15 51 dd 0d 00 f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 41 89 ca 48 85 f6 74 2a b8 18 01 00 00 0f 05 <48> 3d 00 f0 ff ff 77 09 c3 0f 1f 84 00 00 00 00 00 48 8b 15 19 dd
+RSP: 002b:00007ffc13cd1c48 EFLAGS: 00000206 ORIG_RAX: 0000000000000118
+RAX: ffffffffffffffda RBX: 0000000000000010 RCX: 00007fbb3a69a13f
+RDX: 0000000000000000 RSI: 00007ffc13cd1d00 RDI: 00000000ffffff9c
+RBP: 00007ffc13cd1d00 R08: 0000000000000000 R09: 00007ffc13cd1ae0
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000560a85236de0
+R13: 0000560a85224040 R14: 0000560a85224040 R15: 00000000ffffffff
+ </TASK>
+NMI backtrace for cpu 3
+CPU: 3 UID: 0 PID: 2460 Comm: syz-executor Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:clear_page_erms+0xb/0x20 arch/x86/lib/clear_page_64.S:50
+Code: 48 8d 7f 40 75 d9 90 e9 4e 77 24 00 0f 1f 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa b9 00 10 00 00 31 c0 <f3> aa e9 29 77 24 00 66 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 90
+RSP: 0018:ffa0000013e3f1f8 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: ff1100004b200000 RCX: 0000000000001000
+RDX: 0000000000004000 RSI: 0000000000000020 RDI: ff1100004b200000
+RBP: ffd40000012c8000 R08: 0000000000001000 R09: 0000000000000020
+R10: fffa7c0000259006 R11: ffd40000012c8037 R12: fffffbfff2a10440
+R13: fffffbfff2a1043e R14: ffd40000012c8800 R15: 0000000000000000
+FS:  00005555866b7a00(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f54d3ea4b90 CR3: 0000000015d74001 CR4: 0000000000771ef0
+PKRU: 80000000
+Call Trace:
+ <NMI>
+ </NMI>
+ <TASK>
+ clear_page arch/x86/include/asm/page_64.h:54 [inline]
+ clear_highpage_kasan_tagged include/linux/highmem.h:248 [inline]
+ kernel_init_pages+0x7a/0xb0 mm/page_alloc.c:1040
+ post_alloc_hook mm/page_alloc.c:1556 [inline]
+ prep_new_page+0x192/0x3a0 mm/page_alloc.c:1566
+ get_page_from_freelist+0x10dc/0x3800 mm/page_alloc.c:3476
+ __alloc_pages_noprof+0x2f0/0x660 mm/page_alloc.c:4753
+ __alloc_pages_node_noprof include/linux/gfp.h:269 [inline]
+ alloc_pages_node_noprof include/linux/gfp.h:296 [inline]
+ ___kmalloc_large_node+0x88/0x180 mm/slub.c:4243
+ __kmalloc_large_node_noprof+0x1c/0x130 mm/slub.c:4270
+ __do_kmalloc_node mm/slub.c:4286 [inline]
+ __kmalloc_node_noprof+0x3f3/0x570 mm/slub.c:4304
+ __kvmalloc_node_noprof+0x80/0x200 mm/util.c:650
+ wg_index_hashtable_alloc+0x23/0xc0 drivers/net/wireguard/peerlookup.c:85
+ wg_newlink+0x182/0x710 drivers/net/wireguard/device.c:330
+ rtnl_newlink_create net/core/rtnetlink.c:3786 [inline]
+ __rtnl_newlink net/core/rtnetlink.c:3897 [inline]
+ rtnl_newlink+0xbbd/0x1cb0 net/core/rtnetlink.c:4012
+ rtnetlink_rcv_msg+0x9c8/0xfc0 net/core/rtnetlink.c:6922
+ netlink_rcv_skb+0x15d/0x450 net/netlink/af_netlink.c:2542
+ netlink_unicast_kernel net/netlink/af_netlink.c:1321 [inline]
+ netlink_unicast+0x547/0x760 net/netlink/af_netlink.c:1347
+ netlink_sendmsg+0x8a2/0xd80 net/netlink/af_netlink.c:1891
+ sock_sendmsg_nosec net/socket.c:711 [inline]
+ __sock_sendmsg+0x224/0x2a0 net/socket.c:726
+ __sys_sendto+0x29a/0x390 net/socket.c:2197
+ __do_sys_sendto net/socket.c:2204 [inline]
+ __se_sys_sendto net/socket.c:2200 [inline]
+ __x64_sys_sendto+0xe1/0x1c0 net/socket.c:2200
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f02025d448a
+Code: 48 c7 c0 ff ff ff ff eb bb 0f 1f 80 00 00 00 00 f3 0f 1e fa 41 89 ca 64 8b 04 25 18 00 00 00 85 c0 75 15 b8 2c 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 76 c3 0f 1f 44 00 00 55 48 83 ec 30 44 89 4c
+RSP: 002b:00007fff426920a8 EFLAGS: 00000246 ORIG_RAX: 000000000000002c
+RAX: ffffffffffffffda RBX: 00007f0203353620 RCX: 00007f02025d448a
+RDX: 000000000000003c RSI: 00007f0203353670 RDI: 0000000000000003
+RBP: 0000000000000001 R08: 00007fff426920cc R09: 000000000000000c
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f0203353670 R14: 0000000000000003 R15: 0000000000000000
+ </TASK>
+NMI backtrace for cpu 0
+CPU: 0 UID: 0 PID: 2591 Comm: modprobe Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:clear_page_erms+0xb/0x20 arch/x86/lib/clear_page_64.S:50
+Code: 48 8d 7f 40 75 d9 90 e9 4e 77 24 00 0f 1f 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa b9 00 10 00 00 31 c0 <f3> aa e9 29 77 24 00 66 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 90
+RSP: 0018:ffa000002604f488 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: ff1100004b220000 RCX: 0000000000001000
+RDX: 0000000000000200 RSI: 0000000000000001 RDI: ff1100004b220000
+RBP: ffd40000012c8800 R08: 0000000000001000 R09: 0000000000000001
+R10: fffa7c0000259106 R11: ffd40000012c8837 R12: fffffbfff2a10440
+R13: fffffbfff2a1043e R14: ffd40000012c8840 R15: 0000000000000000
+FS:  0000000000000000(0000) GS:ff11000053a00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fbb3a79b2d8 CR3: 000000004a830004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <NMI>
+ </NMI>
+ <TASK>
+ clear_page arch/x86/include/asm/page_64.h:54 [inline]
+ clear_highpage_kasan_tagged include/linux/highmem.h:248 [inline]
+ kernel_init_pages+0x7a/0xb0 mm/page_alloc.c:1040
+ post_alloc_hook mm/page_alloc.c:1556 [inline]
+ prep_new_page+0x192/0x3a0 mm/page_alloc.c:1566
+ get_page_from_freelist+0x10dc/0x3800 mm/page_alloc.c:3476
+ __alloc_pages_noprof+0x2f0/0x660 mm/page_alloc.c:4753
+ alloc_pages_mpol_noprof+0xf2/0x400 mm/mempolicy.c:2269
+ pagetable_alloc_noprof include/linux/mm.h:2899 [inline]
+ __pte_alloc_one_noprof include/asm-generic/pgalloc.h:70 [inline]
+ pte_alloc_one+0x22/0x3c0 arch/x86/mm/pgtable.c:33
+ __do_fault+0x314/0x490 mm/memory.c:4902
+ do_cow_fault mm/memory.c:5352 [inline]
+ do_fault mm/memory.c:5458 [inline]
+ do_pte_missing mm/memory.c:3979 [inline]
+ handle_pte_fault mm/memory.c:5801 [inline]
+ __handle_mm_fault+0xa32/0x3130 mm/memory.c:5944
+ handle_mm_fault+0x2aa/0x660 mm/memory.c:6112
+ do_user_addr_fault+0x953/0x18b0 arch/x86/mm/fault.c:1389
+ handle_page_fault arch/x86/mm/fault.c:1481 [inline]
+ exc_page_fault+0x9c/0x1a0 arch/x86/mm/fault.c:1539
+ asm_exc_page_fault+0x26/0x30 arch/x86/include/asm/idtentry.h:623
+RIP: 0010:__clear_user arch/x86/include/asm/uaccess_64.h:188 [inline]
+RIP: 0010:clear_user arch/x86/include/asm/uaccess_64.h:205 [inline]
+RIP: 0010:padzero fs/binfmt_elf.c:125 [inline]
+RIP: 0010:elf_load+0x5c5/0x750 fs/binfmt_elf.c:427
+Code: f2 ff ff ff e9 41 fb ff ff e8 77 be a2 ff be b5 00 00 00 48 c7 c7 00 4c 35 93 e8 16 60 ca ff 0f 01 cb 31 c0 4c 89 e7 4c 89 f9 <f3> aa 0f 1f 00 49 89 cf 0f 01 ca 31 ff 48 89 ce e8 a6 c0 a2 ff 4d
+RSP: 0018:ffa000002604fbd8 EFLAGS: 00050246
+RAX: 0000000000000000 RBX: ff1100002812d118 RCX: 0000000000000f80
+RDX: 1fe2200008a99146 RSI: ff110000454c8000 RDI: 000055877950e080
+RBP: 00000000000014b0 R08: 0000000000000000 R09: ff110000454c8a38
+R10: fffffbfff2eb7aba R11: ffffffff975bd5d7 R12: 000055877950e080
+R13: 000055877950c000 R14: ff1100002812d138 R15: 0000000000000f80
+ load_elf_binary+0x1425/0x51b0 fs/binfmt_elf.c:1173
+ search_binary_handler fs/exec.c:1748 [inline]
+ exec_binprm fs/exec.c:1790 [inline]
+ bprm_execve fs/exec.c:1842 [inline]
+ bprm_execve+0x70e/0x1930 fs/exec.c:1818
+ kernel_execve+0x2ff/0x3d0 fs/exec.c:2009
+ call_usermodehelper_exec_async+0x25f/0x4e0 kernel/umh.c:109
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>

@@ -1,0 +1,60 @@
+Oops: general protection fault, probably for non-canonical address 0xdffffc000000003d: 0000 [#1] PREEMPT SMP KASAN NOPTI
+KASAN: null-ptr-deref in range [0x00000000000001e8-0x00000000000001ef]
+CPU: 1 UID: 0 PID: 96 Comm: jfsCommit Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:__lock_acquire+0xe4/0x4a10 kernel/locking/lockdep.c:5089
+Code: 08 84 d2 0f 85 25 15 00 00 44 8b 1d ca de 54 0c 45 85 db 0f 84 58 0f 00 00 48 b8 00 00 00 00 00 fc ff df 4c 89 ea 48 c1 ea 03 <80> 3c 02 00 0f 85 0c 36 00 00 49 8b 45 00 48 3d 80 81 46 99 0f 84
+RSP: 0018:ffa000000152fb68 EFLAGS: 00010012
+RAX: dffffc0000000000 RBX: 0000000000000001 RCX: 1ff40000002a5f80
+RDX: 000000000000003d RSI: 0000000000000000 RDI: 00000000000001e8
+RBP: ff110000041ac680 R08: 0000000000000001 R09: 0000000000000001
+R10: 0000000000000000 R11: 0000000000000001 R12: 0000000000000000
+R13: 00000000000001e8 R14: 0000000000000000 R15: 0000000000000000
+FS:  0000000000000000(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f08e8070000 CR3: 00000000089ea002 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ lock_acquire kernel/locking/lockdep.c:5849 [inline]
+ lock_acquire+0x1b1/0x580 kernel/locking/lockdep.c:5814
+ __raw_spin_lock_irq include/linux/spinlock_api_smp.h:119 [inline]
+ _raw_spin_lock_irq+0x36/0x50 kernel/locking/spinlock.c:170
+ spin_lock_irq include/linux/spinlock.h:376 [inline]
+ txLazyCommit fs/jfs/jfs_txnmgr.c:2668 [inline]
+ jfs_lazycommit+0x648/0xb20 fs/jfs/jfs_txnmgr.c:2733
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:__lock_acquire+0xe4/0x4a10 kernel/locking/lockdep.c:5089
+Code: 08 84 d2 0f 85 25 15 00 00 44 8b 1d ca de 54 0c 45 85 db 0f 84 58 0f 00 00 48 b8 00 00 00 00 00 fc ff df 4c 89 ea 48 c1 ea 03 <80> 3c 02 00 0f 85 0c 36 00 00 49 8b 45 00 48 3d 80 81 46 99 0f 84
+RSP: 0018:ffa000000152fb68 EFLAGS: 00010012
+RAX: dffffc0000000000 RBX: 0000000000000001 RCX: 1ff40000002a5f80
+RDX: 000000000000003d RSI: 0000000000000000 RDI: 00000000000001e8
+RBP: ff110000041ac680 R08: 0000000000000001 R09: 0000000000000001
+R10: 0000000000000000 R11: 0000000000000001 R12: 0000000000000000
+R13: 00000000000001e8 R14: 0000000000000000 R15: 0000000000000000
+FS:  0000000000000000(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f08e8070000 CR3: 00000000089ea002 CR4: 0000000000771ef0
+PKRU: 55555554
+----------------
+Code disassembly (best guess):
+   0:	08 84 d2 0f 85 25 15 	or     %al,0x1525850f(%rdx,%rdx,8)
+   7:	00 00                	add    %al,(%rax)
+   9:	44 8b 1d ca de 54 0c 	mov    0xc54deca(%rip),%r11d        # 0xc54deda
+  10:	45 85 db             	test   %r11d,%r11d
+  13:	0f 84 58 0f 00 00    	je     0xf71
+  19:	48 b8 00 00 00 00 00 	movabs $0xdffffc0000000000,%rax
+  20:	fc ff df
+  23:	4c 89 ea             	mov    %r13,%rdx
+  26:	48 c1 ea 03          	shr    $0x3,%rdx
+* 2a:	80 3c 02 00          	cmpb   $0x0,(%rdx,%rax,1) <-- trapping instruction
+  2e:	0f 85 0c 36 00 00    	jne    0x3640
+  34:	49 8b 45 00          	mov    0x0(%r13),%rax
+  38:	48 3d 80 81 46 99    	cmp    $0xffffffff99468180,%rax
+  3e:	0f                   	.byte 0xf
+  3f:	84                   	.byte 0x84

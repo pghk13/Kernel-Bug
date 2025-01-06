@@ -1,0 +1,51 @@
+------------[ cut here ]------------
+WARNING: CPU: 1 PID: 1119 at fs/ntfs3/inode.c:619 ntfs_get_block_vbo+0x346/0xf50 fs/ntfs3/inode.c:619
+Modules linked in:
+CPU: 1 UID: 0 PID: 1119 Comm: kworker/u18:5 Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: writeback wb_workfn (flush-7:3)
+RIP: 0010:ntfs_get_block_vbo+0x346/0xf50 fs/ntfs3/inode.c:619
+Code: 07 e9 fe 4d 39 ef 72 25 e8 c7 05 e9 fe 44 8b 2c 24 31 ff 44 89 ee e8 e9 07 e9 fe 45 85 ed 0f 84 d6 03 00 00 e8 ab 05 e9 fe 90 <0f> 0b 90 e8 a2 05 e9 fe 44 0f b6 6c 24 70 31 ff 44 89 ee e8 62 07
+RSP: 0018:ffa00000147bf0e0 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: ffa00000147bf2d8 RCX: ffffffff9c209a87
+RDX: 0000000000000001 RSI: ff1100003fffa340 RDI: 0000000000000002
+RBP: ff11000011610250 R08: 0000000000000000 R09: fff3fc00028f7dc3
+R10: fff3fc00028f7dc2 R11: ffa00000147bee17 R12: ff110000120a0000
+R13: 0000000000000001 R14: 000000000000000c R15: 00000000fffffffd
+FS:  0000000000000000(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fd274e08000 CR3: 0000000049d76005 CR4: 0000000000771ef0
+DR0: 10fffffffffff002 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000600
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ __mpage_writepage+0x952/0x1970 fs/mpage.c:543
+ write_cache_pages+0xa6/0x120 mm/page-writeback.c:2659
+ mpage_writepages+0xc1/0x170 fs/mpage.c:666
+ ntfs_writepages+0x122/0x1a0 fs/ntfs3/inode.c:898
+ do_writepages+0x19d/0x7d0 mm/page-writeback.c:2702
+ __writeback_single_inode+0x135/0x1010 fs/fs-writeback.c:1680
+ writeback_sb_inodes+0x5ee/0xf00 fs/fs-writeback.c:1976
+ wb_writeback+0x1a9/0xb50 fs/fs-writeback.c:2156
+ wb_do_writeback fs/fs-writeback.c:2303 [inline]
+ wb_workfn+0x134/0xe10 fs/fs-writeback.c:2343
+ process_one_work kernel/workqueue.c:3229 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3310
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3391
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 78771
+hardirqs last  enabled at (78785): [<ffffffff9ae9dc8e>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (78796): [<ffffffff9ae9dc73>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (78820): [<ffffffff9ad0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (78820): [<ffffffff9ad0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (78805): [<ffffffff9ad1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (78805): [<ffffffff9ad1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (78805): [<ffffffff9ad1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (78805): [<ffffffff9ad1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+kworker/u18:5: attempt to access beyond end of device
+loop3: rw=1, sector=34359738344, nr_sectors = 8 limit=4096

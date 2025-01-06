@@ -1,0 +1,63 @@
+Oops: general protection fault, probably for non-canonical address 0xdffffc0000000040: 0000 [#1] PREEMPT SMP KASAN NOPTI
+KASAN: null-ptr-deref in range [0x0000000000000200-0x0000000000000207]
+CPU: 2 UID: 0 PID: 95 Comm: jfsCommit Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:trace_event_get_offsets_lock_acquire include/trace/events/lock.h:24 [inline]
+RIP: 0010:do_perf_trace_lock_acquire include/trace/events/lock.h:24 [inline]
+RIP: 0010:perf_trace_lock_acquire+0x9d/0x670 include/trace/events/lock.h:24
+Code: c7 00 f1 f1 f1 f1 c7 40 04 f1 f1 04 f2 c7 40 08 00 f3 f3 f3 65 48 8b 04 25 28 00 00 00 48 89 45 d0 31 c0 4c 89 f0 48 c1 e8 03 <80> 3c 10 00 0f 85 57 04 00 00 49 8b 7d 18 48 c7 c0 e0 6e 28 a5 48
+RSP: 0018:ffa000000151fbb8 EFLAGS: 00010012
+RAX: 0000000000000040 RBX: 1ff40000002a3f9b RCX: 0000000000000000
+RDX: dffffc0000000000 RSI: 00000000000001e8 RDI: ffffffffa7610580
+RBP: ffa000000151fca0 R08: 0000000000000000 R09: 0000000000000001
+R10: 000000000003b18c R11: ffffffffa95bd5d7 R12: ffffffffa7610580
+R13: 00000000000001e8 R14: 0000000000000200 R15: ffa000000151fc78
+FS:  0000000000000000(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f842fe15000 CR3: 00000000514ec005 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ trace_lock_acquire include/trace/events/lock.h:24 [inline]
+ lock_acquire+0x2fd/0x580 kernel/locking/lockdep.c:5820
+ __raw_spin_lock_irq include/linux/spinlock_api_smp.h:119 [inline]
+ _raw_spin_lock_irq+0x36/0x50 kernel/locking/spinlock.c:170
+ spin_lock_irq include/linux/spinlock.h:376 [inline]
+ txLazyCommit fs/jfs/jfs_txnmgr.c:2668 [inline]
+ jfs_lazycommit+0x648/0xb20 fs/jfs/jfs_txnmgr.c:2733
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:trace_event_get_offsets_lock_acquire include/trace/events/lock.h:24 [inline]
+RIP: 0010:do_perf_trace_lock_acquire include/trace/events/lock.h:24 [inline]
+RIP: 0010:perf_trace_lock_acquire+0x9d/0x670 include/trace/events/lock.h:24
+Code: c7 00 f1 f1 f1 f1 c7 40 04 f1 f1 04 f2 c7 40 08 00 f3 f3 f3 65 48 8b 04 25 28 00 00 00 48 89 45 d0 31 c0 4c 89 f0 48 c1 e8 03 <80> 3c 10 00 0f 85 57 04 00 00 49 8b 7d 18 48 c7 c0 e0 6e 28 a5 48
+RSP: 0018:ffa000000151fbb8 EFLAGS: 00010012
+RAX: 0000000000000040 RBX: 1ff40000002a3f9b RCX: 0000000000000000
+RDX: dffffc0000000000 RSI: 00000000000001e8 RDI: ffffffffa7610580
+RBP: ffa000000151fca0 R08: 0000000000000000 R09: 0000000000000001
+R10: 000000000003b18c R11: ffffffffa95bd5d7 R12: ffffffffa7610580
+R13: 00000000000001e8 R14: 0000000000000200 R15: ffa000000151fc78
+FS:  0000000000000000(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f842fe15000 CR3: 00000000514ec005 CR4: 0000000000771ef0
+PKRU: 55555554
+----------------
+Code disassembly (best guess):
+   0:	c7 00 f1 f1 f1 f1    	movl   $0xf1f1f1f1,(%rax)
+   6:	c7 40 04 f1 f1 04 f2 	movl   $0xf204f1f1,0x4(%rax)
+   d:	c7 40 08 00 f3 f3 f3 	movl   $0xf3f3f300,0x8(%rax)
+  14:	65 48 8b 04 25 28 00 	mov    %gs:0x28,%rax
+  1b:	00 00
+  1d:	48 89 45 d0          	mov    %rax,-0x30(%rbp)
+  21:	31 c0                	xor    %eax,%eax
+  23:	4c 89 f0             	mov    %r14,%rax
+  26:	48 c1 e8 03          	shr    $0x3,%rax
+* 2a:	80 3c 10 00          	cmpb   $0x0,(%rax,%rdx,1) <-- trapping instruction
+  2e:	0f 85 57 04 00 00    	jne    0x48b
+  34:	49 8b 7d 18          	mov    0x18(%r13),%rdi
+  38:	48 c7 c0 e0 6e 28 a5 	mov    $0xffffffffa5286ee0,%rax
+  3f:	48                   	rex.W

@@ -1,0 +1,1058 @@
+Warning: Permanently added '[localhost]:3394' (ECDSA) to the list of known hosts.
+[   80.803893][   T44] audit: type=1400 audit(1735784352.827:9): avc:  denied  { execmem } for  pid=418 comm="syz-executor269" scontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tcontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tclass=process permissive=1
+[   80.851782][  T418] cgroup: Unknown subsys name 'net'
+[   80.938040][  T418] cgroup: Unknown subsys name 'cpuset'
+[   80.948769][  T418] cgroup: Unknown subsys name 'rlimit'
+[   80.950784][  T418] cgroup: Unknown subsys name 'memory'
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   81.599565][  T440] loop0: detected capacity change from 0 to 32768
+[   81.664011][  T449] loop2: detected capacity change from 0 to 32768
+[   81.808399][  T447] loop4: detected capacity change from 0 to 32768
+[   81.813043][  T448] loop7: detected capacity change from 0 to 32768
+[   81.830038][  T452] loop5: detected capacity change from 0 to 32768
+[   81.860652][  T445] loop6: detected capacity change from 0 to 32768
+[   81.864302][  T450] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+[   81.925304][  T454] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   82.287915][  T457] loop0: detected capacity change from 0 to 32768
+[   82.434104][  T459] loop2: detected capacity change from 0 to 32768
+[   82.532115][  T461] loop1: detected capacity change from 0 to 32768
+[   82.549754][  T463] loop4: detected capacity change from 0 to 32768
+[   82.551868][  T466] loop7: detected capacity change from 0 to 32768
+executing program
+[   82.659383][  T467] loop5: detected capacity change from 0 to 32768
+executing program
+[   82.709543][  T471] loop3: detected capacity change from 0 to 32768
+[   82.727755][  T469] loop6: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   82.995075][  T473] loop0: detected capacity change from 0 to 32768
+[   83.100745][  T475] loop2: detected capacity change from 0 to 32768
+executing program
+[   83.266851][  T477] loop1: detected capacity change from 0 to 32768
+executing program
+[   83.333495][  T479] loop7: detected capacity change from 0 to 32768
+[   83.400229][  T485] loop3: detected capacity change from 0 to 32768
+[   83.421351][  T481] loop5: detected capacity change from 0 to 32768
+[   83.459802][  T487] loop6: detected capacity change from 0 to 32768
+[   83.469725][  T483] loop4: detected capacity change from 0 to 32768
+executing program
+[   83.561942][  T490] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   83.819850][  T492] loop2: detected capacity change from 0 to 32768
+[   83.913779][  T494] loop1: detected capacity change from 0 to 32768
+[   84.017945][  T497] loop3: detected capacity change from 0 to 32768
+executing program
+[   84.113669][  T498] loop7: detected capacity change from 0 to 32768
+[   84.117308][  T506] loop0: detected capacity change from 0 to 32768
+[   84.160717][  T500] loop5: detected capacity change from 0 to 32768
+executing program
+[   84.244863][  T503] loop6: detected capacity change from 0 to 32768
+executing program
+[   84.359419][  T504] loop4: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[   84.547825][  T508] loop2: detected capacity change from 0 to 32768
+[   84.579868][  T510] loop1: detected capacity change from 0 to 32768
+executing program
+[   84.621354][  T512] loop7: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[   84.867475][  T514] loop0: detected capacity change from 0 to 32768
+[   84.876792][  T516] loop3: detected capacity change from 0 to 32768
+executing program
+[   85.062251][  T522] loop4: detected capacity change from 0 to 32768
+[   85.083481][  T518] loop6: detected capacity change from 0 to 32768
+[   85.145324][  T526] loop7: detected capacity change from 0 to 32768
+executing program
+[   85.201733][  T520] loop5: detected capacity change from 0 to 32768
+[   85.266112][  T528] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[   85.437190][  T524] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+[   85.620387][  T530] loop0: detected capacity change from 0 to 32768
+[   85.639925][  T532] loop3: detected capacity change from 0 to 32768
+executing program
+[   85.753056][  T534] loop4: detected capacity change from 0 to 32768
+[   85.807701][  T536] loop7: detected capacity change from 0 to 32768
+[   85.860842][  T538] loop6: detected capacity change from 0 to 32768
+executing program
+[   85.963015][  T540] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+[   86.001484][  T542] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+[   86.166897][  T544] loop2: detected capacity change from 0 to 32768
+[   86.207033][  T546] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[   86.520434][  T549] loop3: detected capacity change from 0 to 32768
+[   86.530334][  T562] loop0: detected capacity change from 0 to 32768
+[   86.552934][  T553] loop6: detected capacity change from 0 to 32768
+[   86.555748][  T550] loop4: detected capacity change from 0 to 32768
+[   86.701509][  T554] loop7: detected capacity change from 0 to 32768
+[   86.707040][  T561] loop2: detected capacity change from 0 to 32768
+[   86.733991][  T556] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[   86.864697][  T559] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[   87.114207][  T564] loop3: detected capacity change from 0 to 32768
+[   87.250686][  T566] loop6: detected capacity change from 0 to 32768
+[   87.299366][  T570] loop4: detected capacity change from 0 to 32768
+executing program
+[   87.387051][  T574] loop7: detected capacity change from 0 to 32768
+[   87.409513][  T568] loop0: detected capacity change from 0 to 32768
+[   87.464685][  T572] loop5: detected capacity change from 0 to 32768
+executing program
+[   87.514100][  T576] loop2: detected capacity change from 0 to 32768
+[   87.526788][  T578] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   87.868932][  T582] loop6: detected capacity change from 0 to 32768
+[   87.931797][  T580] loop3: detected capacity change from 0 to 32768
+[   88.078906][  T584] loop4: detected capacity change from 0 to 32768
+executing program
+[   88.112513][  T586] loop7: detected capacity change from 0 to 32768
+executing program
+[   88.193296][  T588] loop1: detected capacity change from 0 to 32768
+[   88.218439][  T590] loop5: detected capacity change from 0 to 32768
+[   88.254446][  T592] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[   88.444515][  T594] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+[   88.572803][  T598] loop3: detected capacity change from 0 to 32768
+[   88.673338][  T604] loop5: detected capacity change from 0 to 32768
+[   88.707715][  T596] loop6: detected capacity change from 0 to 32768
+[   88.766106][  T600] loop4: detected capacity change from 0 to 32768
+[   88.845440][  T606] loop1: detected capacity change from 0 to 32768
+[   88.851105][  T602] loop7: detected capacity change from 0 to 32768
+[   88.853759][  T608] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   89.279800][  T617] loop6: detected capacity change from 0 to 32768
+[   89.431999][  T619] loop4: detected capacity change from 0 to 32768
+[   89.448808][  T615] loop5: detected capacity change from 0 to 32768
+[   89.459999][  T621] loop3: detected capacity change from 0 to 32768
+[   89.500638][  T613] loop0: detected capacity change from 0 to 32768
+[   89.517344][  T625] loop7: detected capacity change from 0 to 32768
+[   89.530514][  T623] loop2: detected capacity change from 0 to 32768
+[   89.602485][  T627] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   90.091296][  T629] loop6: detected capacity change from 0 to 32768
+[   90.106912][  T634] loop3: detected capacity change from 0 to 32768
+[   90.144870][  T631] loop4: detected capacity change from 0 to 32768
+[   90.158064][  T637] loop1: detected capacity change from 0 to 32768
+[   90.236017][  T635] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+[   90.312788][  T641] loop0: detected capacity change from 0 to 32768
+[   90.321309][  T639] loop7: detected capacity change from 0 to 32768
+[   90.325449][  T643] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   90.653815][  T646] loop6: detected capacity change from 0 to 32768
+[   90.822653][  T648] loop3: detected capacity change from 0 to 32768
+[   90.907738][  T653] loop7: detected capacity change from 0 to 32768
+[   90.940278][  T652] loop1: detected capacity change from 0 to 32768
+executing program
+[   90.989690][  T654] loop5: detected capacity change from 0 to 32768
+executing program
+[   91.114989][  T660] loop0: detected capacity change from 0 to 32768
+[   91.169964][  T658] loop2: detected capacity change from 0 to 32768
+[   91.207541][  T656] loop4: detected capacity change from 0 to 32768
+executing program
+executing program
+[   91.242773][  T663] loop6: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[   91.480594][  T665] loop3: detected capacity change from 0 to 32768
+executing program
+[   91.623294][  T667] loop7: detected capacity change from 0 to 32768
+executing program
+[   91.782567][  T671] loop5: detected capacity change from 0 to 32768
+[   91.805331][  T669] loop1: detected capacity change from 0 to 32768
+[   91.827924][  T673] loop0: detected capacity change from 0 to 32768
+[   91.895811][  T677] loop4: detected capacity change from 0 to 32768
+executing program
+[   91.956053][  T675] loop2: detected capacity change from 0 to 32768
+[   91.984822][  T679] loop6: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[   92.194265][  T681] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+[   92.391079][  T683] loop7: detected capacity change from 0 to 32768
+[   92.494410][  T685] loop5: detected capacity change from 0 to 32768
+executing program
+[   92.546404][  T687] loop0: detected capacity change from 0 to 32768
+[   92.564116][  T691] loop1: detected capacity change from 0 to 32768
+executing program
+[   92.660280][  T693] loop2: detected capacity change from 0 to 32768
+[   92.673381][  T689] loop4: detected capacity change from 0 to 32768
+executing program
+executing program
+[   92.773315][  T695] loop6: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[   93.075897][  T697] loop3: detected capacity change from 0 to 32768
+[   93.133759][  T701] loop5: detected capacity change from 0 to 32768
+[   93.237662][  T699] loop7: detected capacity change from 0 to 32768
+[   93.278389][  T703] loop1: detected capacity change from 0 to 32768
+executing program
+[   93.330209][  T709] loop4: detected capacity change from 0 to 32768
+executing program
+[   93.373611][  T705] loop0: detected capacity change from 0 to 32768
+[   93.402920][  T707] loop2: detected capacity change from 0 to 32768
+executing program
+[   93.521741][  T711] loop6: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[   93.707095][  T714] loop5: detected capacity change from 0 to 32768
+executing program
+[   93.858864][  T720] loop1: detected capacity change from 0 to 32768
+[   93.864872][  T716] loop3: detected capacity change from 0 to 32768
+executing program
+[   94.017864][  T718] loop7: detected capacity change from 0 to 32768
+[   94.126891][  T723] loop0: detected capacity change from 0 to 32768
+[   94.135776][  T726] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+[   94.166045][  T724] loop4: detected capacity change from 0 to 32768
+executing program
+[   94.252911][  T728] loop6: detected capacity change from 0 to 32768
+executing program
+[   94.391443][  T730] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[   94.553891][  T734] loop1: detected capacity change from 0 to 32768
+executing program
+[   94.610355][  T733] loop3: detected capacity change from 0 to 32768
+executing program
+[   94.800264][  T739] loop2: detected capacity change from 0 to 32768
+executing program
+[   94.819387][  T736] loop7: detected capacity change from 0 to 32768
+[   94.883838][  T741] loop0: detected capacity change from 0 to 32768
+[   94.976559][  T744] loop6: detected capacity change from 0 to 32768
+executing program
+executing program
+[   95.069496][  T745] loop4: detected capacity change from 0 to 32768
+[   95.091609][  T747] loop5: detected capacity change from 0 to 32768
+[   95.092814][  T750] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+[   95.258815][  T751] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[   95.449828][  T753] loop2: detected capacity change from 0 to 32768
+[   95.455969][  T757] loop0: detected capacity change from 0 to 32768
+[   95.470277][  T759] loop6: detected capacity change from 0 to 32768
+executing program
+executing program
+[   95.728934][  T764] loop4: detected capacity change from 0 to 32768
+[   95.738643][  T755] loop7: detected capacity change from 0 to 32768
+executing program
+executing program
+[   95.845603][  T765] loop3: detected capacity change from 0 to 32768
+[   95.903510][  T762] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[   96.100208][  T773] loop6: detected capacity change from 0 to 32768
+[   96.139759][  T767] loop0: detected capacity change from 0 to 32768
+executing program
+[   96.279352][  T771] loop1: detected capacity change from 0 to 32768
+[   96.295920][  T769] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[   96.509218][  T777] loop3: detected capacity change from 0 to 32768
+[   96.605803][  T776] loop4: detected capacity change from 0 to 32768
+executing program
+[   96.662892][  T781] loop5: detected capacity change from 0 to 32768
+[   96.770303][  T779] loop7: detected capacity change from 0 to 32768
+executing program
+executing program
+[   96.830459][  T787] loop1: detected capacity change from 0 to 32768
+[   96.902893][  T785] loop0: detected capacity change from 0 to 32768
+[   96.958552][  T783] loop6: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[   97.105724][  T789] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+[   97.224947][  T791] loop3: detected capacity change from 0 to 32768
+executing program
+[   97.334843][  T793] loop4: detected capacity change from 0 to 32768
+executing program
+[   97.535664][  T800] loop7: detected capacity change from 0 to 32768
+[   97.547783][  T796] loop1: detected capacity change from 0 to 32768
+executing program
+[   97.621817][  T798] loop5: detected capacity change from 0 to 32768
+[   97.645412][  T802] loop0: detected capacity change from 0 to 32768
+[   97.677351][  T804] loop6: detected capacity change from 0 to 32768
+executing program
+[   97.752938][  T806] loop2: detected capacity change from 0 to 32768
+executing program
+[   97.872632][  T808] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[   98.002861][  T810] loop4: detected capacity change from 0 to 32768
+executing program
+[   98.161108][  T812] loop1: detected capacity change from 0 to 32768
+executing program
+[   98.347815][  T817] loop7: detected capacity change from 0 to 32768
+[   98.406353][  T819] loop0: detected capacity change from 0 to 32768
+executing program
+[   98.446393][  T814] loop6: detected capacity change from 0 to 32768
+[   98.456421][  T822] loop2: detected capacity change from 0 to 32768
+[   98.473012][  T820] loop5: detected capacity change from 0 to 32768
+[   98.517556][  T824] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+[   98.642066][  T826] loop4: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[   98.842740][  T828] loop1: detected capacity change from 0 to 32768
+executing program
+[   99.079901][  T830] loop7: detected capacity change from 0 to 32768
+executing program
+[   99.116777][  T832] loop0: detected capacity change from 0 to 32768
+[   99.163860][  T840] loop3: detected capacity change from 0 to 32768
+[   99.240413][  T834] loop6: detected capacity change from 0 to 32768
+[   99.255759][  T836] loop2: detected capacity change from 0 to 32768
+[   99.276619][  T838] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+[   99.420413][  T842] loop4: detected capacity change from 0 to 32768
+executing program
+[   99.438004][  T844] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+[   99.858884][  T846] loop7: detected capacity change from 0 to 32768
+[   99.875071][  T853] loop2: detected capacity change from 0 to 32768
+[   99.886712][  T854] loop6: detected capacity change from 0 to 32768
+[   99.919834][  T848] loop3: detected capacity change from 0 to 32768
+[   99.943388][  T850] loop0: detected capacity change from 0 to 32768
+executing program
+[  100.080855][  T856] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[  100.133562][  T858] loop4: detected capacity change from 0 to 32768
+[  100.148107][  T860] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[  100.439283][  T862] loop7: detected capacity change from 0 to 32768
+executing program
+[  100.532645][  T867] loop2: detected capacity change from 0 to 32768
+executing program
+[  100.671514][  T864] loop6: detected capacity change from 0 to 32768
+[  100.733424][  T870] loop0: detected capacity change from 0 to 32768
+[  100.765620][  T868] loop3: detected capacity change from 0 to 32768
+executing program
+[  100.818854][  T873] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+[  100.995796][  T875] loop4: detected capacity change from 0 to 32768
+[  101.001203][  T877] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+[  101.176643][  T881] loop2: detected capacity change from 0 to 32768
+[  101.199044][  T879] loop7: detected capacity change from 0 to 32768
+executing program
+executing program
+[  101.350391][  T884] loop6: detected capacity change from 0 to 32768
+[  101.446840][  T885] loop0: detected capacity change from 0 to 32768
+executing program
+[  101.462919][  T888] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+[  101.546708][  T891] loop1: detected capacity change from 0 to 32768
+[  101.596644][  T889] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[  101.796794][  T893] loop4: detected capacity change from 0 to 32768
+executing program
+[  101.985898][  T897] loop2: detected capacity change from 0 to 32768
+executing program
+[  102.095772][  T905] loop5: detected capacity change from 0 to 32768
+[  102.112870][  T896] loop7: detected capacity change from 0 to 32768
+[  102.146304][  T901] loop6: detected capacity change from 0 to 32768
+[  102.153813][  T903] loop1: detected capacity change from 0 to 32768
+executing program
+[  102.263417][  T907] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[  102.392870][  T909] loop3: detected capacity change from 0 to 32768
+executing program
+[  102.579843][  T911] loop4: detected capacity change from 0 to 32768
+executing program
+[  102.746095][  T913] loop2: detected capacity change from 0 to 32768
+[  102.754817][  T915] loop1: detected capacity change from 0 to 32768
+[  102.841297][  T921] loop6: detected capacity change from 0 to 32768
+executing program
+[  102.888433][  T920] loop7: detected capacity change from 0 to 32768
+[  102.893861][  T917] loop5: detected capacity change from 0 to 32768
+[  102.965023][  T923] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[  103.163289][  T925] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+[  103.400823][  T930] loop2: detected capacity change from 0 to 32768
+[  103.437757][  T927] loop4: detected capacity change from 0 to 32768
+executing program
+[  103.493340][  T934] loop6: detected capacity change from 0 to 32768
+executing program
+[  103.576820][  T932] loop1: detected capacity change from 0 to 32768
+[  103.614622][  T936] loop7: detected capacity change from 0 to 32768
+[  103.627045][  T938] loop5: detected capacity change from 0 to 32768
+executing program
+[  103.717406][  T940] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[  103.999535][  T942] loop3: detected capacity change from 0 to 32768
+executing program
+[  104.121486][  T947] loop2: detected capacity change from 0 to 32768
+[  104.138554][  T945] loop6: detected capacity change from 0 to 32768
+executing program
+[  104.229489][  T953] loop1: detected capacity change from 0 to 32768
+[  104.245796][  T955] loop7: detected capacity change from 0 to 32768
+[  104.261699][  T949] loop4: detected capacity change from 0 to 32768
+executing program
+[  104.335924][  T954] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[  104.528246][  T957] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+[  104.668803][  T959] loop3: detected capacity change from 0 to 32768
+executing program
+[  104.787717][  T963] loop6: detected capacity change from 0 to 32768
+[  104.813303][  T961] loop2: detected capacity change from 0 to 32768
+[  104.971245][  T969] loop5: detected capacity change from 0 to 32768
+executing program
+[  104.986851][  T965] loop1: detected capacity change from 0 to 32768
+executing program
+[  105.050349][  T967] loop7: detected capacity change from 0 to 32768
+executing program
+executing program
+[  105.196050][  T971] loop4: detected capacity change from 0 to 32768
+[  105.237796][  T975] loop3: detected capacity change from 0 to 32768
+[  105.246810][  T973] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[  105.472638][  T979] loop2: detected capacity change from 0 to 32768
+executing program
+[  105.598385][  T977] loop6: detected capacity change from 0 to 32768
+[  105.638637][  T983] loop5: detected capacity change from 0 to 32768
+executing program
+[  105.784036][  T987] loop7: detected capacity change from 0 to 32768
+executing program
+[  105.866601][  T985] loop1: detected capacity change from 0 to 32768
+executing program
+[  105.897094][  T990] loop0: detected capacity change from 0 to 32768
+[  105.963814][  T991] loop4: detected capacity change from 0 to 32768
+executing program
+[  106.042067][  T993] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+[  106.163912][  T995] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+[  106.356847][  T997] loop6: detected capacity change from 0 to 32768
+executing program
+[  106.441930][  T999] loop5: detected capacity change from 0 to 32768
+[  106.459556][ T1003] loop1: detected capacity change from 0 to 32768
+executing program
+[  106.601018][ T1005] loop0: detected capacity change from 0 to 32768
+[  106.628627][ T1009] loop3: detected capacity change from 0 to 32768
+[  106.636551][ T1001] loop7: detected capacity change from 0 to 32768
+executing program
+executing program
+[  106.806785][ T1007] loop4: detected capacity change from 0 to 32768
+[  106.874906][ T1011] loop2: detected capacity change from 0 to 32768
+executing program
+[  106.975925][ T1015] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+[  107.071255][ T1026] add_index: next_index = 0.  Resetting!
+executing program
+[  107.189366][ T1013] loop6: detected capacity change from 0 to 32768
+[  107.222831][ T1017] loop1: detected capacity change from 0 to 32768
+executing program
+[  107.305655][ T1020] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+[  107.535800][ T1024] loop4: detected capacity change from 0 to 32768
+executing program
+executing program
+[  107.614445][ T1025] loop7: detected capacity change from 0 to 32768
+[  107.738813][ T1030] loop5: detected capacity change from 0 to 32768
+[  107.764495][ T1028] loop2: detected capacity change from 0 to 32768
+executing program
+[  107.767842][ T1032] loop6: detected capacity change from 0 to 32768
+executing program
+[  107.913772][ T1038] loop3: detected capacity change from 0 to 32768
+[  108.048780][ T1034] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[  108.123613][ T1036] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+[  108.223991][ T1040] loop4: detected capacity change from 0 to 32768
+[  108.423294][ T1042] loop7: detected capacity change from 0 to 32768
+executing program
+executing program
+[  108.556688][ T1046] loop6: detected capacity change from 0 to 32768
+[  108.579545][ T1045] loop2: detected capacity change from 0 to 32768
+[  108.623618][ T1048] loop5: detected capacity change from 0 to 32768
+[  108.673781][ T1050] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+[  108.781789][ T1052] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[  109.019788][ T1062] loop2: detected capacity change from 0 to 32768
+[  109.117987][ T1058] loop7: detected capacity change from 0 to 32768
+[  109.119506][ T1056] loop4: detected capacity change from 0 to 32768
+[  109.134101][ T1054] loop0: detected capacity change from 0 to 32768
+executing program
+[  109.263597][ T1060] loop6: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[  109.401588][ T1067] loop3: detected capacity change from 0 to 32768
+executing program
+[  109.503631][ T1065] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+[  109.713401][ T1069] loop2: detected capacity change from 0 to 32768
+executing program
+[  109.800078][ T1077] loop4: detected capacity change from 0 to 32768
+[  109.829177][ T1071] loop1: detected capacity change from 0 to 32768
+executing program
+[  109.974440][ T1075] loop0: detected capacity change from 0 to 32768
+[  110.008990][ T1073] loop7: detected capacity change from 0 to 32768
+[  110.024917][ T1079] loop6: detected capacity change from 0 to 32768
+executing program
+[  110.113949][ T1081] loop3: detected capacity change from 0 to 32768
+executing program
+[  110.163783][ T1083] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[  110.330812][ T1085] loop2: detected capacity change from 0 to 32768
+executing program
+[  110.500573][ T1087] loop4: detected capacity change from 0 to 32768
+executing program
+[  110.645897][ T1091] loop0: detected capacity change from 0 to 32768
+[  110.652790][ T1089] loop1: detected capacity change from 0 to 32768
+executing program
+[  110.797925][ T1097] loop3: detected capacity change from 0 to 32768
+[  110.844829][ T1099] loop5: detected capacity change from 0 to 32768
+[  110.855718][ T1093] loop7: detected capacity change from 0 to 32768
+[  110.914610][ T1101] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[  111.006193][ T1096] loop6: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[  111.329475][ T1103] loop4: detected capacity change from 0 to 32768
+[  111.331899][ T1112] loop3: detected capacity change from 0 to 32768
+[  111.387605][ T1108] loop0: detected capacity change from 0 to 32768
+[  111.403860][ T1105] loop5: detected capacity change from 0 to 32768
+[  111.437713][ T1109] loop1: detected capacity change from 0 to 32768
+[  111.497359][ T1114] loop7: detected capacity change from 0 to 32768
+executing program
+executing program
+[  111.640879][ T1116] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+[  111.942347][ T1118] loop6: detected capacity change from 0 to 32768
+[  111.972314][ T1120] loop0: detected capacity change from 0 to 32768
+[  112.111849][ T1124] loop1: detected capacity change from 0 to 32768
+[  112.143302][ T1130] loop7: detected capacity change from 0 to 32768
+[  112.149840][ T1128] loop5: detected capacity change from 0 to 32768
+[  112.160642][ T1129] loop3: detected capacity change from 0 to 32768
+executing program
+[  112.198409][ T1122] loop4: detected capacity change from 0 to 32768
+[  112.268420][ T1132] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[  112.640573][ T1134] loop6: detected capacity change from 0 to 32768
+[  112.748798][ T1136] loop0: detected capacity change from 0 to 32768
+[  112.765932][ T1138] loop1: detected capacity change from 0 to 32768
+[  112.825702][ T1143] loop3: detected capacity change from 0 to 32768
+[  112.906777][ T1140] loop7: detected capacity change from 0 to 32768
+[  112.937874][ T1144] loop5: detected capacity change from 0 to 32768
+executing program
+[  112.964274][ T1148] loop4: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[  113.067682][ T1147] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+[  113.316804][ T1150] loop6: detected capacity change from 0 to 32768
+[  113.321793][ T1152] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+[  113.351492][ T1154] loop1: detected capacity change from 0 to 32768
+[  113.510819][ T1156] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[  113.655259][ T1160] loop7: detected capacity change from 0 to 32768
+[  113.736435][ T1164] loop2: detected capacity change from 0 to 32768
+[  113.739503][ T1158] loop5: detected capacity change from 0 to 32768
+[  113.749895][ T1163] loop4: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+[  114.071875][ T1170] loop6: detected capacity change from 0 to 32768
+[  114.136854][ T1168] loop1: detected capacity change from 0 to 32768
+[  114.151616][ T1166] loop0: detected capacity change from 0 to 32768
+[  114.265737][ T1177] loop4: detected capacity change from 0 to 32768
+[  114.286793][ T1174] loop7: detected capacity change from 0 to 32768
+executing program
+[  114.346796][ T1172] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+[  114.459469][ T1178] loop5: detected capacity change from 0 to 32768
+executing program
+[  114.519498][ T1180] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+[  114.790895][ T1182] loop6: detected capacity change from 0 to 32768
+executing program
+[  114.883667][ T1187] loop4: detected capacity change from 0 to 32768
+[  114.917811][ T1190] loop7: detected capacity change from 0 to 32768
+[  114.920068][ T1184] loop1: detected capacity change from 0 to 32768
+[  114.958947][ T1188] loop0: detected capacity change from 0 to 32768
+executing program
+[  115.084865][ T1192] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[  115.213875][ T1196] loop2: detected capacity change from 0 to 32768
+[  115.257438][ T1194] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+[  115.503749][ T1198] loop6: detected capacity change from 0 to 32768
+executing program
+[  115.593641][ T1206] loop0: detected capacity change from 0 to 32768
+[  115.624489][ T1200] loop4: detected capacity change from 0 to 32768
+[  115.665489][ T1202] loop1: detected capacity change from 0 to 32768
+[  115.674407][ T1204] loop7: detected capacity change from 0 to 32768
+[  115.802592][ T1210] loop2: detected capacity change from 0 to 32768
+[  115.809486][ T1208] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[  116.013790][ T1212] loop5: detected capacity change from 0 to 32768
+executing program
+[  116.217363][ T1214] loop0: detected capacity change from 0 to 32768
+executing program
+[  116.336106][ T1220] loop7: detected capacity change from 0 to 32768
+[  116.396781][ T1222] loop1: detected capacity change from 0 to 32768
+[  116.414679][ T1221] loop4: detected capacity change from 0 to 32768
+[  116.443756][ T1216] loop6: detected capacity change from 0 to 32768
+[  116.457422][ T1226] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+[  116.576693][ T1224] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[  116.809324][ T1228] loop5: detected capacity change from 0 to 32768
+executing program
+[  116.932098][ T1232] loop4: detected capacity change from 0 to 32768
+[  116.969433][ T1230] loop0: detected capacity change from 0 to 32768
+[  116.996624][ T1234] loop7: detected capacity change from 0 to 32768
+executing program
+executing program
+[  117.172889][ T1240] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+[  117.251057][ T1239] loop6: detected capacity change from 0 to 32768
+[  117.253527][ T1236] loop1: detected capacity change from 0 to 32768
+executing program
+[  117.333864][ T1242] loop2: detected capacity change from 0 to 32768
+executing program
+executing program
+[  117.541705][ T1250] loop7: detected capacity change from 0 to 32768
+executing program
+[  117.590456][ T1246] loop4: detected capacity change from 0 to 32768
+[  117.630803][ T1244] loop5: detected capacity change from 0 to 32768
+[  117.709913][ T1248] loop0: detected capacity change from 0 to 32768
+[  117.746377][ T1252] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+[  118.016479][ T1255] loop6: detected capacity change from 0 to 32768
+executing program
+[  118.089797][ T1256] loop1: detected capacity change from 0 to 32768
+[  118.115990][ T1258] loop2: detected capacity change from 0 to 32768
+[  118.151012][ T1261] loop4: detected capacity change from 0 to 32768
+executing program
+[  118.253788][ T1262] loop7: detected capacity change from 0 to 32768
+executing program
+executing program
+[  118.365991][ T1266] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+[  118.535853][ T1264] loop5: detected capacity change from 0 to 32768
+[  118.587073][ T1268] loop3: detected capacity change from 0 to 32768
+executing program
+executing program
+[  118.827573][ T1274] loop2: detected capacity change from 0 to 32768
+[  118.833847][ T1272] loop6: detected capacity change from 0 to 32768
+[  118.872819][ T1270] loop4: detected capacity change from 0 to 32768
+[  118.934824][ T1280] loop0: detected capacity change from 0 to 32768
+executing program
+[  119.023903][ T1278] loop7: detected capacity change from 0 to 32768
+executing program
+[  119.051701][ T1276] loop1: detected capacity change from 0 to 32768
+executing program
+executing program
+executing program
+executing program
+executing program
+[  119.320904][ T1285] loop3: detected capacity change from 0 to 32768
+[  119.372369][ T1287] loop2: detected capacity change from 0 to 32768
+[  119.390671][ T1283] loop5: detected capacity change from 0 to 32768
+executing program
+executing program
+[  119.585890][ T1289] loop6: detected capacity change from 0 to 32768
+[  119.597408][ T1291] loop4: detected capacity change from 0 to 32768
+executing program
+[  119.776213][ T1297] loop1: detected capacity change from 0 to 32768
+[  119.777848][ T1294] loop0: detected capacity change from 0 to 32768
+executing program
+executing program
+[  119.856397][ T1296] loop7: detected capacity change from 0 to 32768
+[  119.931279][ T1308] add_index: next_index = 0.  Resetting!
+[  119.981909][ T1301] loop2: detected capacity change from 0 to 32768
+executing program
+[  120.017457][ T1299] loop3: detected capacity change from 0 to 32768
+[  120.063001][   T96] Oops: general protection fault, probably for non-canonical address 0xdffffc000000003d: 0000 [#1] PREEMPT SMP KASAN NOPTI
+executing program
+[  120.063868][ T1305] loop4: detected capacity change from 0 to 32768
+[  120.064817][   T96] KASAN: null-ptr-deref in range [0x00000000000001e8-0x00000000000001ef]
+[  120.064817][   T96] CPU: 1 UID: 0 PID: 96 Comm: jfsCommit Not tainted 6.13.0-rc5 #1
+[  120.073268][   T96] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  120.073268][   T96] RIP: 0010:__lock_acquire+0xe4/0x4a10
+[  120.073268][   T96] Code: 08 84 d2 0f 85 25 15 00 00 44 8b 1d ca de 54 0c 45 85 db 0f 84 58 0f 00 00 48 b8 00 00 00 00 00 fc ff df 4c 89 ea 48 c1 ea 03 <80> 3c 02 00 0f 85 0c 36 00 00 49 8b 45 00 48 3d 80 81 46 99 0f 84
+[  120.073268][   T96] RSP: 0018:ffa000000152fb68 EFLAGS: 00010012
+[  120.073268][   T96] RAX: dffffc0000000000 RBX: 0000000000000001 RCX: 1ff40000002a5f80
+[  120.073268][   T96] RDX: 000000000000003d RSI: 0000000000000000 RDI: 00000000000001e8
+[  120.073268][   T96] RBP: ff110000041ac680 R08: 0000000000000001 R09: 0000000000000001
+[  120.073268][   T96] R10: 0000000000000000 R11: 0000000000000001 R12: 0000000000000000
+[  120.073268][   T96] R13: 00000000000001e8 R14: 0000000000000000 R15: 0000000000000000
+[  120.093876][ T1303] loop5: detected capacity change from 0 to 32768
+[  120.073268][   T96] FS:  0000000000000000(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+[  120.073268][   T96] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  120.073268][   T96] CR2: 00007f08e8070000 CR3: 00000000089ea002 CR4: 0000000000771ef0
+[  120.102237][   T96] PKRU: 55555554
+[  120.102237][   T96] Call Trace:
+[  120.104073][   T96]  <TASK>
+[  120.104073][   T96]  ? __die_body+0x1a/0x60
+[  120.104073][   T96]  ? die_addr+0x42/0x70
+[  120.104073][   T96]  ? exc_general_protection+0x1a3/0x330
+[  120.104073][   T96]  ? asm_exc_general_protection+0x26/0x30
+[  120.104073][   T96]  ? __lock_acquire+0xe4/0x4a10
+[  120.104073][   T96]  ? __entry_text_end+0x102145/0x102149
+[  120.104073][   T96]  ? __switch_to_asm+0x37/0x70
+[  120.104073][   T96]  ? __pfx___lock_acquire+0x10/0x10
+[  120.116305][   T96]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.116305][   T96]  lock_acquire+0x1b1/0x580
+[  120.116305][   T96]  ? jfs_lazycommit+0x648/0xb20
+[  120.116305][   T96]  ? txUpdateMap+0x711/0xb70
+[  120.116305][   T96]  ? __pfx_lock_acquire+0x10/0x10
+[  120.116305][   T96]  ? __pfx_txUpdateMap+0x10/0x10
+[  120.125196][   T96]  ? _raw_spin_lock_irq+0x45/0x50
+[  120.126728][   T96]  _raw_spin_lock_irq+0x36/0x50
+[  120.126728][   T96]  ? jfs_lazycommit+0x648/0xb20
+[  120.126728][   T96]  jfs_lazycommit+0x648/0xb20
+[  120.126728][   T96]  ? __pfx_jfs_lazycommit+0x10/0x10
+[  120.126728][   T96]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  120.126728][   T96]  ? __pfx_default_wake_function+0x10/0x10
+[  120.126728][   T96]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.126728][   T96]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.126728][   T96]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.126728][   T96]  ? __kthread_parkme+0x152/0x230
+[  120.126728][   T96]  ? __pfx_jfs_lazycommit+0x10/0x10
+[  120.126728][   T96]  kthread+0x345/0x450
+[  120.126728][   T96]  ? __pfx_kthread+0x10/0x10
+[  120.126728][   T96]  ret_from_fork+0x48/0x80
+[  120.126728][   T96]  ? __pfx_kthread+0x10/0x10
+[  120.126728][   T96]  ret_from_fork_asm+0x1a/0x30
+[  120.126728][   T96]  </TASK>
+[  120.126728][   T96] Modules linked in:
+[  120.126728][   T96] ---[ end trace 0000000000000000 ]---
+[  120.126728][   T96] RIP: 0010:__lock_acquire+0xe4/0x4a10
+[  120.126728][   T96] Code: 08 84 d2 0f 85 25 15 00 00 44 8b 1d ca de 54 0c 45 85 db 0f 84 58 0f 00 00 48 b8 00 00 00 00 00 fc ff df 4c 89 ea 48 c1 ea 03 <80> 3c 02 00 0f 85 0c 36 00 00 49 8b 45 00 48 3d 80 81 46 99 0f 84
+[  120.126728][   T96] RSP: 0018:ffa000000152fb68 EFLAGS: 00010012
+[  120.126728][   T96] RAX: dffffc0000000000 RBX: 0000000000000001 RCX: 1ff40000002a5f80
+[  120.163378][ T1316] add_index: next_index = 0.  Resetting!
+[  120.126728][   T96] RDX: 000000000000003d RSI: 0000000000000000 RDI: 00000000000001e8
+[  120.126728][   T96] RBP: ff110000041ac680 R08: 0000000000000001 R09: 0000000000000001
+[  120.126728][   T96] R10: 0000000000000000 R11: 0000000000000001 R12: 0000000000000000
+[  120.126728][   T96] R13: 00000000000001e8 R14: 0000000000000000 R15: 0000000000000000
+[  120.126728][   T96] FS:  0000000000000000(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+[  120.126728][   T96] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  120.126728][   T96] CR2: 00007f08e8070000 CR3: 00000000089ea002 CR4: 0000000000771ef0
+[  120.126728][   T96] PKRU: 55555554
+[  120.126728][   T96] Kernel panic - not syncing: Fatal exception
+[  120.126728][   T96] Kernel Offset: 0x9200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[  120.126728][   T96] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+10:19:52  Registers:
+info registers vcpu 0
+RAX=0000000000000001 RBX=1ff40000007eef38 RCX=0000000000000001 RDX=0000000080000000
+RSI=ffa0000003f77b60 RDI=0000000000000001 RBP=ffa0000003f77b70 RSP=ffa0000003f77980
+R8 =0000000000000001 R9 =0000000000000001 R10=0000000000086001 R11=000000000000506d
+R12=ffa0000003f70000 R13=ffa0000003f77b10 R14=ffa0000003f77ac8 R15=ffa0000003f77b68
+RIP=ffffffff8a3f6f97 RFL=00000297 [--S-APC] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007fc4e48b38c0 00000000 00000000
+GS =0000 ff1100006a200000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe1c6310d000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe1c6310b000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f08efe97aa0 CR3=000000001315a004 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=000000000000000000006c696146002f XMM01=00007ffd91bec9600000003000000028
+XMM02=ffffffffffffffffffffff0f0e0d0c0b XMM03=696e656420737365636341002f737973
+XMM04=00000000000000000000000000000000 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=20202020000000000000000000000000 XMM09=ffffffff000000000000000000000000
+XMM10=20202020000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 1
+RAX=0000000000000070 RBX=0000000000000000 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ff110000041ac680 RDI=ffffffffa074f080 RBP=ffffffffa074f040 RSP=ffa000000152f478
+R8 =0000000000000000 R9 =ffe21c0000e13047 R10=ffe21c0000e13046 R11=ff11000007098237
+R12=0000000000000000 R13=0000000000000070 R14=0000000000000000 R15=0000000000000010
+RIP=ffffffff8db595cf RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff1100006a280000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe36a0d58000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe36a0d56000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f08e8070000 CR3=00000000089ea002 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=0000000000ff000000000000000000ff XMM01=25252525252525252525252525252525
+XMM02=0007fec5b8b7ffddc83a0000001ffb26 XMM03=00000000000000000000000000000000
+XMM04=0000000000ff000000000000000000ff XMM05=c9675965ffff00002bfff773ffeb66a1
+XMM06=cfff5ffebffd7ffa1dfffa63fff49cff XMM07=febefdbfff5ffebffd7ffafff5ffb269
+XMM08=6e23fff77232c0000003ff62dc7bffee XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 2
+RAX=ffa0000001cc0000 RBX=ff11000005650d00 RCX=1fe2200000aca274 RDX=1fe2200000aca1e6
+RSI=0000000000000004 RDI=ff110000056513a0 RBP=1ff40000003a7f69 RSP=ffa0000001d3fad0
+R8 =fff3fc00003a7f48 R9 =fff3fc00003a7f49 R10=fff3fc00003a7f48 R11=0000000000000003
+R12=ff11000005650f18 R13=0000000000000000 R14=ff11000005650000 R15=ff11000005650d00
+RIP=ffffffff8ebfa77d RFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff1100006a300000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe55d4367000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe55d4365000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f08e8a71000 CR3=0000000011f9e001 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=00000000000000000000000000000000
+XMM02=ff000000000000000000000000000000 XMM03=ffffffffffffffffffffffffffffffff
+XMM04=0000000000ff000000000000000000ff XMM05=c9675965ffff00002bfff773ffeb66a1
+XMM06=cfff5ffebffd7ffa1dfffa63fff49cff XMM07=febefdbfff5ffebffd7ffafff5ffb269
+XMM08=6e23fff77232c0000003ff62dc7bffee XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 3
+RAX=00000000000000e4 RBX=00007ffdd56ad9d0 RCX=00007f48a5f81ba5 RDX=0000000000000001
+RSI=00007ffdd56ad9d0 RDI=0000000000000000 RBP=00007ffdd56ad9a0 RSP=00007ffdd56ad950
+R8 =00007f48a5f7d000 R9 =0000000000036734 R10=7fffffffffffffff R11=0000000000000293
+R12=00007ffdd56ad9d0 R13=0000000000000013 R14=0000000000000000 R15=0000000000000000
+RIP=ffffffff92600084 RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007f48a5319900 00000000 00000000
+GS =0000 0000000000000000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe2cf5a0b000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe2cf5a09000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f08e89a3000 CR3=0000000009384004 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000000000000000 XMM01=9b48f64104b0a9b2784a0268542873b2
+XMM02=ffffffffffffff0f0e0d0c0b0a090807 XMM03=3a646e427061430a6666666666666666
+XMM04=40404040404040404040404040404040 XMM05=5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
+XMM06=20202020202020202020202020202020 XMM07=ffffffffff0000ff000000ffffff0000
+XMM08=00000000000000000000000000000000 XMM09=ffffff00000000ffffffff0000ff0000
+XMM10=00002000000000000000200000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

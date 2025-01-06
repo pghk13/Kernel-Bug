@@ -1,0 +1,103 @@
+watchdog: BUG: soft lockup - CPU#3 stuck for 22s! [syz-executor:424]
+Modules linked in:
+irq event stamp: 363100
+hardirqs last  enabled at (363099): [<ffffffff9dcd07eb>] irqentry_exit+0x3b/0x90 kernel/entry/common.c:357
+hardirqs last disabled at (363100): [<ffffffff9dccedbf>] sysvec_apic_timer_interrupt+0xf/0xb0 arch/x86/kernel/apic/apic.c:1049
+softirqs last  enabled at (363020): [<ffffffff95d0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (363020): [<ffffffff95d0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (362983): [<ffffffff95d1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (362983): [<ffffffff95d1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (362983): [<ffffffff95d1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (362983): [<ffffffff95d1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+CPU: 3 UID: 0 PID: 424 Comm: syz-executor Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:__exfat_free_cluster+0x7c9/0x980 fs/exfat/fatent.c:182
+Code: 85 95 00 00 00 48 8b 44 24 38 44 89 fe 44 8b 68 04 44 89 ef e8 68 19 60 ff 45 39 fd 0f 86 2b fc ff ff e8 ea 17 60 ff 44 89 f6 <89> ef e8 50 19 60 ff 44 39 f5 0f 82 52 fe ff ff e8 d2 17 60 ff 44
+RSP: 0018:ffa00000038f7ac0 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: 0000000000005dd9 RCX: ffffffff96a98848
+RDX: 0000000005dd9674 RSI: 000000004000000c RDI: 0000000000000002
+RBP: 0000000005dd9680 R08: 0000000000000000 R09: fffffbfff505f0fc
+R10: fffffbfff505f0fb R11: 0000000000000001 R12: ff1100002efd2110
+R13: 0000000040000001 R14: 000000004000000c R15: 0000000005dd9674
+FS:  000055559137ea00(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f547b42ba8c CR3: 0000000005562005 CR4: 0000000000771ef0
+PKRU: 00000000
+Call Trace:
+ <IRQ>
+ </IRQ>
+ <TASK>
+ exfat_free_cluster+0x7a/0x100 fs/exfat/fatent.c:232
+ __exfat_truncate+0x6bf/0x900 fs/exfat/file.c:235
+ exfat_evict_inode+0x10d/0x1a0 fs/exfat/inode.c:683
+ evict+0x403/0x880 fs/inode.c:796
+ iput_final fs/inode.c:1946 [inline]
+ iput fs/inode.c:1972 [inline]
+ iput+0x51c/0x830 fs/inode.c:1958
+ do_unlinkat+0x5c7/0x750 fs/namei.c:4594
+ __do_sys_unlink fs/namei.c:4635 [inline]
+ __se_sys_unlink fs/namei.c:4633 [inline]
+ __x64_sys_unlink+0x40/0x50 fs/namei.c:4633
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7ff34fe10d3b
+Code: 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffd976d358 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007ff34fe10d3b
+RDX: 00007fffd976d390 RSI: 00007fffd976d390 RDI: 00007fffd976d420
+RBP: 00007fffd976d420 R08: 0000000000000001 R09: 00007fffd976d1e0
+R10: 00000000fffffff7 R11: 0000000000000206 R12: 00007ff34fe86071
+R13: 00007fffd976e530 R14: 0000555591399930 R15: 00007fffd976f610
+ </TASK>
+Sending NMI from CPU 3 to CPUs 0-2:
+NMI backtrace for cpu 1
+CPU: 1 UID: 0 PID: 435 Comm: syz-executor Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:check_kcov_mode+0x34/0x50 kernel/kcov.c:194
+Code: ff 00 74 20 45 31 c0 f6 c4 01 74 24 a9 00 00 0f 00 75 1d a9 00 00 f0 00 75 16 8b 86 fc 14 00 00 85 c0 74 0c 8b 86 d8 14 00 00 <39> f8 41 0f 94 c0 44 89 c0 e9 29 a1 e6 07 66 66 2e 0f 1f 84 00 00
+RSP: 0018:ffa00000038c7a88 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: ffffffff96a9870a RCX: ffffffff96a9870a
+RDX: 0000000000000009 RSI: ff1100000d444680 RDI: 0000000000000003
+RBP: 0000000000000009 R08: 0000000000000000 R09: fffffbfff505f0fc
+R10: fffffbfff505f0fb R11: 0000000000000001 R12: 000000000000001f
+R13: 0000000000000001 R14: ff1100000d444680 R15: 000000000566c36c
+FS:  0000555591914a00(0000) GS:ff11000053a80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000001b2dfd0ff8 CR3: 000000001e3a0002 CR4: 0000000000771ef0
+PKRU: 00000000
+Call Trace:
+ <NMI>
+ </NMI>
+ <TASK>
+ write_comp_data+0x29/0x90 kernel/kcov.c:246
+ __exfat_free_cluster+0x67a/0x980 fs/exfat/fatent.c:183
+ exfat_free_cluster+0x7a/0x100 fs/exfat/fatent.c:232
+ __exfat_truncate+0x6bf/0x900 fs/exfat/file.c:235
+ exfat_evict_inode+0x10d/0x1a0 fs/exfat/inode.c:683
+ evict+0x403/0x880 fs/inode.c:796
+ iput_final fs/inode.c:1946 [inline]
+ iput fs/inode.c:1972 [inline]
+ iput+0x51c/0x830 fs/inode.c:1958
+ do_unlinkat+0x5c7/0x750 fs/namei.c:4594
+ __do_sys_unlink fs/namei.c:4635 [inline]
+ __se_sys_unlink fs/namei.c:4633 [inline]
+ __x64_sys_unlink+0x40/0x50 fs/namei.c:4633
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7a2a84fd3b
+Code: 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffe116fb828 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f7a2a84fd3b
+RDX: 00007ffe116fb860 RSI: 00007ffe116fb860 RDI: 00007ffe116fb8f0
+RBP: 00007ffe116fb8f0 R08: 0000000000000001 R09: 00007ffe116fb6b0
+R10: 00000000fffffff7 R11: 0000000000000206 R12: 00007f7a2a8c5071
+R13: 00007ffe116fca00 R14: 000055559192f930 R15: 00007ffe116fdae0
+ </TASK>
+NMI backtrace for cpu 2 skipped: idling at native_safe_halt arch/x86/include/asm/irqflags.h:48 [inline]
+NMI backtrace for cpu 2 skipped: idling at arch_safe_halt arch/x86/include/asm/irqflags.h:106 [inline]
+NMI backtrace for cpu 2 skipped: idling at default_idle+0x1e/0x30 arch/x86/kernel/process.c:742
+NMI backtrace for cpu 0 skipped: idling at native_safe_halt arch/x86/include/asm/irqflags.h:48 [inline]
+NMI backtrace for cpu 0 skipped: idling at arch_safe_halt arch/x86/include/asm/irqflags.h:106 [inline]
+NMI backtrace for cpu 0 skipped: idling at default_idle+0x1e/0x30 arch/x86/kernel/process.c:742

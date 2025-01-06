@@ -1,0 +1,73 @@
+------------[ cut here ]------------
+DEBUG_LOCKS_WARN_ON(lock->magic != lock)
+WARNING: CPU: 2 PID: 1285 at kernel/locking/mutex.c:564 __mutex_lock_common kernel/locking/mutex.c:564 [inline]
+WARNING: CPU: 2 PID: 1285 at kernel/locking/mutex.c:564 __mutex_lock+0x1aa6/0x1eb0 kernel/locking/mutex.c:735
+Modules linked in:
+CPU: 2 UID: 0 PID: 1285 Comm: kworker/2:3 Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:__mutex_lock_common kernel/locking/mutex.c:564 [inline]
+RIP: 0010:__mutex_lock+0x1aa6/0x1eb0 kernel/locking/mutex.c:735
+Code: ff ff 0f 1f 44 00 00 e9 e2 f3 ff ff 90 0f 0b 90 e9 94 ec ff ff 90 48 c7 c6 a0 6f 68 9c 48 c7 c7 20 6e 68 9c e8 1b d1 00 f8 90 <0f> 0b 90 90 e9 d8 fd ff ff e8 fc c9 21 f8 84 c0 0f 85 ea f3 ff ff
+RSP: 0018:ffa000001506ee70 EFLAGS: 00010282
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000100000
+RDX: ffa0000015751000 RSI: ff11000028828000 RDI: 0000000000000002
+RBP: ffa000001506eff0 R08: fffffbfff3d38801 R09: ffe21c000d46514a
+R10: ffe21c000d465149 R11: ff1100006a328a4b R12: 0000000000000000
+R13: dffffc0000000000 R14: ff11000014c76518 R15: ff1100002c182414
+FS:  0000000000000000(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fb4252f3028 CR3: 0000000002b26002 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ class_mutex_constructor include/linux/mutex.h:201 [inline]
+ uvc_status_suspend+0x21/0x90 drivers/media/usb/uvc/uvc_status.c:375
+ uvc_status_unregister+0x16/0x60 drivers/media/usb/uvc/uvc_status.c:297
+ uvc_unregister_video+0x126/0x250 drivers/media/usb/uvc/uvc_driver.c:1977
+ uvc_probe+0x2713/0x6210 drivers/media/usb/uvc/uvc_driver.c:2302
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd68/0x1a10 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5521 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5661 [inline]
+ port_event drivers/usb/core/hub.c:5821 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5903
+ process_one_work kernel/workqueue.c:3229 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3310
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3391
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 14817
+hardirqs last  enabled at (14817): [<ffffffff94a5f685>] kasan_quarantine_put+0x135/0x1e0 mm/kasan/quarantine.c:234
+hardirqs last disabled at (14816): [<ffffffff94a5f62e>] kasan_quarantine_put+0xde/0x1e0 mm/kasan/quarantine.c:207
+softirqs last  enabled at (14784): [<ffffffff9430f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (14784): [<ffffffff9430f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (14775): [<ffffffff9431120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (14775): [<ffffffff9431120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (14775): [<ffffffff9431120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (14775): [<ffffffff9431120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+usb 1-1: USB disconnect, device number 2

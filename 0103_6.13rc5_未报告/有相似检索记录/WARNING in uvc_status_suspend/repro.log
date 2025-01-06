@@ -1,0 +1,509 @@
+
+Debian GNU/Linux 11 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:29243' (ECDSA) to the list of known hosts.
+syzkaller login: [   75.806135][   T44] audit: type=1400 audit(1735713517.804:10): avc:  denied  { execmem } for  pid=422 comm="syz-executor307" scontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tcontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tclass=process permissive=1
+Setting up swapspace version 1, size = 122.1 MiB (127995904 bytes)
+no label, UUID=21f2b827-c0bf-434b-91bd-7cbc13c2c824
+[   75.939432][  T422] Adding 124996k swap on ./swap-file.  Priority:0 extents:1 across:124996k 
+executing program
+[   76.226056][  T119] usb 1-1: new high-speed USB device number 2 using dummy_hcd
+[   76.357265][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   76.361815][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   76.364443][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   76.367028][  T119] usb 1-1: config 255 has no interface number 0
+[   76.369060][  T119] usb 1-1: config 255 has no interface number 1
+[   76.371067][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   76.373198][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   76.378461][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   76.381136][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   76.383596][  T119] usb 1-1: Product: syz
+[   76.384937][  T119] usb 1-1: Manufacturer: syz
+[   76.386400][  T119] usb 1-1: SerialNumber: syz
+[   76.809087][  T426] loop0: detected capacity change from 0 to 32768
+[   76.824627][  T426] XFS (loop0): Mounting V5 Filesystem 9f91832a-3b79-45c3-9d6d-ed0bc7357fe4
+[   76.866943][  T426] XFS (loop0): Ending clean mount
+executing program
+[   76.883306][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+[   76.885450][  T119] usb 1-1: No valid video chain found.
+[   76.887185][  T119] ------------[ cut here ]------------
+[   76.889000][  T119] DEBUG_LOCKS_WARN_ON(lock->magic != lock)
+[   76.889163][  T119] WARNING: CPU: 0 PID: 119 at kernel/locking/mutex.c:564 __mutex_lock+0x1aa6/0x1eb0
+[   76.893680][  T119] Modules linked in:
+[   76.894935][  T119] CPU: 0 UID: 0 PID: 119 Comm: kworker/0:2 Not tainted 6.13.0-rc5 #1
+[   76.898108][  T119] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   76.901307][  T119] Workqueue: usb_hub_wq hub_event
+[   76.902975][  T119] RIP: 0010:__mutex_lock+0x1aa6/0x1eb0
+[   76.904688][  T119] Code: ff ff 0f 1f 44 00 00 e9 e2 f3 ff ff 90 0f 0b 90 e9 94 ec ff ff 90 48 c7 c6 a0 6f 88 95 48 c7 c7 20 6e 88 95 e8 1b d1 00 f8 90 <0f> 0b 90 90 e9 d8 fd ff ff e8 fc c9 21 f8 84 c0 0f 85 ea f3 ff ff
+[   76.910187][  T119] RSP: 0018:ffa0000001ca6e70 EFLAGS: 00010282
+[   76.912061][  T119] RAX: 0000000000000000 RBX: 0000000000000000 RCX: ffffffff8d4f295a
+[   76.914368][  T119] RDX: 0000000000000000 RSI: ff11000008602340 RDI: 0000000000000002
+[   76.916751][  T119] RBP: ffa0000001ca6ff0 R08: fffffbfff2f78800 R09: ffe21c000d44514a
+[   76.919116][  T119] R10: ffe21c000d445149 R11: ff1100006a228a4b R12: 0000000000000000
+[   76.921423][  T119] R13: dffffc0000000000 R14: ff1100000ea1d518 R15: ff110000064c2992
+[   76.923832][  T119] FS:  0000000000000000(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+[   76.926499][  T119] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   76.928505][  T119] CR2: 00007fdef8386dac CR3: 0000000007e18006 CR4: 0000000000771ef0
+[   76.930878][  T119] PKRU: 55555554
+[   76.932038][  T119] Call Trace:
+[   76.933140][  T119]  <TASK>
+[   76.934144][  T119]  ? __warn+0xea/0x3d0
+[   76.935510][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.937283][  T119]  ? __mutex_lock+0x1aa6/0x1eb0
+[   76.938887][  T119]  ? report_bug+0x386/0x5e0
+[   76.940398][  T119]  ? __mutex_lock+0x1aa6/0x1eb0
+[   76.941953][  T119]  ? __mutex_lock+0x1aa7/0x1eb0
+[   76.943524][  T119]  ? handle_bug+0xe5/0x180
+[   76.944973][  T119]  ? exc_invalid_op+0x35/0x80
+[   76.946521][  T119]  ? asm_exc_invalid_op+0x1a/0x20
+[   76.948171][  T119]  ? __warn_printk+0x17a/0x310
+[   76.949725][  T119]  ? __mutex_lock+0x1aa6/0x1eb0
+[   76.951312][  T119]  ? uvc_status_suspend+0x21/0x90
+[   76.952945][  T119]  ? __pfx___mutex_lock+0x10/0x10
+[   76.954587][  T119]  ? __dev_printk+0xf8/0x270
+[   76.956110][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.957879][  T119]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   76.959627][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.961387][  T119]  ? _dev_info+0xdc/0x120
+[   76.962828][  T119]  ? __pfx__dev_info+0x10/0x10
+[   76.964367][  T119]  ? uvc_status_suspend+0x21/0x90
+[   76.965950][  T119]  uvc_status_suspend+0x21/0x90
+[   76.967600][  T119]  uvc_status_unregister+0x16/0x60
+[   76.969310][  T119]  uvc_unregister_video+0x126/0x250
+[   76.971020][  T119]  uvc_probe+0x2713/0x6210
+[   76.972475][  T119]  ? usb_probe_interface+0x75c/0xa10
+[   76.974191][  T119]  ? ktime_get_mono_fast_ns+0x1be/0x310
+[   76.975944][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.977739][  T119]  usb_probe_interface+0x309/0xa10
+[   76.979531][  T119]  ? __pfx_usb_probe_interface+0x10/0x10
+[   76.981312][  T119]  really_probe+0x253/0x990
+[   76.982843][  T119]  __driver_probe_device+0x1df/0x450
+[   76.984553][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.986326][  T119]  driver_probe_device+0x4c/0x1a0
+[   76.988012][  T119]  __device_attach_driver+0x1e4/0x2d0
+[   76.989704][  T119]  bus_for_each_drv+0x14c/0x1d0
+[   76.991326][  T119]  ? __pfx___device_attach_driver+0x10/0x10
+[   76.993167][  T119]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   76.994886][  T119]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   76.996681][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.998485][  T119]  ? lockdep_hardirqs_on+0x7c/0x110
+[   77.000121][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.001895][  T119]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   77.003805][  T119]  __device_attach+0x287/0x490
+[   77.005319][  T119]  ? __pfx___device_attach+0x10/0x10
+[   77.007056][  T119]  ? write_comp_data+0x29/0x90
+[   77.008587][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.010338][  T119]  ? do_raw_spin_unlock+0x53/0x250
+[   77.011968][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.013734][  T119]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   77.015538][  T119]  bus_probe_device+0x17e/0x1c0
+[   77.017148][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.018900][  T119]  device_add+0x10af/0x17e0
+[   77.020343][  T119]  ? __pfx_device_add+0x10/0x10
+[   77.021863][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.023621][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.025376][  T119]  ? write_comp_data+0x29/0x90
+[   77.026958][  T119]  usb_set_configuration+0x1081/0x1b20
+[   77.028718][  T119]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   77.030636][  T119]  usb_generic_driver_probe+0xb7/0x110
+[   77.032300][  T119]  usb_probe_device+0xec/0x3e0
+[   77.033819][  T119]  ? __pfx_usb_probe_device+0x10/0x10
+[   77.035473][  T119]  really_probe+0x253/0x990
+[   77.036908][  T119]  __driver_probe_device+0x1df/0x450
+[   77.038688][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.040533][  T119]  driver_probe_device+0x4c/0x1a0
+[   77.042138][  T119]  __device_attach_driver+0x1e4/0x2d0
+[   77.043848][  T119]  bus_for_each_drv+0x14c/0x1d0
+[   77.045400][  T119]  ? __pfx___device_attach_driver+0x10/0x10
+[   77.047291][  T119]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   77.048937][  T119]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   77.050836][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.052596][  T119]  ? lockdep_hardirqs_on+0x7c/0x110
+[   77.054285][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.056041][  T119]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   77.057881][  T119]  __device_attach+0x287/0x490
+[   77.059472][  T119]  ? __pfx___device_attach+0x10/0x10
+[   77.061128][  T119]  ? write_comp_data+0x29/0x90
+[   77.062614][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.064352][  T119]  ? do_raw_spin_unlock+0x53/0x250
+[   77.065960][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.067737][  T119]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   77.069508][  T119]  bus_probe_device+0x17e/0x1c0
+[   77.071111][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.072845][  T119]  device_add+0x10af/0x17e0
+[   77.074320][  T119]  ? __pfx_device_add+0x10/0x10
+[   77.075857][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.077594][  T119]  ? add_device_randomness+0xb8/0xf0
+[   77.079262][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.081030][  T119]  ? write_comp_data+0x29/0x90
+[   77.082534][  T119]  usb_new_device+0xd68/0x1a10
+[   77.084004][  T119]  ? __pfx_usb_new_device+0x10/0x10
+[   77.085652][  T119]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   77.087299][  T119]  ? _raw_spin_unlock_irq+0x23/0x50
+[   77.089011][  T119]  ? _raw_spin_unlock_irq+0x23/0x50
+[   77.090716][  T119]  hub_event+0x2a3a/0x4800
+[   77.092206][  T119]  ? __pfx_hub_event+0x10/0x10
+[   77.093746][  T119]  ? __pfx_lock_acquire+0x10/0x10
+[   77.095426][  T119]  ? __pfx_lock_release+0x10/0x10
+[   77.097059][  T119]  ? write_comp_data+0x29/0x90
+[   77.098661][  T119]  ? _raw_spin_unlock_irq+0x23/0x50
+[   77.100362][  T119]  ? _raw_spin_unlock_irq+0x23/0x50
+[   77.102075][  T119]  process_scheduled_works+0x5ee/0x1ba0
+[   77.103851][  T119]  ? __pfx_process_scheduled_works+0x10/0x10
+[   77.105692][  T119]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   77.107510][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.109294][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.111021][  T119]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   77.112726][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.114551][  T119]  ? assign_work+0x195/0x240
+[   77.116091][  T119]  worker_thread+0x59f/0xcf0
+[   77.117597][  T119]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.119355][  T119]  ? __pfx_worker_thread+0x10/0x10
+[   77.120979][  T119]  kthread+0x345/0x450
+[   77.122350][  T119]  ? __pfx_kthread+0x10/0x10
+[   77.123978][  T119]  ret_from_fork+0x48/0x80
+[   77.125352][  T119]  ? __pfx_kthread+0x10/0x10
+[   77.126845][  T119]  ret_from_fork_asm+0x1a/0x30
+[   77.128414][  T119]  </TASK>
+[   77.129454][  T119] irq event stamp: 7661
+[   77.130832][  T119] hardirqs last  enabled at (7661): [<ffffffff954dc9a3>] __schedule+0x2a53/0x4120
+[   77.133675][  T119] hardirqs last disabled at (7660): [<ffffffff954db51f>] __schedule+0x15cf/0x4120
+[   77.136618][  T119] softirqs last  enabled at (7602): [<ffffffff8d50f554>] handle_softirqs+0x544/0x870
+[   77.139564][  T119] softirqs last disabled at (7593): [<ffffffff8d51120e>] irq_exit_rcu+0xee/0x140
+[   77.142389][  T119] ---[ end trace 0000000000000000 ]---
+[   77.149065][  T119] usb 1-1: USB disconnect, device number 2
+[   77.371993][  T119] usb 1-1: new high-speed USB device number 3 using dummy_hcd
+[   77.500870][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   77.504848][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   77.508269][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   77.511682][  T119] usb 1-1: config 255 has no interface number 0
+[   77.514394][  T119] usb 1-1: config 255 has no interface number 1
+[   77.516692][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   77.519250][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   77.524174][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   77.526833][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   77.529092][  T119] usb 1-1: Product: syz
+[   77.530421][  T119] usb 1-1: Manufacturer: syz
+[   77.531945][  T119] usb 1-1: SerialNumber: syz
+[   77.956072][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+[   77.958107][  T119] usb 1-1: No valid video chain found.
+executing program
+[   77.964462][  T119] usb 1-1: USB disconnect, device number 3
+[   78.188021][  T119] usb 1-1: new high-speed USB device number 4 using dummy_hcd
+[   78.316380][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   78.321647][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   78.324287][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   78.326879][  T119] usb 1-1: config 255 has no interface number 0
+[   78.328884][  T119] usb 1-1: config 255 has no interface number 1
+[   78.330935][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   78.333080][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   78.337859][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   78.340603][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   78.343050][  T119] usb 1-1: Product: syz
+[   78.344397][  T119] usb 1-1: Manufacturer: syz
+[   78.345842][  T119] usb 1-1: SerialNumber: syz
+[   78.759965][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+[   78.761851][  T119] usb 1-1: No valid video chain found.
+executing program
+[   78.775027][  T119] usb 1-1: USB disconnect, device number 4
+[   78.997901][  T119] usb 1-1: new high-speed USB device number 5 using dummy_hcd
+[   79.126270][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   79.130845][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   79.133271][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   79.135675][  T119] usb 1-1: config 255 has no interface number 0
+[   79.137554][  T119] usb 1-1: config 255 has no interface number 1
+[   79.139478][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   79.141553][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   79.146146][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   79.148654][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   79.150993][  T119] usb 1-1: Product: syz
+[   79.152347][  T119] usb 1-1: Manufacturer: syz
+[   79.153748][  T119] usb 1-1: SerialNumber: syz
+executing program
+[   79.600235][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+[   79.602296][  T119] usb 1-1: No valid video chain found.
+[   79.609394][  T119] usb 1-1: USB disconnect, device number 5
+[   79.835990][  T119] usb 1-1: new high-speed USB device number 6 using dummy_hcd
+[   79.964293][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   79.968126][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   79.970548][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   79.972936][  T119] usb 1-1: config 255 has no interface number 0
+[   79.974828][  T119] usb 1-1: config 255 has no interface number 1
+[   79.976643][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   79.978720][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   79.983194][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   79.985807][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   79.988123][  T119] usb 1-1: Product: syz
+[   79.989364][  T119] usb 1-1: Manufacturer: syz
+[   79.990767][  T119] usb 1-1: SerialNumber: syz
+[   80.475371][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+[   80.477513][  T119] usb 1-1: No valid video chain found.
+executing program
+[   80.486222][  T119] usb 1-1: USB disconnect, device number 6
+[   80.710888][  T119] usb 1-1: new high-speed USB device number 7 using dummy_hcd
+[   80.847041][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   80.851041][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   80.853516][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   80.856174][  T119] usb 1-1: config 255 has no interface number 0
+[   80.858180][  T119] usb 1-1: config 255 has no interface number 1
+[   80.860138][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   80.862382][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   80.867278][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   80.869976][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   80.872368][  T119] usb 1-1: Product: syz
+[   80.873697][  T119] usb 1-1: Manufacturer: syz
+[   80.875262][  T119] usb 1-1: SerialNumber: syz
+[   81.292397][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+[   81.294569][  T119] usb 1-1: No valid video chain found.
+executing program
+[   81.304056][  T119] usb 1-1: USB disconnect, device number 7
+[   81.527913][  T119] usb 1-1: new high-speed USB device number 8 using dummy_hcd
+[   81.658456][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   81.661696][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   81.664214][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   81.666723][  T119] usb 1-1: config 255 has no interface number 0
+[   81.668681][  T119] usb 1-1: config 255 has no interface number 1
+[   81.670694][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   81.672813][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   81.677181][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   81.679747][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   81.682191][  T119] usb 1-1: Product: syz
+[   81.683537][  T119] usb 1-1: Manufacturer: syz
+[   81.684954][  T119] usb 1-1: SerialNumber: syz
+[   82.100748][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+executing program
+[   82.103066][  T119] usb 1-1: No valid video chain found.
+[   82.113177][  T119] usb 1-1: USB disconnect, device number 8
+[   82.334977][  T119] usb 1-1: new high-speed USB device number 9 using dummy_hcd
+[   82.463506][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   82.467333][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   82.470033][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   82.472557][  T119] usb 1-1: config 255 has no interface number 0
+[   82.474632][  T119] usb 1-1: config 255 has no interface number 1
+[   82.476585][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   82.478864][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   82.483324][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   82.486173][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   82.488632][  T119] usb 1-1: Product: syz
+[   82.490151][  T119] usb 1-1: Manufacturer: syz
+[   82.491673][  T119] usb 1-1: SerialNumber: syz
+[   82.909154][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+executing program
+[   82.911345][  T119] usb 1-1: No valid video chain found.
+[   82.918851][  T119] usb 1-1: USB disconnect, device number 9
+[   83.145047][  T119] usb 1-1: new high-speed USB device number 10 using dummy_hcd
+[   83.275041][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   83.279212][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   83.281679][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   83.284713][  T119] usb 1-1: config 255 has no interface number 0
+[   83.286851][  T119] usb 1-1: config 255 has no interface number 1
+[   83.288842][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   83.290940][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   83.295722][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   83.298526][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   83.301269][  T119] usb 1-1: Product: syz
+[   83.302504][  T119] usb 1-1: Manufacturer: syz
+[   83.304193][  T119] usb 1-1: SerialNumber: syz
+[   83.725114][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+executing program
+[   83.726836][  T119] usb 1-1: No valid video chain found.
+[   83.733873][  T119] usb 1-1: USB disconnect, device number 10
+[   83.956888][  T119] usb 1-1: new high-speed USB device number 11 using dummy_hcd
+[   84.085140][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   84.089873][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   84.092381][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   84.095075][  T119] usb 1-1: config 255 has no interface number 0
+[   84.097961][  T119] usb 1-1: config 255 has no interface number 1
+[   84.099974][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   84.102117][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   84.106700][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   84.109435][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   84.111813][  T119] usb 1-1: Product: syz
+[   84.113182][  T119] usb 1-1: Manufacturer: syz
+[   84.114610][  T119] usb 1-1: SerialNumber: syz
+executing program
+[   84.538699][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+[   84.540718][  T119] usb 1-1: No valid video chain found.
+[   84.547383][  T119] usb 1-1: USB disconnect, device number 11
+[   84.769882][  T119] usb 1-1: new high-speed USB device number 12 using dummy_hcd
+[   84.898232][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   84.901500][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   84.903910][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   84.906295][  T119] usb 1-1: config 255 has no interface number 0
+[   84.908146][  T119] usb 1-1: config 255 has no interface number 1
+[   84.910006][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   84.912159][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   84.916163][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   84.918883][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   84.921236][  T119] usb 1-1: Product: syz
+[   84.922521][  T119] usb 1-1: Manufacturer: syz
+[   84.923931][  T119] usb 1-1: SerialNumber: syz
+[   85.337517][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+[   85.339456][  T119] usb 1-1: No valid video chain found.
+[   85.346155][  T119] usb 1-1: USB disconnect, device number 12
+executing program
+[   85.573022][  T119] usb 1-1: new high-speed USB device number 13 using dummy_hcd
+[   85.701023][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   85.704454][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   85.706894][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   85.709437][  T119] usb 1-1: config 255 has no interface number 0
+[   85.711426][  T119] usb 1-1: config 255 has no interface number 1
+[   85.713408][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   85.715493][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   85.720393][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   85.723049][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   85.725426][  T119] usb 1-1: Product: syz
+[   85.726744][  T119] usb 1-1: Manufacturer: syz
+[   85.728291][  T119] usb 1-1: SerialNumber: syz
+executing program
+[   86.146362][  T119] usb 1-1: Found UVC 0.00 device syz (1871:0306)
+[   86.148275][  T119] usb 1-1: No valid video chain found.
+[   86.154569][  T119] usb 1-1: USB disconnect, device number 13
+[   86.378049][  T119] usb 1-1: new high-speed USB device number 14 using dummy_hcd
+[   86.507038][  T119] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   86.510360][  T119] usb 1-1: config 255 has an invalid interface number: 236 but max is 1
+[   86.512809][  T119] usb 1-1: config 255 has an invalid interface number: 64 but max is 1
+[   86.515211][  T119] usb 1-1: config 255 has no interface number 0
+[   86.517062][  T119] usb 1-1: config 255 has no interface number 1
+[   86.518943][  T119] usb 1-1: config 255 interface 236 has no altsetting 0
+[   86.521072][  T119] usb 1-1: config 255 interface 64 has no altsetting 0
+[   86.525598][  T119] usb 1-1: New USB device found, idVendor=1871, idProduct=0306, bcdDevice=84.41
+[   86.528179][  T119] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   86.530509][  T119] usb 1-1: Product: syz
+[   86.531822][  T119] usb 1-1: Manufacturer: syz
+[   86.533207][  T119] usb 1-1: SerialNumber: syz
+
+VM DIAGNOSIS:
+14:38:39  Registers:
+info registers vcpu 0
+RAX=0000000000000031 RBX=0000000000000000 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ff11000008602340 RDI=ffffffffa374f080 RBP=ffffffffa374f040 RSP=ffa0000001ca6798
+R8 =fff3fc0000394c00 R9 =ffe21c0000ded047 R10=ffe21c0000ded046 R11=ff11000006f68237
+R12=0000000000000000 R13=0000000000000031 R14=0000000000000000 R15=0000000000000010
+RIP=ffffffff90b595cf RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff1100006a200000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe409ac9e000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe409ac9c000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fdef8386dac CR3=0000000007e18006 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00ff000000ff00000000000000000000 XMM01=25252525252525252525252525252525
+XMM02=00000000000000000000000000000000 XMM03=00000000000000000000000000000000
+XMM04=00ff0000000000000000000000000000 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 1
+RAX=dffffc0000000000 RBX=ff1100000b9367f8 RCX=1fe2200005a00031 RDX=0000000000000000
+RSI=ff110000016c8000 RDI=0000000000000002 RBP=ffa000000001f520 RSP=ffa000000001f370
+R8 =ffa000000001f700 R9 =ffa000000001f6b4 R10=fff3fc0000003eda R11=ffa000000001f6d3
+R12=ff1100000b9367f8 R13=0000000000000113 R14=ffa000000001f520 R15=ffa000000001f7f8
+RIP=ffffffff900259a9 RFL=00000216 [----AP-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007f7f18b05900 00000000 00000000
+GS =0000 ff1100006a280000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe50bd830000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe50bd82e000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000561f586cb380 CR3=000000000865e006 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00006c6c696b5f6d6f6f002f72616863 XMM01=00000000000000000000002f2e2f002f
+XMM02=ff0f0e0d0c0b0a090807060504030201 XMM03=006c6c696b5f6d6f6f002f726168632f
+XMM04=40404040404040404040404040404040 XMM05=5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a
+XMM06=20202020202020202020202020202020 XMM07=ffffffffff0000ff000000ffffff0000
+XMM08=00000000000000000000000000000000 XMM09=0000ff00ffff00000000ffff00000000
+XMM10=00002000202000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 2
+RAX=0000000000000000 RBX=000055ba2bbdc000 RCX=ffa0000003877dd8 RDX=ffa0000003877b48
+RSI=ff11000007022340 RDI=0000000000000002 RBP=ffa0000003877b48 RSP=ffa0000003877ad0
+R8 =0000000000000000 R9 =fffffbfff3377abb R10=fffffbfff3377aba R11=ffffffff99bbd5d7
+R12=ff1100002da25ae8 R13=ff1100000dbeb000 R14=ff1100002da25ae8 R15=000055ba2bbdc000
+RIP=ffffffff8d700d60 RFL=00000246 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0000 0000000000000000 00000000 00000000
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007f02c98d28c0 00000000 00000000
+GS =0000 ff1100006a300000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe5f4788c000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe5f4788a000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=000055ba2bbdc338 CR3=0000000009470002 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=000000000000000000006c696146002f XMM01=000000696e656420737365636341002f
+XMM02=ffffff0f0e0d0c0b0a09080706050403 XMM03=696e656420737365636341002f737973
+XMM04=00000000000000000000000000000000 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=20202020000000000000000000000000 XMM09=ffffffff000000000000000000000000
+XMM10=20202020000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 3
+RAX=0000000000000001 RBX=1ff4000000728f69 RCX=ffffffff954ee13d RDX=ff11000012048390
+RSI=0000000000000008 RDI=ff11000012048390 RBP=ff11000012048388 RSP=ffa0000003947b48
+R8 =0000000000000001 R9 =ffe21c0002409073 R10=ffe21c0002409072 R11=ff11000012048397
+R12=ff11000012048390 R13=ff11000012048388 R14=ffa0000003947da0 R15=ffa0000003947eb8
+RIP=ffffffff954ee140 RFL=00000246 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007fc9a3fff700 00000000 00000000
+GS =0000 ff1100006a380000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe166f1d2000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe166f1d0000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fffe8f8fa10 CR3=000000002dac8004 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=ffffffffffffffffffffffffffffffff XMM01=00007fc9b0f1dc4000007fc9b0f1a4a0
+XMM02=ffffffffffffff0f0e0d0c0b0a090807 XMM03=00000000000000000000000000000000
+XMM04=00000000000000000000000000000000 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000200000000000002000 XMM09=0000ffffffffffffffffffffffffff00
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

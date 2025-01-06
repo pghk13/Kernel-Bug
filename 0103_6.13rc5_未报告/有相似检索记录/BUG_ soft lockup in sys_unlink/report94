@@ -1,0 +1,161 @@
+watchdog: BUG: soft lockup - CPU#0 stuck for 26s! [syz-executor:450]
+Modules linked in:
+irq event stamp: 602710
+hardirqs last  enabled at (602709): [<ffffffff926d07eb>] irqentry_exit+0x3b/0x90 kernel/entry/common.c:357
+hardirqs last disabled at (602710): [<ffffffff926cedbf>] sysvec_apic_timer_interrupt+0xf/0xb0 arch/x86/kernel/apic/apic.c:1049
+softirqs last  enabled at (602708): [<ffffffff8a70f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (602708): [<ffffffff8a70f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (602703): [<ffffffff8a71120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (602703): [<ffffffff8a71120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (602703): [<ffffffff8a71120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (602703): [<ffffffff8a71120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+CPU: 0 UID: 0 PID: 450 Comm: syz-executor Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:__exfat_free_cluster+0x768/0x980 fs/exfat/fatent.c:192
+Code: 6c 24 0c 31 ff 41 83 e5 41 44 89 ee e8 91 1a 60 ff 31 d2 45 85 ed 0f 95 c2 89 54 24 08 41 83 c7 01 e8 4c 18 60 ff 8b 54 24 08 <89> ee 4c 89 e7 83 c5 01 e8 3b c4 00 00 48 8b 4c 24 20 48 be 00 00
+RSP: 0018:ffa00000038c7ac0 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: 0000000000006416 RCX: ffffffff8b498738
+RDX: 0000000000000000 RSI: ff110000161c0000 RDI: 0000000000000002
+RBP: 000000000641628e R08: 0000000000000000 R09: fffffbfff399f0fa
+R10: fffffbfff399f0f9 R11: 0000000000000001 R12: ff1100002a31a768
+R13: 0000000000006416 R14: 000000004000000c R15: 0000000006416283
+FS:  0000555571cdda00(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000001b2e11eff8 CR3: 0000000003a8c004 CR4: 0000000000771ef0
+DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000600
+PKRU: 00000000
+Call Trace:
+ <IRQ>
+ </IRQ>
+ <TASK>
+ exfat_free_cluster+0x7a/0x100 fs/exfat/fatent.c:232
+ __exfat_truncate+0x6bf/0x900 fs/exfat/file.c:235
+ exfat_evict_inode+0x10d/0x1a0 fs/exfat/inode.c:683
+ evict+0x403/0x880 fs/inode.c:796
+ iput_final fs/inode.c:1946 [inline]
+ iput fs/inode.c:1972 [inline]
+ iput+0x51c/0x830 fs/inode.c:1958
+ do_unlinkat+0x5c7/0x750 fs/namei.c:4594
+ __do_sys_unlink fs/namei.c:4635 [inline]
+ __se_sys_unlink fs/namei.c:4633 [inline]
+ __x64_sys_unlink+0x40/0x50 fs/namei.c:4633
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f60fd7b6d3b
+Code: 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffce5e2c8e8 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f60fd7b6d3b
+RDX: 00007ffce5e2c920 RSI: 00007ffce5e2c920 RDI: 00007ffce5e2c9b0
+RBP: 00007ffce5e2c9b0 R08: 0000000000000001 R09: 00007ffce5e2c770
+R10: 00000000fffffff7 R11: 0000000000000206 R12: 00007f60fd82c071
+R13: 00007ffce5e2dac0 R14: 0000555571cf8930 R15: 00007ffce5e2eba0
+ </TASK>
+Sending NMI from CPU 0 to CPUs 1-3:
+NMI backtrace for cpu 1
+CPU: 1 UID: 0 PID: 3186 Comm: modprobe Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:write_comp_data+0x81/0x90 kernel/kcov.c:272
+Code: 00 00 48 39 d7 72 1b 48 83 c6 01 48 89 30 4c 89 6c 10 e0 4c 89 64 10 e8 48 89 6c 10 f0 4a 89 5c c0 20 5b 5d 41 5c 41 5d 41 5e <e9> d5 9f e6 07 66 2e 0f 1f 84 00 00 00 00 00 90 90 90 90 90 90 90
+RSP: 0018:ffa000001526f9a8 EFLAGS: 00000246
+RAX: 00000000f4142b00 RBX: 0000000000000009 RCX: ffffffff9264b5ad
+RDX: 0000000000000009 RSI: ff1100004b992340 RDI: 0000000000000003
+RBP: 0000000000000003 R08: fffffbfff4142b00 R09: fffffbfff4142b99
+R10: fffffbfff4142b98 R11: 0000000000000003 R12: 000000000000000a
+R13: 0000000000000000 R14: 0000000000000001 R15: 0000000000000000
+FS:  0000000000000000(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f1ed2c01158 CR3: 000000004b8f2004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <NMI>
+ </NMI>
+ <TASK>
+ mas_validate_limits lib/maple_tree.c:7518 [inline]
+ mt_validate+0x159d/0x3ae0 lib/maple_tree.c:7605
+ validate_mm+0xb1/0x520 mm/vma.c:584
+ mmap_region+0x167/0x300 mm/mmap.c:1354
+ do_mmap+0xc3f/0x1000 mm/mmap.c:496
+ vm_mmap_pgoff+0x1b3/0x380 mm/util.c:580
+ ksys_mmap_pgoff+0x7d/0x600 mm/mmap.c:542
+ __do_sys_mmap arch/x86/kernel/sys_x86_64.c:89 [inline]
+ __se_sys_mmap arch/x86/kernel/sys_x86_64.c:82 [inline]
+ __x64_sys_mmap+0x127/0x190 arch/x86/kernel/sys_x86_64.c:82
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f1ed30ffeb2
+Code: eb aa 66 0f 1f 44 00 00 41 f7 c1 ff 0f 00 00 75 27 55 48 89 fd 53 89 cb 48 85 ff 74 33 41 89 da 48 89 ef b8 09 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 56 5b 5d c3 0f 1f 00 c7 05 7e 02 01 00 16 00
+RSP: 002b:00007fff03fc86c8 EFLAGS: 00000246 ORIG_RAX: 0000000000000009
+RAX: ffffffffffffffda RBX: 0000000000000022 RCX: 00007f1ed30ffeb2
+RDX: 0000000000000003 RSI: 0000000000002000 RDI: 0000000000000000
+RBP: 0000000000000000 R08: 00000000ffffffff R09: 0000000000000000
+R10: 0000000000000022 R11: 0000000000000246 R12: 00007f1ed2c01174
+R13: 000000000000001d R14: 00007f1ed30d8510 R15: 00007f1ed3109d30
+ </TASK>
+NMI backtrace for cpu 3
+CPU: 3 UID: 0 PID: 3182 Comm: modprobe Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:write_comp_data+0x2b/0x90 kernel/kcov.c:246
+Code: 56 41 55 49 89 fd bf 03 00 00 00 41 54 49 89 f4 55 48 89 d5 53 48 89 cb 65 4c 8b 35 af 10 5a 75 4c 89 f6 e8 c7 fe ff ff 84 c0 <74> 4c 49 8b 86 e0 14 00 00 41 8b be dc 14 00 00 48 81 eb 00 00 40
+RSP: 0018:ffa00000151af3f0 EFLAGS: 00000246
+RAX: 0000000097e54500 RBX: ffffffff8a4a6c62 RCX: ffffffff8a4a6c62
+RDX: 00007ff274f4c000 RSI: ff110000423cc680 RDI: 0000000000000003
+RBP: 00007ff274f4c000 R08: ffffffff97e54500 R09: ffffffff97e545bc
+R10: 0000000000086001 R11: 0000000000192bb0 R12: ffffffffff600000
+R13: 0000000000000007 R14: ff110000423cc680 R15: 0000000000000001
+FS:  00007ff274e38540(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff274fde4a1 CR3: 0000000017cae003 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <NMI>
+ </NMI>
+ <TASK>
+ in_gate_area_no_mm+0x42/0x80 arch/x86/entry/vsyscall/vsyscall_64.c:321
+ is_kernel_text include/linux/kallsyms.h:31 [inline]
+ core_kernel_text+0x35/0xa0 kernel/extable.c:68
+ kernel_text_address+0x11/0xc0 kernel/extable.c:99
+ __kernel_text_address+0xd/0x40 kernel/extable.c:79
+ unwind_get_return_address arch/x86/kernel/unwind_orc.c:369 [inline]
+ unwind_get_return_address+0x62/0xb0 arch/x86/kernel/unwind_orc.c:364
+ arch_stack_walk+0x9d/0xf0 arch/x86/kernel/stacktrace.c:26
+ stack_trace_save+0x8f/0xc0 kernel/stacktrace.c:122
+ kasan_save_stack+0x24/0x50 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ unpoison_slab_object mm/kasan/common.c:319 [inline]
+ __kasan_slab_alloc+0x87/0x90 mm/kasan/common.c:345
+ kasan_slab_alloc include/linux/kasan.h:250 [inline]
+ slab_post_alloc_hook mm/slub.c:4119 [inline]
+ slab_alloc_node mm/slub.c:4168 [inline]
+ kmem_cache_alloc_noprof+0x154/0x420 mm/slub.c:4175
+ kmem_alloc_batch+0x45/0x1b0 lib/debugobjects.c:371
+ fill_pool lib/debugobjects.c:403 [inline]
+ debug_objects_fill_pool lib/debugobjects.c:725 [inline]
+ debug_objects_fill_pool+0x2d2/0x330 lib/debugobjects.c:697
+ debug_object_activate+0x109/0x360 lib/debugobjects.c:814
+ debug_rcu_head_queue kernel/rcu/rcu.h:224 [inline]
+ __call_rcu_common.constprop.0+0x2c/0x790 kernel/rcu/tree.c:3071
+ file_free fs/file_table.c:76 [inline]
+ fput fs/file_table.c:505 [inline]
+ fput+0x386/0x400 fs/file_table.c:499
+ path_openat+0x1d2b/0x2970 fs/namei.c:3996
+ do_filp_open+0x1fa/0x2f0 fs/namei.c:4014
+ do_sys_openat2+0x641/0x6e0 fs/open.c:1402
+ do_sys_open+0xc7/0x150 fs/open.c:1417
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7ff274f4c1c7
+Code: 25 00 00 41 00 3d 00 00 41 00 74 47 64 8b 04 25 18 00 00 00 85 c0 75 6b 44 89 e2 48 89 ee bf 9c ff ff ff b8 01 01 00 00 0f 05 <48> 3d 00 f0 ff ff 0f 87 95 00 00 00 48 8b 4c 24 28 64 48 2b 0c 25
+RSP: 002b:00007fffcf89b430 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+RAX: ffffffffffffffda RBX: 00007fffcf89b670 RCX: 00007ff274f4c1c7
+RDX: 0000000000080000 RSI: 00007fffcf89b670 RDI: 00000000ffffff9c
+RBP: 00007fffcf89b670 R08: 00007ff274ff0040 R09: 00007fffcf89b330
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000080000
+R13: 00007fffcf89b548 R14: 0000557afeca0730 R15: 0000557afeca0430
+ </TASK>
+NMI backtrace for cpu 2 skipped: idling at native_safe_halt arch/x86/include/asm/irqflags.h:48 [inline]
+NMI backtrace for cpu 2 skipped: idling at arch_safe_halt arch/x86/include/asm/irqflags.h:106 [inline]
+NMI backtrace for cpu 2 skipped: idling at default_idle+0x1e/0x30 arch/x86/kernel/process.c:742

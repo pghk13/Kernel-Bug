@@ -1,0 +1,241 @@
+watchdog: BUG: soft lockup - CPU#1 stuck for 26s! [syz-executor:423]
+Modules linked in:
+irq event stamp: 1397154
+hardirqs last  enabled at (1397153): [<ffffffffa48d07eb>] irqentry_exit+0x3b/0x90 kernel/entry/common.c:357
+hardirqs last disabled at (1397154): [<ffffffffa48cedbf>] sysvec_apic_timer_interrupt+0xf/0xb0 arch/x86/kernel/apic/apic.c:1049
+softirqs last  enabled at (1397150): [<ffffffff9c90f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (1397150): [<ffffffff9c90f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (1397143): [<ffffffff9c91120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (1397143): [<ffffffff9c91120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (1397143): [<ffffffff9c91120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (1397143): [<ffffffff9c91120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+CPU: 1 UID: 0 PID: 423 Comm: syz-executor Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:__sanitizer_cov_trace_pc+0x4c/0x60 kernel/kcov.c:235
+Code: 74 27 48 8b 93 e0 14 00 00 8b 8b dc 14 00 00 48 8b 02 48 83 c0 01 48 39 c1 76 0e 48 89 02 48 81 ed 00 00 60 1b 48 89 2c c2 5b <5d> e9 79 a0 e6 07 66 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 90 90
+RSP: 0018:ffa0000003687ab0 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: 000000000000658d RCX: 0000000000000009
+RDX: 0000000000000009 RSI: ff1100000231c680 RDI: 0000000000000002
+RBP: ffffffff9d698721 R08: 0000000000000000 R09: fffffbfff5ddf0f7
+R10: fffffbfff5ddf0f6 R11: 0000000000000001 R12: ff11000048e53a70
+R13: 0000000000cb1a2f R14: 000000004000000c R15: 000000000658d172
+FS:  000055555b4c7a00(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fc532f8a260 CR3: 0000000013c2c006 CR4: 0000000000771ef0
+DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000600
+PKRU: 00000000
+Call Trace:
+ <IRQ>
+ </IRQ>
+ <TASK>
+ __exfat_free_cluster+0x691/0x980 fs/exfat/fatent.c:184
+ exfat_free_cluster+0x7a/0x100 fs/exfat/fatent.c:232
+ __exfat_truncate+0x6bf/0x900 fs/exfat/file.c:235
+ exfat_evict_inode+0x10d/0x1a0 fs/exfat/inode.c:683
+ evict+0x403/0x880 fs/inode.c:796
+ iput_final fs/inode.c:1946 [inline]
+ iput fs/inode.c:1972 [inline]
+ iput+0x51c/0x830 fs/inode.c:1958
+ do_unlinkat+0x5c7/0x750 fs/namei.c:4594
+ __do_sys_unlink fs/namei.c:4635 [inline]
+ __se_sys_unlink fs/namei.c:4633 [inline]
+ __x64_sys_unlink+0x40/0x50 fs/namei.c:4633
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f920961fd3b
+Code: 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc3a165258 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f920961fd3b
+RDX: 00007ffc3a165290 RSI: 00007ffc3a165290 RDI: 00007ffc3a165320
+RBP: 00007ffc3a165320 R08: 0000000000000001 R09: 00007ffc3a1650e0
+R10: 00000000fffffff7 R11: 0000000000000206 R12: 00007f9209695071
+R13: 00007ffc3a166430 R14: 000055555b4e2930 R15: 00007ffc3a167510
+ </TASK>
+Sending NMI from CPU 1 to CPUs 0,2-3:
+NMI backtrace for cpu 0
+CPU: 0 UID: 0 PID: 5473 Comm: journal-offline Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:rdtsc_ordered arch/x86/include/asm/msr.h:217 [inline]
+RIP: 0010:delay_tsc+0x49/0xc0 arch/x86/lib/delay.c:72
+Code: 0f 01 f9 66 90 48 c1 e2 20 48 09 c2 48 89 d5 eb 16 f3 90 bf 01 00 00 00 e8 f4 45 10 f8 e8 9f 34 01 00 44 39 e0 75 36 0f 01 f9 <66> 90 48 c1 e2 20 48 89 d3 48 09 c3 48 89 d8 48 29 e8 4c 39 e8 73
+RSP: 0018:ffa0000009dde9f8 EFLAGS: 00000046
+RAX: 00000000da7a965f RBX: 0000006eda7a95c1 RCX: 0000000000000000
+RDX: 000000000000006e RSI: 0000000000000002 RDI: 0000000000000000
+RBP: 0000006eda7a7c17 R08: 0000000000000000 R09: fffffbfff51f7abb
+R10: fffffbfff51f7aba R11: ffffffffa8fbd5d7 R12: 0000000000000000
+R13: 00000000000057e5 R14: ff11000008a00008 R15: ff11000008a001a8
+FS:  00007f19766a3700(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000558d6fd18848 CR3: 00000000074ee001 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <NMI>
+ </NMI>
+ <TASK>
+ udelay include/asm-generic/delay.h:62 [inline]
+ ata_sff_busy_wait include/linux/libata.h:2119 [inline]
+ ata_wait_idle include/linux/libata.h:2139 [inline]
+ ata_dev_select drivers/ata/libata-sff.c:290 [inline]
+ ata_bmdma_qc_issue+0x164/0x13a0 drivers/ata/libata-sff.c:2656
+ ata_qc_issue+0x73e/0x1000 drivers/ata/libata-core.c:4982
+ ata_scsi_translate drivers/ata/libata-scsi.c:1751 [inline]
+ __ata_scsi_queuecmd+0xa3c/0x1460 drivers/ata/libata-scsi.c:4347
+ ata_scsi_queuecmd+0xad/0x170 drivers/ata/libata-scsi.c:4392
+ scsi_dispatch_cmd drivers/scsi/scsi_lib.c:1602 [inline]
+ scsi_queue_rq+0xe5e/0x3040 drivers/scsi/scsi_lib.c:1844
+ blk_mq_dispatch_rq_list+0x40d/0x1b60 block/blk-mq.c:2118
+ __blk_mq_do_dispatch_sched block/blk-mq-sched.c:170 [inline]
+ blk_mq_do_dispatch_sched block/blk-mq-sched.c:184 [inline]
+ __blk_mq_sched_dispatch_requests+0xcc4/0x1560 block/blk-mq-sched.c:309
+ blk_mq_sched_dispatch_requests+0xd7/0x1b0 block/blk-mq-sched.c:331
+ blk_mq_run_hw_queue+0x874/0xf00 block/blk-mq.c:2352
+ blk_mq_dispatch_plug_list block/blk-mq.c:2862 [inline]
+ blk_mq_flush_plug_list+0x6d7/0x2220 block/blk-mq.c:2913
+ blk_add_rq_to_plug+0x3c7/0x940 block/blk-mq.c:1382
+ blk_mq_submit_bio+0x13ca/0x1fe0 block/blk-mq.c:3146
+ __submit_bio+0x1ac/0xed0 block/blk-core.c:629
+ __submit_bio_noacct_mq block/blk-core.c:710 [inline]
+ submit_bio_noacct_nocheck block/blk-core.c:739 [inline]
+ submit_bio_noacct_nocheck+0x67e/0xd40 block/blk-core.c:716
+ submit_bio_noacct+0x649/0x13a0 block/blk-core.c:868
+ ext4_io_submit+0xa6/0x140 fs/ext4/page-io.c:377
+ io_submit_add_bh fs/ext4/page-io.c:418 [inline]
+ ext4_bio_write_folio+0x6d3/0x19d0 fs/ext4/page-io.c:562
+ mpage_submit_folio+0x1bf/0x350 fs/ext4/inode.c:1932
+ mpage_process_page_bufs+0x6cc/0x870 fs/ext4/inode.c:2045
+ mpage_prepare_extent_to_map+0x754/0x1350 fs/ext4/inode.c:2546
+ ext4_do_writepages+0xc1e/0x3440 fs/ext4/inode.c:2688
+ ext4_writepages+0x2fa/0x710 fs/ext4/inode.c:2824
+ do_writepages+0x19d/0x7d0 mm/page-writeback.c:2702
+ filemap_fdatawrite_wbc+0xe9/0x120 mm/filemap.c:397
+ __filemap_fdatawrite_range+0xc1/0x110 mm/filemap.c:430
+ file_write_and_wait_range+0xcc/0x140 mm/filemap.c:787
+ ext4_sync_file+0x292/0x1050 fs/ext4/fsync.c:158
+ vfs_fsync_range+0x13d/0x230 fs/sync.c:187
+ vfs_fsync fs/sync.c:201 [inline]
+ do_fsync+0x4d/0xa0 fs/sync.c:212
+ __do_sys_fsync fs/sync.c:217 [inline]
+ __se_sys_fsync fs/sync.c:215 [inline]
+ __x64_sys_fsync+0x33/0x50 fs/sync.c:215
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f1977aba0cb
+Code: 0f 05 48 3d 00 f0 ff ff 77 45 c3 0f 1f 40 00 48 83 ec 18 89 7c 24 0c e8 b3 e9 f8 ff 8b 7c 24 0c 41 89 c0 b8 4a 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 35 44 89 c7 89 44 24 0c e8 f1 e9 f8 ff 8b 44
+RSP: 002b:00007f19766a2cf0 EFLAGS: 00000293 ORIG_RAX: 000000000000004a
+RAX: ffffffffffffffda RBX: 000055858b9eb5f0 RCX: 00007f1977aba0cb
+RDX: ab459ed99319fd63 RSI: 00007f1977dfc8d4 RDI: 0000000000000016
+RBP: 00007f1977dff1f0 R08: 0000000000000000 R09: 00007f19766a3700
+R10: 00007f19766a3700 R11: 0000000000000293 R12: 0000000000000002
+R13: 00007ffdf7e18a2f R14: 00007f19766a2e00 R15: 000055858b9e7710
+ </TASK>
+NMI backtrace for cpu 2
+CPU: 2 UID: 0 PID: 5445 Comm: vivid-000-vid-o Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:preempt_count arch/x86/include/asm/preempt.h:26 [inline]
+RIP: 0010:preempt_latency_start kernel/sched/core.c:5828 [inline]
+RIP: 0010:preempt_count_add+0x5f/0x150 kernel/sched/core.c:5854
+Code: 00 65 01 1d 2b 8b 67 63 8b 15 9d 0b f3 15 85 d2 75 11 65 8b 05 1a 8b 67 63 0f b6 c0 3d f4 00 00 00 7f 6b 65 8b 05 09 8b 67 63 <25> ff ff ff 7f 39 c3 74 07 5b 5d e9 7c 1a 14 08 48 8b 5c 24 10 48
+RSP: 0018:ffa00000062d7c38 EFLAGS: 00000093
+RAX: 0000000080000002 RBX: 0000000000000001 RCX: 1ffffffff651e640
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000001
+RBP: ff1100006a33c440 R08: 0000000000000000 R09: fffffbfff51f7abb
+R10: fffffbfff51f7aba R11: ffffffffa8fbd5d7 R12: 0000000000000000
+R13: 0000000000000000 R14: ff11000037de2340 R15: ff1100006a33c440
+FS:  0000000000000000(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00005643fde04858 CR3: 0000000034780004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <NMI>
+ </NMI>
+ <TASK>
+ raw_spin_rq_lock_nested+0x17/0x30 kernel/sched/core.c:596
+ raw_spin_rq_lock kernel/sched/sched.h:1523 [inline]
+ rq_lock kernel/sched/sched.h:1822 [inline]
+ __schedule+0x201/0x4120 kernel/sched/core.c:6680
+ __schedule_loop kernel/sched/core.c:6833 [inline]
+ schedule+0xd4/0x210 kernel/sched/core.c:6848
+ vivid_thread_vid_out+0x1081/0x1f20 drivers/media/test-drivers/vivid/vivid-kthread-out.c:240
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+NMI backtrace for cpu 3
+CPU: 3 UID: 0 PID: 5442 Comm: syz.7.617 Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:find_held_lock+0xcf/0x110 kernel/locking/lockdep.c:5360
+Code: 38 d0 7f 04 84 c0 75 52 41 32 5c 24 21 83 e3 60 74 94 45 31 e4 48 b8 00 00 00 00 00 fc ff df 4c 89 f2 48 c1 ea 03 0f b6 14 02 <4c> 89 f0 83 e0 07 83 c0 03 38 d0 7c 04 84 d2 75 15 5b 41 89 2e 4c
+RSP: 0018:ffa0000000298c18 EFLAGS: 00000012
+RAX: dffffc0000000000 RBX: 0000000000000003 RCX: ffa0000000298ca0
+RDX: 0000000000000004 RSI: ffffffffb2ab01a8 RDI: ff1100003dde5110
+RBP: 0000000000000002 R08: 0000000000000001 R09: ff1100003dde50b8
+R10: fffffbfff51f7aba R11: ffffffffa8fbd5d7 R12: ff1100003dde5110
+R13: ffffffffb2ab01a8 R14: ffa0000000298ca0 R15: ff1100003dde4680
+FS:  00007f41848bd700(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f296b4846f4 CR3: 0000000059100005 CR4: 0000000000771ef0
+DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 0000000000000000 DR6: 00000000ffff0ff0 DR7: 0000000000000600
+PKRU: 80000000
+Call Trace:
+ <NMI>
+ </NMI>
+ <IRQ>
+ __lock_release kernel/locking/lockdep.c:5524 [inline]
+ lock_release+0x224/0x750 kernel/locking/lockdep.c:5870
+ __raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:149 [inline]
+ _raw_spin_unlock_irqrestore+0x1a/0x70 kernel/locking/spinlock.c:194
+ debug_object_deactivate+0x2af/0x390 lib/debugobjects.c:888
+ debug_hrtimer_deactivate kernel/time/hrtimer.c:433 [inline]
+ debug_deactivate kernel/time/hrtimer.c:475 [inline]
+ __run_hrtimer kernel/time/hrtimer.c:1707 [inline]
+ __hrtimer_run_queues+0x419/0xca0 kernel/time/hrtimer.c:1803
+ hrtimer_interrupt+0x39a/0x880 kernel/time/hrtimer.c:1865
+ local_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1038 [inline]
+ __sysvec_apic_timer_interrupt+0x114/0x400 arch/x86/kernel/apic/apic.c:1055
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1049 [inline]
+ sysvec_apic_timer_interrupt+0x8f/0xb0 arch/x86/kernel/apic/apic.c:1049
+ </IRQ>
+ <TASK>
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:702
+RIP: 0010:__sanitizer_cov_trace_pc+0x0/0x60 kernel/kcov.c:210
+Code: 48 8b 05 63 11 3a 63 48 8b 80 f0 14 00 00 e9 e2 a0 e6 07 0f 1f 80 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 <f3> 0f 1e fa 55 bf 02 00 00 00 53 48 8b 6c 24 10 65 48 8b 1d 28 11
+RSP: 0018:ffa0000006f6f5a0 EFLAGS: 00000246
+RAX: 0000000000040000 RBX: 1ff4000000dedeb6 RCX: 0000000000040000
+RDX: ffa0000010fa5000 RSI: ff1100003dde4680 RDI: 0000000000000002
+RBP: 0000000000000000 R08: 0000000000000001 R09: fffffbfff5ddf0f9
+R10: fffffbfff5ddf0f8 R11: 0000000000000001 R12: 0000000000000024
+R13: 0000000000000200 R14: ff1100000231c680 R15: 0000000000000000
+ console_trylock_spinning kernel/printk/printk.c:2061 [inline]
+ vprintk_emit kernel/printk/printk.c:2431 [inline]
+ vprintk_emit+0x67b/0x960 kernel/printk/printk.c:2378
+ vprintk+0x7a/0x90 kernel/printk/printk_safe.c:86
+ bch2_print_maybe_redirect fs/bcachefs/super.c:117 [inline]
+ __bch2_print+0x136/0x230 fs/bcachefs/super.c:136
+ bch2_run_recovery_pass+0x154/0x1a0 fs/bcachefs/recovery_passes.c:189
+ bch2_run_recovery_passes+0x4a4/0x760 fs/bcachefs/recovery_passes.c:244
+ bch2_fs_recovery+0x24d0/0x4f00 fs/bcachefs/recovery.c:861
+ bch2_fs_start+0x2f6/0x610 fs/bcachefs/super.c:1037
+ bch2_fs_get_tree+0x4b6/0x2020 fs/bcachefs/fs.c:2170
+ vfs_get_tree+0x93/0x340 fs/super.c:1814
+ do_new_mount fs/namespace.c:3507 [inline]
+ path_mount+0x1287/0x1d60 fs/namespace.c:3834
+ do_mount+0xf8/0x110 fs/namespace.c:3847
+ __do_sys_mount fs/namespace.c:4057 [inline]
+ __se_sys_mount fs/namespace.c:4034 [inline]
+ __x64_sys_mount+0x193/0x230 fs/namespace.c:4034
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f4185c6c15e
+Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f41848bc9b8 EFLAGS: 00000206 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 0000000000005934 RCX: 00007f4185c6c15e
+RDX: 0000000020000380 RSI: 0000000020005900 RDI: 00007f41848bca10
+RBP: 00007f41848bca50 R08: 00007f41848bca50 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000020000380
+R13: 0000000020005900 R14: 00007f41848bca10 R15: 00000000200001c0
+ </TASK>

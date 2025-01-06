@@ -1,0 +1,347 @@
+------------[ cut here ]------------
+WARNING: CPU: 3 PID: 219 at mm/slub.c:4723 free_large_kmalloc+0xba/0x110 mm/slub.c:4723
+Modules linked in:
+CPU: 3 UID: 0 PID: 219 Comm: systemd-journal Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:free_large_kmalloc+0xba/0x110 mm/slub.c:4723
+Code: 41 5c 41 5d e9 92 77 b2 07 5b 48 89 ef 5d 41 5c 41 5d e9 59 89 e8 ff 48 c7 c6 20 54 e4 a4 48 89 ef e8 0a c5 f1 ff 90 0f 0b 90 <0f> 0b 90 80 3d 5a d5 ec 0b 00 74 2b 48 8b 74 24 20 4c 89 e7 49 c7
+RSP: 0018:ffa0000000298e00 EFLAGS: 00010246
+RAX: 0100000000000000 RBX: 0000000000000000 RCX: ffffffff9ae0a601
+RDX: ffd4000000296808 RSI: ff1100000c1c0000 RDI: ffd4000000307000
+RBP: ffd4000000307000 R08: 0000000000000000 R09: fffffbfff5a9f0d8
+R10: fffffbfff5a9f0d7 R11: ffffffffad4f86bf R12: ff1100000c1c0000
+R13: ffffffff9b1204f6 R14: 0000000000000000 R15: ffa0000000298ee0
+FS:  00007f74027c5900(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fd06249bc00 CR3: 0000000005350004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <IRQ>
+ kvfree+0x46/0x50 mm/util.c:693
+ delayed_free+0x49/0xb0 fs/exfat/super.c:809
+ rcu_do_batch kernel/rcu/tree.c:2567 [inline]
+ rcu_core+0x7cb/0x16c0 kernel/rcu/tree.c:2823
+ handle_softirqs+0x1ad/0x870 kernel/softirq.c:561
+ __do_softirq kernel/softirq.c:595 [inline]
+ invoke_softirq kernel/softirq.c:435 [inline]
+ __irq_exit_rcu kernel/softirq.c:662 [inline]
+ irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1049 [inline]
+ sysvec_apic_timer_interrupt+0x94/0xb0 arch/x86/kernel/apic/apic.c:1049
+ </IRQ>
+ <TASK>
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:702
+RIP: 0010:__sanitizer_cov_trace_pc+0x4c/0x60 kernel/kcov.c:235
+Code: 74 27 48 8b 93 e0 14 00 00 8b 8b dc 14 00 00 48 8b 02 48 83 c0 01 48 39 c1 76 0e 48 89 02 48 81 ed 00 00 c0 19 48 89 2c c2 5b <5d> e9 79 a0 e6 07 66 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 90 90
+RSP: 0018:ffa0000003716498 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: 000000110d2c0000 RCX: ffffffff9b5718e3
+RDX: 0000000000000001 RSI: ff1100000a742340 RDI: 0000000000000002
+RBP: ffffffff9b571a1c R08: 0000000000000000 R09: fffffbfff5a9f0d5
+R10: fffffbfff5a9f0d4 R11: ffffffffad4f86a7 R12: 0000000000000001
+R13: ff11000031365348 R14: ff11000031365348 R15: dffffc0000000000
+ rcu_read_lock include/linux/rcupdate.h:850 [inline]
+ ___pte_offset_map+0x18c/0x340 mm/pgtable-generic.c:287
+ __pte_offset_map include/linux/mm.h:3020 [inline]
+ pte_offset_map_rw_nolock+0x39/0x1a0 mm/pgtable-generic.c:327
+ map_pte mm/page_vma_mapped.c:37 [inline]
+ page_vma_mapped_walk+0x91a/0x1d00 mm/page_vma_mapped.c:288
+ folio_referenced_one+0x283/0x14a0 mm/rmap.c:857
+ rmap_walk_file+0x322/0x6b0 mm/rmap.c:2708
+ rmap_walk+0x6f/0x80 mm/rmap.c:2726
+ folio_referenced+0x267/0x4f0 mm/rmap.c:1015
+ folio_check_references mm/vmscan.c:864 [inline]
+ shrink_folio_list+0x1fd3/0x3b80 mm/vmscan.c:1199
+ shrink_inactive_list+0x3ec/0xba0 mm/vmscan.c:1960
+ shrink_list mm/vmscan.c:2198 [inline]
+ shrink_lruvec+0x5ee/0x1060 mm/vmscan.c:5727
+ shrink_node_memcgs mm/vmscan.c:5929 [inline]
+ shrink_node+0x5f2/0x1790 mm/vmscan.c:5970
+ shrink_zones mm/vmscan.c:6215 [inline]
+ do_try_to_free_pages+0x2e8/0x12d0 mm/vmscan.c:6277
+ try_to_free_pages+0x2b1/0x6b0 mm/vmscan.c:6527
+ __perform_reclaim mm/page_alloc.c:3929 [inline]
+ __alloc_pages_direct_reclaim mm/page_alloc.c:3951 [inline]
+ __alloc_pages_slowpath.constprop.0+0x5b2/0x2170 mm/page_alloc.c:4382
+ __alloc_pages_noprof+0x564/0x660 mm/page_alloc.c:4766
+ alloc_pages_mpol_noprof+0xf2/0x400 mm/mempolicy.c:2269
+ alloc_slab_page mm/slub.c:2423 [inline]
+ allocate_slab mm/slub.c:2589 [inline]
+ new_slab+0x2c2/0x3f0 mm/slub.c:2642
+ ___slab_alloc+0xdde/0x16d0 mm/slub.c:3830
+ __slab_alloc.isra.0+0x56/0xb0 mm/slub.c:3920
+ __slab_alloc_node mm/slub.c:3995 [inline]
+ slab_alloc_node mm/slub.c:4156 [inline]
+ kmem_cache_alloc_noprof+0x201/0x420 mm/slub.c:4175
+ alloc_buffer_head+0x24/0x110 fs/buffer.c:3015
+ folio_alloc_buffers+0x172/0x220 fs/buffer.c:924
+ create_empty_buffers+0x2c/0x480 fs/buffer.c:1662
+ folio_create_buffers+0x10d/0x140 fs/buffer.c:1773
+ __block_write_begin_int+0x2da/0x18c0 fs/buffer.c:2097
+ block_page_mkwrite+0x3df/0x4c0 fs/buffer.c:2629
+ ext4_page_mkwrite+0x1145/0x1580 fs/ext4/inode.c:6180
+ do_page_mkwrite+0x180/0x390 mm/memory.c:3176
+ wp_page_shared mm/memory.c:3577 [inline]
+ do_wp_page+0x441/0x3970 mm/memory.c:3727
+ handle_pte_fault mm/memory.c:5817 [inline]
+ __handle_mm_fault+0x10f4/0x3130 mm/memory.c:5944
+ handle_mm_fault+0x2aa/0x660 mm/memory.c:6112
+ do_user_addr_fault+0x6b7/0x18b0 arch/x86/mm/fault.c:1338
+ handle_page_fault arch/x86/mm/fault.c:1481 [inline]
+ exc_page_fault+0x9c/0x1a0 arch/x86/mm/fault.c:1539
+ asm_exc_page_fault+0x26/0x30 arch/x86/include/asm/idtentry.h:623
+RIP: 0033:0x7f74033590be
+Code: 40 38 00 00 00 00 4c 89 e8 48 f7 f1 48 8b 85 d8 00 00 00 48 c1 e2 04 48 01 d0 49 89 d5 48 8b 50 08 48 85 d2 0f 85 32 03 00 00 <4c> 89 00 48 8b 85 d8 00 00 00 4e 89 44 28 08 48 8b 85 d0 00 00 00
+RSP: 002b:00007ffd86b1d290 EFLAGS: 00010246
+RAX: 00007f7401cc5480 RBX: 0000559567e7c290 RCX: 000000000000acf8
+RDX: 0000000000000000 RSI: 0000559567e7c290 RDI: 00007f7401fee3a0
+RBP: 0000559567e71650 R08: 0000000000383360 R09: 0000000000383360
+R10: 0000000000000002 R11: 0000000000000293 R12: 0000000000000025
+R13: 0000000000058e90 R14: 0000000000000000 R15: 00007ffd86b1d2b0
+ </TASK>
+irq event stamp: 1998392
+hardirqs last  enabled at (1998406): [<ffffffff9b09dc8e>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (1998419): [<ffffffff9b09dc73>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (1995134): [<ffffffff9af0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (1995134): [<ffffffff9af0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (1995199): [<ffffffff9af1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (1995199): [<ffffffff9af1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (1995199): [<ffffffff9af1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (1995199): [<ffffffff9af1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+object pointer: 0x00000000e8bd18e5
+==================================================================
+BUG: KASAN: double-free in kvfree+0x46/0x50 mm/util.c:693
+Free of addr ff1100000c1c0000 by task systemd-journal/219
+
+CPU: 3 UID: 0 PID: 219 Comm: systemd-journal Tainted: G        W          6.13.0-rc5 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <IRQ>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 mm/kasan/report.c:489
+ kasan_report_invalid_free+0x73/0x90 mm/kasan/report.c:564
+ kasan_kfree_large include/linux/kasan.h:241 [inline]
+ free_large_kmalloc+0xda/0x110 mm/slub.c:4727
+ kvfree+0x46/0x50 mm/util.c:693
+ delayed_free+0x49/0xb0 fs/exfat/super.c:809
+ rcu_do_batch kernel/rcu/tree.c:2567 [inline]
+ rcu_core+0x7cb/0x16c0 kernel/rcu/tree.c:2823
+ handle_softirqs+0x1ad/0x870 kernel/softirq.c:561
+ __do_softirq kernel/softirq.c:595 [inline]
+ invoke_softirq kernel/softirq.c:435 [inline]
+ __irq_exit_rcu kernel/softirq.c:662 [inline]
+ irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1049 [inline]
+ sysvec_apic_timer_interrupt+0x94/0xb0 arch/x86/kernel/apic/apic.c:1049
+ </IRQ>
+ <TASK>
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:702
+RIP: 0010:__sanitizer_cov_trace_pc+0x4c/0x60 kernel/kcov.c:235
+Code: 74 27 48 8b 93 e0 14 00 00 8b 8b dc 14 00 00 48 8b 02 48 83 c0 01 48 39 c1 76 0e 48 89 02 48 81 ed 00 00 c0 19 48 89 2c c2 5b <5d> e9 79 a0 e6 07 66 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 90 90
+RSP: 0018:ffa0000003716498 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: 000000110d2c0000 RCX: ffffffff9b5718e3
+RDX: 0000000000000001 RSI: ff1100000a742340 RDI: 0000000000000002
+RBP: ffffffff9b571a1c R08: 0000000000000000 R09: fffffbfff5a9f0d5
+R10: fffffbfff5a9f0d4 R11: ffffffffad4f86a7 R12: 0000000000000001
+R13: ff11000031365348 R14: ff11000031365348 R15: dffffc0000000000
+ rcu_read_lock include/linux/rcupdate.h:850 [inline]
+ ___pte_offset_map+0x18c/0x340 mm/pgtable-generic.c:287
+ __pte_offset_map include/linux/mm.h:3020 [inline]
+ pte_offset_map_rw_nolock+0x39/0x1a0 mm/pgtable-generic.c:327
+ map_pte mm/page_vma_mapped.c:37 [inline]
+ page_vma_mapped_walk+0x91a/0x1d00 mm/page_vma_mapped.c:288
+ folio_referenced_one+0x283/0x14a0 mm/rmap.c:857
+ rmap_walk_file+0x322/0x6b0 mm/rmap.c:2708
+ rmap_walk+0x6f/0x80 mm/rmap.c:2726
+ folio_referenced+0x267/0x4f0 mm/rmap.c:1015
+ folio_check_references mm/vmscan.c:864 [inline]
+ shrink_folio_list+0x1fd3/0x3b80 mm/vmscan.c:1199
+ shrink_inactive_list+0x3ec/0xba0 mm/vmscan.c:1960
+ shrink_list mm/vmscan.c:2198 [inline]
+ shrink_lruvec+0x5ee/0x1060 mm/vmscan.c:5727
+ shrink_node_memcgs mm/vmscan.c:5929 [inline]
+ shrink_node+0x5f2/0x1790 mm/vmscan.c:5970
+ shrink_zones mm/vmscan.c:6215 [inline]
+ do_try_to_free_pages+0x2e8/0x12d0 mm/vmscan.c:6277
+ try_to_free_pages+0x2b1/0x6b0 mm/vmscan.c:6527
+ __perform_reclaim mm/page_alloc.c:3929 [inline]
+ __alloc_pages_direct_reclaim mm/page_alloc.c:3951 [inline]
+ __alloc_pages_slowpath.constprop.0+0x5b2/0x2170 mm/page_alloc.c:4382
+ __alloc_pages_noprof+0x564/0x660 mm/page_alloc.c:4766
+ alloc_pages_mpol_noprof+0xf2/0x400 mm/mempolicy.c:2269
+ alloc_slab_page mm/slub.c:2423 [inline]
+ allocate_slab mm/slub.c:2589 [inline]
+ new_slab+0x2c2/0x3f0 mm/slub.c:2642
+ ___slab_alloc+0xdde/0x16d0 mm/slub.c:3830
+ __slab_alloc.isra.0+0x56/0xb0 mm/slub.c:3920
+ __slab_alloc_node mm/slub.c:3995 [inline]
+ slab_alloc_node mm/slub.c:4156 [inline]
+ kmem_cache_alloc_noprof+0x201/0x420 mm/slub.c:4175
+ alloc_buffer_head+0x24/0x110 fs/buffer.c:3015
+ folio_alloc_buffers+0x172/0x220 fs/buffer.c:924
+ create_empty_buffers+0x2c/0x480 fs/buffer.c:1662
+ folio_create_buffers+0x10d/0x140 fs/buffer.c:1773
+ __block_write_begin_int+0x2da/0x18c0 fs/buffer.c:2097
+ block_page_mkwrite+0x3df/0x4c0 fs/buffer.c:2629
+ ext4_page_mkwrite+0x1145/0x1580 fs/ext4/inode.c:6180
+ do_page_mkwrite+0x180/0x390 mm/memory.c:3176
+ wp_page_shared mm/memory.c:3577 [inline]
+ do_wp_page+0x441/0x3970 mm/memory.c:3727
+ handle_pte_fault mm/memory.c:5817 [inline]
+ __handle_mm_fault+0x10f4/0x3130 mm/memory.c:5944
+ handle_mm_fault+0x2aa/0x660 mm/memory.c:6112
+ do_user_addr_fault+0x6b7/0x18b0 arch/x86/mm/fault.c:1338
+ handle_page_fault arch/x86/mm/fault.c:1481 [inline]
+ exc_page_fault+0x9c/0x1a0 arch/x86/mm/fault.c:1539
+ asm_exc_page_fault+0x26/0x30 arch/x86/include/asm/idtentry.h:623
+RIP: 0033:0x7f74033590be
+Code: 40 38 00 00 00 00 4c 89 e8 48 f7 f1 48 8b 85 d8 00 00 00 48 c1 e2 04 48 01 d0 49 89 d5 48 8b 50 08 48 85 d2 0f 85 32 03 00 00 <4c> 89 00 48 8b 85 d8 00 00 00 4e 89 44 28 08 48 8b 85 d0 00 00 00
+RSP: 002b:00007ffd86b1d290 EFLAGS: 00010246
+RAX: 00007f7401cc5480 RBX: 0000559567e7c290 RCX: 000000000000acf8
+RDX: 0000000000000000 RSI: 0000559567e7c290 RDI: 00007f7401fee3a0
+RBP: 0000559567e71650 R08: 0000000000383360 R09: 0000000000383360
+R10: 0000000000000002 R11: 0000000000000293 R12: 0000000000000025
+R13: 0000000000058e90 R14: 0000000000000000 R15: 00007ffd86b1d2b0
+ </TASK>
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0xff1100000c1c6000 pfn:0xc1c0
+flags: 0x100000000000000(node=0|zone=1)
+page_type: f0(buddy)
+raw: 0100000000000000 ffd4000000296808 ff1100007ffdcda8 0000000000000000
+raw: ff1100000c1c6000 0000000000000005 00000000f0000000 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ff1100000c1bff00: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ff1100000c1bff80: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+>ff1100000c1c0000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                   ^
+ ff1100000c1c0080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ff1100000c1c0100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+==================================================================
+BUG: Bad page state in process systemd-journal  pfn:0c1c0
+page: refcount:0 mapcount:0 mapping:00000000fec989ed index:0x1719 pfn:0xc1c0
+aops:shmem_aops ino:555 dentry name(?):"memfd:syzkaller"
+flags: 0x10000000002001c(referenced|uptodate|dirty|swapbacked|node=0|zone=1)
+raw: 010000000002001c dead000000000100 dead000000000122 ff1100000d3d3d80
+raw: 0000000000001719 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: non-NULL mapping
+Modules linked in:
+CPU: 3 UID: 0 PID: 219 Comm: systemd-journal Tainted: G    B   W          6.13.0-rc5 #1
+Tainted: [B]=BAD_PAGE, [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <IRQ>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x180/0x1b0 lib/dump_stack.c:120
+ bad_page+0x8c/0x1c0 mm/page_alloc.c:501
+ free_page_is_bad_report mm/page_alloc.c:913 [inline]
+ free_page_is_bad mm/page_alloc.c:923 [inline]
+ free_pages_prepare mm/page_alloc.c:1119 [inline]
+ free_unref_page+0x8a6/0x1030 mm/page_alloc.c:2659
+ __folio_put+0x1af/0x230 mm/swap.c:112
+ kvfree+0x46/0x50 mm/util.c:693
+ delayed_free+0x49/0xb0 fs/exfat/super.c:809
+ rcu_do_batch kernel/rcu/tree.c:2567 [inline]
+ rcu_core+0x7cb/0x16c0 kernel/rcu/tree.c:2823
+ handle_softirqs+0x1ad/0x870 kernel/softirq.c:561
+ __do_softirq kernel/softirq.c:595 [inline]
+ invoke_softirq kernel/softirq.c:435 [inline]
+ __irq_exit_rcu kernel/softirq.c:662 [inline]
+ irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1049 [inline]
+ sysvec_apic_timer_interrupt+0x94/0xb0 arch/x86/kernel/apic/apic.c:1049
+ </IRQ>
+ <TASK>
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:702
+RIP: 0010:__sanitizer_cov_trace_pc+0x4c/0x60 kernel/kcov.c:235
+Code: 74 27 48 8b 93 e0 14 00 00 8b 8b dc 14 00 00 48 8b 02 48 83 c0 01 48 39 c1 76 0e 48 89 02 48 81 ed 00 00 c0 19 48 89 2c c2 5b <5d> e9 79 a0 e6 07 66 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 90 90
+RSP: 0018:ffa0000003716498 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: 000000110d2c0000 RCX: ffffffff9b5718e3
+RDX: 0000000000000001 RSI: ff1100000a742340 RDI: 0000000000000002
+RBP: ffffffff9b571a1c R08: 0000000000000000 R09: fffffbfff5a9f0d5
+R10: fffffbfff5a9f0d4 R11: ffffffffad4f86a7 R12: 0000000000000001
+R13: ff11000031365348 R14: ff11000031365348 R15: dffffc0000000000
+ rcu_read_lock include/linux/rcupdate.h:850 [inline]
+ ___pte_offset_map+0x18c/0x340 mm/pgtable-generic.c:287
+ __pte_offset_map include/linux/mm.h:3020 [inline]
+ pte_offset_map_rw_nolock+0x39/0x1a0 mm/pgtable-generic.c:327
+ map_pte mm/page_vma_mapped.c:37 [inline]
+ page_vma_mapped_walk+0x91a/0x1d00 mm/page_vma_mapped.c:288
+ folio_referenced_one+0x283/0x14a0 mm/rmap.c:857
+ rmap_walk_file+0x322/0x6b0 mm/rmap.c:2708
+ rmap_walk+0x6f/0x80 mm/rmap.c:2726
+ folio_referenced+0x267/0x4f0 mm/rmap.c:1015
+ folio_check_references mm/vmscan.c:864 [inline]
+ shrink_folio_list+0x1fd3/0x3b80 mm/vmscan.c:1199
+ shrink_inactive_list+0x3ec/0xba0 mm/vmscan.c:1960
+ shrink_list mm/vmscan.c:2198 [inline]
+ shrink_lruvec+0x5ee/0x1060 mm/vmscan.c:5727
+ shrink_node_memcgs mm/vmscan.c:5929 [inline]
+ shrink_node+0x5f2/0x1790 mm/vmscan.c:5970
+ shrink_zones mm/vmscan.c:6215 [inline]
+ do_try_to_free_pages+0x2e8/0x12d0 mm/vmscan.c:6277
+ try_to_free_pages+0x2b1/0x6b0 mm/vmscan.c:6527
+ __perform_reclaim mm/page_alloc.c:3929 [inline]
+ __alloc_pages_direct_reclaim mm/page_alloc.c:3951 [inline]
+ __alloc_pages_slowpath.constprop.0+0x5b2/0x2170 mm/page_alloc.c:4382
+ __alloc_pages_noprof+0x564/0x660 mm/page_alloc.c:4766
+ alloc_pages_mpol_noprof+0xf2/0x400 mm/mempolicy.c:2269
+ alloc_slab_page mm/slub.c:2423 [inline]
+ allocate_slab mm/slub.c:2589 [inline]
+ new_slab+0x2c2/0x3f0 mm/slub.c:2642
+ ___slab_alloc+0xdde/0x16d0 mm/slub.c:3830
+ __slab_alloc.isra.0+0x56/0xb0 mm/slub.c:3920
+ __slab_alloc_node mm/slub.c:3995 [inline]
+ slab_alloc_node mm/slub.c:4156 [inline]
+ kmem_cache_alloc_noprof+0x201/0x420 mm/slub.c:4175
+ alloc_buffer_head+0x24/0x110 fs/buffer.c:3015
+ folio_alloc_buffers+0x172/0x220 fs/buffer.c:924
+ create_empty_buffers+0x2c/0x480 fs/buffer.c:1662
+ folio_create_buffers+0x10d/0x140 fs/buffer.c:1773
+ __block_write_begin_int+0x2da/0x18c0 fs/buffer.c:2097
+ block_page_mkwrite+0x3df/0x4c0 fs/buffer.c:2629
+ ext4_page_mkwrite+0x1145/0x1580 fs/ext4/inode.c:6180
+ do_page_mkwrite+0x180/0x390 mm/memory.c:3176
+ wp_page_shared mm/memory.c:3577 [inline]
+ do_wp_page+0x441/0x3970 mm/memory.c:3727
+ handle_pte_fault mm/memory.c:5817 [inline]
+ __handle_mm_fault+0x10f4/0x3130 mm/memory.c:5944
+ handle_mm_fault+0x2aa/0x660 mm/memory.c:6112
+ do_user_addr_fault+0x6b7/0x18b0 arch/x86/mm/fault.c:1338
+ handle_page_fault arch/x86/mm/fault.c:1481 [inline]
+ exc_page_fault+0x9c/0x1a0 arch/x86/mm/fault.c:1539
+ asm_exc_page_fault+0x26/0x30 arch/x86/include/asm/idtentry.h:623
+RIP: 0033:0x7f74033590be
+Code: 40 38 00 00 00 00 4c 89 e8 48 f7 f1 48 8b 85 d8 00 00 00 48 c1 e2 04 48 01 d0 49 89 d5 48 8b 50 08 48 85 d2 0f 85 32 03 00 00 <4c> 89 00 48 8b 85 d8 00 00 00 4e 89 44 28 08 48 8b 85 d0 00 00 00
+RSP: 002b:00007ffd86b1d290 EFLAGS: 00010246
+RAX: 00007f7401cc5480 RBX: 0000559567e7c290 RCX: 000000000000acf8
+RDX: 0000000000000000 RSI: 0000559567e7c290 RDI: 00007f7401fee3a0
+RBP: 0000559567e71650 R08: 0000000000383360 R09: 0000000000383360
+R10: 0000000000000002 R11: 0000000000000293 R12: 0000000000000025
+R13: 0000000000058e90 R14: 0000000000000000 R15: 00007ffd86b1d2b0
+ </TASK>
+----------------
+Code disassembly (best guess):
+   0:	74 27                	je     0x29
+   2:	48 8b 93 e0 14 00 00 	mov    0x14e0(%rbx),%rdx
+   9:	8b 8b dc 14 00 00    	mov    0x14dc(%rbx),%ecx
+   f:	48 8b 02             	mov    (%rdx),%rax
+  12:	48 83 c0 01          	add    $0x1,%rax
+  16:	48 39 c1             	cmp    %rax,%rcx
+  19:	76 0e                	jbe    0x29
+  1b:	48 89 02             	mov    %rax,(%rdx)
+  1e:	48 81 ed 00 00 c0 19 	sub    $0x19c00000,%rbp
+  25:	48 89 2c c2          	mov    %rbp,(%rdx,%rax,8)
+  29:	5b                   	pop    %rbx
+* 2a:	5d                   	pop    %rbp <-- trapping instruction
+  2b:	e9 79 a0 e6 07       	jmpq   0x7e6a0a9
+  30:	66 66 2e 0f 1f 84 00 	data16 nopw %cs:0x0(%rax,%rax,1)
+  37:	00 00 00 00
+  3b:	0f 1f 00             	nopl   (%rax)
+  3e:	90                   	nop
+  3f:	90                   	nop

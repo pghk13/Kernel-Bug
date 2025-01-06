@@ -1,0 +1,284 @@
+watchdog: BUG: soft lockup - CPU#3 stuck for 26s! [syz-executor:439]
+Modules linked in:
+irq event stamp: 552454
+hardirqs last  enabled at (552453): [<ffffffffa5ad07eb>] irqentry_exit+0x3b/0x90 kernel/entry/common.c:357
+hardirqs last disabled at (552454): [<ffffffffa5acedbf>] sysvec_apic_timer_interrupt+0xf/0xb0 arch/x86/kernel/apic/apic.c:1049
+softirqs last  enabled at (552448): [<ffffffff9db0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (552448): [<ffffffff9db0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (552441): [<ffffffff9db1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (552441): [<ffffffff9db1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (552441): [<ffffffff9db1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (552441): [<ffffffff9db1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+CPU: 3 UID: 0 PID: 439 Comm: syz-executor Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:is_valid_cluster fs/exfat/exfat_fs.h:425 [inline]
+RIP: 0010:exfat_clear_bitmap+0x21/0x580 fs/exfat/balloc.c:152
+Code: 90 90 90 90 90 90 90 90 90 66 0f 1f 00 41 57 41 56 41 89 d6 41 55 41 54 55 48 89 fd 53 89 f3 48 83 ec 18 e8 e1 53 5f ff 89 de <bf> 01 00 00 00 e8 05 56 5f ff 83 fb 01 0f 86 b8 03 00 00 e8 c7 53
+RSP: 0018:ffa00000038efa70 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: 0000000006d8a6e6 RCX: ffffffff9e898738
+RDX: 0000000000000000 RSI: 0000000006d8a6e6 RDI: 0000000000000002
+RBP: ff11000014e52110 R08: 0000000000000000 R09: fffffbfff601f0fe
+R10: fffffbfff601f0fd R11: 0000000000000001 R12: ff11000014e52110
+R13: 0000000000006d8a R14: 0000000000000000 R15: 0000000006d8a6db
+FS:  000055556aa2fa00(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff0240c4000 CR3: 000000000813c002 CR4: 0000000000771ef0
+PKRU: 00000000
+Call Trace:
+ <IRQ>
+ </IRQ>
+ <TASK>
+ __exfat_free_cluster+0x775/0x980 fs/exfat/fatent.c:192
+ exfat_free_cluster+0x7a/0x100 fs/exfat/fatent.c:232
+ __exfat_truncate+0x6bf/0x900 fs/exfat/file.c:235
+ exfat_evict_inode+0x10d/0x1a0 fs/exfat/inode.c:683
+ evict+0x403/0x880 fs/inode.c:796
+ iput_final fs/inode.c:1946 [inline]
+ iput fs/inode.c:1972 [inline]
+ iput+0x51c/0x830 fs/inode.c:1958
+ do_unlinkat+0x5c7/0x750 fs/namei.c:4594
+ __do_sys_unlink fs/namei.c:4635 [inline]
+ __se_sys_unlink fs/namei.c:4633 [inline]
+ __x64_sys_unlink+0x40/0x50 fs/namei.c:4633
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f8cb8de6d3b
+Code: 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa b8 57 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc3c8f6af8 EFLAGS: 00000206 ORIG_RAX: 0000000000000057
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f8cb8de6d3b
+RDX: 00007ffc3c8f6b30 RSI: 00007ffc3c8f6b30 RDI: 00007ffc3c8f6bc0
+RBP: 00007ffc3c8f6bc0 R08: 0000000000000001 R09: 00007ffc3c8f6980
+R10: 00000000fffffff7 R11: 0000000000000206 R12: 00007f8cb8e5c071
+R13: 00007ffc3c8f7cd0 R14: 000055556aa4a930 R15: 00007ffc3c8f8db0
+ </TASK>
+Sending NMI from CPU 3 to CPUs 0-2:
+NMI backtrace for cpu 0
+CPU: 0 UID: 0 PID: 3074 Comm: syz.7.200 Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:perf_swevent_event+0x2e/0x2e0 kernel/events/core.c:10024
+Code: 49 89 cd 41 54 49 89 d4 55 48 89 fd 53 48 89 f3 e8 17 8f ea ff 48 01 9d b0 00 00 00 4d 85 ed 0f 84 24 01 00 00 e8 02 8f ea ff <48> 8d bd e8 00 00 00 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1
+RSP: 0018:ffa0000000007790 EFLAGS: 00000046
+RAX: 0000000000000000 RBX: 0000000000000001 RCX: ff11000053a36250
+RDX: ffa0000000007880 RSI: ff11000040508000 RDI: 0000000000000002
+RBP: ff1100002af70c60 R08: 0000000000000000 R09: ffd1ffffffc15688
+R10: ffa0000000007a70 R11: ffd1ffffffc7d027 R12: ffa0000000007880
+R13: ff11000053a36250 R14: dffffc0000000000 R15: ffa0000000007880
+FS:  00007fdbb16a6700(0000) GS:ff11000053a00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fdbaa243000 CR3: 0000000021200004 CR4: 0000000000771ef0
+PKRU: 80000000
+Call Trace:
+ <NMI>
+ </NMI>
+ <IRQ>
+ perf_tp_event+0x227/0xfe0 kernel/events/core.c:10535
+ perf_trace_run_bpf_submit+0xef/0x180 kernel/events/core.c:10471
+ do_perf_trace_lock_acquire include/trace/events/lock.h:24 [inline]
+ perf_trace_lock_acquire+0x3b7/0x670 include/trace/events/lock.h:24
+ trace_lock_acquire include/trace/events/lock.h:24 [inline]
+ lock_acquire+0x2fd/0x580 kernel/locking/lockdep.c:5820
+ seqcount_lockdep_reader_access include/linux/seqlock.h:72 [inline]
+ ktime_get+0x80/0x2d0 kernel/time/timekeeping.c:811
+ ktime_get_ns include/linux/timekeeping.h:174 [inline]
+ __scd_stamp kernel/sched/clock.c:113 [inline]
+ sched_clock_tick kernel/sched/clock.c:425 [inline]
+ sched_clock_tick+0xa9/0x280 kernel/sched/clock.c:412
+ sched_tick+0x6b/0x320 kernel/sched/core.c:5638
+ update_process_times+0x14b/0x260 kernel/time/timer.c:2524
+ tick_sched_handle kernel/time/tick-sched.c:276 [inline]
+ tick_nohz_handler+0x388/0x550 kernel/time/tick-sched.c:297
+ __run_hrtimer kernel/time/hrtimer.c:1739 [inline]
+ __hrtimer_run_queues+0x607/0xca0 kernel/time/hrtimer.c:1803
+ hrtimer_interrupt+0x39a/0x880 kernel/time/hrtimer.c:1865
+ local_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1038 [inline]
+ __sysvec_apic_timer_interrupt+0x114/0x400 arch/x86/kernel/apic/apic.c:1055
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1049 [inline]
+ sysvec_apic_timer_interrupt+0x8f/0xb0 arch/x86/kernel/apic/apic.c:1049
+ </IRQ>
+ <TASK>
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:702
+RIP: 0010:__sanitizer_cov_trace_pc+0x0/0x60 kernel/kcov.c:210
+Code: 48 8b 05 63 11 1a 62 48 8b 80 f0 14 00 00 e9 e2 a0 e6 07 0f 1f 80 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 <f3> 0f 1e fa 55 bf 02 00 00 00 53 48 8b 6c 24 10 65 48 8b 1d 28 11
+RSP: 0018:ffa0000015dd75f8 EFLAGS: 00000246
+RAX: 00000000a5f29500 RBX: 0000000000000000 RCX: ffffffff9df37d86
+RDX: 0000000000000000 RSI: ff11000040508000 RDI: 0000000000000003
+RBP: 000000000000003c R08: ffffffffa5f29500 R09: 0000000000000000
+R10: 000000000003b18c R11: ffffffffaa1bd5d7 R12: ffa0000015dd76a0
+R13: ffa0000015dd76b0 R14: 000000000000003c R15: ffa0000015dd76f0
+ perf_trace_buf_alloc+0x83/0x270 kernel/trace/trace_event_perf.c:414
+ do_perf_trace_lock_acquire include/trace/events/lock.h:24 [inline]
+ perf_trace_lock_acquire+0x1aa/0x670 include/trace/events/lock.h:24
+ trace_lock_acquire include/trace/events/lock.h:24 [inline]
+ lock_acquire+0x2fd/0x580 kernel/locking/lockdep.c:5820
+ fs_reclaim_acquire+0xca/0x150 mm/page_alloc.c:3870
+ might_alloc include/linux/sched/mm.h:318 [inline]
+ prepare_alloc_pages mm/page_alloc.c:4512 [inline]
+ __alloc_pages_noprof+0x1bf/0x660 mm/page_alloc.c:4742
+ alloc_pages_mpol_noprof+0xf2/0x400 mm/mempolicy.c:2269
+ folio_alloc_mpol_noprof+0x38/0xa0 mm/mempolicy.c:2287
+ shmem_alloc_folio+0x137/0x160 mm/shmem.c:1798
+ shmem_alloc_and_add_folio mm/shmem.c:1837 [inline]
+ shmem_get_folio_gfp mm/shmem.c:2357 [inline]
+ shmem_get_folio_gfp.isra.0+0x45e/0x13d0 mm/shmem.c:2257
+ shmem_get_folio mm/shmem.c:2463 [inline]
+ shmem_write_begin+0x14f/0x2f0 mm/shmem.c:3119
+ generic_perform_write+0x290/0x850 mm/filemap.c:4055
+ shmem_file_write_iter+0x111/0x140 mm/shmem.c:3295
+ new_sync_write fs/read_write.c:586 [inline]
+ vfs_write fs/read_write.c:679 [inline]
+ vfs_write+0xb9b/0x10f0 fs/read_write.c:659
+ ksys_write+0x122/0x240 fs/read_write.c:731
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fdbb29c418f
+Code: 89 54 24 18 48 89 74 24 10 89 7c 24 08 e8 99 fd ff ff 48 8b 54 24 18 48 8b 74 24 10 41 89 c0 8b 7c 24 08 b8 01 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 2d 44 89 c7 48 89 44 24 08 e8 cc fd ff ff 48
+RSP: 002b:00007fdbb16a5940 EFLAGS: 00000293 ORIG_RAX: 0000000000000001
+RAX: ffffffffffffffda RBX: 0000000000000010 RCX: 00007fdbb29c418f
+RDX: 0000000001000000 RSI: 00007fdba9244000 RDI: 0000000000000010
+RBP: 00007fdba9244000 R08: 0000000000000000 R09: 0000000000005d4f
+R10: 0000000000005d4f R11: 0000000000000293 R12: 0000000000000000
+R13: 00007fdbb16a5a0c R14: 00007fdbb16a5a10 R15: 000000002000bac2
+ </TASK>
+NMI backtrace for cpu 1
+CPU: 1 UID: 0 PID: 3223 Comm: syz.1.202 Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:__sanitizer_cov_trace_pc+0xb/0x60 kernel/kcov.c:213
+Code: 14 00 00 e9 e2 a0 e6 07 0f 1f 80 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa 55 bf 02 00 00 00 53 <48> 8b 6c 24 10 65 48 8b 1d 28 11 1a 62 48 89 de e8 40 ff ff ff 84
+RSP: 0000:ffa00000001e8d68 EFLAGS: 00000046
+RAX: 0000000000000000 RBX: ff11000053aad758 RCX: ffffffff9dd77deb
+RDX: 00000021da83ee00 RSI: ff1100001c0e0000 RDI: 0000000000000002
+RBP: 00000000000f4240 R08: 0000000000000000 R09: fffffbfff594cdd2
+R10: fffffbfff594cdd1 R11: ffffffffaca66e8b R12: 00000021da83ee00
+R13: 00000021da83ee00 R14: 0000000000000001 R15: 00000021da74abc0
+FS:  00007fcf53f24700(0000) GS:ff11000053a80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fcf4bd7d000 CR3: 0000000016d80001 CR4: 0000000000771ef0
+PKRU: 80000000
+Call Trace:
+ <NMI>
+ </NMI>
+ <IRQ>
+ hrtimer_forward+0x1d0/0x270 kernel/time/hrtimer.c:1060
+ tick_nohz_handler+0x229/0x550 kernel/time/tick-sched.c:309
+ __run_hrtimer kernel/time/hrtimer.c:1739 [inline]
+ __hrtimer_run_queues+0x607/0xca0 kernel/time/hrtimer.c:1803
+ hrtimer_interrupt+0x39a/0x880 kernel/time/hrtimer.c:1865
+ local_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1038 [inline]
+ __sysvec_apic_timer_interrupt+0x114/0x400 arch/x86/kernel/apic/apic.c:1055
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1049 [inline]
+ sysvec_apic_timer_interrupt+0x8f/0xb0 arch/x86/kernel/apic/apic.c:1049
+ </IRQ>
+ <TASK>
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:702
+RIP: 0010:get_current arch/x86/include/asm/current.h:49 [inline]
+RIP: 0010:__sanitizer_cov_trace_pc+0x10/0x60 kernel/kcov.c:216
+Code: a0 e6 07 0f 1f 80 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa 55 bf 02 00 00 00 53 48 8b 6c 24 10 <65> 48 8b 1d 28 11 1a 62 48 89 de e8 40 ff ff ff 84 c0 74 27 48 8b
+RSP: 0000:ffa0000015227e48 EFLAGS: 00000246
+RAX: dffffc0000000000 RBX: 0000000000001254 RCX: 0000000000040000
+RDX: 1fe22000080d523a RSI: ff1100001c0e0000 RDI: 0000000000000002
+RBP: ffffffff9e135e81 R08: 0000000000000001 R09: ff1100001c0e0a38
+R10: fffffbfff601f0e5 R11: ffffffffb00f872f R12: ffa0000015227f58
+R13: 00007fcf4bd7d000 R14: 0000000000100073 R15: ff1100000d82f200
+ vma_pkey arch/x86/include/asm/pkeys.h:123 [inline]
+ arch_vma_access_permitted arch/x86/include/asm/mmu_context.h:259 [inline]
+ handle_mm_fault+0x421/0x660 mm/memory.c:6091
+ do_user_addr_fault+0x6b7/0x18b0 arch/x86/mm/fault.c:1338
+ handle_page_fault arch/x86/mm/fault.c:1481 [inline]
+ exc_page_fault+0x9c/0x1a0 arch/x86/mm/fault.c:1539
+ asm_exc_page_fault+0x26/0x30 arch/x86/include/asm/idtentry.h:623
+RIP: 0033:0x7fcf5517226e
+Code: 48 39 c1 77 75 48 63 d5 48 01 c2 49 3b 57 08 77 53 8d 55 ff 85 ed 74 34 0f 1f 40 00 48 39 c1 77 1b 49 8b 37 49 89 c1 49 29 c9 <46> 0f b6 0c 0e 45 84 c9 74 08 44 88 0c 06 49 8b 47 10 48 83 c0 01
+RSP: 002b:00007fcf53f23020 EFLAGS: 00010206
+RAX: 0000000000279001 RBX: 00007fcf53f23090 RCX: 0000000000000001
+RDX: 0000000000000044 RSI: 00007fcf4bb04000 RDI: 00007fcf53f23130
+RBP: 0000000000000102 R08: 0000000000000000 R09: 0000000000279000
+R10: 00000000ffffffff R11: 0000000000000010 R12: 00007fcf53f23098
+R13: 00007fcf53f230a0 R14: 0000000000000000 R15: 00007fcf53f23130
+ </TASK>
+NMI backtrace for cpu 2
+CPU: 2 UID: 0 PID: 3079 Comm: syz.1.197 Not tainted 6.13.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:rdtsc_ordered arch/x86/include/asm/msr.h:217 [inline]
+RIP: 0010:__pvclock_clocksource_read arch/x86/kernel/pvclock.c:77 [inline]
+RIP: 0010:pvclock_clocksource_read_nowd+0x29/0x1d0 arch/x86/kernel/pvclock.c:120
+Code: 90 66 0f 1f 00 41 57 41 56 41 55 41 54 55 48 89 fd 53 0f 1f 44 00 00 44 8b 75 00 0f 1f 44 00 00 41 83 e6 fe 45 89 f5 0f 01 f9 <66> 90 44 0f be 75 1c 48 c1 e2 20 31 ff 44 8b 65 18 48 09 c2 48 2b
+RSP: 0018:ffa0000000240cc0 EFLAGS: 00000006
+RAX: 0000000062158701 RBX: ff11000053b3d180 RCX: 0000000000000002
+RDX: 000000000000004d RSI: ff1100000951a340 RDI: ffffffffaca5e080
+RBP: ffffffffaca5e080 R08: 0000000000000000 R09: ff1100000951ad78
+R10: fffffbfff5437aba R11: ffffffffaa1bd5d7 R12: ff11000053b3c440
+R13: 0000000000048178 R14: 0000000000048178 R15: dffffc0000000000
+FS:  0000000000000000(0000) GS:ff11000053b00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055c9e8a6b158 CR3: 00000000403ea003 CR4: 0000000000771ef0
+PKRU: 80000000
+Call Trace:
+ <NMI>
+ </NMI>
+ <IRQ>
+ kvm_sched_clock_read+0x16/0x30 arch/x86/kernel/kvmclock.c:91
+ sched_clock+0x18/0x60 arch/x86/kernel/tsc.c:285
+ __scd_stamp kernel/sched/clock.c:114 [inline]
+ sched_clock_tick kernel/sched/clock.c:425 [inline]
+ sched_clock_tick+0xd1/0x280 kernel/sched/clock.c:412
+ sched_tick+0x6b/0x320 kernel/sched/core.c:5638
+ update_process_times+0x14b/0x260 kernel/time/timer.c:2524
+ tick_sched_handle kernel/time/tick-sched.c:276 [inline]
+ tick_nohz_handler+0x388/0x550 kernel/time/tick-sched.c:297
+ __run_hrtimer kernel/time/hrtimer.c:1739 [inline]
+ __hrtimer_run_queues+0x607/0xca0 kernel/time/hrtimer.c:1803
+ hrtimer_interrupt+0x39a/0x880 kernel/time/hrtimer.c:1865
+ local_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1038 [inline]
+ __sysvec_apic_timer_interrupt+0x114/0x400 arch/x86/kernel/apic/apic.c:1055
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1049 [inline]
+ sysvec_apic_timer_interrupt+0x8f/0xb0 arch/x86/kernel/apic/apic.c:1049
+ </IRQ>
+ <TASK>
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:702
+RIP: 0010:__raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:152 [inline]
+RIP: 0010:_raw_spin_unlock_irqrestore+0x3c/0x70 kernel/locking/spinlock.c:194
+Code: 74 24 10 e8 36 b2 17 f8 48 89 ef e8 ce 32 18 f8 81 e3 00 02 00 00 75 29 9c 58 f6 c4 02 75 35 48 85 db 74 01 fb bf 01 00 00 00 <e8> af 50 0c f8 65 8b 05 30 09 54 5a 85 c0 74 0e 5b 5d e9 a8 98 20
+RSP: 0018:ffa0000014f372e0 EFLAGS: 00000206
+RAX: 0000000000000006 RBX: 0000000000000200 RCX: 1ffffffff5437351
+RDX: 0000000000000000 RSI: 0000000000000001 RDI: 0000000000000001
+RBP: ff1100007ffdfdd0 R08: 0000000000000001 R09: 0000000000000001
+R10: fffffbfff5437aba R11: ffffffffaa1bd5d7 R12: 000000000000007c
+R13: ffa0000014f375c0 R14: dffffc0000000000 R15: ffa0000014f376c0
+ spin_unlock_irqrestore include/linux/spinlock.h:406 [inline]
+ unlock_page_lruvec_irqrestore include/linux/memcontrol.h:1520 [inline]
+ folios_put_refs+0x304/0x4d0 mm/swap.c:954
+ folio_batch_release include/linux/pagevec.h:101 [inline]
+ shmem_undo_range+0x565/0x11b0 mm/shmem.c:1044
+ shmem_truncate_range+0x30/0xd0 mm/shmem.c:1156
+ shmem_evict_inode+0x2ec/0xa00 mm/shmem.c:1284
+ evict+0x403/0x880 fs/inode.c:796
+ iput_final fs/inode.c:1946 [inline]
+ iput fs/inode.c:1972 [inline]
+ iput+0x51c/0x830 fs/inode.c:1958
+ dentry_unlink_inode+0x2cd/0x4c0 fs/dcache.c:422
+ __dentry_kill+0x186/0x5b0 fs/dcache.c:625
+ dput.part.0+0x49e/0x990 fs/dcache.c:867
+ dput+0x1f/0x30 fs/dcache.c:857
+ __fput+0x592/0xc70 fs/file_table.c:458
+ task_work_run+0x173/0x280 kernel/task_work.c:239
+ exit_task_work include/linux/task_work.h:43 [inline]
+ do_exit+0xa63/0x2fe0 kernel/exit.c:938
+ do_group_exit+0xd3/0x2a0 kernel/exit.c:1087
+ get_signal+0x267a/0x2790 kernel/signal.c:3017
+ arch_do_signal_or_restart+0x81/0x870 arch/x86/kernel/signal.c:337
+ exit_to_user_mode_loop kernel/entry/common.c:111 [inline]
+ exit_to_user_mode_prepare include/linux/entry-common.h:329 [inline]
+ irqentry_exit_to_user_mode+0x1de/0x250 kernel/entry/common.c:231
+ exc_page_fault+0xc5/0x1a0 arch/x86/mm/fault.c:1542
+ asm_exc_page_fault+0x26/0x30 arch/x86/include/asm/idtentry.h:623
+RIP: 0033:0xfb51139e922b
+Code: Unable to access opcode bytes at 0xfb51139e9201.
+RSP: 002b:00000000200000b8 EFLAGS: 00010217
+RAX: 0000000000000000 RBX: 00007fcf55493058 RCX: 00007fcf552d071d
+RDX: 00000000200000c0 RSI: 00000000200000b0 RDI: 0000000000008000
+RBP: 00007fcf55345425 R08: 0000000020000140 R09: 0000000020000140
+R10: 0000000020000100 R11: 0000000000000206 R12: 0000000000000000
+R13: 00007fcf55493064 R14: 00007fcf554930f0 R15: 00007fcf53f02d40
+ </TASK>
