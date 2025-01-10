@@ -1,0 +1,633 @@
+Message from syslogd@syzkaller at Jan 10 01:41:13 ...
+ kernel:[  678.610457][    C0] BUG: workqueue lockup - pool cpus=3 node=0 flags=0x0 nice=0 stuck for 35s!
+[  682.047007][    C1] watchdog: BUG: soft lockup - CPU#1 stuck for 22s! [syz.2.43:2016]
+[  682.047393][    C1] Modules linked in:
+[  682.050514][    C1] irq event stamp: 78465
+[  682.050514][    C1] hardirqs last  enabled at (78464): [<ffffffff9c8d085b>] irqentry_exit+0x3b/0x90
+[  682.050514][    C1] hardirqs last disabled at (78465): [<ffffffff9c8cee2f>] sysvec_apic_timer_interrupt+0xf/0xb0
+[  682.056230][    C1] softirqs last  enabled at (78396): [<ffffffff9490f554>] handle_softirqs+0x544/0x870
+[  682.060532][    C1] softirqs last disabled at (78399): [<ffffffff9491120e>] irq_exit_rcu+0xee/0x140
+[  682.060532][    C1] CPU: 1 UID: 0 PID: 2016 Comm: syz.2.43 Tainted: G        W          6.13.0-rc6 #2
+[  682.066424][    C1] Tainted: [W]=WARN
+[  682.066424][    C1] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  682.070535][    C1] RIP: 0010:_raw_spin_unlock_irqrestore+0x3c/0x70
+[  682.070535][    C1] Code: 74 24 10 e8 86 b1 17 f8 48 89 ef e8 1e 32 18 f8 81 e3 00 02 00 00 75 29 9c 58 f6 c4 02 75 35 48 85 db 74 01 fb bf 01 00 00 00 <e8> ff 4f 0c f8 65 8b 05 c0 08 74 63 85 c0 74 0e 5b 5d e9 38 98 20
+[  682.080553][    C1] RSP: 0018:ffa00000001e8a88 EFLAGS: 00000206
+[  682.080553][    C1] RAX: 0000000000000002 RBX: 0000000000000200 RCX: 1ffffffff4de14f0
+[  682.085538][    C1] RDX: 0000000000000000 RSI: 0000000000000102 RDI: 0000000000000001
+[  682.086755][    C1] RBP: ffffffffaab1f788 R08: 0000000000000001 R09: fffffbfff4ddf0da
+[  682.090567][    C1] R10: fffffbfff4ddf0d9 R11: 0000000000000001 R12: ff1100003d512000
+[  682.090567][    C1] R13: ffffffffaab1f788 R14: dffffc0000000000 R15: 0000000000000002
+[  682.095551][    C1] FS:  00007f557f8d4700(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+[  682.096920][    C1] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  682.100532][    C1] CR2: 00007fff076c1268 CR3: 00000000145d0001 CR4: 0000000000771ef0
+[  682.100532][    C1] PKRU: 00000000
+[  682.100532][    C1] Call Trace:
+[  682.105508][    C1]  <IRQ>
+[  682.106804][    C1]  ? watchdog_timer_fn+0x548/0x770
+[  682.107704][    C1]  ? __hrtimer_run_queues+0x607/0xca0
+[  682.110525][    C1]  ? __pfx_watchdog_timer_fn+0x10/0x10
+[  682.110525][    C1]  ? __pfx___hrtimer_run_queues+0x10/0x10
+[  682.110525][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.115546][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.115546][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.120409][    C1]  ? hrtimer_interrupt+0x39a/0x880
+[  682.120500][    C1]  ? __sysvec_apic_timer_interrupt+0x114/0x400
+[  682.120500][    C1]  ? sysvec_apic_timer_interrupt+0x40/0xb0
+[  682.125785][    C1]  ? asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  682.127225][    C1]  ? _raw_spin_unlock_irqrestore+0x3c/0x70
+[  682.128765][    C1]  debug_check_no_obj_freed+0x3c8/0x5c0
+[  682.130510][    C1]  ? __pfx_debug_check_no_obj_freed+0x10/0x10
+[  682.130510][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.135544][    C1]  ? kmem_cache_free+0x126/0x4d0
+[  682.135544][    C1]  ? skb_free_head+0xfc/0x1d0
+[  682.138932][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.140547][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.140547][    C1]  ? write_comp_data+0x29/0x90
+[  682.140547][    C1]  kmem_cache_free+0x2f1/0x4d0
+[  682.145501][    C1]  ? kfree_skbmem+0x18a/0x1f0
+[  682.145501][    C1]  ? mac80211_hwsim_tx_frame+0x1f8/0x2a0
+[  682.150530][    C1]  kfree_skbmem+0x18a/0x1f0
+[  682.150530][    C1]  consume_skb+0xfd/0x2c0
+[  682.150530][    C1]  mac80211_hwsim_tx_frame+0x1f8/0x2a0
+[  682.150530][    C1]  mac80211_hwsim_beacon_tx+0x5c0/0xa50
+[  682.155501][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.155501][    C1]  ? write_comp_data+0x29/0x90
+[  682.160493][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.160493][    C1]  __iterate_interfaces+0x16f/0x5b0
+[  682.160493][    C1]  ? __pfx_mac80211_hwsim_beacon_tx+0x10/0x10
+[  682.165500][    C1]  ? __pfx_mac80211_hwsim_beacon_tx+0x10/0x10
+[  682.165500][    C1]  ieee80211_iterate_active_interfaces_atomic+0x71/0x1b0
+[  682.170493][    C1]  mac80211_hwsim_beacon+0x105/0x200
+[  682.171744][    C1]  __hrtimer_run_queues+0x1b5/0xca0
+[  682.171744][    C1]  ? __pfx_mac80211_hwsim_beacon+0x10/0x10
+[  682.175537][    C1]  ? __pfx___hrtimer_run_queues+0x10/0x10
+[  682.175537][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.179572][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.180504][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.180504][    C1]  hrtimer_run_softirq+0x17f/0x2e0
+[  682.185553][    C1]  handle_softirqs+0x1ad/0x870
+[  682.185553][    C1]  irq_exit_rcu+0xee/0x140
+[  682.185553][    C1]  sysvec_apic_timer_interrupt+0x94/0xb0
+[  682.190544][    C1]  </IRQ>
+[  682.190544][    C1]  <TASK>
+[  682.190544][    C1]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  682.190544][    C1] RIP: 0010:_raw_spin_unlock_irqrestore+0x3c/0x70
+[  682.195516][    C1] Code: 74 24 10 e8 86 b1 17 f8 48 89 ef e8 1e 32 18 f8 81 e3 00 02 00 00 75 29 9c 58 f6 c4 02 75 35 48 85 db 74 01 fb bf 01 00 00 00 <e8> ff 4f 0c f8 65 8b 05 c0 08 74 63 85 c0 74 0e 5b 5d e9 38 98 20
+[  682.203347][    C1] RSP: 0018:ffa000000c80f8b8 EFLAGS: 00000206
+[  682.205528][    C1] RAX: 0000000000000006 RBX: 0000000000000200 RCX: 1ffffffff4de14f0
+[  682.205528][    C1] RDX: 0000000000000000 RSI: 0000000000000001 RDI: 0000000000000001
+[  682.210510][    C1] RBP: ffffffffaaa20ba8 R08: 0000000000000001 R09: fffffbfff4ddf0da
+[  682.212726][    C1] R10: fffffbfff4ddf0d9 R11: 0000000000000001 R12: ff11000006e35000
+[  682.215554][    C1] R13: ffffffffaaa20ba8 R14: dffffc0000000000 R15: 0000000000000002
+[  682.215554][    C1]  debug_check_no_obj_freed+0x3c8/0x5c0
+[  682.220807][    C1]  ? page_ext_put+0x3e/0xd0
+[  682.220807][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.220807][    C1]  ? __pfx_debug_check_no_obj_freed+0x10/0x10
+[  682.225556][    C1]  ? irqentry_exit+0x3b/0x90
+[  682.225556][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.228907][    C1]  ? write_comp_data+0x29/0x90
+[  682.230967][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.230967][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.230967][    C1]  free_unref_page+0x328/0x1030
+[  682.235487][    C1]  __put_partials+0x14c/0x170
+[  682.235487][    C1]  qlist_free_all+0x4c/0x120
+[  682.239404][    C1]  kasan_quarantine_reduce+0x168/0x1c0
+[  682.241119][    C1]  __kasan_slab_alloc+0x67/0x90
+[  682.241119][    C1]  kmem_cache_alloc_noprof+0x154/0x420
+[  682.245528][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.245528][    C1]  ? write_comp_data+0x29/0x90
+[  682.245528][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.251269][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.251269][    C1]  ? alloc_empty_file+0x76/0x1e0
+[  682.251269][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.255530][    C1]  alloc_empty_file+0x76/0x1e0
+[  682.255530][    C1]  alloc_file_pseudo+0x139/0x200
+[  682.255530][    C1]  ? __pfx_alloc_file_pseudo+0x10/0x10
+[  682.261461][    C1]  ? kasan_quarantine_put+0xce/0x1e0
+[  682.261461][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.265504][    C1]  ? write_comp_data+0x29/0x90
+[  682.265504][    C1]  __anon_inode_getfile+0x137/0x3c0
+[  682.265504][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.270525][    C1]  ? __pfx___anon_inode_getfile+0x10/0x10
+[  682.271587][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.271587][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.275522][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.275522][    C1]  ? exclusive_event_installable+0x254/0x320
+[  682.280572][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.281762][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.281762][    C1]  __do_sys_perf_event_open+0x15d8/0x2970
+[  682.285520][    C1]  ? __pfx___do_sys_perf_event_open+0x10/0x10
+[  682.285520][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.290526][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.291925][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.291925][    C1]  do_syscall_64+0xc3/0x1d0
+[  682.295542][    C1]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  682.295542][    C1] RIP: 0033:0x7f557fe81add
+[  682.295542][    C1] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  682.305494][    C1] RSP: 002b:00007f557f8d3ba8 EFLAGS: 00000246 ORIG_RAX: 000000000000012a
+[  682.305494][    C1] RAX: ffffffffffffffda RBX: 00007f558007afa0 RCX: 00007f557fe81add
+[  682.310486][    C1] RDX: 000003ffffffffff RSI: 0000000000000000 RDI: 0000000020000040
+[  682.312257][    C1] RBP: 00007f557feffb8f R08: 0000000000000002 R09: 0000000000000000
+[  682.315497][    C1] R10: ffffffffffffffff R11: 0000000000000246 R12: 0000000000000000
+[  682.317509][    C1] R13: 00007f558007afac R14: 00007f558007b038 R15: 00007f557f8d3d40
+[  682.322395][    C1]  </TASK>
+[  682.322395][    C1] Sending NMI from CPU 1 to CPUs 0,2-3:
+[  682.325491][    C0] NMI backtrace for cpu 0
+[  682.325525][    C0] CPU: 0 UID: 0 PID: 37 Comm: kworker/u17:0 Tainted: G        W          6.13.0-rc6 #2
+[  682.325598][    C0] Tainted: [W]=WARN
+[  682.325615][    C0] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  682.325649][    C0] Workqueue: events_unbound kfree_rcu_monitor
+[  682.325707][    C0] RIP: 0010:__sanitizer_cov_trace_pc+0x0/0x60
+[  682.325775][    C0] Code: 48 8b 05 a3 11 3a 6b 48 8b 80 f0 14 00 00 e9 22 a1 e6 07 0f 1f 80 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 <f3> 0f 1e fa 55 bf 02 00 00 00 53 48 8b 6c 24 10 65 48 8b 1d 68 11
+[  682.325826][    C0] RSP: 0018:ffa00000002a7cb0 EFLAGS: 00000246
+[  682.325867][    C0] RAX: 0000000000000000 RBX: 0000000000000001 RCX: ffffffff94970634
+[  682.325902][    C0] RDX: 0000000000000000 RSI: ff11000001df0000 RDI: 0000000000000003
+[  682.325937][    C0] RBP: ff11000001c08e00 R08: 0000000000000000 R09: ff11000001df0a38
+[  682.325973][    C0] R10: fffffbfff41f7aa2 R11: ffffffffa0fbd517 R12: ff11000001df0000
+[  682.326010][    C0] R13: dffffc0000000000 R14: ff110000014d6000 R15: 000000000003b188
+[  682.326069][    C0] FS:  0000000000000000(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+[  682.326129][    C0] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  682.326167][    C0] CR2: 000000c005e79000 CR3: 00000000213c0004 CR4: 0000000000771ef0
+[  682.326202][    C0] PKRU: 55555554
+[  682.326221][    C0] Call Trace:
+[  682.326234][    C0]  <NMI>
+[  682.326251][    C0]  ? nmi_cpu_backtrace+0x1d4/0x350
+
+[  682.M3e2ss63a2g3e] [f ro m   C0]  ? nmis_ycpu_backstlroagcde@_hsaynzdkaller+0xc/0x20
+ler [  682.326323][    C0]  ? nmi_handle+0x1b8/0x5f0
+[  682.326323][    C0]  ? irqentry_nmi_enter+0x80/0x90
+at [  J682.326323][ a n   1C0 0]  ? __pfx_0_1_sanitizer_cov_:t4race_pc+0x10/0x11:0
+[  682.326323][    C0]  ? default_do_nmi+0x88/0x220
+[  682.326323][    C0]  ? exc_nmi+0x270/0x320
+[  682.326323][    C0]  ? end_repeat_nmi+0xf/0x53
+[  682.326323][    C0]  ? process_scheduled_works+0x1524/0x1ba0
+26 .[.  .6
+.326323][    C0 ]k e r?n e_l_:p[fx_  _6_8san2itizer_c.0ov_trace_4p7c0+007x1]0/0[C  1 0 
+1] w[a t c6h8d2o.g3:2 6B3U2G3:] [s o   C0]  ? __pfx___sanitizer_cov_trace_pc+0x10/0x10
+ft [l o c6k8u2p. 3-2 6C3P2U3#][    C0]  ? __pfx___sanitizer_cov_trace_pc+0x10/0x10
+[  682.326323][    C0]  </NMI>
+1 stu[ck  6 8f2o.r3 2632223s]![    C0]  <TASK>
+ [[s y z6.822..4332:6322031]6][    C0]  process_scheduled_works+0x6fd/0x1ba0
+
+  682.326323][    C0]  ? __pfx_process_scheduled_works+0x10/0x10
+[  682.326323][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.326323][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.326323][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.326323][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.326323][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.326323][    C0]  ? assign_work+0x195/0x240
+[  682.326323][    C0]  worker_thread+0x59f/0xcf0
+[  682.326323][    C0]  ? __pfx_worker_thread+0x10/0x10
+[  682.326323][    C0]  kthread+0x345/0x450
+[  682.326323][    C0]  ? __pfx_kthread+0x10/0x10
+[  682.326323][    C0]  ret_from_fork+0x48/0x80
+[  682.326323][    C0]  ? __pfx_kthread+0x10/0x10
+[  682.326323][    C0]  ret_from_fork_asm+0x1a/0x30
+[  682.326323][    C0]  </TASK>
+[  682.325539][    C2] NMI backtrace for cpu 2
+ Comm: syz.1.56 Tainted: G        W          6.13.0-rc6 #2
+[  682.325539][    C2] Tainted: [W]=WARN
+
+[  68M2e.s3s2a5g5e3 f9r]o[m  s y  C2] Harsldowgadr@es yznkaame:l lQEeMUr  Standa.96), BIOS 1.13( i04140:F4X1 :+ P1I7I X.,. .1
+0-1ubun tkeur1n.e1l 04:/[0 1 /628021.43
+254[0 9 68]2[.3 2 5 5 3C91]][  K   C2] RIP: 0010:rcu_is_watching+0x0/0xc0
+[  682.325539][    C2] Code: 55 00 eb a2 48 89 ef e8 6e bb 55 00 e9 5b ff ff ff 66 0f 1f 84 00 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 <f3> 0f 1e fa 55 53 65 ff 05 eb 90 53 6b e8 9e f4 dc 07 48 c7 c3 10
+erne[l   p6a8n2i.c3 2-5 5n3o9][    C2] RSP: 0018:ffa0000005daf028 EFLAGS: 00000046
+[  682.325539][    C2] RAX: 0000000000000000 RBX: 0000000000000001 RCX: ffffffff94ca332b
+t s[y n 68c2i.3n2g5:5 3s9o]f[t l   C2] RDX: 0000000000000001 RSI: ff11000013a38000 RDI: 0000000000000002
+[  682.325539][    C2] RBP: 0000000000000001 R08: 0000000000000000 R09: fffffbfff4ddf0d5
+ocku[p  :6 8h2u.n3g2 5t5a3s9k][    C2] R10: fffffbfff4ddf0d4 R11: ffffffffa6ef86a7 R12: 0000000000000000
+[  682.325539][    C2] R13: dffffc0000000000 R14: ffffffff9f194b28 R15: ffa0000005daf110
+s
+  682.325539][    C2] FS:  00007f99cbe1a700(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+[  682.325539][    C2] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  682.325539][    C2] CR2: 00007f99cc5c2bac CR3: 000000003b9b8003 CR4: 0000000000771ef0
+[  682.325539][    C2] PKRU: 00000000
+[  682.325539][    C2] Call Trace:
+[  682.325539][    C2]  <NMI>
+[  682.325539][    C2]  ? nmi_cpu_backtrace+0x1d4/0x350
+[  682.325539][    C2]  ? nmi_cpu_backtrace_handler+0xc/0x20
+[  682.325539][    C2]  ? nmi_handle+0x1b8/0x5f0
+[  682.325539][    C2]  ? __pfx_rcu_is_watching+0x10/0x10
+[  682.325539][    C2]  ? default_do_nmi+0x88/0x220
+[  682.325539][    C2]  ? exc_nmi+0x270/0x320
+[  682.325539][    C2]  ? end_repeat_nmi+0xf/0x53
+[  682.325539][    C2]  ? __is_insn_slot_addr+0x11b/0x290
+[  682.325539][    C2]  ? __pfx_rcu_is_watching+0x10/0x10
+[  682.325539][    C2]  ? __pfx_rcu_is_watching+0x10/0x10
+[  682.325539][    C2]  ? __pfx_rcu_is_watching+0x10/0x10
+[  682.325539][    C2]  </NMI>
+[  682.325539][    C2]  <TASK>
+[  682.325539][    C2]  __is_insn_slot_addr+0x1dc/0x290
+[  682.325539][    C2]  kernel_text_address+0x5b/0xc0
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  __kernel_text_address+0xd/0x40
+[  682.325539][    C2]  unwind_get_return_address+0x62/0xb0
+[  682.325539][    C2]  perf_callchain_kernel+0x408/0x620
+[  682.325539][    C2]  ? __pfx_mark_lock+0x10/0x10
+[  682.325539][    C2]  ? __pfx_perf_callchain_kernel+0x10/0x10
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? write_comp_data+0x29/0x90
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? get_callchain_entry+0x1dd/0x3e0
+[  682.325539][    C2]  get_perf_callchain+0x1f9/0x670
+[  682.325539][    C2]  ? __pfx_get_perf_callchain+0x10/0x10
+[  682.325539][    C2]  ? __pfx_rcu_read_lock_held+0x10/0x10
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? perf_output_begin_forward+0x79d/0xbe0
+[  682.325539][    C2]  perf_callchain+0x168/0x1c0
+[  682.325539][    C2]  perf_prepare_sample+0xc80/0x2580
+[  682.325539][    C2]  ? __pfx_lock_release+0x10/0x10
+[  682.325539][    C2]  ? __pfx_perf_prepare_sample+0x10/0x10
+[  682.325539][    C2]  ? write_comp_data+0x29/0x90
+[  682.325539][    C2]  perf_event_output_forward+0xd3/0x2c0
+[  682.325539][    C2]  ? __pfx_perf_event_output_forward+0x10/0x10
+[  682.325539][    C2]  ? __pfx_lock_release+0x10/0x10
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? write_comp_data+0x29/0x90
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? write_comp_data+0x29/0x90
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  __perf_event_overflow+0x1e4/0x8f0
+[  682.325539][    C2]  ? write_comp_data+0x29/0x90
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  perf_swevent_overflow+0xac/0x150
+[  682.325539][    C2]  perf_swevent_event+0x1e9/0x2e0
+[  682.325539][    C2]  perf_tp_event+0x227/0xfe0
+[  682.325539][    C2]  ? __pfx_perf_event_output_forward+0x10/0x10
+[  682.325539][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.325539][    C2]  ? mark_lock+0xfe/0x12d0
+[  682.325539][    C2]  ? __pfx_perf_tp_event+0x10/0x10
+[  682.325539][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? perf_tp_event+0x859/0xfe0
+[  682.325539][    C2]  ? mark_lock+0xfe/0x12d0
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? __lock_acquire+0x1748/0x4a10
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  682.325539][    C2]  perf_trace_run_bpf_submit+0xef/0x180
+[  682.325539][    C2]  perf_trace_preemptirq_template+0x287/0x450
+[  682.325539][    C2]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  682.325539][    C2]  trace_hardirqs_on+0xf2/0x160
+[  682.325539][    C2]  _raw_spin_unlock_irqrestore+0x58/0x70
+[  682.325539][    C2]  debug_check_no_obj_freed+0x3c8/0x5c0
+[  682.325539][    C2]  ? page_ext_put+0x3e/0xd0
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? __pfx_debug_check_no_obj_freed+0x10/0x10
+[  682.325539][    C2]  ? irqentry_exit+0x3b/0x90
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? write_comp_data+0x29/0x90
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.325539][    C2]  free_unref_page+0x328/0x1030
+[  682.325539][    C2]  __put_partials+0x14c/0x170
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  qlist_free_all+0x4c/0x120
+[  682.325539][    C2]  kasan_quarantine_reduce+0x168/0x1c0
+[  682.325539][    C2]  __kasan_slab_alloc+0x67/0x90
+[  682.325539][    C2]  kmem_cache_alloc_node_noprof+0x14a/0x430
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? find_held_lock+0x2c/0x110
+[  682.325539][    C2]  ? perf_get_page_size.part.0+0x691/0x6c0
+[  682.325539][    C2]  perf_event_alloc+0xba/0x3ea0
+[  682.325539][    C2]  ? __pfx_lock_release+0x10/0x10
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? __fget_files+0x205/0x3b0
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  __do_sys_perf_event_open+0x5c0/0x2970
+[  682.325539][    C2]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  682.325539][    C2]  ? __pfx___do_sys_perf_event_open+0x10/0x10
+[  682.325539][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325539][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.325539][    C2]  do_syscall_64+0xc3/0x1d0
+[  682.325539][    C2]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  682.325539][    C2] RIP: 0033:0x7f99cc3c7add
+[  682.325539][    C2] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  682.325539][    C2] RSP: 002b:00007f99cbe19ba8 EFLAGS: 00000246 ORIG_RAX: 000000000000012a
+[  682.325539][    C2] RAX: ffffffffffffffda RBX: 00007f99cc5c0fa0 RCX: 00007f99cc3c7add
+[  682.325539][    C2] RDX: 000003ffffffffff RSI: 0000000000000000 RDI: 0000000020000040
+[  682.325539][    C2] RBP: 00007f99cc445b8f R08: 0000000000000002 R09: 0000000000000000
+[  682.325539][    C2] R10: ffffffffffffffff R11: 0000000000000246 R12: 0000000000000000
+[  682.325539][    C2] R13: 00007f99cc5c0fac R14: 00007f99cc5c1038 R15: 00007f99cbe19d40
+[  682.325539][    C2]  </TASK>
+[  662.676383][    C3] NMI backtrace for cpu 3
+[  662.676383][    C3] CPU: 3 UID: 0 PID: 1944 Comm: syz.3.19 Tainted: G        W          6.13.0-rc6 #2
+[  662.676383][    C3] Tainted: [W]=WARN
+[  662.676383][    C3] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  662.676383][    C3] RIP: 0010:perf_callchain_kernel+0x33f/0x620
+[  662.676383][    C3] Code: 0f b6 04 28 84 c0 74 08 3c 03 0f 8e 12 02 00 00 44 8b 73 08 89 d7 89 95 f0 fe ff ff 44 89 f6 e8 b7 49 5e 00 8b 95 f0 fe ff ff <44> 39 f2 0f 83 d6 00 00 00 e8 33 48 5e 00 48 8b 8d d0 fe ff ff 48
+[  662.676383][    C3] RSP: 0018:ffa0000000298420 EFLAGS: 00000046
+[  662.676383][    C3] RAX: 0000000000000000 RBX: ffa00000002985d0 RCX: ffffffff946b57b9
+[  662.676383][    C3] RDX: 0000000000000009 RSI: ff11000039e64680 RDI: 0000000000000003
+[  662.676383][    C3] RBP: ffa0000000298568 R08: 0000000000000000 R09: 0000000000000001
+[  662.676383][    C3] R10: 0000000000086001 R11: 0000000000009fa2 R12: ffffffff9491120e
+[  662.676383][    C3] R13: dffffc0000000000 R14: 000000000000007f R15: ffa0000000298490
+[  662.676383][    C3] FS:  00007fae681b2700(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+[  662.676383][    C3] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  662.676383][    C3] CR2: 0000001b30720008 CR3: 000000001dcde001 CR4: 0000000000771ef0
+[  662.676383][    C3] PKRU: 00000000
+[  662.676383][    C3] Call Trace:
+[  662.676383][    C3]  <NMI>
+[  662.676383][    C3]  ? nmi_cpu_backtrace+0x1d4/0x350
+[  662.676383][    C3]  ? nmi_cpu_backtrace_handler+0xc/0x20
+[  662.676383][    C3]  ? nmi_handle+0x1b8/0x5f0
+[  662.676383][    C3]  ? perf_callchain_kernel+0x33f/0x620
+[  662.676383][    C3]  ? default_do_nmi+0x88/0x220
+[  662.676383][    C3]  ? exc_nmi+0x270/0x320
+[  662.676383][    C3]  ? end_repeat_nmi+0xf/0x53
+[  662.676383][    C3]  ? irq_exit_rcu+0xee/0x140
+[  662.676383][    C3]  ? perf_callchain_kernel+0x339/0x620
+[  662.676383][    C3]  ? perf_callchain_kernel+0x33f/0x620
+[  662.676383][    C3]  ? perf_callchain_kernel+0x33f/0x620
+[  662.676383][    C3]  ? perf_callchain_kernel+0x33f/0x620
+[  662.676383][    C3]  </NMI>
+[  662.676383][    C3]  <IRQ>
+[  662.676383][    C3]  ? __pfx_mark_lock+0x10/0x10
+[  662.676383][    C3]  ? __pfx_perf_callchain_kernel+0x10/0x10
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? irq_exit_rcu+0xee/0x140
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? get_callchain_entry+0x1dd/0x3e0
+[  662.676383][    C3]  get_perf_callchain+0x1f9/0x670
+[  662.676383][    C3]  ? __pfx_get_perf_callchain+0x10/0x10
+[  662.676383][    C3]  ? __pfx_rcu_read_lock_held+0x10/0x10
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? perf_output_begin_forward+0x79d/0xbe0
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  perf_callchain+0x168/0x1c0
+[  662.676383][    C3]  perf_prepare_sample+0xc80/0x2580
+[  662.676383][    C3]  ? __pfx_lock_release+0x10/0x10
+[  662.676383][    C3]  ? __pfx_perf_prepare_sample+0x10/0x10
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  perf_event_output_forward+0xd3/0x2c0
+[  662.676383][    C3]  ? __pfx_perf_event_output_forward+0x10/0x10
+[  662.676383][    C3]  ? __pfx_lock_release+0x10/0x10
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  __perf_event_overflow+0x1e4/0x8f0
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  perf_swevent_overflow+0xac/0x150
+[  662.676383][    C3]  perf_swevent_event+0x1e9/0x2e0
+[  662.676383][    C3]  perf_tp_event+0x227/0xfe0
+[  662.676383][    C3]  ? __pfx_perf_tp_event+0x10/0x10
+[  662.676383][    C3]  ? rcu_read_lock_sched_held+0xa4/0xd0
+[  662.676383][    C3]  ? __pfx_rcu_read_lock_sched_held+0x10/0x10
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? find_held_lock+0x2c/0x110
+[  662.676383][    C3]  ? sched_ttwu_pending+0x26c/0x480
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? __pfx_lock_release+0x10/0x10
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  662.676383][    C3]  perf_trace_run_bpf_submit+0xef/0x180
+[  662.676383][    C3]  perf_trace_preemptirq_template+0x287/0x450
+[  662.676383][    C3]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  662.676383][    C3]  ? irq_work_single+0x1b0/0x260
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  ? irqentry_exit+0x3b/0x90
+[  662.676383][    C3]  trace_hardirqs_on+0xf2/0x160
+[  662.676383][    C3]  irqentry_exit+0x3b/0x90
+[  662.676383][    C3]  asm_sysvec_irq_work+0x1a/0x20
+[  662.676383][    C3] RIP: 0010:__rcu_read_unlock+0xc6/0x570
+[  662.676383][    C3] Code: b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 0f b6 04 02 84 c0 74 08 3c 03 0f 8e bf 01 00 00 8b 85 00 04 00 00 85 c0 75 57 <65> 48 8b 1d f2 ae 52 6b 48 8d bb fc 03 00 00 48 b8 00 00 00 00 00
+[  662.676383][    C3] RSP: 0018:ffa0000000298e08 EFLAGS: 00000206
+[  662.676383][    C3] RAX: 0000000000000002 RBX: ff1100006a3bd240 RCX: 1ffffffff4deb2a7
+[  662.676383][    C3] RDX: 0000000000000000 RSI: 0000000000000101 RDI: 0000000000000000
+[  662.676383][    C3] RBP: ffffffff9f126380 R08: 0000000000000001 R09: fffffbfff4ddf0f3
+[  662.676383][    C3] R10: fffffbfff4ddf0f2 R11: 0000000000000001 R12: 0000000000000001
+[  662.676383][    C3] R13: 0000000000000200 R14: ffa0000000298e00 R15: 1ff40000000531c9
+[  662.676383][    C3]  ieee80211_rx_napi+0x117/0x410
+[  662.676383][    C3]  ? __pfx_ieee80211_rx_napi+0x10/0x10
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  ieee80211_handle_queued_frames+0xd9/0x130
+[  662.676383][    C3]  tasklet_action_common+0x279/0x810
+[  662.676383][    C3]  handle_softirqs+0x1ad/0x870
+[  662.676383][    C3]  irq_exit_rcu+0xee/0x140
+[  662.676383][    C3]  sysvec_apic_timer_interrupt+0x94/0xb0
+[  662.676383][    C3]  </IRQ>
+[  662.676383][    C3]  <TASK>
+[  662.676383][    C3]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  662.676383][    C3] RIP: 0010:generic_exec_single+0xae/0x700
+[  662.676383][    C3] Code: b8 82 3d 0c 0f 92 c3 31 ff 89 de e8 6c 4f 0b 00 84 db 0f 84 4b 05 00 00 e8 8f 4d 0b 00 4c 89 e6 89 ef 45 31 e4 e8 92 f9 ff ff <e8> 7d 4d 0b 00 44 89 e0 5b 5d 41 5c 41 5d 41 5e e9 78 ee f1 07 e8
+[  662.676383][    C3] RSP: 0018:ffa000000c7afaf0 EFLAGS: 00000246
+[  662.676383][    C3] RAX: 0000000000000000 RBX: 0000000000000200 RCX: ffffffff94be54b7
+[  662.676383][    C3] RDX: 0000000000000200 RSI: ff11000039e64680 RDI: 0000000000000002
+[  662.676383][    C3] RBP: 0000000000000000 R08: 0000000000000000 R09: fffffbfff4ddf0f3
+[  662.676383][    C3] R10: fffffbfff4ddf0f2 R11: 0000000000000001 R12: 0000000000000000
+[  662.676383][    C3] R13: ffffffff94daba80 R14: ffa000000c7afc28 R15: ff11000039e64694
+[  662.676383][    C3]  ? __pfx_remote_function+0x10/0x10
+[  662.676383][    C3]  ? generic_exec_single+0x2e7/0x700
+[  662.676383][    C3]  smp_call_function_single+0x19b/0x5a0
+[  662.676383][    C3]  ? percpu_counter_add_batch+0x11c/0x2a0
+[  662.676383][    C3]  ? __pfx_remote_function+0x10/0x10
+[  662.676383][    C3]  ? __pfx_smp_call_function_single+0x10/0x10
+[  662.676383][    C3]  ? __pfx_percpu_counter_add_batch+0x10/0x10
+[  662.676383][    C3]  ? __pfx_remote_function+0x10/0x10
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? __pfx___perf_install_in_context+0x10/0x10
+[  662.676383][    C3]  task_function_call+0xe5/0x180
+[  662.676383][    C3]  ? __pfx_task_function_call+0x10/0x10
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? __pfx___perf_install_in_context+0x10/0x10
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? exclusive_event_installable+0x254/0x320
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  perf_install_in_context+0x2cc/0x570
+[  662.676383][    C3]  ? __pfx_perf_install_in_context+0x10/0x10
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? write_comp_data+0x29/0x90
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  662.676383][    C3]  __do_sys_perf_event_open+0x16c5/0x2970
+[  662.676383][    C3]  ? __pfx___do_sys_perf_event_open+0x10/0x10
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? syscall_exit_to_user_mode+0xd0/0x270
+[  662.676383][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  662.676383][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  662.676383][    C3]  do_syscall_64+0xc3/0x1d0
+[  662.676383][    C3]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  662.676383][    C3] RIP: 0033:0x7fae6875fadd
+[  662.676383][    C3] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  662.676383][    C3] RSP: 002b:00007fae681b1ba8 EFLAGS: 00000246 ORIG_RAX: 000000000000012a
+[  662.676383][    C3] RAX: ffffffffffffffda RBX: 00007fae68958fa0 RCX: 00007fae6875fadd
+[  662.676383][    C3] RDX: 000003ffffffffff RSI: 0000000000000000 RDI: 0000000020000040
+[  662.676383][    C3] RBP: 00007fae687ddb8f R08: 0000000000000002 R09: 0000000000000000
+[  662.676383][    C3] R10: ffffffffffffffff R11: 0000000000000246 R12: 0000000000000000
+[  662.676383][    C3] R13: 00007fae68958fac R14: 00007fae68959038 R15: 00007fae681b1d40
+[  662.676383][    C3]  </TASK>
+[  682.325409][    C1] Kernel panic - not syncing: softlockup: hung tasks
+[  682.325409][    C1] CPU: 1 UID: 0 PID: 2016 Comm: syz.2.43 Tainted: G        W    L     6.13.0-rc6 #2
+[  682.325409][    C1] Tainted: [W]=WARN, [L]=SOFTLOCKUP
+[  682.325409][    C1] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  682.325409][    C1] Call Trace:
+[  682.325409][    C1]  <IRQ>
+[  682.325409][    C1]  dump_stack_lvl+0x3d/0x1b0
+[  682.325409][    C1]  panic+0x70b/0x7c0
+[  682.325409][    C1]  ? __send_ipi_mask+0x34d/0x5f0
+[  682.325409][    C1]  ? __pfx_panic+0x10/0x10
+[  682.325409][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325409][    C1]  ? write_comp_data+0x29/0x90
+[  682.325409][    C1]  ? write_comp_data+0x29/0x90
+[  682.325409][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325409][    C1]  ? write_comp_data+0x29/0x90
+[  682.325409][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325409][    C1]  ? write_comp_data+0x29/0x90
+[  682.325409][    C1]  ? write_comp_data+0x29/0x90
+[  682.325409][    C1]  ? watchdog_timer_fn+0x5d3/0x770
+[  682.325409][    C1]  watchdog_timer_fn+0x5f1/0x770
+[  682.325409][    C1]  __hrtimer_run_queues+0x607/0xca0
+[  682.325409][    C1]  ? __pfx_watchdog_timer_fn+0x10/0x10
+[  682.325409][    C1]  ? __pfx___hrtimer_run_queues+0x10/0x10
+[  682.325409][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325409][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  682.325409][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  682.325409][    C1]  hrtimer_interrupt+0x39a/0x880
+[  682.325409][    C1]  __sysvec_apic_timer_interrupt+0x114/0x400
+[  682.325409][    C1]  sysvec_apic_timer_interrupt+0x40/0xb0
+[  682.325409][    C1]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  682.325409][    C1] RIP: 0010:_raw_spin_unlock_irqrestore+0x3c/0x70
+[  682.325409][    C1] Code: 74 24 10 e8 86 b1 17 f8 48 89 ef e8 1e 32 18 f8 81 e3 00 02 00 00 75 29 9c 58 f6 c4 02 75 35 48 85 db 74 01 fb bf 01 00 00 00 <e8> ff 4f 0c f8 65 8b 05 c0 08 74 63 85 c0 74 0e 5b 5d e9 38 98 20
+[  682.325409][    C1] RSP: 0018:ffa00000001e8a88 EFLAGS: 00000206
+[  682.325409][    C1] RAX: 0000000000000002 RBX: 0000000000000200 RCX: 1ffffffff4de14f0
+[  682.325409][    C1] RDX: 0000000000000000 RSI: 0000000000000102 RDI: 0000000000000001
+[  682.325409][    C1] RBP: ffffffffaab1f788 R08: 0000000000000001 R09: fffffbfff4ddf0da
+[  683.037516][    C1] R10: fffffbfff4ddf0d9 R11: 0000000000000001 R12: ff1100003d512000
+[  683.043995][    C1] R13: ffffffffaab1f788 R14: dffffc0000000000 R15: 0000000000000002
+[  683.047498][    C1]  debug_check_no_obj_freed+0x3c8/0x5c0
+[  683.047498][    C1]  ? __pfx_debug_check_no_obj_freed+0x10/0x10
+[  683.047498][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.052500][    C1]  ? kmem_cache_free+0x126/0x4d0
+[  683.054147][    C1]  ? skb_free_head+0xfc/0x1d0
+[  683.054147][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.057493][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.057493][    C1]  ? write_comp_data+0x29/0x90
+[  683.057493][    C1]  kmem_cache_free+0x2f1/0x4d0
+[  683.062501][    C1]  ? kfree_skbmem+0x18a/0x1f0
+[  683.064371][    C1]  ? mac80211_hwsim_tx_frame+0x1f8/0x2a0
+[  683.064371][    C1]  kfree_skbmem+0x18a/0x1f0
+[  683.067509][    C1]  consume_skb+0xfd/0x2c0
+[  683.067509][    C1]  mac80211_hwsim_tx_frame+0x1f8/0x2a0
+[  683.067509][    C1]  mac80211_hwsim_beacon_tx+0x5c0/0xa50
+[  683.072503][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.074498][    C1]  ? write_comp_data+0x29/0x90
+[  683.074498][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.077498][    C1]  __iterate_interfaces+0x16f/0x5b0
+[  683.077498][    C1]  ? __pfx_mac80211_hwsim_beacon_tx+0x10/0x10
+[  683.077498][    C1]  ? __pfx_mac80211_hwsim_beacon_tx+0x10/0x10
+[  683.082492][    C1]  ieee80211_iterate_active_interfaces_atomic+0x71/0x1b0
+[  683.084745][    C1]  mac80211_hwsim_beacon+0x105/0x200
+[  683.087506][    C1]  __hrtimer_run_queues+0x1b5/0xca0
+[  683.087506][    C1]  ? __pfx_mac80211_hwsim_beacon+0x10/0x10
+[  683.087506][    C1]  ? __pfx___hrtimer_run_queues+0x10/0x10
+[  683.092496][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.093266][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  683.094961][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.097500][    C1]  hrtimer_run_softirq+0x17f/0x2e0
+[  683.097500][    C1]  handle_softirqs+0x1ad/0x870
+[  683.097500][    C1]  irq_exit_rcu+0xee/0x140
+[  683.102498][    C1]  sysvec_apic_timer_interrupt+0x94/0xb0
+[  683.102498][    C1]  </IRQ>
+[  683.105110][    C1]  <TASK>
+[  683.105110][    C1]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  683.107495][    C1] RIP: 0010:_raw_spin_unlock_irqrestore+0x3c/0x70
+[  683.107495][    C1] Code: 74 24 10 e8 86 b1 17 f8 48 89 ef e8 1e 32 18 f8 81 e3 00 02 00 00 75 29 9c 58 f6 c4 02 75 35 48 85 db 74 01 fb bf 01 00 00 00 <e8> ff 4f 0c f8 65 8b 05 c0 08 74 63 85 c0 74 0e 5b 5d e9 38 98 20
+[  683.115275][    C1] RSP: 0018:ffa000000c80f8b8 EFLAGS: 00000206
+[  683.117506][    C1] RAX: 0000000000000006 RBX: 0000000000000200 RCX: 1ffffffff4de14f0
+[  683.117506][    C1] RDX: 0000000000000000 RSI: 0000000000000001 RDI: 0000000000000001
+[  683.122479][    C1] RBP: ffffffffaaa20ba8 R08: 0000000000000001 R09: fffffbfff4ddf0da
+[  683.124727][    C1] R10: fffffbfff4ddf0d9 R11: 0000000000000001 R12: ff11000006e35000
+[  683.124727][    C1] R13: ffffffffaaa20ba8 R14: dffffc0000000000 R15: 0000000000000002
+[  683.128860][    C1]  debug_check_no_obj_freed+0x3c8/0x5c0
+[  683.128860][    C1]  ? page_ext_put+0x3e/0xd0
+[  683.132456][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.133974][    C1]  ? __pfx_debug_check_no_obj_freed+0x10/0x10
+[  683.133974][    C1]  ? irqentry_exit+0x3b/0x90
+[  683.138460][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.138460][    C1]  ? write_comp_data+0x29/0x90
+[  683.138460][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.142501][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  683.142501][    C1]  free_unref_page+0x328/0x1030
+[  683.146514][    C1]  __put_partials+0x14c/0x170
+[  683.146514][    C1]  qlist_free_all+0x4c/0x120
+[  683.148742][    C1]  kasan_quarantine_reduce+0x168/0x1c0
+[  683.151503][    C1]  __kasan_slab_alloc+0x67/0x90
+[  683.151503][    C1]  kmem_cache_alloc_noprof+0x154/0x420
+[  683.151503][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.156530][    C1]  ? write_comp_data+0x29/0x90
+[  683.156530][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.158908][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  683.161500][    C1]  ? alloc_empty_file+0x76/0x1e0
+[  683.161500][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.161500][    C1]  alloc_empty_file+0x76/0x1e0
+[  683.166519][    C1]  alloc_file_pseudo+0x139/0x200
+[  683.166519][    C1]  ? __pfx_alloc_file_pseudo+0x10/0x10
+[  683.169076][    C1]  ? kasan_quarantine_put+0xce/0x1e0
+[  683.171509][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.171509][    C1]  ? write_comp_data+0x29/0x90
+[  683.171509][    C1]  __anon_inode_getfile+0x137/0x3c0
+[  683.176557][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.176557][    C1]  ? __pfx___anon_inode_getfile+0x10/0x10
+[  683.179245][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.181526][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  683.181526][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.181526][    C1]  ? exclusive_event_installable+0x254/0x320
+[  683.186527][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.188760][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  683.189508][    C1]  __do_sys_perf_event_open+0x15d8/0x2970
+[  683.191503][    C1]  ? __pfx___do_sys_perf_event_open+0x10/0x10
+[  683.191503][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.196518][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  683.196518][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  683.199662][    C1]  do_syscall_64+0xc3/0x1d0
+[  683.201502][    C1]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  683.201502][    C1] RIP: 0033:0x7f557fe81add
+[  683.201502][    C1] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  683.209814][    C1] RSP: 002b:00007f557f8d3ba8 EFLAGS: 00000246 ORIG_RAX: 000000000000012a
+[  683.211504][    C1] RAX: ffffffffffffffda RBX: 00007f558007afa0 RCX: 00007f557fe81add
+[  683.211504][    C1] RDX: 000003ffffffffff RSI: 0000000000000000 RDI: 0000000020000040
+[  683.216425][    C1] RBP: 00007f557feffb8f R08: 0000000000000002 R09: 0000000000000000
+[  683.216425][    C1] R10: ffffffffffffffff R11: 0000000000000246 R12: 0000000000000000
+[  683.216425][    C1] R13: 00007f558007afac R14: 00007f558007b038 R15: 00007f557f8d3d40
+[  683.224368][    C1]  </TASK>
+[  683.224368][    C1] Kernel Offset: 0x13600000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
