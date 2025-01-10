@@ -1,0 +1,727 @@
+[  405.011974][ T5166]  </TASK>
+[  405.016087][ T5166] kobject: kobject_add_internal failed for syz:syz with -EEXIST, don't try to register things with the same name in the same directory.
+[  405.020700][ T5166] gfs2: fsid=syz:syz: error -17 adding sysfs files
+[  405.025326][ T5162] sysfs: cannot create duplicate filename '/fs/gfs2/syz:syz'
+[  405.027829][ T5162] CPU: 3 UID: 0 PID: 5162 Comm: syz.5.898 Tainted: G        W          6.13.0-rc6 #2
+[  405.028742][ T5162] Tainted: [W]=WARN
+[  405.028742][ T5162] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  405.028742][ T5162] Call Trace:
+[  405.028742][ T5162]  <TASK>
+[  405.028742][ T5162]  dump_stack_lvl+0x180/0x1b0
+[  405.028742][ T5162]  sysfs_warn_dup+0x80/0xa0
+[  405.028742][ T5162]  sysfs_create_dir_ns+0x23d/0x2a0
+[  405.028742][ T5162]  ? __pfx_sysfs_create_dir_ns+0x10/0x10
+[  405.028742][ T5162]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  405.028742][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.028742][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.028742][ T5162]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.028742][ T5162]  kobject_add_internal+0x2c9/0x9b0
+[  405.028742][ T5162]  kobject_init_and_add+0x101/0x170
+[  405.028742][ T5162]  ? __pfx_kobject_init_and_add+0x10/0x10
+[  405.028742][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.028742][ T5162]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  405.057522][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.057522][ T5162]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  405.057522][ T5162]  gfs2_sys_fs_add+0x1d7/0x450
+[  405.057522][ T5162]  ? __pfx_gfs2_sys_fs_add+0x10/0x10
+[  405.057522][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.057522][ T5162]  ? alloc_workqueue+0x1a1/0x200
+[  405.057522][ T5162]  ? __pfx_alloc_workqueue+0x10/0x10
+[  405.057522][ T5162]  ? read_word_at_a_time+0xe/0x20
+[  405.057522][ T5162]  gfs2_fill_super+0x1414/0x2d00
+[  405.057522][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.057522][ T5162]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  405.057522][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.077999][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.077999][ T5162]  ? write_comp_data+0x29/0x90
+[  405.077999][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? write_comp_data+0x29/0x90
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? sb_set_blocksize+0xf6/0x120
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  get_tree_bdev_flags+0x38c/0x620
+[  405.084256][ T5162]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  405.084256][ T5162]  ? __pfx_get_tree_bdev_flags+0x10/0x10
+[  405.084256][ T5162]  ? write_comp_data+0x29/0x90
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? write_comp_data+0x29/0x90
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? write_comp_data+0x29/0x90
+[  405.084256][ T5162]  gfs2_get_tree+0x4e/0x280
+[  405.084256][ T5162]  vfs_get_tree+0x93/0x340
+[  405.084256][ T5162]  path_mount+0x1287/0x1d60
+[  405.084256][ T5162]  ? __pfx_path_mount+0x10/0x10
+[  405.084256][ T5162]  ? putname.part.0+0x105/0x150
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? putname.part.0+0x105/0x150
+[  405.084256][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.084256][ T5162]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.084256][ T5162]  do_mount+0xf8/0x110
+[  405.140995][ T5162]  ? __pfx_do_mount+0x10/0x10
+[  405.140995][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.140995][ T5162]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.140995][ T5162]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.140995][ T5162]  __x64_sys_mount+0x193/0x230
+[  405.140995][ T5162]  do_syscall_64+0xc3/0x1d0
+[  405.140995][ T5162]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  405.140995][ T5162] RIP: 0033:0x7fbc857da51e
+[  405.140995][ T5162] Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  405.140995][ T5162] RSP: 002b:00007fbc852299b8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[  405.140995][ T5162] RAX: ffffffffffffffda RBX: 000000000002114d RCX: 00007fbc857da51e
+[  405.140995][ T5162] RDX: 0000000020000ac0 RSI: 0000000020000a80 RDI: 00007fbc85229a10
+[  405.140995][ T5162] RBP: 00007fbc85229a50 R08: 00007fbc85229a50 R09: 0000000000000000
+[  405.140995][ T5162] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000020000ac0
+[  405.140995][ T5162] R13: 0000000020000a80 R14: 00007fbc85229a10 R15: 0000000020000080
+[  405.140995][ T5162]  </TASK>
+[  405.177497][ T5162] kobject: kobject_add_internal failed for syz:syz with -EEXIST, don't try to register things with the same name in the same directory.
+[  405.182532][ T5162] gfs2: fsid=syz:syz: error -17 adding sysfs files
+[  405.556069][ T5178] loop7: detected capacity change from 0 to 32768
+[  405.570145][ T5178] sysfs: cannot create duplicate filename '/fs/gfs2/syz:syz'
+[  405.572560][ T5178] CPU: 1 UID: 0 PID: 5178 Comm: syz.7.901 Tainted: G        W          6.13.0-rc6 #2
+[  405.573429][ T5178] Tainted: [W]=WARN
+[  405.573429][ T5178] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  405.577885][ T5178] Call Trace:
+[  405.577885][ T5178]  <TASK>
+[  405.577885][ T5178]  dump_stack_lvl+0x180/0x1b0
+[  405.577885][ T5178]  sysfs_warn_dup+0x80/0xa0
+[  405.577885][ T5178]  sysfs_create_dir_ns+0x23d/0x2a0
+[  405.577885][ T5178]  ? __pfx_sysfs_create_dir_ns+0x10/0x10
+[  405.577885][ T5178]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.577885][ T5178]  kobject_add_internal+0x2c9/0x9b0
+[  405.577885][ T5178]  kobject_init_and_add+0x101/0x170
+[  405.577885][ T5178]  ? __pfx_kobject_init_and_add+0x10/0x10
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  405.577885][ T5178]  gfs2_sys_fs_add+0x1d7/0x450
+[  405.577885][ T5178]  ? __pfx_gfs2_sys_fs_add+0x10/0x10
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? alloc_workqueue+0x1a1/0x200
+[  405.577885][ T5178]  ? __pfx_alloc_workqueue+0x10/0x10
+[  405.577885][ T5178]  ? read_word_at_a_time+0xe/0x20
+[  405.577885][ T5178]  gfs2_fill_super+0x1414/0x2d00
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? write_comp_data+0x29/0x90
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? write_comp_data+0x29/0x90
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? sb_set_blocksize+0xf6/0x120
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  get_tree_bdev_flags+0x38c/0x620
+[  405.577885][ T5178]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  405.577885][ T5178]  ? __pfx_get_tree_bdev_flags+0x10/0x10
+[  405.577885][ T5178]  ? write_comp_data+0x29/0x90
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? write_comp_data+0x29/0x90
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? write_comp_data+0x29/0x90
+[  405.577885][ T5178]  gfs2_get_tree+0x4e/0x280
+[  405.577885][ T5178]  vfs_get_tree+0x93/0x340
+[  405.577885][ T5178]  path_mount+0x1287/0x1d60
+[  405.577885][ T5178]  ? __pfx_path_mount+0x10/0x10
+[  405.577885][ T5178]  ? putname.part.0+0x105/0x150
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? putname.part.0+0x105/0x150
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.577885][ T5178]  do_mount+0xf8/0x110
+[  405.577885][ T5178]  ? __pfx_do_mount+0x10/0x10
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.577885][ T5178]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.577885][ T5178]  __x64_sys_mount+0x193/0x230
+[  405.577885][ T5178]  do_syscall_64+0xc3/0x1d0
+[  405.577885][ T5178]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  405.577885][ T5178] RIP: 0033:0x7f17ac2d251e
+[  405.577885][ T5178] Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  405.577885][ T5178] RSP: 002b:00007f17abd219b8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[  405.577885][ T5178] RAX: ffffffffffffffda RBX: 000000000002114d RCX: 00007f17ac2d251e
+[  405.577885][ T5178] RDX: 0000000020000ac0 RSI: 0000000020000a80 RDI: 00007f17abd21a10
+[  405.577885][ T5178] RBP: 00007f17abd21a50 R08: 00007f17abd21a50 R09: 0000000000000000
+[  405.577885][ T5178] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000020000ac0
+[  405.577885][ T5178] R13: 0000000020000a80 R14: 00007f17abd21a10 R15: 0000000020000080
+[  405.577885][ T5178]  </TASK>
+[  405.722038][ T5178] kobject: kobject_add_internal failed for syz:syz with -EEXIST, don't try to register things with the same name in the same directory.
+[  405.726583][ T5178] gfs2: fsid=syz:syz: error -17 adding sysfs files
+[  405.730773][ T5191] loop4: detected capacity change from 0 to 32768
+[  405.740743][ T5191] sysfs: cannot create duplicate filename '/fs/gfs2/syz:syz'
+[  405.743215][ T5191] CPU: 2 UID: 0 PID: 5191 Comm: syz.4.905 Tainted: G        W          6.13.0-rc6 #2
+[  405.744126][ T5191] Tainted: [W]=WARN
+[  405.744126][ T5191] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  405.744126][ T5191] Call Trace:
+[  405.744126][ T5191]  <TASK>
+[  405.752368][ T5191]  dump_stack_lvl+0x180/0x1b0
+[  405.752368][ T5191]  sysfs_warn_dup+0x80/0xa0
+[  405.752368][ T5191]  sysfs_create_dir_ns+0x23d/0x2a0
+[  405.752368][ T5191]  ? __pfx_sysfs_create_dir_ns+0x10/0x10
+[  405.752368][ T5191]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  405.752368][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.752368][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.752368][ T5191]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.752368][ T5191]  kobject_add_internal+0x2c9/0x9b0
+[  405.752368][ T5191]  kobject_init_and_add+0x101/0x170
+[  405.752368][ T5191]  ? __pfx_kobject_init_and_add+0x10/0x10
+[  405.752368][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.752368][ T5191]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  405.752368][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.752368][ T5191]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  405.752368][ T5191]  gfs2_sys_fs_add+0x1d7/0x450
+[  405.752368][ T5191]  ? __pfx_gfs2_sys_fs_add+0x10/0x10
+[  405.752368][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.752368][ T5191]  ? alloc_workqueue+0x1a1/0x200
+[  405.783975][ T5191]  ? __pfx_alloc_workqueue+0x10/0x10
+[  405.783975][ T5191]  ? read_word_at_a_time+0xe/0x20
+[  405.783975][ T5191]  gfs2_fill_super+0x1414/0x2d00
+[  405.783975][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.783975][ T5191]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  405.783975][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.783975][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.783975][ T5191]  ? write_comp_data+0x29/0x90
+[  405.783975][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.783975][ T5191]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.783975][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.783975][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.783975][ T5191]  ? write_comp_data+0x29/0x90
+[  405.783975][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.783975][ T5191]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.810475][ T5185] loop2: detected capacity change from 0 to 32768
+[  405.783975][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.783975][ T5191]  ? sb_set_blocksize+0xf6/0x120
+[  405.783975][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.783975][ T5191]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.783975][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.820164][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.820164][ T5191]  get_tree_bdev_flags+0x38c/0x620
+[  405.820164][ T5191]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  405.820164][ T5191]  ? __pfx_get_tree_bdev_flags+0x10/0x10
+[  405.820164][ T5191]  ? write_comp_data+0x29/0x90
+[  405.820164][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.820164][ T5191]  ? write_comp_data+0x29/0x90
+[  405.820164][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.820164][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.820164][ T5191]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.820164][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.820164][ T5191]  ? write_comp_data+0x29/0x90
+[  405.820164][ T5191]  gfs2_get_tree+0x4e/0x280
+[  405.820164][ T5191]  vfs_get_tree+0x93/0x340
+[  405.820164][ T5191]  path_mount+0x1287/0x1d60
+[  405.820164][ T5191]  ? __pfx_path_mount+0x10/0x10
+[  405.847151][ T5185] sysfs: cannot create duplicate filename '/fs/gfs2/syz:syz'
+[  405.846967][ T5191]  ? putname.part.0+0x105/0x150
+[  405.846967][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.846967][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.846967][ T5191]  ? putname.part.0+0x105/0x150
+[  405.846967][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.846967][ T5191]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.846967][ T5191]  do_mount+0xf8/0x110
+[  405.846967][ T5191]  ? __pfx_do_mount+0x10/0x10
+[  405.846967][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.846967][ T5191]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.846967][ T5191]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.846967][ T5191]  __x64_sys_mount+0x193/0x230
+[  405.846967][ T5191]  do_syscall_64+0xc3/0x1d0
+[  405.846967][ T5191]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  405.846967][ T5191] RIP: 0033:0x7fe67fadf51e
+[  405.846967][ T5191] Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  405.846967][ T5191] RSP: 002b:00007fe67f52e9b8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[  405.846967][ T5191] RAX: ffffffffffffffda RBX: 000000000002114d RCX: 00007fe67fadf51e
+[  405.846967][ T5191] RDX: 0000000020000ac0 RSI: 0000000020000a80 RDI: 00007fe67f52ea10
+[  405.846967][ T5191] RBP: 00007fe67f52ea50 R08: 00007fe67f52ea50 R09: 0000000000000000
+[  405.846967][ T5191] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000020000ac0
+[  405.846967][ T5191] R13: 0000000020000a80 R14: 00007fe67f52ea10 R15: 0000000020000080
+[  405.846967][ T5191]  </TASK>
+[  405.897098][ T5185] CPU: 3 UID: 0 PID: 5185 Comm: syz.2.903 Tainted: G        W          6.13.0-rc6 #2
+[  405.897713][ T5191] kobject: kobject_add_internal failed for syz:syz with -EEXIST, don't try to register things with the same name in the same directory.
+[  405.897917][ T5185] Tainted: [W]=WARN
+[  405.897917][ T5185] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  405.897917][ T5185] Call Trace:
+[  405.897917][ T5185]  <TASK>
+[  405.897917][ T5185]  dump_stack_lvl+0x180/0x1b0
+[  405.897917][ T5185]  sysfs_warn_dup+0x80/0xa0
+[  405.904596][ T5191] gfs2: fsid=syz:syz: error -17 adding sysfs files
+[  405.897917][ T5185]  sysfs_create_dir_ns+0x23d/0x2a0
+[  405.917040][ T5185]  ? __pfx_sysfs_create_dir_ns+0x10/0x10
+[  405.917040][ T5185]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  405.917040][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.917040][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.917040][ T5185]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.917040][ T5185]  kobject_add_internal+0x2c9/0x9b0
+[  405.926975][ T5185]  kobject_init_and_add+0x101/0x170
+[  405.926975][ T5185]  ? __pfx_kobject_init_and_add+0x10/0x10
+[  405.926975][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  405.937510][ T5188] loop3: detected capacity change from 0 to 32768
+[  405.931116][ T5185]  gfs2_sys_fs_add+0x1d7/0x450
+[  405.931116][ T5185]  ? __pfx_gfs2_sys_fs_add+0x10/0x10
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? alloc_workqueue+0x1a1/0x200
+[  405.931116][ T5185]  ? __pfx_alloc_workqueue+0x10/0x10
+[  405.947970][ T5188] sysfs: cannot create duplicate filename '/fs/gfs2/syz:syz'
+[  405.931116][ T5185]  ? read_word_at_a_time+0xe/0x20
+[  405.931116][ T5185]  gfs2_fill_super+0x1414/0x2d00
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? write_comp_data+0x29/0x90
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? write_comp_data+0x29/0x90
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? sb_set_blocksize+0xf6/0x120
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  get_tree_bdev_flags+0x38c/0x620
+[  405.931116][ T5185]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  405.931116][ T5185]  ? __pfx_get_tree_bdev_flags+0x10/0x10
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? write_comp_data+0x29/0x90
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? write_comp_data+0x29/0x90
+[  405.931116][ T5185]  gfs2_get_tree+0x4e/0x280
+[  405.931116][ T5185]  vfs_get_tree+0x93/0x340
+[  405.931116][ T5185]  path_mount+0x1287/0x1d60
+[  405.931116][ T5185]  ? __pfx_path_mount+0x10/0x10
+[  405.931116][ T5185]  ? putname.part.0+0x105/0x150
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? putname.part.0+0x105/0x150
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.931116][ T5185]  do_mount+0xf8/0x110
+[  405.931116][ T5185]  ? __pfx_do_mount+0x10/0x10
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  405.931116][ T5185]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  405.931116][ T5185]  __x64_sys_mount+0x193/0x230
+[  405.931116][ T5185]  do_syscall_64+0xc3/0x1d0
+[  405.931116][ T5185]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  405.931116][ T5185] RIP: 0033:0x7f65727ed51e
+[  405.931116][ T5185] Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  405.931116][ T5185] RSP: 002b:00007f657223c9b8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[  405.931116][ T5185] RAX: ffffffffffffffda RBX: 000000000002114d RCX: 00007f65727ed51e
+[  405.931116][ T5185] RDX: 0000000020000ac0 RSI: 0000000020000a80 RDI: 00007f657223ca10
+[  405.931116][ T5185] RBP: 00007f657223ca50 R08: 00007f657223ca50 R09: 0000000000000000
+[  405.931116][ T5185] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000020000ac0
+[  405.931116][ T5185] R13: 0000000020000a80 R14: 00007f657223ca10 R15: 0000000020000080
+[  406.050100][ T5190] loop6: detected capacity change from 0 to 32768
+[  405.931116][ T5185]  </TASK>
+[  406.051391][ T5188] CPU: 1 UID: 0 PID: 5188 Comm: syz.3.904 Tainted: G        W          6.13.0-rc6 #2
+[  406.052598][ T5185] kobject: kobject_add_internal failed for syz:syz with -EEXIST, don't try to register things with the same name in the same directory.
+[  406.052644][ T5185] gfs2: fsid=syz:syz: error -17 adding sysfs files
+[  406.057221][ T5188] Tainted: [W]=WARN
+[  406.057221][ T5188] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  406.057221][ T5188] Call Trace:
+[  406.057221][ T5188]  <TASK>
+[  406.057221][ T5188]  dump_stack_lvl+0x180/0x1b0
+[  406.057221][ T5188]  sysfs_warn_dup+0x80/0xa0
+[  406.057221][ T5188]  sysfs_create_dir_ns+0x23d/0x2a0
+[  406.057221][ T5188]  ? __pfx_sysfs_create_dir_ns+0x10/0x10
+[  406.057221][ T5188]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  406.057221][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.057221][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.057221][ T5188]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.057221][ T5188]  kobject_add_internal+0x2c9/0x9b0
+[  406.057221][ T5188]  kobject_init_and_add+0x101/0x170
+[  406.057221][ T5188]  ? __pfx_kobject_init_and_add+0x10/0x10
+[  406.057221][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.057221][ T5188]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  406.057221][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.057221][ T5188]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  406.057221][ T5188]  gfs2_sys_fs_add+0x1d7/0x450
+[  406.096714][ T5195] loop5: detected capacity change from 0 to 32768
+[  406.057221][ T5188]  ? __pfx_gfs2_sys_fs_add+0x10/0x10
+[  406.057221][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.100988][ T5188]  ? alloc_workqueue+0x1a1/0x200
+[  406.103051][ T5188]  ? __pfx_alloc_workqueue+0x10/0x10
+[  406.104969][ T5188]  ? read_word_at_a_time+0xe/0x20
+[  406.104969][ T5188]  gfs2_fill_super+0x1414/0x2d00
+[  406.108030][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.108970][ T5188]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  406.112021][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.113969][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.113969][ T5188]  ? write_comp_data+0x29/0x90
+[  406.116012][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.117962][ T5188]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.117962][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.121969][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.124016][ T5188]  ? write_comp_data+0x29/0x90
+[  406.125962][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.125962][ T5188]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.128008][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.129961][ T5188]  ? sb_set_blocksize+0xf6/0x120
+[  406.132013][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.133964][ T5188]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.135981][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.137581][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.137581][ T5188]  get_tree_bdev_flags+0x38c/0x620
+[  406.137581][ T5188]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  406.143459][ T5188]  ? __pfx_get_tree_bdev_flags+0x10/0x10
+[  406.144579][ T5188]  ? write_comp_data+0x29/0x90
+[  406.145711][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.145711][ T5188]  ? write_comp_data+0x29/0x90
+[  406.149096][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.149096][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.149096][ T5188]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.149096][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.149096][ T5188]  ? write_comp_data+0x29/0x90
+[  406.149096][ T5188]  gfs2_get_tree+0x4e/0x280
+[  406.149096][ T5188]  vfs_get_tree+0x93/0x340
+[  406.149096][ T5188]  path_mount+0x1287/0x1d60
+[  406.149096][ T5188]  ? __pfx_path_mount+0x10/0x10
+[  406.149096][ T5188]  ? putname.part.0+0x105/0x150
+[  406.165647][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.165647][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.165647][ T5188]  ? putname.part.0+0x105/0x150
+[  406.165647][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.165647][ T5188]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.165647][ T5188]  do_mount+0xf8/0x110
+[  406.165647][ T5188]  ? __pfx_do_mount+0x10/0x10
+[  406.165647][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.165647][ T5188]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.165647][ T5188]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.165647][ T5188]  __x64_sys_mount+0x193/0x230
+[  406.165647][ T5188]  do_syscall_64+0xc3/0x1d0
+[  406.165647][ T5188]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  406.165647][ T5188] RIP: 0033:0x7f893785751e
+[  406.165647][ T5188] Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  406.165647][ T5188] RSP: 002b:00007f89372a69b8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[  406.165647][ T5188] RAX: ffffffffffffffda RBX: 000000000002114d RCX: 00007f893785751e
+[  406.165647][ T5188] RDX: 0000000020000ac0 RSI: 0000000020000a80 RDI: 00007f89372a6a10
+[  406.165647][ T5188] RBP: 00007f89372a6a50 R08: 00007f89372a6a50 R09: 0000000000000000
+[  406.165647][ T5188] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000020000ac0
+[  406.205524][   T45] INFO: task syz-executor:710 blocked for more than 143 seconds.
+[  406.165647][ T5188] R13: 0000000020000a80 R14: 00007f89372a6a10 R15: 0000000020000080
+[  406.165647][ T5188]  </TASK>
+[  406.208156][ T5188] kobject: kobject_add_internal failed for syz:syz with -EEXIST, don't try to register things with the same name in the same directory.
+[  406.210026][   T45]       Tainted: G        W          6.13.0-rc6 #2
+[  406.210067][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  406.210092][   T45] task:syz-executor    state:D stack:23608 pid:710   tgid:710   ppid:1      flags:0x00000004
+[  406.210262][   T45] Call Trace:
+[  406.210280][   T45]  <TASK>
+[  406.210312][   T45]  __schedule+0xe60/0x4120
+[  406.212861][ T5188] gfs2: fsid=syz:syz: error -17 adding sysfs files
+[  406.213988][   T45]  ? __pfx___schedule+0x10/0x10
+[  406.233316][   T45]  ? schedule+0x19d/0x210
+[  406.235035][   T45]  ? __pfx_lock_release+0x10/0x10
+[  406.237123][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.239169][   T45]  ? mark_held_locks+0x9e/0xe0
+[  406.240961][   T45]  schedule+0xd4/0x210
+[  406.242446][   T45]  bit_wait+0x15/0xe0
+[  406.243844][   T45]  __wait_on_bit+0xc9/0x190
+[  406.244401][ T5195] sysfs: cannot create duplicate filename '/fs/gfs2/syz:syz'
+[  406.245383][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.245467][   T45]  ? __pfx_bit_wait+0x10/0x10
+[  406.247771][ T5195] CPU: 1 UID: 0 PID: 5195 Comm: syz.5.908 Tainted: G        W          6.13.0-rc6 #2
+[  406.249581][   T45]  out_of_line_wait_on_bit+0xd8/0x110
+[  406.248711][ T5195] Tainted: [W]=WARN
+[  406.248711][ T5195] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  406.248711][ T5195] Call Trace:
+[  406.248711][ T5195]  <TASK>
+[  406.248711][ T5195]  dump_stack_lvl+0x180/0x1b0
+[  406.253944][   T45]  ? __pfx_out_of_line_wait_on_bit+0x10/0x10
+[  406.248711][ T5195]  sysfs_warn_dup+0x80/0xa0
+[  406.248711][ T5195]  sysfs_create_dir_ns+0x23d/0x2a0
+[  406.256858][   T45]  ? __pfx_wake_bit_function+0x10/0x10
+[  406.248711][ T5195]  ? __pfx_sysfs_create_dir_ns+0x10/0x10
+[  406.261058][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.261000][ T5195]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  406.263352][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.261000][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.261000][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.266552][   T45]  ? write_comp_data+0x29/0x90
+[  406.261000][ T5195]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.261000][ T5195]  kobject_add_internal+0x2c9/0x9b0
+[  406.269794][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.261000][ T5195]  kobject_init_and_add+0x101/0x170
+[  406.261000][ T5195]  ? __pfx_kobject_init_and_add+0x10/0x10
+[  406.273263][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.261000][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.261000][ T5195]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  406.276728][   T45]  gfs2_glock_wait+0xaf/0x240
+[  406.261000][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.261000][ T5195]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  406.280207][   T45]  gfs2_glock_nq+0xcd9/0x1f30
+[  406.261000][ T5195]  gfs2_sys_fs_add+0x1d7/0x450
+[  406.261000][ T5195]  ? __pfx_gfs2_sys_fs_add+0x10/0x10
+[  406.283489][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.261000][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.261000][ T5195]  ? alloc_workqueue+0x1a1/0x200
+[  406.261000][ T5195]  ? __pfx_alloc_workqueue+0x10/0x10
+[  406.261000][ T5195]  ? read_word_at_a_time+0xe/0x20
+[  406.261000][ T5195]  gfs2_fill_super+0x1414/0x2d00
+[  406.287243][   T45]  ? __gfs2_holder_init+0x193/0x2f0
+[  406.261000][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.261000][ T5195]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  406.290405][   T45]  __gfs2_lookup+0x106/0x290
+[  406.288721][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.288721][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.293959][   T45]  ? __pfx___gfs2_lookup+0x10/0x10
+[  406.288721][ T5195]  ? write_comp_data+0x29/0x90
+[  406.288721][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.297115][   T45]  ? __lookup_slow+0x25b/0x490
+[  406.288721][ T5195]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.288721][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.300563][   T45]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  406.288721][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.288721][ T5195]  ? write_comp_data+0x29/0x90
+[  406.303538][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.288721][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.288721][ T5195]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.306977][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.288721][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.288721][ T5195]  ? sb_set_blocksize+0xf6/0x120
+[  406.310228][   T45]  __lookup_slow+0x25b/0x490
+[  406.288721][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.288721][ T5195]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.313449][   T45]  ? __pfx___lookup_slow+0x10/0x10
+[  406.314500][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.314500][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.316634][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.314500][ T5195]  get_tree_bdev_flags+0x38c/0x620
+[  406.314500][ T5195]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  406.320028][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.314500][ T5195]  ? __pfx_get_tree_bdev_flags+0x10/0x10
+[  406.314500][ T5195]  ? write_comp_data+0x29/0x90
+[  406.323216][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.314500][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.314500][ T5195]  ? write_comp_data+0x29/0x90
+[  406.314500][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.326586][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.314500][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.314500][ T5195]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.329833][   T45]  ? lookup_fast+0x2a7/0x520
+[  406.314500][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.314500][ T5195]  ? write_comp_data+0x29/0x90
+[  406.332993][   T45]  walk_component+0x345/0x5b0
+[  406.314500][ T5195]  gfs2_get_tree+0x4e/0x280
+[  406.314500][ T5195]  vfs_get_tree+0x93/0x340
+[  406.336460][   T45]  path_lookupat.isra.0+0x180/0x560
+[  406.314500][ T5195]  path_mount+0x1287/0x1d60
+[  406.314500][ T5195]  ? __pfx_path_mount+0x10/0x10
+[  406.339683][   T45]  filename_lookup+0x211/0x470
+[  406.314500][ T5195]  ? putname.part.0+0x105/0x150
+[  406.314500][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.343143][   T45]  ? __virt_addr_valid+0x313/0x610
+[  406.314500][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.314500][ T5195]  ? putname.part.0+0x105/0x150
+[  406.346601][   T45]  ? __pfx_filename_lookup+0x10/0x10
+[  406.347151][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.347151][ T5195]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.349878][   T45]  ? __pfx_lock_release+0x10/0x10
+[  406.347151][ T5195]  do_mount+0xf8/0x110
+[  406.353033][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.347151][ T5195]  ? __pfx_do_mount+0x10/0x10
+[  406.356357][   T45]  ? write_comp_data+0x29/0x90
+[  406.347151][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.347151][ T5195]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.359837][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.347151][ T5195]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.363124][   T45]  ? write_comp_data+0x29/0x90
+[  406.347151][ T5195]  __x64_sys_mount+0x193/0x230
+[  406.347151][ T5195]  do_syscall_64+0xc3/0x1d0
+[  406.366477][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.347151][ T5195]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  406.347151][ T5195] RIP: 0033:0x7fbc857da51e
+[  406.369736][   T45]  ? __check_object_size+0x3b0/0x810
+[  406.347151][ T5195] Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  406.347151][ T5195] RSP: 002b:00007fbc852299b8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[  406.373192][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.347151][ T5195] RAX: ffffffffffffffda RBX: 000000000002114d RCX: 00007fbc857da51e
+[  406.347151][ T5195] RDX: 0000000020000ac0 RSI: 0000000020000a80 RDI: 00007fbc85229a10
+[  406.347151][ T5195] RBP: 00007fbc85229a50 R08: 00007fbc85229a50 R09: 0000000000000000
+[  406.376476][   T45]  ? strncpy_from_user+0x21a/0x2f0
+[  406.347151][ T5195] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000020000ac0
+[  406.347151][ T5195] R13: 0000000020000a80 R14: 00007fbc85229a10 R15: 0000000020000080
+[  406.347151][ T5195]  </TASK>
+[  406.379982][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.382313][ T5195] kobject: kobject_add_internal failed for syz:syz with -EEXIST, don't try to register things with the same name in the same directory.
+[  406.383098][   T45]  ? write_comp_data+0x29/0x90
+[  406.383167][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.383231][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.383299][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.383371][   T45]  user_path_at+0x3e/0x90
+[  406.383455][   T45]  ksys_umount+0xb8/0x130
+[  406.385268][ T5195] gfs2: fsid=syz:syz: error -17 adding sysfs files
+[  406.398030][ T5190] sysfs: cannot create duplicate filename '/fs/gfs2/syz:syz'
+[  406.399229][   T45]  ? __pfx_ksys_umount+0x10/0x10
+[  406.401141][ T5190] CPU: 0 UID: 0 PID: 5190 Comm: syz.6.906 Tainted: G        W          6.13.0-rc6 #2
+[  406.402739][   T45]  ? do_syscall_64+0x89/0x1d0
+[  406.403969][ T5190] Tainted: [W]=WARN
+[  406.403969][ T5190] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  406.403969][ T5190] Call Trace:
+[  406.406065][   T45]  __x64_sys_umount+0x54/0x80
+[  406.403969][ T5190]  <TASK>
+[  406.403969][ T5190]  dump_stack_lvl+0x180/0x1b0
+[  406.409448][   T45]  do_syscall_64+0xc3/0x1d0
+[  406.403969][ T5190]  sysfs_warn_dup+0x80/0xa0
+[  406.412780][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  406.403969][ T5190]  sysfs_create_dir_ns+0x23d/0x2a0
+[  406.415815][   T45] RIP: 0033:0x7f9f4840b44b
+[  406.403969][ T5190]  ? __pfx_sysfs_create_dir_ns+0x10/0x10
+[  406.418779][   T45] RSP: 002b:00007fff184aa0a8 EFLAGS: 00000246
+[  406.403969][ T5190]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  406.422312][   T45]  ORIG_RAX: 00000000000000a6
+[  406.403969][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.425855][   T45] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f9f4840b44b
+[  406.403969][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.428843][   T45] RDX: 00007f9f482a4d40 RSI: 0000000000000009 RDI: 00007fff184aa170
+[  406.403969][ T5190]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.431988][   T45] RBP: 00007fff184aa170 R08: 00007f9f4848674d R09: 00007fff184a9f30
+[  406.431999][ T5190]  kobject_add_internal+0x2c9/0x9b0
+[  406.435205][   T45] R10: 00000000fffffff2 R11: 0000000000000246 R12: 00007f9f48486729
+[  406.435501][ T5190]  kobject_init_and_add+0x101/0x170
+[  406.435501][ T5190]  ? __pfx_kobject_init_and_add+0x10/0x10
+[  406.442696][   T45] R13: 00007fff184ab280 R14: 0000555593799970 R15: 00007fff184ad470
+[  406.438765][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.447049][   T45]  </TASK>
+[  406.438765][ T5190]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  406.438765][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.489342][   T45] 
+[  406.489342][   T45] Showing all locks held in the system:
+[  406.460785][ T5190]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  406.460785][ T5190]  gfs2_sys_fs_add+0x1d7/0x450
+[  406.460785][ T5190]  ? __pfx_gfs2_sys_fs_add+0x10/0x10
+[  406.460785][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.460785][ T5190]  ? alloc_workqueue+0x1a1/0x200
+[  406.460785][ T5190]  ? __pfx_alloc_workqueue+0x10/0x10
+[  406.493271][   T45] 1 lock held by khungtaskd/45:
+[  406.460785][ T5190]  ? read_word_at_a_time+0xe/0x20
+[  406.460785][ T5190]  gfs2_fill_super+0x1414/0x2d00
+[  406.495772][   T45]  #0: 
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.498698][   T45] ffffffff91b1aea0
+[  406.497018][ T5190]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  406.501968][   T45]  (
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.504952][   T45] rcu_read_lock
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.497018][ T5190]  ? write_comp_data+0x29/0x90
+[  406.508647][   T45] ){....}-{1:3}
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.511767][   T45] , at: debug_show_all_locks+0x75/0x340
+[  406.497018][ T5190]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.516040][   T45] 1 lock held by in:imklog/328:
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.497018][ T5190]  ? write_comp_data+0x29/0x90
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.497018][ T5190]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.520453][   T45] 1 lock held by syz-executor/710:
+[  406.497018][ T5190]  ? sb_set_blocksize+0xf6/0x120
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.524586][   T45]  #0: 
+[  406.497018][ T5190]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.528674][   T45] ff11000040525068
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.532038][   T45]  (
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.497018][ T5190]  get_tree_bdev_flags+0x38c/0x620
+[  406.536314][   T45] &type->i_mutex_dir_key
+[  406.497018][ T5190]  ? __pfx_gfs2_fill_super+0x10/0x10
+[  406.497018][ T5190]  ? __pfx_get_tree_bdev_flags+0x10/0x10
+[  406.539082][   T45] #8
+[  406.497018][ T5190]  ? write_comp_data+0x29/0x90
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.543182][   T45] ){++++}-{4:4}
+[  406.497018][ T5190]  ? write_comp_data+0x29/0x90
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.546466][   T45] , at: walk_component+0x338/0x5b0
+[  406.497018][ T5190]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.549948][   T45] 1 lock held by syz-executor/712:
+[  406.497018][ T5190]  ? write_comp_data+0x29/0x90
+[  406.497018][ T5190]  gfs2_get_tree+0x4e/0x280
+[  406.553144][   T45]  #0: 
+[  406.497018][ T5190]  vfs_get_tree+0x93/0x340
+[  406.556235][   T45] ffffffff91b27ef8
+[  406.497018][ T5190]  path_mount+0x1287/0x1d60
+[  406.558716][   T45]  (
+[  406.497018][ T5190]  ? __pfx_path_mount+0x10/0x10
+[  406.561649][   T45] rcu_state.exp_mutex
+[  406.497018][ T5190]  ? putname.part.0+0x105/0x150
+[  406.564121][   T45] ){+.+.}-{4:4}
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.497018][ T5190]  ? putname.part.0+0x105/0x150
+[  406.567116][   T45] , at: exp_funnel_lock+0x1bc/0x3d0
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.497018][ T5190]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.570344][   T45] 1 lock held by systemd-udevd/1911:
+[  406.497018][ T5190]  do_mount+0xf8/0x110
+[  406.573193][   T45] 6 locks held by syz.6.906/5190:
+[  406.497018][ T5190]  ? __pfx_do_mount+0x10/0x10
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.576644][   T45] 4 locks held by syz.9.909/5206:
+[  406.497018][ T5190]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.579937][   T45] 
+[  406.497018][ T5190]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.497018][ T5190]  __x64_sys_mount+0x193/0x230
+[  406.583237][   T45] =============================================
+[  406.583237][   T45] 
+[  406.497018][ T5190]  do_syscall_64+0xc3/0x1d0
+[  406.586668][   T45] Kernel panic - not syncing: hung_task: blocked tasks
+[  406.586708][   T45] CPU: 2 UID: 0 PID: 45 Comm: khungtaskd Tainted: G        W          6.13.0-rc6 #2
+[  406.586783][   T45] Tainted: [W]=WARN
+[  406.586804][   T45] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  406.586865][   T45] Call Trace:
+[  406.586887][   T45]  <TASK>
+[  406.586927][   T45]  dump_stack_lvl+0x3d/0x1b0
+[  406.586992][   T45]  panic+0x70b/0x7c0
+[  406.587062][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  406.587132][   T45]  ? __pfx_panic+0x10/0x10
+[  406.587203][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  406.587287][   T45]  ? watchdog+0xb29/0x11c0
+[  406.587349][   T45]  watchdog+0xb47/0x11c0
+[  406.587412][   T45]  ? __pfx_watchdog+0x10/0x10
+[  406.587484][   T45]  kthread+0x345/0x450
+[  406.587572][   T45]  ? __pfx_kthread+0x10/0x10
+[  406.587631][   T45]  ret_from_fork+0x48/0x80
+[  406.587631][   T45]  ? __pfx_kthread+0x10/0x10
+[  406.587631][   T45]  ret_from_fork_asm+0x1a/0x30
+[  406.587631][   T45]  </TASK>
+[  406.587631][   T45] Kernel Offset: 0x6000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)

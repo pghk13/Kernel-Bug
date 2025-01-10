@@ -1,0 +1,54 @@
+INFO: task syz.3.982:6564 blocked for more than 143 seconds.
+      Tainted: G        W          6.13.0-rc6 #1
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:syz.3.982       state:D stack:28336 pid:6564  tgid:6553  ppid:425    flags:0x00000004
+Call Trace:
+ <TASK>
+ context_switch kernel/sched/core.c:5369 [inline]
+ __schedule+0xe60/0x4120 kernel/sched/core.c:6756
+ __schedule_loop kernel/sched/core.c:6833 [inline]
+ schedule+0xd4/0x210 kernel/sched/core.c:6848
+ schedule_preempt_disabled+0x13/0x30 kernel/sched/core.c:6905
+ __mutex_lock_common kernel/locking/mutex.c:665 [inline]
+ __mutex_lock+0xf74/0x1eb0 kernel/locking/mutex.c:735
+ bfs_lookup+0x151/0x2b0 fs/bfs/dir.c:136
+ __lookup_slow+0x25b/0x490 fs/namei.c:1791
+ lookup_slow fs/namei.c:1808 [inline]
+ walk_component+0x345/0x5b0 fs/namei.c:2112
+ lookup_last fs/namei.c:2610 [inline]
+ path_lookupat.isra.0+0x180/0x560 fs/namei.c:2634
+ do_o_path fs/namei.c:3958 [inline]
+ path_openat+0x1a97/0x2970 fs/namei.c:3980
+ do_filp_open+0x1fa/0x2f0 fs/namei.c:4014
+ do_sys_openat2+0x641/0x6e0 fs/open.c:1402
+ do_sys_open+0xc7/0x150 fs/open.c:1417
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f854ed7f71d
+RSP: 002b:00007f854d9b1ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+RAX: ffffffffffffffda RBX: 00007f854ef42058 RCX: 00007f854ed7f71d
+RDX: 0000000000200000 RSI: 0000000020000300 RDI: ffffffffffffff9c
+RBP: 00007f854edf4425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f854ef42064 R14: 00007f854ef420f0 R15: 00007f854d9b1d40
+ </TASK>
+
+Showing all locks held in the system:
+1 lock held by khungtaskd/45:
+ #0: ffffffffb3b1aea0 (rcu_read_lock){....}-{1:3}, at: rcu_lock_acquire include/linux/rcupdate.h:337 [inline]
+ #0: ffffffffb3b1aea0 (rcu_read_lock){....}-{1:3}, at: rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ #0: ffffffffb3b1aea0 (rcu_read_lock){....}-{1:3}, at: debug_show_all_locks+0x75/0x340 kernel/locking/lockdep.c:6744
+1 lock held by kswapd0/82:
+4 locks held by kworker/2:1H/115:
+1 lock held by systemd-journal/223:
+1 lock held by in:imklog/329:
+4 locks held by syz.3.982/6554:
+2 locks held by syz.3.982/6564:
+ #0: ff11000010ed0668 (&type->i_mutex_dir_key#10){++++}-{4:4}, at: inode_lock_shared include/linux/fs.h:828 [inline]
+ #0: ff11000010ed0668 (&type->i_mutex_dir_key#10){++++}-{4:4}, at: lookup_slow fs/namei.c:1807 [inline]
+ #0: ff11000010ed0668 (&type->i_mutex_dir_key#10){++++}-{4:4}, at: walk_component+0x338/0x5b0 fs/namei.c:2112
+ #1: ff11000008c158d8 (&info->bfs_lock){+.+.}-{4:4}, at: bfs_lookup+0x151/0x2b0 fs/bfs/dir.c:136
+
+=============================================
+
