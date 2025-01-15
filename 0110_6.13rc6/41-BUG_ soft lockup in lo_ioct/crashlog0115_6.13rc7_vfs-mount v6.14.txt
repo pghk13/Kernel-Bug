@@ -1,0 +1,1219 @@
+[  217.273353][    C0] BUG: workqueue lockup - pool cpus=3 node=0 flags=0x0 nice=0 stuck for 47s!
+[  217.276769][    C0] Showing busy workqueues and worker pools:
+[  217.278774][    C0] workqueue mm_percpu_wq: flags=0x8
+[  217.280592][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  217.280696][    C0]     pending: lru_add_drain_per_cpu BAR(1938)
+[  217.280845][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  217.287231][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=162
+[  217.287319][    C0]     in-flight: 373:addrconf_dad_work
+[  217.287452][    C0]     inactive: 154*addrconf_dad_work, 2*addrconf_verify_work
+[  217.287666][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  217.296429][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  217.296534][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  217.296644][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  217.303307][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  217.303410][    C0]     pending: wg_packet_tx_worker
+[  217.303491][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  217.303592][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  217.303698][    C0] workqueue wg-kex-wg2: flags=0x24
+[  217.314377][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  217.314482][    C0]     pending: wg_packet_handshake_receive_worker
+[  217.314553][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  217.321462][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  217.321566][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  217.321673][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  217.328391][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  217.328492][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  217.328633][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  217.336345][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  217.336447][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  217.336552][    C0] workqueue wg-kex-wg2: flags=0x24
+[  217.343293][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  217.343395][    C0]     pending: wg_packet_handshake_receive_worker
+[  217.343485][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  217.350056][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  217.350198][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  217.355832][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  217.357729][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  217.357830][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  217.357968][    C0] workqueue wg-kex-wg1: flags=0x24
+[  217.365357][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  217.365458][    C0]     pending: wg_packet_handshake_receive_worker
+[  217.365529][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  217.371928][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  217.372029][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  217.376943][    C0] workqueue wg-kex-wg2: flags=0x24
+[  217.378667][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  217.378768][    C0]     pending: wg_packet_handshake_receive_worker
+[  217.378839][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  217.385482][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  217.385584][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  217.385787][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=4 idle: 12 11 455
+[  217.385998][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+
+Message from syslogd@syzkaller at Jan 15 09:06:34 ...
+ kernel:[  217.273353][    C0] BUG: workqueue lockup - pool cpus=3 node=0 flags=0x0 nice=0 stuck for 47s!
+[  245.615334][ T1995] modprobe (1995) used greatest stack depth: 23376 bytes left
+[  247.481226][    C0] BUG: workqueue lockup - pool cpus=3 node=0 flags=0x0 nice=0 stuck for 77s!
+[  247.484264][    C0] Showing busy workqueues and worker pools:
+[  247.486196][    C0] workqueue events_unbound: flags=0x2
+[  247.487887][    C0]   pwq 17: cpus=0-3 node=0 flags=0x4 nice=0 active=3 refcnt=4
+[  247.487988][    C0]     in-flight: 810:cfg80211_wiphy_work cfg80211_wiphy_work ,43:cfg80211_wiphy_work
+[  247.493280][    C0] workqueue events_power_efficient: flags=0x80
+[  247.495230][    C0]   pwq 6: cpus=1 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  247.495331][    C0]     in-flight: 241:reg_check_chans_work
+[  247.495426][    C0] workqueue mm_percpu_wq: flags=0x8
+[  247.501071][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  247.501191][    C0]     pending: lru_add_drain_per_cpu BAR(1938)
+[  247.505410][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  247.507201][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=162
+[  247.507289][    C0]     in-flight: 373:addrconf_dad_work
+[  247.507401][    C0]     inactive: 154*addrconf_dad_work, 2*addrconf_verify_work
+[  247.507613][    C0] workqueue wg-kex-wg0: flags=0x24
+[  247.515502][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  247.515608][    C0]     pending: wg_packet_handshake_receive_worker
+[  247.515682][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  247.521597][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  247.521700][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  247.521823][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  247.528099][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  247.528221][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  247.532958][    C0] workqueue wg-kex-wg2: flags=0x24
+[  247.534605][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  247.534711][    C0]     pending: wg_packet_handshake_receive_worker
+[  247.534798][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  247.540729][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  247.540841][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  247.540948][    C0] workqueue wg-kex-wg0: flags=0x24
+[  247.547223][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  247.547330][    C0]     pending: wg_packet_handshake_receive_worker
+[  247.547404][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  247.553264][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  247.553366][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  247.553510][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  247.560393][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  247.560496][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  247.560604][    C0] workqueue wg-kex-wg2: flags=0x24
+[  247.567207][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  247.567312][    C0]     pending: wg_packet_handshake_receive_worker
+[  247.567384][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  247.573261][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  247.573364][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  247.573510][    C0] workqueue wg-kex-wg0: flags=0x24
+[  247.580319][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  247.580424][    C0]     pending: wg_packet_handshake_receive_worker
+[  247.580497][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  247.586378][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  247.586487][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  247.586645][    C0] workqueue wg-kex-wg1: flags=0x24
+[  247.593513][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  247.593618][    C0]     pending: wg_packet_handshake_receive_worker
+[  247.593691][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  247.599568][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  247.599671][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  247.599895][    C0] workqueue wg-kex-wg2: flags=0x24
+[  247.606200][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  247.606305][    C0]     pending: wg_packet_handshake_receive_worker
+[  247.606379][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  247.612205][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  247.612308][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  247.612491][    C0] pool 6: cpus=1 node=0 flags=0x0 nice=0 hung=0s workers=6 idle: 25 107 73 1087 1604
+[  247.612746][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=4 idle: 12 11 455
+[  247.612927][    C0] pool 17: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 56 37 1606 747 821
+[  247.626324][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+
+Message from syslogd@syzkaller at Jan 15 09:07:04 ...
+ kernel:[  247.481226][    C0] BUG: workqueue lockup - pool cpus=3 node=0 flags=0x0 nice=0 stuck for 77s!
+[  274.878207][    C0] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[  274.879160][    C0] rcu: 	3-....: (0 ticks this GP) idle=62ec/1/0x4000000000000000 softirq=24026/24026 fqs=24311
+[  274.879160][    C0] rcu: 	(detected by 0, t=105008 jiffies, g=47209, q=7108 ncpus=4)
+[  274.879160][    C0] Sending NMI from CPU 0 to CPUs 3:
+[  274.885298][    C3] NMI backtrace for cpu 3
+[  274.885298][    C3] CPU: 3 UID: 0 PID: 1942 Comm: syz.0.16 Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  274.885298][    C3] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  274.885298][    C3] RIP: 0010:apic_mem_wait_icr_idle+0xf/0x20
+[  274.885298][    C3] Code: 2e 0f 1f 84 00 00 00 00 00 66 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa eb 02 f3 90 8b 04 25 00 c3 5f ff <f6> c4 10 75 f2 e9 72 94 33 08 0f 1f 80 00 00 00 00 90 90 90 90 90
+[  274.885298][    C3] RSP: 0000:ffa00000062a7618 EFLAGS: 00000006
+[  274.885298][    C3] RAX: 00000000000400f6 RBX: 0000000000000001 RCX: ffffffff8b14659c
+[  274.885298][    C3] RDX: 0000000000000001 RSI: 00000000000400f6 RDI: 0000000000040000
+[  274.885298][    C3] RBP: 0000000000000001 R08: 0000000000000000 R09: fff3fc0000c54eb8
+[  274.885298][    C3] R10: fff3fc0000c54eb7 R11: ffa00000062a75bf R12: 0000000000000003
+[  274.885298][    C3] R13: ff1100006a3bd270 R14: ff1100006a3bd468 R15: ffa00000062a76d8
+[  274.885298][    C3] FS:  00007f11c32a1700(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+[  274.885298][    C3] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  274.885298][    C3] CR2: 0000000000000102 CR3: 00000000247b4003 CR4: 0000000000771ef0
+[  274.885298][    C3] PKRU: 00000000
+[  274.885298][    C3] Call Trace:
+[  274.885298][    C3]  <NMI>
+[  274.885298][    C3]  ? nmi_cpu_backtrace+0x1d4/0x350
+[  274.885298][    C3]  ? nmi_cpu_backtrace_handler+0xc/0x20
+[  274.885298][    C3]  ? nmi_handle+0x1b8/0x5f0
+[  274.885298][    C3]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  274.885298][    C3]  ? default_do_nmi+0x88/0x220
+[  274.885298][    C3]  ? exc_nmi+0x270/0x320
+[  274.885298][    C3]  ? end_repeat_nmi+0xf/0x53
+[  274.885298][    C3]  ? arch_irq_work_raise+0x3c/0x70
+[  274.885298][    C3]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  274.885298][    C3]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  274.885298][    C3]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  274.885298][    C3]  </NMI>
+[  274.885298][    C3]  <TASK>
+[  274.885298][    C3]  arch_irq_work_raise+0x54/0x70
+[  274.885298][    C3]  __irq_work_queue_local+0x14c/0x450
+[  274.885298][    C3]  irq_work_queue_on+0x156/0x170
+[  274.889205][    C3]  __rcu_read_unlock+0x440/0x570
+[  274.889205][    C3]  perf_event_output_forward+0x16a/0x2c0
+[  274.889275][    C3]  ? __pfx_perf_event_output_forward+0x10/0x10
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  ? perf_event_output_forward+0x16a/0x2c0
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  ? write_comp_data+0x29/0x90
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  __perf_event_overflow+0x1e4/0x8f0
+[  274.889275][    C3]  ? write_comp_data+0x29/0x90
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  perf_swevent_overflow+0xac/0x150
+[  274.889275][    C3]  perf_swevent_event+0x1e9/0x2e0
+[  274.889275][    C3]  perf_tp_event+0x227/0xfe0
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  ? perf_swevent_overflow+0x91/0x150
+[  274.889275][    C3]  ? __pfx_perf_tp_event+0x10/0x10
+[  274.889275][    C3]  ? perf_tp_event+0x859/0xfe0
+[  274.889275][    C3]  ? perf_tp_event+0x859/0xfe0
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  ? __lock_acquire+0x1748/0x4a10
+[  274.889275][    C3]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  274.889275][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  274.889275][    C3]  perf_trace_run_bpf_submit+0xef/0x180
+[  274.889275][    C3]  perf_trace_preemptirq_template+0x287/0x450
+[  274.889275][    C3]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  274.889275][    C3]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  274.889275][    C3]  ? irqentry_enter+0x2a/0x60
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  ? irqentry_exit+0x3b/0x90
+[  274.889275][    C3]  trace_hardirqs_on+0xf2/0x160
+[  274.889275][    C3]  irqentry_exit+0x3b/0x90
+[  274.889275][    C3]  asm_sysvec_irq_work+0x1a/0x20
+[  274.889275][    C3] RIP: 0010:__rcu_read_unlock+0xc6/0x570
+[  274.889275][    C3] Code: b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 0f b6 04 02 84 c0 74 08 3c 03 0f 8e bf 01 00 00 8b 85 00 04 00 00 85 c0 75 57 <65> 48 8b 1d 82 ad b2 74 48 8d bb fc 03 00 00 48 b8 00 00 00 00 00
+[  274.889275][    C3] RSP: 0000:ffa00000062a7d20 EFLAGS: 00000206
+[  274.889275][    C3] RAX: 0000000000000002 RBX: ff1100006a3bd240 RCX: 1ffffffff2f37419
+[  274.889275][    C3] RDX: 0000000000000000 RSI: 0000000000000100 RDI: 0000000000000000
+[  274.889275][    C3] RBP: ffffffff95b26380 R08: 0000000000000001 R09: 0000000000000001
+[  274.889275][    C3] R10: fffffbfff2f37b82 R11: ffffffff979bdc17 R12: 0000000000000001
+[  274.889275][    C3] R13: 0000000000000200 R14: 0000000000000000 R15: ffa00000062a7e28
+[  274.889275][    C3]  fib6_nh_release+0xe6/0x280
+[  274.889275][    C3]  fib6_info_destroy_rcu+0x182/0x1e0
+[  274.889275][    C3]  ? rcu_core+0x7c6/0x16c0
+[  274.889275][    C3]  rcu_core+0x7cb/0x16c0
+[  274.889275][    C3]  ? __pfx_rcu_core+0x10/0x10
+[  274.889275][    C3]  ? write_comp_data+0x29/0x90
+[  274.889275][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  274.889275][    C3]  ? handle_softirqs+0x17d/0x870
+[  274.889275][    C3]  handle_softirqs+0x1ad/0x870
+[  274.889275][    C3]  irq_exit_rcu+0xee/0x140
+[  274.889275][    C3]  sysvec_apic_timer_interrupt+0x45/0xb0
+[  274.889275][    C3]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  274.889275][    C3] RIP: 0033:0x7f11c36ef7de
+[  274.889275][    C3] Code: 48 39 c1 77 75 48 63 d5 48 01 c2 49 3b 57 08 77 53 8d 55 ff 85 ed 74 34 0f 1f 40 00 48 39 c1 77 1b 49 8b 37 49 89 c1 49 29 c9 <46> 0f b6 0c 0e 45 84 c9 74 08 44 88 0c 06 49 8b 47 10 48 83 c0 01
+[  274.889275][    C3] RSP: 002b:00007f11c32a0020 EFLAGS: 00010206
+[  274.889275][    C3] RAX: 00000000002a2001 RBX: 00007f11c32a0090 RCX: 0000000000000001
+[  274.889275][    C3] RDX: 00000000000000f2 RSI: 00007f11bae81000 RDI: 00007f11c32a0130
+[  274.889275][    C3] RBP: 0000000000000102 R08: 0000000000000000 R09: 00000000002a2000
+[  274.889275][    C3] R10: 00000000ffffffff R11: 0000000000000010 R12: 00007f11c32a0098
+[  274.889275][    C3] R13: 00007f11c32a00a0 R14: 0000000000000000 R15: 00007f11c32a0130
+[  274.889275][    C3]  </TASK>
+[  301.243502][   T19] rcu: INFO: rcu_preempt detected expedited stalls on CPUs/tasks: { 3-.... } 131366 jiffies s: 2245 root: 0x8/.
+[  301.247327][   T19] rcu: blocking rcu_node structures (internal RCU debug):
+[  301.249552][   T19] Sending NMI from CPU 1 to CPUs 3:
+[  301.251234][    C3] NMI backtrace for cpu 3
+[  301.251295][    C3] CPU: 3 UID: 0 PID: 1942 Comm: syz.0.16 Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  301.251295][    C3] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  301.251295][    C3] RIP: 0010:apic_mem_wait_icr_idle+0xf/0x20
+[  301.251295][    C3] Code: 2e 0f 1f 84 00 00 00 00 00 66 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa eb 02 f3 90 8b 04 25 00 c3 5f ff <f6> c4 10 75 f2 e9 72 94 33 08 0f 1f 80 00 00 00 00 90 90 90 90 90
+[  301.251295][    C3] RSP: 0000:ffa00000062a7618 EFLAGS: 00000006
+[  301.251295][    C3] RAX: 00000000000400f6 RBX: 0000000000000001 RCX: ffffffff8b14659c
+[  301.251295][    C3] RDX: 0000000000000001 RSI: 00000000000400f6 RDI: 0000000000040000
+[  301.251295][    C3] RBP: 0000000000000001 R08: 0000000000000000 R09: fff3fc0000c54eb8
+[  301.251295][    C3] R10: fff3fc0000c54eb7 R11: ffa00000062a75bf R12: 0000000000000003
+[  301.251295][    C3] R13: ff1100006a3bd270 R14: ff1100006a3bd468 R15: ffa00000062a76d8
+[  301.251295][    C3] FS:  00007f11c32a1700(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+[  301.251295][    C3] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  301.251295][    C3] CR2: 0000000000000102 CR3: 00000000247b4003 CR4: 0000000000771ef0
+[  301.251295][    C3] PKRU: 00000000
+[  301.251295][    C3] Call Trace:
+[  301.251295][    C3]  <NMI>
+[  301.251295][    C3]  ? nmi_cpu_backtrace+0x1d4/0x350
+[  301.251295][    C3]  ? nmi_cpu_backtrace_handler+0xc/0x20
+[  301.251295][    C3]  ? nmi_handle+0x1b8/0x5f0
+[  301.251295][    C3]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  301.251295][    C3]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  301.251295][    C3]  ? default_do_nmi+0x88/0x220
+[  301.251295][    C3]  ? exc_nmi+0x270/0x320
+[  301.251295][    C3]  ? end_repeat_nmi+0xf/0x53
+[  301.251295][    C3]  ? arch_irq_work_raise+0x3c/0x70
+[  301.251295][    C3]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  301.251295][    C3]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  301.251295][    C3]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  301.251295][    C3]  </NMI>
+[  301.251295][    C3]  <TASK>
+[  301.251295][    C3]  arch_irq_work_raise+0x54/0x70
+[  301.251295][    C3]  __irq_work_queue_local+0x14c/0x450
+[  301.251295][    C3]  irq_work_queue_on+0x156/0x170
+[  301.251295][    C3]  __rcu_read_unlock+0x440/0x570
+[  301.253265][    C3]  perf_event_output_forward+0x16a/0x2c0
+[  301.253265][    C3]  ? __pfx_perf_event_output_forward+0x10/0x10
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  ? perf_event_output_forward+0x16a/0x2c0
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  ? write_comp_data+0x29/0x90
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  __perf_event_overflow+0x1e4/0x8f0
+[  301.253265][    C3]  ? write_comp_data+0x29/0x90
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  perf_swevent_overflow+0xac/0x150
+[  301.253265][    C3]  perf_swevent_event+0x1e9/0x2e0
+[  301.253265][    C3]  perf_tp_event+0x227/0xfe0
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  ? perf_swevent_overflow+0x91/0x150
+[  301.253265][    C3]  ? __pfx_perf_tp_event+0x10/0x10
+[  301.253265][    C3]  ? perf_tp_event+0x859/0xfe0
+[  301.253265][    C3]  ? perf_tp_event+0x859/0xfe0
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  ? __lock_acquire+0x1748/0x4a10
+[  301.253265][    C3]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  301.253265][    C3]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.253265][    C3]  perf_trace_run_bpf_submit+0xef/0x180
+[  301.253265][    C3]  perf_trace_preemptirq_template+0x287/0x450
+[  301.253265][    C3]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  301.253265][    C3]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  301.253265][    C3]  ? irqentry_enter+0x2a/0x60
+[  301.253265][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.253265][    C3]  ? irqentry_exit+0x3b/0x90
+[  301.253265][    C3]  trace_hardirqs_on+0xf2/0x160
+[  301.253265][    C3]  irqentry_exit+0x3b/0x90
+[  301.253265][    C3]  asm_sysvec_irq_work+0x1a/0x20
+[  301.253265][    C3] RIP: 0010:__rcu_read_unlock+0xc6/0x570
+[  301.253265][    C3] Code: b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 0f b6 04 02 84 c0 74 08 3c 03 0f 8e bf 01 00 00 8b 85 00 04 00 00 85 c0 75 57 <65> 48 8b 1d 82 ad b2 74 48 8d bb fc 03 00 00 48 b8 00 00 00 00 00
+[  301.253265][    C3] RSP: 0000:ffa00000062a7d20 EFLAGS: 00000206
+[  301.253265][    C3] RAX: 0000000000000002 RBX: ff1100006a3bd240 RCX: 1ffffffff2f37419
+[  301.253265][    C3] RDX: 0000000000000000 RSI: 0000000000000100 RDI: 0000000000000000
+[  301.253265][    C3] RBP: ffffffff95b26380 R08: 0000000000000001 R09: 0000000000000001
+[  301.253265][    C3] R10: fffffbfff2f37b82 R11: ffffffff979bdc17 R12: 0000000000000001
+[  301.253265][    C3] R13: 0000000000000200 R14: 0000000000000000 R15: ffa00000062a7e28
+[  301.253265][    C3]  fib6_nh_release+0xe6/0x280
+[  301.256291][    C3]  fib6_info_destroy_rcu+0x182/0x1e0
+[  301.256291][    C3]  ? rcu_core+0x7c6/0x16c0
+[  301.256291][    C3]  rcu_core+0x7cb/0x16c0
+[  301.256291][    C3]  ? __pfx_rcu_core+0x10/0x10
+[  301.256291][    C3]  ? write_comp_data+0x29/0x90
+[  301.256291][    C3]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.256291][    C3]  ? handle_softirqs+0x17d/0x870
+[  301.256291][    C3]  handle_softirqs+0x1ad/0x870
+[  301.256291][    C3]  irq_exit_rcu+0xee/0x140
+[  301.256291][    C3]  sysvec_apic_timer_interrupt+0x45/0xb0
+[  301.256291][    C3]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  301.256291][    C3] RIP: 0033:0x7f11c36ef7de
+[  301.256291][    C3] Code: 48 39 c1 77 75 48 63 d5 48 01 c2 49 3b 57 08 77 53 8d 55 ff 85 ed 74 34 0f 1f 40 00 48 39 c1 77 1b 49 8b 37 49 89 c1 49 29 c9 <46> 0f b6 0c 0e 45 84 c9 74 08 44 88 0c 06 49 8b 47 10 48 83 c0 01
+[  301.256291][    C3] RSP: 002b:00007f11c32a0020 EFLAGS: 00010206
+[  301.256291][    C3] RAX: 00000000002a2001 RBX: 00007f11c32a0090 RCX: 0000000000000001
+[  301.256291][    C3] RDX: 00000000000000f2 RSI: 00007f11bae81000 RDI: 00007f11c32a0130
+[  301.256291][    C3] RBP: 0000000000000102 R08: 0000000000000000 R09: 00000000002a2000
+[  301.256291][    C3] R10: 00000000ffffffff R11: 0000000000000010 R12: 00007f11c32a0098
+[  301.256291][    C3] R13: 00007f11c32a00a0 R14: 0000000000000000 R15: 00007f11c32a0130
+[  301.256291][    C3]  </TASK>
+[  324.281319][   T45] INFO: task kworker/u16:2:373 blocked for more than 143 seconds.
+[  324.284297][   T45]       Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  324.286537][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  324.289228][   T45] task:kworker/u16:2   state:D stack:25448 pid:373   tgid:373   ppid:2      flags:0x00004000
+[  324.292855][   T45] Workqueue: ipv6_addrconf addrconf_dad_work
+[  324.295210][   T45] Call Trace:
+[  324.296372][   T45]  <TASK>
+[  324.297691][   T45]  __schedule+0xe60/0x4120
+[  324.299488][   T45]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  324.301899][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  324.303709][   T45]  ? __pfx___schedule+0x10/0x10
+[  324.305463][   T45]  ? schedule+0x19d/0x210
+[  324.307206][   T45]  ? __pfx_lock_release+0x10/0x10
+[  324.309101][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.311465][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.313515][   T45]  ? write_comp_data+0x29/0x90
+[  324.315252][   T45]  schedule+0xd4/0x210
+[  324.316712][   T45]  schedule_preempt_disabled+0x13/0x30
+[  324.318524][   T45]  __mutex_lock+0xf74/0x1eb0
+[  324.320229][   T45]  ? addrconf_dad_work+0xb2/0x12c0
+[  324.322048][   T45]  ? __pfx___mutex_lock+0x10/0x10
+[  324.323871][   T45]  ? debug_object_deactivate+0x2af/0x390
+[  324.325849][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  324.327661][   T45]  ? addrconf_dad_work+0xb2/0x12c0
+[  324.329559][   T45]  ? rtnl_lock+0x9/0x20
+[  324.331331][   T45]  addrconf_dad_work+0xb2/0x12c0
+[  324.333095][   T45]  ? __pfx_lock_acquire+0x10/0x10
+[  324.334966][   T45]  ? __pfx_lock_release+0x10/0x10
+[  324.336742][   T45]  ? __pfx_addrconf_dad_work+0x10/0x10
+[  324.338882][   T45]  ? write_comp_data+0x29/0x90
+[  324.340724][   T45]  ? _raw_spin_unlock_irq+0x23/0x50
+[  324.342571][   T45]  ? _raw_spin_unlock_irq+0x23/0x50
+[  324.344496][   T45]  process_scheduled_works+0x5ee/0x1ba0
+[  324.346505][   T45]  ? __pfx_process_scheduled_works+0x10/0x10
+[  324.348535][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  324.350642][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.352577][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.354523][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  324.356355][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.358223][   T45]  ? assign_work+0x195/0x240
+[  324.359819][   T45]  worker_thread+0x59f/0xcf0
+[  324.361398][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.363295][   T45]  ? __pfx_worker_thread+0x10/0x10
+[  324.365015][   T45]  kthread+0x345/0x450
+[  324.366441][   T45]  ? __pfx_kthread+0x10/0x10
+[  324.368024][   T45]  ret_from_fork+0x48/0x80
+[  324.369572][   T45]  ? __pfx_kthread+0x10/0x10
+[  324.371210][   T45]  ret_from_fork_asm+0x1a/0x30
+[  324.372878][   T45]  </TASK>
+[  324.374056][   T45] INFO: task syz-executor:699 blocked for more than 143 seconds.
+[  324.376786][   T45]       Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  324.379200][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  324.381905][   T45] task:syz-executor    state:D stack:24640 pid:699   tgid:699   ppid:1      flags:0x00000004
+[  324.385431][   T45] Call Trace:
+[  324.386619][   T45]  <TASK>
+[  324.387856][   T45]  __schedule+0xe60/0x4120
+[  324.389633][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  324.391326][   T45]  ? __pfx___schedule+0x10/0x10
+[  324.393193][   T45]  ? schedule+0x19d/0x210
+[  324.394701][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.396904][   T45]  ? __pfx_lock_release+0x10/0x10
+[  324.398960][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.401196][   T45]  ? mark_held_locks+0x9e/0xe0
+[  324.403210][   T45]  schedule+0xd4/0x210
+[  324.404872][   T45]  schedule_preempt_disabled+0x13/0x30
+[  324.407039][   T45]  __mutex_lock+0xf74/0x1eb0
+[  324.408918][   T45]  ? inet_rtm_newaddr+0x303/0x14e0
+[  324.410991][   T45]  ? __pfx___mutex_lock+0x10/0x10
+[  324.413122][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.415645][   T45]  ? __nla_parse+0x42/0x60
+[  324.417239][   T45]  ? inet_rtm_newaddr+0x303/0x14e0
+[  324.418978][   T45]  inet_rtm_newaddr+0x303/0x14e0
+[  324.420648][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.422755][   T45]  ? find_held_lock+0x2c/0x110
+[  324.424442][   T45]  ? __pfx_inet_rtm_newaddr+0x10/0x10
+[  324.426255][   T45]  ? rtnetlink_rcv_msg+0x9a4/0xfc0
+[  324.428001][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.429857][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.431999][   T45]  ? write_comp_data+0x29/0x90
+[  324.433641][   T45]  ? __pfx_inet_rtm_newaddr+0x10/0x10
+[  324.435623][   T45]  ? __pfx_inet_rtm_newaddr+0x10/0x10
+[  324.437658][   T45]  rtnetlink_rcv_msg+0x9c8/0xfc0
+[  324.439458][   T45]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
+[  324.441310][   T45]  ? __pfx___dev_queue_xmit+0x10/0x10
+[  324.443234][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  324.445359][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.447594][   T45]  ? find_held_lock+0x2c/0x110
+[  324.449531][   T45]  netlink_rcv_skb+0x15d/0x450
+[  324.451484][   T45]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
+[  324.453658][   T45]  ? __pfx_netlink_rcv_skb+0x10/0x10
+[  324.455766][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.458032][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.460240][   T45]  ? netlink_deliver_tap+0x1ae/0xdf0
+[  324.462342][   T45]  netlink_unicast+0x547/0x760
+[  324.464266][   T45]  ? __pfx_netlink_unicast+0x10/0x10
+[  324.466367][   T45]  ? write_comp_data+0x29/0x90
+[  324.468287][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.470450][   T45]  ? write_comp_data+0x29/0x90
+[  324.472387][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.474631][   T45]  netlink_sendmsg+0x8a2/0xd80
+[  324.476570][   T45]  ? __pfx_netlink_sendmsg+0x10/0x10
+[  324.478680][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.480902][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.483188][   T45]  ? write_comp_data+0x29/0x90
+[  324.485094][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.487339][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  324.489516][   T45]  __sock_sendmsg+0x224/0x2a0
+[  324.491419][   T45]  __sys_sendto+0x29a/0x390
+[  324.493224][   T45]  ? __pfx___sys_sendto+0x10/0x10
+[  324.495267][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  324.497446][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.499664][   T45]  ? perf_trace_preemptirq_template+0xa6/0x450
+[  324.502095][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.503936][   T45]  ? perf_trace_preemptirq_template+0xa6/0x450
+[  324.505728][   T45]  ? kmem_cache_free+0x353/0x4d0
+[  324.507416][   T45]  ? __fput+0x6ed/0xc70
+[  324.508885][   T45]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  324.511047][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.512939][   T45]  ? __fput+0x6ed/0xc70
+[  324.514492][   T45]  ? syscall_exit_to_user_mode+0xd0/0x270
+[  324.516525][   T45]  __x64_sys_sendto+0xe1/0x1c0
+[  324.518230][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.520093][   T45]  ? lockdep_hardirqs_on+0x7c/0x110
+[  324.521891][   T45]  do_syscall_64+0xc3/0x1d0
+[  324.523438][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  324.525418][   T45] RIP: 0033:0x7f8cf5016daa
+[  324.526940][   T45] RSP: 002b:00007fff6b1354e8 EFLAGS: 00000246 ORIG_RAX: 000000000000002c
+[  324.529571][   T45] RAX: ffffffffffffffda RBX: 00007f8cf5dcc620 RCX: 00007f8cf5016daa
+[  324.532123][   T45] RDX: 0000000000000028 RSI: 00007f8cf5dcc670 RDI: 0000000000000003
+[  324.534636][   T45] RBP: 0000000000000001 R08: 00007fff6b13550c R09: 000000000000000c
+[  324.537198][   T45] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  324.539742][   T45] R13: 00007f8cf5dcc670 R14: 0000000000000003 R15: 0000000000000000
+[  324.542279][   T45]  </TASK>
+[  324.543422][   T45] INFO: task syz-executor:717 blocked for more than 143 seconds.
+[  324.546706][   T45]       Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  324.549497][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  324.553024][   T45] task:syz-executor    state:D stack:24432 pid:717   tgid:717   ppid:1      flags:0x00000004
+[  324.557146][   T45] Call Trace:
+[  324.558637][   T45]  <TASK>
+[  324.559946][   T45]  __schedule+0xe60/0x4120
+[  324.561863][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  324.563923][   T45]  ? __pfx___schedule+0x10/0x10
+[  324.565902][   T45]  ? schedule+0x19d/0x210
+[  324.567704][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.569970][   T45]  ? __pfx_lock_release+0x10/0x10
+[  324.572258][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.574515][   T45]  ? mark_held_locks+0x9e/0xe0
+[  324.576543][   T45]  schedule+0xd4/0x210
+[  324.578301][   T45]  schedule_preempt_disabled+0x13/0x30
+[  324.580116][   T45]  __mutex_lock+0xf74/0x1eb0
+[  324.581706][   T45]  ? rtnl_newlink+0x77c/0x1cb0
+[  324.583371][   T45]  ? __pfx___mutex_lock+0x10/0x10
+[  324.585304][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.587201][   T45]  ? write_comp_data+0x29/0x90
+[  324.588811][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.590707][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  324.592544][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.594547][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.596411][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  324.598277][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  324.600220][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.602290][   T45]  ? ns_capable_common+0xe4/0x120
+[  324.604012][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.605866][   T45]  ? write_comp_data+0x29/0x90
+[  324.607520][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.609452][   T45]  ? rtnl_newlink+0x77c/0x1cb0
+[  324.611231][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.613182][   T45]  rtnl_newlink+0x77c/0x1cb0
+[  324.614867][   T45]  ? cred_has_capability+0x172/0x2e0
+[  324.616944][   T45]  ? __pfx_rtnl_newlink+0x10/0x10
+[  324.619275][   T45]  ? rtnetlink_rcv_msg+0x9a4/0xfc0
+[  324.621038][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.622932][   T45]  ? __pfx_lock_release+0x10/0x10
+[  324.624645][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.626528][   T45]  ? rcu_read_lock_held+0xa4/0xb0
+[  324.628339][   T45]  ? __pfx_rcu_read_lock_held+0x10/0x10
+[  324.630228][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.632099][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.634055][   T45]  ? write_comp_data+0x29/0x90
+[  324.636063][   T45]  ? __pfx_rtnl_newlink+0x10/0x10
+[  324.637857][   T45]  ? __pfx_rtnl_newlink+0x10/0x10
+[  324.639575][   T45]  rtnetlink_rcv_msg+0x9c8/0xfc0
+[  324.641309][   T45]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
+[  324.643210][   T45]  ? __pfx___dev_queue_xmit+0x10/0x10
+[  324.645215][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  324.647034][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.648912][   T45]  ? find_held_lock+0x2c/0x110
+[  324.650589][   T45]  netlink_rcv_skb+0x15d/0x450
+[  324.652481][   T45]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
+[  324.654360][   T45]  ? __pfx_netlink_rcv_skb+0x10/0x10
+[  324.656196][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.658117][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.660072][   T45]  ? netlink_deliver_tap+0x1ae/0xdf0
+[  324.661970][   T45]  netlink_unicast+0x547/0x760
+[  324.663624][   T45]  ? __pfx_netlink_unicast+0x10/0x10
+[  324.665406][   T45]  ? write_comp_data+0x29/0x90
+[  324.667052][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.669201][   T45]  ? write_comp_data+0x29/0x90
+[  324.670880][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.672739][   T45]  netlink_sendmsg+0x8a2/0xd80
+[  324.674417][   T45]  ? __pfx_netlink_sendmsg+0x10/0x10
+[  324.676213][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.678212][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.680123][   T45]  ? write_comp_data+0x29/0x90
+[  324.681795][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.683671][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  324.685753][   T45]  __sock_sendmsg+0x224/0x2a0
+[  324.687380][   T45]  __sys_sendto+0x29a/0x390
+[  324.688961][   T45]  ? __pfx___sys_sendto+0x10/0x10
+[  324.690678][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  324.692539][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.694520][   T45]  ? perf_trace_preemptirq_template+0xa6/0x450
+[  324.696544][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.698426][   T45]  ? perf_trace_preemptirq_template+0xa6/0x450
+[  324.700435][   T45]  ? kmem_cache_free+0x353/0x4d0
+[  324.702381][   T45]  ? __fput+0x6ed/0xc70
+[  324.703867][   T45]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  324.706034][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.707913][   T45]  ? __fput+0x6ed/0xc70
+[  324.709382][   T45]  ? syscall_exit_to_user_mode+0xd0/0x270
+[  324.711429][   T45]  __x64_sys_sendto+0xe1/0x1c0
+[  324.713087][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.714968][   T45]  ? lockdep_hardirqs_on+0x7c/0x110
+[  324.716714][   T45]  do_syscall_64+0xc3/0x1d0
+[  324.718562][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  324.720772][   T45] RIP: 0033:0x7f989bb68daa
+[  324.722677][   T45] RSP: 002b:00007fffb022f028 EFLAGS: 00000246 ORIG_RAX: 000000000000002c
+[  324.725387][   T45] RAX: ffffffffffffffda RBX: 00007f989c91e620 RCX: 00007f989bb68daa
+[  324.728018][   T45] RDX: 000000000000002c RSI: 00007f989c91e670 RDI: 0000000000000003
+[  324.730536][   T45] RBP: 0000000000000001 R08: 00007fffb022f04c R09: 000000000000000c
+[  324.733039][   T45] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  324.735812][   T45] R13: 00007f989c91e670 R14: 0000000000000003 R15: 0000000000000000
+[  324.738382][   T45]  </TASK>
+[  324.739708][   T45] INFO: task syz-executor:720 blocked for more than 143 seconds.
+[  324.742196][   T45]       Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  324.744589][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  324.747439][   T45] task:syz-executor    state:D stack:24552 pid:720   tgid:720   ppid:1      flags:0x00000004
+[  324.750988][   T45] Call Trace:
+[  324.752454][   T45]  <TASK>
+[  324.753585][   T45]  __schedule+0xe60/0x4120
+[  324.755227][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  324.756968][   T45]  ? __pfx___schedule+0x10/0x10
+[  324.758782][   T45]  ? schedule+0x19d/0x210
+[  324.760464][   T45]  ? __pfx_lock_release+0x10/0x10
+[  324.762352][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.764333][   T45]  ? mark_held_locks+0x9e/0xe0
+[  324.766222][   T45]  schedule+0xd4/0x210
+[  324.767658][   T45]  schedule_preempt_disabled+0x13/0x30
+[  324.769850][   T45]  __mutex_lock+0xf74/0x1eb0
+[  324.771532][   T45]  ? rtnetlink_rcv_msg+0x378/0xfc0
+[  324.773404][   T45]  ? __pfx___mutex_lock+0x10/0x10
+[  324.775257][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.777224][   T45]  ? find_held_lock+0x2c/0x110
+[  324.779097][   T45]  ? rcu_read_lock_held+0xa4/0xb0
+[  324.780990][   T45]  ? __pfx_rcu_read_lock_held+0x10/0x10
+[  324.783000][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.785293][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.787339][   T45]  ? rtnetlink_rcv_msg+0x378/0xfc0
+[  324.789203][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.791059][   T45]  rtnetlink_rcv_msg+0x378/0xfc0
+[  324.792779][   T45]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
+[  324.794713][   T45]  ? skb_clone+0x18f/0x400
+[  324.796377][   T45]  ? __pfx___dev_queue_xmit+0x10/0x10
+[  324.798303][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.800260][   T45]  ? find_held_lock+0x2c/0x110
+[  324.802214][   T45]  netlink_rcv_skb+0x15d/0x450
+[  324.803860][   T45]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
+[  324.805816][   T45]  ? __pfx_netlink_rcv_skb+0x10/0x10
+[  324.807724][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.809746][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.811852][   T45]  ? netlink_deliver_tap+0x1ae/0xdf0
+[  324.813614][   T45]  netlink_unicast+0x547/0x760
+[  324.815250][   T45]  ? __pfx_netlink_unicast+0x10/0x10
+[  324.817185][   T45]  ? write_comp_data+0x29/0x90
+[  324.819057][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.820951][   T45]  ? write_comp_data+0x29/0x90
+[  324.822871][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.825238][   T45]  netlink_sendmsg+0x8a2/0xd80
+[  324.827007][   T45]  ? __pfx_netlink_sendmsg+0x10/0x10
+[  324.828988][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.830926][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.832781][   T45]  ? write_comp_data+0x29/0x90
+[  324.834428][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.836542][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  324.838390][   T45]  __sock_sendmsg+0x224/0x2a0
+[  324.839981][   T45]  __sys_sendto+0x29a/0x390
+[  324.841603][   T45]  ? __pfx___sys_sendto+0x10/0x10
+[  324.843350][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  324.845298][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.847197][   T45]  ? perf_trace_preemptirq_template+0xa6/0x450
+[  324.849209][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.851063][   T45]  ? perf_trace_preemptirq_template+0xa6/0x450
+[  324.853502][   T45]  ? kmem_cache_free+0x353/0x4d0
+[  324.855287][   T45]  ? __fput+0x6ed/0xc70
+[  324.856843][   T45]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  324.859206][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.861217][   T45]  ? __fput+0x6ed/0xc70
+[  324.862706][   T45]  ? syscall_exit_to_user_mode+0xd0/0x270
+[  324.864661][   T45]  __x64_sys_sendto+0xe1/0x1c0
+[  324.866424][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.868650][   T45]  ? lockdep_hardirqs_on+0x7c/0x110
+[  324.870475][   T45]  do_syscall_64+0xc3/0x1d0
+[  324.872039][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  324.874086][   T45] RIP: 0033:0x7f351debadaa
+[  324.875610][   T45] RSP: 002b:00007fffc5245ed8 EFLAGS: 00000246 ORIG_RAX: 000000000000002c
+[  324.878330][   T45] RAX: ffffffffffffffda RBX: 00007f351ec70620 RCX: 00007f351debadaa
+[  324.880801][   T45] RDX: 0000000000000040 RSI: 00007f351ec70670 RDI: 0000000000000003
+[  324.883337][   T45] RBP: 0000000000000001 R08: 00007fffc5245efc R09: 000000000000000c
+[  324.886052][   T45] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  324.888536][   T45] R13: 00007f351ec70670 R14: 0000000000000003 R15: 0000000000000000
+[  324.891262][   T45]  </TASK>
+[  324.892437][   T45] INFO: task syz-executor:727 blocked for more than 143 seconds.
+[  324.895117][   T45]       Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  324.897334][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  324.900006][   T45] task:syz-executor    state:D stack:24448 pid:727   tgid:727   ppid:1      flags:0x00004004
+[  324.903511][   T45] Call Trace:
+[  324.904660][   T45]  <TASK>
+[  324.905699][   T45]  __schedule+0xe60/0x4120
+[  324.907265][   T45]  ? __pfx___schedule+0x10/0x10
+[  324.908888][   T45]  ? schedule+0x19d/0x210
+[  324.910446][   T45]  ? __pfx_lock_release+0x10/0x10
+[  324.912220][   T45]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  324.914266][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.916268][   T45]  ? lockdep_hardirqs_on+0x7c/0x110
+[  324.918366][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.920365][   T45]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[  324.922453][   T45]  schedule+0xd4/0x210
+[  324.925044][   T45]  synchronize_rcu_expedited+0x351/0x3f0
+[  324.927061][   T45]  ? __pfx_synchronize_rcu_expedited+0x10/0x10
+[  324.929181][   T45]  ? __pfx_autoremove_wake_function+0x10/0x10
+[  324.931221][   T45]  ? __pfx_wait_rcu_exp_gp+0x10/0x10
+[  324.932969][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.935062][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.936907][   T45]  ? write_comp_data+0x29/0x90
+[  324.938518][   T45]  synchronize_net+0x3e/0x60
+[  324.940077][   T45]  wg_socket_reinit+0x191/0x3d0
+[  324.941756][   T45]  ? static_key_slow_inc+0x23/0x30
+[  324.943753][   T45]  wg_socket_init+0x959/0xc10
+[  324.945509][   T45]  ? __pfx_wg_socket_init+0x10/0x10
+[  324.947276][   T45]  ? rcu_is_watching+0x12/0xc0
+[  324.949020][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.951048][   T45]  ? __pfx_wg_receive+0x10/0x10
+[  324.953086][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.955196][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.957238][   T45]  ? write_comp_data+0x29/0x90
+[  324.958942][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.960896][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.962855][   T45]  wg_open+0x23a/0x4e0
+[  324.964291][   T45]  ? __pfx_wg_open+0x10/0x10
+[  324.965867][   T45]  __dev_open+0x2a7/0x470
+[  324.967359][   T45]  ? __pfx___dev_open+0x10/0x10
+[  324.969271][   T45]  ? __local_bh_enable_ip+0xa4/0x130
+[  324.971034][   T45]  __dev_change_flags+0x4ea/0x630
+[  324.972752][   T45]  ? __pfx___dev_change_flags+0x10/0x10
+[  324.974650][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.976502][   T45]  ? validate_linkmsg+0x571/0xb80
+[  324.978254][   T45]  ? __entry_text_end+0x102145/0x102149
+[  324.980073][   T45]  ? __pfx_validate_linkmsg+0x10/0x10
+[  324.982090][   T45]  dev_change_flags+0x8e/0x170
+[  324.983926][   T45]  do_setlink.isra.0+0x9f2/0x3d60
+[  324.986105][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.988209][   T45]  ? perf_trace_preemptirq_template+0xa6/0x450
+[  324.990303][   T45]  ? __pfx_do_setlink.isra.0+0x10/0x10
+[  324.992109][   T45]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  324.994446][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  324.996287][   T45]  ? mark_held_locks+0x9e/0xe0
+[  324.998093][   T45]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  325.000123][   T45]  ? __mutex_lock+0x1458/0x1eb0
+[  325.002075][   T45]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  325.004106][   T45]  ? __mutex_lock+0x1458/0x1eb0
+[  325.005801][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.007718][   T45]  ? lockdep_hardirqs_on+0x7c/0x110
+[  325.009601][   T45]  ? __mutex_lock+0x1458/0x1eb0
+[  325.011468][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.013455][   T45]  ? __mutex_lock+0x2f7/0x1eb0
+[  325.015209][   T45]  ? rtnl_newlink+0x77c/0x1cb0
+[  325.016852][   T45]  ? __pfx___mutex_lock+0x10/0x10
+[  325.018779][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.020613][   T45]  ? write_comp_data+0x29/0x90
+[  325.022257][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.024092][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.025961][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.028112][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.030230][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.032061][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.033895][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.036048][   T45]  ? ns_capable_common+0xe4/0x120
+[  325.037954][   T45]  ? __entry_text_end+0x102145/0x102149
+[  325.039944][   T45]  ? write_comp_data+0x29/0x90
+[  325.041663][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.043759][   T45]  ? write_comp_data+0x29/0x90
+[  325.045469][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.047471][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.049456][   T45]  rtnl_newlink+0x149e/0x1cb0
+[  325.051217][   T45]  ? __pfx_rtnl_newlink+0x10/0x10
+[  325.053334][   T45]  ? rtnetlink_rcv_msg+0x9a4/0xfc0
+[  325.055216][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.057079][   T45]  ? __pfx_lock_release+0x10/0x10
+[  325.058857][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.060811][   T45]  ? rcu_read_lock_held+0xa4/0xb0
+[  325.062559][   T45]  ? __pfx_rcu_read_lock_held+0x10/0x10
+[  325.064391][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.066262][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.068364][   T45]  ? write_comp_data+0x29/0x90
+[  325.070030][   T45]  ? __pfx_rtnl_newlink+0x10/0x10
+[  325.071724][   T45]  ? __pfx_rtnl_newlink+0x10/0x10
+[  325.073416][   T45]  rtnetlink_rcv_msg+0x9c8/0xfc0
+[  325.075118][   T45]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
+[  325.077053][   T45]  ? __pfx___dev_queue_xmit+0x10/0x10
+[  325.078925][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  325.080669][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.082542][   T45]  ? find_held_lock+0x2c/0x110
+[  325.084237][   T45]  netlink_rcv_skb+0x15d/0x450
+[  325.086237][   T45]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
+[  325.088211][   T45]  ? __pfx_netlink_rcv_skb+0x10/0x10
+[  325.090200][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.092270][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.094447][   T45]  ? netlink_deliver_tap+0x1ae/0xdf0
+[  325.096382][   T45]  netlink_unicast+0x547/0x760
+[  325.098215][   T45]  ? __pfx_netlink_unicast+0x10/0x10
+[  325.100188][   T45]  ? write_comp_data+0x29/0x90
+[  325.102222][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.104209][   T45]  ? write_comp_data+0x29/0x90
+[  325.105934][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.107964][   T45]  netlink_sendmsg+0x8a2/0xd80
+[  325.109588][   T45]  ? __pfx_netlink_sendmsg+0x10/0x10
+[  325.111481][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.113338][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.115308][   T45]  ? write_comp_data+0x29/0x90
+[  325.116983][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.119273][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.121290][   T45]  __sock_sendmsg+0x224/0x2a0
+[  325.123022][   T45]  __sys_sendto+0x29a/0x390
+[  325.124712][   T45]  ? __pfx___sys_sendto+0x10/0x10
+[  325.126664][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.128905][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.131288][   T45]  ? perf_trace_preemptirq_template+0xa6/0x450
+[  325.133473][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.135757][   T45]  ? perf_trace_preemptirq_template+0xa6/0x450
+[  325.137927][   T45]  ? kmem_cache_free+0x353/0x4d0
+[  325.139698][   T45]  ? __fput+0x6ed/0xc70
+[  325.141270][   T45]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  325.143603][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.145715][   T45]  ? __fput+0x6ed/0xc70
+[  325.147307][   T45]  ? syscall_exit_to_user_mode+0xd0/0x270
+[  325.149355][   T45]  __x64_sys_sendto+0xe1/0x1c0
+[  325.151182][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.153403][   T45]  ? lockdep_hardirqs_on+0x7c/0x110
+[  325.155290][   T45]  do_syscall_64+0xc3/0x1d0
+[  325.156969][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  325.159125][   T45] RIP: 0033:0x7f3bd2993daa
+[  325.160863][   T45] RSP: 002b:00007ffd6cbb9658 EFLAGS: 00000246 ORIG_RAX: 000000000000002c
+[  325.163774][   T45] RAX: ffffffffffffffda RBX: 00007f3bd3749620 RCX: 00007f3bd2993daa
+[  325.166498][   T45] RDX: 0000000000000020 RSI: 00007f3bd3749670 RDI: 0000000000000003
+[  325.169461][   T45] RBP: 0000000000000001 R08: 00007ffd6cbb967c R09: 000000000000000c
+[  325.172227][   T45] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  325.174973][   T45] R13: 00007f3bd3749670 R14: 0000000000000003 R15: 0000000000000000
+[  325.177794][   T45]  </TASK>
+[  325.179065][   T45] INFO: task syz-executor:735 blocked for more than 144 seconds.
+[  325.181595][   T45]       Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  325.183910][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  325.187044][   T45] task:syz-executor    state:D stack:24640 pid:735   tgid:735   ppid:1      flags:0x00000004
+[  325.190532][   T45] Call Trace:
+[  325.191759][   T45]  <TASK>
+[  325.192957][   T45]  __schedule+0xe60/0x4120
+[  325.194706][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  325.196478][   T45]  ? __pfx___schedule+0x10/0x10
+[  325.198230][   T45]  ? schedule+0x19d/0x210
+[  325.199678][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.201913][   T45]  ? __pfx_lock_release+0x10/0x10
+[  325.203745][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.205660][   T45]  ? mark_held_locks+0x9e/0xe0
+[  325.207436][   T45]  schedule+0xd4/0x210
+[  325.208948][   T45]  schedule_preempt_disabled+0x13/0x30
+[  325.210990][   T45]  __mutex_lock+0xf74/0x1eb0
+[  325.212663][   T45]  ? inet_rtm_newaddr+0x303/0x14e0
+[  325.214548][   T45]  ? __pfx___mutex_lock+0x10/0x10
+[  325.216357][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.218622][   T45]  ? __nla_parse+0x42/0x60
+[  325.220249][   T45]  ? inet_rtm_newaddr+0x303/0x14e0
+[  325.222107][   T45]  inet_rtm_newaddr+0x303/0x14e0
+[  325.223921][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.225915][   T45]  ? find_held_lock+0x2c/0x110
+[  325.227731][   T45]  ? __pfx_inet_rtm_newaddr+0x10/0x10
+[  325.229655][   T45]  ? rtnetlink_rcv_msg+0x9a4/0xfc0
+[  325.231904][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.233934][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.236048][   T45]  ? write_comp_data+0x29/0x90
+[  325.237693][   T45]  ? __pfx_inet_rtm_newaddr+0x10/0x10
+[  325.239629][   T45]  ? __pfx_inet_rtm_newaddr+0x10/0x10
+[  325.241612][   T45]  rtnetlink_rcv_msg+0x9c8/0xfc0
+[  325.243471][   T45]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
+[  325.245332][   T45]  ? __pfx___dev_queue_xmit+0x10/0x10
+[  325.247246][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  325.249199][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.251231][   T45]  ? find_held_lock+0x2c/0x110
+[  325.253266][   T45]  netlink_rcv_skb+0x15d/0x450
+[  325.255027][   T45]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
+[  325.256993][   T45]  ? __pfx_netlink_rcv_skb+0x10/0x10
+[  325.258892][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.260999][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.263025][   T45]  ? netlink_deliver_tap+0x1ae/0xdf0
+[  325.264802][   T45]  netlink_unicast+0x547/0x760
+[  325.266445][   T45]  ? __pfx_netlink_unicast+0x10/0x10
+[  325.268621][   T45]  ? write_comp_data+0x29/0x90
+[  325.270370][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.272353][   T45]  ? write_comp_data+0x29/0x90
+[  325.274092][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.276056][   T45]  netlink_sendmsg+0x8a2/0xd80
+[  325.277856][   T45]  ? __pfx_netlink_sendmsg+0x10/0x10
+[  325.279782][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.281834][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.283804][   T45]  ? write_comp_data+0x29/0x90
+[  325.285576][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.287585][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.289553][   T45]  __sock_sendmsg+0x224/0x2a0
+[  325.291245][   T45]  __sys_sendto+0x29a/0x390
+[  325.292789][   T45]  ? __pfx___sys_sendto+0x10/0x10
+[  325.294573][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.296436][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.298428][   T45]  ? perf_trace_preemptirq_template+0xa6/0x450
+[  325.300612][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.302721][   T45]  ? perf_trace_preemptirq_template+0xa6/0x450
+[  325.304926][   T45]  ? kmem_cache_free+0x353/0x4d0
+[  325.306718][   T45]  ? __fput+0x6ed/0xc70
+[  325.308330][   T45]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  325.310833][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.312849][   T45]  ? __fput+0x6ed/0xc70
+[  325.314334][   T45]  ? syscall_exit_to_user_mode+0xd0/0x270
+[  325.316385][   T45]  __x64_sys_sendto+0xe1/0x1c0
+[  325.318248][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.320255][   T45]  ? lockdep_hardirqs_on+0x7c/0x110
+[  325.322122][   T45]  do_syscall_64+0xc3/0x1d0
+[  325.323790][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  325.325945][   T45] RIP: 0033:0x7fe1fa785daa
+[  325.327583][   T45] RSP: 002b:00007ffe58ff0458 EFLAGS: 00000246 ORIG_RAX: 000000000000002c
+[  325.330478][   T45] RAX: ffffffffffffffda RBX: 00007fe1fb53b620 RCX: 00007fe1fa785daa
+[  325.333203][   T45] RDX: 0000000000000028 RSI: 00007fe1fb53b670 RDI: 0000000000000003
+[  325.336256][   T45] RBP: 0000000000000001 R08: 00007ffe58ff047c R09: 000000000000000c
+[  325.339266][   T45] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  325.341986][   T45] R13: 00007fe1fb53b670 R14: 0000000000000003 R15: 0000000000000000
+[  325.344752][   T45]  </TASK>
+[  325.346252][   T45] INFO: task systemd-udevd:1913 blocked for more than 144 seconds.
+[  325.349234][   T45]       Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  325.351848][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  325.355109][   T45] task:systemd-udevd   state:D stack:26920 pid:1913  tgid:1913  ppid:236    flags:0x00000000
+[  325.359197][   T45] Call Trace:
+[  325.360542][   T45]  <TASK>
+[  325.361764][   T45]  __schedule+0xe60/0x4120
+[  325.363582][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  325.365546][   T45]  ? __pfx___schedule+0x10/0x10
+[  325.367487][   T45]  ? schedule+0x19d/0x210
+[  325.369239][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.371463][   T45]  ? __pfx_lock_release+0x10/0x10
+[  325.373492][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.375716][   T45]  ? mark_held_locks+0x9e/0xe0
+[  325.377712][   T45]  schedule+0xd4/0x210
+[  325.379401][   T45]  schedule_preempt_disabled+0x13/0x30
+[  325.381587][   T45]  __mutex_lock+0xf74/0x1eb0
+[  325.383474][   T45]  ? btrfs_control_ioctl+0x1a7/0x3d0
+[  325.385627][   T45]  ? __pfx___mutex_lock+0x10/0x10
+[  325.387653][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.389890][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.392227][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.394397][   T45]  ? write_comp_data+0x29/0x90
+[  325.396314][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.398528][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.400731][   T45]  ? write_comp_data+0x29/0x90
+[  325.402677][   T45]  ? btrfs_control_ioctl+0x1a7/0x3d0
+[  325.404785][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.407023][   T45]  btrfs_control_ioctl+0x1a7/0x3d0
+[  325.409205][   T45]  ? __pfx_btrfs_control_ioctl+0x10/0x10
+[  325.411087][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.412936][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.414761][   T45]  ? write_comp_data+0x29/0x90
+[  325.416361][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.418220][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.420035][   T45]  ? __pfx_btrfs_control_ioctl+0x10/0x10
+[  325.421926][   T45]  __x64_sys_ioctl+0x19e/0x210
+[  325.423525][   T45]  do_syscall_64+0xc3/0x1d0
+[  325.425059][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  325.427021][   T45] RIP: 0033:0x7f1dca0802d7
+[  325.428482][   T45] RSP: 002b:00007fffb1f7d5b8 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+[  325.431101][   T45] RAX: ffffffffffffffda RBX: 000055e9c23abec0 RCX: 00007f1dca0802d7
+[  325.433604][   T45] RDX: 00007fffb1f7d5e0 RSI: 0000000090009427 RDI: 0000000000000010
+[  325.436426][   T45] RBP: 000055e9c22e9750 R08: 000055e9c22ea2b0 R09: 0000000000000000
+[  325.438929][   T45] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  325.441362][   T45] R13: 0000000000000010 R14: 00007fffb1f7d5e0 R15: 0000000000000000
+[  325.443878][   T45]  </TASK>
+[  325.444942][   T45] INFO: task syz.3.19:1938 blocked for more than 144 seconds.
+[  325.447266][   T45]       Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  325.449386][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  325.452018][   T45] task:syz.3.19        state:D stack:23968 pid:1938  tgid:1937  ppid:705    flags:0x00004006
+[  325.455266][   T45] Call Trace:
+[  325.456378][   T45]  <TASK>
+[  325.457405][   T45]  __schedule+0xe60/0x4120
+[  325.458906][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.460725][   T45]  ? lockdep_unlock+0xe7/0x240
+[  325.462344][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.464212][   T45]  ? __pfx___schedule+0x10/0x10
+[  325.465796][   T45]  ? schedule+0x19d/0x210
+[  325.467247][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.469064][   T45]  ? __pfx_lock_release+0x10/0x10
+[  325.470829][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  325.472433][   T45]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  325.474295][   T45]  schedule+0xd4/0x210
+[  325.475669][   T45]  schedule_timeout+0x239/0x280
+[  325.477298][   T45]  ? __pfx_schedule_timeout+0x10/0x10
+[  325.479085][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.480917][   T45]  ? mark_held_locks+0x9e/0xe0
+[  325.482530][   T45]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  325.484287][   T45]  ? _raw_spin_unlock_irq+0x23/0x50
+[  325.486041][   T45]  ? _raw_spin_unlock_irq+0x23/0x50
+[  325.487832][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.489644][   T45]  wait_for_completion+0x181/0x2a0
+[  325.491359][   T45]  ? __pfx_wait_for_completion+0x10/0x10
+[  325.493258][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.495098][   T45]  ? write_comp_data+0x29/0x90
+[  325.496735][   T45]  ? touch_wq_lockdep_map+0x9c/0x1c0
+[  325.498496][   T45]  ? __flush_work+0x4b0/0xcb0
+[  325.500087][   T45]  __flush_work+0x7ad/0xcb0
+[  325.501625][   T45]  ? __pfx___flush_work+0x10/0x10
+[  325.503326][   T45]  ? __pfx_wq_barrier_func+0x10/0x10
+[  325.505102][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.507023][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.508848][   T45]  ? preempt_schedule_common+0x49/0xc0
+[  325.510657][   T45]  lru_add_drain_all+0x18a/0x650
+[  325.512314][   T45]  ? srso_alias_return_thunk+0xb/0xfbef5
+[  325.514209][   T45]  invalidate_bdev+0x77/0xa0
+[  325.515712][   T45]  btrfs_get_bdev_and_sb+0xf2/0x280
+[  325.517456][   T45]  open_fs_devices+0x808/0x1190
+[  325.519073][   T45]  ? list_sort+0x739/0x9a0
+[  325.520629][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.522485][   T45]  ? __pfx_open_fs_devices+0x10/0x10
+[  325.524317][   T45]  ? __pfx_btrfs_scan_one_device+0x10/0x10
+[  325.526256][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.528090][   T45]  btrfs_open_devices+0x11c/0x150
+[  325.529796][   T45]  btrfs_get_tree+0x47c/0x1c40
+[  325.531435][   T45]  ? __pfx_btrfs_get_tree+0x10/0x10
+[  325.533219][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.535038][   T45]  ? rcu_is_watching+0x12/0xc0
+[  325.536696][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.538615][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.540556][   T45]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  325.542396][   T45]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  325.544228][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.546072][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.547946][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.549755][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.551611][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.553433][   T45]  ? write_comp_data+0x29/0x90
+[  325.555036][   T45]  vfs_get_tree+0x93/0x340
+[  325.556603][   T45]  fc_mount+0x17/0xd0
+[  325.558125][   T45]  btrfs_get_tree+0xa1b/0x1c40
+[  325.559742][   T45]  ? __pfx_btrfs_get_tree+0x10/0x10
+[  325.561465][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.563314][   T45]  ? write_comp_data+0x29/0x90
+[  325.564902][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.566723][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.568514][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.570342][   T45]  ? write_comp_data+0x29/0x90
+[  325.571926][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.573727][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.575545][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.577352][   T45]  ? write_comp_data+0x29/0x90
+[  325.578965][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.580789][   T45]  vfs_get_tree+0x93/0x340
+[  325.582328][   T45]  path_mount+0x1272/0x1ba0
+[  325.583871][   T45]  ? __pfx_path_mount+0x10/0x10
+[  325.585483][   T45]  ? putname.part.0+0x105/0x150
+[  325.587091][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.588934][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.590769][   T45]  ? putname.part.0+0x105/0x150
+[  325.592402][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.594254][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.596073][   T45]  do_mount+0xf8/0x110
+[  325.597534][   T45]  ? __pfx_do_mount+0x10/0x10
+[  325.599125][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.600958][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.602760][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.604593][   T45]  __x64_sys_mount+0x193/0x230
+[  325.606226][   T45]  do_syscall_64+0xc3/0x1d0
+[  325.607762][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  325.609690][   T45] RIP: 0033:0x7fcca880c51e
+[  325.611197][   T45] RSP: 002b:00007fcca825b9b8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[  325.613793][   T45] RAX: ffffffffffffffda RBX: 000000000000559d RCX: 00007fcca880c51e
+[  325.616286][   T45] RDX: 00000000200055c0 RSI: 0000000020005600 RDI: 00007fcca825ba10
+[  325.618738][   T45] RBP: 00007fcca825ba50 R08: 00007fcca825ba50 R09: 0000000000000000
+[  325.621199][   T45] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000200055c0
+[  325.623667][   T45] R13: 0000000020005600 R14: 00007fcca825ba10 R15: 0000000020000440
+[  325.626224][   T45]  </TASK>
+[  325.627414][   T45] INFO: task syz.2.18:1950 blocked for more than 144 seconds.
+[  325.630255][   T45]       Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  325.632806][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  325.636010][   T45] task:syz.2.18        state:D stack:23776 pid:1950  tgid:1949  ppid:697    flags:0x00000004
+[  325.639874][   T45] Call Trace:
+[  325.641229][   T45]  <TASK>
+[  325.642447][   T45]  __schedule+0xe60/0x4120
+[  325.644024][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  325.645699][   T45]  ? __pfx___schedule+0x10/0x10
+[  325.647321][   T45]  ? schedule+0x19d/0x210
+[  325.648770][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.650631][   T45]  ? __pfx_lock_release+0x10/0x10
+[  325.652372][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.654230][   T45]  ? mark_held_locks+0x9e/0xe0
+[  325.655862][   T45]  schedule+0xd4/0x210
+[  325.657237][   T45]  schedule_preempt_disabled+0x13/0x30
+[  325.659071][   T45]  __mutex_lock+0xf74/0x1eb0
+[  325.660681][   T45]  ? btrfs_get_tree+0x3b6/0x1c40
+[  325.662386][   T45]  ? __pfx___mutex_lock+0x10/0x10
+[  325.664054][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.665910][   T45]  ? find_held_lock+0x2c/0x110
+[  325.667539][   T45]  ? __kmalloc_node_track_caller_noprof+0xba/0x560
+[  325.669650][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.671502][   T45]  ? btrfs_get_tree+0x3b6/0x1c40
+[  325.673210][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.675080][   T45]  btrfs_get_tree+0x3b6/0x1c40
+[  325.677110][   T45]  ? __pfx_btrfs_get_tree+0x10/0x10
+[  325.678915][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.680734][   T45]  ? rcu_is_watching+0x12/0xc0
+[  325.682383][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.684226][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.686062][   T45]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  325.687935][   T45]  ? lockdep_init_map_type+0x2cb/0x7f0
+[  325.689783][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.691691][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.693542][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.695390][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.697211][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.699092][   T45]  ? write_comp_data+0x29/0x90
+[  325.700747][   T45]  vfs_get_tree+0x93/0x340
+[  325.702330][   T45]  fc_mount+0x17/0xd0
+[  325.703695][   T45]  btrfs_get_tree+0xa1b/0x1c40
+[  325.705352][   T45]  ? __pfx_btrfs_get_tree+0x10/0x10
+[  325.707090][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.708974][   T45]  ? write_comp_data+0x29/0x90
+[  325.710571][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.712417][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.714584][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.716583][   T45]  ? write_comp_data+0x29/0x90
+[  325.718342][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.720315][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.722296][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.724299][   T45]  ? write_comp_data+0x29/0x90
+[  325.726046][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.728051][   T45]  vfs_get_tree+0x93/0x340
+[  325.729754][   T45]  path_mount+0x1272/0x1ba0
+[  325.731459][   T45]  ? __pfx_path_mount+0x10/0x10
+[  325.733238][   T45]  ? putname.part.0+0x105/0x150
+[  325.735034][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.737018][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.739039][   T45]  ? putname.part.0+0x105/0x150
+[  325.740875][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.742856][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.744890][   T45]  do_mount+0xf8/0x110
+[  325.746539][   T45]  ? __pfx_do_mount+0x10/0x10
+[  325.748239][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.750085][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  325.751981][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  325.753834][   T45]  __x64_sys_mount+0x193/0x230
+[  325.755468][   T45]  do_syscall_64+0xc3/0x1d0
+[  325.757037][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  325.759079][   T45] RIP: 0033:0x7f28881fc51e
+[  325.760609][   T45] RSP: 002b:00007f2887c4b9b8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[  325.763274][   T45] RAX: ffffffffffffffda RBX: 000000000000559d RCX: 00007f28881fc51e
+[  325.765764][   T45] RDX: 00000000200055c0 RSI: 0000000020005600 RDI: 00007f2887c4ba10
+[  325.768335][   T45] RBP: 00007f2887c4ba50 R08: 00007f2887c4ba50 R09: 0000000000000000
+[  325.770860][   T45] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000200055c0
+[  325.773344][   T45] R13: 0000000020005600 R14: 00007f2887c4ba10 R15: 0000000020000440
+[  325.775893][   T45]  </TASK>
+[  325.777011][   T45] 
+[  325.777011][   T45] Showing all locks held in the system:
+[  325.779459][   T45] 4 locks held by kworker/u17:1/43:
+[  325.781204][   T45]  #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0
+[  325.784986][   T45]  #1: ffa0000000307d98 ((work_completion)(&rdev->wiphy_work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0
+[  325.788934][   T45]  #2: ff11000021678768 (&rdev->wiphy.mtx){+.+.}-{4:4}, at: cfg80211_wiphy_work+0x9c/0x750
+[  325.792220][   T45]  #3: ffffffff95b27ef8 (rcu_state.exp_mutex){+.+.}-{4:4}, at: exp_funnel_lock+0x1bc/0x3d0
+[  325.795455][   T45] 1 lock held by khungtaskd/45:
+[  325.797064][   T45]  #0: ffffffff95b1aea0 (rcu_read_lock){....}-{1:3}, at: debug_show_all_locks+0x75/0x340
+[  325.800358][   T45] 2 locks held by kworker/u17:2/56:
+[  325.802416][   T45] 1 lock held by journal-offline/1983:
+[  325.804301][   T45]  #0: ff11000007d72b98 (&sbi->s_writepages_rwsem){++++}-{0:0}, at: do_writepages+0x19d/0x7d0
+[  325.807834][   T45] 3 locks held by kworker/1:3/241:
+[  325.809674][   T45]  #0: ff11000001071948 ((wq_completion)events_power_efficient){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0
+[  325.813830][   T45]  #1: ffa0000001d6fd98 ((reg_check_chans).work){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0
+[  325.817753][   T45]  #2: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: reg_check_chans_work+0x8c/0x1050
+[  325.821090][   T45] 2 locks held by in:imklog/328:
+[  325.822852][   T45]  #0: ff11000008f307f8 (&f->f_pos_lock){+.+.}-{4:4}, at: fdget_pos+0x27d/0x390
+[  325.825958][   T45]  #1: ffffffff95b081a8 (syslog_lock){+.+.}-{4:4}, at: get_page_from_freelist+0x4de/0x3800
+[  325.829424][   T45] 3 locks held by kworker/u16:2/373:
+[  325.831263][   T45]  #0: ff1100000ab4d948 ((wq_completion)ipv6_addrconf){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0
+[  325.835209][   T45]  #1: ffa00000037f7d98 ((work_completion)(&(&ifa->dad_work)->work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0
+[  325.839464][   T45]  #2: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: addrconf_dad_work+0xb2/0x12c0
+[  325.842760][   T45] 1 lock held by syz-executor/699:
+[  325.844537][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.847916][   T45] 1 lock held by syz-executor/717:
+[  325.849910][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: rtnl_newlink+0x77c/0x1cb0
+[  325.853183][   T45] 1 lock held by syz-executor/720:
+[  325.854950][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: rtnetlink_rcv_msg+0x378/0xfc0
+[  325.858246][   T45] 3 locks held by syz-executor/727:
+[  325.860023][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: rtnl_newlink+0x77c/0x1cb0
+[  325.863229][   T45]  #1: ff11000021d65468 (&wg->device_update_lock){+.+.}-{4:4}, at: wg_open+0x203/0x4e0
+[  325.866562][   T45]  #2: ffffffff95b27ef8 (rcu_state.exp_mutex){+.+.}-{4:4}, at: exp_funnel_lock+0x29f/0x3d0
+[  325.869960][   T45] 1 lock held by syz-executor/735:
+[  325.871735][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.874956][   T45] 3 locks held by kworker/u17:4/810:
+[  325.876755][   T45]  #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0
+[  325.880706][   T45]  #1: ffa000000caf7d98 ((work_completion)(&rdev->wiphy_work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0
+[  325.884779][   T45]  #2: ff1100001d5b8768 (&rdev->wiphy.mtx){+.+.}-{4:4}, at: cfg80211_wiphy_work+0x9c/0x750
+[  325.888346][   T45] 1 lock held by systemd-udevd/1913:
+[  325.890203][   T45]  #0: ffffffff96215a48 (uuid_mutex){+.+.}-{4:4}, at: btrfs_control_ioctl+0x1a7/0x3d0
+[  325.893507][   T45] 2 locks held by syz.3.19/1938:
+[  325.895237][   T45]  #0: ffffffff96215a48 (uuid_mutex){+.+.}-{4:4}, at: btrfs_get_tree+0x3b6/0x1c40
+[  325.898405][   T45]  #1: ffffffff95bf3f08 (lock#8){+.+.}-{4:4}, at: lru_add_drain_all+0x63/0x650
+[  325.901498][   T45] 1 lock held by syz.0.16/1942:
+[  325.903216][   T45] 1 lock held by syz.2.18/1950:
+[  325.904895][   T45]  #0: ffffffff96215a48 (uuid_mutex){+.+.}-{4:4}, at: btrfs_get_tree+0x3b6/0x1c40
+[  325.908077][   T45] 1 lock held by syz-executor/1953:
+[  325.909874][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.913085][   T45] 1 lock held by syz-executor/1954:
+[  325.914943][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.918340][   T45] 1 lock held by syz-executor/1958:
+[  325.920359][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.923981][   T45] 1 lock held by syz-executor/1965:
+[  325.926047][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.929502][   T45] 1 lock held by syz-executor/1967:
+[  325.931524][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.934760][   T45] 1 lock held by syz-executor/1969:
+[  325.936560][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.939656][   T45] 1 lock held by syz-executor/1974:
+[  325.941348][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.944577][   T45] 1 lock held by syz-executor/1980:
+[  325.946638][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.950430][   T45] 1 lock held by syz-executor/1987:
+[  325.952718][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.956380][   T45] 1 lock held by syz-executor/1989:
+[  325.958365][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.961981][   T45] 1 lock held by syz-executor/1990:
+[  325.964024][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.967737][   T45] 1 lock held by syz-executor/1999:
+[  325.969741][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.973368][   T45] 1 lock held by syz-executor/2002:
+[  325.975405][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.978414][   T45] 1 lock held by syz-executor/2003:
+[  325.980331][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.983264][   T45] 1 lock held by syz-executor/2007:
+[  325.984906][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.987840][   T45] 1 lock held by syz-executor/2012:
+[  325.989683][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.992633][   T45] 1 lock held by syz-executor/2019:
+[  325.994279][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  325.997236][   T45] 1 lock held by syz-executor/2020:
+[  325.998893][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  326.001815][   T45] 1 lock held by syz-executor/2023:
+[  326.003414][   T45]  #0: ffffffff975b2348 (rtnl_mutex){+.+.}-{4:4}, at: inet_rtm_newaddr+0x303/0x14e0
+[  326.006474][   T45] 
+[  326.007328][   T45] =============================================
+[  326.007328][   T45] 
+[  326.009897][   T45] Kernel panic - not syncing: hung_task: blocked tasks
+[  326.010837][   T45] CPU: 2 UID: 0 PID: 45 Comm: khungtaskd Not tainted 6.13.0-rc7-00021-gd967e223948a #2
+[  326.012758][   T45] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  326.012758][   T45] Call Trace:
+[  326.018197][   T45]  <TASK>
+[  326.018197][   T45]  dump_stack_lvl+0x3d/0x1b0
+[  326.018197][   T45]  panic+0x70b/0x7c0
+[  326.022188][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  326.022188][   T45]  ? __pfx_panic+0x10/0x10
+[  326.022188][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+
+g  326.026189][ Me s sT4a5g]e   ?f rwoamt cshydog+0xb29/0x11scl0o
+d@syzkal[  l3e2r6 .026189][   T45]  watchdog+0xb47/0x11c0
+at J[a n  31256 .0093:00189:0][   T45]  ? __pfx_watchdog+0x10/0x10
+23 .[. . 
+6 .k0e3r01n9e0l][   T45]  kthread+0x345/0x450
+:[  3[2 6 .302069.809370]1[90][   T45]  ? __pfx_kthread+0x10/0x10
+   [T 4 53]2 6K.e0r35n4e8l0 ]p[   T45]  ret_from_fork+0x48/0x80
+anic[  -  3n26o.t0 3s7y3n8c7i][   T45]  ? __pfx_kthread+0x10/0x10
+ng:[   h3u2n6g._0t3a9s4k4:0 ]b[   T45]  ret_from_fork_asm+0x1a/0x30
+9o[ c k3e2d6 .t0a4s1k4s0
+[   T45]  </TASK>
+[  326.042359][   T45] Kernel Offset: 0xa000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)

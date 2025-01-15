@@ -1,0 +1,1853 @@
+[  172.306505][ T1981] loop1: detected capacity change from 0 to 32768
+[  172.316096][ T1981] BTRFS: device fsid a6a605fc-d5f1-4e66-8595-3726e2b761d6 devid 1 transid 8 /dev/loop1 (7:1) scanned by syz.1.17 (1981)
+[  172.543714][ T1983] loop0: detected capacity change from 0 to 32768
+[  173.011690][ T1985] syz.8.25 (1985) used greatest stack depth: 23008 bytes left
+[  214.981720][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 43s!
+[  214.984904][    C0] Showing busy workqueues and worker pools:
+[  214.986755][    C0] workqueue events: flags=0x0
+[  214.988512][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  214.988615][    C0]     pending: nsim_dev_hwstats_traffic_work
+[  214.988695][    C0] workqueue events_unbound: flags=0x2
+[  214.994977][    C0]   pwq 17: cpus=0-3 node=0 flags=0x4 nice=0 active=1 refcnt=2
+[  214.995111][    C0]     pending: toggle_allocation_gate
+[  214.995242][    C0] workqueue mm_percpu_wq: flags=0x8
+[  215.001635][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  215.001738][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+
+[  215.001847][    C0] workqueue kblockd: flags=0x18
+[  215.008598][    C0]   pwq 15: cpus=3 node=0 flags=0x0 nice=-20 active=1 refcnt=2
+[  215.008700][    C0]     in-flight: 149:blk_mq_run_work_fn
+[  215.008866][    C0] workqueue ipv6_addrconf: flags=0x6000a
+
+ kernel:[  214.981720][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 43s!
+[  215.017432][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=129
+[  215.017536][    C0]     in-flight: 437:addrconf_dad_work
+[  215.017675][    C0]     inactive: 121*addrconf_dad_work, 2*addrconf_verify_work
+[  215.027696][    C0] workqueue wg-kex-wg0: flags=0x24
+[  215.029417][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.029526][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.029602][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  215.035633][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  215.035736][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  215.035847][    C0] workqueue wg-kex-wg1: flags=0x24
+[  215.042128][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.042237][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.042328][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  215.048331][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.048451][    C0]     pending: wg_packet_decrypt_worker
+[  215.052483][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  215.052587][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  215.052732][    C0] workqueue wg-kex-wg2: flags=0x24
+[  215.059563][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.059669][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.059744][    C0] workqueue wg-kex-wg2: flags=0x6
+[  215.065760][    C0]   pwq 17: cpus=0-3 node=0 flags=0x4 nice=0 active=1 refcnt=2
+[  215.065865][    C0]     pending: wg_packet_handshake_send_worker
+[  215.065934][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  215.072116][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  215.072219][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  215.076927][    C0] workqueue wg-kex-wg0: flags=0x24
+[  215.078547][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.078655][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.078731][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  215.084867][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  215.084972][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  215.085081][    C0] workqueue wg-kex-wg1: flags=0x24
+[  215.091423][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.091539][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.091615][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  215.097526][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  215.097631][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  215.097774][    C0] workqueue wg-kex-wg2: flags=0x24
+[  215.104890][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.104996][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.105072][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  215.111118][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  215.111223][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  215.115959][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  215.117623][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  215.117725][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  215.117872][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  215.124681][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  215.124783][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  215.124940][    C0] workqueue wg-kex-wg1: flags=0x24
+[  215.131708][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.131814][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.131899][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  215.137951][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  215.138054][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  215.138163][    C0] workqueue wg-kex-wg2: flags=0x24
+[  215.144552][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.144659][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.144735][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  215.150812][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  215.150918][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  215.151065][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  215.158026][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.158134][    C0]     pending: wg_packet_decrypt_worker
+[  215.158206][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  215.163924][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  215.164027][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  215.164174][    C0] workqueue wg-kex-wg1: flags=0x24
+[  215.170989][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.171097][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.171172][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  215.177203][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  215.177321][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  215.182027][    C0] workqueue wg-kex-wg2: flags=0x24
+[  215.183664][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.183771][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.183846][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  215.189794][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  215.189897][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  215.190050][    C0] workqueue wg-kex-wg0: flags=0x24
+[  215.196981][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.197087][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.197162][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  215.203493][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  215.203598][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  215.203707][    C0] workqueue wg-kex-wg1: flags=0x24
+[  215.210565][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.210669][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.210742][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  215.217550][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.217656][    C0]     pending: wg_packet_tx_worker
+[  215.217720][    C0] workqueue wg-kex-wg2: flags=0x24
+[  215.224029][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.224135][    C0]     pending: wg_packet_handshake_receive_worker
+[  215.224209][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  215.230474][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  215.230576][    C0]     pending: wg_packet_decrypt_worker
+[  215.230684][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=5 idle: 13 758 439 11
+[  215.230896][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  227.504916][ T2156] syz.8.99 (2156) used greatest stack depth: 22560 bytes left
+[  245.701439][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 73s!
+[  245.704811][    C0] Showing busy workqueues and worker pools:
+[  245.706919][    C0] workqueue events_unbound: flags=0x2
+
+[  245.709236][    C0]   pwq 18: cpus=0-3 node=0 flags=0x4 nice=0 active=3 refcnt=4
+[  245.709338][    C0]     in-flight: 1325:cfg80211_wiphy_work cfg80211_wiphy_work ,38:cfg80211_wiphy_work
+Message from syslogd@syzkaller at Jan 15 08:33:34 ...
+ kernel:[  245.701439][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 73s!
+[  245.720541][    C0]   pwq 20: cpus=0-3 node=0 flags=0x4 nice=0 active=3 refcnt=4
+[  245.720646][    C0]     in-flight: 192:cfg80211_wiphy_work cfg80211_wiphy_work ,1294:cfg80211_wiphy_work
+[  245.720841][    C0] workqueue events_power_efficient: flags=0x80
+[  245.728733][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.728834][    C0]     in-flight: 1609:reg_check_chans_work
+[  245.728939][    C0] workqueue mm_percpu_wq: flags=0x8
+[  245.735180][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  245.735300][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+[  245.739920][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  245.741810][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=129
+[  245.741898][    C0]     in-flight: 437:addrconf_dad_work
+[  245.742025][    C0]     inactive: 121*addrconf_dad_work, 2*addrconf_verify_work
+[  245.742232][    C0] workqueue wg-kex-wg0: flags=0x24
+[  245.750616][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.750725][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.750801][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  245.757210][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  245.757313][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  245.762422][    C0] workqueue wg-kex-wg1: flags=0x24
+[  245.764165][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.764272][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.768918][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  245.770676][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.770785][    C0]     pending: wg_packet_encrypt_worker
+[  245.770848][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  245.770977][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  245.771153][    C0] workqueue wg-kex-wg2: flags=0x24
+[  245.782840][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.782966][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.783063][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  245.789497][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  245.789601][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  245.789711][    C0] workqueue wg-kex-wg0: flags=0x24
+[  245.796481][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.796587][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.796664][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  245.802945][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  245.803076][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  245.803186][    C0] workqueue wg-kex-wg1: flags=0x24
+[  245.810015][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.810121][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.810202][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  245.816603][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  245.816707][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  245.816853][    C0] workqueue wg-kex-wg2: flags=0x24
+[  245.824406][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.824513][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.824589][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  245.831249][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  245.831373][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  245.836583][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  245.838426][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  245.838528][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  245.838681][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  245.846234][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  245.846362][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  245.852153][    C0] workqueue wg-kex-wg1: flags=0x24
+[  245.853952][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.854059][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.854136][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  245.860590][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  245.860693][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  245.860803][    C0] workqueue wg-kex-wg2: flags=0x24
+[  245.867745][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.867851][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.867940][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  245.874423][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  245.874528][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  245.874675][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  245.882217][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  245.882332][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  245.887587][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  245.889425][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.889528][    C0]     pending: wg_packet_encrypt_worker
+[  245.889590][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  245.889692][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  245.889838][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  245.901702][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.901810][    C0]     pending: wg_packet_encrypt_worker
+[  245.901878][    C0] workqueue wg-kex-wg1: flags=0x24
+[  245.908069][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.908176][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.908253][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  245.914695][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  245.914800][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  245.914910][    C0] workqueue wg-kex-wg2: flags=0x24
+[  245.921797][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.921906][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.921991][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  245.928528][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  245.928631][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  245.928784][    C0] workqueue wg-kex-wg0: flags=0x24
+[  245.936413][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.936521][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.936597][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  245.943232][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  245.943356][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  245.948590][    C0] workqueue wg-kex-wg1: flags=0x24
+[  245.950394][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.950501][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.950577][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  245.957007][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.957119][    C0]     pending: wg_packet_tx_worker
+[  245.957188][    C0] workqueue wg-kex-wg2: flags=0x24
+[  245.963306][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  245.963437][    C0]     pending: wg_packet_handshake_receive_worker
+[  245.968131][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  245.969889][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  245.970005][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  245.970151][    C0] pool 14: cpus=3 node=0 flags=0x0 nice=0 hung=0s workers=7 idle: 1677 1608 194 35 1562
+[  245.978403][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=5 idle: 13 758 439 11
+[  245.978610][    C0] pool 18: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=6 idle: 115 47 1190 64
+[  245.978827][    C0] pool 20: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=6 idle: 80 2183 40 560
+[  245.979086][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  276.422273][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 104s!
+
+[  276.426778][    C0] Showing busy workqueues and worker pools:
+[  276.432004][    C0] workqueue events_unbound: flags=0x2
+
+[  276.434028][    C0]   pwq 17: cpus=0-3 node=0 flags=0x4 nice=0 active=1 refcnt=2
+[  276.434134][    C0]     pending: kfree_rcu_monitor
+[  276.434197][    C0]   pwq 18: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  276.434293][    C0]     in-flight: 1325:cfg80211_wiphy_work cfg80211_wiphy_work ,38:cfg80211_wiphy_work cfg80211_wiphy_work
+ kernel:[  276.422273][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 104s![  276.445644][    C0]   pwq 20: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  276.445750][    C0]     in-flight: 192:cfg80211_wiphy_work cfg80211_wiphy_work ,1294:cfg80211_wiphy_work cfg80211_wiphy_work
+
+[  276.456134][    C0] workqueue events_power_efficient: flags=0x80
+[  276.458461][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.458574][    C0]     in-flight: 1609:reg_check_chans_work
+[  276.458665][    C0] workqueue mm_percpu_wq: flags=0x8
+[  276.465982][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  276.466085][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+[  276.466245][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  276.473231][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=129
+[  276.473368][    C0]     in-flight: 437:addrconf_dad_work
+[  276.473494][    C0]     inactive: 121*addrconf_dad_work, 2*addrconf_verify_work
+[  276.480292][    C0] workqueue wg-kex-wg0: flags=0x24
+[  276.482043][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.482153][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.482229][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  276.488740][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  276.488852][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  276.488975][    C0] workqueue wg-kex-wg1: flags=0x24
+[  276.495820][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.495928][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.496004][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  276.502401][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  276.502504][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  276.502668][    C0] workqueue wg-kex-wg2: flags=0x24
+[  276.510731][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.510850][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.510933][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  276.517424][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  276.517525][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  276.517657][    C0] workqueue wg-kex-wg0: flags=0x24
+[  276.524431][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.524561][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.524637][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  276.531030][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  276.531137][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  276.531252][    C0] workqueue wg-kex-wg1: flags=0x24
+[  276.537920][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.538027][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.538103][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  276.544876][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  276.544982][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  276.545127][    C0] workqueue wg-kex-wg2: flags=0x24
+[  276.552526][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.552655][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.552732][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  276.558910][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  276.559015][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  276.559125][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  276.565814][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  276.565915][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  276.566070][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  276.573576][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  276.573677][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  276.573823][    C0] workqueue wg-kex-wg1: flags=0x24
+[  276.580882][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.580989][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.581064][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  276.587248][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  276.587370][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  276.592410][    C0] workqueue wg-kex-wg2: flags=0x24
+[  276.594104][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.594212][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.594290][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  276.600501][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  276.600614][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  276.600758][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  276.607992][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  276.608104][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  276.608214][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  276.614973][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  276.615076][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  276.615222][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  276.622429][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.622554][    C0]     pending: wg_packet_encrypt_worker
+[  276.622621][    C0] workqueue wg-kex-wg1: flags=0x24
+[  276.628605][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.628712][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.628789][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  276.635038][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  276.635141][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  276.635251][    C0] workqueue wg-kex-wg2: flags=0x24
+[  276.641902][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.642026][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.642106][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  276.648403][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  276.648506][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  276.648680][    C0] workqueue wg-kex-wg0: flags=0x24
+[  276.655828][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.655936][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.656011][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  276.662240][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  276.662375][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  276.667315][    C0] workqueue wg-kex-wg1: flags=0x24
+[  276.669048][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.669153][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.669227][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  276.675484][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  276.675610][    C0]     pending: wg_packet_tx_worker, wg_packet_decrypt_worker
+[  276.675717][    C0] workqueue wg-kex-wg2: flags=0x24
+[  276.682279][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  276.682409][    C0]     pending: wg_packet_handshake_receive_worker
+[  276.686869][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  276.688604][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  276.688709][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  276.688855][    C0] pool 14: cpus=3 node=0 flags=0x0 nice=0 hung=0s workers=7 idle: 1677 1608 65 194 35 1562
+[  276.689113][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=5 idle: 13 758 439 11
+[  276.689305][    C0] pool 18: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 47 1190 2301 115 64
+[  276.703259][    C0] pool 20: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=6 idle: 80 2183 40 560
+[  276.706523][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  276.757400][    C0] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[  276.758380][    C0] rcu: 	2-....: (1 GPs behind) idle=603c/1/0x4000000000000000 softirq=22634/22635 fqs=24679
+[  276.758380][    C0] rcu: 	(detected by 0, t=105008 jiffies, g=48401, q=27142 ncpus=4)
+[  276.758380][    C0] Sending NMI from CPU 0 to CPUs 2:
+[  276.763851][    C2] NMI backtrace for cpu 2
+[  276.763851][    C2] CPU: 2 UID: 0 PID: 1957 Comm: syz.2.18 Not tainted 6.13.0-rc7 #1
+[  276.763851][    C2] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  276.763851][    C2] RIP: 0010:__rcu_read_unlock+0xc6/0x570
+[  276.763851][    C2] Code: b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 0f b6 04 02 84 c0 74 08 3c 03 0f 8e bf 01 00 00 8b 85 00 04 00 00 85 c0 75 57 <65> 48 8b 1d 82 ad 92 5e 48 8d bb fc 03 00 00 48 b8 00 00 00 00 00
+[  276.763851][    C2] RSP: 0000:ffa0000000240dc0 EFLAGS: 00000206
+[  276.763851][    C2] RAX: 0000000000000002 RBX: ff1100006a33d240 RCX: 1ffffffff5b773f1
+[  276.768415][    C2] RDX: 0000000000000000 RSI: 0000000000000100 RDI: 0000000000000000
+[  276.768415][    C2] RBP: ffffffffabd26380 R08: 0000000000000001 R09: 0000000000000001
+[  276.768415][    C2] R10: fffffbfff5b77b5a R11: ffffffffadbbdad7 R12: 0000000000000001
+[  276.768415][    C2] R13: 0000000000000200 R14: ff11000007268e00 R15: ff1100006a32ce40
+[  276.768415][    C2] FS:  00007f69381a1700(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+[  276.768415][    C2] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  276.768415][    C2] CR2: 0000000000000102 CR3: 000000001ff3c003 CR4: 0000000000771ef0
+[  276.768415][    C2] PKRU: 00000000
+[  276.768415][    C2] Call Trace:
+[  276.768415][    C2]  <NMI>
+[  276.768415][    C2]  ? nmi_cpu_backtrace+0x1d4/0x350
+[  276.768415][    C2]  ? nmi_cpu_backtrace_handler+0xc/0x20
+[  276.768415][    C2]  ? nmi_handle+0x1b8/0x5f0
+[  276.768415][    C2]  ? irqentry_nmi_enter+0x80/0x90
+[  276.768415][    C2]  ? __rcu_read_unlock+0xc6/0x570
+[  276.768415][    C2]  ? default_do_nmi+0x88/0x220
+[  276.768415][    C2]  ? exc_nmi+0x270/0x320
+[  276.768415][    C2]  ? end_repeat_nmi+0xf/0x53
+[  276.768415][    C2]  ? __rcu_read_unlock+0xc6/0x570
+[  276.768415][    C2]  ? __rcu_read_unlock+0xc6/0x570
+[  276.768415][    C2]  ? __rcu_read_unlock+0xc6/0x570
+[  276.768415][    C2]  </NMI>
+[  276.768415][    C2]  <IRQ>
+[  276.768415][    C2]  mac80211_hwsim_beacon+0x105/0x200
+[  276.768415][    C2]  __hrtimer_run_queues+0x1b5/0xca0
+[  276.768415][    C2]  ? __pfx_mac80211_hwsim_beacon+0x10/0x10
+[  276.768415][    C2]  ? __pfx___hrtimer_run_queues+0x10/0x10
+[  276.768415][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  276.768415][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  276.768415][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  276.768415][    C2]  hrtimer_run_softirq+0x17f/0x2e0
+[  276.768415][    C2]  handle_softirqs+0x1ad/0x870
+[  276.768415][    C2]  irq_exit_rcu+0xee/0x140
+[  276.768415][    C2]  sysvec_apic_timer_interrupt+0x94/0xb0
+[  276.768415][    C2]  </IRQ>
+[  276.768415][    C2]  <TASK>
+[  276.768415][    C2]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  276.768415][    C2] RIP: 0010:do_user_addr_fault+0x26d/0x18b0
+[  276.768415][    C2] Code: 00 31 ff 81 e3 00 02 00 00 48 89 de e8 3c 80 49 00 48 85 db 0f 84 9f 08 00 00 e8 ce 7d 49 00 e8 79 92 51 00 fb 0f 1f 44 00 00 <e8> be 7d 49 00 4c 89 e0 31 ff 45 31 ff 83 e0 40 48 89 c3 48 89 c6
+[  276.768415][    C2] RSP: 0000:ffa0000004ff7ea0 EFLAGS: 00000202
+[  276.768415][    C2] RAX: 000000000000450b RBX: 0000000000000200 RCX: 1ffffffff5b773f1
+[  276.768415][    C2] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+[  276.768415][    C2] RBP: ffa0000004ff7f58 R08: 0000000000000001 R09: 0000000000000001
+[  276.768415][    C2] R10: fffffbfff5b77b5a R11: ffffffffadbbdad7 R12: 0000000000000004
+[  276.768415][    C2] R13: 00007f6930aad000 R14: 00007f6930aad000 R15: 0000000000000000
+[  276.768415][    C2]  ? irqentry_enter_from_user_mode+0x5b/0x90
+[  276.768415][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  276.768415][    C2]  ? write_comp_data+0x29/0x90
+[  276.768415][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  276.768415][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  276.768415][    C2]  exc_page_fault+0x9c/0x1a0
+[  276.768415][    C2]  asm_exc_page_fault+0x26/0x30
+[  276.768415][    C2] RIP: 0033:0x7f69385ef7de
+[  276.768415][    C2] Code: 48 39 c1 77 75 48 63 d5 48 01 c2 49 3b 57 08 77 53 8d 55 ff 85 ed 74 34 0f 1f 40 00 48 39 c1 77 1b 49 8b 37 49 89 c1 49 29 c9 <46> 0f b6 0c 0e 45 84 c9 74 08 44 88 0c 06 49 8b 47 10 48 83 c0 01
+[  276.768415][    C2] RSP: 002b:00007f69381a0020 EFLAGS: 00010206
+[  276.768415][    C2] RAX: 0000000000d2c001 RBX: 00007f69381a0090 RCX: 0000000000000001
+[  276.768415][    C2] RDX: 00000000000000bc RSI: 00007f692fd81000 RDI: 00007f69381a0130
+[  276.768415][    C2] RBP: 0000000000000102 R08: 0000000000000000 R09: 0000000000d2c000
+[  276.768415][    C2] R10: 00000000ffffffff R11: 0000000000000010 R12: 00007f69381a0098
+[  276.768415][    C2] R13: 00007f69381a00a0 R14: 0000000000000000 R15: 00007f69381a0130
+[  276.768415][    C2]  </TASK>
+[  283.521957][ T2332] syz.8.171 (2332) used greatest stack depth: 21920 bytes left
+[  305.096877][   T19] rcu: INFO: rcu_preempt detected expedited stalls on CPUs/tasks: { 2-.... } 133340 jiffies s: 2409 root: 0x4/.
+[  305.101785][   T19] rcu: blocking rcu_node structures (internal RCU debug):
+[  305.104744][   T19] Sending NMI from CPU 3 to CPUs 2:
+[  305.103414][    C2] NMI backtrace for cpu 2
+[  305.103414][    C2] CPU: 2 UID: 0 PID: 1957 Comm: syz.2.18 Not tainted 6.13.0-rc7 #1
+[  305.103414][    C2] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  305.103414][    C2] RIP: 0010:apic_mem_wait_icr_idle+0xf/0x20
+[  305.103414][    C2] Code: 2e 0f 1f 84 00 00 00 00 00 66 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 f3 0f 1e fa eb 02 f3 90 8b 04 25 00 c3 5f ff <f6> c4 10 75 f2 e9 72 94 33 08 0f 1f 80 00 00 00 00 90 90 90 90 90
+[  305.103414][    C2] RSP: 0000:ffa0000000240698 EFLAGS: 00000006
+[  305.103414][    C2] RAX: 00000000000400f6 RBX: 0000000000000001 RCX: ffffffffa134659c
+[  305.107412][    C2] RDX: 0000000000000001 RSI: 00000000000400f6 RDI: 0000000000040000
+[  305.107412][    C2] RBP: 0000000000000001 R08: 0000000000000000 R09: fff3fc00000480c8
+[  305.107412][    C2] R10: fff3fc00000480c7 R11: ffa000000024063f R12: 0000000000000002
+[  305.107412][    C2] R13: ff1100006a33d270 R14: ff1100006a33d468 R15: ffa0000000240758
+[  305.107412][    C2] FS:  00007f69381a1700(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+[  305.107412][    C2] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  305.107412][    C2] CR2: 0000000000000102 CR3: 000000001ff3c003 CR4: 0000000000771ef0
+[  305.107412][    C2] PKRU: 00000000
+[  305.107412][    C2] Call Trace:
+[  305.107412][    C2]  <NMI>
+[  305.107412][    C2]  ? nmi_cpu_backtrace+0x1d4/0x350
+[  305.107412][    C2]  ? nmi_cpu_backtrace_handler+0xc/0x20
+[  305.107412][    C2]  ? nmi_handle+0x1b8/0x5f0
+[  305.107412][    C2]  ? __rcu_read_unlock+0xc6/0x570
+[  305.107412][    C2]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  305.107412][    C2]  ? default_do_nmi+0x88/0x220
+[  305.107412][    C2]  ? exc_nmi+0x270/0x320
+[  305.107412][    C2]  ? end_repeat_nmi+0xf/0x53
+[  305.107412][    C2]  ? arch_irq_work_raise+0x3c/0x70
+[  305.107412][    C2]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  305.107412][    C2]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  305.107412][    C2]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  305.107412][    C2]  </NMI>
+[  305.107412][    C2]  <IRQ>
+[  305.107412][    C2]  arch_irq_work_raise+0x54/0x70
+[  305.107412][    C2]  __irq_work_queue_local+0x14c/0x450
+[  305.107412][    C2]  irq_work_queue_on+0x156/0x170
+[  305.107412][    C2]  __rcu_read_unlock+0x440/0x570
+[  305.107412][    C2]  perf_event_output_forward+0x16a/0x2c0
+[  305.107412][    C2]  ? __pfx_perf_event_output_forward+0x10/0x10
+[  305.107412][    C2]  ? select_task_rq_fair+0x52e/0x3cc0
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? __pfx_lock_release+0x10/0x10
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? write_comp_data+0x29/0x90
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  __perf_event_overflow+0x1e4/0x8f0
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? find_held_lock+0x2c/0x110
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  perf_swevent_overflow+0xac/0x150
+[  305.107412][    C2]  perf_swevent_event+0x1e9/0x2e0
+[  305.107412][    C2]  perf_tp_event+0x227/0xfe0
+[  305.107412][    C2]  ? __pfx_perf_tp_event+0x10/0x10
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? find_held_lock+0x2c/0x110
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? ep_poll_callback+0x8de/0xe30
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? __pfx_lock_release+0x10/0x10
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? do_raw_spin_unlock+0x53/0x250
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? write_comp_data+0x29/0x90
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.107412][    C2]  ? find_held_lock+0x2c/0x110
+[  305.107412][    C2]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  305.107412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.111425][    C2]  ? write_comp_data+0x29/0x90
+[  305.111425][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.111425][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  305.111425][    C2]  perf_trace_run_bpf_submit+0xef/0x180
+[  305.111425][    C2]  perf_trace_preemptirq_template+0x287/0x450
+[  305.111425][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.111425][    C2]  ? __wake_up_common_lock+0x41/0x60
+[  305.111425][    C2]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  305.111425][    C2]  ? irq_work_single+0x1b0/0x260
+[  305.111425][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.111425][    C2]  ? write_comp_data+0x29/0x90
+[  305.111425][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.111425][    C2]  ? write_comp_data+0x29/0x90
+[  305.111425][    C2]  ? irqentry_exit+0x3b/0x90
+[  305.111425][    C2]  trace_hardirqs_on+0xf2/0x160
+[  305.111425][    C2]  irqentry_exit+0x3b/0x90
+[  305.111425][    C2]  asm_sysvec_irq_work+0x1a/0x20
+[  305.111425][    C2] RIP: 0010:__rcu_read_unlock+0xc6/0x570
+[  305.111425][    C2] Code: b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 0f b6 04 02 84 c0 74 08 3c 03 0f 8e bf 01 00 00 8b 85 00 04 00 00 85 c0 75 57 <65> 48 8b 1d 82 ad 92 5e 48 8d bb fc 03 00 00 48 b8 00 00 00 00 00
+[  305.111425][    C2] RSP: 0000:ffa0000000240dc0 EFLAGS: 00000206
+[  305.111425][    C2] RAX: 0000000000000002 RBX: ff1100006a33d240 RCX: 1ffffffff5b773f1
+[  305.111425][    C2] RDX: 0000000000000000 RSI: 0000000000000100 RDI: 0000000000000000
+[  305.111425][    C2] RBP: ffffffffabd26380 R08: 0000000000000001 R09: 0000000000000001
+[  305.111425][    C2] R10: fffffbfff5b77b5a R11: ffffffffadbbdad7 R12: 0000000000000001
+[  305.111425][    C2] R13: 0000000000000200 R14: ff11000007268e00 R15: ff1100006a32ce40
+[  305.111425][    C2]  mac80211_hwsim_beacon+0x105/0x200
+[  305.111425][    C2]  __hrtimer_run_queues+0x1b5/0xca0
+[  305.111425][    C2]  ? __pfx_mac80211_hwsim_beacon+0x10/0x10
+[  305.111425][    C2]  ? __pfx___hrtimer_run_queues+0x10/0x10
+[  305.111425][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.111425][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  305.111425][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.111425][    C2]  hrtimer_run_softirq+0x17f/0x2e0
+[  305.111425][    C2]  handle_softirqs+0x1ad/0x870
+[  305.111425][    C2]  irq_exit_rcu+0xee/0x140
+[  305.111425][    C2]  sysvec_apic_timer_interrupt+0x94/0xb0
+[  305.111425][    C2]  </IRQ>
+[  305.111425][    C2]  <TASK>
+[  305.111425][    C2]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  305.111425][    C2] RIP: 0010:do_user_addr_fault+0x26d/0x18b0
+[  305.111425][    C2] Code: 00 31 ff 81 e3 00 02 00 00 48 89 de e8 3c 80 49 00 48 85 db 0f 84 9f 08 00 00 e8 ce 7d 49 00 e8 79 92 51 00 fb 0f 1f 44 00 00 <e8> be 7d 49 00 4c 89 e0 31 ff 45 31 ff 83 e0 40 48 89 c3 48 89 c6
+[  305.111425][    C2] RSP: 0000:ffa0000004ff7ea0 EFLAGS: 00000202
+[  305.111425][    C2] RAX: 000000000000450b RBX: 0000000000000200 RCX: 1ffffffff5b773f1
+[  305.111425][    C2] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+[  305.111425][    C2] RBP: ffa0000004ff7f58 R08: 0000000000000001 R09: 0000000000000001
+[  305.111425][    C2] R10: fffffbfff5b77b5a R11: ffffffffadbbdad7 R12: 0000000000000004
+[  305.111425][    C2] R13: 00007f6930aad000 R14: 00007f6930aad000 R15: 0000000000000000
+[  305.111425][    C2]  ? irqentry_enter_from_user_mode+0x5b/0x90
+[  305.111425][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.111425][    C2]  ? write_comp_data+0x29/0x90
+[  305.111425][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  305.111425][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  305.111425][    C2]  exc_page_fault+0x9c/0x1a0
+[  305.111425][    C2]  asm_exc_page_fault+0x26/0x30
+[  305.111425][    C2] RIP: 0033:0x7f69385ef7de
+[  305.111425][    C2] Code: 48 39 c1 77 75 48 63 d5 48 01 c2 49 3b 57 08 77 53 8d 55 ff 85 ed 74 34 0f 1f 40 00 48 39 c1 77 1b 49 8b 37 49 89 c1 49 29 c9 <46> 0f b6 0c 0e 45 84 c9 74 08 44 88 0c 06 49 8b 47 10 48 83 c0 01
+[  305.111425][    C2] RSP: 002b:00007f69381a0020 EFLAGS: 00010206
+[  305.111425][    C2] RAX: 0000000000d2c001 RBX: 00007f69381a0090 RCX: 0000000000000001
+[  305.115421][    C2] RDX: 00000000000000bc RSI: 00007f692fd81000 RDI: 00007f69381a0130
+[  305.115421][    C2] RBP: 0000000000000102 R08: 0000000000000000 R09: 0000000000d2c000
+[  305.115421][    C2] R10: 00000000ffffffff R11: 0000000000000010 R12: 00007f69381a0098
+[  305.115421][    C2] R13: 00007f69381a00a0 R14: 0000000000000000 R15: 00007f69381a0130
+[  305.115421][    C2]  </TASK>
+[  337.349676][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 165s!
+[  337.353656][    C0] Showing busy workqueues and worker pools:
+[  337.356152][    C0] workqueue events: flags=0x0
+[  337.358587][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  337.358710][    C0]     pending: 3*nsim_dev_hwstats_traffic_work
+[  337.358840][    C0] workqueue events_unbound: flags=0x2
+[  337.367245][    C0]   pwq 17: cpus=0-3 node=0 flags=0x4 nice=0 active=1 refcnt=2
+[  337.367397][    C0]     pending: nsim_dev_trap_report_work
+
+[  337.372989][    C0]   pwq 18: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  337.373110][    C0]     in-flight: 1325:cfg80211_wiphy_work cfg80211_wiphy_work ,38:cfg80211_wiphy_work cfg80211_wiphy_work
+[  337.383235][    C0]   pwq 20: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  337.383387][    C0]     in-flight: 192:cfg80211_wiphy_work cfg80211_wiphy_work ,1294:cfg80211_wiphy_work cfg80211_wiphy_work
+
+[  337.391481][    C0] workqueue events_power_efficient: flags=0x80
+[  337.393958][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.394084][    C0]     in-flight: 1609:reg_check_chans_work
+ kernel:[  337.349676][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 165s!
+[  337.394199][    C0] workqueue mm_percpu_wq: flags=0x8
+[  337.406475][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  337.406602][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+[  337.406822][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  337.414820][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=134
+[  337.414930][    C0]     in-flight: 437:addrconf_dad_work
+[  337.415065][    C0]     inactive: 121*addrconf_dad_work, 7*addrconf_verify_work
+[  337.415317][    C0] workqueue wg-kex-wg0: flags=0x24
+[  337.423920][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.424030][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.424107][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  337.430441][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  337.430543][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  337.430652][    C0] workqueue wg-kex-wg1: flags=0x24
+[  337.437421][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.437554][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.437630][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  337.444200][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  337.444301][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  337.450080][    C0] workqueue wg-kex-wg2: flags=0x24
+[  337.451848][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.451953][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.452027][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  337.458439][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  337.458540][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  337.458650][    C0] workqueue wg-kex-wg0: flags=0x24
+[  337.465493][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.465618][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.465692][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  337.472186][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  337.472288][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  337.477473][    C0] workqueue wg-kex-wg1: flags=0x24
+[  337.479261][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.479382][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.483903][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  337.485758][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  337.485875][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  337.486015][    C0] workqueue wg-kex-wg2: flags=0x24
+[  337.493483][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.493608][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.493682][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  337.500200][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  337.500301][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  337.505572][    C0] workqueue wg-kex-wg0: flags=0x24
+[  337.507324][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.507449][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.512144][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  337.513962][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  337.514061][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  337.514205][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  337.521724][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  337.521841][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  337.521983][    C0] workqueue wg-kex-wg1: flags=0x24
+[  337.529428][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.529590][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.529665][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  337.536244][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  337.536362][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  337.541632][    C0] workqueue wg-kex-wg2: flags=0x24
+[  337.543429][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.543533][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.543608][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  337.550014][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  337.550116][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  337.550259][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  337.557596][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  337.557701][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  337.557818][    C0] workqueue wg-kex-wg0: flags=0x24
+[  337.564514][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.564620][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.564694][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  337.571235][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  337.571336][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  337.577058][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  337.578931][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.579037][    C0]     pending: wg_packet_encrypt_worker
+[  337.579102][    C0] workqueue wg-kex-wg1: flags=0x24
+[  337.585279][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.585402][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.590123][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  337.591994][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  337.592095][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  337.592201][    C0] workqueue wg-kex-wg2: flags=0x24
+[  337.599114][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.599219][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.599293][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  337.605631][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  337.605734][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  337.605897][    C0] workqueue wg-kex-wg0: flags=0x24
+[  337.613150][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.613258][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.613333][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  337.619466][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  337.619570][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  337.619677][    C0] workqueue wg-kex-wg1: flags=0x24
+[  337.626325][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.626447][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.631011][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  337.632822][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  337.632927][    C0]     pending: wg_packet_tx_worker, wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  337.633069][    C0] workqueue wg-kex-wg2: flags=0x24
+[  337.640338][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  337.640462][    C0]     pending: wg_packet_handshake_receive_worker
+[  337.645030][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  337.646796][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  337.646898][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  337.647047][    C0] pool 14: cpus=3 node=0 flags=0x0 nice=0 hung=0s workers=7 idle: 1677 1608 194 65 35 1562
+[  337.647318][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=5 idle: 13 758 439 11
+[  337.658221][    C0] pool 18: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 115 1190 47 2301 64
+[  337.661598][    C0] pool 20: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 560 40 2423 2183 80
+[  337.661855][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  368.069455][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 196s!
+[  368.072771][    C0] Showing busy workqueues and worker pools:
+[  368.074903][    C0] workqueue events_unbound: flags=0x2
+[  368.077172][    C0]   pwq 18: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  368.077276][    C0]     in-flight: 1325:cfg80211_wiphy_work cfg80211_wiphy_work ,38:cfg80211_wiphy_work cfg80211_wiphy_work
+
+[  368.083970][    C0]   pwq 20: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  368.084075][    C0]     in-flight: 192:cfg80211_wiphy_work cfg80211_wiphy_work ,1294:cfg80211_wiphy_work cfg80211_wiphy_work
+Message from syslogd@syzkaller at Jan 15 08:35:36 ...
+ kernel:[  368.069455][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 196s!
+[  368.084306][    C0] workqueue events_power_efficient: flags=0x80
+[  368.098587][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.098691][    C0]     in-flight: 1609:reg_check_chans_work
+[  368.098785][    C0] workqueue mm_percpu_wq: flags=0x8
+[  368.105316][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  368.105465][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+[  368.110237][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  368.112212][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=134
+[  368.112301][    C0]     in-flight: 437:addrconf_dad_work
+[  368.112447][    C0]     inactive: 121*addrconf_dad_work, 7*addrconf_verify_work
+[  368.119319][    C0] workqueue wg-kex-wg0: flags=0x24
+[  368.121209][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.121322][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.126124][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  368.127988][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  368.128094][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  368.128207][    C0] workqueue wg-kex-wg1: flags=0x24
+[  368.135179][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.135290][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.140086][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  368.141957][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  368.142061][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  368.142211][    C0] workqueue wg-kex-wg2: flags=0x24
+[  368.149809][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.149921][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.149999][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  368.156671][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  368.156777][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  368.156893][    C0] workqueue wg-kex-wg0: flags=0x24
+[  368.163858][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.163969][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.164046][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  368.170833][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  368.170942][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  368.171056][    C0] workqueue wg-kex-wg1: flags=0x24
+[  368.178093][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.178204][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.178283][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  368.184901][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  368.185048][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  368.185196][    C0] workqueue wg-kex-wg2: flags=0x24
+[  368.192985][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.193097][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.193175][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  368.199768][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  368.199876][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  368.199988][    C0] workqueue wg-kex-wg0: flags=0x24
+[  368.206902][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.207015][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.207092][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  368.213246][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  368.213368][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  368.218793][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  368.220547][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  368.220651][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  368.220799][    C0] workqueue wg-kex-wg1: flags=0x24
+[  368.228179][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.228295][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.233001][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  368.234831][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  368.234937][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  368.235050][    C0] workqueue wg-kex-wg2: flags=0x24
+[  368.241862][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.241971][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.242049][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  368.248132][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  368.248239][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  368.253697][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  368.255429][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  368.255539][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  368.255651][    C0] workqueue wg-kex-wg0: flags=0x24
+[  368.262084][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.262198][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.262276][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  368.268581][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  368.268686][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  368.268853][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  368.276153][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.276266][    C0]     pending: wg_packet_encrypt_worker
+[  368.276336][    C0] workqueue wg-kex-wg1: flags=0x24
+[  368.282122][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.282235][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.282313][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  368.288768][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  368.288875][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  368.289046][    C0] workqueue wg-kex-wg2: flags=0x24
+[  368.295838][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.295954][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.296033][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  368.302473][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  368.302580][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  368.302738][    C0] workqueue wg-kex-wg0: flags=0x24
+[  368.310138][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.310250][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.310327][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  368.316610][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  368.316719][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  368.316830][    C0] workqueue wg-kex-wg1: flags=0x24
+[  368.323746][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.323858][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.323937][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  368.330478][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  368.330590][    C0]     pending: wg_packet_tx_worker, wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  368.330738][    C0] workqueue wg-kex-wg2: flags=0x24
+[  368.338019][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  368.338128][    C0]     pending: wg_packet_handshake_receive_worker
+[  368.338205][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  368.344480][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  368.344590][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  368.344741][    C0] pool 14: cpus=3 node=0 flags=0x0 nice=0 hung=0s workers=7 idle: 1608 1677 65 194 35 1562
+[  368.345034][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=5 idle: 13 758 439 11
+[  368.345234][    C0] pool 18: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 1190 115 47 2301 64
+[  368.359141][    C0] pool 20: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 40 560 2183 2423 80
+[  368.362537][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  398.789439][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 226s!
+[  398.792592][    C0] Showing busy workqueues and worker pools:
+[  398.794648][    C0] workqueue events_unbound: flags=0x2
+[  398.796765][    C0]   pwq 18: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  398.796867][    C0]     in-flight: 1325:cfg80211_wiphy_work cfg80211_wiphy_work ,38:cfg80211_wiphy_work cfg80211_wiphy_work
+[  398.797119][    C0]   pwq 20: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  398.797219][    C0]     in-flight: 192:cfg80211_wiphy_work cfg80211_wiphy_work ,1294:cfg80211_wiphy_work cfg80211_wiphy_work
+[  398.810592][    C0] workqueue events_power_efficient: flags=0x80
+[  398.812911][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.813028][    C0]     in-flight: 1609:reg_check_chans_work
+[  398.813122][    C0] workqueue mm_percpu_wq: flags=0x8
+
+[  398.819933][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  398.820050][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+[  398.820210][    C0] workqueue ipv6_addrconf: flags=0x6000a
+Message from sy[  398.827033][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=134
+[  398.827122][    C0]     in-flight: 437:addrconf_dad_work
+[  398.827265][    C0]     inactive: 121*addrconf_dad_work, 7*addrconf_verify_work
+slogd@syzkaller at Jan 15 08:36:07 ...
+ kernel:[  398.789439][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 226s!
+[  398.839446][    C0] workqueue wg-kex-wg0: flags=0x24
+[  398.841229][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.841357][    C0]     pending: wg_packet_handshake_receive_worker
+[  398.845920][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  398.847682][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  398.847786][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  398.847898][    C0] workqueue wg-kex-wg1: flags=0x24
+[  398.854623][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.854733][    C0]     pending: wg_packet_handshake_receive_worker
+[  398.854810][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  398.861173][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  398.861277][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  398.866883][    C0] workqueue wg-kex-wg2: flags=0x24
+[  398.868576][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.868684][    C0]     pending: wg_packet_handshake_receive_worker
+[  398.868761][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  398.874906][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  398.875025][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  398.875137][    C0] workqueue wg-kex-wg0: flags=0x24
+[  398.881908][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.882031][    C0]     pending: wg_packet_handshake_receive_worker
+[  398.882108][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  398.888449][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  398.888553][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  398.888664][    C0] workqueue wg-kex-wg1: flags=0x24
+[  398.895306][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.895431][    C0]     pending: wg_packet_handshake_receive_worker
+[  398.900009][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  398.901730][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  398.901834][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  398.901980][    C0] workqueue wg-kex-wg2: flags=0x24
+[  398.909263][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.909390][    C0]     pending: wg_packet_handshake_receive_worker
+[  398.913990][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  398.915767][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  398.915873][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  398.915983][    C0] workqueue wg-kex-wg0: flags=0x24
+[  398.922546][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.922656][    C0]     pending: wg_packet_handshake_receive_worker
+[  398.922733][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  398.928830][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  398.928932][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  398.929097][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  398.936243][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  398.936373][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  398.942032][    C0] workqueue wg-kex-wg1: flags=0x24
+[  398.943791][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.943898][    C0]     pending: wg_packet_handshake_receive_worker
+[  398.943975][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  398.950500][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  398.950604][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  398.950715][    C0] workqueue wg-kex-wg2: flags=0x24
+[  398.957635][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.957743][    C0]     pending: wg_packet_handshake_receive_worker
+[  398.957821][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  398.964404][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  398.964511][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  398.964661][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  398.972067][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  398.972175][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  398.972286][    C0] workqueue wg-kex-wg0: flags=0x24
+[  398.979224][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.979335][    C0]     pending: wg_packet_handshake_receive_worker
+[  398.984022][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  398.985854][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  398.985957][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  398.986124][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  398.993798][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  398.993911][    C0]     pending: wg_packet_encrypt_worker
+[  398.993980][    C0] workqueue wg-kex-wg1: flags=0x24
+[  399.000171][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  399.000280][    C0]     pending: wg_packet_handshake_receive_worker
+[  399.005069][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  399.006904][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  399.007027][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  399.007140][    C0] workqueue wg-kex-wg2: flags=0x24
+[  399.014230][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  399.014359][    C0]     pending: wg_packet_handshake_receive_worker
+[  399.019080][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  399.020938][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  399.021053][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  399.021212][    C0] workqueue wg-kex-wg0: flags=0x24
+[  399.029064][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  399.029175][    C0]     pending: wg_packet_handshake_receive_worker
+[  399.029253][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  399.035674][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  399.035780][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  399.035888][    C0] workqueue wg-kex-wg1: flags=0x24
+[  399.042647][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  399.042752][    C0]     pending: wg_packet_handshake_receive_worker
+[  399.042827][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  399.049084][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  399.049191][    C0]     pending: wg_packet_tx_worker, wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  399.049334][    C0] workqueue wg-kex-wg2: flags=0x24
+[  399.056414][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  399.056518][    C0]     pending: wg_packet_handshake_receive_worker
+[  399.056593][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  399.062645][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  399.062747][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  399.062890][    C0] pool 14: cpus=3 node=0 flags=0x0 nice=0 hung=0s workers=7 idle: 1677 194 65 1608 35 1562
+[  399.063167][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=5 idle: 13 758 439 11
+[  399.074038][    C0] pool 18: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 2301 1190 47 115 64
+[  399.074274][    C0] pool 20: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 560 2183 40 2423 80
+[  399.080658][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  429.509479][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 257s!
+[  429.513286][    C0] Showing busy workqueues and worker pools:
+[  429.515664][    C0] workqueue events_unbound: flags=0x2
+[  429.517458][    C0]   pwq 18: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  429.517560][    C0]     in-flight: 1325:cfg80211_wiphy_work cfg80211_wiphy_work ,38:cfg80211_wiphy_work cfg80211_wiphy_work
+[  429.517804][    C0]   pwq 20: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  429.517903][    C0]     in-flight: 192:cfg80211_wiphy_work cfg80211_wiphy_work ,1294:cfg80211_wiphy_work cfg80211_wiphy_work
+[  429.518132][    C0] workqueue events_power_efficient: flags=0x80
+
+[  429.536225][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.536329][    C0]     in-flight: 1609:reg_check_chans_work
+
+[  429.541467][    C0] workqueue mm_percpu_wq: flags=0x8
+[  429.543449][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+ kernel:[  429.509479][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 257s![  429.543554][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+[  429.543721][    C0] workqueue dm_bufio_cache: flags=0x8
+[  429.554357][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.554461][    C0]     pending: work_fn
+[  429.558396][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  429.560410][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=134
+[  429.560499][    C0]     in-flight: 437:addrconf_dad_work
+
+[  429.560633][    C0]     inactive: 121*addrconf_dad_work, 7*addrconf_verify_work
+[  429.560844][    C0] workqueue wg-kex-wg0: flags=0x24
+[  429.569718][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.569829][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.569907][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  429.576627][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  429.576732][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  429.576844][    C0] workqueue wg-kex-wg1: flags=0x24
+[  429.583641][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.583749][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.583852][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  429.590303][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  429.590424][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  429.596191][    C0] workqueue wg-kex-wg2: flags=0x24
+[  429.598160][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.598268][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.603018][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  429.604876][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  429.604978][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  429.605089][    C0] workqueue wg-kex-wg0: flags=0x24
+[  429.611696][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.611825][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.611903][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  429.618093][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  429.618198][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  429.618320][    C0] workqueue wg-kex-wg1: flags=0x24
+[  429.625429][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.625540][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.625638][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  429.632248][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  429.632371][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  429.638189][    C0] workqueue wg-kex-wg2: flags=0x24
+[  429.640005][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.640114][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.640191][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  429.646752][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  429.646860][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  429.646972][    C0] workqueue wg-kex-wg0: flags=0x24
+[  429.653999][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.654109][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.654186][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  429.660722][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  429.660825][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  429.660988][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  429.668580][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  429.668701][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  429.668862][    C0] workqueue wg-kex-wg1: flags=0x24
+[  429.676449][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.676559][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.676647][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  429.683447][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  429.683554][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  429.683685][    C0] workqueue wg-kex-wg2: flags=0x24
+[  429.690649][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.690758][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.690835][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  429.697420][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  429.697525][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  429.697692][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  429.705319][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  429.705445][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  429.710596][    C0] workqueue wg-kex-wg0: flags=0x24
+[  429.712422][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.712531][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.712629][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  429.719230][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  429.719334][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  429.725222][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  429.727038][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.727148][    C0]     pending: wg_packet_encrypt_worker
+[  429.727217][    C0] workqueue wg-kex-wg1: flags=0x24
+[  429.733396][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.733505][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.733583][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  429.740077][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  429.740181][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  429.740292][    C0] workqueue wg-kex-wg2: flags=0x24
+[  429.747263][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.747394][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.752098][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  429.753955][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  429.754059][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  429.754216][    C0] workqueue wg-kex-wg0: flags=0x24
+[  429.761818][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.761931][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.762010][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  429.768676][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  429.768786][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  429.768898][    C0] workqueue wg-kex-wg1: flags=0x24
+[  429.775933][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.776044][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.776123][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  429.782734][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  429.782848][    C0]     pending: wg_packet_tx_worker, wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  429.782998][    C0] workqueue wg-kex-wg2: flags=0x24
+[  429.790545][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  429.790671][    C0]     pending: wg_packet_handshake_receive_worker
+[  429.790750][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  429.797518][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  429.797660][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  429.797830][    C0] pool 14: cpus=3 node=0 flags=0x0 nice=0 hung=0s workers=7 idle: 65 1677 194 1608 35 1562
+[  429.798109][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=5 idle: 13 758 439 11
+[  429.798308][    C0] pool 18: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 2301 47 1190 115 64
+[  429.812654][    C0] pool 20: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 560 2183 40 2423 80
+[  429.812910][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  460.229483][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 288s!
+[  460.232828][    C0] Showing busy workqueues and worker pools:
+[  460.235439][    C0] workqueue events_unbound: flags=0x2
+[  460.238143][    C0]   pwq 18: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  460.238261][    C0]     in-flight: 1325:cfg80211_wiphy_work cfg80211_wiphy_work ,38:cfg80211_wiphy_work cfg80211_wiphy_work
+[  460.245879][    C0]   pwq 20: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  460.245985][    C0]     in-flight: 192:cfg80211_wiphy_work cfg80211_wiphy_work ,1294:cfg80211_wiphy_work cfg80211_wiphy_work
+[  460.246216][    C0] workqueue events_power_efficient: flags=0x80
+
+[  460.255710][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.255860][    C0]     in-flight: 1609:reg_check_chans_work
+[  460.255998][    C0] workqueue mm_percpu_wq: flags=0x8
+[  460.262703][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  460.262881][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+
+[  460.269010][    C0] workqueue dm_bufio_cache: flags=0x8
+ kernel:[  460.229483][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 288s!
+[  460.270797][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.270931][    C0]     pending: work_fn
+[  460.278148][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  460.280174][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=134
+[  460.280281][    C0]     in-flight: 437:addrconf_dad_work
+[  460.280414][    C0]     inactive: 121*addrconf_dad_work, 7*addrconf_verify_work
+[  460.287779][    C0] workqueue wg-kex-wg0: flags=0x24
+[  460.289558][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.289671][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.289748][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  460.296277][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  460.296400][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  460.301566][    C0] workqueue wg-kex-wg1: flags=0x24
+[  460.303417][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.303526][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.303602][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  460.310237][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  460.310374][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  460.316435][    C0] workqueue wg-kex-wg2: flags=0x24
+[  460.318318][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.318446][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.323208][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  460.325181][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  460.325298][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  460.330589][    C0] workqueue wg-kex-wg0: flags=0x24
+[  460.332286][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.332411][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.336856][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  460.338674][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  460.338776][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  460.338884][    C0] workqueue wg-kex-wg1: flags=0x24
+[  460.345320][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.345464][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.350006][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  460.351721][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  460.351823][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  460.351967][    C0] workqueue wg-kex-wg2: flags=0x24
+[  460.359268][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.359391][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.364074][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  460.365871][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  460.365977][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  460.366084][    C0] workqueue wg-kex-wg0: flags=0x24
+[  460.372792][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.372900][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.372975][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  460.379411][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  460.379511][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  460.379658][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  460.387047][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  460.387148][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  460.387328][    C0] workqueue wg-kex-wg1: flags=0x24
+[  460.394010][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.394117][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.394192][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  460.400249][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  460.400370][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  460.405034][    C0] workqueue wg-kex-wg2: flags=0x24
+[  460.406647][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.406751][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.406830][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  460.412830][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  460.412934][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  460.413080][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  460.420036][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  460.420142][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  460.420262][    C0] workqueue wg-kex-wg0: flags=0x24
+[  460.426495][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.426604][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.426679][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  460.432711][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  460.432813][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  460.432960][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  460.439979][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.440087][    C0]     pending: wg_packet_encrypt_worker
+[  460.440154][    C0] workqueue wg-kex-wg1: flags=0x24
+[  460.445860][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.445968][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.446043][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  460.452123][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  460.452237][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  460.457242][    C0] workqueue wg-kex-wg2: flags=0x24
+[  460.458923][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.459029][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.459103][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  460.465442][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  460.465545][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  460.465699][    C0] workqueue wg-kex-wg0: flags=0x24
+[  460.472776][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.472882][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.472958][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  460.479239][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  460.479363][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  460.484283][    C0] workqueue wg-kex-wg1: flags=0x24
+[  460.485984][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.486091][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.486165][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  460.492510][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  460.492618][    C0]     pending: wg_packet_tx_worker, wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  460.492761][    C0] workqueue wg-kex-wg2: flags=0x24
+[  460.500257][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  460.500381][    C0]     pending: wg_packet_handshake_receive_worker
+[  460.504966][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  460.506759][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  460.506862][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  460.507007][    C0] pool 14: cpus=3 node=0 flags=0x0 nice=0 hung=0s workers=7 idle: 1677 194 65 1608 35 1562
+[  460.507306][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=5 idle: 13 758 439 11
+[  460.518409][    C0] pool 18: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 1190 47 2301 64 115
+[  460.518648][    C0] pool 20: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 560 2423 2183 80
+[  460.518866][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  490.949503][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 318s!
+[  490.953060][    C0] Showing busy workqueues and worker pools:
+[  490.955288][    C0] workqueue events_unbound: flags=0x2
+[  490.957496][    C0]   pwq 18: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+
+[  490.957597][    C0]     in-flight: 1325:cfg80211_wiphy_work cfg80211_wiphy_work ,38:cfg80211_wiphy_work cfg80211_wiphy_work
+Message from syslogd@syzkaller at Jan 15 08:37:39 ...
+ kernel:[  490.949503][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 318s!
+[  490.957884][    C0]   pwq 20: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  490.957983][    C0]     in-flight: 192:cfg80211_wiphy_work cfg80211_wiphy_work ,1294:cfg80211_wiphy_work cfg80211_wiphy_work
+[  490.958229][    C0] workqueue events_power_efficient: flags=0x80
+[  490.979078][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  490.979180][    C0]     in-flight: 1609:reg_check_chans_work
+[  490.979291][    C0] workqueue mm_percpu_wq: flags=0x8
+[  490.985990][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  490.986095][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+[  490.986274][    C0] workqueue dm_bufio_cache: flags=0x8
+[  490.993050][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  490.993151][    C0]     pending: work_fn
+[  490.993316][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  490.999196][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=134
+[  490.999284][    C0]     in-flight: 437:addrconf_dad_work
+[  490.999417][    C0]     inactive: 121*addrconf_dad_work, 7*addrconf_verify_work
+[  491.006327][    C0] workqueue wg-kex-wg0: flags=0x24
+[  491.008494][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.008603][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.008717][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  491.015322][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  491.015444][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  491.020504][    C0] workqueue wg-kex-wg1: flags=0x24
+[  491.022475][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.022583][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.022715][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  491.029481][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  491.029585][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  491.029766][    C0] workqueue wg-kex-wg2: flags=0x24
+[  491.037486][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.037593][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.037704][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  491.044487][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  491.044591][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  491.044738][    C0] workqueue wg-kex-wg0: flags=0x24
+[  491.051852][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.051960][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.052072][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  491.058681][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  491.058785][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  491.058939][    C0] workqueue wg-kex-wg1: flags=0x24
+[  491.065909][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.066015][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.066127][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  491.072717][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  491.072821][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  491.073015][    C0] workqueue wg-kex-wg2: flags=0x24
+[  491.080524][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.080630][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.080741][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  491.087473][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  491.087578][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  491.087722][    C0] workqueue wg-kex-wg0: flags=0x24
+[  491.094716][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.094824][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.094946][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  491.101532][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  491.101635][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  491.101817][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  491.109501][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  491.109604][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  491.109784][    C0] workqueue wg-kex-wg1: flags=0x24
+[  491.117476][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.117585][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.117696][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  491.124332][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  491.124454][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  491.129457][    C0] workqueue wg-kex-wg2: flags=0x24
+[  491.131503][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.131609][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.131721][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  491.138481][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  491.138587][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  491.138791][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  491.146531][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  491.146656][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  491.146802][    C0] workqueue wg-kex-wg0: flags=0x24
+[  491.153931][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.154040][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.154152][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  491.160705][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  491.160808][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  491.161006][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  491.168584][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.168691][    C0]     pending: wg_packet_encrypt_worker
+[  491.168793][    C0] workqueue wg-kex-wg1: flags=0x24
+[  491.175295][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.175421][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.179986][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  491.181927][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  491.182029][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  491.182174][    C0] workqueue wg-kex-wg2: flags=0x24
+[  491.189126][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.189233][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.193801][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  491.195756][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  491.195867][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  491.196056][    C0] workqueue wg-kex-wg0: flags=0x24
+[  491.203671][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.203777][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.203907][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  491.210511][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  491.210617][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  491.210783][    C0] workqueue wg-kex-wg1: flags=0x24
+[  491.217824][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.217942][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.218053][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  491.224671][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  491.224778][    C0]     pending: wg_packet_tx_worker, wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  491.224980][    C0] workqueue wg-kex-wg2: flags=0x24
+[  491.233541][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  491.233678][    C0]     pending: wg_packet_handshake_receive_worker
+[  491.233817][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  491.242234][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  491.242361][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  491.247984][    C0] pool 14: cpus=3 node=0 flags=0x0 nice=0 hung=0s workers=6 idle: 65 1677 194 2913 1608
+[  491.248262][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=3 idle: 13 758
+[  491.254331][    C0] pool 18: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 47 1190 2301 115 64
+[  491.258004][    C0] pool 20: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 40 2423 2183 560 80
+[  491.261744][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  521.669486][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 349s!
+[  521.672267][    C0] Showing busy workqueues and worker pools:
+[  521.673967][    C0] workqueue events_unbound: flags=0x2
+[  521.675477][    C0]   pwq 18: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  521.675578][    C0]     in-flight: 1325:cfg80211_wiphy_work cfg80211_wiphy_work ,38:cfg80211_wiphy_work cfg80211_wiphy_work
+[  521.675810][    C0]   pwq 20: cpus=0-3 node=0 flags=0x4 nice=0 active=5 refcnt=6
+[  521.675910][    C0]     in-flight: 192:cfg80211_wiphy_work cfg80211_wiphy_work ,1294:cfg80211_wiphy_work cfg80211_wiphy_work
+[  521.676135][    C0]     pending: kfree_rcu_monitor
+[  521.676199][    C0] workqueue events_power_efficient: flags=0x80
+[  521.689917][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+
+[  521.690017][    C0]     in-flight: 1609:reg_check_chans_work
+[  521.690138][    C0] workqueue mm_percpu_wq: flags=0x8
+[  521.696420][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  521.696542][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+Message from syslogd@syzkaller at Jan 15 08:38:10 ...
+ kernel:[  521.669486][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 349s!
+[  521.696650][    C0] workqueue kblockd: flags=0x18
+[  521.707101][    C0]   pwq 7: cpus=1 node=0 flags=0x0 nice=-20 active=1 refcnt=2
+[  521.707203][    C0]     pending: blk_mq_run_work_fn
+[  521.707328][    C0] workqueue dm_bufio_cache: flags=0x8
+[  521.712733][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.712833][    C0]     pending: work_fn
+[  521.712926][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  521.718316][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=134
+[  521.718420][    C0]     in-flight: 437:addrconf_dad_work
+[  521.718541][    C0]     inactive: 121*addrconf_dad_work, 7*addrconf_verify_work
+[  521.724243][    C0] workqueue wg-kex-wg0: flags=0x24
+[  521.725742][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.725849][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.725924][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  521.731565][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  521.731666][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  521.731772][    C0] workqueue wg-kex-wg1: flags=0x24
+[  521.737569][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.737675][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.737749][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  521.743130][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  521.743230][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  521.748074][    C0] workqueue wg-kex-wg2: flags=0x24
+[  521.749579][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.749682][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.749755][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  521.755136][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  521.755237][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  521.759575][    C0] workqueue wg-kex-wg0: flags=0x24
+[  521.761231][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.761335][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.765246][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  521.766769][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  521.766870][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  521.766975][    C0] workqueue wg-kex-wg1: flags=0x24
+[  521.772669][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.772772][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.772845][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  521.778259][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  521.778378][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  521.783145][    C0] workqueue wg-kex-wg2: flags=0x24
+[  521.784643][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.784760][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.784838][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  521.790238][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  521.790340][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  521.794645][    C0] workqueue wg-kex-wg0: flags=0x24
+[  521.796137][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.796243][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.796316][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  521.801783][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  521.801883][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  521.802025][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  521.808250][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  521.808368][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  521.813159][    C0] workqueue wg-kex-wg1: flags=0x24
+[  521.814690][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.814795][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.814870][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  521.820189][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  521.820289][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  521.824755][    C0] workqueue wg-kex-wg2: flags=0x24
+[  521.826313][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.826436][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.830331][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  521.831931][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  521.832033][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  521.832175][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  521.838601][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  521.838710][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  521.838818][    C0] workqueue wg-kex-wg0: flags=0x24
+[  521.844495][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.844603][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.844677][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  521.850100][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  521.850200][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  521.855076][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  521.856619][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.856725][    C0]     pending: wg_packet_encrypt_worker
+[  521.856791][    C0] workqueue wg-kex-wg1: flags=0x24
+[  521.861962][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.862067][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.862162][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  521.867626][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  521.867728][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  521.867834][    C0] workqueue wg-kex-wg2: flags=0x24
+[  521.873563][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.873667][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.873740][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  521.879239][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  521.879359][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  521.884123][    C0] workqueue wg-kex-wg0: flags=0x24
+[  521.885628][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.885732][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.885805][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  521.891146][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  521.891249][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  521.895607][    C0] workqueue wg-kex-wg1: flags=0x24
+[  521.897078][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.897181][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.897255][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  521.902691][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  521.902796][    C0]     pending: wg_packet_tx_worker, wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  521.902937][    C0] workqueue wg-kex-wg2: flags=0x24
+[  521.909200][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  521.909305][    C0]     pending: wg_packet_handshake_receive_worker
+[  521.913083][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  521.914565][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  521.914665][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  521.914809][    C0] pool 14: cpus=3 node=0 flags=0x0 nice=0 hung=0s workers=6 idle: 1677 2913 65 194 1608
+[  521.915062][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=3 idle: 13 758
+[  521.915205][    C0] pool 18: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 1190 2301 115 47 64
+[  521.926656][    C0] pool 20: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 2423 40 560 2183 80
+[  521.926906][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  552.389462][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 380s!
+[  552.392552][    C0] Showing busy workqueues and worker pools:
+[  552.394509][    C0] workqueue events_unbound: flags=0x2
+[  552.396262][    C0]   pwq 18: cpus=0-3 node=0 flags=0x4 nice=0 active=5 refcnt=6
+[  552.396381][    C0]     in-flight: 1325:cfg80211_wiphy_work cfg80211_wiphy_work ,38:cfg80211_wiphy_work cfg80211_wiphy_work
+[  552.396609][    C0]     pending: kfree_rcu_monitor
+[  552.404830][    C0]   pwq 20: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  552.404935][    C0]     in-flight: 192:cfg80211_wiphy_work cfg80211_wiphy_work ,1294:cfg80211_wiphy_work cfg80211_wiphy_work
+
+[  552.405179][    C0] workqueue events_power_efficient: flags=0x80
+Message from syslogd@syzkaller at Jan 15 08:38:41 ...
+ kernel:[  552.389462][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 380s!
+[  552.418745][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.418847][    C0]     in-flight: 1609:reg_check_chans_work
+[  552.418939][    C0] workqueue mm_percpu_wq: flags=0x8
+[  552.425016][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  552.425153][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+[  552.425325][    C0] workqueue dm_bufio_cache: flags=0x8
+[  552.431824][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.431928][    C0]     pending: work_fn
+[  552.432023][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  552.437522][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=134
+[  552.437630][    C0]     in-flight: 437:addrconf_dad_work
+[  552.437741][    C0]     inactive: 121*addrconf_dad_work, 7*addrconf_verify_work
+[  552.437944][    C0] workqueue wg-kex-wg0: flags=0x24
+[  552.446004][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.446136][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.446229][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  552.452622][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  552.452738][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  552.452860][    C0] workqueue wg-kex-wg1: flags=0x24
+[  552.459925][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.460035][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.460123][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  552.466465][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  552.466581][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  552.466734][    C0] workqueue wg-kex-wg2: flags=0x24
+[  552.474123][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.474232][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.474309][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  552.481115][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  552.481219][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  552.481330][    C0] workqueue wg-kex-wg0: flags=0x24
+[  552.487738][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.487845][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.487922][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  552.494146][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  552.494250][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  552.499103][    C0] workqueue wg-kex-wg1: flags=0x24
+[  552.500770][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.500875][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.500952][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  552.507748][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  552.507853][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  552.508001][    C0] workqueue wg-kex-wg2: flags=0x24
+[  552.515198][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.515306][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.519974][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  552.522189][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  552.522296][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  552.527183][    C0] workqueue wg-kex-wg0: flags=0x24
+[  552.528953][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.529075][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.529152][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  552.535597][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  552.535700][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  552.535848][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  552.542616][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  552.542718][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  552.542864][    C0] workqueue wg-kex-wg1: flags=0x24
+[  552.549714][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.549821][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.549897][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  552.555745][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  552.555848][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  552.555958][    C0] workqueue wg-kex-wg2: flags=0x24
+[  552.562889][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.562996][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.563082][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  552.569101][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  552.569206][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  552.575031][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  552.576791][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  552.576898][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  552.577008][    C0] workqueue wg-kex-wg0: flags=0x24
+[  552.583311][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.583463][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.587721][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  552.589431][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.589553][    C0]     pending: wg_packet_encrypt_worker
+[  552.589615][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  552.589716][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  552.589863][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  552.600522][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.600629][    C0]     pending: wg_packet_encrypt_worker
+[  552.600697][    C0] workqueue wg-kex-wg1: flags=0x24
+[  552.606411][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.606519][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.606595][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  552.612671][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  552.612774][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  552.612883][    C0] workqueue wg-kex-wg2: flags=0x24
+[  552.619210][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.619316][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.623576][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  552.625237][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  552.625358][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  552.630588][    C0] workqueue wg-kex-wg0: flags=0x24
+[  552.632209][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.632315][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.636558][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  552.638223][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  552.638329][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  552.643034][    C0] workqueue wg-kex-wg1: flags=0x24
+[  552.644654][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.644760][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.644836][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  552.650902][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  552.651009][    C0]     pending: wg_packet_tx_worker, wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  552.651165][    C0] workqueue wg-kex-wg2: flags=0x24
+[  552.658107][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  552.658213][    C0]     pending: wg_packet_handshake_receive_worker
+[  552.658289][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  552.664410][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  552.664515][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  552.664660][    C0] pool 14: cpus=3 node=0 flags=0x0 nice=0 hung=0s workers=6 idle: 2913 194 1677 65 1608
+[  552.664899][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=3 idle: 13 758
+[  552.665046][    C0] pool 18: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 47 1190 2301 115 64
+[  552.665295][    C0] pool 20: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 40 560 2183 2423 80
+[  552.681388][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  583.109544][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 411s!
+[  583.113612][    C0] Showing busy workqueues and worker pools:
+[  583.116249][    C0] workqueue events_unbound: flags=0x2
+[  583.119169][    C0]   pwq 18: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  583.119331][    C0]     in-flight: 1325:cfg80211_wiphy_work cfg80211_wiphy_work ,38:cfg80211_wiphy_work cfg80211_wiphy_work
+
+[  583.127898][    C0]   pwq 20: cpus=0-3 node=0 flags=0x4 nice=0 active=4 refcnt=5
+[  583.128080][    C0]     in-flight: 192:cfg80211_wiphy_work cfg80211_wiphy_work ,1294:cfg80211_wiphy_work cfg80211_wiphy_work
+Message from syslogd@syzkaller at Jan 15 08:39:11 ...
+[  583.139174][    C0] workqueue events_power_efficient: flags=0x80
+ kernel:[  583.1[  583.142029][    C0]   pwq 14: cpus=3 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.142156][    C0]     in-flight: 1609:reg_check_chans_work
+09544][    C0] BUG: workqueue lockup - pool cpus=2 node=0 flags=0x0 nice=0 stuck for 411s!
+[  583.152627][    C0] workqueue mm_percpu_wq: flags=0x8
+[  583.155256][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=3
+[  583.155414][    C0]     pending: lru_add_drain_per_cpu BAR(1981)
+[  583.161741][    C0] workqueue dm_bufio_cache: flags=0x8
+[  583.163767][    C0]   pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.163870][    C0]     pending: work_fn
+[  583.163967][    C0] workqueue ipv6_addrconf: flags=0x6000a
+[  583.170426][    C0]   pwq 16: cpus=0-3 flags=0x4 nice=0 active=1 refcnt=134
+[  583.170515][    C0]     in-flight: 437:addrconf_dad_work
+[  583.170626][    C0]     inactive: 121*addrconf_dad_work, 7*addrconf_verify_work
+[  583.170856][    C0] workqueue wg-kex-wg0: flags=0x24
+[  583.179835][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.179950][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.180052][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  583.186901][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  583.187005][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  583.187120][    C0] workqueue wg-kex-wg1: flags=0x24
+[  583.194306][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.194438][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.200039][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  583.202415][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  583.202547][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker, wg_packet_tx_worker
+[  583.202746][    C0] workqueue wg-kex-wg2: flags=0x24
+[  583.212058][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.212196][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.212294][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  583.220484][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  583.220611][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  583.220761][    C0] workqueue wg-kex-wg0: flags=0x24
+[  583.229222][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.229380][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.235183][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  583.237485][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  583.237617][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  583.237770][    C0] workqueue wg-kex-wg1: flags=0x24
+[  583.246458][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.246597][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.246711][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  583.254781][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  583.254886][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker, wg_packet_tx_worker
+[  583.255057][    C0] workqueue wg-kex-wg2: flags=0x24
+[  583.263451][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.263562][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.263652][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  583.270713][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  583.270820][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  583.270932][    C0] workqueue wg-kex-wg0: flags=0x24
+[  583.278137][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.278249][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.278327][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  583.285084][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  583.285189][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  583.291627][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  583.293554][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  583.293708][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  583.293891][    C0] workqueue wg-kex-wg1: flags=0x24
+[  583.301874][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.301984][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.302063][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  583.309688][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  583.309823][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  583.309967][    C0] workqueue wg-kex-wg2: flags=0x24
+[  583.318323][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.318465][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.323394][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  583.325411][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  583.325520][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  583.325670][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  583.333571][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  583.333702][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  583.333813][    C0] workqueue wg-kex-wg0: flags=0x24
+[  583.341709][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.341819][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.341898][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  583.349192][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  583.349297][    C0]     pending: wg_packet_tx_worker, wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  583.355764][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  583.357666][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.357792][    C0]     pending: wg_packet_encrypt_worker
+[  583.357860][    C0] workqueue wg-kex-wg1: flags=0x24
+[  583.364429][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.364556][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.364633][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  583.371567][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  583.371708][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  583.371841][    C0] workqueue wg-kex-wg2: flags=0x24
+[  583.380465][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.380607][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.380723][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  583.388783][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  583.388916][    C0]     pending: wg_packet_encrypt_worker, wg_packet_tx_worker, wg_packet_decrypt_worker
+[  583.389149][    C0] workqueue wg-kex-wg0: flags=0x24
+[  583.398280][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.398443][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.404258][    C0] workqueue wg-crypt-wg0: flags=0x28
+[  583.406536][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  583.406686][    C0]     pending: wg_packet_encrypt_worker, wg_packet_decrypt_worker
+[  583.406829][    C0] workqueue wg-kex-wg1: flags=0x24
+[  583.415267][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.415432][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.421236][    C0] workqueue wg-crypt-wg1: flags=0x28
+[  583.423474][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=3 refcnt=4
+[  583.423617][    C0]     pending: wg_packet_tx_worker, wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  583.423822][    C0] workqueue wg-kex-wg2: flags=0x24
+[  583.433060][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=1 refcnt=2
+[  583.433204][    C0]     pending: wg_packet_handshake_receive_worker
+[  583.433307][    C0] workqueue wg-crypt-wg2: flags=0x28
+[  583.441442][    C0]   pwq 10: cpus=2 node=0 flags=0x0 nice=0 active=2 refcnt=3
+[  583.441580][    C0]     pending: wg_packet_decrypt_worker, wg_packet_encrypt_worker
+[  583.441798][    C0] pool 14: cpus=3 node=0 flags=0x0 nice=0 hung=0s workers=6 idle: 2913 194 1677 65 1608
+[  583.442098][    C0] pool 16: cpus=0-3 flags=0x4 nice=0 hung=0s workers=3 idle: 13 758
+[  583.442279][    C0] pool 18: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 115 1190 47 2301 64
+[  583.459243][    C0] pool 20: cpus=0-3 node=0 flags=0x4 nice=0 hung=0s workers=7 idle: 2423 40 2183 80 560
+[  583.463339][    C0] Showing backtraces of running workers in stalled CPU-bound worker pools:
+[  591.773377][    C1] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[  591.773377][    C1] rcu: 	2-....: (1 GPs behind) idle=603c/1/0x4000000000000000 softirq=22634/22635 fqs=128668
+[  591.773377][    C1] rcu: 	(detected by 1, t=420023 jiffies, g=48401, q=98994 ncpus=4)
+[  591.773377][    C1] Sending NMI from CPU 1 to CPUs 2:
+[  591.781412][    C2] NMI backtrace for cpu 2
+[  591.781412][    C2] CPU: 2 UID: 0 PID: 1957 Comm: syz.2.18 Not tainted 6.13.0-rc7 #1
+[  591.781412][    C2] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  591.781412][    C2] RIP: 0010:__default_send_IPI_shortcut+0x13/0x40
+[  591.781412][    C2] Code: 84 00 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 53 89 fb 83 fe 02 75 04 eb 1d f3 90 8b 04 25 00 c3 5f ff <f6> c4 10 75 f2 09 de 89 34 25 00 c3 5f ff 5b e9 b4 94 33 08 e8 74
+[  591.781412][    C2] RSP: 0000:ffa0000000240690 EFLAGS: 00000002
+[  591.781412][    C2] RAX: 00000000000400f6 RBX: 0000000000040000 RCX: ffffffffa134659c
+[  591.781412][    C2] RDX: 0000000000000001 RSI: 00000000000000f6 RDI: 0000000000040000
+[  591.781412][    C2] RBP: 0000000000000001 R08: 0000000000000000 R09: fff3fc00000480c8
+[  591.781412][    C2] R10: fff3fc00000480c7 R11: ffa000000024063f R12: 0000000000000002
+[  591.781412][    C2] R13: ff1100006a33d270 R14: ff1100006a33d468 R15: ffa0000000240758
+[  591.782486][    C2] FS:  00007f69381a1700(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+[  591.782486][    C2] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  591.782486][    C2] CR2: 0000000000000102 CR3: 000000001ff3c003 CR4: 0000000000771ef0
+[  591.782486][    C2] PKRU: 00000000
+[  591.782486][    C2] Call Trace:
+[  591.782486][    C2]  <NMI>
+[  591.782486][    C2]  ? nmi_cpu_backtrace+0x1d4/0x350
+[  591.782757][    C2]  ? nmi_cpu_backtrace_handler+0xc/0x20
+[  591.782757][    C2]  ? nmi_handle+0x1b8/0x5f0
+[  591.782757][    C2]  ? apic_mem_wait_icr_idle+0xf/0x20
+[  591.782757][    C2]  ? __default_send_IPI_shortcut+0x13/0x40
+[  591.782757][    C2]  ? default_do_nmi+0x88/0x220
+[  591.782757][    C2]  ? exc_nmi+0x270/0x320
+[  591.783156][    C2]  ? end_repeat_nmi+0xf/0x53
+[  591.783156][    C2]  ? arch_irq_work_raise+0x3c/0x70
+[  591.783156][    C2]  ? __default_send_IPI_shortcut+0x13/0x40
+[  591.783156][    C2]  ? __default_send_IPI_shortcut+0x13/0x40
+[  591.783156][    C2]  ? __default_send_IPI_shortcut+0x13/0x40
+[  591.783156][    C2]  </NMI>
+[  591.783156][    C2]  <IRQ>
+[  591.783156][    C2]  arch_irq_work_raise+0x4f/0x70
+[  591.783156][    C2]  __irq_work_queue_local+0x14c/0x450
+[  591.783156][    C2]  irq_work_queue_on+0x156/0x170
+[  591.783156][    C2]  __rcu_read_unlock+0x440/0x570
+[  591.783156][    C2]  perf_event_output_forward+0x16a/0x2c0
+[  591.783156][    C2]  ? __pfx_perf_event_output_forward+0x10/0x10
+[  591.783156][    C2]  ? select_task_rq_fair+0x52e/0x3cc0
+[  591.783156][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.783156][    C2]  ? __pfx_lock_release+0x10/0x10
+[  591.783156][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.783156][    C2]  ? write_comp_data+0x29/0x90
+[  591.783156][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.783156][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  591.783156][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.783156][    C2]  __perf_event_overflow+0x1e4/0x8f0
+[  591.783156][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.783156][    C2]  ? find_held_lock+0x2c/0x110
+[  591.783156][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.783156][    C2]  perf_swevent_overflow+0xac/0x150
+[  591.783156][    C2]  perf_swevent_event+0x1e9/0x2e0
+[  591.783156][    C2]  perf_tp_event+0x227/0xfe0
+[  591.783156][    C2]  ? __pfx_perf_tp_event+0x10/0x10
+[  591.783156][    C2]  ? rcu_read_lock_sched_held+0xa4/0xd0
+[  591.783156][    C2]  ? __pfx_rcu_read_lock_sched_held+0x10/0x10
+[  591.783156][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.783156][    C2]  ? place_entity+0x316/0x410
+[  591.785412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.785412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.785412][    C2]  ? find_held_lock+0x2c/0x110
+[  591.785412][    C2]  ? sched_ttwu_pending+0x26c/0x480
+[  591.785412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.785412][    C2]  ? __pfx_lock_release+0x10/0x10
+[  591.785412][    C2]  ? perf_trace_run_bpf_submit+0xef/0x180
+[  591.785412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.785412][    C2]  ? write_comp_data+0x29/0x90
+[  591.785412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.785412][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  591.785412][    C2]  perf_trace_run_bpf_submit+0xef/0x180
+[  591.785412][    C2]  perf_trace_preemptirq_template+0x287/0x450
+[  591.785412][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.785412][    C2]  ? __wake_up_common_lock+0x41/0x60
+[  591.786405][    C2]  ? __pfx_perf_trace_preemptirq_template+0x10/0x10
+[  591.786405][    C2]  ? irq_work_single+0x1b0/0x260
+[  591.786405][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.786405][    C2]  ? write_comp_data+0x29/0x90
+[  591.786405][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.786405][    C2]  ? write_comp_data+0x29/0x90
+[  591.786405][    C2]  ? irqentry_exit+0x3b/0x90
+[  591.786405][    C2]  trace_hardirqs_on+0xf2/0x160
+[  591.786405][    C2]  irqentry_exit+0x3b/0x90
+[  591.786405][    C2]  asm_sysvec_irq_work+0x1a/0x20
+[  591.787040][    C2] RIP: 0010:__rcu_read_unlock+0xc6/0x570
+[  591.787040][    C2] Code: b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 0f b6 04 02 84 c0 74 08 3c 03 0f 8e bf 01 00 00 8b 85 00 04 00 00 85 c0 75 57 <65> 48 8b 1d 82 ad 92 5e 48 8d bb fc 03 00 00 48 b8 00 00 00 00 00
+[  591.787144][    C2] RSP: 0000:ffa0000000240dc0 EFLAGS: 00000206
+[  591.787144][    C2] RAX: 0000000000000002 RBX: ff1100006a33d240 RCX: 1ffffffff5b773f1
+[  591.787144][    C2] RDX: 0000000000000000 RSI: 0000000000000100 RDI: 0000000000000000
+[  591.787144][    C2] RBP: ffffffffabd26380 R08: 0000000000000001 R09: 0000000000000001
+[  591.787297][    C2] R10: fffffbfff5b77b5a R11: ffffffffadbbdad7 R12: 0000000000000001
+[  591.787297][    C2] R13: 0000000000000200 R14: ff11000007268e00 R15: ff1100006a32ce40
+[  591.787297][    C2]  mac80211_hwsim_beacon+0x105/0x200
+[  591.787297][    C2]  __hrtimer_run_queues+0x1b5/0xca0
+[  591.787462][    C2]  ? __pfx_mac80211_hwsim_beacon+0x10/0x10
+[  591.787462][    C2]  ? __pfx___hrtimer_run_queues+0x10/0x10
+[  591.787611][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.787611][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  591.787611][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.787611][    C2]  hrtimer_run_softirq+0x17f/0x2e0
+[  591.787611][    C2]  handle_softirqs+0x1ad/0x870
+[  591.787611][    C2]  irq_exit_rcu+0xee/0x140
+[  591.787611][    C2]  sysvec_apic_timer_interrupt+0x94/0xb0
+[  591.787611][    C2]  </IRQ>
+[  591.787611][    C2]  <TASK>
+[  591.787611][    C2]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  591.788210][    C2] RIP: 0010:do_user_addr_fault+0x26d/0x18b0
+[  591.788210][    C2] Code: 00 31 ff 81 e3 00 02 00 00 48 89 de e8 3c 80 49 00 48 85 db 0f 84 9f 08 00 00 e8 ce 7d 49 00 e8 79 92 51 00 fb 0f 1f 44 00 00 <e8> be 7d 49 00 4c 89 e0 31 ff 45 31 ff 83 e0 40 48 89 c3 48 89 c6
+[  591.788210][    C2] RSP: 0000:ffa0000004ff7ea0 EFLAGS: 00000202
+[  591.788210][    C2] RAX: 000000000000450b RBX: 0000000000000200 RCX: 1ffffffff5b773f1
+[  591.788210][    C2] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+[  591.788210][    C2] RBP: ffa0000004ff7f58 R08: 0000000000000001 R09: 0000000000000001
+[  591.788210][    C2] R10: fffffbfff5b77b5a R11: ffffffffadbbdad7 R12: 0000000000000004
+[  591.788210][    C2] R13: 00007f6930aad000 R14: 00007f6930aad000 R15: 0000000000000000
+[  591.788210][    C2]  ? irqentry_enter_from_user_mode+0x5b/0x90
+[  591.788210][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.788210][    C2]  ? write_comp_data+0x29/0x90
+[  591.788210][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  591.788210][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  591.788210][    C2]  exc_page_fault+0x9c/0x1a0
+[  591.788210][    C2]  asm_exc_page_fault+0x26/0x30
+[  591.788210][    C2] RIP: 0033:0x7f69385ef7de
+[  591.788210][    C2] Code: 48 39 c1 77 75 48 63 d5 48 01 c2 49 3b 57 08 77 53 8d 55 ff 85 ed 74 34 0f 1f 40 00 48 39 c1 77 1b 49 8b 37 49 89 c1 49 29 c9 <46> 0f b6 0c 0e 45 84 c9 74 08 44 88 0c 06 49 8b 47 10 48 83 c0 01
+[  591.788210][    C2] RSP: 002b:00007f69381a0020 EFLAGS: 00010206
+[  591.788210][    C2] RAX: 0000000000d2c001 RBX: 00007f69381a0090 RCX: 0000000000000001
+[  591.788210][    C2] RDX: 00000000000000bc RSI: 00007f692fd81000 RDI: 00007f69381a0130
+[  591.788210][    C2] RBP: 0000000000000102 R08: 0000000000000000 R09: 0000000000d2c000
+[  591.788210][    C2] R10: 00000000ffffffff R11: 0000000000000010 R12: 00007f69381a0098
+[  591.788210][    C2] R13: 00007f69381a00a0 R14: 0000000000000000 R15: 00007f69381a0130
+[  591.788210][    C2]  </TASK>
