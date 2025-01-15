@@ -1,3 +1,0 @@
-2025/1/6
-9d89551994a430b50c4fffcb1e617a057fa76e20
-https://github.com/torvalds/linux/tree/9d89551994a430b50c4fffcb1e617a057fa76e20
