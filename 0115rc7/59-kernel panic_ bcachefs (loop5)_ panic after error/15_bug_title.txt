@@ -1,0 +1,1 @@
+kernel panic: bcachefs (loop0): panic after error

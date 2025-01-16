@@ -1,0 +1,2563 @@
+[  190.682826][  T494] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  190.685435][  T494] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  190.853843][  T747] netdevsim netdevsim6 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  190.856908][  T747] netdevsim netdevsim6 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  190.859794][  T747] netdevsim netdevsim6 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  190.862755][  T747] netdevsim netdevsim6 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  190.905968][  T494] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  190.908681][  T494] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  190.934783][  T494] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  190.937423][  T494] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  191.147229][   T59] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  191.149934][   T59] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  191.414855][ T1166] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  191.417595][ T1166] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  191.611203][  T381] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  191.613841][  T381] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  301.196084][    C0] kworker/0:6: page allocation failure: order:0, mode:0x40820(GFP_ATOMIC|__GFP_COMP), nodemask=(null),cpuset=/,mems_allowed=0
+[  301.200778][    C0] CPU: 0 UID: 0 PID: 1653 Comm: kworker/0:6 Not tainted 6.13.0-rc7 #1
+[  301.201925][  T848] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  301.201711][    C0] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  301.201711][    C0] Workqueue: events_freezable_pwr_efficient disk_events_workfn
+[  301.206540][  T848]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  301.201711][    C0] 
+[  301.201711][    C0] Call Trace:
+[  301.201711][    C0]  <IRQ>
+[  301.201711][    C0]  dump_stack_lvl+0x180/0x1b0
+[  301.201711][    C0]  warn_alloc+0x1a8/0x2e0
+[  301.212029][  T848]   node 0: slabs: 5297, objs: 127966, free: 0
+[  301.201711][    C0]  ? __pfx_warn_alloc+0x10/0x10
+[  301.216022][  T848] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.218039][  T848]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  301.201711][    C0]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  301.220874][  T848]   node 0: slabs: 5297, objs: 127966, free: 0
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.224368][  T848] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  301.201711][    C0]  ? wake_all_kswapds+0x136/0x2f0
+[  301.201711][    C0]  __alloc_pages_slowpath.constprop.0+0x1434/0x2170
+[  301.229152][  T848]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  301.201711][    C0]  ? __pfx_mark_lock+0x10/0x10
+[  301.234274][  T848]   node 0: slabs: 5297, objs: 127966, free: 0
+[  301.201711][    C0]  ? __kasan_record_aux_stack+0xa6/0xc0
+[  301.238020][   T92] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  301.201711][    C0]  ? __pfx___alloc_pages_slowpath.constprop.0+0x10/0x10
+[  301.242652][   T92]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  301.201711][    C0]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  301.247916][   T92]   node 0: slabs: 5297, objs: 127966, free: 0
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.251465][   T92] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  301.201711][    C0]  ? __lock_acquire+0x1748/0x4a10
+[  301.256168][   T92]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.261652][   T92]   node 0: slabs: 5297, objs: 127966, free: 0
+[  301.201711][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.201711][    C0]  __alloc_pages_noprof+0x564/0x660
+[  301.265446][   T92] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  301.201711][    C0]  ? mark_lock+0xfe/0x12d0
+[  301.201711][    C0]  ? __pfx___alloc_pages_noprof+0x10/0x10
+[  301.201711][    C0]  ? __pfx___lock_acquire+0x10/0x10
+[  301.267344][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  301.267468][    C2]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  301.267519][    C2]   node 0: slabs: 3726, objs: 43264, free: 0
+[  301.267699][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  301.267721][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  301.267762][    C2]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  301.267800][    C3]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  301.267823][    C2]   node 0: slabs: 3726, objs: 43264, free: 0
+[  301.267853][    C3]   node 0: slabs: 3726, objs: 43264, free: 0
+[  301.267925][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  301.267985][    C2]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  301.268037][    C2]   node 0: slabs: 3726, objs: 43264, free: 0
+[  301.270546][   T92]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.275180][   T92]   node 0: slabs: 5299, objs: 128003, free: 0
+[  301.201711][    C0]  ? __sanitizer_cov_trace_switch+0x54/0x90
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? policy_nodemask+0xeb/0x4e0
+[  301.201711][    C0]  alloc_pages_mpol_noprof+0xf2/0x400
+[  301.201711][    C0]  ? __pfx_alloc_pages_mpol_noprof+0x10/0x10
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? write_comp_data+0x29/0x90
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.201711][    C0]  new_slab+0x2df/0x3f0
+[  301.201711][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.201711][    C0]  ___slab_alloc+0xdde/0x16d0
+[  301.201711][    C0]  ? ___neigh_create+0xf87/0x2990
+[  301.201711][    C0]  ? ___slab_alloc+0x46/0x16d0
+[  301.201711][    C0]  ? ___neigh_create+0xf87/0x2990
+[  301.201711][    C0]  ? __slab_alloc.isra.0+0x56/0xb0
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  __slab_alloc.isra.0+0x56/0xb0
+[  301.201711][    C0]  ? ___neigh_create+0xf87/0x2990
+[  301.201711][    C0]  __kmalloc_noprof+0x2a0/0x570
+[  301.201711][    C0]  ? ___neigh_create+0xf87/0x2990
+[  301.201711][    C0]  ___neigh_create+0xf87/0x2990
+[  301.201711][    C0]  ? rcu_read_lock_held+0xa4/0xb0
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? write_comp_data+0x29/0x90
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ip6_finish_output2+0xce9/0x21a0
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? __pfx_ip6_finish_output2+0x10/0x10
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? __pfx_rcu_read_lock_held+0x10/0x10
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ip6_finish_output+0x423/0xdf0
+[  301.201711][    C0]  ip6_output+0x24b/0x8d0
+[  301.201711][    C0]  ? __pfx_ip6_output+0x10/0x10
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? __pfx_ip6_finish_output+0x10/0x10
+[  301.201711][    C0]  ? rcu_read_lock_held+0xa4/0xb0
+[  301.201711][    C0]  ? __pfx_rcu_read_lock_held+0x10/0x10
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? write_comp_data+0x29/0x90
+[  301.201711][    C0]  ? __pfx_ip6_output+0x10/0x10
+[  301.201711][    C0]  ndisc_send_skb+0xc89/0x18f0
+[  301.201711][    C0]  ? __pfx_ndisc_send_skb+0x10/0x10
+[  301.201711][    C0]  ? skb_set_owner_w+0x326/0x720
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? write_comp_data+0x29/0x90
+[  301.201711][    C0]  ndisc_send_rs+0x12d/0x540
+[  301.201711][    C0]  addrconf_rs_timer+0x3f7/0x750
+[  301.201711][    C0]  ? __pfx_lock_acquire+0x10/0x10
+[  301.201711][    C0]  ? __pfx_addrconf_rs_timer+0x10/0x10
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  call_timer_fn+0x1be/0x690
+[  301.201711][    C0]  ? __pfx_addrconf_rs_timer+0x10/0x10
+[  301.201711][    C0]  ? __pfx_call_timer_fn+0x10/0x10
+[  301.201711][    C0]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  301.201711][    C0]  ? _raw_spin_unlock_irq+0x23/0x50
+[  301.201711][    C0]  ? _raw_spin_unlock_irq+0x23/0x50
+[  301.201711][    C0]  ? __pfx_addrconf_rs_timer+0x10/0x10
+[  301.201711][    C0]  __run_timers+0x713/0xb50
+[  301.201711][    C0]  ? __pfx___run_timers+0x10/0x10
+[  301.201711][    C0]  ? __pfx_lock_acquire+0x10/0x10
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? do_raw_spin_lock+0x124/0x290
+[  301.201711][    C0]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  301.201711][    C0]  ? _raw_spin_lock_irq+0x45/0x50
+[  301.201711][    C0]  run_timer_base+0xc5/0x120
+[  301.201711][    C0]  run_timer_softirq+0x1a/0x40
+[  301.201711][    C0]  handle_softirqs+0x1ad/0x870
+[  301.201711][    C0]  irq_exit_rcu+0xee/0x140
+[  301.201711][    C0]  sysvec_apic_timer_interrupt+0x94/0xb0
+[  301.201711][    C0]  </IRQ>
+[  301.201711][    C0]  <TASK>
+[  301.201711][    C0]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  301.201711][    C0] RIP: 0010:kasan_check_range+0x18/0x1b0
+[  301.201711][    C0] Code: 1f 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 66 0f 1f 00 48 85 f6 0f 84 58 01 00 00 48 89 f8 41 54 0f b6 d2 48 01 f0 <55> 53 0f 82 d1 00 00 00 0f 1f 44 00 00 48 b8 00 00 00 00 00 00 00
+[  301.201711][    C0] RSP: 0018:ffa0000004566998 EFLAGS: 00000286
+[  301.201711][    C0] RAX: ffa00000045669e8 RBX: ffffffffad3be930 RCX: ffffffffa0e5d81d
+[  301.201711][    C0] RDX: 0000000000000001 RSI: 0000000000000008 RDI: ffa00000045669e0
+[  301.201711][    C0] RBP: ff11000010c79000 R08: 0000000000000000 R09: ffe21c000218f201
+[  301.201711][    C0] R10: ffe21c000218f200 R11: ff11000010c79007 R12: 0000000000000001
+[  301.201711][    C0] R13: 1ff40000008acd38 R14: ffa00000045669e0 R15: ff11000010c78ff8
+[  301.201711][    C0]  ? __up_read+0x17d/0x770
+[  301.201711][    C0]  __up_read+0x17d/0x770
+[  301.201711][    C0]  ? __pfx___up_read+0x10/0x10
+[  301.201711][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.201711][    C0]  ? write_comp_data+0x29/0x90
+[  301.201711][    C0]  rmap_walk_anon+0x51a/0x760
+[  301.201711][    C0]  ? __pfx___probestub_set_migration_pte+0x10/0x10
+[  301.201711][    C0]  rmap_walk+0x54/0x80
+[  301.201711][    C0]  folio_referenced+0x267/0x4f0
+[  301.201711][    C0]  ? __pfx_folio_referenced+0x10/0x10
+[  301.511712][    C0]  ? __pfx_folio_referenced_one+0x10/0x10
+[  301.511712][    C0]  ? __pfx_folio_lock_anon_vma_read+0x10/0x10
+[  301.511712][    C0]  ? __pfx_invalid_folio_referenced_vma+0x10/0x10
+[  301.511712][    C0]  ? write_comp_data+0x29/0x90
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? write_comp_data+0x29/0x90
+[  301.511712][    C0]  shrink_folio_list+0x1fd3/0x3b80
+[  301.511712][    C0]  ? __pfx_shrink_folio_list+0x10/0x10
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? find_held_lock+0x2c/0x110
+[  301.511712][    C0]  ? isolate_lru_folios+0x83d/0x13d0
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? mark_lock+0xfe/0x12d0
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? isolate_lru_folios+0xc61/0x13d0
+[  301.511712][    C0]  ? __pfx_mark_lock+0x10/0x10
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? find_held_lock+0x2c/0x110
+[  301.511712][    C0]  ? shrink_inactive_list+0x358/0xba0
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? mark_held_locks+0x9e/0xe0
+[  301.511712][    C0]  ? _raw_spin_unlock_irq+0x23/0x50
+[  301.511712][    C0]  ? _raw_spin_unlock_irq+0x23/0x50
+[  301.511712][    C0]  shrink_inactive_list+0x3ec/0xba0
+[  301.511712][    C0]  ? __pfx_shrink_inactive_list+0x10/0x10
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  shrink_lruvec+0x5ee/0x1060
+[  301.511712][    C0]  ? __pfx_shrink_lruvec+0x10/0x10
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? find_held_lock+0x2c/0x110
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  shrink_node+0x5f2/0x1790
+[  301.511712][    C0]  ? do_try_to_free_pages+0x3df/0x12d0
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  do_try_to_free_pages+0x2e8/0x12d0
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  try_to_free_pages+0x2b1/0x6b0
+[  301.511712][    C0]  ? __pfx_try_to_free_pages+0x10/0x10
+[  301.511712][    C0]  ? fs_reclaim_acquire+0xae/0x150
+[  301.511712][    C0]  __alloc_pages_slowpath.constprop.0+0x5b2/0x2170
+[  301.511712][    C0]  ? find_held_lock+0x2c/0x110
+[  301.511712][    C0]  ? __pfx___alloc_pages_slowpath.constprop.0+0x10/0x10
+[  301.511712][    C0]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.511712][    C0]  __alloc_pages_noprof+0x564/0x660
+[  301.511712][    C0]  ? __pfx___alloc_pages_noprof+0x10/0x10
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? write_comp_data+0x29/0x90
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? policy_nodemask+0xeb/0x4e0
+[  301.511712][    C0]  alloc_pages_mpol_noprof+0xf2/0x400
+[  301.511712][    C0]  ? __pfx_alloc_pages_mpol_noprof+0x10/0x10
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.511712][    C0]  blk_rq_map_kern+0x272/0x870
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  scsi_execute_cmd+0xbfd/0xe30
+[  301.511712][    C0]  ? __pfx_register_lock_class+0x10/0x10
+[  301.511712][    C0]  ? __pfx___lock_acquire+0x10/0x10
+[  301.511712][    C0]  ? __pfx_scsi_execute_cmd+0x10/0x10
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? __lock_acquire+0x1748/0x4a10
+[  301.511712][    C0]  sr_check_events+0x1be/0xb50
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? __pfx_sr_check_events+0x10/0x10
+[  301.511712][    C0]  ? __pfx___lock_acquire+0x10/0x10
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  cdrom_check_events+0x68/0x110
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  sr_block_check_events+0xc3/0x100
+[  301.511712][    C0]  disk_check_events+0xc5/0x380
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  process_scheduled_works+0x5ee/0x1ba0
+[  301.511712][    C0]  ? __pfx_process_scheduled_works+0x10/0x10
+[  301.511712][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? assign_work+0x195/0x240
+[  301.511712][    C0]  worker_thread+0x59f/0xcf0
+[  301.511712][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  301.511712][    C0]  ? __pfx_worker_thread+0x10/0x10
+[  301.511712][    C0]  kthread+0x345/0x450
+[  301.511712][    C0]  ? __pfx_kthread+0x10/0x10
+[  301.511712][    C0]  ret_from_fork+0x48/0x80
+[  301.511712][    C0]  ? __pfx_kthread+0x10/0x10
+[  301.511712][    C0]  ret_from_fork_asm+0x1a/0x30
+[  301.511712][    C0]  </TASK>
+[  301.694969][    C0] Mem-Info:
+[  301.696137][    C0] active_anon:224 inactive_anon:41015 isolated_anon:64
+[  301.696137][    C0]  active_file:1052 inactive_file:1093 isolated_file:0
+[  301.696137][    C0]  unevictable:1536 dirty:465 writeback:10
+[  301.696137][    C0]  slab_reclaimable:9348 slab_unreclaimable:264755
+[  301.696137][    C0]  mapped:3905 shmem:2041 pagetables:680
+[  301.696137][    C0]  sec_pagetables:0 bounce:0
+[  301.696137][    C0]  kernel_misc_reclaimable:0
+[  301.696137][    C0]  free:367 free_pcp:808 free_cma:0
+[  301.709955][    C0] Node 0 active_anon:896kB inactive_anon:164060kB active_file:4208kB inactive_file:4372kB unevictable:6144kB isolated(anon):256kB isolated(file):0kB mapped:15620kB dirty:1860kB writeback:40kB shmem:8164kB writeback_tmp:0kB kernel_stack:9280kB pagetables:2720kB sec_pagetables:0kB all_unreclaimable? no
+[  301.718921][    C0] Node 0 DMA free:8kB boost:0kB min:52kB low:64kB high:76kB reserved_highatomic:0KB active_anon:0kB inactive_anon:0kB active_file:0kB inactive_file:0kB unevictable:0kB writepending:0kB present:15992kB managed:15360kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+[  301.727250][    C0] lowmem_reserve[]: 0 1301 0 0
+[  301.729007][    C0] Node 0 DMA32 free:1460kB boost:10876kB min:15464kB low:16796kB high:18128kB reserved_highatomic:14336KB active_anon:896kB inactive_anon:164060kB active_file:4208kB inactive_file:4372kB unevictable:6144kB writepending:1900kB present:2080640kB managed:1356844kB mlocked:0kB bounce:0kB free_pcp:3232kB local_pcp:1224kB free_cma:0kB
+[  301.738715][    C0] lowmem_reserve[]: 0 0 0 0
+[  301.740356][    C0] Node 0 DMA: 2*4kB (U) 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*2048kB 0*4096kB = 8kB
+[  301.744527][    C0] Node 0 DMA32: 362*4kB (MH) 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*2048kB 0*4096kB = 1448kB
+[  301.748865][    C0] Node 0 hugepages_total=0 hugepages_free=0 hugepages_surp=0 hugepages_size=2048kB
+[  301.751849][    C0] 4196 total pagecache pages
+[  301.753411][    C0] 10 pages in swap cache
+[  301.754855][    C0] Free swap  = 124220kB
+[  301.756272][    C0] Total swap = 124996kB
+[  301.757689][    C0] 524158 pages RAM
+[  301.758977][    C0] 0 pages HighMem/MovableOnly
+[  301.760574][    C0] 181107 pages reserved
+[  305.287883][    C0] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  305.288701][    C3] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  305.288889][    C2] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  305.289078][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  305.289141][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  305.289199][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  305.289280][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  305.289341][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  305.289386][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  305.289430][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  306.250494][  T733] slab_out_of_memory: 5974 callbacks suppressed
+[  306.250529][  T733] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  306.255974][  T733]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  306.259253][  T733]   node 0: slabs: 5461, objs: 130480, free: 0
+[  306.261276][  T733] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  306.264369][  T733]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  306.267691][  T733]   node 0: slabs: 5461, objs: 130480, free: 0
+[  306.269699][  T733] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  306.272809][  T733]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  306.276173][  T733]   node 0: slabs: 5461, objs: 130480, free: 0
+[  306.278198][  T733] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  306.281343][  T733]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  306.285719][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  306.285792][    C3]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  306.285844][    C3]   node 0: slabs: 3736, objs: 43284, free: 0
+[  306.285972][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  306.286031][    C3]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  306.286083][    C3]   node 0: slabs: 3736, objs: 43284, free: 0
+[  306.287697][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  306.287719][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  306.287805][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  306.287857][    C2]   node 0: slabs: 1232, objs: 39424, free: 0
+[  306.287967][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  306.288026][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  306.288077][    C2]   node 0: slabs: 1232, objs: 39424, free: 0
+[  306.288158][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  306.288217][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  306.288268][    C2]   node 0: slabs: 1232, objs: 39424, free: 0
+[  306.290506][  T733]   node 0: slabs: 5464, objs: 130516, free: 0
+[  306.293742][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  306.338318][    C0]   node 0: slabs: 1232, objs: 39424, free: 0
+[  311.199593][    C2] warn_alloc: 12325 callbacks suppressed
+[  311.201691][    C2] syz.4.20: page allocation failure: order:0, mode:0x60820(GFP_ATOMIC|__GFP_COMP|__GFP_MEMALLOC), nodemask=(null),cpuset=/,mems_allowed=0
+[  311.206435][    C2] CPU: 2 UID: 0 PID: 1953 Comm: syz.4.20 Not tainted 6.13.0-rc7 #1
+[  311.207360][    C2] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  311.207360][    C2] Call Trace:
+[  311.207360][    C2]  <IRQ>
+[  311.207360][    C2]  dump_stack_lvl+0x180/0x1b0
+[  311.207360][    C2]  warn_alloc+0x1a8/0x2e0
+[  311.207360][    C2]  ? __pfx_warn_alloc+0x10/0x10
+[  311.207360][    C2]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? wake_all_kswapds+0x136/0x2f0
+[  311.207360][    C2]  __alloc_pages_slowpath.constprop.0+0x1434/0x2170
+[  311.207360][    C2]  ? warn_alloc+0x10f/0x2e0
+[  311.207360][    C2]  ? __pfx___alloc_pages_slowpath.constprop.0+0x10/0x10
+[  311.207360][    C2]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? mark_lock+0xfe/0x12d0
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  311.207360][    C2]  __alloc_pages_noprof+0x564/0x660
+[  311.207360][    C2]  ? __pfx___alloc_pages_noprof+0x10/0x10
+[  311.207360][    C2]  ? mark_lock+0xfe/0x12d0
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? __sanitizer_cov_trace_switch+0x54/0x90
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? policy_nodemask+0xeb/0x4e0
+[  311.207360][    C2]  alloc_pages_mpol_noprof+0xf2/0x400
+[  311.207360][    C2]  ? __pfx_alloc_pages_mpol_noprof+0x10/0x10
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? write_comp_data+0x29/0x90
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  311.207360][    C2]  new_slab+0x2df/0x3f0
+[  311.207360][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  311.207360][    C2]  ___slab_alloc+0xdde/0x16d0
+[  311.207360][    C2]  ? __alloc_skb+0x2ad/0x370
+[  311.207360][    C2]  ? ___slab_alloc+0x46/0x16d0
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? __lock_acquire+0xdf4/0x4a10
+[  311.207360][    C2]  ? __alloc_skb+0x2ad/0x370
+[  311.282175][  T525] slab_out_of_memory: 6456 callbacks suppressed
+[  311.282210][  T525] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  311.207360][    C2]  ? __slab_alloc.isra.0+0x56/0xb0
+[  311.284874][  T525]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  __slab_alloc.isra.0+0x56/0xb0
+[  311.289553][  T525]   node 0: slabs: 5627, objs: 132563, free: 0
+[  311.207360][    C2]  kmem_cache_alloc_node_noprof+0x202/0x430
+[  311.294717][  T525] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  311.207360][    C2]  ? __lock_acquire+0x1748/0x4a10
+[  311.298301][  T525]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  311.207360][    C2]  ? __alloc_skb+0x2ad/0x370
+[  311.302561][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  311.302695][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  311.302719][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  311.302760][    C3]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  311.302773][    C0]   node 0: slabs: 1233, objs: 39456, free: 0
+[  311.302813][    C3]   node 0: slabs: 1233, objs: 39456, free: 0
+[  311.302884][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  311.302898][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  311.302944][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  311.302957][    C3]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  311.302996][    C0]   node 0: slabs: 1233, objs: 39456, free: 0
+[  311.303009][    C3]   node 0: slabs: 1233, objs: 39456, free: 0
+[  311.303079][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  311.303139][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  311.303190][    C0]   node 0: slabs: 1233, objs: 39456, free: 0
+[  311.303271][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  311.303465][  T525]   node 0: slabs: 5630, objs: 132599, free: 0
+[  311.303712][    C1] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  311.303773][    C1]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  311.303822][    C1]   node 0: slabs: 1233, objs: 39456, free: 0
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  __alloc_skb+0x2ad/0x370
+[  311.308352][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  311.207360][    C2]  ? __pfx___alloc_skb+0x10/0x10
+[  311.207360][    C2]  __netdev_alloc_skb+0x78/0x940
+[  311.313242][    C0]   node 0: slabs: 1233, objs: 39456, free: 0
+[  311.314928][  T733] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  311.314991][  T733]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  311.315041][  T733]   node 0: slabs: 3745, objs: 43302, free: 0
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  __ieee80211_beacon_get+0x407/0xf80
+[  311.207360][    C2]  ieee80211_beacon_get_tim+0xa7/0x280
+[  311.207360][    C2]  ? __pfx_ieee80211_beacon_get_tim+0x10/0x10
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? __pfx_rcu_read_lock_held+0x10/0x10
+[  311.207360][    C2]  mac80211_hwsim_beacon_tx+0x4fd/0xa50
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? write_comp_data+0x29/0x90
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  __iterate_interfaces+0x16f/0x5b0
+[  311.207360][    C2]  ? __pfx_mac80211_hwsim_beacon_tx+0x10/0x10
+[  311.207360][    C2]  ? __pfx_mac80211_hwsim_beacon_tx+0x10/0x10
+[  311.207360][    C2]  ieee80211_iterate_active_interfaces_atomic+0x71/0x1b0
+[  311.207360][    C2]  mac80211_hwsim_beacon+0x105/0x200
+[  311.207360][    C2]  __hrtimer_run_queues+0x1b5/0xca0
+[  311.207360][    C2]  ? __pfx_mac80211_hwsim_beacon+0x10/0x10
+[  311.207360][    C2]  ? __pfx___hrtimer_run_queues+0x10/0x10
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  hrtimer_run_softirq+0x17f/0x2e0
+[  311.207360][    C2]  handle_softirqs+0x1ad/0x870
+[  311.207360][    C2]  irq_exit_rcu+0xee/0x140
+[  311.207360][    C2]  sysvec_apic_timer_interrupt+0x94/0xb0
+[  311.207360][    C2]  </IRQ>
+[  311.207360][    C2]  <TASK>
+[  311.207360][    C2]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  311.207360][    C2] RIP: 0010:__sanitizer_cov_trace_pc+0x4c/0x60
+[  311.207360][    C2] Code: 74 27 48 8b 93 e0 14 00 00 8b 8b dc 14 00 00 48 8b 02 48 83 c0 01 48 39 c1 76 0e 48 89 02 48 81 ed 00 00 a0 1f 48 89 2c c2 5b <5d> e9 b9 a4 e6 07 66 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 90 90
+[  311.207360][    C2] RSP: 0018:ffa000000c81f5b8 EFLAGS: 00000246
+[  311.207360][    C2] RAX: 0000000001903e00 RBX: 0000000000000001 RCX: ffffffffa13eea1e
+[  311.207360][    C2] RDX: 0000000000000001 RSI: ff11000008c74680 RDI: 0000000000000002
+[  311.207360][    C2] RBP: ffffffffa13eeb2b R08: fff3fc0001903e00 R09: fffa7c0000110001
+[  311.207360][    C2] R10: fffa7c0000110000 R11: ffd4000000880007 R12: 0000000000000001
+[  311.207360][    C2] R13: ff1100001edd66c8 R14: 00007f8a34465001 R15: 0000000000022200
+[  311.207360][    C2]  ? madvise_cold_or_pageout_pte_range+0x73b/0x1fb0
+[  311.207360][    C2]  ? madvise_cold_or_pageout_pte_range+0x62e/0x1fb0
+[  311.207360][    C2]  madvise_cold_or_pageout_pte_range+0x73b/0x1fb0
+[  311.207360][    C2]  ? __pfx_madvise_cold_or_pageout_pte_range+0x10/0x10
+[  311.207360][    C2]  ? find_held_lock+0x2c/0x110
+[  311.207360][    C2]  ? __pfx_madvise_cold_or_pageout_pte_range+0x10/0x10
+[  311.207360][    C2]  walk_pgd_range+0xbfd/0x1c60
+[  311.207360][    C2]  ? __pfx_walk_pgd_range+0x10/0x10
+[  311.207360][    C2]  __walk_page_range+0x162/0x870
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? find_vma+0xc0/0x140
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? write_comp_data+0x29/0x90
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  walk_page_range_mm+0x422/0x900
+[  311.207360][    C2]  ? __pfx_walk_page_range_mm+0x10/0x10
+[  311.207360][    C2]  ? write_comp_data+0x29/0x90
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? lru_add_drain_cpu+0x478/0x850
+[  311.207360][    C2]  walk_page_range+0x65/0x90
+[  311.207360][    C2]  madvise_pageout+0x310/0x7e0
+[  311.207360][    C2]  ? __pfx_madvise_pageout+0x10/0x10
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? find_held_lock+0x2c/0x110
+[  311.207360][    C2]  ? __pfx_lock_release+0x10/0x10
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? write_comp_data+0x29/0x90
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? write_comp_data+0x29/0x90
+[  311.207360][    C2]  madvise_vma_behavior+0x1386/0x2320
+[  311.207360][    C2]  ? mt_find+0x811/0xa80
+[  311.207360][    C2]  ? __pfx_madvise_vma_behavior+0x10/0x10
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? find_vma+0xc0/0x140
+[  311.207360][    C2]  ? __pfx_find_vma+0x10/0x10
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  do_madvise+0x5f6/0x9c0
+[  311.207360][    C2]  ? __pfx_do_madvise+0x10/0x10
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? put_timespec64+0xcf/0x130
+[  311.207360][    C2]  ? __pfx_put_timespec64+0x10/0x10
+[  311.207360][    C2]  ? __x64_sys_futex+0x1d3/0x4d0
+[  311.207360][    C2]  ? syscall_exit_to_user_mode+0xd0/0x270
+[  311.207360][    C2]  __x64_sys_madvise+0xa9/0x110
+[  311.207360][    C2]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  311.207360][    C2]  ? lockdep_hardirqs_on+0x7c/0x110
+[  311.207360][    C2]  do_syscall_64+0xc3/0x1d0
+[  311.207360][    C2]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  311.207360][    C2] RIP: 0033:0x7f8a34b33add
+[  311.207360][    C2] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  311.207360][    C2] RSP: 002b:00007f8a34585ba8 EFLAGS: 00000246 ORIG_RAX: 000000000000001c
+[  311.207360][    C2] RAX: ffffffffffffffda RBX: 00007f8a34d2cfa0 RCX: 00007f8a34b33add
+[  311.207360][    C2] RDX: 0000000000000015 RSI: 7fffffffffffffff RDI: 0000000020000000
+[  311.207360][    C2] RBP: 00007f8a34bb1b8f R08: 0000000000000000 R09: 0000000000000000
+[  311.207360][    C2] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  311.207360][    C2] R13: 00007f8a34d2cfac R14: 00007f8a34d2d038 R15: 00007f8a34585d40
+[  311.207360][    C2]  </TASK>
+[  311.573381][    C2] Mem-Info:
+[  311.574431][    C2] active_anon:224 inactive_anon:40965 isolated_anon:114
+[  311.574431][    C2]  active_file:1097 inactive_file:742 isolated_file:0
+[  311.574431][    C2]  unevictable:1536 dirty:465 writeback:15
+[  311.574431][    C2]  slab_reclaimable:9348 slab_unreclaimable:265692
+[  311.574431][    C2]  mapped:3399 shmem:2040 pagetables:680
+[  311.574431][    C2]  sec_pagetables:0 bounce:0
+[  311.574431][    C2]  kernel_misc_reclaimable:0
+[  311.574431][    C2]  free:0 free_pcp:595 free_cma:0
+[  311.587976][    C2] Node 0 active_anon:896kB inactive_anon:163860kB active_file:4388kB inactive_file:2968kB unevictable:6144kB isolated(anon):456kB isolated(file):0kB mapped:13596kB dirty:1860kB writeback:60kB shmem:8160kB writeback_tmp:0kB kernel_stack:9280kB pagetables:2720kB sec_pagetables:0kB all_unreclaimable? no
+[  311.596585][    C2] Node 0 DMA free:0kB boost:0kB min:52kB low:64kB high:76kB reserved_highatomic:0KB active_anon:0kB inactive_anon:0kB active_file:0kB inactive_file:0kB unevictable:0kB writepending:0kB present:15992kB managed:15360kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+[  311.604758][    C2] lowmem_reserve[]: 0 1301 0 0
+[  311.606415][    C2] Node 0 DMA32 free:0kB boost:10876kB min:15464kB low:16796kB high:18128kB reserved_highatomic:12288KB active_anon:896kB inactive_anon:163860kB active_file:4388kB inactive_file:2968kB unevictable:6144kB writepending:1920kB present:2080640kB managed:1356844kB mlocked:0kB bounce:0kB free_pcp:2380kB local_pcp:0kB free_cma:0kB
+[  311.615823][    C2] lowmem_reserve[]: 0 0 0 0
+[  311.617434][    C2] Node 0 DMA: 0*4kB 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*2048kB 0*4096kB = 0kB
+[  311.621318][    C2] Node 0 DMA32: 0*4kB 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*2048kB 0*4096kB = 0kB
+[  311.625202][    C2] Node 0 hugepages_total=0 hugepages_free=0 hugepages_surp=0 hugepages_size=2048kB
+[  311.628089][    C2] 3894 total pagecache pages
+[  311.629593][    C2] 15 pages in swap cache
+[  311.631027][    C2] Free swap  = 123964kB
+[  311.632395][    C2] Total swap = 124996kB
+[  311.633806][    C2] 524158 pages RAM
+[  311.635057][    C2] 0 pages HighMem/MovableOnly
+[  311.636601][    C2] 181107 pages reserved
+[  313.479704][    C0] net_ratelimit: 69 callbacks suppressed
+[  313.479739][    C0] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  313.479756][    C2] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  313.479810][    C2] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  313.480100][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  313.480166][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  313.480224][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  313.480282][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  313.480340][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  313.480385][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  313.480429][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  316.297317][  T480] slab_out_of_memory: 6471 callbacks suppressed
+[  316.297353][  T480] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  316.302994][  T480]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  316.306275][  T480]   node 0: slabs: 3745, objs: 43302, free: 0
+[  316.317056][  T480] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  316.319588][    C1] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x20820(GFP_ATOMIC|__GFP_MEMALLOC)
+[  316.319697][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x20820(GFP_ATOMIC|__GFP_MEMALLOC)
+[  316.319770][    C0]   cache: skbuff_small_head, object size: 640, buffer size: 768, default order: 2, min order: 0
+[  316.319824][    C0]   node 0: slabs: 2251, objs: 31351, free: 0
+[  316.319921][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x20820(GFP_ATOMIC|__GFP_MEMALLOC)
+[  316.319982][    C0]   cache: skbuff_small_head, object size: 640, buffer size: 768, default order: 2, min order: 0
+[  316.320035][    C0]   node 0: slabs: 2252, objs: 31356, free: 0
+[  316.320124][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x20820(GFP_ATOMIC|__GFP_MEMALLOC)
+[  316.320147][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  316.320185][    C0]   cache: skbuff_small_head, object size: 640, buffer size: 768, default order: 2, min order: 0
+[  316.320218][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  316.320238][    C0]   node 0: slabs: 2252, objs: 31356, free: 0
+[  316.320271][    C2]   node 0: slabs: 1234, objs: 39488, free: 0
+[  316.320327][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x20820(GFP_ATOMIC|__GFP_MEMALLOC)
+[  316.320391][    C0]   cache: skbuff_small_head, object size: 640, buffer size: 768, default order: 2, min order: 0
+[  316.320388][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  316.320444][    C0]   node 0: slabs: 2252, objs: 31356, free: 0
+[  316.320450][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  316.320501][    C2]   node 0: slabs: 1234, objs: 39488, free: 0
+[  316.320535][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x20820(GFP_ATOMIC|__GFP_MEMALLOC)
+[  316.320737][  T480]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  316.320789][  T480]   node 0: slabs: 3745, objs: 43302, free: 0
+[  316.324174][    C1]   cache: skbuff_small_head, object size: 640, buffer size: 768, default order: 2, min order: 0
+[  316.327575][    C0]   cache: skbuff_small_head, object size: 640, buffer size: 768, default order: 2, min order: 0
+[  316.330946][    C1]   node 0: slabs: 2252, objs: 31356, free: 0
+[  316.332792][    C0]   node 0: slabs: 2252, objs: 31356, free: 0
+[  321.223872][  T525] warn_alloc: 12312 callbacks suppressed
+[  321.223906][  T525] kworker/u18:3: page allocation failure: order:0, mode:0x40820(GFP_ATOMIC|__GFP_COMP), nodemask=(null),cpuset=/,mems_allowed=0
+[  321.230411][  T525] CPU: 1 UID: 0 PID: 525 Comm: kworker/u18:3 Not tainted 6.13.0-rc7 #1
+[  321.231346][  T525] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  321.231346][  T525] Workqueue: events_unbound nsim_dev_trap_report_work
+[  321.231346][  T525] Call Trace:
+[  321.231346][  T525]  <TASK>
+[  321.231346][  T525]  dump_stack_lvl+0x180/0x1b0
+[  321.231346][  T525]  warn_alloc+0x1a8/0x2e0
+[  321.231346][  T525]  ? __pfx_warn_alloc+0x10/0x10
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? wake_all_kswapds+0x136/0x2f0
+[  321.231346][  T525]  __alloc_pages_slowpath.constprop.0+0x1434/0x2170
+[  321.231346][  T525]  ? __pfx___alloc_pages_slowpath.constprop.0+0x10/0x10
+[  321.231346][  T525]  ? mark_lock+0xfe/0x12d0
+[  321.231346][  T525]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  321.231346][  T525]  ? __pfx_mark_lock+0x10/0x10
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  321.231346][  T525]  __alloc_pages_noprof+0x564/0x660
+[  321.231346][  T525]  ? mark_lock+0xfe/0x12d0
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? mark_lock+0xfe/0x12d0
+[  321.231346][  T525]  ? __pfx___alloc_pages_noprof+0x10/0x10
+[  321.231346][  T525]  ? mark_lock+0xfe/0x12d0
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? write_comp_data+0x29/0x90
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? policy_nodemask+0xeb/0x4e0
+[  321.231346][  T525]  alloc_pages_mpol_noprof+0xf2/0x400
+[  321.231346][  T525]  ? __pfx_alloc_pages_mpol_noprof+0x10/0x10
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.302924][  T478] slab_out_of_memory: 5715 callbacks suppressed
+[  321.302954][  T478] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  321.231346][  T525]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  321.305114][  T478]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  321.231346][  T525]  new_slab+0x2df/0x3f0
+[  321.310337][  T478]   node 0: slabs: 3750, objs: 43256, free: 0
+[  321.231346][  T525]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  321.231346][  T525]  ___slab_alloc+0xdde/0x16d0
+[  321.231346][  T525]  ? __alloc_skb+0x2ad/0x370
+[  321.231346][  T525]  ? ___slab_alloc+0x46/0x16d0
+[  321.317865][ T1166] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  321.231346][  T525]  ? is_dynamic_key+0x1a0/0x220
+[  321.320756][ T1166]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  321.231346][  T525]  ? __alloc_skb+0x2ad/0x370
+[  321.323727][ T1166]   node 0: slabs: 3750, objs: 43256, free: 0
+[  321.231346][  T525]  ? __slab_alloc.isra.0+0x56/0xb0
+[  321.328223][  T478] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  321.328284][  T478]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  321.328333][  T478]   node 0: slabs: 3750, objs: 43256, free: 0
+[  321.328417][  T478] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  321.328473][  T478]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  321.328521][  T478]   node 0: slabs: 3750, objs: 43256, free: 0
+[  321.337738][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  321.338050][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  321.338120][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  321.338172][    C0]   node 0: slabs: 1239, objs: 39648, free: 0
+[  321.338274][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  321.338339][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  321.338395][    C0]   node 0: slabs: 1239, objs: 39648, free: 0
+[  321.338485][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  321.338567][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  321.338705][    C0]   node 0: slabs: 1239, objs: 39648, free: 0
+[  321.338691][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  321.338770][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  321.338799][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  321.338828][    C2]   node 0: slabs: 1239, objs: 39648, free: 0
+[  321.338865][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  321.338921][    C0]   node 0: slabs: 1239, objs: 39648, free: 0
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  __slab_alloc.isra.0+0x56/0xb0
+[  321.344147][    C3]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  321.231346][  T525]  kmem_cache_alloc_node_noprof+0x202/0x430
+[  321.349442][    C3]   node 0: slabs: 3750, objs: 43256, free: 0
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? __alloc_skb+0x2ad/0x370
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  __alloc_skb+0x2ad/0x370
+[  321.231346][  T525]  ? __pfx___alloc_skb+0x10/0x10
+[  321.231346][  T525]  ? do_raw_spin_lock+0x124/0x290
+[  321.231346][  T525]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  321.231346][  T525]  nsim_dev_trap_report_work+0x358/0xd20
+[  321.231346][  T525]  process_scheduled_works+0x5ee/0x1ba0
+[  321.231346][  T525]  ? __pfx_process_scheduled_works+0x10/0x10
+[  321.231346][  T525]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? assign_work+0x195/0x240
+[  321.231346][  T525]  worker_thread+0x59f/0xcf0
+[  321.231346][  T525]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  321.231346][  T525]  ? __pfx_worker_thread+0x10/0x10
+[  321.231346][  T525]  kthread+0x345/0x450
+[  321.231346][  T525]  ? __pfx_kthread+0x10/0x10
+[  321.231346][  T525]  ret_from_fork+0x48/0x80
+[  321.231346][  T525]  ? __pfx_kthread+0x10/0x10
+[  321.231346][  T525]  ret_from_fork_asm+0x1a/0x30
+[  321.231346][  T525]  </TASK>
+[  321.453954][  T525] Mem-Info:
+[  321.455280][  T525] active_anon:224 inactive_anon:40955 isolated_anon:124
+[  321.455280][  T525]  active_file:874 inactive_file:741 isolated_file:0
+[  321.455280][  T525]  unevictable:1536 dirty:465 writeback:16
+[  321.455280][  T525]  slab_reclaimable:9348 slab_unreclaimable:265524
+[  321.455280][  T525]  mapped:3175 shmem:2040 pagetables:680
+[  321.455280][  T525]  sec_pagetables:0 bounce:0
+[  321.455280][  T525]  kernel_misc_reclaimable:0
+[  321.455280][  T525]  free:48 free_pcp:895 free_cma:0
+[  321.469683][  T525] Node 0 active_anon:896kB inactive_anon:163944kB active_file:3496kB inactive_file:2964kB unevictable:6144kB isolated(anon):368kB isolated(file):0kB mapped:12700kB dirty:1860kB writeback:64kB shmem:8160kB writeback_tmp:0kB kernel_stack:9280kB pagetables:2720kB sec_pagetables:0kB all_unreclaimable? no
+[  321.478846][  T525] Node 0 DMA free:0kB boost:0kB min:52kB low:64kB high:76kB reserved_highatomic:0KB active_anon:0kB inactive_anon:0kB active_file:0kB inactive_file:0kB unevictable:0kB writepending:0kB present:15992kB managed:15360kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+[  321.487332][  T525] lowmem_reserve[]: 0 1301 0 0
+[  321.489092][  T525] Node 0 DMA32 free:192kB boost:10876kB min:15464kB low:16796kB high:18128kB reserved_highatomic:10240KB active_anon:896kB inactive_anon:163820kB active_file:3496kB inactive_file:2964kB unevictable:6144kB writepending:1924kB present:2080640kB managed:1356844kB mlocked:0kB bounce:0kB free_pcp:3580kB local_pcp:1448kB free_cma:0kB
+[  321.499048][  T525] lowmem_reserve[]: 0 0 0 0
+[  321.500734][  T525] Node 0 DMA: 0*4kB 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*2048kB 0*4096kB = 0kB
+[  321.504764][  T525] Node 0 DMA32: 82*4kB (UM) 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*2048kB 0*4096kB = 328kB
+[  321.509141][  T525] Node 0 hugepages_total=0 hugepages_free=0 hugepages_surp=0 hugepages_size=2048kB
+[  321.512212][  T525] 3671 total pagecache pages
+[  321.513821][  T525] 16 pages in swap cache
+[  321.515279][  T525] Free swap  = 123964kB
+[  321.516736][  T525] Total swap = 124996kB
+[  321.518204][  T525] 524158 pages RAM
+[  321.519523][  T525] 0 pages HighMem/MovableOnly
+[  321.521234][  T525] 181107 pages reserved
+[  321.671725][    C0] net_ratelimit: 67 callbacks suppressed
+[  321.671760][    C0] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  321.672956][    C3] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  321.673291][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  321.673338][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  321.673381][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  321.673715][    C0] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  321.676009][    C3] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  321.678392][    C0] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  321.680794][    C3] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  321.683145][    C0] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  329.734435][    C1] slab_out_of_memory: 1230 callbacks suppressed
+[  329.734486][    C1] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  329.734489][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  329.734738][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  329.734803][    C3]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  329.734856][    C3]   node 0: slabs: 4472, objs: 45540, free: 0
+[  329.734964][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  329.735024][    C3]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  329.735075][    C3]   node 0: slabs: 4472, objs: 45540, free: 0
+[  329.736693][    C1]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  329.740021][    C2]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  329.743214][    C1]   node 0: slabs: 4472, objs: 45540, free: 0
+[  329.746419][    C2]   node 0: slabs: 6314, objs: 143992, free: 0
+[  329.749836][    C1] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  329.752029][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  329.752772][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  329.752836][    C0]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  329.752888][    C0]   node 0: slabs: 4472, objs: 45540, free: 0
+[  329.753027][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  329.753087][    C0]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  329.753138][    C0]   node 0: slabs: 4472, objs: 45540, free: 0
+[  329.753245][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  329.753305][    C0]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  329.753356][    C0]   node 0: slabs: 4472, objs: 45540, free: 0
+[  329.753469][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  329.753528][    C0]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  329.753580][    C0]   node 0: slabs: 4472, objs: 45540, free: 0
+[  329.755113][    C1]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  329.758132][    C2]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  329.760153][    C1]   node 0: slabs: 4472, objs: 45540, free: 0
+[  329.763141][    C2]   node 0: slabs: 4472, objs: 45540, free: 0
+[  329.864832][    C1] net_ratelimit: 21 callbacks suppressed
+[  329.864865][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  329.869289][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  329.871752][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  329.874198][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  329.876687][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  329.879237][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  331.270219][    C1] warn_alloc: 2929 callbacks suppressed
+[  331.270254][    C1] syz.3.19: page allocation failure: order:0, mode:0x40820(GFP_ATOMIC|__GFP_COMP), nodemask=(null),cpuset=/,mems_allowed=0
+[  331.276510][    C1] CPU: 1 UID: 0 PID: 1951 Comm: syz.3.19 Not tainted 6.13.0-rc7 #1
+[  331.277442][    C1] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  331.277442][    C1] Call Trace:
+[  331.277442][    C1]  <IRQ>
+[  331.277442][    C1]  dump_stack_lvl+0x180/0x1b0
+[  331.277442][    C1]  warn_alloc+0x1a8/0x2e0
+[  331.277442][    C1]  ? __pfx_warn_alloc+0x10/0x10
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? wake_all_kswapds+0x136/0x2f0
+[  331.277442][    C1]  __alloc_pages_slowpath.constprop.0+0x1434/0x2170
+[  331.277442][    C1]  ? __pfx_mark_lock+0x10/0x10
+[  331.277442][    C1]  ? __pfx___alloc_pages_slowpath.constprop.0+0x10/0x10
+[  331.277442][    C1]  ? __lock_acquire+0xdf4/0x4a10
+[  331.277442][    C1]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  331.277442][    C1]  __alloc_pages_noprof+0x564/0x660
+[  331.277442][    C1]  ? __pfx_mark_lock+0x10/0x10
+[  331.277442][    C1]  ? __pfx___alloc_pages_noprof+0x10/0x10
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? __sanitizer_cov_trace_switch+0x54/0x90
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? policy_nodemask+0xeb/0x4e0
+[  331.277442][    C1]  alloc_pages_mpol_noprof+0xf2/0x400
+[  331.277442][    C1]  ? __pfx_alloc_pages_mpol_noprof+0x10/0x10
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? write_comp_data+0x29/0x90
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  331.277442][    C1]  new_slab+0x2df/0x3f0
+[  331.277442][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  331.277442][    C1]  ___slab_alloc+0xdde/0x16d0
+[  331.277442][    C1]  ? cfg80211_inform_single_bss_data+0x53a/0x20e0
+[  331.277442][    C1]  ? ___slab_alloc+0x46/0x16d0
+[  331.277442][    C1]  ? __pfx___lock_acquire+0x10/0x10
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? write_comp_data+0x29/0x90
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  331.277442][    C1]  ? cfg80211_inform_single_bss_data+0x53a/0x20e0
+[  331.277442][    C1]  ? __slab_alloc.isra.0+0x56/0xb0
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  __slab_alloc.isra.0+0x56/0xb0
+[  331.277442][    C1]  ? cfg80211_inform_single_bss_data+0x53a/0x20e0
+[  331.277442][    C1]  __kmalloc_noprof+0x2a0/0x570
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? write_comp_data+0x29/0x90
+[  331.277442][    C1]  ? cfg80211_inform_single_bss_data+0x53a/0x20e0
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  cfg80211_inform_single_bss_data+0x53a/0x20e0
+[  331.277442][    C1]  ? __pfx_cfg80211_inform_single_bss_data+0x10/0x10
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  ? __kernel_text_address+0xd/0x40
+[  331.277442][    C1]  ? cfg80211_inform_bss_data+0x1d7/0x480
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  cfg80211_inform_bss_data+0x1d7/0x480
+[  331.277442][    C1]  ? __pfx_cfg80211_inform_bss_data+0x10/0x10
+[  331.277442][    C1]  ? ieee80211_bss_info_update+0x2c1/0xb00
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.277442][    C1]  cfg80211_inform_bss_frame_data+0x26a/0x6e0
+[  331.277442][    C1]  ieee80211_bss_info_update+0x303/0xb00
+[  331.277442][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? __pfx_ieee80211_bss_info_update+0x10/0x10
+[  331.402677][    C1]  ? kcov_remote_start+0x341/0x680
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? ieee80211_get_channel_khz+0x163/0x210
+[  331.402677][    C1]  ieee80211_scan_rx+0x474/0xac0
+[  331.402677][    C1]  ? write_comp_data+0x29/0x90
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ieee80211_rx_list+0x1f62/0x2a80
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? __pfx_ieee80211_rx_list+0x10/0x10
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ieee80211_rx_napi+0xe2/0x410
+[  331.402677][    C1]  ? __pfx_ieee80211_rx_napi+0x10/0x10
+[  331.402677][    C1]  ? write_comp_data+0x29/0x90
+[  331.402677][    C1]  ieee80211_handle_queued_frames+0xd9/0x130
+[  331.402677][    C1]  tasklet_action_common+0x279/0x810
+[  331.402677][    C1]  handle_softirqs+0x1ad/0x870
+[  331.402677][    C1]  irq_exit_rcu+0xee/0x140
+[  331.402677][    C1]  sysvec_apic_timer_interrupt+0x94/0xb0
+[  331.402677][    C1]  </IRQ>
+[  331.402677][    C1]  <TASK>
+[  331.402677][    C1]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  331.402677][    C1] RIP: 0010:madvise_cold_or_pageout_pte_range+0x740/0x1fb0
+[  331.402677][    C1] Code: 24 28 e8 53 b3 ca ff 48 85 ed 0f 85 f3 fe ff ff e8 e5 b0 ca ff 48 81 c5 00 10 00 00 49 83 c5 08 e8 d5 b0 ca ff 4c 39 6c 24 20 <0f> 87 11 ff ff ff 4c 8b 7c 24 60 4c 8b 74 24 50 e8 bb b0 ca ff 4c
+[  331.402677][    C1] RSP: 0018:ffa000000c92f5c8 EFLAGS: 00000202
+[  331.402677][    C1] RAX: 0000000001925e00 RBX: 0000000000000001 RCX: ffffffffa13eea1e
+[  331.402677][    C1] RDX: 0000000000000001 RSI: ff110000274fc680 RDI: 0000000000000002
+[  331.402677][    C1] RBP: 8000000021ad9005 R08: fff3fc0001925e00 R09: fffa7c000010d001
+[  331.402677][    C1] R10: fffa7c000010d000 R11: ffd4000000868007 R12: 0000000000000001
+[  331.402677][    C1] R13: ff11000017ff18c0 R14: 00007ffa1f23f001 R15: 0000000000021c00
+[  331.402677][    C1]  ? madvise_cold_or_pageout_pte_range+0x62e/0x1fb0
+[  331.402677][    C1]  ? madvise_cold_or_pageout_pte_range+0x73b/0x1fb0
+[  331.402677][    C1]  ? __pfx_madvise_cold_or_pageout_pte_range+0x10/0x10
+[  331.402677][    C1]  ? find_held_lock+0x2c/0x110
+[  331.402677][    C1]  ? __pfx_madvise_cold_or_pageout_pte_range+0x10/0x10
+[  331.402677][    C1]  walk_pgd_range+0xbfd/0x1c60
+[  331.402677][    C1]  ? __pfx_walk_pgd_range+0x10/0x10
+[  331.402677][    C1]  __walk_page_range+0x162/0x870
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? find_vma+0xc0/0x140
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? write_comp_data+0x29/0x90
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  walk_page_range_mm+0x422/0x900
+[  331.402677][    C1]  ? __pfx_walk_page_range_mm+0x10/0x10
+[  331.402677][    C1]  ? write_comp_data+0x29/0x90
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? lru_add_drain_cpu+0x478/0x850
+[  331.402677][    C1]  walk_page_range+0x65/0x90
+[  331.402677][    C1]  madvise_pageout+0x310/0x7e0
+[  331.402677][    C1]  ? __pfx_madvise_pageout+0x10/0x10
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? find_held_lock+0x2c/0x110
+[  331.402677][    C1]  ? __pfx_lock_release+0x10/0x10
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? write_comp_data+0x29/0x90
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? write_comp_data+0x29/0x90
+[  331.402677][    C1]  madvise_vma_behavior+0x1386/0x2320
+[  331.402677][    C1]  ? mt_find+0x811/0xa80
+[  331.402677][    C1]  ? __pfx_madvise_vma_behavior+0x10/0x10
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? find_vma+0xc0/0x140
+[  331.402677][    C1]  ? __pfx_find_vma+0x10/0x10
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  do_madvise+0x5f6/0x9c0
+[  331.402677][    C1]  ? __pfx_do_madvise+0x10/0x10
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? put_timespec64+0xcf/0x130
+[  331.402677][    C1]  ? __pfx_put_timespec64+0x10/0x10
+[  331.402677][    C1]  ? __x64_sys_futex+0x1d3/0x4d0
+[  331.402677][    C1]  ? syscall_exit_to_user_mode+0xd0/0x270
+[  331.402677][    C1]  __x64_sys_madvise+0xa9/0x110
+[  331.402677][    C1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  331.402677][    C1]  ? lockdep_hardirqs_on+0x7c/0x110
+[  331.402677][    C1]  do_syscall_64+0xc3/0x1d0
+[  331.402677][    C1]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  331.402677][    C1] RIP: 0033:0x7ffa1f90dadd
+[  331.402677][    C1] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  331.402677][    C1] RSP: 002b:00007ffa1f35fba8 EFLAGS: 00000246 ORIG_RAX: 000000000000001c
+[  331.402677][    C1] RAX: ffffffffffffffda RBX: 00007ffa1fb06fa0 RCX: 00007ffa1f90dadd
+[  331.402677][    C1] RDX: 0000000000000015 RSI: 7fffffffffffffff RDI: 0000000020000000
+[  331.402677][    C1] RBP: 00007ffa1f98bb8f R08: 0000000000000000 R09: 0000000000000000
+[  331.402677][    C1] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  331.402677][    C1] R13: 00007ffa1fb06fac R14: 00007ffa1fb07038 R15: 00007ffa1f35fd40
+[  331.402677][    C1]  </TASK>
+[  331.593262][    C1] Mem-Info:
+[  331.594380][    C1] active_anon:224 inactive_anon:40954 isolated_anon:125
+[  331.594380][    C1]  active_file:531 inactive_file:530 isolated_file:0
+[  331.594380][    C1]  unevictable:1536 dirty:465 writeback:17
+[  331.594380][    C1]  slab_reclaimable:9348 slab_unreclaimable:265753
+[  331.594380][    C1]  mapped:2621 shmem:2040 pagetables:680
+[  331.594380][    C1]  sec_pagetables:0 bounce:0
+[  331.594380][    C1]  kernel_misc_reclaimable:0
+[  331.594380][    C1]  free:191 free_pcp:1090 free_cma:0
+[  331.608690][    C1] Node 0 active_anon:896kB inactive_anon:163816kB active_file:2124kB inactive_file:2120kB unevictable:6144kB isolated(anon):500kB isolated(file):0kB mapped:10484kB dirty:1860kB writeback:68kB shmem:8160kB writeback_tmp:0kB kernel_stack:9280kB pagetables:2720kB sec_pagetables:0kB all_unreclaimable? no
+[  331.617761][    C1] Node 0 DMA free:0kB boost:0kB min:52kB low:64kB high:76kB reserved_highatomic:0KB active_anon:0kB inactive_anon:0kB active_file:0kB inactive_file:0kB unevictable:0kB writepending:0kB present:15992kB managed:15360kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+[  331.626252][    C1] lowmem_reserve[]: 0 1301 0 0
+[  331.628002][    C1] Node 0 DMA32 free:764kB boost:10876kB min:15464kB low:16796kB high:18128kB reserved_highatomic:12288KB active_anon:896kB inactive_anon:163816kB active_file:2124kB inactive_file:2120kB unevictable:6144kB writepending:1928kB present:2080640kB managed:1356844kB mlocked:0kB bounce:0kB free_pcp:4360kB local_pcp:1260kB free_cma:0kB
+[  331.637976][    C1] lowmem_reserve[]: 0 0 0 0
+[  331.639678][    C1] Node 0 DMA: 0*4kB 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*2048kB 0*4096kB = 0kB
+[  331.643683][    C1] Node 0 DMA32: 192*4kB (UM) 1*8kB (U) 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*2048kB 0*4096kB = 776kB
+[  331.648106][    C1] Node 0 hugepages_total=0 hugepages_free=0 hugepages_surp=0 hugepages_size=2048kB
+[  331.651154][    C1] 3118 total pagecache pages
+[  331.652865][    C1] 17 pages in swap cache
+[  331.654314][    C1] Free swap  = 123964kB
+[  331.655770][    C1] Total swap = 124996kB
+[  331.657260][    C1] 524158 pages RAM
+[  331.658572][    C1] 0 pages HighMem/MovableOnly
+[  331.660235][    C1] 181107 pages reserved
+[  333.959714][    C2] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  333.961085][    C3] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  333.961208][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  333.961270][    C1] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  334.751885][    C1] slab_out_of_memory: 5845 callbacks suppressed
+[  334.751922][    C1] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  334.752243][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  334.752290][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  334.752355][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  334.752426][    C0]   node 0: slabs: 1292, objs: 41344, free: 0
+[  334.752523][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  334.752582][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  334.752709][    C0]   node 0: slabs: 1292, objs: 41344, free: 0
+[  334.752713][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  334.752778][    C3]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  334.752792][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  334.752831][    C3]   node 0: slabs: 4507, objs: 45610, free: 0
+[  334.752852][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  334.752923][    C0]   node 0: slabs: 1292, objs: 41344, free: 0
+[  334.752984][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  334.753005][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  334.753045][    C3]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  334.753065][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  334.753098][    C3]   node 0: slabs: 4507, objs: 45610, free: 0
+[  334.753116][    C0]   node 0: slabs: 1292, objs: 41344, free: 0
+[  334.753221][   T59] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  334.753278][   T59]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  334.753327][   T59]   node 0: slabs: 4507, objs: 45610, free: 0
+[  334.753418][   T59] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  334.753474][   T59]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  334.753522][   T59]   node 0: slabs: 4507, objs: 45610, free: 0
+[  334.754114][    C1]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  334.757660][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  334.760972][    C1]   node 0: slabs: 1292, objs: 41344, free: 0
+[  334.764297][    C2]   node 0: slabs: 1292, objs: 41344, free: 0
+[  338.056693][    C0] net_ratelimit: 2 callbacks suppressed
+[  338.056733][    C0] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  338.056740][    C3] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  339.769173][    C3] slab_out_of_memory: 5814 callbacks suppressed
+[  339.769210][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x20820(GFP_ATOMIC|__GFP_MEMALLOC)
+[  339.769403][    C1] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  339.769677][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  339.769748][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  339.769800][    C2]   node 0: slabs: 1293, objs: 41376, free: 0
+[  339.769801][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  339.769865][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  339.769895][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  339.769917][    C0]   node 0: slabs: 1293, objs: 41376, free: 0
+[  339.769954][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  339.770005][    C2]   node 0: slabs: 1293, objs: 41376, free: 0
+[  339.770013][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  339.770073][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  339.770085][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  339.770124][    C0]   node 0: slabs: 1293, objs: 41376, free: 0
+[  339.770144][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  339.770195][    C2]   node 0: slabs: 1293, objs: 41376, free: 0
+[  339.770204][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  339.770263][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  339.770275][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  339.770327][    C0]   node 0: slabs: 1293, objs: 41376, free: 0
+[  339.770346][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  339.770397][    C2]   node 0: slabs: 1293, objs: 41376, free: 0
+[  339.770407][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  339.770466][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  339.770516][    C0]   node 0: slabs: 1293, objs: 41376, free: 0
+[  339.771398][    C3]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  339.774973][    C1]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  339.778295][    C3]   node 0: slabs: 6598, objs: 149844, free: 0
+[  339.781695][    C1]   node 0: slabs: 1293, objs: 41376, free: 0
+[  343.967684][    C0] warn_alloc: 11603 callbacks suppressed
+[  343.967719][    C0] kworker/0:6: page allocation failure: order:0, mode:0x40820(GFP_ATOMIC|__GFP_COMP), nodemask=(null),cpuset=/,mems_allowed=0
+[  343.973878][    C0] CPU: 0 UID: 0 PID: 1653 Comm: kworker/0:6 Not tainted 6.13.0-rc7 #1
+[  343.974811][    C0] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  343.974811][    C0] Workqueue: events_freezable_pwr_efficient disk_events_workfn
+[  343.974811][    C0] Call Trace:
+[  343.974811][    C0]  <IRQ>
+[  343.974811][    C0]  dump_stack_lvl+0x180/0x1b0
+[  343.974811][    C0]  warn_alloc+0x1a8/0x2e0
+[  343.974811][    C0]  ? __pfx_warn_alloc+0x10/0x10
+[  343.974811][    C0]  ? mark_lock+0xfe/0x12d0
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? wake_all_kswapds+0x136/0x2f0
+[  343.974811][    C0]  __alloc_pages_slowpath.constprop.0+0x1434/0x2170
+[  343.974811][    C0]  ? __pfx_mark_lock+0x10/0x10
+[  343.974811][    C0]  ? __pfx___alloc_pages_slowpath.constprop.0+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __lock_acquire+0x1748/0x4a10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  __alloc_pages_noprof+0x564/0x660
+[  343.974811][    C0]  ? mark_lock+0xfe/0x12d0
+[  343.974811][    C0]  ? __pfx___alloc_pages_noprof+0x10/0x10
+[  343.974811][    C0]  ? __pfx___lock_acquire+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __sanitizer_cov_trace_switch+0x54/0x90
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? policy_nodemask+0xeb/0x4e0
+[  343.974811][    C0]  alloc_pages_mpol_noprof+0xf2/0x400
+[  343.974811][    C0]  ? __pfx_alloc_pages_mpol_noprof+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? write_comp_data+0x29/0x90
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  new_slab+0x2df/0x3f0
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  ___slab_alloc+0xdde/0x16d0
+[  343.974811][    C0]  ? __alloc_skb+0x2ad/0x370
+[  343.974811][    C0]  ? ___slab_alloc+0x46/0x16d0
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? lockdep_hardirqs_on+0x7c/0x110
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __alloc_skb+0x2ad/0x370
+[  343.974811][    C0]  ? __slab_alloc.isra.0+0x56/0xb0
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  __slab_alloc.isra.0+0x56/0xb0
+[  343.974811][    C0]  kmem_cache_alloc_node_noprof+0x202/0x430
+[  343.974811][    C0]  ? __alloc_skb+0x2ad/0x370
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  __alloc_skb+0x2ad/0x370
+[  343.974811][    C0]  ? __pfx___alloc_skb+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? do_raw_spin_lock+0x1de/0x290
+[  343.974811][    C0]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  343.974811][    C0]  skb_copy+0x1d3/0x3b0
+[  343.974811][    C0]  ? write_comp_data+0x29/0x90
+[  343.974811][    C0]  mac80211_hwsim_tx_frame_no_nl.isra.0+0xb3e/0x1310
+[  343.974811][    C0]  ? __pfx_mac80211_hwsim_tx_frame_no_nl.isra.0+0x10/0x10
+[  343.974811][    C0]  ? __entry_text_end+0x102145/0x102149
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? mac80211_hwsim_monitor_rx.isra.0+0x1cb/0x860
+[  343.974811][    C0]  mac80211_hwsim_tx_frame+0x1f0/0x2a0
+[  343.974811][    C0]  mac80211_hwsim_beacon_tx+0x5c0/0xa50
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? write_comp_data+0x29/0x90
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  __iterate_interfaces+0x16f/0x5b0
+[  343.974811][    C0]  ? __pfx_mac80211_hwsim_beacon_tx+0x10/0x10
+[  343.974811][    C0]  ? __pfx_mac80211_hwsim_beacon_tx+0x10/0x10
+[  343.974811][    C0]  ieee80211_iterate_active_interfaces_atomic+0x71/0x1b0
+[  343.974811][    C0]  mac80211_hwsim_beacon+0x105/0x200
+[  343.974811][    C0]  __hrtimer_run_queues+0x1b5/0xca0
+[  343.974811][    C0]  ? __pfx_mac80211_hwsim_beacon+0x10/0x10
+[  343.974811][    C0]  ? __pfx___hrtimer_run_queues+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  hrtimer_run_softirq+0x17f/0x2e0
+[  343.974811][    C0]  handle_softirqs+0x1ad/0x870
+[  343.974811][    C0]  irq_exit_rcu+0xee/0x140
+[  343.974811][    C0]  sysvec_apic_timer_interrupt+0x94/0xb0
+[  343.974811][    C0]  </IRQ>
+[  343.974811][    C0]  <TASK>
+[  343.974811][    C0]  asm_sysvec_apic_timer_interrupt+0x1a/0x20
+[  343.974811][    C0] RIP: 0010:const_folio_flags.constprop.0+0x46/0x70
+[  343.974811][    C0] Code: fa 48 c1 ea 03 80 3c 02 00 75 3e 49 8b 5c 24 08 31 ff 83 e3 01 48 89 de e8 97 a5 e1 ff 48 85 db 75 10 e8 2d a3 e1 ff 4c 89 e0 <5b> 41 5c e9 2d 48 c8 07 e8 1d a3 e1 ff 48 c7 c6 40 d3 0f a9 4c 89
+[  343.974811][    C0] RSP: 0018:ffa0000004566c00 EFLAGS: 00000246
+[  343.974811][    C0] RAX: ffd400000068e3c0 RBX: 0000000000000000 RCX: ffffffffa127f8c9
+[  343.974811][    C0] RDX: 0000000000000000 RSI: ff11000023538000 RDI: 0000000000000002
+[  343.974811][    C0] RBP: ffa0000004566ff8 R08: 0000000000000000 R09: ff11000023538a38
+[  343.974811][    C0] R10: fffffbfff5a77b5a R11: ffffffffad3bdad7 R12: ffd400000068e3c0
+[  343.974811][    C0] R13: 0000000000000020 R14: ffd400000068e3c0 R15: ffa0000004566ff8
+[  343.974811][    C0]  ? const_folio_flags.constprop.0+0x39/0x70
+[  343.974811][    C0]  shrink_folio_list+0x6de/0x3b80
+[  343.974811][    C0]  ? __pfx_shrink_folio_list+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? find_held_lock+0x2c/0x110
+[  343.974811][    C0]  ? isolate_lru_folios+0x83d/0x13d0
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? mark_lock+0xfe/0x12d0
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? isolate_lru_folios+0xc61/0x13d0
+[  343.974811][    C0]  ? __pfx_mark_lock+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? find_held_lock+0x2c/0x110
+[  343.974811][    C0]  ? shrink_inactive_list+0x358/0xba0
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? mark_held_locks+0x9e/0xe0
+[  343.974811][    C0]  ? _raw_spin_unlock_irq+0x23/0x50
+[  343.974811][    C0]  ? _raw_spin_unlock_irq+0x23/0x50
+[  343.974811][    C0]  shrink_inactive_list+0x3ec/0xba0
+[  343.974811][    C0]  ? __pfx_shrink_inactive_list+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  shrink_lruvec+0x5ee/0x1060
+[  343.974811][    C0]  ? __pfx_shrink_lruvec+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? find_held_lock+0x2c/0x110
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  shrink_node+0x5f2/0x1790
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  do_try_to_free_pages+0x2e8/0x12d0
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  try_to_free_pages+0x2b1/0x6b0
+[  343.974811][    C0]  ? __pfx_try_to_free_pages+0x10/0x10
+[  343.974811][    C0]  ? fs_reclaim_acquire+0xae/0x150
+[  343.974811][    C0]  __alloc_pages_slowpath.constprop.0+0x5b2/0x2170
+[  343.974811][    C0]  ? find_held_lock+0x2c/0x110
+[  343.974811][    C0]  ? __pfx___alloc_pages_slowpath.constprop.0+0x10/0x10
+[  343.974811][    C0]  ? __pfx_get_page_from_freelist+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  __alloc_pages_noprof+0x564/0x660
+[  343.974811][    C0]  ? __pfx___alloc_pages_noprof+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? write_comp_data+0x29/0x90
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? policy_nodemask+0xeb/0x4e0
+[  343.974811][    C0]  alloc_pages_mpol_noprof+0xf2/0x400
+[  343.974811][    C0]  ? __pfx_alloc_pages_mpol_noprof+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  blk_rq_map_kern+0x272/0x870
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  scsi_execute_cmd+0xbfd/0xe30
+[  343.974811][    C0]  ? __pfx_register_lock_class+0x10/0x10
+[  343.974811][    C0]  ? __pfx___lock_acquire+0x10/0x10
+[  343.974811][    C0]  ? __pfx_scsi_execute_cmd+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __lock_acquire+0x1748/0x4a10
+[  343.974811][    C0]  sr_check_events+0x1be/0xb50
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __pfx_sr_check_events+0x10/0x10
+[  343.974811][    C0]  ? __pfx___lock_acquire+0x10/0x10
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  cdrom_check_events+0x68/0x110
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  sr_block_check_events+0xc3/0x100
+[  343.974811][    C0]  disk_check_events+0xc5/0x380
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  process_scheduled_works+0x5ee/0x1ba0
+[  343.974811][    C0]  ? __pfx_process_scheduled_works+0x10/0x10
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? assign_work+0x195/0x240
+[  343.974811][    C0]  worker_thread+0x59f/0xcf0
+[  343.974811][    C0]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  343.974811][    C0]  ? __pfx_worker_thread+0x10/0x10
+[  343.974811][    C0]  kthread+0x345/0x450
+[  343.974811][    C0]  ? __pfx_kthread+0x10/0x10
+[  343.974811][    C0]  ret_from_fork+0x48/0x80
+[  343.974811][    C0]  ? __pfx_kthread+0x10/0x10
+[  343.974811][    C0]  ret_from_fork_asm+0x1a/0x30
+[  343.974811][    C0]  </TASK>
+[  344.316904][    C0] Mem-Info:
+[  344.318011][    C0] active_anon:224 inactive_anon:40945 isolated_anon:134
+[  344.318011][    C0]  active_file:298 inactive_file:308 isolated_file:0
+[  344.318011][    C0]  unevictable:1536 dirty:465 writeback:18
+[  344.318011][    C0]  slab_reclaimable:9348 slab_unreclaimable:266287
+[  344.318011][    C0]  mapped:2169 shmem:2040 pagetables:680
+[  344.318011][    C0]  sec_pagetables:0 bounce:0
+[  344.318011][    C0]  kernel_misc_reclaimable:0
+[  344.318011][    C0]  free:321 free_pcp:930 free_cma:0
+[  344.331453][    C0] Node 0 active_anon:896kB inactive_anon:163780kB active_file:1192kB inactive_file:1232kB unevictable:6144kB isolated(anon):536kB isolated(file):0kB mapped:8676kB dirty:1860kB writeback:72kB shmem:8160kB writeback_tmp:0kB kernel_stack:9280kB pagetables:2720kB sec_pagetables:0kB all_unreclaimable? no
+[  344.339963][    C0] Node 0 DMA free:0kB boost:0kB min:52kB low:64kB high:76kB reserved_highatomic:0KB active_anon:0kB inactive_anon:0kB active_file:0kB inactive_file:0kB unevictable:0kB writepending:0kB present:15992kB managed:15360kB mlocked:0kB bounce:0kB free_pcp:0kB local_pcp:0kB free_cma:0kB
+[  344.347909][    C0] lowmem_reserve[]: 0 1301 0 0
+[  344.349600][    C0] Node 0 DMA32 free:1284kB boost:10876kB min:15464kB low:16796kB high:18128kB reserved_highatomic:12288KB active_anon:896kB inactive_anon:163780kB active_file:1192kB inactive_file:1232kB unevictable:6144kB writepending:1932kB present:2080640kB managed:1356844kB mlocked:0kB bounce:0kB free_pcp:3720kB local_pcp:912kB free_cma:0kB
+[  344.358917][    C0] lowmem_reserve[]: 0 0 0 0
+[  344.360512][    C0] Node 0 DMA: 0*4kB 0*8kB 0*16kB 0*32kB 0*64kB 0*128kB 0*256kB 0*512kB 0*1024kB 0*2048kB 0*4096kB = 0kB
+[  344.364361][    C0] Node 0 DMA32: 129*4kB (M) 20*8kB (UM) 3*16kB (H) 1*32kB (H) 0*64kB 0*128kB 2*256kB (H) 0*512kB 0*1024kB 0*2048kB 0*4096kB = 1268kB
+[  344.369048][    C0] Node 0 hugepages_total=0 hugepages_free=0 hugepages_surp=0 hugepages_size=2048kB
+[  344.372007][    C0] 2664 total pagecache pages
+[  344.373573][    C0] 18 pages in swap cache
+[  344.375008][    C0] Free swap  = 123964kB
+[  344.376381][    C0] Total swap = 124996kB
+[  344.377733][    C0] 524158 pages RAM
+[  344.379009][    C0] 0 pages HighMem/MovableOnly
+[  344.380511][    C0] 181107 pages reserved
+[  344.787096][    C0] slab_out_of_memory: 2140 callbacks suppressed
+[  344.787133][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x820(GFP_ATOMIC)
+[  344.787139][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  344.787210][    C3]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  344.787713][    C1] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  344.787778][    C1]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  344.787830][    C1]   node 0: slabs: 4786, objs: 46210, free: 0
+[  344.788918][  T525] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  344.788977][  T525]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  344.789025][  T525]   node 0: slabs: 4786, objs: 46210, free: 0
+[  344.789234][    C0]   cache: skbuff_head_cache, object size: 232, buffer size: 320, default order: 1, min order: 0
+[  344.792272][    C3]   node 0: slabs: 4786, objs: 46210, free: 0
+[  344.795556][    C0]   node 0: slabs: 6801, objs: 153177, free: 0
+[  344.798774][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  344.802689][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  344.802793][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  344.802858][    C2]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  344.802910][    C2]   node 0: slabs: 4786, objs: 46210, free: 0
+[  344.803028][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  344.803088][    C2]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  344.803139][    C2]   node 0: slabs: 4786, objs: 46210, free: 0
+[  344.803224][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  344.803291][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  344.803342][    C2]   node 0: slabs: 1304, objs: 41728, free: 0
+[  344.803423][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  344.803482][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  344.803532][    C2]   node 0: slabs: 1304, objs: 41728, free: 0
+[  344.805045][    C3]   cache: kmalloc-1k, object size: 1024, buffer size: 2048, default order: 3, min order: 0
+[  344.806939][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  344.810207][    C3]   node 0: slabs: 4786, objs: 46210, free: 0
+[  344.813336][    C0]   node 0: slabs: 1304, objs: 41728, free: 0
+[  346.248705][    C3] ICMPv6: ndisc: ndisc_alloc_skb failed to allocate an skb
+[  349.804734][    C1] slab_out_of_memory: 6569 callbacks suppressed
+[  349.804771][    C1] SLUB: Unable to allocate memory on CPU 1 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  349.804857][    C3] SLUB: Unable to allocate memory on CPU 3 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  349.805026][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  349.805056][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  349.805096][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  349.805121][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  349.805149][    C2]   node 0: slabs: 1309, objs: 41888, free: 0
+[  349.805172][    C0]   node 0: slabs: 1309, objs: 41888, free: 0
+[  349.805269][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  349.805279][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  349.805329][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  349.805338][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  349.805380][    C2]   node 0: slabs: 1309, objs: 41888, free: 0
+[  349.805389][    C0]   node 0: slabs: 1309, objs: 41888, free: 0
+[  349.805461][    C2] SLUB: Unable to allocate memory on CPU 2 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  349.805469][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  349.805520][    C2]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  349.805528][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  349.805571][    C2]   node 0: slabs: 1309, objs: 41888, free: 0
+[  349.805579][    C0]   node 0: slabs: 1309, objs: 41888, free: 0
+[  349.805739][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  349.805799][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  349.805849][    C0]   node 0: slabs: 1309, objs: 41888, free: 0
+[  349.805929][    C0] SLUB: Unable to allocate memory on CPU 0 (of node 0) on node -1, gfp=0x920(GFP_ATOMIC|__GFP_ZERO)
+[  349.805988][    C0]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  349.806039][    C0]   node 0: slabs: 1309, objs: 41888, free: 0
+[  349.806899][    C1]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  349.810235][    C3]   cache: kmalloc-96, object size: 96, buffer size: 128, default order: 0, min order: 0
+[  349.813605][    C1]   node 0: slabs: 1309, objs: 41888, free: 0
+[  349.816964][    C3]   node 0: slabs: 1309, objs: 41888, free: 0
+[  350.345375][   T45] INFO: task jbd2/sda-8:195 blocked for more than 143 seconds.
+[  350.347821][   T45]       Not tainted 6.13.0-rc7 #1
+[  350.349459][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  350.352130][   T45] task:jbd2/sda-8      state:D stack:26496 pid:195   tgid:195   ppid:2      flags:0x00004000
+[  350.355420][   T45] Call Trace:
+[  350.356563][   T45]  <TASK>
+[  350.357591][   T45]  __schedule+0xe60/0x4120
+[  350.359162][   T45]  ? __pfx___schedule+0x10/0x10
+[  350.360823][   T45]  ? schedule+0x19d/0x210
+[  350.362260][   T45]  ? __pfx_lock_release+0x10/0x10
+[  350.363934][   T45]  ? __pfx___blk_flush_plug+0x10/0x10
+[  350.365719][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.367521][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.369383][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.371261][   T45]  schedule+0xd4/0x210
+[  350.372725][   T45]  io_schedule+0x1a/0x70
+[  350.374141][   T45]  blk_mq_get_tag+0x58d/0xac0
+[  350.375707][   T45]  ? __pfx_blk_mq_get_tag+0x10/0x10
+[  350.377413][   T45]  ? find_held_lock+0x2c/0x110
+[  350.379005][   T45]  ? __pfx_autoremove_wake_function+0x10/0x10
+[  350.380977][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.382798][   T45]  ? write_comp_data+0x29/0x90
+[  350.384377][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.386357][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.388211][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.390080][   T45]  __blk_mq_alloc_requests+0x787/0x1760
+[  350.391955][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.393812][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  350.395498][   T45]  ? __pfx___blk_mq_alloc_requests+0x10/0x10
+[  350.397480][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  350.399274][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.401108][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.402931][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  350.404596][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.406469][   T45]  ? blk_mq_sched_bio_merge+0x2c3/0x400
+[  350.408303][   T45]  blk_mq_submit_bio+0x1613/0x1fe0
+[  350.410053][   T45]  ? __pfx_blk_mq_submit_bio+0x10/0x10
+[  350.411847][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  350.413657][   T45]  ? find_held_lock+0x2c/0x110
+[  350.415276][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.417125][   T45]  __submit_bio+0x1ac/0xed0
+[  350.418684][   T45]  ? __pfx___submit_bio+0x10/0x10
+[  350.420808][   T45]  ? __pfx_lock_release+0x10/0x10
+[  350.422520][   T45]  ? ktime_get+0x224/0x2d0
+[  350.424066][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.425910][   T45]  ? write_comp_data+0x29/0x90
+[  350.427515][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.429341][   T45]  ? write_comp_data+0x29/0x90
+[  350.430907][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.432758][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.434552][   T45]  ? submit_bio_noacct_nocheck+0x67e/0xd40
+[  350.436502][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.438308][   T45]  submit_bio_noacct_nocheck+0x67e/0xd40
+[  350.440114][   T45]  ? __pfx_submit_bio_noacct_nocheck+0x10/0x10
+[  350.442156][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.443974][   T45]  ? write_comp_data+0x29/0x90
+[  350.445587][   T45]  submit_bio_noacct+0x649/0x13a0
+[  350.447298][   T45]  jbd2_journal_commit_transaction+0x2edb/0x6ab0
+[  350.449405][   T45]  ? __pfx_jbd2_journal_commit_transaction+0x10/0x10
+[  350.451538][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.453559][   T45]  ? __pfx_lock_acquire+0x10/0x10
+[  350.455331][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.457172][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.459001][   T45]  ? __pfx_lock_release+0x10/0x10
+[  350.460694][   T45]  ? write_comp_data+0x29/0x90
+[  350.462321][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.464144][   T45]  ? lockdep_hardirqs_on+0x7c/0x110
+[  350.465869][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.467695][   T45]  ? __timer_delete_sync+0x194/0x1c0
+[  350.469469][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.471309][   T45]  ? write_comp_data+0x29/0x90
+[  350.472889][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.474700][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.476508][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.478347][   T45]  kjournald2+0x1d9/0x720
+[  350.479934][   T45]  ? __pfx_kjournald2+0x10/0x10
+[  350.481565][   T45]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  350.483541][   T45]  ? __pfx_autoremove_wake_function+0x10/0x10
+[  350.485559][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.487456][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.489277][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.491078][   T45]  ? __kthread_parkme+0x152/0x230
+[  350.492776][   T45]  ? __pfx_kjournald2+0x10/0x10
+[  350.494388][   T45]  kthread+0x345/0x450
+[  350.495778][   T45]  ? __pfx_kthread+0x10/0x10
+[  350.497344][   T45]  ret_from_fork+0x48/0x80
+[  350.498819][   T45]  ? __pfx_kthread+0x10/0x10
+[  350.500382][   T45]  ret_from_fork_asm+0x1a/0x30
+[  350.501979][   T45]  </TASK>
+[  350.503279][   T45] INFO: task systemd-journal:221 blocked for more than 143 seconds.
+[  350.505788][   T45]       Not tainted 6.13.0-rc7 #1
+[  350.507404][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  350.510076][   T45] task:systemd-journal state:D stack:24576 pid:221   tgid:221   ppid:1      flags:0x00000002
+[  350.513358][   T45] Call Trace:
+[  350.514475][   T45]  <TASK>
+[  350.515481][   T45]  __schedule+0xe60/0x4120
+[  350.516957][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.518772][   T45]  ? __is_insn_slot_addr+0x140/0x290
+[  350.520539][   T45]  ? __pfx___schedule+0x10/0x10
+[  350.522409][   T45]  ? schedule+0x19d/0x210
+[  350.523992][   T45]  ? __pfx_lock_release+0x10/0x10
+[  350.525702][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.527567][   T45]  schedule+0xd4/0x210
+[  350.529028][   T45]  io_schedule+0x1a/0x70
+[  350.530472][   T45]  bit_wait_io+0x15/0xe0
+[  350.532028][   T45]  __wait_on_bit+0xc9/0x190
+[  350.533551][   T45]  ? __pfx_bit_wait_io+0x10/0x10
+[  350.535234][   T45]  out_of_line_wait_on_bit+0xd8/0x110
+[  350.536987][   T45]  ? __pfx_out_of_line_wait_on_bit+0x10/0x10
+[  350.538929][   T45]  ? __pfx_wake_bit_function+0x10/0x10
+[  350.540725][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.542555][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.544439][   T45]  ? write_comp_data+0x29/0x90
+[  350.546040][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.547852][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.549691][   T45]  do_get_write_access+0x88d/0x10c0
+[  350.551391][   T45]  jbd2_journal_get_write_access+0x1cc/0x250
+[  350.553341][   T45]  __ext4_journal_get_write_access+0x6a/0x380
+[  350.555348][   T45]  ext4_orphan_add+0x7ca/0x1450
+[  350.556964][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.558778][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.560672][   T45]  ? write_comp_data+0x29/0x90
+[  350.562279][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.564103][   T45]  ? __pfx_ext4_orphan_add+0x10/0x10
+[  350.565852][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.567693][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.569545][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.571408][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.573261][   T45]  ? __ext4_journal_start_sb+0x203/0x6c0
+[  350.575143][   T45]  ? ext4_truncate+0x479/0x1280
+[  350.576765][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.578576][   T45]  ext4_truncate+0x541/0x1280
+[  350.580212][   T45]  ? __pfx_ext4_truncate+0x10/0x10
+[  350.581880][   T45]  ? __pfx_unmap_mapping_pages+0x10/0x10
+[  350.583715][   T45]  ? write_comp_data+0x29/0x90
+[  350.585374][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.587331][   T45]  ? write_comp_data+0x29/0x90
+[  350.588962][   T45]  ext4_setattr+0x1ddb/0x2a70
+[  350.590542][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.592417][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.594252][   T45]  ? write_comp_data+0x29/0x90
+[  350.595855][   T45]  ? __pfx_ext4_setattr+0x10/0x10
+[  350.597547][   T45]  notify_change+0x677/0x1240
+[  350.599139][   T45]  ? down_write+0x14e/0x200
+[  350.600725][   T45]  ? do_truncate+0x143/0x200
+[  350.602272][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.604110][   T45]  do_truncate+0x143/0x200
+[  350.605680][   T45]  ? __pfx_do_truncate+0x10/0x10
+[  350.607322][   T45]  ? rcu_read_lock_any_held+0xd5/0x100
+[  350.609128][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.610947][   T45]  ? write_comp_data+0x29/0x90
+[  350.612696][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.614560][   T45]  ? write_comp_data+0x29/0x90
+[  350.616226][   T45]  do_ftruncate+0x5dd/0x720
+[  350.617770][   T45]  do_sys_ftruncate+0x65/0xb0
+[  350.619358][   T45]  do_syscall_64+0xc3/0x1d0
+[  350.620891][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  350.622848][   T45] RIP: 0033:0x7f5b2bf2c857
+[  350.625573][   T45] RSP: 002b:00007ffc42d40978 EFLAGS: 00000202 ORIG_RAX: 000000000000004d
+[  350.628395][   T45] RAX: ffffffffffffffda RBX: 00007ffc42d409c0 RCX: 00007f5b2bf2c857
+[  350.630938][   T45] RDX: 000055d2eb6fda60 RSI: 0000000000800000 RDI: 0000000000000016
+[  350.633464][   T45] RBP: 000055d2eb6fdc90 R08: 0000000000000001 R09: 000055d2eb6fdd14
+[  350.635955][   T45] R10: 0000000000000000 R11: 0000000000000202 R12: 00007ffc42d409b8
+[  350.638457][   T45] R13: 000055d2eb6fa360 R14: 0000000000000703 R15: 0000000000000000
+[  350.641086][   T45]  </TASK>
+[  350.642317][   T45] INFO: task rs:main Q:Reg:327 blocked for more than 143 seconds.
+[  350.644798][   T45]       Not tainted 6.13.0-rc7 #1
+[  350.646472][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  350.649156][   T45] task:rs:main Q:Reg   state:D stack:26768 pid:327   tgid:302   ppid:1      flags:0x00000000
+[  350.652438][   T45] Call Trace:
+[  350.653575][   T45]  <TASK>
+[  350.654587][   T45]  __schedule+0xe60/0x4120
+[  350.656163][   T45]  ? __pfx___schedule+0x10/0x10
+[  350.657809][   T45]  ? schedule+0x19d/0x210
+[  350.659262][   T45]  ? __pfx_lock_release+0x10/0x10
+[  350.660952][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.662826][   T45]  schedule+0xd4/0x210
+[  350.664214][   T45]  io_schedule+0x1a/0x70
+[  350.665682][   T45]  bit_wait_io+0x15/0xe0
+[  350.667095][   T45]  __wait_on_bit+0xc9/0x190
+[  350.668600][   T45]  ? __pfx_bit_wait_io+0x10/0x10
+[  350.670307][   T45]  out_of_line_wait_on_bit+0xd8/0x110
+[  350.672083][   T45]  ? __pfx_out_of_line_wait_on_bit+0x10/0x10
+[  350.674060][   T45]  ? __pfx_wake_bit_function+0x10/0x10
+[  350.675856][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.677691][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.679523][   T45]  ? write_comp_data+0x29/0x90
+[  350.681115][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.682951][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.684782][   T45]  do_get_write_access+0x88d/0x10c0
+[  350.686507][   T45]  jbd2_journal_get_write_access+0x1cc/0x250
+[  350.688471][   T45]  __ext4_journal_get_write_access+0x6a/0x380
+[  350.690471][   T45]  ext4_reserve_inode_write+0x18f/0x280
+[  350.692288][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.694157][   T45]  ? __pfx_ext4_dirty_inode+0x10/0x10
+[  350.695926][   T45]  __ext4_mark_inode_dirty+0x188/0x880
+[  350.697844][   T45]  ? ext4_dirty_inode+0xdd/0x130
+[  350.699475][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.701314][   T45]  ? __pfx___ext4_mark_inode_dirty+0x10/0x10
+[  350.703266][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.705074][   T45]  ? write_comp_data+0x29/0x90
+[  350.706715][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.708546][   T45]  ? jbd2__journal_start+0xf6/0x8a0
+[  350.710377][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.712219][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.714065][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.715920][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.717769][   T45]  ? __ext4_journal_start_sb+0x203/0x6c0
+[  350.719714][   T45]  ? ext4_dirty_inode+0xa5/0x130
+[  350.721354][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.723174][   T45]  ? __pfx_ext4_dirty_inode+0x10/0x10
+[  350.724936][   T45]  ext4_dirty_inode+0xdd/0x130
+[  350.726840][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.728695][   T45]  __mark_inode_dirty+0x1ee/0xdd0
+[  350.730366][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.732177][   T45]  generic_update_time+0xcb/0xf0
+[  350.733867][   T45]  inode_update_time+0x93/0xc0
+[  350.735462][   T45]  __file_update_time+0x71/0x90
+[  350.737134][   T45]  file_modified_flags+0x139/0x170
+[  350.738855][   T45]  ext4_buffered_write_iter+0xf7/0x3c0
+[  350.740656][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.742492][   T45]  ext4_file_write_iter+0x4e1/0x17f0
+[  350.744214][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.746050][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.747872][   T45]  ? __pfx_ext4_file_write_iter+0x10/0x10
+[  350.749718][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.751541][   T45]  ? rcu_read_lock_any_held+0xd5/0x100
+[  350.753423][   T45]  ? __pfx_rcu_read_lock_any_held+0x10/0x10
+[  350.755354][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.757191][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.759009][   T45]  vfs_write+0xb9b/0x10f0
+[  350.760483][   T45]  ? __pfx_ext4_file_write_iter+0x10/0x10
+[  350.762349][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.764132][   T45]  ? __pfx_vfs_write+0x10/0x10
+[  350.765760][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.767685][   T45]  ksys_write+0x122/0x240
+[  350.769145][   T45]  ? __pfx_ksys_write+0x10/0x10
+[  350.770782][   T45]  ? do_syscall_64+0x89/0x1d0
+[  350.772386][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.774324][   T45]  do_syscall_64+0xc3/0x1d0
+[  350.775885][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  350.777859][   T45] RIP: 0033:0x7fb0d9fcdfef
+[  350.779324][   T45] RSP: 002b:00007fb0d3ffe860 EFLAGS: 00000293 ORIG_RAX: 0000000000000001
+[  350.781960][   T45] RAX: ffffffffffffffda RBX: 00007fb0c8007960 RCX: 00007fb0d9fcdfef
+[  350.784448][   T45] RDX: 0000000000000049 RSI: 00007fb0c8007c00 RDI: 0000000000000007
+[  350.786938][   T45] RBP: 0000000000000049 R08: 0000000000000000 R09: 0000000000000000
+[  350.789421][   T45] R10: 0000000000000000 R11: 0000000000000293 R12: 00007fb0c8007c00
+[  350.791876][   T45] R13: 0000000000000000 R14: 0000000000000049 R15: 00007fb0c8007960
+[  350.794397][   T45]  </TASK>
+[  350.851782][   T45] INFO: task kworker/u19:3:381 blocked for more than 143 seconds.
+[  350.854335][   T45]       Not tainted 6.13.0-rc7 #1
+[  350.855958][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  350.858695][   T45] task:kworker/u19:3   state:D stack:25648 pid:381   tgid:381   ppid:2      flags:0x00004000
+[  350.862006][   T45] Workqueue: writeback wb_workfn (flush-8:0)
+[  350.864026][   T45] Call Trace:
+[  350.865157][   T45]  <TASK>
+[  350.866174][   T45]  __schedule+0xe60/0x4120
+[  350.867674][   T45]  ? __pfx_register_lock_class+0x10/0x10
+[  350.869582][   T45]  ? __pfx___schedule+0x10/0x10
+[  350.871239][   T45]  ? schedule+0x19d/0x210
+[  350.872680][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.874549][   T45]  ? __pfx_lock_release+0x10/0x10
+[  350.876320][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.878175][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.880027][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.881864][   T45]  ? write_comp_data+0x29/0x90
+[  350.883452][   T45]  schedule+0xd4/0x210
+[  350.884833][   T45]  io_schedule+0x1a/0x70
+[  350.886282][   T45]  bit_wait_io+0x15/0xe0
+[  350.887701][   T45]  __wait_on_bit+0xc9/0x190
+[  350.889255][   T45]  ? __pfx_bit_wait_io+0x10/0x10
+[  350.890873][   T45]  out_of_line_wait_on_bit+0xd8/0x110
+[  350.892676][   T45]  ? __pfx_out_of_line_wait_on_bit+0x10/0x10
+[  350.894692][   T45]  ? __pfx_wake_bit_function+0x10/0x10
+[  350.896505][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.898361][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.900216][   T45]  ? write_comp_data+0x29/0x90
+[  350.901845][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.903701][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.905532][   T45]  do_get_write_access+0x88d/0x10c0
+[  350.907418][   T45]  jbd2_journal_get_write_access+0x1cc/0x250
+[  350.909404][   T45]  __ext4_journal_get_write_access+0x6a/0x380
+[  350.911393][   T45]  ext4_mb_mark_context+0x1cd/0xda0
+[  350.913110][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.914942][   T45]  ? __pfx_ext4_mb_mark_context+0x10/0x10
+[  350.916806][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.918719][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.920689][   T45]  ext4_mb_mark_diskspace_used+0x47b/0x8e0
+[  350.922686][   T45]  ? __pfx_ext4_mb_mark_diskspace_used+0x10/0x10
+[  350.924761][   T45]  ? kmem_cache_alloc_noprof+0x30d/0x420
+[  350.926694][   T45]  ext4_mb_new_blocks+0xa4c/0x4c80
+[  350.928402][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.930278][   T45]  ? rcu_is_watching+0x12/0xc0
+[  350.932049][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.933963][   T45]  ? write_comp_data+0x29/0x90
+[  350.935574][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.937472][   T45]  ? __pfx_ext4_mb_new_blocks+0x10/0x10
+[  350.939309][   T45]  ? write_comp_data+0x29/0x90
+[  350.940892][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.942725][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.944541][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.946439][   T45]  ? ext4_inode_to_goal_block+0x343/0x450
+[  350.948335][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.950157][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.951959][   T45]  ext4_ext_map_blocks+0x1836/0x3ff0
+[  350.953749][   T45]  ? __pfx_ext4_ext_map_blocks+0x10/0x10
+[  350.955670][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.957537][   T45]  ? __pfx_down_write+0x10/0x10
+[  350.959237][   T45]  ext4_map_blocks+0x3ee/0x1400
+[  350.960858][   T45]  ? __pfx_ext4_map_blocks+0x10/0x10
+[  350.962660][   T45]  ? rcu_is_watching+0x12/0xc0
+[  350.964257][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.966159][   T45]  ? kmem_cache_alloc_noprof+0x30d/0x420
+[  350.968076][   T45]  ? jbd2__journal_start+0xf6/0x8a0
+[  350.969847][   T45]  ? ext4_alloc_io_end_vec+0x2b/0x1c0
+[  350.971662][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.973662][   T45]  ? write_comp_data+0x29/0x90
+[  350.975243][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.977064][   T45]  ? write_comp_data+0x29/0x90
+[  350.978677][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.980546][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  350.982457][   T45]  ext4_do_writepages+0x1d16/0x3440
+[  350.984223][   T45]  ? __pfx_ext4_do_writepages+0x10/0x10
+[  350.986052][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.987902][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.989775][   T45]  ? rcu_read_lock_any_held+0xd5/0x100
+[  350.991586][   T45]  ? __pfx_rcu_read_lock_any_held+0x10/0x10
+[  350.993603][   T45]  ? ext4_writepages+0x2fa/0x710
+[  350.995278][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  350.997101][   T45]  ext4_writepages+0x2fa/0x710
+[  350.998753][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.000692][   T45]  ? __pfx_ext4_writepages+0x10/0x10
+[  351.002453][   T45]  ? do_writepages+0x6a9/0x7d0
+[  351.004087][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  351.005857][   T45]  ? __pfx_ext4_writepages+0x10/0x10
+[  351.007683][   T45]  do_writepages+0x19d/0x7d0
+[  351.009270][   T45]  ? reacquire_held_locks+0x22f/0x4e0
+[  351.011037][   T45]  ? writeback_sb_inodes+0x3c6/0xf00
+[  351.012817][   T45]  ? __pfx_do_writepages+0x10/0x10
+[  351.014535][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.016403][   T45]  ? find_held_lock+0x2c/0x110
+[  351.018015][   T45]  ? writeback_sb_inodes+0x4bb/0xf00
+[  351.019759][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.021601][   T45]  ? __pfx_lock_release+0x10/0x10
+[  351.023350][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.025160][   T45]  ? do_raw_spin_lock+0x124/0x290
+[  351.026798][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.028696][   T45]  __writeback_single_inode+0x135/0x1010
+[  351.030583][   T45]  writeback_sb_inodes+0x5ee/0xf00
+[  351.032359][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.034373][   T45]  ? __pfx_writeback_sb_inodes+0x10/0x10
+[  351.036287][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.038198][   T45]  ? __pfx_move_expired_inodes+0x10/0x10
+[  351.040009][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.041870][   T45]  ? write_comp_data+0x29/0x90
+[  351.043498][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.045347][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.047228][   T45]  __writeback_inodes_wb+0xbe/0x270
+[  351.049008][   T45]  wb_writeback+0x72f/0xb50
+[  351.050552][   T45]  ? __entry_text_end+0x102147/0x102149
+[  351.052408][   T45]  ? __pfx_wb_writeback+0x10/0x10
+[  351.054229][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.056056][   T45]  ? write_comp_data+0x29/0x90
+[  351.057701][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.059518][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.061341][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.063157][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.065011][   T45]  wb_workfn+0x97a/0xe10
+[  351.066462][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.068271][   T45]  ? __pfx_wb_workfn+0x10/0x10
+[  351.069869][   T45]  ? write_comp_data+0x29/0x90
+[  351.071453][   T45]  ? _raw_spin_unlock_irq+0x23/0x50
+[  351.073209][   T45]  ? _raw_spin_unlock_irq+0x23/0x50
+[  351.074952][   T45]  process_scheduled_works+0x5ee/0x1ba0
+[  351.076826][   T45]  ? __pfx_process_scheduled_works+0x10/0x10
+[  351.078779][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.080585][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.082486][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.084310][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.086119][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.087958][   T45]  ? assign_work+0x195/0x240
+[  351.089516][   T45]  worker_thread+0x59f/0xcf0
+[  351.091092][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.092919][   T45]  ? __pfx_worker_thread+0x10/0x10
+[  351.094670][   T45]  kthread+0x345/0x450
+[  351.096061][   T45]  ? __pfx_kthread+0x10/0x10
+[  351.097697][   T45]  ret_from_fork+0x48/0x80
+[  351.099169][   T45]  ? __pfx_kthread+0x10/0x10
+[  351.100768][   T45]  ret_from_fork_asm+0x1a/0x30
+[  351.102396][   T45]  </TASK>
+[  351.103562][   T45] INFO: task syz-executor:418 blocked for more than 144 seconds.
+[  351.106193][   T45]       Not tainted 6.13.0-rc7 #1
+[  351.107813][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  351.110485][   T45] task:syz-executor    state:D stack:23672 pid:418   tgid:418   ppid:416    flags:0x00000002
+[  351.113810][   T45] Call Trace:
+[  351.114905][   T45]  <TASK>
+[  351.115909][   T45]  __schedule+0xe60/0x4120
+[  351.117413][   T45]  ? __pfx___schedule+0x10/0x10
+[  351.118996][   T45]  ? schedule+0x19d/0x210
+[  351.120437][   T45]  ? __pfx_lock_release+0x10/0x10
+[  351.122130][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.123990][   T45]  schedule+0xd4/0x210
+[  351.125375][   T45]  io_schedule+0x1a/0x70
+[  351.126782][   T45]  bit_wait_io+0x15/0xe0
+[  351.128201][   T45]  __wait_on_bit+0xc9/0x190
+[  351.129696][   T45]  ? __pfx_bit_wait_io+0x10/0x10
+[  351.131336][   T45]  out_of_line_wait_on_bit+0xd8/0x110
+[  351.133098][   T45]  ? __pfx_out_of_line_wait_on_bit+0x10/0x10
+[  351.135061][   T45]  ? __pfx_wake_bit_function+0x10/0x10
+[  351.137131][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.138981][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.140843][   T45]  ? write_comp_data+0x29/0x90
+[  351.142429][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.144259][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.146059][   T45]  do_get_write_access+0x88d/0x10c0
+[  351.147788][   T45]  jbd2_journal_get_write_access+0x1cc/0x250
+[  351.149744][   T45]  __ext4_journal_get_write_access+0x6a/0x380
+[  351.151730][   T45]  ext4_reserve_inode_write+0x18f/0x280
+[  351.153535][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.155419][   T45]  ? __pfx_ext4_dirty_inode+0x10/0x10
+[  351.157265][   T45]  __ext4_mark_inode_dirty+0x188/0x880
+[  351.159096][   T45]  ? ext4_dirty_inode+0xdd/0x130
+[  351.160749][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.162589][   T45]  ? kmem_cache_alloc_noprof+0x30d/0x420
+[  351.164664][   T45]  ? __pfx___ext4_mark_inode_dirty+0x10/0x10
+[  351.166694][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.168557][   T45]  ? write_comp_data+0x29/0x90
+[  351.170264][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.172110][   T45]  ? jbd2__journal_start+0xf6/0x8a0
+[  351.173875][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.175697][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.177550][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.179421][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.181316][   T45]  ? __ext4_journal_start_sb+0x203/0x6c0
+[  351.183152][   T45]  ? ext4_dirty_inode+0xa5/0x130
+[  351.184812][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.186740][   T45]  ? __pfx_ext4_dirty_inode+0x10/0x10
+[  351.188502][   T45]  ext4_dirty_inode+0xdd/0x130
+[  351.190127][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.191946][   T45]  __mark_inode_dirty+0x1ee/0xdd0
+[  351.193703][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.195541][   T45]  generic_update_time+0xcb/0xf0
+[  351.197262][   T45]  inode_update_time+0x93/0xc0
+[  351.198848][   T45]  __file_update_time+0x71/0x90
+[  351.200472][   T45]  file_update_time+0xba/0xf0
+[  351.202058][   T45]  ext4_page_mkwrite+0x342/0x1580
+[  351.203731][   T45]  ? __pfx_ext4_page_mkwrite+0x10/0x10
+[  351.205548][   T45]  ? __pfx_lock_release+0x10/0x10
+[  351.207305][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.209146][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.210963][   T45]  ? write_comp_data+0x29/0x90
+[  351.212582][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.214488][   T45]  do_page_mkwrite+0x180/0x390
+[  351.216088][   T45]  __handle_mm_fault+0x1579/0x3130
+[  351.217805][   T45]  ? __pfx___handle_mm_fault+0x10/0x10
+[  351.219671][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.221527][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.223426][   T45]  handle_mm_fault+0x2aa/0x660
+[  351.225058][   T45]  do_user_addr_fault+0x6b7/0x18b0
+[  351.226789][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.228691][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.230524][   T45]  exc_page_fault+0x9c/0x1a0
+[  351.232061][   T45]  asm_exc_page_fault+0x26/0x30
+[  351.233769][   T45] RIP: 0033:0x7f74b7d9f64d
+[  351.235299][   T45] RSP: 002b:00007fffc09fa480 EFLAGS: 00010206
+[  351.237333][   T45] RAX: 00007f74b5985fe0 RBX: 0000000000000002 RCX: 000000000003fde8
+[  351.240195][   T45] RDX: 00007f74b5985fdc RSI: 0000000000000008 RDI: 00007fffc09fa520
+[  351.243163][   T45] RBP: 00007fffc09fa5c0 R08: 0000000000000002 R09: 00007f74b5946218
+[  351.245808][   T45] R10: 00007fffc09fa500 R11: 0000000000000000 R12: 0000000000000000
+[  351.248324][   T45] R13: 0000000000000020 R14: 0000000000040000 R15: 00007fffc09fa520
+[  351.250888][   T45]  </TASK>
+[  351.252447][   T45] INFO: task syz.7.23:1986 blocked for more than 144 seconds.
+[  351.255004][   T45]       Not tainted 6.13.0-rc7 #1
+[  351.256723][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  351.259532][   T45] task:syz.7.23        state:D stack:24944 pid:1986  tgid:1985  ppid:752    flags:0x00000004
+[  351.262992][   T45] Call Trace:
+[  351.264158][   T45]  <TASK>
+[  351.265272][   T45]  __schedule+0xe60/0x4120
+[  351.266796][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.268732][   T45]  ? __pfx___schedule+0x10/0x10
+[  351.270402][   T45]  ? schedule+0x19d/0x210
+[  351.271902][   T45]  ? __pfx_lock_release+0x10/0x10
+[  351.273694][   T45]  ? __pfx___blk_flush_plug+0x10/0x10
+[  351.275518][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.277437][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.279300][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.281224][   T45]  schedule+0xd4/0x210
+[  351.282661][   T45]  io_schedule+0x1a/0x70
+[  351.284103][   T45]  blk_mq_get_tag+0x58d/0xac0
+[  351.285752][   T45]  ? __pfx_blk_mq_get_tag+0x10/0x10
+[  351.287505][   T45]  ? find_held_lock+0x2c/0x110
+[  351.289119][   T45]  ? __pfx_autoremove_wake_function+0x10/0x10
+[  351.291112][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.292975][   T45]  ? write_comp_data+0x29/0x90
+[  351.294677][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.296578][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.298566][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.300489][   T45]  __blk_mq_alloc_requests+0x787/0x1760
+[  351.302410][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.304330][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  351.306084][   T45]  ? __pfx___blk_mq_alloc_requests+0x10/0x10
+[  351.308124][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  351.309828][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.311713][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.313555][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  351.315363][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.317220][   T45]  ? blk_mq_sched_bio_merge+0x2c3/0x400
+[  351.319150][   T45]  blk_mq_submit_bio+0x1613/0x1fe0
+[  351.320868][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.322758][   T45]  ? __pfx_blk_mq_submit_bio+0x10/0x10
+[  351.324656][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  351.326499][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.328415][   T45]  __submit_bio+0x1ac/0xed0
+[  351.329960][   T45]  ? __pfx___submit_bio+0x10/0x10
+[  351.331675][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.333590][   T45]  ? mark_held_locks+0x9e/0xe0
+[  351.335322][   T45]  ? ktime_get+0x224/0x2d0
+[  351.336928][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.338836][   T45]  ? write_comp_data+0x29/0x90
+[  351.340920][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.342835][   T45]  ? write_comp_data+0x29/0x90
+[  351.344486][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.346397][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.348369][   T45]  ? submit_bio_noacct_nocheck+0x67e/0xd40
+[  351.350361][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.352248][   T45]  submit_bio_noacct_nocheck+0x67e/0xd40
+[  351.354136][   T45]  ? write_comp_data+0x29/0x90
+[  351.355787][   T45]  ? __pfx_submit_bio_noacct_nocheck+0x10/0x10
+[  351.357842][   T45]  ? write_comp_data+0x29/0x90
+[  351.359494][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.361374][   T45]  ? write_comp_data+0x29/0x90
+[  351.363015][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.364919][   T45]  submit_bio_noacct+0x649/0x13a0
+[  351.366698][   T45]  __swap_writepage+0x478/0x11a0
+[  351.368412][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.370311][   T45]  ? write_comp_data+0x29/0x90
+[  351.371953][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.373914][   T45]  swap_writepage+0x3c1/0xa00
+[  351.375507][   T45]  pageout+0x3d6/0xad0
+[  351.376938][   T45]  ? __pfx_pageout+0x10/0x10
+[  351.378603][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.380537][   T45]  ? __pfx_try_to_unmap_one+0x10/0x10
+[  351.382460][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.384359][   T45]  ? write_comp_data+0x29/0x90
+[  351.386024][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.387924][   T45]  ? write_comp_data+0x29/0x90
+[  351.389601][   T45]  shrink_folio_list+0x1973/0x3b80
+[  351.391425][   T45]  ? __pfx_shrink_folio_list+0x10/0x10
+[  351.393288][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  351.395086][   T45]  ? mark_lock+0xfe/0x12d0
+[  351.396683][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.398664][   T45]  ? mark_lock+0xfe/0x12d0
+[  351.400313][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.402157][   T45]  ? mark_lock+0xfe/0x12d0
+[  351.403717][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  351.405343][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  351.406952][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.408862][   T45]  ? mark_lock+0xfe/0x12d0
+[  351.410453][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  351.412131][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.414064][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.415966][   T45]  ? __lock_acquire+0x1748/0x4a10
+[  351.417736][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.419655][   T45]  ? __lock_acquire+0x1748/0x4a10
+[  351.421402][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.423274][   T45]  reclaim_folio_list+0xcd/0x5b0
+[  351.424952][   T45]  ? __pfx_reclaim_folio_list+0x10/0x10
+[  351.426854][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.428774][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.430670][   T45]  ? mark_held_locks+0x9e/0xe0
+[  351.432336][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.434243][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.436141][   T45]  ? write_comp_data+0x29/0x90
+[  351.437807][   T45]  reclaim_pages+0x505/0x6a0
+[  351.439408][   T45]  ? __pfx_reclaim_pages+0x10/0x10
+[  351.441190][   T45]  ? madvise_cold_or_pageout_pte_range+0x872/0x1fb0
+[  351.443600][   T45]  madvise_cold_or_pageout_pte_range+0x1772/0x1fb0
+[  351.445927][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  351.447738][   T45]  ? __pfx_madvise_cold_or_pageout_pte_range+0x10/0x10
+[  351.450020][   T45]  ? find_held_lock+0x2c/0x110
+[  351.451670][   T45]  ? __pfx_madvise_cold_or_pageout_pte_range+0x10/0x10
+[  351.454029][   T45]  walk_pgd_range+0xbfd/0x1c60
+[  351.455727][   T45]  ? __pfx_walk_pgd_range+0x10/0x10
+[  351.457530][   T45]  __walk_page_range+0x162/0x870
+[  351.459288][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.461166][   T45]  ? find_vma+0xc0/0x140
+[  351.462605][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.464554][   T45]  ? write_comp_data+0x29/0x90
+[  351.466284][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.468192][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.470111][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.471961][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.473846][   T45]  walk_page_range_mm+0x422/0x900
+[  351.475528][   T45]  ? __pfx_walk_page_range_mm+0x10/0x10
+[  351.477447][   T45]  ? write_comp_data+0x29/0x90
+[  351.479111][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.481034][   T45]  ? lru_add_drain_cpu+0x478/0x850
+[  351.482775][   T45]  walk_page_range+0x65/0x90
+[  351.484319][   T45]  madvise_pageout+0x310/0x7e0
+[  351.485968][   T45]  ? __pfx_madvise_pageout+0x10/0x10
+[  351.487780][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.489696][   T45]  ? write_comp_data+0x29/0x90
+[  351.491332][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.493247][   T45]  ? write_comp_data+0x29/0x90
+[  351.494884][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.496790][   T45]  ? write_comp_data+0x29/0x90
+[  351.498400][   T45]  madvise_vma_behavior+0x1386/0x2320
+[  351.500149][   T45]  ? __entry_text_end+0x102146/0x102149
+[  351.502012][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.503893][   T45]  ? mas_prev+0x9c/0xf0
+[  351.505367][   T45]  ? __pfx_madvise_vma_behavior+0x10/0x10
+[  351.507408][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.509333][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.511233][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.513119][   T45]  ? find_vma_prev+0xdb/0x160
+[  351.514763][   T45]  ? __pfx_find_vma_prev+0x10/0x10
+[  351.516518][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.518455][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.520338][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.522257][   T45]  do_madvise+0x5f6/0x9c0
+[  351.523747][   T45]  ? __pfx_do_madvise+0x10/0x10
+[  351.525420][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.527294][   T45]  ? put_timespec64+0xcf/0x130
+[  351.528925][   T45]  ? __pfx_put_timespec64+0x10/0x10
+[  351.530743][   T45]  ? syscall_exit_to_user_mode+0xd0/0x270
+[  351.532712][   T45]  __x64_sys_madvise+0xa9/0x110
+[  351.534388][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.536284][   T45]  ? lockdep_hardirqs_on+0x7c/0x110
+[  351.538089][   T45]  do_syscall_64+0xc3/0x1d0
+[  351.539703][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  351.541691][   T45] RIP: 0033:0x7f74c13d2add
+[  351.543243][   T45] RSP: 002b:00007f74c0e24ba8 EFLAGS: 00000246 ORIG_RAX: 000000000000001c
+[  351.546133][   T45] RAX: ffffffffffffffda RBX: 00007f74c15cbfa0 RCX: 00007f74c13d2add
+[  351.548817][   T45] RDX: 0000000000000015 RSI: 7fffffffffffffff RDI: 0000000020000000
+[  351.551417][   T45] RBP: 00007f74c1450b8f R08: 0000000000000000 R09: 0000000000000000
+[  351.553989][   T45] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  351.556561][   T45] R13: 00007f74c15cbfac R14: 00007f74c15cc038 R15: 00007f74c0e24d40
+[  351.559234][   T45]  </TASK>
+[  351.560404][   T45] INFO: task syz.8.21:1993 blocked for more than 144 seconds.
+[  351.562849][   T45]       Not tainted 6.13.0-rc7 #1
+[  351.564594][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  351.567504][   T45] task:syz.8.21        state:D stack:25024 pid:1993  tgid:1992  ppid:725    flags:0x00000004
+[  351.570991][   T45] Call Trace:
+[  351.572136][   T45]  <TASK>
+[  351.573211][   T45]  __schedule+0xe60/0x4120
+[  351.574753][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.576718][   T45]  ? __pfx___schedule+0x10/0x10
+[  351.578380][   T45]  ? schedule+0x19d/0x210
+[  351.579873][   T45]  ? __pfx_lock_release+0x10/0x10
+[  351.581687][   T45]  ? __pfx___blk_flush_plug+0x10/0x10
+[  351.583517][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.585524][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.587470][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.589394][   T45]  schedule+0xd4/0x210
+[  351.590813][   T45]  io_schedule+0x1a/0x70
+[  351.592290][   T45]  blk_mq_get_tag+0x58d/0xac0
+[  351.593973][   T45]  ? __pfx_blk_mq_get_tag+0x10/0x10
+[  351.595762][   T45]  ? find_held_lock+0x2c/0x110
+[  351.597445][   T45]  ? __pfx_autoremove_wake_function+0x10/0x10
+[  351.599484][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.601400][   T45]  ? write_comp_data+0x29/0x90
+[  351.603075][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.604994][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.606845][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.608754][   T45]  __blk_mq_alloc_requests+0x787/0x1760
+[  351.610698][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.612657][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  351.614439][   T45]  ? __pfx___blk_mq_alloc_requests+0x10/0x10
+[  351.616476][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  351.618226][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.620118][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.621999][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  351.623749][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.625676][   T45]  ? blk_mq_sched_bio_merge+0x2c3/0x400
+[  351.627605][   T45]  blk_mq_submit_bio+0x1613/0x1fe0
+[  351.629427][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.631344][   T45]  ? __pfx_blk_mq_submit_bio+0x10/0x10
+[  351.633156][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  351.634986][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.636917][   T45]  __submit_bio+0x1ac/0xed0
+[  351.638573][   T45]  ? __pfx___submit_bio+0x10/0x10
+[  351.640402][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.642326][   T45]  ? mark_held_locks+0x9e/0xe0
+[  351.643989][   T45]  ? ktime_get+0x224/0x2d0
+[  351.645571][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.647951][   T45]  ? write_comp_data+0x29/0x90
+[  351.649762][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.651681][   T45]  ? write_comp_data+0x29/0x90
+[  351.653337][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.655233][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.657146][   T45]  ? submit_bio_noacct_nocheck+0x67e/0xd40
+[  351.659128][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.661053][   T45]  submit_bio_noacct_nocheck+0x67e/0xd40
+[  351.662957][   T45]  ? write_comp_data+0x29/0x90
+[  351.664599][   T45]  ? __pfx_submit_bio_noacct_nocheck+0x10/0x10
+[  351.666829][   T45]  ? write_comp_data+0x29/0x90
+[  351.668471][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.670390][   T45]  ? write_comp_data+0x29/0x90
+[  351.672004][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.673930][   T45]  submit_bio_noacct+0x649/0x13a0
+[  351.675711][   T45]  __swap_writepage+0x478/0x11a0
+[  351.677438][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.679338][   T45]  ? write_comp_data+0x29/0x90
+[  351.680990][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.682883][   T45]  swap_writepage+0x3c1/0xa00
+[  351.684526][   T45]  pageout+0x3d6/0xad0
+[  351.685967][   T45]  ? __pfx_pageout+0x10/0x10
+[  351.687677][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.689597][   T45]  ? __pfx_try_to_unmap_one+0x10/0x10
+[  351.691514][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.693500][   T45]  ? write_comp_data+0x29/0x90
+[  351.695148][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.697064][   T45]  ? write_comp_data+0x29/0x90
+[  351.698715][   T45]  shrink_folio_list+0x1973/0x3b80
+[  351.700475][   T45]  ? __pfx_shrink_folio_list+0x10/0x10
+[  351.702330][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  351.704090][   T45]  ? mark_lock+0xfe/0x12d0
+[  351.705690][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.707587][   T45]  ? mark_lock+0xfe/0x12d0
+[  351.709235][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.711084][   T45]  ? mark_lock+0xfe/0x12d0
+[  351.712677][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  351.714370][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  351.716005][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.717884][   T45]  ? mark_lock+0xfe/0x12d0
+[  351.719454][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  351.721114][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.723003][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.724913][   T45]  ? __lock_acquire+0x1748/0x4a10
+[  351.726686][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.728522][   T45]  ? __lock_acquire+0x1748/0x4a10
+[  351.730310][   T45]  reclaim_folio_list+0xcd/0x5b0
+[  351.731955][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.733816][   T45]  ? mark_lock+0xfe/0x12d0
+[  351.735376][   T45]  ? __pfx_reclaim_folio_list+0x10/0x10
+[  351.737270][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.739152][   T45]  ? find_held_lock+0x2c/0x110
+[  351.740816][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.742760][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.744724][   T45]  ? write_comp_data+0x29/0x90
+[  351.746447][   T45]  reclaim_pages+0x505/0x6a0
+[  351.748036][   T45]  ? __pfx_reclaim_pages+0x10/0x10
+[  351.749780][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.751868][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.753884][   T45]  ? folio_isolate_lru+0xa4/0x8a0
+[  351.755684][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.757603][   T45]  madvise_cold_or_pageout_pte_range+0x1772/0x1fb0
+[  351.759863][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  351.761699][   T45]  ? __pfx_madvise_cold_or_pageout_pte_range+0x10/0x10
+[  351.763975][   T45]  ? find_held_lock+0x2c/0x110
+[  351.765688][   T45]  ? __pfx_madvise_cold_or_pageout_pte_range+0x10/0x10
+[  351.767961][   T45]  walk_pgd_range+0xbfd/0x1c60
+[  351.769717][   T45]  ? __pfx_walk_pgd_range+0x10/0x10
+[  351.771500][   T45]  __walk_page_range+0x162/0x870
+[  351.773205][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.775076][   T45]  ? find_vma+0xc0/0x140
+[  351.776541][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.778506][   T45]  ? write_comp_data+0x29/0x90
+[  351.780145][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.782058][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.783929][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.785831][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.787735][   T45]  walk_page_range_mm+0x422/0x900
+[  351.789466][   T45]  ? __pfx_walk_page_range_mm+0x10/0x10
+[  351.791356][   T45]  ? write_comp_data+0x29/0x90
+[  351.793015][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.794921][   T45]  ? lru_add_drain_cpu+0x478/0x850
+[  351.796739][   T45]  walk_page_range+0x65/0x90
+[  351.798438][   T45]  madvise_pageout+0x310/0x7e0
+[  351.800126][   T45]  ? __pfx_madvise_pageout+0x10/0x10
+[  351.801971][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.803878][   T45]  ? write_comp_data+0x29/0x90
+[  351.805542][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.807495][   T45]  ? write_comp_data+0x29/0x90
+[  351.809145][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.811048][   T45]  ? write_comp_data+0x29/0x90
+[  351.812741][   T45]  madvise_vma_behavior+0x1386/0x2320
+[  351.814683][   T45]  ? __entry_text_end+0x102146/0x102149
+[  351.816557][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.818556][   T45]  ? mas_prev+0x9c/0xf0
+[  351.820081][   T45]  ? __pfx_madvise_vma_behavior+0x10/0x10
+[  351.822013][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.823938][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.825917][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.827820][   T45]  ? find_vma_prev+0xdb/0x160
+[  351.829477][   T45]  ? __pfx_find_vma_prev+0x10/0x10
+[  351.831252][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.833165][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.835063][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.836964][   T45]  do_madvise+0x5f6/0x9c0
+[  351.838470][   T45]  ? __pfx_do_madvise+0x10/0x10
+[  351.840136][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.842061][   T45]  ? put_timespec64+0xcf/0x130
+[  351.843764][   T45]  ? __pfx_put_timespec64+0x10/0x10
+[  351.845581][   T45]  ? __x64_sys_futex+0x1d3/0x4d0
+[  351.847379][   T45]  ? syscall_exit_to_user_mode+0xd0/0x270
+[  351.849346][   T45]  __x64_sys_madvise+0xa9/0x110
+[  351.851027][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.853190][   T45]  ? lockdep_hardirqs_on+0x7c/0x110
+[  351.855048][   T45]  do_syscall_64+0xc3/0x1d0
+[  351.856716][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  351.858750][   T45] RIP: 0033:0x7ff0b4d9eadd
+[  351.860275][   T45] RSP: 002b:00007ff0b47f0ba8 EFLAGS: 00000246 ORIG_RAX: 000000000000001c
+[  351.863036][   T45] RAX: ffffffffffffffda RBX: 00007ff0b4f97fa0 RCX: 00007ff0b4d9eadd
+[  351.865668][   T45] RDX: 0000000000000015 RSI: 7fffffffffffffff RDI: 0000000020000000
+[  351.868256][   T45] RBP: 00007ff0b4e1cb8f R08: 0000000000000000 R09: 0000000000000000
+[  351.870849][   T45] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  351.873446][   T45] R13: 00007ff0b4f97fac R14: 00007ff0b4f98038 R15: 00007ff0b47f0d40
+[  351.876079][   T45]  </TASK>
+[  351.877380][   T45] INFO: task syz.6.22:1999 blocked for more than 144 seconds.
+[  351.879918][   T45]       Not tainted 6.13.0-rc7 #1
+[  351.881662][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  351.884473][   T45] task:syz.6.22        state:D stack:25024 pid:1999  tgid:1998  ppid:747    flags:0x00000004
+[  351.887951][   T45] Call Trace:
+[  351.889114][   T45]  <TASK>
+[  351.890165][   T45]  __schedule+0xe60/0x4120
+[  351.891706][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.893684][   T45]  ? __pfx___schedule+0x10/0x10
+[  351.895367][   T45]  ? schedule+0x19d/0x210
+[  351.896861][   T45]  ? __pfx_lock_release+0x10/0x10
+[  351.898669][   T45]  ? __pfx___blk_flush_plug+0x10/0x10
+[  351.900478][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.902432][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.904309][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.906228][   T45]  schedule+0xd4/0x210
+[  351.907705][   T45]  io_schedule+0x1a/0x70
+[  351.909186][   T45]  blk_mq_get_tag+0x58d/0xac0
+[  351.910820][   T45]  ? __pfx_blk_mq_get_tag+0x10/0x10
+[  351.912659][   T45]  ? find_held_lock+0x2c/0x110
+[  351.914369][   T45]  ? __pfx_autoremove_wake_function+0x10/0x10
+[  351.916426][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.918334][   T45]  ? write_comp_data+0x29/0x90
+[  351.919985][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.921914][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.923788][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.925697][   T45]  __blk_mq_alloc_requests+0x787/0x1760
+[  351.927557][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.929495][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  351.931343][   T45]  ? __pfx___blk_mq_alloc_requests+0x10/0x10
+[  351.933393][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  351.935121][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.937043][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.938948][   T45]  ? __pfx_dd_bio_merge+0x10/0x10
+[  351.940712][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.942678][   T45]  ? blk_mq_sched_bio_merge+0x2c3/0x400
+[  351.944707][   T45]  blk_mq_submit_bio+0x1613/0x1fe0
+[  351.946479][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.948381][   T45]  ? __pfx_blk_mq_submit_bio+0x10/0x10
+[  351.950247][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  351.952064][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.953986][   T45]  __submit_bio+0x1ac/0xed0
+[  351.955824][   T45]  ? __pfx___submit_bio+0x10/0x10
+[  351.957719][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.959713][   T45]  ? mark_held_locks+0x9e/0xe0
+[  351.961410][   T45]  ? ktime_get+0x224/0x2d0
+[  351.962964][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.964895][   T45]  ? write_comp_data+0x29/0x90
+[  351.966551][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.968508][   T45]  ? write_comp_data+0x29/0x90
+[  351.970193][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.972088][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  351.974007][   T45]  ? submit_bio_noacct_nocheck+0x67e/0xd40
+[  351.975976][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.977881][   T45]  submit_bio_noacct_nocheck+0x67e/0xd40
+[  351.979780][   T45]  ? write_comp_data+0x29/0x90
+[  351.981454][   T45]  ? __pfx_submit_bio_noacct_nocheck+0x10/0x10
+[  351.983525][   T45]  ? write_comp_data+0x29/0x90
+[  351.985216][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.987122][   T45]  ? write_comp_data+0x29/0x90
+[  351.988789][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.990784][   T45]  submit_bio_noacct+0x649/0x13a0
+[  351.992525][   T45]  __swap_writepage+0x478/0x11a0
+[  351.994307][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.996211][   T45]  ? write_comp_data+0x29/0x90
+[  351.997867][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  351.999784][   T45]  swap_writepage+0x3c1/0xa00
+[  352.001454][   T45]  pageout+0x3d6/0xad0
+[  352.002887][   T45]  ? __pfx_pageout+0x10/0x10
+[  352.004549][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  352.006542][   T45]  ? __pfx_try_to_unmap_one+0x10/0x10
+[  352.008437][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.010357][   T45]  ? write_comp_data+0x29/0x90
+[  352.011999][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.013996][   T45]  ? write_comp_data+0x29/0x90
+[  352.015695][   T45]  shrink_folio_list+0x1973/0x3b80
+[  352.017476][   T45]  ? __pfx_shrink_folio_list+0x10/0x10
+[  352.019342][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  352.021162][   T45]  ? mark_lock+0xfe/0x12d0
+[  352.022734][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.024678][   T45]  ? mark_lock+0xfe/0x12d0
+[  352.026304][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.028200][   T45]  ? mark_lock+0xfe/0x12d0
+[  352.029787][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  352.031468][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  352.033160][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.035056][   T45]  ? mark_lock+0xfe/0x12d0
+[  352.036684][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  352.038386][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.040290][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.042204][   T45]  ? __lock_acquire+0x1748/0x4a10
+[  352.043965][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.045885][   T45]  ? __lock_acquire+0x1748/0x4a10
+[  352.047736][   T45]  reclaim_folio_list+0xcd/0x5b0
+[  352.049469][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.051369][   T45]  ? mark_lock+0xfe/0x12d0
+[  352.052966][   T45]  ? __pfx_reclaim_folio_list+0x10/0x10
+[  352.054975][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.056894][   T45]  ? find_held_lock+0x2c/0x110
+[  352.058846][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.060892][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.062814][   T45]  ? write_comp_data+0x29/0x90
+[  352.064467][   T45]  reclaim_pages+0x505/0x6a0
+[  352.066148][   T45]  ? __pfx_reclaim_pages+0x10/0x10
+[  352.067906][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.069824][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.071701][   T45]  ? folio_isolate_lru+0xa4/0x8a0
+[  352.073437][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.075326][   T45]  madvise_cold_or_pageout_pte_range+0x1772/0x1fb0
+[  352.077526][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  352.079395][   T45]  ? __pfx_madvise_cold_or_pageout_pte_range+0x10/0x10
+[  352.081686][   T45]  ? find_held_lock+0x2c/0x110
+[  352.083333][   T45]  ? __pfx_madvise_cold_or_pageout_pte_range+0x10/0x10
+[  352.085674][   T45]  walk_pgd_range+0xbfd/0x1c60
+[  352.087349][   T45]  ? __pfx_walk_pgd_range+0x10/0x10
+[  352.089106][   T45]  __walk_page_range+0x162/0x870
+[  352.090777][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.092728][   T45]  ? find_vma+0xc0/0x140
+[  352.094228][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.096112][   T45]  ? write_comp_data+0x29/0x90
+[  352.097810][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.099781][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  352.101679][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.103598][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.105583][   T45]  walk_page_range_mm+0x422/0x900
+[  352.107393][   T45]  ? __pfx_walk_page_range_mm+0x10/0x10
+[  352.109333][   T45]  ? write_comp_data+0x29/0x90
+[  352.110994][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.112921][   T45]  ? lru_add_drain_cpu+0x478/0x850
+[  352.114682][   T45]  walk_page_range+0x65/0x90
+[  352.116283][   T45]  madvise_pageout+0x310/0x7e0
+[  352.117950][   T45]  ? __pfx_madvise_pageout+0x10/0x10
+[  352.119771][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.121675][   T45]  ? write_comp_data+0x29/0x90
+[  352.123326][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.125234][   T45]  ? write_comp_data+0x29/0x90
+[  352.126885][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.128805][   T45]  ? write_comp_data+0x29/0x90
+[  352.130470][   T45]  madvise_vma_behavior+0x1386/0x2320
+[  352.132305][   T45]  ? __entry_text_end+0x102146/0x102149
+[  352.134204][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.136098][   T45]  ? mas_prev+0x9c/0xf0
+[  352.137584][   T45]  ? __pfx_madvise_vma_behavior+0x10/0x10
+[  352.139584][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.141545][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  352.143483][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.145398][   T45]  ? find_vma_prev+0xdb/0x160
+[  352.147113][   T45]  ? __pfx_find_vma_prev+0x10/0x10
+[  352.148876][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.150814][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.152678][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.154668][   T45]  do_madvise+0x5f6/0x9c0
+[  352.156208][   T45]  ? __pfx_do_madvise+0x10/0x10
+[  352.157890][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.160074][   T45]  ? put_timespec64+0xcf/0x130
+[  352.161875][   T45]  ? __pfx_put_timespec64+0x10/0x10
+[  352.163708][   T45]  ? syscall_exit_to_user_mode+0xd0/0x270
+[  352.165704][   T45]  __x64_sys_madvise+0xa9/0x110
+[  352.167386][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.169303][   T45]  ? lockdep_hardirqs_on+0x7c/0x110
+[  352.171068][   T45]  do_syscall_64+0xc3/0x1d0
+[  352.172724][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  352.174737][   T45] RIP: 0033:0x7f8e8de85add
+[  352.176259][   T45] RSP: 002b:00007f8e8d8d7ba8 EFLAGS: 00000246 ORIG_RAX: 000000000000001c
+[  352.179009][   T45] RAX: ffffffffffffffda RBX: 00007f8e8e07efa0 RCX: 00007f8e8de85add
+[  352.181664][   T45] RDX: 0000000000000015 RSI: 7fffffffffffffff RDI: 0000000020000000
+[  352.184251][   T45] RBP: 00007f8e8df03b8f R08: 0000000000000000 R09: 0000000000000000
+[  352.186838][   T45] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  352.189472][   T45] R13: 00007f8e8e07efac R14: 00007f8e8e07f038 R15: 00007f8e8d8d7d40
+[  352.192089][   T45]  </TASK>
+[  352.193328][   T45] INFO: task syz-executor:2000 blocked for more than 145 seconds.
+[  352.195890][   T45]       Not tainted 6.13.0-rc7 #1
+[  352.197606][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  352.200528][   T45] task:syz-executor    state:D stack:25728 pid:2000  tgid:2000  ppid:418    flags:0x00000000
+[  352.203984][   T45] Call Trace:
+[  352.205148][   T45]  <TASK>
+[  352.206208][   T45]  __schedule+0xe60/0x4120
+[  352.207778][   T45]  ? __pfx___schedule+0x10/0x10
+[  352.209440][   T45]  ? schedule+0x19d/0x210
+[  352.210930][   T45]  ? __pfx_lock_release+0x10/0x10
+[  352.212671][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.214698][   T45]  schedule+0xd4/0x210
+[  352.216120][   T45]  io_schedule+0x1a/0x70
+[  352.217668][   T45]  bit_wait_io+0x15/0xe0
+[  352.219154][   T45]  __wait_on_bit+0xc9/0x190
+[  352.220742][   T45]  ? __pfx_bit_wait_io+0x10/0x10
+[  352.222447][   T45]  out_of_line_wait_on_bit+0xd8/0x110
+[  352.224286][   T45]  ? __pfx_out_of_line_wait_on_bit+0x10/0x10
+[  352.226407][   T45]  ? __pfx_wake_bit_function+0x10/0x10
+[  352.228272][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.230193][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.232087][   T45]  ? write_comp_data+0x29/0x90
+[  352.233751][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.235687][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  352.237578][   T45]  do_get_write_access+0x88d/0x10c0
+[  352.239445][   T45]  jbd2_journal_get_write_access+0x1cc/0x250
+[  352.241471][   T45]  __ext4_journal_get_write_access+0x6a/0x380
+[  352.243570][   T45]  __ext4_new_inode+0xc1d/0x4c40
+[  352.245372][   T45]  ? __pfx___ext4_new_inode+0x10/0x10
+[  352.247204][   T45]  ? __pfx_avc_has_perm+0x10/0x10
+[  352.248951][   T45]  ? __pfx___dquot_initialize+0x10/0x10
+[  352.250863][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.252797][   T45]  ext4_mkdir+0x33d/0xb30
+[  352.254350][   T45]  ? __pfx_ext4_mkdir+0x10/0x10
+[  352.256037][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.257955][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.259857][   T45]  ? write_comp_data+0x29/0x90
+[  352.261513][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.263751][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  352.265688][   T45]  vfs_mkdir+0x4fd/0x820
+[  352.267171][   T45]  do_mkdirat+0x291/0x340
+[  352.268710][   T45]  ? __pfx_do_mkdirat+0x10/0x10
+[  352.270386][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.272277][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  352.274146][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.276063][   T45]  __x64_sys_mkdir+0x63/0x80
+[  352.277695][   T45]  do_syscall_64+0xc3/0x1d0
+[  352.279365][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  352.281410][   T45] RIP: 0033:0x7ff9f141235b
+[  352.282930][   T45] RSP: 002b:00007ffc73a9d438 EFLAGS: 00000246 ORIG_RAX: 0000000000000053
+[  352.285681][   T45] RAX: ffffffffffffffda RBX: 0000000000000001 RCX: 00007ff9f141235b
+[  352.288285][   T45] RDX: 0000000000000097 RSI: 00000000000001c0 RDI: 00007ffc73a9d6a0
+[  352.290894][   T45] RBP: 00007ffc73a9d6ac R08: 000000000000002a R09: 0000000000043096
+[  352.293488][   T45] R10: 7fffffffffffffff R11: 0000000000000246 R12: 00007ffc73a9d6a0
+[  352.296069][   T45] R13: 00007ff9f14953c0 R14: 00007ffc73a9d460 R15: 8421084210842109
+[  352.298703][   T45]  </TASK>
+[  352.299913][   T45] INFO: task syz-executor:2001 blocked for more than 145 seconds.
+[  352.302483][   T45]       Not tainted 6.13.0-rc7 #1
+[  352.304179][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  352.306979][   T45] task:syz-executor    state:D stack:25728 pid:2001  tgid:2001  ppid:418    flags:0x00000000
+[  352.310404][   T45] Call Trace:
+[  352.311550][   T45]  <TASK>
+[  352.312598][   T45]  __schedule+0xe60/0x4120
+[  352.314233][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  352.316036][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  352.317746][   T45]  ? __pfx___schedule+0x10/0x10
+[  352.319415][   T45]  ? schedule+0x19d/0x210
+[  352.320950][   T45]  ? __pfx_lock_release+0x10/0x10
+[  352.322717][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.324698][   T45]  ? mark_held_locks+0x9e/0xe0
+[  352.326378][   T45]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  352.328216][   T45]  schedule+0xd4/0x210
+[  352.329690][   T45]  schedule_preempt_disabled+0x13/0x30
+[  352.331690][   T45]  rwsem_down_write_slowpath+0x551/0x1660
+[  352.333685][   T45]  ? __filename_parentat.isra.0+0x350/0x500
+[  352.335689][   T45]  ? __pfx_rwsem_down_write_slowpath+0x10/0x10
+[  352.337830][   T45]  ? __pfx_lock_acquire+0x10/0x10
+[  352.339670][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.341574][   T45]  down_write_nested+0x1db/0x210
+[  352.343337][   T45]  ? __pfx_down_write_nested+0x10/0x10
+[  352.345219][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.347108][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.349023][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  352.350925][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.352851][   T45]  ? write_comp_data+0x29/0x90
+[  352.354502][   T45]  filename_create+0x1ae/0x4b0
+[  352.356148][   T45]  ? __pfx_filename_create+0x10/0x10
+[  352.357962][   T45]  ? __pfx_lock_release+0x10/0x10
+[  352.359832][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.361741][   T45]  ? write_comp_data+0x29/0x90
+[  352.363395][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.365755][   T45]  ? write_comp_data+0x29/0x90
+[  352.367427][   T45]  do_mkdirat+0x9f/0x340
+[  352.368918][   T45]  ? write_comp_data+0x29/0x90
+[  352.370574][   T45]  ? __pfx_do_mkdirat+0x10/0x10
+[  352.372309][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.374224][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  352.376053][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.377978][   T45]  __x64_sys_mkdir+0x63/0x80
+[  352.379593][   T45]  do_syscall_64+0xc3/0x1d0
+[  352.381248][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  352.383277][   T45] RIP: 0033:0x7f23362fb35b
+[  352.384807][   T45] RSP: 002b:00007ffe16c15dd8 EFLAGS: 00000246 ORIG_RAX: 0000000000000053
+[  352.387575][   T45] RAX: ffffffffffffffda RBX: 0000000000000001 RCX: 00007f23362fb35b
+[  352.390246][   T45] RDX: 0000000000000097 RSI: 00000000000001c0 RDI: 00007ffe16c16040
+[  352.392845][   T45] RBP: 00007ffe16c1604c R08: 0000000000000036 R09: 00000000000438f4
+[  352.395430][   T45] R10: 7fffffffffffffff R11: 0000000000000246 R12: 00007ffe16c16040
+[  352.398038][   T45] R13: 00007f233637e3c0 R14: 00007ffe16c15e00 R15: 8421084210842109
+[  352.400740][   T45]  </TASK>
+[  352.401796][   T45] Future hung task reports are suppressed, see sysctl kernel.hung_task_warnings
+[  352.435213][   T45] INFO: task syz-executor:2002 blocked for more than 145 seconds.
+[  352.437816][   T45]       Not tainted 6.13.0-rc7 #1
+[  352.439524][   T45] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  352.442344][   T45] task:syz-executor    state:D stack:25728 pid:2002  tgid:2002  ppid:418    flags:0x00000000
+[  352.445768][   T45] Call Trace:
+[  352.446928][   T45]  <TASK>
+[  352.447977][   T45]  __schedule+0xe60/0x4120
+[  352.449551][   T45]  ? __pfx___lock_acquire+0x10/0x10
+[  352.451432][   T45]  ? __pfx_mark_lock+0x10/0x10
+[  352.453126][   T45]  ? __pfx___schedule+0x10/0x10
+[  352.454788][   T45]  ? schedule+0x19d/0x210
+[  352.456290][   T45]  ? __pfx_lock_release+0x10/0x10
+[  352.458056][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.459968][   T45]  ? mark_held_locks+0x9e/0xe0
+[  352.461675][   T45]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  352.463513][   T45]  schedule+0xd4/0x210
+[  352.464944][   T45]  schedule_preempt_disabled+0x13/0x30
+[  352.467107][   T45]  rwsem_down_write_slowpath+0x551/0x1660
+[  352.469183][   T45]  ? __filename_parentat.isra.0+0x350/0x500
+[  352.471221][   T45]  ? __pfx_rwsem_down_write_slowpath+0x10/0x10
+[  352.473334][   T45]  ? __pfx_lock_acquire+0x10/0x10
+[  352.475092][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.477033][   T45]  down_write_nested+0x1db/0x210
+[  352.478727][   T45]  ? __pfx_down_write_nested+0x10/0x10
+[  352.480573][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.482550][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.484509][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  352.486409][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.488313][   T45]  ? write_comp_data+0x29/0x90
+[  352.489985][   T45]  filename_create+0x1ae/0x4b0
+[  352.491696][   T45]  ? __pfx_filename_create+0x10/0x10
+[  352.493600][   T45]  ? __pfx_lock_release+0x10/0x10
+[  352.495427][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.497339][   T45]  ? write_comp_data+0x29/0x90
+[  352.498983][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.500906][   T45]  ? write_comp_data+0x29/0x90
+[  352.502572][   T45]  do_mkdirat+0x9f/0x340
+[  352.504115][   T45]  ? write_comp_data+0x29/0x90
+[  352.505779][   T45]  ? __pfx_do_mkdirat+0x10/0x10
+[  352.507484][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.509407][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  352.511290][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.513227][   T45]  __x64_sys_mkdir+0x63/0x80
+[  352.514832][   T45]  do_syscall_64+0xc3/0x1d0
+[  352.516426][   T45]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  352.518463][   T45] RIP: 0033:0x7f322442435b
+[  352.519981][   T45] RSP: 002b:00007ffe41080718 EFLAGS: 00000246 ORIG_RAX: 0000000000000053
+[  352.522726][   T45] RAX: ffffffffffffffda RBX: 0000000000000001 RCX: 00007f322442435b
+[  352.525339][   T45] RDX: 0000000000000097 RSI: 00000000000001c0 RDI: 00007ffe41080980
+[  352.527926][   T45] RBP: 00007ffe4108098c R08: 0000000000000031 R09: 0000000000043dd4
+[  352.530542][   T45] R10: 7fffffffffffffff R11: 0000000000000246 R12: 00007ffe41080980
+[  352.533196][   T45] R13: 00007f32244a73c0 R14: 00007ffe41080740 R15: 8421084210842109
+[  352.535838][   T45]  </TASK>
+[  352.536927][   T45] Future hung task reports are suppressed, see sysctl kernel.hung_task_warnings
+[  352.539826][   T45] 
+[  352.539826][   T45] Showing all locks held in the system:
+[  352.542337][   T45] 1 lock held by systemd/1:
+[  352.543876][   T45]  #0: ff11000001ad4a38 (mapping.invalidate_lock){++++}-{4:4}, at: page_cache_ra_unbounded+0x159/0x690
+[  352.547687][   T45] 3 locks held by kworker/u20:0/40:
+[  352.549426][   T45]  #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0
+[  352.553382][   T45]  #1: ffa00000002d7d98 ((work_completion)(&(&krcp->page_cache_work)->work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0
+[  352.557831][   T45]  #2: ffffffffab647720 (fs_reclaim){+.+.}-{0:0}, at: __alloc_pages_slowpath.constprop.0+0x50c/0x2170
+[  352.561544][   T45] 1 lock held by khungtaskd/45:
+[  352.563189][   T45]  #0: ffffffffab51aea0 (rcu_read_lock){....}-{1:3}, at: debug_show_all_locks+0x75/0x340
+[  352.566520][   T45] 3 locks held by kworker/u19:2/80:
+[  352.568251][   T45]  #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0
+[  352.572373][   T45]  #1: ffa0000000557d98 ((work_completion)(&(&krcp->page_cache_work)->work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0
+[  352.576909][   T45]  #2: ffffffffab647720 (fs_reclaim){+.+.}-{0:0}, at: __alloc_pages_slowpath.constprop.0+0x50c/0x2170
+[  352.580602][   T45] 1 lock held by kswapd0/81:
+[  352.582242][   T45]  #0: ffffffffab647720 (fs_reclaim){+.+.}-{0:0}, at: balance_pgdat+0x771/0xe80
+[  352.585329][   T45] 3 locks held by kworker/u17:3/114:
+[  352.587077][   T45]  #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0
+[  352.590976][   T45]  #1: ffa0000001c4fd98 ((work_completion)(&(&krcp->page_cache_work)->work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0
+[  352.595420][   T45]  #2: ffffffffab647720 (fs_reclaim){+.+.}-{0:0}, at: __alloc_pages_slowpath.constprop.0+0x50c/0x2170
+[  352.599240][   T45] 4 locks held by systemd-journal/221:
+[  352.601077][   T45]  #0: ff1100000b046420 (sb_writers#3){.+.+}-{0:0}, at: do_sys_ftruncate+0x65/0xb0
+[  352.604298][   T45]  #1: ff1100000cc779b8 (&sb->s_type->i_mutex_key#7){++++}-{4:4}, at: do_truncate+0x131/0x200
+[  352.607758][   T45]  #2: ff1100000cc77b48 (mapping.invalidate_lock){++++}-{4:4}, at: ext4_setattr+0x88b/0x2a70
+[  352.611174][   T45]  #3: ff1100000b04a958 (jbd2_handle){++++}-{0:0}, at: start_this_handle+0xe3d/0x12e0
+[  352.614446][   T45] 1 lock held by cron/285:
+[  352.615950][   T45]  #0: ff11000001ad4a38 (mapping.invalidate_lock){++++}-{4:4}, at: page_cache_ra_unbounded+0x159/0x690
+[  352.619689][   T45] 1 lock held by in:imklog/326:
+[  352.621346][   T45]  #0: ff110000045c22f8 (mapping.invalidate_lock){++++}-{4:4}, at: page_cache_ra_unbounded+0x159/0x690
+[  352.625048][   T45] 4 locks held by rs:main Q:Reg/327:
+[  352.626889][   T45]  #0: ff1100000a8080f8 (&f->f_pos_lock){+.+.}-{4:4}, at: fdget_pos+0x27d/0x390
+[  352.629972][   T45]  #1: ff1100000b046420 (sb_writers#3){.+.+}-{0:0}, at: ksys_write+0x122/0x240
+[  352.633028][   T45]  #2: ff11000010bb6fe8 (&sb->s_type->i_mutex_key#7){++++}-{4:4}, at: ext4_buffered_write_iter+0xae/0x3c0
+[  352.636774][   T45]  #3: ff1100000b04a958 (jbd2_handle){++++}-{0:0}, at: start_this_handle+0xe3d/0x12e0
+[  352.640016][   T45] 6 locks held by kworker/u19:3/381:
+[  352.641819][   T45]  #0: ff110000022f8948 ((wq_completion)writeback){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0
+[  352.645541][   T45]  #1: ffa0000003937d98 ((work_completion)(&(&wb->dwork)->work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0
+[  352.649679][   T45]  #2: ff1100000b0460e0 (&type->s_umount_key#52){++++}-{4:4}, at: super_trylock_shared+0x21/0x100
+[  352.653235][   T45]  #3: ff1100000b048b98 (&sbi->s_writepages_rwsem){++++}-{0:0}, at: do_writepages+0x19d/0x7d0
+[  352.656698][   T45]  #4: ff1100000b04a958 (jbd2_handle){++++}-{0:0}, at: start_this_handle+0xe3d/0x12e0
+[  352.659928][   T45]  #5: ff1100001210c738 (&ei->i_data_sem){++++}-{4:4}, at: ext4_map_blocks+0x31c/0x1400
+[  352.663184][   T45] 1 lock held by bash/387:
+[  352.664702][   T45]  #0: ff11000001ad4a38 (mapping.invalidate_lock){++++}-{4:4}, at: page_cache_ra_unbounded+0x159/0x690
+[  352.668389][   T45] 1 lock held by syz-execprog/411:
+[  352.670108][   T45]  #0: ff1100001222b698 (mapping.invalidate_lock){++++}-{4:4}, at: page_cache_ra_unbounded+0x159/0x690
+[  352.674020][   T45] 1 lock held by syz-execprog/412:
+[  352.675882][   T45]  #0: ff1100001222b698 (mapping.invalidate_lock){++++}-{4:4}, at: page_cache_ra_unbounded+0x159/0x690
+[  352.679688][   T45] 1 lock held by syz-execprog/426:
+[  352.681447][   T45]  #0: ff1100001222b698 (mapping.invalidate_lock){++++}-{4:4}, at: page_cache_ra_unbounded+0x159/0x690
+[  352.685217][   T45] 3 locks held by syz-executor/418:
+[  352.686948][   T45]  #0: ff1100000b148148 (&vma->vm_lock->lock){++++}-{4:4}, at: lock_vma_under_rcu+0x141/0x800
+[  352.690426][   T45]  #1: ff1100000b046518 (sb_pagefaults){.+.+}-{0:0}, at: do_page_mkwrite+0x180/0x390
+[  352.693683][   T45]  #2: ff1100000b04a958 (jbd2_handle){++++}-{0:0}, at: start_this_handle+0xe3d/0x12e0
+[  352.696948][   T45] 3 locks held by kworker/u18:5/848:
+[  352.698710][   T45]  #0: ff11000001079148 ((wq_completion)events_unbound){+.+.}-{0:0}, at: process_scheduled_works+0x1175/0x1ba0
+[  352.702578][   T45]  #1: ffa000000c2efd98 ((work_completion)(&(&krcp->page_cache_work)->work)){+.+.}-{0:0}, at: process_scheduled_works+0x52f/0x1ba0
+[  352.707100][   T45]  #2: ffffffffab647720 (fs_reclaim){+.+.}-{0:0}, at: __alloc_pages_slowpath.constprop.0+0x50c/0x2170
+[  352.710809][   T45] 2 locks held by kworker/0:6/1653:
+[  352.712552][   T45] 1 lock held by syz.0.16/1927:
+[  352.714228][   T45] 3 locks held by syz.3.19/1951:
+[  352.715898][   T45] 1 lock held by syz.4.20/1953:
+[  352.717557][   T45] 1 lock held by syz.2.18/1970:
+[  352.719224][   T45] 1 lock held by syz.1.17/1973:
+[  352.720887][   T45] 1 lock held by syz.7.23/1986:
+[  352.722543][   T45]  #0: ff110000027d3ae0 (&mm->mmap_lock){++++}-{4:4}, at: do_madvise+0x3dd/0x9c0
+[  352.725709][   T45] 1 lock held by syz.8.21/1993:
+[  352.727329][   T45]  #0: ff11000007f881e0 (&mm->mmap_lock){++++}-{4:4}, at: do_madvise+0x3dd/0x9c0
+[  352.730417][   T45] 1 lock held by syz.6.22/1999:
+[  352.732050][   T45]  #0: ff11000012bc3ae0 (&mm->mmap_lock){++++}-{4:4}, at: do_madvise+0x3dd/0x9c0
+[  352.735241][   T45] 3 locks held by syz-executor/2000:
+[  352.737006][   T45]  #0: ff1100000b046420 (sb_writers#3){.+.+}-{0:0}, at: filename_create+0xf5/0x4b0
+[  352.740186][   T45]  #1: ff1100000f0cefe8 (&type->i_mutex_dir_key#3/1){+.+.}-{4:4}, at: filename_create+0x1ae/0x4b0
+[  352.743837][   T45]  #2: ff1100000b04a958 (jbd2_handle){++++}-{0:0}, at: start_this_handle+0xe3d/0x12e0
+[  352.747176][   T45] 2 locks held by syz-executor/2001:
+[  352.748910][   T45]  #0: ff1100000b046420 (sb_writers#3){.+.+}-{0:0}, at: filename_create+0xf5/0x4b0
+[  352.751972][   T45]  #1: ff1100000f0cefe8 (&type->i_mutex_dir_key#3/1){+.+.}-{4:4}, at: filename_create+0x1ae/0x4b0
+[  352.755438][   T45] 2 locks held by syz-executor/2002:
+[  352.757138][   T45]  #0: ff1100000b046420 (sb_writers#3){.+.+}-{0:0}, at: filename_create+0xf5/0x4b0
+[  352.760173][   T45]  #1: ff1100000f0cefe8 (&type->i_mutex_dir_key#3/1){+.+.}-{4:4}, at: filename_create+0x1ae/0x4b0
+[  352.763599][   T45] 
+[  352.764463][   T45] =============================================
+[  352.764463][   T45] 
+[  352.767201][   T45] Kernel panic - not syncing: hung_task: blocked tasks
+[  352.768118][   T45] CPU: 1 UID: 0 PID: 45 Comm: khungtaskd Not tainted 6.13.0-rc7 #1
+[  352.768118][   T45] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  352.768118][   T45] Call Trace:
+[  352.768118][   T45]  <TASK>
+[  352.768118][   T45]  dump_stack_lvl+0x3d/0x1b0
+[  352.768118][   T45]  panic+0x70b/0x7c0
+[  352.768118][   T45]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  352.768118][   T45]  ? __pfx_panic+0x10/0x10
+[  352.768118][   T45]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  352.768118][   T45]  ? watchdog+0xb29/0x11c0
+[  352.768118][   T45]  watchdog+0xb47/0x11c0
+[  352.768118][   T45]  ? __pfx_watchdog+0x10/0x10
+[  352.768118][   T45]  kthread+0x345/0x450
+[  352.768118][   T45]  ? __pfx_kthread+0x10/0x10
+[  352.768118][   T45]  ret_from_fork+0x48/0x80
+[  352.768118][   T45]  ? __pfx_kthread+0x10/0x10
+[  352.768118][   T45]  ret_from_fork_asm+0x1a/0x30
+[  352.768118][   T45]  </TASK>
+[  352.768118][   T45] Kernel Offset: 0x1fa00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+

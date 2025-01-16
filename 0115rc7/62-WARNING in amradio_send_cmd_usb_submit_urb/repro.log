@@ -1,0 +1,2126 @@
+
+Debian GNU/Linux 11 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:28703' (ECDSA) to the list of known hosts.
+executing program
+syzkaller login: [   76.108444][   T44] audit: type=1400 audit(1736755022.541:9): avc:  denied  { execmem } for  pid=423 comm="syz-executor286" scontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tcontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tclass=process permissive=1
+[   76.338174][   T75] usb 1-1: new high-speed USB device number 2 using dummy_hcd
+[   76.473075][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   76.478035][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   76.480888][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   76.483948][   T75] usb 1-1: config 128 has no interface number 0
+[   76.486199][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   76.489810][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   76.493767][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   76.497632][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   76.501619][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   76.505328][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   76.508459][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   76.511718][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   76.514641][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   76.517737][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   76.522338][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   76.524909][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   76.527247][   T75] usb 1-1: Product: syz
+[   76.528581][   T75] usb 1-1: Manufacturer: syz
+[   76.529996][   T75] usb 1-1: SerialNumber: syz
+executing program
+[   76.747306][   T75] ------------[ cut here ]------------
+[   76.749189][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+[   76.752854][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   76.755702][   T75] Modules linked in:
+[   76.756929][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Not tainted 6.13.0-rc7 #1
+[   76.759832][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   76.763044][   T75] Workqueue: usb_hub_wq hub_event
+[   76.764613][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   76.766382][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   76.771603][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   76.773419][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   76.775724][   T75] RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   76.777971][   T75] RBP: ff110000055e0e00 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   76.780222][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   76.782494][   T75] R13: ff1100000262e200 R14: ff110000055e0e7c R15: 0000000000000002
+[   76.784806][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   76.787365][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   76.789255][   T75] CR2: 00007fc67b430410 CR3: 0000000003fe8001 CR4: 0000000000771ef0
+[   76.791598][   T75] PKRU: 55555554
+[   76.792755][   T75] Call Trace:
+[   76.793813][   T75]  <TASK>
+[   76.794820][   T75]  ? __warn+0xea/0x3d0
+[   76.796093][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.797782][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   76.799340][   T75]  ? report_bug+0x386/0x5e0
+[   76.800789][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   76.802332][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   76.803885][   T75]  ? handle_bug+0xe5/0x180
+[   76.805263][   T75]  ? exc_invalid_op+0x35/0x80
+[   76.806753][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   76.808338][   T75]  ? __warn_printk+0x17a/0x310
+[   76.809814][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   76.811364][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.813044][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   76.814747][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   76.816306][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   76.818040][   T75]  ? xen_error_entry+0x30/0x60
+[   76.819617][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.821379][   T75]  ? __asan_memset+0x24/0x50
+[   76.822809][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.824499][   T75]  usb_bulk_msg+0x22b/0x550
+[   76.825917][   T75]  amradio_send_cmd+0x2dc/0x810
+[   76.827427][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   76.829107][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   76.830779][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.832482][   T75]  ? read_word_at_a_time+0xe/0x20
+[   76.834014][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.835715][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   76.837279][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   76.838827][   T75]  usb_probe_interface+0x309/0xa10
+[   76.840422][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   76.842142][   T75]  really_probe+0x253/0x990
+[   76.843550][   T75]  __driver_probe_device+0x1df/0x450
+[   76.845124][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.846920][   T75]  driver_probe_device+0x4c/0x1a0
+[   76.848459][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   76.850072][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   76.851623][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   76.853529][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   76.855149][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   76.856946][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.858600][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   76.860212][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.861891][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   76.863810][   T75]  __device_attach+0x287/0x490
+[   76.865253][   T75]  ? __pfx___device_attach+0x10/0x10
+[   76.866871][   T75]  ? write_comp_data+0x29/0x90
+[   76.868345][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.870021][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   76.871580][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.873288][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   76.874993][   T75]  bus_probe_device+0x17e/0x1c0
+[   76.876508][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.878247][   T75]  device_add+0x10af/0x17e0
+[   76.879741][   T75]  ? __pfx_device_add+0x10/0x10
+[   76.881249][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.882937][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.884707][   T75]  ? write_comp_data+0x29/0x90
+[   76.886175][   T75]  usb_set_configuration+0x1081/0x1b20
+[   76.887904][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   76.889724][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   76.891389][   T75]  usb_probe_device+0xec/0x3e0
+[   76.892952][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+[   76.894628][   T75]  really_probe+0x253/0x990
+[   76.896096][   T75]  __driver_probe_device+0x1df/0x450
+[   76.897738][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.899418][   T75]  driver_probe_device+0x4c/0x1a0
+[   76.900948][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   76.902533][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   76.904133][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   76.905982][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   76.907700][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   76.909468][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.911157][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   76.912767][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.914413][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   76.916268][   T75]  __device_attach+0x287/0x490
+[   76.917760][   T75]  ? __pfx___device_attach+0x10/0x10
+[   76.919343][   T75]  ? write_comp_data+0x29/0x90
+[   76.920804][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.922475][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   76.924103][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.925771][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   76.927546][   T75]  bus_probe_device+0x17e/0x1c0
+[   76.929103][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.930852][   T75]  device_add+0x10af/0x17e0
+[   76.932300][   T75]  ? __pfx_device_add+0x10/0x10
+[   76.933781][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.935456][   T75]  ? add_device_randomness+0xb8/0xf0
+[   76.937035][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.938731][   T75]  ? write_comp_data+0x29/0x90
+[   76.940211][   T75]  usb_new_device+0xd3f/0x1a20
+[   76.941740][   T75]  ? __pfx_usb_new_device+0x10/0x10
+[   76.943302][   T75]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   76.944931][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   76.946520][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   76.948189][   T75]  hub_event+0x2a3a/0x4800
+[   76.949717][   T75]  ? __pfx_hub_event+0x10/0x10
+[   76.951169][   T75]  ? __pfx_lock_acquire+0x10/0x10
+[   76.952757][   T75]  ? __pfx_lock_release+0x10/0x10
+[   76.954348][   T75]  ? write_comp_data+0x29/0x90
+[   76.955818][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   76.957421][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   76.959102][   T75]  process_scheduled_works+0x5ee/0x1ba0
+[   76.960808][   T75]  ? __pfx_process_scheduled_works+0x10/0x10
+[   76.962578][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   76.964309][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.965986][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.967733][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   76.969406][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.971096][   T75]  ? assign_work+0x195/0x240
+[   76.972558][   T75]  worker_thread+0x59f/0xcf0
+[   76.974017][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   76.975752][   T75]  ? __pfx_worker_thread+0x10/0x10
+[   76.977343][   T75]  kthread+0x345/0x450
+[   76.978740][   T75]  ? __pfx_kthread+0x10/0x10
+[   76.980237][   T75]  ret_from_fork+0x48/0x80
+[   76.981697][   T75]  ? __pfx_kthread+0x10/0x10
+[   76.983142][   T75]  ret_from_fork_asm+0x1a/0x30
+[   76.984717][   T75]  </TASK>
+[   76.985575][   T75] irq event stamp: 22549
+[   76.986934][   T75] hardirqs last  enabled at (22561): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0
+[   76.989697][   T75] hardirqs last disabled at (22574): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0
+[   76.992405][   T75] softirqs last  enabled at (22592): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870
+[   76.995140][   T75] softirqs last disabled at (22583): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140
+[   76.997761][   T75] ---[ end trace 0000000000000000 ]---
+[   77.000773][   T75]  (null): radio-mr800 - initialization failed
+[   77.002800][   T75] radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+[   77.014449][   T75] usb 1-1: USB disconnect, device number 2
+[   77.242944][   T75] usb 1-1: new high-speed USB device number 3 using dummy_hcd
+[   77.371393][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   77.375256][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   77.377744][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   77.380294][   T75] usb 1-1: config 128 has no interface number 0
+[   77.382227][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   77.385089][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   77.388341][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   77.391497][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   77.394933][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   77.397891][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   77.400805][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   77.403934][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   77.406883][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   77.410017][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   77.414574][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   77.417304][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   77.419777][   T75] usb 1-1: Product: syz
+[   77.421135][   T75] usb 1-1: Manufacturer: syz
+[   77.422544][   T75] usb 1-1: SerialNumber: syz
+executing program
+[   77.639322][   T75] ------------[ cut here ]------------
+[   77.641026][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+[   77.644702][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   77.647533][   T75] Modules linked in:
+[   77.648842][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+[   77.651715][   T75] Tainted: [W]=WARN
+[   77.652940][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   77.655849][   T75] Workqueue: usb_hub_wq hub_event
+[   77.657430][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   77.659156][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   77.664781][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   77.666737][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   77.669175][   T75] RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   77.671529][   T75] RBP: ff110000055d1700 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   77.674019][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   77.676469][   T75] R13: ff110000069ccd80 R14: ff110000055d177c R15: 0000000000000002
+[   77.678813][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   77.681422][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   77.683398][   T75] CR2: 00007fc67b430410 CR3: 0000000007d34003 CR4: 0000000000771ef0
+[   77.685764][   T75] PKRU: 55555554
+[   77.686984][   T75] Call Trace:
+[   77.688101][   T75]  <TASK>
+[   77.689104][   T75]  ? __warn+0xea/0x3d0
+[   77.690451][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.692250][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   77.693884][   T75]  ? report_bug+0x386/0x5e0
+[   77.695403][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   77.697026][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   77.698564][   T75]  ? handle_bug+0xe5/0x180
+[   77.700076][   T75]  ? exc_invalid_op+0x35/0x80
+[   77.701616][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   77.703277][   T75]  ? __warn_printk+0x17a/0x310
+[   77.704832][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   77.706473][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.708236][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   77.709991][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   77.711701][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   77.713476][   T75]  ? xen_error_entry+0x30/0x60
+[   77.715015][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.716807][   T75]  ? __asan_memset+0x24/0x50
+[   77.718300][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.720146][   T75]  usb_bulk_msg+0x22b/0x550
+[   77.721589][   T75]  amradio_send_cmd+0x2dc/0x810
+[   77.723165][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   77.724933][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   77.726723][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.728529][   T75]  ? read_word_at_a_time+0xe/0x20
+[   77.730189][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.731968][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   77.733495][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   77.735109][   T75]  usb_probe_interface+0x309/0xa10
+[   77.736799][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   77.738571][   T75]  really_probe+0x253/0x990
+[   77.740152][   T75]  __driver_probe_device+0x1df/0x450
+[   77.741798][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.743548][   T75]  driver_probe_device+0x4c/0x1a0
+[   77.745154][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   77.746869][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   77.748425][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   77.750250][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   77.751999][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   77.753808][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.755589][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   77.757280][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.759056][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   77.760953][   T75]  __device_attach+0x287/0x490
+[   77.762480][   T75]  ? __pfx___device_attach+0x10/0x10
+[   77.764172][   T75]  ? write_comp_data+0x29/0x90
+[   77.765720][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.767513][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   77.769218][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.771043][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   77.772837][   T75]  bus_probe_device+0x17e/0x1c0
+[   77.774367][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.776180][   T75]  device_add+0x10af/0x17e0
+[   77.777728][   T75]  ? __pfx_device_add+0x10/0x10
+[   77.779297][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.781049][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.782784][   T75]  ? write_comp_data+0x29/0x90
+[   77.784277][   T75]  usb_set_configuration+0x1081/0x1b20
+[   77.785978][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   77.787835][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   77.789535][   T75]  usb_probe_device+0xec/0x3e0
+[   77.791136][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+[   77.792885][   T75]  really_probe+0x253/0x990
+[   77.794363][   T75]  __driver_probe_device+0x1df/0x450
+[   77.796073][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.797810][   T75]  driver_probe_device+0x4c/0x1a0
+[   77.799354][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   77.801025][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   77.802545][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   77.804342][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   77.805992][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   77.807787][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.809479][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   77.811093][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.812829][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   77.814743][   T75]  __device_attach+0x287/0x490
+[   77.816162][   T75]  ? __pfx___device_attach+0x10/0x10
+[   77.817758][   T75]  ? write_comp_data+0x29/0x90
+[   77.819236][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.820925][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   77.822467][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.824187][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   77.825891][   T75]  bus_probe_device+0x17e/0x1c0
+[   77.827390][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.829078][   T75]  device_add+0x10af/0x17e0
+[   77.830532][   T75]  ? __pfx_device_add+0x10/0x10
+[   77.832081][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.833801][   T75]  ? add_device_randomness+0xb8/0xf0
+[   77.835458][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.837175][   T75]  ? write_comp_data+0x29/0x90
+[   77.838754][   T75]  usb_new_device+0xd3f/0x1a20
+[   77.840271][   T75]  ? __pfx_usb_new_device+0x10/0x10
+[   77.841896][   T75]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   77.843593][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   77.845334][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   77.846992][   T75]  hub_event+0x2a3a/0x4800
+[   77.848481][   T75]  ? __pfx_hub_event+0x10/0x10
+[   77.850028][   T75]  ? __pfx_lock_acquire+0x10/0x10
+[   77.851703][   T75]  ? __pfx_lock_release+0x10/0x10
+[   77.853311][   T75]  ? write_comp_data+0x29/0x90
+[   77.854794][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   77.856443][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   77.858100][   T75]  process_scheduled_works+0x5ee/0x1ba0
+[   77.859910][   T75]  ? __pfx_process_scheduled_works+0x10/0x10
+[   77.861725][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   77.863371][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.865131][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.866908][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   77.868605][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.870340][   T75]  ? assign_work+0x195/0x240
+[   77.871826][   T75]  worker_thread+0x59f/0xcf0
+[   77.873308][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   77.875079][   T75]  ? __pfx_worker_thread+0x10/0x10
+[   77.876741][   T75]  kthread+0x345/0x450
+[   77.878076][   T75]  ? __pfx_kthread+0x10/0x10
+[   77.879538][   T75]  ret_from_fork+0x48/0x80
+[   77.880972][   T75]  ? __pfx_kthread+0x10/0x10
+[   77.882469][   T75]  ret_from_fork_asm+0x1a/0x30
+[   77.883983][   T75]  </TASK>
+[   77.884963][   T75] irq event stamp: 30493
+[   77.886241][   T75] hardirqs last  enabled at (30505): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0
+[   77.889014][   T75] hardirqs last disabled at (30526): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0
+[   77.891805][   T75] softirqs last  enabled at (30540): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870
+[   77.894735][   T75] softirqs last disabled at (30535): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140
+[   77.897537][   T75] ---[ end trace 0000000000000000 ]---
+[   77.899613][   T75]  (null): radio-mr800 - initialization failed
+[   77.901854][   T75] radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+[   77.910402][   T75] usb 1-1: USB disconnect, device number 3
+[   78.134012][   T75] usb 1-1: new high-speed USB device number 4 using dummy_hcd
+[   78.264738][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   78.268565][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   78.271096][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   78.273725][   T75] usb 1-1: config 128 has no interface number 0
+[   78.275642][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   78.278764][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   78.282082][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   78.285285][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   78.288611][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   78.291740][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   78.294779][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   78.297931][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   78.300995][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   78.304209][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   78.309156][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   78.311782][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   78.314104][   T75] usb 1-1: Product: syz
+[   78.315445][   T75] usb 1-1: Manufacturer: syz
+[   78.316842][   T75] usb 1-1: SerialNumber: syz
+[   78.531106][   T75] ------------[ cut here ]------------
+[   78.532726][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+executing program
+[   78.536338][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   78.539415][   T75] Modules linked in:
+[   78.540723][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+[   78.543537][   T75] Tainted: [W]=WARN
+[   78.544755][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   78.547518][   T75] Workqueue: usb_hub_wq hub_event
+[   78.549158][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   78.550897][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   78.556186][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   78.557969][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   78.560198][   T75] RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   78.562456][   T75] RBP: ff1100000581c400 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   78.564752][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   78.566983][   T75] R13: ff110000026cad80 R14: ff1100000581c47c R15: 0000000000000002
+[   78.569236][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   78.571816][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   78.573736][   T75] CR2: 00007fc67b430410 CR3: 000000000d574004 CR4: 0000000000771ef0
+[   78.576073][   T75] PKRU: 55555554
+[   78.577182][   T75] Call Trace:
+[   78.578249][   T75]  <TASK>
+[   78.579222][   T75]  ? __warn+0xea/0x3d0
+[   78.580518][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.582213][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   78.583810][   T75]  ? report_bug+0x386/0x5e0
+[   78.585251][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   78.586822][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   78.588414][   T75]  ? handle_bug+0xe5/0x180
+[   78.589887][   T75]  ? exc_invalid_op+0x35/0x80
+[   78.591432][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   78.593103][   T75]  ? __warn_printk+0x17a/0x310
+[   78.594733][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   78.596297][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.598021][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   78.599751][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   78.601265][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   78.602952][   T75]  ? xen_error_entry+0x30/0x60
+[   78.604412][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.606090][   T75]  ? __asan_memset+0x24/0x50
+[   78.607540][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.609287][   T75]  usb_bulk_msg+0x22b/0x550
+[   78.610754][   T75]  amradio_send_cmd+0x2dc/0x810
+[   78.612282][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   78.613966][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   78.615561][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.617229][   T75]  ? read_word_at_a_time+0xe/0x20
+[   78.618818][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.620466][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   78.621971][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   78.623549][   T75]  usb_probe_interface+0x309/0xa10
+[   78.625213][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   78.626944][   T75]  really_probe+0x253/0x990
+[   78.628375][   T75]  __driver_probe_device+0x1df/0x450
+[   78.629958][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.631741][   T75]  driver_probe_device+0x4c/0x1a0
+[   78.633290][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   78.634972][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   78.636445][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   78.638233][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   78.639902][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   78.641713][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.643429][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   78.644962][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.646703][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   78.648574][   T75]  __device_attach+0x287/0x490
+[   78.650087][   T75]  ? __pfx___device_attach+0x10/0x10
+[   78.651714][   T75]  ? write_comp_data+0x29/0x90
+[   78.653253][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.654979][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   78.656595][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.658380][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   78.660038][   T75]  bus_probe_device+0x17e/0x1c0
+[   78.661516][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.663301][   T75]  device_add+0x10af/0x17e0
+[   78.664835][   T75]  ? __pfx_device_add+0x10/0x10
+[   78.666437][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.668236][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.669902][   T75]  ? write_comp_data+0x29/0x90
+[   78.671360][   T75]  usb_set_configuration+0x1081/0x1b20
+[   78.673160][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   78.675013][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   78.676707][   T75]  usb_probe_device+0xec/0x3e0
+[   78.678155][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+[   78.679821][   T75]  really_probe+0x253/0x990
+[   78.681256][   T75]  __driver_probe_device+0x1df/0x450
+[   78.682876][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.684529][   T75]  driver_probe_device+0x4c/0x1a0
+[   78.686116][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   78.687792][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   78.689296][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   78.691098][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   78.692730][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   78.694521][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.696220][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   78.697801][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.699527][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   78.701395][   T75]  __device_attach+0x287/0x490
+[   78.702906][   T75]  ? __pfx___device_attach+0x10/0x10
+[   78.704502][   T75]  ? write_comp_data+0x29/0x90
+[   78.705985][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.707719][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   78.709270][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.710980][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   78.712741][   T75]  bus_probe_device+0x17e/0x1c0
+[   78.714280][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.716020][   T75]  device_add+0x10af/0x17e0
+[   78.717449][   T75]  ? __pfx_device_add+0x10/0x10
+[   78.718979][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.720714][   T75]  ? add_device_randomness+0xb8/0xf0
+[   78.722272][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.724016][   T75]  ? write_comp_data+0x29/0x90
+[   78.725521][   T75]  usb_new_device+0xd3f/0x1a20
+[   78.727105][   T75]  ? __pfx_usb_new_device+0x10/0x10
+[   78.728748][   T75]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   78.730395][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   78.732041][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   78.733733][   T75]  hub_event+0x2a3a/0x4800
+[   78.735275][   T75]  ? __pfx_hub_event+0x10/0x10
+[   78.736897][   T75]  ? __pfx_lock_acquire+0x10/0x10
+[   78.738506][   T75]  ? __pfx_lock_release+0x10/0x10
+[   78.740294][   T75]  ? write_comp_data+0x29/0x90
+[   78.741868][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   78.743557][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   78.745327][   T75]  process_scheduled_works+0x5ee/0x1ba0
+[   78.747185][   T75]  ? __pfx_process_scheduled_works+0x10/0x10
+[   78.748980][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   78.750736][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.752469][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.754250][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   78.756050][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.757828][   T75]  ? assign_work+0x195/0x240
+[   78.759325][   T75]  worker_thread+0x59f/0xcf0
+[   78.760832][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   78.762510][   T75]  ? __pfx_worker_thread+0x10/0x10
+[   78.764143][   T75]  kthread+0x345/0x450
+[   78.765514][   T75]  ? __pfx_kthread+0x10/0x10
+[   78.767092][   T75]  ret_from_fork+0x48/0x80
+[   78.768566][   T75]  ? __pfx_kthread+0x10/0x10
+[   78.770169][   T75]  ret_from_fork_asm+0x1a/0x30
+[   78.771736][   T75]  </TASK>
+[   78.772756][   T75] irq event stamp: 38939
+[   78.774051][   T75] hardirqs last  enabled at (38951): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0
+[   78.776735][   T75] hardirqs last disabled at (38972): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0
+[   78.779545][   T75] softirqs last  enabled at (38968): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870
+[   78.782345][   T75] softirqs last disabled at (38959): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140
+[   78.785044][   T75] ---[ end trace 0000000000000000 ]---
+[   78.787026][   T75]  (null): radio-mr800 - initialization failed
+[   78.788988][   T75] radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+[   78.796493][   T75] usb 1-1: USB disconnect, device number 4
+[   79.019980][   T75] usb 1-1: new high-speed USB device number 5 using dummy_hcd
+[   79.151009][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   79.156904][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   79.159570][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   79.162747][   T75] usb 1-1: config 128 has no interface number 0
+[   79.165006][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   79.168418][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   79.172171][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   79.175854][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   79.179594][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   79.183059][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   79.186425][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   79.190206][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   79.193850][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   79.197922][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   79.203522][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   79.206527][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   79.209375][   T75] usb 1-1: Product: syz
+[   79.210895][   T75] usb 1-1: Manufacturer: syz
+[   79.212585][   T75] usb 1-1: SerialNumber: syz
+[   79.428390][   T75] ------------[ cut here ]------------
+executing program
+[   79.430099][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+[   79.434062][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   79.436804][   T75] Modules linked in:
+[   79.438077][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+[   79.440974][   T75] Tainted: [W]=WARN
+[   79.442242][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   79.445058][   T75] Workqueue: usb_hub_wq hub_event
+[   79.446756][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   79.448537][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   79.454003][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   79.455937][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   79.458304][   T75] RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   79.460781][   T75] RBP: ff11000005851e00 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   79.463220][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   79.465724][   T75] R13: ff110000026ca1c0 R14: ff11000005851e7c R15: 0000000000000002
+[   79.468179][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   79.470864][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   79.472954][   T75] CR2: 00007ffec85bc2c8 CR3: 0000000004f08006 CR4: 0000000000771ef0
+[   79.475367][   T75] PKRU: 55555554
+[   79.476572][   T75] Call Trace:
+[   79.477741][   T75]  <TASK>
+[   79.478764][   T75]  ? __warn+0xea/0x3d0
+[   79.480185][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.482018][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   79.483720][   T75]  ? report_bug+0x386/0x5e0
+[   79.485264][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   79.486880][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   79.488495][   T75]  ? handle_bug+0xe5/0x180
+[   79.490023][   T75]  ? exc_invalid_op+0x35/0x80
+[   79.491639][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   79.493366][   T75]  ? __warn_printk+0x17a/0x310
+[   79.495011][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   79.496762][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.498567][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   79.500399][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   79.502052][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   79.503884][   T75]  ? xen_error_entry+0x30/0x60
+[   79.505571][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.507437][   T75]  ? __asan_memset+0x24/0x50
+[   79.509022][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.510844][   T75]  usb_bulk_msg+0x22b/0x550
+[   79.512361][   T75]  amradio_send_cmd+0x2dc/0x810
+[   79.513965][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   79.515768][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   79.517557][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.519477][   T75]  ? read_word_at_a_time+0xe/0x20
+[   79.521213][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.523079][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   79.524588][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   79.526268][   T75]  usb_probe_interface+0x309/0xa10
+[   79.527981][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   79.529813][   T75]  really_probe+0x253/0x990
+[   79.531313][   T75]  __driver_probe_device+0x1df/0x450
+[   79.533042][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.534857][   T75]  driver_probe_device+0x4c/0x1a0
+[   79.536493][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   79.538257][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   79.539857][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   79.541725][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   79.543483][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   79.545413][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.547249][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   79.548930][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.550739][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   79.552641][   T75]  __device_attach+0x287/0x490
+[   79.554211][   T75]  ? __pfx___device_attach+0x10/0x10
+[   79.555912][   T75]  ? write_comp_data+0x29/0x90
+[   79.557452][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.559262][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   79.560923][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.562741][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   79.564526][   T75]  bus_probe_device+0x17e/0x1c0
+[   79.566173][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.568052][   T75]  device_add+0x10af/0x17e0
+[   79.569596][   T75]  ? __pfx_device_add+0x10/0x10
+[   79.571276][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.573110][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.574947][   T75]  ? write_comp_data+0x29/0x90
+[   79.576498][   T75]  usb_set_configuration+0x1081/0x1b20
+[   79.578292][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   79.580221][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   79.582055][   T75]  usb_probe_device+0xec/0x3e0
+[   79.583814][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+[   79.585720][   T75]  really_probe+0x253/0x990
+[   79.587263][   T75]  __driver_probe_device+0x1df/0x450
+[   79.588982][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.590820][   T75]  driver_probe_device+0x4c/0x1a0
+[   79.592471][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   79.594179][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   79.595815][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   79.597739][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   79.599508][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   79.601430][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.603196][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   79.604873][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.606755][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   79.608620][   T75]  __device_attach+0x287/0x490
+[   79.610156][   T75]  ? __pfx___device_attach+0x10/0x10
+[   79.611852][   T75]  ? write_comp_data+0x29/0x90
+[   79.613419][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.615181][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   79.616808][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.618552][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   79.620256][   T75]  bus_probe_device+0x17e/0x1c0
+[   79.621817][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.623574][   T75]  device_add+0x10af/0x17e0
+[   79.625067][   T75]  ? __pfx_device_add+0x10/0x10
+[   79.626637][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.628322][   T75]  ? add_device_randomness+0xb8/0xf0
+[   79.629948][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.631718][   T75]  ? write_comp_data+0x29/0x90
+[   79.633278][   T75]  usb_new_device+0xd3f/0x1a20
+[   79.634857][   T75]  ? __pfx_usb_new_device+0x10/0x10
+[   79.636471][   T75]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   79.638144][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   79.639811][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   79.641502][   T75]  hub_event+0x2a3a/0x4800
+[   79.643082][   T75]  ? __pfx_hub_event+0x10/0x10
+[   79.644601][   T75]  ? __pfx_lock_acquire+0x10/0x10
+[   79.646293][   T75]  ? __pfx_lock_release+0x10/0x10
+[   79.647927][   T75]  ? write_comp_data+0x29/0x90
+[   79.649453][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   79.651136][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   79.652833][   T75]  process_scheduled_works+0x5ee/0x1ba0
+[   79.654618][   T75]  ? __pfx_process_scheduled_works+0x10/0x10
+[   79.656466][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   79.658154][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.659899][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.661597][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   79.663333][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.665082][   T75]  ? assign_work+0x195/0x240
+[   79.666569][   T75]  worker_thread+0x59f/0xcf0
+[   79.668165][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   79.669922][   T75]  ? __pfx_worker_thread+0x10/0x10
+[   79.671547][   T75]  kthread+0x345/0x450
+[   79.672986][   T75]  ? __pfx_kthread+0x10/0x10
+[   79.674493][   T75]  ret_from_fork+0x48/0x80
+[   79.675964][   T75]  ? __pfx_kthread+0x10/0x10
+[   79.677463][   T75]  ret_from_fork_asm+0x1a/0x30
+[   79.679022][   T75]  </TASK>
+[   79.680069][   T75] irq event stamp: 46357
+[   79.681407][   T75] hardirqs last  enabled at (46369): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0
+[   79.684175][   T75] hardirqs last disabled at (46380): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0
+[   79.686892][   T75] softirqs last  enabled at (46352): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870
+[   79.689741][   T75] softirqs last disabled at (46401): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140
+[   79.692513][   T75] ---[ end trace 0000000000000000 ]---
+[   79.694627][   T75]  (null): radio-mr800 - initialization failed
+[   79.696901][   T75] radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+[   79.704987][   T75] usb 1-1: USB disconnect, device number 5
+[   79.928936][   T75] usb 1-1: new high-speed USB device number 6 using dummy_hcd
+[   80.058283][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   80.063511][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   80.066067][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   80.068812][   T75] usb 1-1: config 128 has no interface number 0
+[   80.070850][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   80.074036][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   80.077416][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   80.081520][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   80.085833][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   80.088987][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   80.091935][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   80.095102][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   80.098105][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   80.101467][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   80.106226][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   80.109027][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   80.111513][   T75] usb 1-1: Product: syz
+[   80.112860][   T75] usb 1-1: Manufacturer: syz
+[   80.114356][   T75] usb 1-1: SerialNumber: syz
+[   80.328614][   T75] ------------[ cut here ]------------
+[   80.330366][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+executing program
+[   80.334141][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   80.336901][   T75] Modules linked in:
+[   80.338159][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+[   80.340928][   T75] Tainted: [W]=WARN
+[   80.342116][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   80.345063][   T75] Workqueue: usb_hub_wq hub_event
+[   80.346763][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   80.348577][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   80.354417][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   80.356405][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   80.358871][   T75] RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   80.361343][   T75] RBP: ff11000005809500 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   80.363785][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   80.366104][   T75] R13: ff11000005729540 R14: ff1100000580957c R15: 0000000000000002
+[   80.368626][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   80.371316][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   80.373357][   T75] CR2: 00007ffec85bc2c8 CR3: 000000000d574004 CR4: 0000000000771ef0
+[   80.375821][   T75] PKRU: 55555554
+[   80.377029][   T75] Call Trace:
+[   80.378114][   T75]  <TASK>
+[   80.379131][   T75]  ? __warn+0xea/0x3d0
+[   80.380587][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.382424][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   80.384079][   T75]  ? report_bug+0x386/0x5e0
+[   80.385579][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   80.387217][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   80.388866][   T75]  ? handle_bug+0xe5/0x180
+[   80.390322][   T75]  ? exc_invalid_op+0x35/0x80
+[   80.391866][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   80.393517][   T75]  ? __warn_printk+0x17a/0x310
+[   80.395156][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   80.396831][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.398718][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   80.400482][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   80.402095][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   80.403887][   T75]  ? xen_error_entry+0x30/0x60
+[   80.405457][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.407255][   T75]  ? __asan_memset+0x24/0x50
+[   80.408809][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.410498][   T75]  usb_bulk_msg+0x22b/0x550
+[   80.412007][   T75]  amradio_send_cmd+0x2dc/0x810
+[   80.413556][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   80.415394][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   80.417103][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.418858][   T75]  ? read_word_at_a_time+0xe/0x20
+[   80.420495][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.422221][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   80.423778][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   80.425415][   T75]  usb_probe_interface+0x309/0xa10
+[   80.427132][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   80.428993][   T75]  really_probe+0x253/0x990
+[   80.430461][   T75]  __driver_probe_device+0x1df/0x450
+[   80.432147][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.433860][   T75]  driver_probe_device+0x4c/0x1a0
+[   80.435475][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   80.437124][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   80.438739][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   80.440520][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   80.442141][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   80.443984][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.445712][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   80.447316][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.449058][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   80.450868][   T75]  __device_attach+0x287/0x490
+[   80.452345][   T75]  ? __pfx___device_attach+0x10/0x10
+[   80.453964][   T75]  ? write_comp_data+0x29/0x90
+[   80.455479][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.457177][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   80.458785][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.460483][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   80.462155][   T75]  bus_probe_device+0x17e/0x1c0
+[   80.463731][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.465514][   T75]  device_add+0x10af/0x17e0
+[   80.466948][   T75]  ? __pfx_device_add+0x10/0x10
+[   80.468439][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.470155][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.471926][   T75]  ? write_comp_data+0x29/0x90
+[   80.473474][   T75]  usb_set_configuration+0x1081/0x1b20
+[   80.475318][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   80.477330][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   80.479186][   T75]  usb_probe_device+0xec/0x3e0
+[   80.480820][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+[   80.482737][   T75]  really_probe+0x253/0x990
+[   80.484182][   T75]  __driver_probe_device+0x1df/0x450
+[   80.485902][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.487758][   T75]  driver_probe_device+0x4c/0x1a0
+[   80.489368][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   80.491063][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   80.492643][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   80.494496][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   80.496254][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   80.498096][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.499905][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   80.501542][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.503349][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   80.505289][   T75]  __device_attach+0x287/0x490
+[   80.506878][   T75]  ? __pfx___device_attach+0x10/0x10
+[   80.508574][   T75]  ? write_comp_data+0x29/0x90
+[   80.510191][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.512019][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   80.513572][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.515428][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   80.517132][   T75]  bus_probe_device+0x17e/0x1c0
+[   80.518742][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.520511][   T75]  device_add+0x10af/0x17e0
+[   80.522009][   T75]  ? __pfx_device_add+0x10/0x10
+[   80.523588][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.525380][   T75]  ? add_device_randomness+0xb8/0xf0
+[   80.527075][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.528858][   T75]  ? write_comp_data+0x29/0x90
+[   80.530394][   T75]  usb_new_device+0xd3f/0x1a20
+[   80.531985][   T75]  ? __pfx_usb_new_device+0x10/0x10
+[   80.533715][   T75]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   80.535423][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   80.537136][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   80.538861][   T75]  hub_event+0x2a3a/0x4800
+[   80.540377][   T75]  ? __pfx_hub_event+0x10/0x10
+[   80.541971][   T75]  ? __pfx_lock_acquire+0x10/0x10
+[   80.543619][   T75]  ? __pfx_lock_release+0x10/0x10
+[   80.545320][   T75]  ? write_comp_data+0x29/0x90
+[   80.546935][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   80.548726][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   80.550421][   T75]  process_scheduled_works+0x5ee/0x1ba0
+[   80.552180][   T75]  ? __pfx_process_scheduled_works+0x10/0x10
+[   80.554020][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   80.555780][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.557490][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.559201][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   80.560880][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.562584][   T75]  ? assign_work+0x195/0x240
+[   80.564063][   T75]  worker_thread+0x59f/0xcf0
+[   80.565526][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.567257][   T75]  ? __pfx_worker_thread+0x10/0x10
+[   80.568857][   T75]  kthread+0x345/0x450
+[   80.570190][   T75]  ? __pfx_kthread+0x10/0x10
+[   80.571736][   T75]  ret_from_fork+0x48/0x80
+[   80.573169][   T75]  ? __pfx_kthread+0x10/0x10
+[   80.574738][   T75]  ret_from_fork_asm+0x1a/0x30
+[   80.576269][   T75]  </TASK>
+[   80.577259][   T75] irq event stamp: 53939
+[   80.578541][   T75] hardirqs last  enabled at (53951): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0
+[   80.581317][   T75] hardirqs last disabled at (53964): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0
+[   80.584015][   T75] softirqs last  enabled at (53982): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870
+[   80.586787][   T75] softirqs last disabled at (53973): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140
+[   80.589425][   T75] ---[ end trace 0000000000000000 ]---
+[   80.591382][   T75]  (null): radio-mr800 - initialization failed
+[   80.593380][   T75] radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+[   80.600784][   T75] usb 1-1: USB disconnect, device number 6
+[   80.827031][   T75] usb 1-1: new high-speed USB device number 7 using dummy_hcd
+[   80.956869][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   80.962518][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   80.965078][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   80.967770][   T75] usb 1-1: config 128 has no interface number 0
+[   80.969784][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   80.972866][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   80.976151][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   80.979541][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   80.983049][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   80.986095][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   80.989127][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   80.992482][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   80.995504][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   80.998823][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   81.003769][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   81.006393][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   81.008859][   T75] usb 1-1: Product: syz
+[   81.010138][   T75] usb 1-1: Manufacturer: syz
+[   81.011617][   T75] usb 1-1: SerialNumber: syz
+[   81.226488][   T75] ------------[ cut here ]------------
+[   81.228142][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+executing program
+[   81.231870][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   81.234878][   T75] Modules linked in:
+[   81.236311][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+[   81.239074][   T75] Tainted: [W]=WARN
+[   81.240376][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   81.243297][   T75] Workqueue: usb_hub_wq hub_event
+[   81.244938][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   81.246722][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   81.252081][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   81.253886][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   81.256202][   T75] RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   81.258461][   T75] RBP: ff110000057a4f00 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   81.260833][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   81.263118][   T75] R13: ff110000095b5d20 R14: ff110000057a4f7c R15: 0000000000000002
+[   81.265420][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   81.268055][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   81.269982][   T75] CR2: 00007ffec85bc2c8 CR3: 0000000007d34004 CR4: 0000000000771ef0
+[   81.272352][   T75] PKRU: 55555554
+[   81.273488][   T75] Call Trace:
+[   81.274577][   T75]  <TASK>
+[   81.275563][   T75]  ? __warn+0xea/0x3d0
+[   81.276949][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.278745][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   81.280343][   T75]  ? report_bug+0x386/0x5e0
+[   81.281841][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   81.283439][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   81.285018][   T75]  ? handle_bug+0xe5/0x180
+[   81.286469][   T75]  ? exc_invalid_op+0x35/0x80
+[   81.288027][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   81.289728][   T75]  ? __warn_printk+0x17a/0x310
+[   81.291297][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   81.292933][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.294774][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   81.296638][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   81.298190][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   81.299956][   T75]  ? xen_error_entry+0x30/0x60
+[   81.301518][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.303305][   T75]  ? __asan_memset+0x24/0x50
+[   81.304815][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.306578][   T75]  usb_bulk_msg+0x22b/0x550
+[   81.308088][   T75]  amradio_send_cmd+0x2dc/0x810
+[   81.309697][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   81.311458][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   81.313242][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.315010][   T75]  ? read_word_at_a_time+0xe/0x20
+[   81.316602][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.318346][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   81.319948][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   81.321556][   T75]  usb_probe_interface+0x309/0xa10
+[   81.323253][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   81.325067][   T75]  really_probe+0x253/0x990
+[   81.326542][   T75]  __driver_probe_device+0x1df/0x450
+[   81.328290][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.330052][   T75]  driver_probe_device+0x4c/0x1a0
+[   81.331728][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   81.333400][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   81.335030][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   81.336906][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   81.338695][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   81.340615][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.342345][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   81.344091][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.345833][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   81.347737][   T75]  __device_attach+0x287/0x490
+[   81.349228][   T75]  ? __pfx___device_attach+0x10/0x10
+[   81.350823][   T75]  ? write_comp_data+0x29/0x90
+[   81.352383][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.354187][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   81.355878][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.357714][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   81.359481][   T75]  bus_probe_device+0x17e/0x1c0
+[   81.361090][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.362935][   T75]  device_add+0x10af/0x17e0
+[   81.364449][   T75]  ? __pfx_device_add+0x10/0x10
+[   81.366051][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.367884][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.369734][   T75]  ? write_comp_data+0x29/0x90
+[   81.371337][   T75]  usb_set_configuration+0x1081/0x1b20
+[   81.373085][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   81.374969][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   81.376724][   T75]  usb_probe_device+0xec/0x3e0
+[   81.378291][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+[   81.379982][   T75]  really_probe+0x253/0x990
+[   81.381496][   T75]  __driver_probe_device+0x1df/0x450
+[   81.383232][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.385040][   T75]  driver_probe_device+0x4c/0x1a0
+[   81.386746][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   81.388445][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   81.390075][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   81.392020][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   81.393770][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   81.395551][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.397285][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   81.398933][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.400749][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   81.402606][   T75]  __device_attach+0x287/0x490
+[   81.404128][   T75]  ? __pfx___device_attach+0x10/0x10
+[   81.405754][   T75]  ? write_comp_data+0x29/0x90
+[   81.407243][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.408970][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   81.410593][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.412369][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   81.414050][   T75]  bus_probe_device+0x17e/0x1c0
+[   81.415613][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.417376][   T75]  device_add+0x10af/0x17e0
+[   81.418854][   T75]  ? __pfx_device_add+0x10/0x10
+[   81.420371][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.422072][   T75]  ? add_device_randomness+0xb8/0xf0
+[   81.423767][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.425489][   T75]  ? write_comp_data+0x29/0x90
+[   81.427014][   T75]  usb_new_device+0xd3f/0x1a20
+[   81.428531][   T75]  ? __pfx_usb_new_device+0x10/0x10
+[   81.430168][   T75]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   81.431915][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   81.433567][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   81.435358][   T75]  hub_event+0x2a3a/0x4800
+[   81.436941][   T75]  ? __pfx_hub_event+0x10/0x10
+[   81.438594][   T75]  ? __pfx_lock_acquire+0x10/0x10
+[   81.440248][   T75]  ? __pfx_lock_release+0x10/0x10
+[   81.441903][   T75]  ? write_comp_data+0x29/0x90
+[   81.443414][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   81.445142][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   81.446850][   T75]  process_scheduled_works+0x5ee/0x1ba0
+[   81.448716][   T75]  ? __pfx_process_scheduled_works+0x10/0x10
+[   81.450515][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   81.452396][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.454141][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.455893][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   81.457569][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.459333][   T75]  ? assign_work+0x195/0x240
+[   81.460791][   T75]  worker_thread+0x59f/0xcf0
+[   81.462274][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.464033][   T75]  ? __pfx_worker_thread+0x10/0x10
+[   81.465633][   T75]  kthread+0x345/0x450
+[   81.467032][   T75]  ? __pfx_kthread+0x10/0x10
+[   81.468534][   T75]  ret_from_fork+0x48/0x80
+[   81.469990][   T75]  ? __pfx_kthread+0x10/0x10
+[   81.471510][   T75]  ret_from_fork_asm+0x1a/0x30
+[   81.473063][   T75]  </TASK>
+[   81.474083][   T75] irq event stamp: 61665
+[   81.475380][   T75] hardirqs last  enabled at (61677): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0
+[   81.478093][   T75] hardirqs last disabled at (61688): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0
+[   81.480866][   T75] softirqs last  enabled at (61706): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870
+[   81.483716][   T75] softirqs last disabled at (61697): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140
+[   81.486431][   T75] ---[ end trace 0000000000000000 ]---
+[   81.488418][   T75]  (null): radio-mr800 - initialization failed
+[   81.490511][   T75] radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+[   81.497874][   T75] usb 1-1: USB disconnect, device number 7
+[   81.722983][   T75] usb 1-1: new high-speed USB device number 8 using dummy_hcd
+[   81.852789][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   81.857545][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   81.860125][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   81.862934][   T75] usb 1-1: config 128 has no interface number 0
+[   81.864907][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   81.868004][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   81.871462][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   81.874775][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   81.878281][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   81.881627][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   81.884814][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   81.888131][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   81.891176][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   81.894307][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   81.899313][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   81.901988][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   81.904399][   T75] usb 1-1: Product: syz
+[   81.905769][   T75] usb 1-1: Manufacturer: syz
+[   81.907196][   T75] usb 1-1: SerialNumber: syz
+[   82.123437][   T75] ------------[ cut here ]------------
+[   82.125234][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+executing program
+[   82.129040][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   82.133348][   T75] Modules linked in:
+[   82.135430][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+[   82.139090][   T75] Tainted: [W]=WARN
+[   82.140917][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   82.144185][   T75] Workqueue: usb_hub_wq hub_event
+[   82.145939][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   82.147820][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   82.153627][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   82.155792][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   82.158252][   T75] RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   82.160795][   T75] RBP: ff110000057c9700 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   82.163219][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   82.165753][   T75] R13: ff110000095b5ec0 R14: ff110000057c977c R15: 0000000000000002
+[   82.168308][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   82.171138][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   82.173232][   T75] CR2: 00007ff4cb141528 CR3: 000000000408e005 CR4: 0000000000771ef0
+[   82.175851][   T75] PKRU: 55555554
+[   82.177080][   T75] Call Trace:
+[   82.178184][   T75]  <TASK>
+[   82.179205][   T75]  ? __warn+0xea/0x3d0
+[   82.180559][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.182358][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   82.184076][   T75]  ? report_bug+0x386/0x5e0
+[   82.185739][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   82.187449][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   82.189153][   T75]  ? handle_bug+0xe5/0x180
+[   82.190753][   T75]  ? exc_invalid_op+0x35/0x80
+[   82.192310][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   82.194057][   T75]  ? __warn_printk+0x17a/0x310
+[   82.195742][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   82.197411][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.199270][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   82.201150][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   82.202870][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   82.204734][   T75]  ? xen_error_entry+0x30/0x60
+[   82.206355][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.208258][   T75]  ? __asan_memset+0x24/0x50
+[   82.209811][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.211556][   T75]  usb_bulk_msg+0x22b/0x550
+[   82.213123][   T75]  amradio_send_cmd+0x2dc/0x810
+[   82.214705][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   82.216515][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   82.218194][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.220014][   T75]  ? read_word_at_a_time+0xe/0x20
+[   82.221731][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.223499][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   82.225069][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   82.226724][   T75]  usb_probe_interface+0x309/0xa10
+[   82.228355][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   82.230124][   T75]  really_probe+0x253/0x990
+[   82.231547][   T75]  __driver_probe_device+0x1df/0x450
+[   82.233174][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.234937][   T75]  driver_probe_device+0x4c/0x1a0
+[   82.236509][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   82.238173][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   82.239759][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   82.241569][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   82.243285][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   82.245130][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.246866][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   82.248494][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.250231][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   82.252045][   T75]  __device_attach+0x287/0x490
+[   82.253589][   T75]  ? __pfx___device_attach+0x10/0x10
+[   82.255343][   T75]  ? write_comp_data+0x29/0x90
+[   82.256902][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.258698][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   82.260289][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.262009][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   82.263741][   T75]  bus_probe_device+0x17e/0x1c0
+[   82.265307][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.267079][   T75]  device_add+0x10af/0x17e0
+[   82.268566][   T75]  ? __pfx_device_add+0x10/0x10
+[   82.270191][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.271993][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.273788][   T75]  ? write_comp_data+0x29/0x90
+[   82.275343][   T75]  usb_set_configuration+0x1081/0x1b20
+[   82.277139][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   82.279011][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   82.280847][   T75]  usb_probe_device+0xec/0x3e0
+[   82.282385][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+[   82.284092][   T75]  really_probe+0x253/0x990
+[   82.285548][   T75]  __driver_probe_device+0x1df/0x450
+[   82.287203][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.288994][   T75]  driver_probe_device+0x4c/0x1a0
+[   82.290590][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   82.292265][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   82.293909][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   82.295769][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   82.297440][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   82.299250][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.300961][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   82.302594][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.304374][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   82.306191][   T75]  __device_attach+0x287/0x490
+[   82.307739][   T75]  ? __pfx___device_attach+0x10/0x10
+[   82.309361][   T75]  ? write_comp_data+0x29/0x90
+[   82.310882][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.312611][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   82.314167][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.315896][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   82.317617][   T75]  bus_probe_device+0x17e/0x1c0
+[   82.319234][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.321088][   T75]  device_add+0x10af/0x17e0
+[   82.322540][   T75]  ? __pfx_device_add+0x10/0x10
+[   82.324211][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.325965][   T75]  ? add_device_randomness+0xb8/0xf0
+[   82.327638][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.329472][   T75]  ? write_comp_data+0x29/0x90
+[   82.331063][   T75]  usb_new_device+0xd3f/0x1a20
+[   82.332739][   T75]  ? __pfx_usb_new_device+0x10/0x10
+[   82.334302][   T75]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   82.336082][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   82.337846][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   82.339513][   T75]  hub_event+0x2a3a/0x4800
+[   82.341024][   T75]  ? __pfx_hub_event+0x10/0x10
+[   82.342536][   T75]  ? __pfx_lock_acquire+0x10/0x10
+[   82.344172][   T75]  ? __pfx_lock_release+0x10/0x10
+[   82.345761][   T75]  ? write_comp_data+0x29/0x90
+[   82.347286][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   82.348917][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   82.350534][   T75]  process_scheduled_works+0x5ee/0x1ba0
+[   82.352359][   T75]  ? __pfx_process_scheduled_works+0x10/0x10
+[   82.354181][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   82.355948][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.357726][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.359493][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   82.361281][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.363032][   T75]  ? assign_work+0x195/0x240
+[   82.364496][   T75]  worker_thread+0x59f/0xcf0
+[   82.365997][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   82.367723][   T75]  ? __pfx_worker_thread+0x10/0x10
+[   82.369303][   T75]  kthread+0x345/0x450
+[   82.370629][   T75]  ? __pfx_kthread+0x10/0x10
+[   82.372090][   T75]  ret_from_fork+0x48/0x80
+[   82.373488][   T75]  ? __pfx_kthread+0x10/0x10
+[   82.374985][   T75]  ret_from_fork_asm+0x1a/0x30
+[   82.376498][   T75]  </TASK>
+[   82.377543][   T75] irq event stamp: 69533
+[   82.378882][   T75] hardirqs last  enabled at (69545): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0
+[   82.381700][   T75] hardirqs last disabled at (69558): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0
+[   82.384586][   T75] softirqs last  enabled at (69576): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870
+[   82.387524][   T75] softirqs last disabled at (69567): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140
+[   82.390366][   T75] ---[ end trace 0000000000000000 ]---
+[   82.393891][   T75]  (null): radio-mr800 - initialization failed
+[   82.396039][   T75] radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+[   82.404102][   T75] usb 1-1: USB disconnect, device number 8
+[   82.629797][   T75] usb 1-1: new high-speed USB device number 9 using dummy_hcd
+[   82.763539][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   82.767782][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   82.770243][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   82.773056][   T75] usb 1-1: config 128 has no interface number 0
+[   82.775329][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   82.778448][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   82.781921][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   82.785275][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   82.788751][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   82.791931][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   82.794992][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   82.798335][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   82.801408][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   82.804602][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   82.809329][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   82.812056][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   82.814531][   T75] usb 1-1: Product: syz
+[   82.815894][   T75] usb 1-1: Manufacturer: syz
+[   82.817374][   T75] usb 1-1: SerialNumber: syz
+executing program
+[   83.031026][   T75] ------------[ cut here ]------------
+[   83.032943][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+[   83.036724][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   83.039466][   T75] Modules linked in:
+[   83.040767][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+[   83.043502][   T75] Tainted: [W]=WARN
+[   83.044743][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   83.047607][   T75] Workqueue: usb_hub_wq hub_event
+[   83.049331][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   83.051097][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   83.056625][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   83.058612][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   83.061031][   T75] RDX: 0000000000000001 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   83.063392][   T75] RBP: ff110000057b5400 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   83.065780][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   83.068124][   T75] R13: ff11000002378660 R14: ff110000057b547c R15: 0000000000000002
+[   83.070521][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   83.073249][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   83.075236][   T75] CR2: 00007ff4cb141528 CR3: 000000000b608006 CR4: 0000000000771ef0
+[   83.077581][   T75] PKRU: 55555554
+[   83.078741][   T75] Call Trace:
+[   83.079826][   T75]  <TASK>
+[   83.080773][   T75]  ? __warn+0xea/0x3d0
+[   83.082063][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.083773][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   83.085317][   T75]  ? report_bug+0x386/0x5e0
+[   83.086826][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   83.088400][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   83.089960][   T75]  ? handle_bug+0xe5/0x180
+[   83.091390][   T75]  ? exc_invalid_op+0x35/0x80
+[   83.092880][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   83.094475][   T75]  ? __warn_printk+0x17a/0x310
+[   83.096010][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   83.097596][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.099353][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   83.101095][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   83.102741][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   83.104445][   T75]  ? xen_error_entry+0x30/0x60
+[   83.105982][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.107716][   T75]  ? __asan_memset+0x24/0x50
+[   83.109154][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.110867][   T75]  usb_bulk_msg+0x22b/0x550
+[   83.112300][   T75]  amradio_send_cmd+0x2dc/0x810
+[   83.113821][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   83.115546][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   83.117185][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.118971][   T75]  ? read_word_at_a_time+0xe/0x20
+[   83.120619][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.122443][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   83.124048][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   83.125728][   T75]  usb_probe_interface+0x309/0xa10
+[   83.127426][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   83.129272][   T75]  really_probe+0x253/0x990
+[   83.130781][   T75]  __driver_probe_device+0x1df/0x450
+[   83.132462][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.134242][   T75]  driver_probe_device+0x4c/0x1a0
+[   83.135890][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   83.137610][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   83.139225][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   83.141083][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   83.142837][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   83.144749][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.146509][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   83.148212][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.149991][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   83.151916][   T75]  __device_attach+0x287/0x490
+[   83.153451][   T75]  ? __pfx___device_attach+0x10/0x10
+[   83.155136][   T75]  ? write_comp_data+0x29/0x90
+[   83.156737][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.158506][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   83.160173][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.161946][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   83.163740][   T75]  bus_probe_device+0x17e/0x1c0
+[   83.165263][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.167035][   T75]  device_add+0x10af/0x17e0
+[   83.168497][   T75]  ? __pfx_device_add+0x10/0x10
+[   83.170059][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.171851][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.173618][   T75]  ? write_comp_data+0x29/0x90
+[   83.175249][   T75]  usb_set_configuration+0x1081/0x1b20
+[   83.177056][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   83.178986][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   83.180747][   T75]  usb_probe_device+0xec/0x3e0
+[   83.182315][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+[   83.184083][   T75]  really_probe+0x253/0x990
+[   83.185573][   T75]  __driver_probe_device+0x1df/0x450
+[   83.187263][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.189043][   T75]  driver_probe_device+0x4c/0x1a0
+[   83.190719][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   83.192447][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   83.194038][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   83.195909][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   83.197603][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   83.199488][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.201258][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   83.202930][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.204713][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   83.206592][   T75]  __device_attach+0x287/0x490
+[   83.208173][   T75]  ? __pfx___device_attach+0x10/0x10
+[   83.209783][   T75]  ? write_comp_data+0x29/0x90
+[   83.211352][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.213135][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   83.214790][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.216507][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   83.218262][   T75]  bus_probe_device+0x17e/0x1c0
+[   83.219861][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.221706][   T75]  device_add+0x10af/0x17e0
+[   83.223210][   T75]  ? __pfx_device_add+0x10/0x10
+[   83.224802][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.226594][   T75]  ? add_device_randomness+0xb8/0xf0
+[   83.228233][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.229955][   T75]  ? write_comp_data+0x29/0x90
+[   83.231474][   T75]  usb_new_device+0xd3f/0x1a20
+[   83.233043][   T75]  ? __pfx_usb_new_device+0x10/0x10
+[   83.234731][   T75]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   83.236371][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   83.238006][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   83.239736][   T75]  hub_event+0x2a3a/0x4800
+[   83.241239][   T75]  ? __pfx_hub_event+0x10/0x10
+[   83.242772][   T75]  ? __pfx_lock_acquire+0x10/0x10
+[   83.244371][   T75]  ? __pfx_lock_release+0x10/0x10
+[   83.245971][   T75]  ? write_comp_data+0x29/0x90
+[   83.247497][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   83.249175][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   83.250862][   T75]  process_scheduled_works+0x5ee/0x1ba0
+[   83.252597][   T75]  ? __pfx_process_scheduled_works+0x10/0x10
+[   83.254448][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   83.256215][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.257912][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.259624][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   83.261329][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.263050][   T75]  ? assign_work+0x195/0x240
+[   83.264531][   T75]  worker_thread+0x59f/0xcf0
+[   83.266021][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.267774][   T75]  ? __pfx_worker_thread+0x10/0x10
+[   83.269374][   T75]  kthread+0x345/0x450
+[   83.270765][   T75]  ? __pfx_kthread+0x10/0x10
+[   83.272303][   T75]  ret_from_fork+0x48/0x80
+[   83.273769][   T75]  ? __pfx_kthread+0x10/0x10
+[   83.275300][   T75]  ret_from_fork_asm+0x1a/0x30
+[   83.276870][   T75]  </TASK>
+[   83.277891][   T75] irq event stamp: 76783
+[   83.279247][   T75] hardirqs last  enabled at (76801): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0
+[   83.282045][   T75] hardirqs last disabled at (76822): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0
+[   83.284851][   T75] softirqs last  enabled at (76818): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870
+[   83.287752][   T75] softirqs last disabled at (76845): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140
+[   83.290467][   T75] ---[ end trace 0000000000000000 ]---
+[   83.292791][   T75]  (null): radio-mr800 - initialization failed
+[   83.294804][   T75] radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+[   83.301976][   T75] usb 1-1: USB disconnect, device number 9
+[   83.526078][   T75] usb 1-1: new high-speed USB device number 10 using dummy_hcd
+[   83.655786][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   83.659546][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   83.662194][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   83.664980][   T75] usb 1-1: config 128 has no interface number 0
+[   83.667143][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   83.670296][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   83.673879][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   83.677227][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   83.680910][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   83.684159][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   83.687409][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   83.690826][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   83.694068][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   83.697500][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   83.702296][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   83.705166][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   83.707846][   T75] usb 1-1: Product: syz
+[   83.709277][   T75] usb 1-1: Manufacturer: syz
+[   83.710875][   T75] usb 1-1: SerialNumber: syz
+[   83.924746][   T75] ------------[ cut here ]------------
+[   83.926386][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+executing program
+[   83.930178][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   83.933052][   T75] Modules linked in:
+[   83.934314][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+[   83.937005][   T75] Tainted: [W]=WARN
+[   83.938174][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   83.941080][   T75] Workqueue: usb_hub_wq hub_event
+[   83.942732][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   83.944443][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   83.949705][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   83.951525][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   83.953831][   T75] RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   83.956135][   T75] RBP: ff110000079d1800 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   83.958431][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   83.960775][   T75] R13: ff11000003c4f320 R14: ff110000079d187c R15: 0000000000000002
+[   83.963176][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   83.965746][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   83.967748][   T75] CR2: 00007ff4cb141528 CR3: 0000000010c54002 CR4: 0000000000771ef0
+[   83.970045][   T75] PKRU: 55555554
+[   83.971237][   T75] Call Trace:
+[   83.972303][   T75]  <TASK>
+[   83.973279][   T75]  ? __warn+0xea/0x3d0
+[   83.974721][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.976493][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   83.978113][   T75]  ? report_bug+0x386/0x5e0
+[   83.979697][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   83.981217][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   83.982855][   T75]  ? handle_bug+0xe5/0x180
+[   83.984350][   T75]  ? exc_invalid_op+0x35/0x80
+[   83.985885][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   83.987535][   T75]  ? __warn_printk+0x17a/0x310
+[   83.989099][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   83.990731][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   83.992448][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   83.994174][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   83.995825][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   83.997604][   T75]  ? xen_error_entry+0x30/0x60
+[   83.999236][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.000997][   T75]  ? __asan_memset+0x24/0x50
+[   84.002498][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.004235][   T75]  usb_bulk_msg+0x22b/0x550
+[   84.005731][   T75]  amradio_send_cmd+0x2dc/0x810
+[   84.007317][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   84.009015][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   84.010779][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.012471][   T75]  ? read_word_at_a_time+0xe/0x20
+[   84.014100][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.015884][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   84.017418][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   84.019034][   T75]  usb_probe_interface+0x309/0xa10
+[   84.020728][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   84.022457][   T75]  really_probe+0x253/0x990
+[   84.023965][   T75]  __driver_probe_device+0x1df/0x450
+[   84.025592][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.027401][   T75]  driver_probe_device+0x4c/0x1a0
+[   84.029035][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   84.030769][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   84.032362][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   84.034186][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   84.035927][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   84.037812][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.039616][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   84.041295][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.043080][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   84.044939][   T75]  __device_attach+0x287/0x490
+[   84.046437][   T75]  ? __pfx___device_attach+0x10/0x10
+[   84.048136][   T75]  ? write_comp_data+0x29/0x90
+[   84.049738][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.051504][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   84.053166][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.054956][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   84.056777][   T75]  bus_probe_device+0x17e/0x1c0
+[   84.058415][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.060267][   T75]  device_add+0x10af/0x17e0
+[   84.061822][   T75]  ? __pfx_device_add+0x10/0x10
+[   84.063586][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.065369][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.067213][   T75]  ? write_comp_data+0x29/0x90
+[   84.068870][   T75]  usb_set_configuration+0x1081/0x1b20
+[   84.070781][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   84.072822][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   84.074760][   T75]  usb_probe_device+0xec/0x3e0
+[   84.076290][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+[   84.078123][   T75]  really_probe+0x253/0x990
+[   84.079734][   T75]  __driver_probe_device+0x1df/0x450
+[   84.081481][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.083337][   T75]  driver_probe_device+0x4c/0x1a0
+[   84.085003][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   84.086813][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   84.088455][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   84.090366][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   84.092165][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   84.094081][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.095950][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   84.097710][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.099723][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   84.101833][   T75]  __device_attach+0x287/0x490
+[   84.103581][   T75]  ? __pfx___device_attach+0x10/0x10
+[   84.105449][   T75]  ? write_comp_data+0x29/0x90
+[   84.107130][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.108909][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   84.110577][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.112366][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   84.114128][   T75]  bus_probe_device+0x17e/0x1c0
+[   84.115815][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.117590][   T75]  device_add+0x10af/0x17e0
+[   84.119102][   T75]  ? __pfx_device_add+0x10/0x10
+[   84.120725][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.122488][   T75]  ? add_device_randomness+0xb8/0xf0
+[   84.124213][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.125980][   T75]  ? write_comp_data+0x29/0x90
+[   84.127559][   T75]  usb_new_device+0xd3f/0x1a20
+[   84.129168][   T75]  ? __pfx_usb_new_device+0x10/0x10
+[   84.130848][   T75]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   84.132540][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   84.134275][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   84.136014][   T75]  hub_event+0x2a3a/0x4800
+[   84.137538][   T75]  ? __pfx_hub_event+0x10/0x10
+[   84.139181][   T75]  ? __pfx_lock_acquire+0x10/0x10
+[   84.140823][   T75]  ? __pfx_lock_release+0x10/0x10
+[   84.142445][   T75]  ? write_comp_data+0x29/0x90
+[   84.144041][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   84.145759][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   84.147441][   T75]  process_scheduled_works+0x5ee/0x1ba0
+[   84.149208][   T75]  ? __pfx_process_scheduled_works+0x10/0x10
+[   84.151080][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   84.152827][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.154593][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.156371][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   84.158107][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.159873][   T75]  ? assign_work+0x195/0x240
+[   84.161389][   T75]  worker_thread+0x59f/0xcf0
+[   84.162927][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.164738][   T75]  ? __pfx_worker_thread+0x10/0x10
+[   84.166391][   T75]  kthread+0x345/0x450
+[   84.167816][   T75]  ? __pfx_kthread+0x10/0x10
+[   84.169344][   T75]  ret_from_fork+0x48/0x80
+[   84.170822][   T75]  ? __pfx_kthread+0x10/0x10
+[   84.172355][   T75]  ret_from_fork_asm+0x1a/0x30
+[   84.173943][   T75]  </TASK>
+[   84.175024][   T75] irq event stamp: 84425
+[   84.176385][   T75] hardirqs last  enabled at (84447): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0
+[   84.179269][   T75] hardirqs last disabled at (84458): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0
+[   84.182011][   T75] softirqs last  enabled at (84442): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870
+[   84.184877][   T75] softirqs last disabled at (84479): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140
+[   84.187632][   T75] ---[ end trace 0000000000000000 ]---
+[   84.189516][   T75]  (null): radio-mr800 - initialization failed
+[   84.191571][   T75] radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+[   84.199592][   T75] usb 1-1: USB disconnect, device number 10
+[   84.425939][   T75] usb 1-1: new high-speed USB device number 11 using dummy_hcd
+[   84.555623][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   84.559327][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   84.561773][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   84.564401][   T75] usb 1-1: config 128 has no interface number 0
+[   84.566323][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   84.569304][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   84.572562][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   84.575755][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   84.578962][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   84.581993][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   84.584968][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   84.588155][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   84.591192][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   84.594406][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   84.599096][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   84.601768][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   84.604155][   T75] usb 1-1: Product: syz
+[   84.605460][   T75] usb 1-1: Manufacturer: syz
+[   84.606885][   T75] usb 1-1: SerialNumber: syz
+executing program
+[   84.823352][   T75] ------------[ cut here ]------------
+[   84.825016][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+[   84.828615][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   84.831364][   T75] Modules linked in:
+[   84.832706][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+[   84.835407][   T75] Tainted: [W]=WARN
+[   84.836610][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   84.839430][   T75] Workqueue: usb_hub_wq hub_event
+[   84.841025][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   84.842745][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   84.848013][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   84.849796][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   84.852048][   T75] RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   84.854276][   T75] RBP: ff11000007ae0500 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   84.856562][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   84.858828][   T75] R13: ff1100000235a580 R14: ff11000007ae057c R15: 0000000000000002
+[   84.861103][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   84.863722][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   84.865748][   T75] CR2: 00007ff4cb141528 CR3: 0000000007d34004 CR4: 0000000000771ef0
+[   84.868042][   T75] PKRU: 55555554
+[   84.869176][   T75] Call Trace:
+[   84.870256][   T75]  <TASK>
+[   84.871249][   T75]  ? __warn+0xea/0x3d0
+[   84.872607][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.874310][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   84.875891][   T75]  ? report_bug+0x386/0x5e0
+[   84.877362][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   84.878935][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   84.880496][   T75]  ? handle_bug+0xe5/0x180
+[   84.881935][   T75]  ? exc_invalid_op+0x35/0x80
+[   84.883415][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   84.884992][   T75]  ? __warn_printk+0x17a/0x310
+[   84.886495][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   84.888081][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.889781][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   84.891509][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   84.893093][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   84.894843][   T75]  ? xen_error_entry+0x30/0x60
+[   84.896387][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.898075][   T75]  ? __asan_memset+0x24/0x50
+[   84.899526][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.901224][   T75]  usb_bulk_msg+0x22b/0x550
+[   84.902755][   T75]  amradio_send_cmd+0x2dc/0x810
+[   84.904285][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   84.905979][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   84.907628][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.909388][   T75]  ? read_word_at_a_time+0xe/0x20
+[   84.910979][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.912752][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   84.914259][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   84.915846][   T75]  usb_probe_interface+0x309/0xa10
+[   84.917465][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   84.919263][   T75]  really_probe+0x253/0x990
+[   84.920745][   T75]  __driver_probe_device+0x1df/0x450
+[   84.922329][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.924044][   T75]  driver_probe_device+0x4c/0x1a0
+[   84.925591][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   84.927278][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   84.928783][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   84.930615][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   84.932281][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   84.934094][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.935810][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   84.937406][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.939115][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   84.940916][   T75]  __device_attach+0x287/0x490
+[   84.942359][   T75]  ? __pfx___device_attach+0x10/0x10
+[   84.943984][   T75]  ? write_comp_data+0x29/0x90
+[   84.945432][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.947145][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   84.948735][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.950406][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   84.952108][   T75]  bus_probe_device+0x17e/0x1c0
+[   84.953640][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.955340][   T75]  device_add+0x10af/0x17e0
+[   84.956784][   T75]  ? __pfx_device_add+0x10/0x10
+[   84.958308][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.960011][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.961727][   T75]  ? write_comp_data+0x29/0x90
+[   84.963193][   T75]  usb_set_configuration+0x1081/0x1b20
+[   84.964877][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   84.966733][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   84.968395][   T75]  usb_probe_device+0xec/0x3e0
+[   84.969884][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+[   84.971545][   T75]  really_probe+0x253/0x990
+[   84.972978][   T75]  __driver_probe_device+0x1df/0x450
+[   84.974568][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.976332][   T75]  driver_probe_device+0x4c/0x1a0
+[   84.977893][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   84.979514][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   84.981014][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   84.982838][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   84.984526][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   84.986320][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.988038][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   84.989713][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.991437][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   84.993273][   T75]  __device_attach+0x287/0x490
+[   84.994776][   T75]  ? __pfx___device_attach+0x10/0x10
+[   84.996383][   T75]  ? write_comp_data+0x29/0x90
+[   84.997895][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   84.999631][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   85.001283][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.003072][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.004838][   T75]  bus_probe_device+0x17e/0x1c0
+[   85.006412][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.008230][   T75]  device_add+0x10af/0x17e0
+[   85.009750][   T75]  ? __pfx_device_add+0x10/0x10
+[   85.011277][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.013027][   T75]  ? add_device_randomness+0xb8/0xf0
+[   85.014739][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.016468][   T75]  ? write_comp_data+0x29/0x90
+[   85.017984][   T75]  usb_new_device+0xd3f/0x1a20
+[   85.019532][   T75]  ? __pfx_usb_new_device+0x10/0x10
+[   85.021219][   T75]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   85.022882][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   85.024526][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   85.026250][   T75]  hub_event+0x2a3a/0x4800
+[   85.027782][   T75]  ? __pfx_hub_event+0x10/0x10
+[   85.029309][   T75]  ? __pfx_lock_acquire+0x10/0x10
+[   85.030924][   T75]  ? __pfx_lock_release+0x10/0x10
+[   85.032562][   T75]  ? write_comp_data+0x29/0x90
+[   85.034016][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   85.035734][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   85.037357][   T75]  process_scheduled_works+0x5ee/0x1ba0
+[   85.039100][   T75]  ? __pfx_process_scheduled_works+0x10/0x10
+[   85.040934][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.042622][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.044369][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.046063][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.047760][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.049457][   T75]  ? assign_work+0x195/0x240
+[   85.050927][   T75]  worker_thread+0x59f/0xcf0
+[   85.052384][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.054101][   T75]  ? __pfx_worker_thread+0x10/0x10
+[   85.055743][   T75]  kthread+0x345/0x450
+[   85.057053][   T75]  ? __pfx_kthread+0x10/0x10
+[   85.058504][   T75]  ret_from_fork+0x48/0x80
+[   85.059946][   T75]  ? __pfx_kthread+0x10/0x10
+[   85.061393][   T75]  ret_from_fork_asm+0x1a/0x30
+[   85.062891][   T75]  </TASK>
+[   85.063886][   T75] irq event stamp: 91679
+[   85.065179][   T75] hardirqs last  enabled at (91691): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0
+[   85.067844][   T75] hardirqs last disabled at (91702): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0
+[   85.070497][   T75] softirqs last  enabled at (91674): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870
+[   85.073267][   T75] softirqs last disabled at (91723): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140
+[   85.075949][   T75] ---[ end trace 0000000000000000 ]---
+[   85.077853][   T75]  (null): radio-mr800 - initialization failed
+[   85.079830][   T75] radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+[   85.087013][   T75] usb 1-1: USB disconnect, device number 11
+[   85.311987][   T75] usb 1-1: new high-speed USB device number 12 using dummy_hcd
+[   85.441523][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   85.446002][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   85.449035][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   85.452293][   T75] usb 1-1: config 128 has no interface number 0
+[   85.454763][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   85.458392][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   85.462419][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   85.466317][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   85.470290][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   85.473939][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   85.477561][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   85.481743][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   85.485451][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   85.489753][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   85.495053][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   85.497791][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   85.500201][   T75] usb 1-1: Product: syz
+[   85.501543][   T75] usb 1-1: Manufacturer: syz
+[   85.503077][   T75] usb 1-1: SerialNumber: syz
+[   85.715935][   T75] ------------[ cut here ]------------
+[   85.717610][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+executing program
+[   85.721357][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   85.724072][   T75] Modules linked in:
+[   85.725340][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+[   85.728137][   T75] Tainted: [W]=WARN
+[   85.729337][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   85.732205][   T75] Workqueue: usb_hub_wq hub_event
+[   85.733794][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   85.735515][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   85.740782][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   85.742713][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   85.745018][   T75] RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   85.747334][   T75] RBP: ff11000007abb100 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   85.749615][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   85.751966][   T75] R13: ff11000009d1ac80 R14: ff11000007abb17c R15: 0000000000000002
+[   85.754274][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   85.756874][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   85.758908][   T75] CR2: 00007ff4cb141528 CR3: 0000000007d34004 CR4: 0000000000771ef0
+[   85.761285][   T75] PKRU: 55555554
+[   85.762454][   T75] Call Trace:
+[   85.763575][   T75]  <TASK>
+[   85.764579][   T75]  ? __warn+0xea/0x3d0
+[   85.765962][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.767729][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   85.769331][   T75]  ? report_bug+0x386/0x5e0
+[   85.770834][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   85.772432][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   85.774056][   T75]  ? handle_bug+0xe5/0x180
+[   85.775592][   T75]  ? exc_invalid_op+0x35/0x80
+[   85.777197][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   85.778843][   T75]  ? __warn_printk+0x17a/0x310
+[   85.780386][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   85.782006][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.783778][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   85.785575][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   85.787211][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   85.788967][   T75]  ? xen_error_entry+0x30/0x60
+[   85.790569][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.792386][   T75]  ? __asan_memset+0x24/0x50
+[   85.793909][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.795745][   T75]  usb_bulk_msg+0x22b/0x550
+[   85.797241][   T75]  amradio_send_cmd+0x2dc/0x810
+[   85.798860][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   85.800702][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   85.802297][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.804060][   T75]  ? read_word_at_a_time+0xe/0x20
+[   85.805714][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.807492][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   85.809087][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   85.810735][   T75]  usb_probe_interface+0x309/0xa10
+[   85.812418][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   85.814205][   T75]  really_probe+0x253/0x990
+[   85.815728][   T75]  __driver_probe_device+0x1df/0x450
+[   85.817410][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.819268][   T75]  driver_probe_device+0x4c/0x1a0
+[   85.820900][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   85.822722][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   85.824350][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   85.826273][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   85.828046][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   85.829969][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.831827][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   85.833523][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.835311][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   85.837233][   T75]  __device_attach+0x287/0x490
+[   85.838816][   T75]  ? __pfx___device_attach+0x10/0x10
+[   85.840554][   T75]  ? write_comp_data+0x29/0x90
+[   85.842148][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.843980][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   85.845718][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.847574][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.849437][   T75]  bus_probe_device+0x17e/0x1c0
+[   85.851112][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.852917][   T75]  device_add+0x10af/0x17e0
+[   85.854419][   T75]  ? __pfx_device_add+0x10/0x10
+[   85.856041][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.857865][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.859743][   T75]  ? write_comp_data+0x29/0x90
+[   85.861384][   T75]  usb_set_configuration+0x1081/0x1b20
+[   85.863226][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   85.865197][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   85.867025][   T75]  usb_probe_device+0xec/0x3e0
+[   85.868723][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+[   85.870494][   T75]  really_probe+0x253/0x990
+[   85.872045][   T75]  __driver_probe_device+0x1df/0x450
+[   85.873761][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.875639][   T75]  driver_probe_device+0x4c/0x1a0
+[   85.877293][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   85.879050][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   85.880761][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   85.882740][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   85.884509][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   85.886385][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.888216][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   85.889896][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.891740][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   85.893632][   T75]  __device_attach+0x287/0x490
+[   85.895169][   T75]  ? __pfx___device_attach+0x10/0x10
+[   85.896819][   T75]  ? write_comp_data+0x29/0x90
+[   85.898318][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.900078][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   85.901738][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.903452][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.905192][   T75]  bus_probe_device+0x17e/0x1c0
+[   85.906814][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.908566][   T75]  device_add+0x10af/0x17e0
+[   85.910129][   T75]  ? __pfx_device_add+0x10/0x10
+[   85.911737][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.913502][   T75]  ? add_device_randomness+0xb8/0xf0
+[   85.915183][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.916894][   T75]  ? write_comp_data+0x29/0x90
+[   85.918416][   T75]  usb_new_device+0xd3f/0x1a20
+[   85.920023][   T75]  ? __pfx_usb_new_device+0x10/0x10
+[   85.921728][   T75]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[   85.923405][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   85.925090][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   85.926811][   T75]  hub_event+0x2a3a/0x4800
+[   85.928351][   T75]  ? __pfx_hub_event+0x10/0x10
+[   85.929884][   T75]  ? __pfx_lock_acquire+0x10/0x10
+[   85.931520][   T75]  ? __pfx_lock_release+0x10/0x10
+[   85.933126][   T75]  ? write_comp_data+0x29/0x90
+[   85.934616][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   85.936222][   T75]  ? _raw_spin_unlock_irq+0x23/0x50
+[   85.937892][   T75]  process_scheduled_works+0x5ee/0x1ba0
+[   85.939769][   T75]  ? __pfx_process_scheduled_works+0x10/0x10
+[   85.941477][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.943202][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.944937][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.946717][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   85.948411][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.950126][   T75]  ? assign_work+0x195/0x240
+[   85.951614][   T75]  worker_thread+0x59f/0xcf0
+[   85.953251][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   85.954982][   T75]  ? __pfx_worker_thread+0x10/0x10
+[   85.956571][   T75]  kthread+0x345/0x450
+[   85.957978][   T75]  ? __pfx_kthread+0x10/0x10
+[   85.959582][   T75]  ret_from_fork+0x48/0x80
+[   85.961120][   T75]  ? __pfx_kthread+0x10/0x10
+[   85.962738][   T75]  ret_from_fork_asm+0x1a/0x30
+[   85.964288][   T75]  </TASK>
+[   85.965310][   T75] irq event stamp: 99067
+[   85.966706][   T75] hardirqs last  enabled at (99081): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0
+[   85.969572][   T75] hardirqs last disabled at (99102): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0
+[   85.972460][   T75] softirqs last  enabled at (99098): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870
+[   85.975198][   T75] softirqs last disabled at (99089): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140
+[   85.977916][   T75] ---[ end trace 0000000000000000 ]---
+[   85.980027][   T75]  (null): radio-mr800 - initialization failed
+[   85.981935][   T75] radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+[   85.989258][   T75] usb 1-1: USB disconnect, device number 12
+[   86.214992][   T75] usb 1-1: new high-speed USB device number 13 using dummy_hcd
+[   86.343549][   T75] usb 1-1: unable to get BOS descriptor or descriptor too short
+[   86.346866][   T75] usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+[   86.349258][   T75] usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+[   86.351849][   T75] usb 1-1: config 128 has no interface number 0
+[   86.353777][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+[   86.356754][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+[   86.360080][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   86.363208][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+[   86.366428][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+[   86.369397][   T75] usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+[   86.372282][   T75] usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+[   86.375358][   T75] usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+[   86.378288][   T75] usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+[   86.381611][   T75] usb 1-1: config 128 interface 48 has no altsetting 0
+[   86.386115][   T75] usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+[   86.388739][   T75] usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+[   86.391256][   T75] usb 1-1: Product: syz
+[   86.392759][   T75] usb 1-1: Manufacturer: syz
+[   86.394294][   T75] usb 1-1: SerialNumber: syz
+executing program
+[   86.609259][   T75] ------------[ cut here ]------------
+[   86.611215][   T75] usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+[   86.614971][   T75] WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760
+[   86.617739][   T75] Modules linked in:
+[   86.618974][   T75] CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+[   86.621710][   T75] Tainted: [W]=WARN
+[   86.622886][   T75] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   86.625750][   T75] Workqueue: usb_hub_wq hub_event
+[   86.627314][   T75] RIP: 0010:usb_submit_urb+0x1458/0x1760
+[   86.628987][   T75] Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+[   86.634180][   T75] RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+[   86.635995][   T75] RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+[   86.638253][   T75] RDX: 0000000000000001 RSI: ff11000002ce4680 RDI: 0000000000000002
+[   86.640541][   T75] RBP: ff11000005784e00 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+[   86.642851][   T75] R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+[   86.645109][   T75] R13: ff11000002624580 R14: ff11000005784e7c R15: 0000000000000002
+[   86.647360][   T75] FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+[   86.649881][   T75] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   86.651824][   T75] CR2: 00007ff4cb141528 CR3: 0000000007d34004 CR4: 0000000000771ef0
+[   86.654109][   T75] PKRU: 55555554
+[   86.655224][   T75] Call Trace:
+[   86.656272][   T75]  <TASK>
+[   86.657243][   T75]  ? __warn+0xea/0x3d0
+[   86.658553][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.660209][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   86.661740][   T75]  ? report_bug+0x386/0x5e0
+[   86.663177][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   86.664739][   T75]  ? usb_submit_urb+0x1459/0x1760
+[   86.666265][   T75]  ? handle_bug+0xe5/0x180
+[   86.667724][   T75]  ? exc_invalid_op+0x35/0x80
+[   86.669225][   T75]  ? asm_exc_invalid_op+0x1a/0x20
+[   86.670818][   T75]  ? __warn_printk+0x17a/0x310
+[   86.672345][   T75]  ? usb_submit_urb+0x1458/0x1760
+[   86.673950][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.675624][   T75]  ? __init_swait_queue_head+0xca/0x150
+[   86.677321][   T75]  usb_start_wait_urb+0x101/0x4b0
+[   86.678894][   T75]  ? __pfx_usb_start_wait_urb+0x10/0x10
+[   86.680611][   T75]  ? xen_error_entry+0x30/0x60
+[   86.682177][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.683881][   T75]  ? __asan_memset+0x24/0x50
+[   86.685301][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.687047][   T75]  usb_bulk_msg+0x22b/0x550
+[   86.688454][   T75]  amradio_send_cmd+0x2dc/0x810
+[   86.689949][   T75]  ? lockdep_init_map_type+0x2cb/0x7f0
+[   86.691620][   T75]  ? __pfx_amradio_send_cmd+0x10/0x10
+[   86.693303][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.695066][   T75]  ? read_word_at_a_time+0xe/0x20
+[   86.696758][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.698472][   T75]  ? sized_strscpy+0xa1/0x2f0
+[   86.700011][   T75]  usb_amradio_probe+0x4a2/0x8b0
+[   86.701568][   T75]  usb_probe_interface+0x309/0xa10
+[   86.703216][   T75]  ? __pfx_usb_probe_interface+0x10/0x10
+[   86.704991][   T75]  really_probe+0x253/0x990
+[   86.706424][   T75]  __driver_probe_device+0x1df/0x450
+[   86.708065][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.709788][   T75]  driver_probe_device+0x4c/0x1a0
+[   86.711414][   T75]  __device_attach_driver+0x1e4/0x2d0
+[   86.713074][   T75]  bus_for_each_drv+0x14c/0x1d0
+[   86.714629][   T75]  ? __pfx___device_attach_driver+0x10/0x10
+[   86.716445][   T75]  ? __pfx_bus_for_each_drv+0x10/0x10
+[   86.718107][   T75]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[   86.719970][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.721717][   T75]  ? lockdep_hardirqs_on+0x7c/0x110
+[   86.723393][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.725212][   T75]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[   86.727146][   T75]  __device_attach+0x287/0x490
+[   86.728753][   T75]  ? __pfx___device_attach+0x10/0x10
+[   86.730414][   T75]  ? write_comp_data+0x29/0x90
+[   86.732033][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.733815][   T75]  ? do_raw_spin_unlock+0x53/0x250
+[   86.735465][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.737272][   T75]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   86.739064][   T75]  bus_probe_device+0x17e/0x1c0
+[   86.740716][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.742522][   T75]  device_add+0x10af/0x17e0
+[   86.744030][   T75]  ? __pfx_device_add+0x10/0x10
+[   86.745628][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.747375][   T75]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   86.749045][   T75]  ? write_comp_data+0x29/0x90
+[   86.750642][   T75]  usb_set_configuration+0x1081/0x1b20
+[   86.752500][   T75]  ? __pfx_usb_generic_driver_probe+0x10/0x10
+[   86.754417][   T75]  usb_generic_driver_probe+0xb7/0x110
+[   86.756174][   T75]  usb_probe_device+0xec/0x3e0
+[   86.757768][   T75]  ? __pfx_usb_probe_device+0x10/0x10
+
+VM DIAGNOSIS:
+15:57:03  Registers:
+info registers vcpu 0
+RAX=000000000006cef9 RBX=0000000000000000 RCX=ffffffffa9ed2dd1 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=dffffc0000000000 RSP=ffffffffac407e00
+R8 =0000000000000001 R9 =ffe21c000a746cc3 R10=ffe21c000a746cc2 R11=ff11000053a36613
+R12=0000000000000000 R13=ffffffffae5bdad0 R14=0000000000000000 R15=0000000000000000
+RIP=ffffffffa9ed431e RFL=00000206 [-----P-] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff11000053a00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe79792fa000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe79792f8000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f89a4d4bb40 CR3=0000000010c54004 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=ffffffffffffffffffffffffffffffff XMM01=00007fecf4bc1c4000007fecf4bbe4a0
+XMM02=ffffffffffffff0f0e0d0c0b0a090807 XMM03=00000000000000000000000000000000
+XMM04=00000000000000000000000000000000 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000200000000000002000 XMM09=0000ffffffffffffffffffffffffff00
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 1
+RAX=0000000000020163 RBX=0000000000000001 RCX=ffffffffa9ed2dd1 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=dffffc0000000000 RSP=ffa000000015fe00
+R8 =0000000000000001 R9 =ffe21c000a756cc3 R10=ffe21c000a756cc2 R11=ff11000053ab6613
+R12=0000000000000001 R13=ffffffffae5bdad0 R14=0000000000000000 R15=0000000000000000
+RIP=ffffffffa9ed431e RFL=00000206 [-----P-] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff11000053a80000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe6122d97000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe6122d95000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fc67b430410 CR3=0000000004f08006 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000009896800000000000000000 XMM01=00000000000000000000000000989680
+XMM02=000000000000ff000000000000000000 XMM03=00000000ff000000000000000000ff00
+XMM04=0000ff00000000000000000000000000 XMM05=000000ff0000000000ff000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 2
+RAX=00000000002cd173 RBX=ff110000016c8000 RCX=1ffffffff5cb73f1 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=ffffffffa25e008a RSP=ffa000000001fb98
+R8 =0000000000000001 R9 =0000000000000001 R10=fffffbfff5cb7b5a R11=ffffffffae5bdad7
+R12=0000000000000002 R13=ff110000014cbe00 R14=ff11000007c8af00 R15=0000000000000002
+RIP=ffffffffa9ed1ac3 RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007fdafef8b900 00000000 00000000
+GS =0000 ff11000053b00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe5200263000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe5200261000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00005642f4f55de0 CR3=000000000a51e005 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000000000000000002f2e2f002f XMM01=00000000000000004100000073746e00
+XMM02=ff0f0e0d0c0b0a090807060504030201 XMM03=000000000000004100000073746e0030
+XMM04=00000012000000000000007d00000000 XMM05=000000000000000000000000ffffffff
+XMM06=20202020202020202020202020202020 XMM07=ffff00ffffff00ffffff0000ffffffff
+XMM08=00000000000000000000000000000000 XMM09=0000ffff0000ff000000ff00ffffffff
+XMM10=00002020000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 3
+RAX=0000000000000077 RBX=0000000000000000 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ff11000002ce4680 RDI=ffffffffb814f0c0 RBP=ffffffffb814f080 RSP=ffa00000005067d8
+R8 =fff3fc00000a0c00 R9 =ffe21c0000dc4047 R10=ffe21c0000dc4046 R11=ff11000006e20237
+R12=0000000000000000 R13=0000000000000077 R14=0000000000000000 R15=0000000000000010
+RIP=ffffffffa555addf RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff11000053b80000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe2998f18000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe2998f16000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fc67b430410 CR3=0000000003fe8001 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=000000000000000000006c696146002f XMM01=000000696e656420737365636341002f
+XMM02=ffffff0f0e0d0c0b0a09080706050403 XMM03=696e656420737365636341002f737973
+XMM04=00000000000000000000000000000000 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=20202020000000000000000000000000 XMM09=ffffffff000000000000000000000000
+XMM10=20202020000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

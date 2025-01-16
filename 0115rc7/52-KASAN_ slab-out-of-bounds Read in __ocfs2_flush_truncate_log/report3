@@ -1,0 +1,157 @@
+==================================================================
+BUG: KASAN: slab-out-of-bounds in ocfs2_replay_truncate_records fs/ocfs2/alloc.c:5959 [inline]
+BUG: KASAN: slab-out-of-bounds in __ocfs2_flush_truncate_log+0x115b/0x1250 fs/ocfs2/alloc.c:6054
+Read of size 4 at addr ff11000005cfd2c0 by task syz.8.227/3855
+
+CPU: 2 UID: 0 PID: 3855 Comm: syz.8.227 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 mm/kasan/report.c:489
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ ocfs2_replay_truncate_records fs/ocfs2/alloc.c:5959 [inline]
+ __ocfs2_flush_truncate_log+0x115b/0x1250 fs/ocfs2/alloc.c:6054
+ ocfs2_flush_truncate_log+0x4d/0x70 fs/ocfs2/alloc.c:6076
+ ocfs2_sync_fs+0x1cb/0x3d0 fs/ocfs2/super.c:402
+ sync_fs_one_sb fs/sync.c:84 [inline]
+ sync_fs_one_sb+0x10e/0x150 fs/sync.c:80
+ iterate_supers+0xff/0x230 fs/super.c:934
+ ksys_sync+0xac/0x150 fs/sync.c:104
+ __do_sys_sync+0xe/0x20 fs/sync.c:113
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fd60fbad71d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fd60e800ba8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a2
+RAX: ffffffffffffffda RBX: 00007fd60fd6ff80 RCX: 00007fd60fbad71d
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 00007fd60fc22425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fd60fd6ff8c R14: 00007fd60fd70018 R15: 00007fd60e800d40
+ </TASK>
+
+Allocated by task 233:
+ kasan_save_stack+0x24/0x50 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ poison_kmalloc_redzone mm/kasan/common.c:377 [inline]
+ __kasan_kmalloc+0xaa/0xb0 mm/kasan/common.c:394
+ kmalloc_noprof include/linux/slab.h:901 [inline]
+ kzalloc_noprof include/linux/slab.h:1037 [inline]
+ kernfs_fop_open+0x287/0xe60 fs/kernfs/file.c:623
+ do_dentry_open+0xd29/0x1dc0 fs/open.c:945
+ vfs_open+0x82/0x3e0 fs/open.c:1075
+ do_open fs/namei.c:3828 [inline]
+ path_openat+0x1f55/0x2970 fs/namei.c:3987
+ do_filp_open+0x1fa/0x2f0 fs/namei.c:4014
+ do_sys_openat2+0x641/0x6e0 fs/open.c:1402
+ do_sys_open+0xc7/0x150 fs/open.c:1417
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Freed by task 233:
+ kasan_save_stack+0x24/0x50 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ kasan_save_free_info+0x3a/0x60 mm/kasan/generic.c:582
+ poison_slab_object mm/kasan/common.c:247 [inline]
+ __kasan_slab_free+0x54/0x70 mm/kasan/common.c:264
+ kasan_slab_free include/linux/kasan.h:233 [inline]
+ slab_free_hook mm/slub.c:2353 [inline]
+ slab_free mm/slub.c:4613 [inline]
+ kfree+0x120/0x3e0 mm/slub.c:4761
+ kernfs_fop_release+0x129/0x1e0 fs/kernfs/file.c:768
+ __fput+0x471/0xc70 fs/file_table.c:450
+ __fput_sync+0xa6/0xc0 fs/file_table.c:535
+ __do_sys_close fs/open.c:1554 [inline]
+ __se_sys_close fs/open.c:1539 [inline]
+ __x64_sys_close+0x8b/0x120 fs/open.c:1539
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+The buggy address belongs to the object at ff11000005cfd000
+ which belongs to the cache kmalloc-512 of size 512
+The buggy address is located 192 bytes to the right of
+ allocated 512-byte region [ff11000005cfd000, ff11000005cfd200)
+
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:0000000000000000 index:0xff11000005cfd000 pfn:0x5cfc
+head: order:2 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0x100000000000240(workingset|head|node=0|zone=1)
+page_type: f5(slab)
+raw: 0100000000000240 ff1100000103cc80 ffd4000000a58b10 ff110000010327c8
+raw: ff11000005cfd000 0000000000100009 00000001f5000000 0000000000000000
+head: 0100000000000240 ff1100000103cc80 ffd4000000a58b10 ff110000010327c8
+head: ff11000005cfd000 0000000000100009 00000001f5000000 0000000000000000
+head: 0100000000000002 ffd4000000173f01 ffffffffffffffff 0000000000000000
+head: 0000000000000004 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ff11000005cfd180: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ff11000005cfd200: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+>ff11000005cfd280: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+                                           ^
+ ff11000005cfd300: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+ ff11000005cfd380: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+==================================================================
+------------[ cut here ]------------
+kernel BUG at fs/ocfs2/suballoc.c:2543!
+Oops: invalid opcode: 0000 [#1] PREEMPT SMP KASAN NOPTI
+CPU: 0 UID: 0 PID: 3855 Comm: syz.8.227 Tainted: G    B              6.13.0-rc7 #1
+Tainted: [B]=BAD_PAGE
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:_ocfs2_free_suballoc_bits+0xfce/0x13c0 fs/ocfs2/suballoc.c:2543
+Code: 50 44 8b 4c 24 14 44 8b 44 24 58 48 8b 7c 24 28 e8 77 e6 ff ff 58 5a e9 2c f8 ff ff e8 9b 1a 5f fe 90 0f 0b e8 93 1a 5f fe 90 <0f> 0b e8 8b 1a 5f fe 90 0f 0b 90 e9 de f1 ff ff e8 7d 1a 5f fe 90
+RSP: 0018:ffa0000013dafa18 EFLAGS: 00010246
+RAX: 0000000000040000 RBX: ff1100003f67fe00 RCX: 0000000000040000
+RDX: ffa0000003909000 RSI: ff1100001620c680 RDI: 0000000000000002
+RBP: 0000000007bc02a6 R08: 000000000001c001 R09: 0000000007bc014b
+R10: fffffbfff68b7b5a R11: ffffffffb45bdad7 R12: 000000000001c000
+R13: 0000000000000e00 R14: 0000000000000e00 R15: ff1100002cd6cfb8
+FS:  00007fd60e801700(0000) GS:ff11000053a00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f529f4d7260 CR3: 000000000b4e2003 CR4: 0000000000771ef0
+PKRU: 80000000
+Call Trace:
+ <TASK>
+ _ocfs2_free_clusters+0x50f/0x970 fs/ocfs2/suballoc.c:2646
+ ocfs2_replay_truncate_records fs/ocfs2/alloc.c:5971 [inline]
+ __ocfs2_flush_truncate_log+0x475/0x1250 fs/ocfs2/alloc.c:6054
+ ocfs2_flush_truncate_log+0x4d/0x70 fs/ocfs2/alloc.c:6076
+ ocfs2_sync_fs+0x1cb/0x3d0 fs/ocfs2/super.c:402
+ sync_fs_one_sb fs/sync.c:84 [inline]
+ sync_fs_one_sb+0x10e/0x150 fs/sync.c:80
+ iterate_supers+0xff/0x230 fs/super.c:934
+ ksys_sync+0xac/0x150 fs/sync.c:104
+ __do_sys_sync+0xe/0x20 fs/sync.c:113
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fd60fbad71d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fd60e800ba8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a2
+RAX: ffffffffffffffda RBX: 00007fd60fd6ff80 RCX: 00007fd60fbad71d
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: 00007fd60fc22425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fd60fd6ff8c R14: 00007fd60fd70018 R15: 00007fd60e800d40
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:_ocfs2_free_suballoc_bits+0xfce/0x13c0 fs/ocfs2/suballoc.c:2543
+Code: 50 44 8b 4c 24 14 44 8b 44 24 58 48 8b 7c 24 28 e8 77 e6 ff ff 58 5a e9 2c f8 ff ff e8 9b 1a 5f fe 90 0f 0b e8 93 1a 5f fe 90 <0f> 0b e8 8b 1a 5f fe 90 0f 0b 90 e9 de f1 ff ff e8 7d 1a 5f fe 90
+RSP: 0018:ffa0000013dafa18 EFLAGS: 00010246
+RAX: 0000000000040000 RBX: ff1100003f67fe00 RCX: 0000000000040000
+RDX: ffa0000003909000 RSI: ff1100001620c680 RDI: 0000000000000002
+RBP: 0000000007bc02a6 R08: 000000000001c001 R09: 0000000007bc014b
+R10: fffffbfff68b7b5a R11: ffffffffb45bdad7 R12: 000000000001c000
+R13: 0000000000000e00 R14: 0000000000000e00 R15: ff1100002cd6cfb8
+FS:  00007fd60e801700(0000) GS:ff11000053a00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f529f4d7260 CR3: 000000000b4e2003 CR4: 0000000000771ef0
+PKRU: 80000000

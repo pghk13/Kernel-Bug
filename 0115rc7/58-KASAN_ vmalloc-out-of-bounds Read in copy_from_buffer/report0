@@ -1,0 +1,58 @@
+==================================================================
+BUG: KASAN: vmalloc-out-of-bounds in copy_from_buffer+0x3b/0xd0 arch/x86/kernel/fpu/xstate.c:1219
+Read of size 1024 at addr ffa000000380d680 by task syz.9.2261/15194
+
+CPU: 0 UID: 0 PID: 15194 Comm: syz.9.2261 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 mm/kasan/report.c:489
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ check_region_inline mm/kasan/generic.c:183 [inline]
+ kasan_check_range+0xf6/0x1b0 mm/kasan/generic.c:189
+ __asan_memcpy+0x24/0x60 mm/kasan/shadow.c:105
+ copy_from_buffer+0x3b/0xd0 arch/x86/kernel/fpu/xstate.c:1219
+ copy_uabi_to_xstate+0x26e/0x660 arch/x86/kernel/fpu/xstate.c:1301
+ xstateregs_set+0x11d/0x2c0 arch/x86/kernel/fpu/regset.c:171
+ copy_regset_from_user include/linux/regset.h:337 [inline]
+ ptrace_regset.isra.0+0x302/0x400 kernel/ptrace.c:906
+ ptrace_request+0x2a3/0x1020 kernel/ptrace.c:1218
+ arch_ptrace+0x205/0x420 arch/x86/kernel/ptrace.c:848
+ __do_sys_ptrace kernel/ptrace.c:1285 [inline]
+ __se_sys_ptrace kernel/ptrace.c:1258 [inline]
+ __x64_sys_ptrace+0x17c/0x2d0 kernel/ptrace.c:1258
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fb334f6d71d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fb333bc0ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000065
+RAX: ffffffffffffffda RBX: 00007fb33512ff80 RCX: 00007fb334f6d71d
+RDX: 0000000000000202 RSI: 0000000000000358 RDI: 0000000000004205
+RBP: 00007fb334fe2425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000020000240 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fb33512ff8c R14: 00007fb335130018 R15: 00007fb333bc0d40
+ </TASK>
+
+The buggy address belongs to the virtual mapping at
+ [ffa000000380d000, ffa000000380f000) created by:
+ xstateregs_set+0x15a/0x2c0 arch/x86/kernel/fpu/regset.c:160
+
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x510 pfn:0x7cd0
+flags: 0x100000000000000(node=0|zone=1)
+raw: 0100000000000000 0000000000000000 dead000000000122 0000000000000000
+raw: 0000000000000510 0000000000000000 00000001ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ffa000000380d880: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ffa000000380d900: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+>ffa000000380d980: 00 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
+                      ^
+ ffa000000380da00: f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
+ ffa000000380da80: f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
+==================================================================

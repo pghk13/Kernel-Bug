@@ -1,0 +1,140 @@
+[  160.013964][ T1016] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  160.016612][ T1016] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  160.032860][ T1908] ==================================================================
+[  160.034615][ T1908] BUG: KASAN: vmalloc-out-of-bounds in copy_from_buffer+0x3b/0xd0
+[  160.034615][ T1908] Read of size 1024 at addr ffa000000341e680 by task syz.1.17/1908
+[  160.038667][ T1908] 
+[  160.038667][ T1908] CPU: 1 UID: 0 PID: 1908 Comm: syz.1.17 Not tainted 6.13.0-rc7 #1
+[  160.038667][ T1908] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  160.038667][ T1908] Call Trace:
+[  160.038667][ T1908]  <TASK>
+[  160.038667][ T1908]  dump_stack_lvl+0x116/0x1b0
+[  160.038667][ T1908]  print_report+0xcf/0x5f0
+[  160.038667][ T1908]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  160.038667][ T1908]  ? __virt_addr_valid+0x127/0x610
+[  160.038667][ T1908]  ? copy_from_buffer+0x3b/0xd0
+[  160.038667][ T1908]  kasan_report+0x93/0xc0
+[  160.038667][ T1908]  ? copy_from_buffer+0x3b/0xd0
+[  160.038667][ T1908]  kasan_check_range+0xf6/0x1b0
+[  160.038667][ T1908]  __asan_memcpy+0x24/0x60
+[  160.038667][ T1908]  copy_from_buffer+0x3b/0xd0
+[  160.038667][ T1908]  copy_uabi_to_xstate+0x26e/0x660
+[  160.038667][ T1908]  ? __pfx_lock_release+0x10/0x10
+[  160.038667][ T1908]  ? __pfx_copy_uabi_to_xstate+0x10/0x10
+[  160.038667][ T1908]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  160.070346][ T1908]  ? write_comp_data+0x29/0x90
+[  160.070346][ T1908]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  160.070346][ T1908]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  160.070346][ T1908]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  160.070346][ T1908]  xstateregs_set+0x11d/0x2c0
+[  160.070346][ T1908]  ? __pfx_xstateregs_set+0x10/0x10
+[  160.070346][ T1908]  ptrace_regset.isra.0+0x302/0x400
+[  160.070346][ T1908]  ptrace_request+0x2a3/0x1020
+[  160.070346][ T1908]  ? __pfx_ptrace_request+0x10/0x10
+[  160.070346][ T1908]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  160.070346][ T1908]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  160.070346][ T1908]  ? lockdep_hardirqs_on+0x7c/0x110
+[  160.070346][ T1908]  ? _raw_spin_unlock_irqrestore+0x41/0x70
+[  160.092556][ T1908]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  160.093204][ T1908]  ? wait_task_inactive+0x459/0x640
+[  160.093204][ T1908]  ? __pfx_wait_task_inactive+0x10/0x10
+[  160.093204][ T1908]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  160.093204][ T1908]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[  160.093204][ T1908]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  160.093204][ T1908]  ? write_comp_data+0x29/0x90
+[  160.093204][ T1908]  arch_ptrace+0x205/0x420
+[  160.105073][ T1908]  __x64_sys_ptrace+0x17c/0x2d0
+[  160.105073][ T1908]  do_syscall_64+0xc3/0x1d0
+[  160.105073][ T1908]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  160.105073][ T1908] RIP: 0033:0x7f411d2bbadd
+[  160.105073][ T1908] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  160.105073][ T1908] RSP: 002b:00007f411cd0dba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000065
+[  160.105073][ T1908] RAX: ffffffffffffffda RBX: 00007f411d4b4fa0 RCX: 00007f411d2bbadd
+[  160.105073][ T1908] RDX: 0000000000000202 RSI: 0000000000000004 RDI: 0000000000004205
+[  160.105073][ T1908] RBP: 00007f411d339b8f R08: 0000000000000000 R09: 0000000000000000
+[  160.105073][ T1908] R10: 0000000020000240 R11: 0000000000000246 R12: 0000000000000000
+[  160.105073][ T1908] R13: 00007f411d4b4fac R14: 00007f411d4b5038 R15: 00007f411cd0dd40
+[  160.105073][ T1908]  </TASK>
+[  160.105073][ T1908] 
+[  160.105073][ T1908] The buggy address belongs to the virtual mapping at
+[  160.105073][ T1908]  [ffa000000341e000, ffa0000003420000) created by:
+[  160.105073][ T1908]  xstateregs_set+0x15a/0x2c0
+[  160.105073][ T1908] 
+[  160.105073][ T1908] The buggy address belongs to the physical page:
+[  160.105073][ T1908] page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x23715
+[  160.105073][ T1908] flags: 0x100000000000000(node=0|zone=1)
+[  160.105073][ T1908] raw: 0100000000000000 0000000000000000 dead000000000122 0000000000000000
+[  160.105073][ T1908] raw: 0000000000000000 0000000000000000 00000001ffffffff 0000000000000000
+[  160.105073][ T1908] page dumped because: kasan: bad access detected
+[  160.105073][ T1908] 
+[  160.105073][ T1908] Memory state around the buggy address:
+[  160.105073][ T1908]  ffa000000341e880: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[  160.105073][ T1908]  ffa000000341e900: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[  160.105073][ T1908] >ffa000000341e980: 00 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
+[  160.105073][ T1908]                       ^
+[  160.105073][ T1908]  ffa000000341ea00: f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
+[  160.105073][ T1908]  ffa000000341ea80: f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
+[  160.105073][ T1908] ==================================================================
+[  160.174252][ T1908] Disabling lock debugging due to kernel taint
+[  160.224590][ T1016] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  160.227196][ T1016] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  160.259289][   T67] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  160.261789][   T67] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  160.322180][  T538] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  160.323652][  T706] veth1_vlan: entered promiscuous mode
+[  160.324763][  T538] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  160.338963][  T720] veth1_vlan: entered promiscuous mode
+[  160.402804][   T59] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  160.405358][   T59] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  160.405434][  T473] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  160.410426][  T473] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  160.433232][  T718] veth1_vlan: entered promiscuous mode
+[  160.469733][  T720] veth0_macvtap: entered promiscuous mode
+[  160.477160][  T706] veth0_macvtap: entered promiscuous mode
+[  160.481851][  T739] veth1_vlan: entered promiscuous mode
+[  160.490193][  T706] veth1_macvtap: entered promiscuous mode
+[  160.508081][  T720] veth1_macvtap: entered promiscuous mode
+[  160.555041][  T718] veth0_macvtap: entered promiscuous mode
+[  160.591331][  T718] veth1_macvtap: entered promiscuous mode
+[  160.612336][  T706] netdevsim netdevsim2 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.615218][  T706] netdevsim netdevsim2 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.618051][  T706] netdevsim netdevsim2 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.620862][  T706] netdevsim netdevsim2 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.668118][  T720] netdevsim netdevsim5 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.671186][  T720] netdevsim netdevsim5 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.674102][  T720] netdevsim netdevsim5 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.676938][  T720] netdevsim netdevsim5 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.709794][  T739] veth0_macvtap: entered promiscuous mode
+[  160.724766][  T718] netdevsim netdevsim4 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.727753][  T718] netdevsim netdevsim4 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.730632][  T718] netdevsim netdevsim4 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.733546][  T718] netdevsim netdevsim4 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  160.796768][  T739] veth1_macvtap: entered promiscuous mode
+[  160.816539][   T66] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  160.819059][   T66] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  160.854784][   T39] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  160.857317][   T39] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  160.980663][   T59] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  160.983373][   T59] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  161.015111][   T39] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  161.017679][   T39] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  161.057457][  T235] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  161.060141][  T235] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  161.060452][  T739] netdevsim netdevsim7 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  161.065640][  T739] netdevsim netdevsim7 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  161.068472][  T739] netdevsim netdevsim7 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  161.071541][  T739] netdevsim netdevsim7 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  161.165942][   T59] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  161.168604][   T59] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  161.288215][  T810] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  161.290964][  T810] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  161.323588][  T810] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  161.326310][  T810] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  165.070205][ T2697] cgroup: fork rejected by pids controller in /syz1
+[  165.525238][ T2968] cgroup: fork rejected by pids controller in /syz0
+[  165.657249][ T3080] cgroup: fork rejected by pids controller in /syz8
+[  166.097448][ T3704] cgroup: fork rejected by pids controller in /syz3
+[  166.655342][ T4675] cgroup: fork rejected by pids controller in /syz5
+[  166.663934][ T4745] cgroup: fork rejected by pids controller in /syz2
+[  166.853932][ T5166] cgroup: fork rejected by pids controller in /syz4
+[  166.980214][ T5486] cgroup: fork rejected by pids controller in /syz7

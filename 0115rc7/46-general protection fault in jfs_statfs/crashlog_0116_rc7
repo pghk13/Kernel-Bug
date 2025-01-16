@@ -1,0 +1,625 @@
+[  209.793342][ T1942] BUG: KASAN: user-memory-access in jfs_statfs+0x264/0x600
+[  209.793342][ T1942] Read of size 4 at addr 00000000000050c0 by task syz.1.17/1942
+[  209.793342][ T1942] 
+[  209.793342][ T1942] CPU: 0 UID: 0 PID: 1942 Comm: syz.1.17 Not tainted 6.13.0-rc7 #1
+[  209.793342][ T1942] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  209.805459][  T714] veth1_vlan: entered promiscuous mode
+[  209.793342][ T1942] Call Trace:
+[  209.793342][ T1942]  <TASK>
+[  209.793342][ T1942]  dump_stack_lvl+0x116/0x1b0
+[  209.793342][ T1942]  print_report+0x3f0/0x5f0
+[  209.793342][ T1942]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  209.793342][ T1942]  ? __virt_addr_valid+0x127/0x610
+[  209.793342][ T1942]  ? jfs_statfs+0x264/0x600
+[  209.818057][  T737] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  209.793342][ T1942]  kasan_report+0x93/0xc0
+[  209.793342][ T1942]  ? jfs_statfs+0x264/0x600
+[  209.821222][  T737] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  209.793342][ T1942]  kasan_check_range+0xf6/0x1b0
+[  209.824380][ T1942]  jfs_statfs+0x264/0x600
+[  209.824380][ T1942]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  209.824380][ T1942]  statfs_by_dentry+0x138/0x220
+[  209.824380][ T1942]  vfs_statfs+0x44/0x2f0
+[  209.824380][ T1942]  user_statfs+0xaa/0x140
+[  209.824380][ T1942]  ? __pfx_user_statfs+0x10/0x10
+[  209.824380][ T1942]  ? write_comp_data+0x29/0x90
+[  209.824380][ T1942]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  209.824380][ T1942]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  209.824380][ T1942]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  209.844400][ T1942]  ? write_comp_data+0x29/0x90
+[  209.844400][ T1942]  __do_sys_statfs+0x7a/0xf0
+[  209.844400][ T1942]  ? __pfx___do_sys_statfs+0x10/0x10
+[  209.844400][ T1942]  ? do_syscall_64+0x89/0x1d0
+[  209.850752][ T1942]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  209.850752][ T1942]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  209.850752][ T1942]  do_syscall_64+0xc3/0x1d0
+[  209.850752][ T1942]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  209.850752][ T1942] RIP: 0033:0x7fba221b1add
+[  209.850752][ T1942] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  209.850752][ T1942] RSP: 002b:00007fba21bc1ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000089
+[  209.850752][ T1942] RAX: ffffffffffffffda RBX: 00007fba223ab160 RCX: 00007fba221b1add
+[  209.850752][ T1942] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 00000000200003c0
+[  209.850752][ T1942] RBP: 00007fba2222fb8f R08: 0000000000000000 R09: 0000000000000000
+[  209.850752][ T1942] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  209.850752][ T1942] R13: 00007fba223ab16c R14: 00007fba223ab1f8 R15: 00007fba21bc1d40
+[  209.850752][ T1942]  </TASK>
+[  209.850752][ T1942] ==================================================================
+[  209.884878][ T1942] Disabling lock debugging due to kernel taint
+[  209.886958][ T1942] Oops: general protection fault, probably for non-canonical address 0xdffffc0000000a18: 0000 [#1] PREEMPT SMP KASAN NOPTI
+[  209.889927][ T1942] KASAN: probably user-memory-access in range [0x00000000000050c0-0x00000000000050c7]
+[  209.889927][ T1942] CPU: 0 UID: 0 PID: 1942 Comm: syz.1.17 Tainted: G    B              6.13.0-rc7 #1
+[  209.889927][ T1942] Tainted: [B]=BAD_PAGE
+[  209.898214][ T1942] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  209.898214][ T1942] RIP: 0010:jfs_statfs+0x275/0x600
+[  209.898214][ T1942] Code: 00 4c 89 73 20 4d 8d b5 c0 50 00 00 be 04 00 00 00 4c 89 f7 e8 4c bb 07 ff 4c 89 f2 48 b8 00 00 00 00 00 fc ff df 48 c1 ea 03 <0f> b6 14 02 4c 89 f0 83 e0 07 83 c0 03 38 d0 7c 08 84 d2 0f 85 96
+[  209.898214][ T1942] RSP: 0018:ffa0000005ab7cf0 EFLAGS: 00010216
+[  209.898214][ T1942] RAX: dffffc0000000000 RBX: ffa0000005ab7e48 RCX: ffffffffa4cf3c9f
+[  209.898214][ T1942] RDX: 0000000000000a18 RSI: ff11000014e58000 RDI: 0000000000000002
+[  209.898214][ T1942] RBP: ff1100003c911aa0 R08: fffffbfff5e78800 R09: fffffbfff678c53d
+[  209.898214][ T1942] R10: fffffbfff678c53c R11: ffffffffb3c629e7 R12: ff1100003c911a00
+[  209.898214][ T1942] R13: 0000000000000000 R14: 00000000000050c0 R15: 0000000000000002
+[  209.898214][ T1942] FS:  00007fba21bc2700(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+[  209.898214][ T1942] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  209.898214][ T1942] CR2: 000000002001fb80 CR3: 000000003e3d6005 CR4: 0000000000771ef0
+[  209.898214][ T1942] PKRU: 80000000
+[  209.898214][ T1942] Call Trace:
+[  209.898214][ T1942]  <TASK>
+[  209.898214][ T1942]  ? __die_body+0x1a/0x60
+[  209.898214][ T1942]  ? die_addr+0x42/0x70
+[  209.898214][ T1942]  ? exc_general_protection+0x1a3/0x330
+[  209.898214][ T1942]  ? asm_exc_general_protection+0x26/0x30
+[  209.898214][ T1942]  ? add_taint+0x5f/0xd0
+[  209.898214][ T1942]  ? jfs_statfs+0x275/0x600
+[  209.898214][ T1942]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  209.898214][ T1942]  statfs_by_dentry+0x138/0x220
+[  209.898214][ T1942]  vfs_statfs+0x44/0x2f0
+[  209.898214][ T1942]  user_statfs+0xaa/0x140
+[  209.898214][ T1942]  ? __pfx_user_statfs+0x10/0x10
+[  209.898214][ T1942]  ? write_comp_data+0x29/0x90
+[  209.898214][ T1942]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  209.898214][ T1942]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  209.898214][ T1942]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  209.898214][ T1942]  ? write_comp_data+0x29/0x90
+[  209.898214][ T1942]  __do_sys_statfs+0x7a/0xf0
+[  209.898214][ T1942]  ? __pfx___do_sys_statfs+0x10/0x10
+[  209.898214][ T1942]  ? do_syscall_64+0x89/0x1d0
+[  209.898214][ T1942]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  209.898214][ T1942]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  209.898214][ T1942]  do_syscall_64+0xc3/0x1d0
+[  209.898214][ T1942]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  209.898214][ T1942] RIP: 0033:0x7fba221b1add
+[  209.898214][ T1942] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  209.898214][ T1942] RSP: 002b:00007fba21bc1ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000089
+[  209.898214][ T1942] RAX: ffffffffffffffda RBX: 00007fba223ab160 RCX: 00007fba221b1add
+[  209.898214][ T1942] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 00000000200003c0
+[  209.898214][ T1942] RBP: 00007fba2222fb8f R08: 0000000000000000 R09: 0000000000000000
+[  209.898214][ T1942] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  209.898214][ T1942] R13: 00007fba223ab16c R14: 00007fba223ab1f8 R15: 00007fba21bc1d40
+[  209.898214][ T1942]  </TASK>
+[  209.898214][ T1942] Modules linked in:
+[  209.996526][ T1942] ---[ end trace 0000000000000000 ]---
+[  209.998397][ T1942] RIP: 0010:jfs_statfs+0x275/0x600
+[  210.000195][ T1942] Code: 00 4c 89 73 20 4d 8d b5 c0 50 00 00 be 04 00 00 00 4c 89 f7 e8 4c bb 07 ff 4c 89 f2 48 b8 00 00 00 00 00 fc ff df 48 c1 ea 03 <0f> b6 14 02 4c 89 f0 83 e0 07 83 c0 03 38 d0 7c 08 84 d2 0f 85 96
+[  210.006413][ T1942] RSP: 0018:ffa0000005ab7cf0 EFLAGS: 00010216
+[  210.008633][ T1942] RAX: dffffc0000000000 RBX: ffa0000005ab7e48 RCX: ffffffffa4cf3c9f
+[  210.011074][ T1938] loop0: detected capacity change from 0 to 32768
+[  210.011235][ T1942] RDX: 0000000000000a18 RSI: ff11000014e58000 RDI: 0000000000000002
+[  210.015993][ T1942] RBP: ff1100003c911aa0 R08: fffffbfff5e78800 R09: fffffbfff678c53d
+[  210.018619][ T1942] R10: fffffbfff678c53c R11: ffffffffb3c629e7 R12: ff1100003c911a00
+[  210.021250][ T1942] R13: 0000000000000000 R14: 00000000000050c0 R15: 0000000000000002
+[  210.023963][ T1942] FS:  00007fba21bc2700(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+[  210.026949][ T1942] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  210.029176][ T1942] CR2: 000000002001fb80 CR3: 000000003e3d6005 CR4: 0000000000771ef0
+[  210.031947][ T1942] PKRU: 80000000
+[  210.033234][ T1942] Kernel panic - not syncing: Fatal exception
+[  210.034174][ T1942] Kernel Offset: 0x23a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[  210.034174][ T1942] Rebooting in 86400 seconds..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

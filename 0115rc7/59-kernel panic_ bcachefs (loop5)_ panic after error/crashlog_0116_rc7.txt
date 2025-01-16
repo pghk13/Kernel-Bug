@@ -1,0 +1,97 @@
+[  189.333808][ T1925] loop0: detected capacity change from 0 to 32768
+[  189.341326][ T1925] bcachefs (/dev/loop0): error reading default superblock: Unsupported superblock version_min 0.0: (unknown version) (min 0.9: (unknown version), max 1.13: inode_has_child_snapshots)
+[  189.356351][  T730] veth1_macvtap: entered promiscuous mode
+[  189.451489][ T1925] bcachefs (loop0): starting version 1.7: mi_btree_bitmap opts=errors=panic,metadata_checksum=crc64,data_checksum=none,compression=lz4,background_compression=gzip,no_splitbrain_check,nocow
+[  189.461159][ T1925] superblock marked clean but clean section not present, shutting down
+[  189.467032][ T1925] Kernel panic - not syncing: bcachefs (loop0): panic after error
+[  189.467919][ T1925] CPU: 2 UID: 0 PID: 1925 Comm: syz.0.16 Not tainted 6.13.0-rc7 #1
+[  189.467919][ T1925] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  189.467919][ T1925] Call Trace:
+[  189.467919][ T1925]  <TASK>
+[  189.467919][ T1925]  dump_stack_lvl+0x3d/0x1b0
+[  189.467919][ T1925]  panic+0x70b/0x7c0
+[  189.467919][ T1925]  ? __pfx_panic+0x10/0x10
+[  189.467919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.467919][ T1925]  ? __mutex_unlock_slowpath+0x15b/0x660
+[  189.467919][ T1925]  ? __sanitizer_cov_trace_pc+0x3/0x60
+[  189.467919][ T1925]  ? __pfx___mutex_unlock_slowpath+0x10/0x10
+[  189.467919][ T1925]  ? _raw_spin_unlock_irqrestore+0x58/0x70
+[  189.467919][ T1925]  ? write_comp_data+0x29/0x90
+[  189.467919][ T1925]  ? bch2_inconsistent_error+0x67/0x170
+[  189.467919][ T1925]  bch2_inconsistent_error+0x15f/0x170
+[  189.467919][ T1925]  __bch2_fsck_err+0x12f2/0x31f0
+[  189.467919][ T1925]  ? __pfx_lock_release+0x10/0x10
+[  189.467919][ T1925]  ? __entry_text_end+0x102145/0x102149
+[  189.467919][ T1925]  ? __mutex_lock+0x291/0x1eb0
+[  189.467919][ T1925]  ? __pfx___bch2_fsck_err+0x10/0x10
+[  189.467919][ T1925]  ? __pfx___mutex_lock+0x10/0x10
+[  189.467919][ T1925]  ? __pfx___mutex_unlock_slowpath+0x10/0x10
+[  189.467919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.467919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.467919][ T1925]  bch2_read_superblock_clean+0x18c/0x2e0
+[  189.467919][ T1925]  bch2_fs_recovery+0x10e/0x4f00
+[  189.467919][ T1925]  ? __pfx___lock_acquire+0x10/0x10
+[  189.467919][ T1925]  ? __pfx___lock_acquire+0x10/0x10
+[  189.467919][ T1925]  ? __pfx_bch2_fs_recovery+0x10/0x10
+[  189.467919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.467919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.467919][ T1925]  ? find_held_lock+0x2c/0x110
+[  189.467919][ T1925]  ? bch2_recalc_capacity+0x14ba/0x1aa0
+[  189.467919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.467919][ T1925]  ? __pfx_lock_release+0x10/0x10
+[  189.467919][ T1925]  ? __pfx_lock_release+0x10/0x10
+[  189.467919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.467919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.467919][ T1925]  ? write_comp_data+0x29/0x90
+[  189.467919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.467919][ T1925]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  189.467919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.541175][ T1925]  ? bch2_recalc_capacity+0x155d/0x1aa0
+[  189.542972][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.544738][ T1925]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  189.546969][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.546969][ T1925]  ? llist_reverse_order+0x4d/0x70
+[  189.551002][ T1925]  bch2_fs_start+0x2f6/0x610
+[  189.552834][ T1925]  bch2_fs_get_tree+0x4b6/0x2020
+[  189.554908][ T1925]  ? avc_has_perm_noaudit+0x260/0x520
+[  189.554986][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.554986][ T1925]  ? __pfx_bch2_fs_get_tree+0x10/0x10
+[  189.554986][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.554986][ T1925]  ? write_comp_data+0x29/0x90
+[  189.563919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.563919][ T1925]  ? write_comp_data+0x29/0x90
+[  189.563919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.563919][ T1925]  ? write_comp_data+0x29/0x90
+[  189.563919][ T1925]  ? write_comp_data+0x29/0x90
+[  189.563919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.563919][ T1925]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  189.563919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.563919][ T1925]  ? write_comp_data+0x29/0x90
+[  189.563919][ T1925]  vfs_get_tree+0x93/0x340
+[  189.563919][ T1925]  path_mount+0x1272/0x1ba0
+[  189.563919][ T1925]  ? __pfx_path_mount+0x10/0x10
+[  189.563919][ T1925]  ? putname.part.0+0x105/0x150
+[  189.563919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.563919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.563919][ T1925]  ? putname.part.0+0x105/0x150
+[  189.563919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.563919][ T1925]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  189.563919][ T1925]  do_mount+0xf8/0x110
+[  189.563919][ T1925]  ? __pfx_do_mount+0x10/0x10
+[  189.563919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.563919][ T1925]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  189.563919][ T1925]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  189.563919][ T1925]  __x64_sys_mount+0x193/0x230
+[  189.563919][ T1925]  do_syscall_64+0xc3/0x1d0
+[  189.609162][ T1925]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  189.609162][ T1925] RIP: 0033:0x7f0f6fc3451e
+[  189.609162][ T1925] Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  189.620998][ T1925] RSP: 002b:00007f0f6f6839b8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a5
+[  189.620998][ T1925] RAX: ffffffffffffffda RBX: 0000000000005957 RCX: 00007f0f6fc3451e
+[  189.620998][ T1925] RDX: 00000000200058c0 RSI: 0000000020000100 RDI: 00007f0f6f683a10
+[  189.620998][ T1925] RBP: 00007f0f6f683a50 R08: 00007f0f6f683a50 R09: 0000000000000000
+[  189.620998][ T1925] R10: 0000000000000000 R11: 0000000000000246 R12: 00000000200058c0
+[  189.620998][ T1925] R13: 0000000020000100 R14: 00007f0f6f683a10 R15: 0000000020000080
+[  189.620998][ T1925]  </TASK>
+[  189.620998][ T1925] Kernel Offset: 0xf000000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+

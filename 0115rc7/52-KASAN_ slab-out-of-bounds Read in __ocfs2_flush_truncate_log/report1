@@ -1,0 +1,181 @@
+==================================================================
+BUG: KASAN: slab-out-of-bounds in ocfs2_replay_truncate_records fs/ocfs2/alloc.c:5959 [inline]
+BUG: KASAN: slab-out-of-bounds in __ocfs2_flush_truncate_log+0x115b/0x1250 fs/ocfs2/alloc.c:6054
+Read of size 4 at addr ff1100000b7a7ff8 by task syz-executor/6415
+
+CPU: 1 UID: 0 PID: 6415 Comm: syz-executor Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 mm/kasan/report.c:489
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ ocfs2_replay_truncate_records fs/ocfs2/alloc.c:5959 [inline]
+ __ocfs2_flush_truncate_log+0x115b/0x1250 fs/ocfs2/alloc.c:6054
+ ocfs2_flush_truncate_log+0x4d/0x70 fs/ocfs2/alloc.c:6076
+ ocfs2_sync_fs+0x1cb/0x3d0 fs/ocfs2/super.c:402
+ sync_filesystem fs/sync.c:66 [inline]
+ sync_filesystem+0x1d5/0x2a0 fs/sync.c:30
+ generic_shutdown_super+0x74/0x380 fs/super.c:621
+ kill_block_super+0x3b/0x90 fs/super.c:1710
+ deactivate_locked_super+0xbb/0x130 fs/super.c:473
+ deactivate_super fs/super.c:506 [inline]
+ deactivate_super+0xb1/0xd0 fs/super.c:502
+ cleanup_mnt+0x378/0x510 fs/namespace.c:1373
+ task_work_run+0x173/0x280 kernel/task_work.c:239
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ exit_to_user_mode_loop kernel/entry/common.c:114 [inline]
+ exit_to_user_mode_prepare include/linux/entry-common.h:329 [inline]
+ __syscall_exit_to_user_mode_work kernel/entry/common.c:207 [inline]
+ syscall_exit_to_user_mode+0x261/0x270 kernel/entry/common.c:218
+ do_syscall_64+0xd0/0x1d0 arch/x86/entry/common.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fb56c83a08b
+Code: ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 90 f3 0f 1e fa 31 f6 e9 05 00 00 00 0f 1f 44 00 00 f3 0f 1e fa b8 a6 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fff76f01578 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 00007fb56c83a08b
+RDX: 00007fb56c6d4c50 RSI: 0000000000000009 RDI: 00007fff76f01640
+RBP: 00007fff76f01640 R08: 00007fb56c8ac095 R09: 00007fff76f01400
+R10: 00000000fffffffb R11: 0000000000000246 R12: 00007fb56c8ac071
+R13: 00007fff76f026e0 R14: 00005555745a98f0 R15: 00007fff76f02720
+ </TASK>
+
+Allocated by task 8401:
+ kasan_save_stack+0x24/0x50 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ unpoison_slab_object mm/kasan/common.c:319 [inline]
+ __kasan_slab_alloc+0x87/0x90 mm/kasan/common.c:345
+ kasan_slab_alloc include/linux/kasan.h:250 [inline]
+ slab_post_alloc_hook mm/slub.c:4119 [inline]
+ slab_alloc_node mm/slub.c:4168 [inline]
+ kmem_cache_alloc_lru_noprof+0x14e/0x410 mm/slub.c:4187
+ __d_alloc+0x31/0x970 fs/dcache.c:1646
+ d_alloc_pseudo+0x1d/0xc0 fs/dcache.c:1778
+ alloc_path_pseudo fs/file_table.c:356 [inline]
+ alloc_file_pseudo+0xcc/0x200 fs/file_table.c:372
+ sock_alloc_file+0x53/0x1d0 net/socket.c:468
+ sock_map_fd net/socket.c:493 [inline]
+ __sys_socket+0xbf/0x130 net/socket.c:1709
+ __do_sys_socket net/socket.c:1714 [inline]
+ __se_sys_socket net/socket.c:1712 [inline]
+ __x64_sys_socket+0x73/0xb0 net/socket.c:1712
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Freed by task 8400:
+ kasan_save_stack+0x24/0x50 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ kasan_save_free_info+0x3a/0x60 mm/kasan/generic.c:582
+ poison_slab_object mm/kasan/common.c:247 [inline]
+ __kasan_slab_free+0x54/0x70 mm/kasan/common.c:264
+ kasan_slab_free include/linux/kasan.h:233 [inline]
+ slab_free_hook mm/slub.c:2353 [inline]
+ slab_free mm/slub.c:4613 [inline]
+ kmem_cache_free+0x126/0x4d0 mm/slub.c:4715
+ __d_free fs/dcache.c:315 [inline]
+ dentry_free+0xde/0x160 fs/dcache.c:396
+ __dentry_kill+0x3e7/0x5b0 fs/dcache.c:644
+ dput.part.0+0x49e/0x990 fs/dcache.c:867
+ dput+0x1f/0x30 fs/dcache.c:857
+ __fput+0x592/0xc70 fs/file_table.c:458
+ __fput_sync+0xa6/0xc0 fs/file_table.c:535
+ __do_sys_close fs/open.c:1554 [inline]
+ __se_sys_close fs/open.c:1539 [inline]
+ __x64_sys_close+0x8b/0x120 fs/open.c:1539
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+The buggy address belongs to the object at ff1100000b7a7d60
+ which belongs to the cache dentry of size 312
+The buggy address is located 352 bytes to the right of
+ allocated 312-byte region [ff1100000b7a7d60, ff1100000b7a7e98)
+
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:0000000000000000 index:0xff1100000b7a7a70 pfn:0xb7a6
+head: order:1 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0x100000000000240(workingset|head|node=0|zone=1)
+page_type: f5(slab)
+raw: 0100000000000240 ff1100000169edc0 ffd400000040a990 ffd4000000120410
+raw: ff1100000b7a7a70 0000000000150002 00000001f5000000 0000000000000000
+head: 0100000000000240 ff1100000169edc0 ffd400000040a990 ffd4000000120410
+head: ff1100000b7a7a70 0000000000150002 00000001f5000000 0000000000000000
+head: 0100000000000001 ffd40000002de981 ffffffffffffffff 0000000000000000
+head: 0000000000000002 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ff1100000b7a7e80: fb fb fb fc fc fc fc fc fc fc fc fc fc fc fc fc
+ ff1100000b7a7f00: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+>ff1100000b7a7f80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+                                                                ^
+ ff1100000b7a8000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ff1100000b7a8080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+==================================================================
+------------[ cut here ]------------
+kernel BUG at fs/ocfs2/suballoc.c:2543!
+Oops: invalid opcode: 0000 [#1] PREEMPT SMP KASAN NOPTI
+CPU: 1 UID: 0 PID: 6415 Comm: syz-executor Tainted: G    B              6.13.0-rc7 #1
+Tainted: [B]=BAD_PAGE
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:_ocfs2_free_suballoc_bits+0xfce/0x13c0 fs/ocfs2/suballoc.c:2543
+Code: 50 44 8b 4c 24 14 44 8b 44 24 58 48 8b 7c 24 28 e8 77 e6 ff ff 58 5a e9 2c f8 ff ff e8 9b 1a 5f fe 90 0f 0b e8 93 1a 5f fe 90 <0f> 0b e8 8b 1a 5f fe 90 0f 0b 90 e9 de f1 ff ff e8 7d 1a 5f fe 90
+RSP: 0018:ffa00000038b7930 EFLAGS: 00010246
+RAX: 000000000000e000 RBX: ff11000039860e00 RCX: ffffffffa9ca731d
+RDX: 0000000000000e00 RSI: ff11000024ec8000 RDI: 0000000000000002
+RBP: 00000000005805e4 R08: 000000000000e000 R09: 0000000000580113
+R10: fffffbfff68b7b5a R11: ffffffffb45bdad7 R12: 000000000000e000
+R13: 0000000000000e00 R14: 0000000000000e00 R15: ff1100002a625df8
+FS:  0000555574596a00(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000002007d000 CR3: 000000000c31a003 CR4: 0000000000771ef0
+PKRU: 00000000
+Call Trace:
+ <TASK>
+ _ocfs2_free_clusters+0x50f/0x970 fs/ocfs2/suballoc.c:2646
+ ocfs2_replay_truncate_records fs/ocfs2/alloc.c:5971 [inline]
+ __ocfs2_flush_truncate_log+0x475/0x1250 fs/ocfs2/alloc.c:6054
+ ocfs2_flush_truncate_log+0x4d/0x70 fs/ocfs2/alloc.c:6076
+ ocfs2_sync_fs+0x1cb/0x3d0 fs/ocfs2/super.c:402
+ sync_filesystem fs/sync.c:66 [inline]
+ sync_filesystem+0x1d5/0x2a0 fs/sync.c:30
+ generic_shutdown_super+0x74/0x380 fs/super.c:621
+ kill_block_super+0x3b/0x90 fs/super.c:1710
+ deactivate_locked_super+0xbb/0x130 fs/super.c:473
+ deactivate_super fs/super.c:506 [inline]
+ deactivate_super+0xb1/0xd0 fs/super.c:502
+ cleanup_mnt+0x378/0x510 fs/namespace.c:1373
+ task_work_run+0x173/0x280 kernel/task_work.c:239
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ exit_to_user_mode_loop kernel/entry/common.c:114 [inline]
+ exit_to_user_mode_prepare include/linux/entry-common.h:329 [inline]
+ __syscall_exit_to_user_mode_work kernel/entry/common.c:207 [inline]
+ syscall_exit_to_user_mode+0x261/0x270 kernel/entry/common.c:218
+ do_syscall_64+0xd0/0x1d0 arch/x86/entry/common.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fb56c83a08b
+Code: ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 90 f3 0f 1e fa 31 f6 e9 05 00 00 00 0f 1f 44 00 00 f3 0f 1e fa b8 a6 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fff76f01578 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 00007fb56c83a08b
+RDX: 00007fb56c6d4c50 RSI: 0000000000000009 RDI: 00007fff76f01640
+RBP: 00007fff76f01640 R08: 00007fb56c8ac095 R09: 00007fff76f01400
+R10: 00000000fffffffb R11: 0000000000000246 R12: 00007fb56c8ac071
+R13: 00007fff76f026e0 R14: 00005555745a98f0 R15: 00007fff76f02720
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:_ocfs2_free_suballoc_bits+0xfce/0x13c0 fs/ocfs2/suballoc.c:2543
+Code: 50 44 8b 4c 24 14 44 8b 44 24 58 48 8b 7c 24 28 e8 77 e6 ff ff 58 5a e9 2c f8 ff ff e8 9b 1a 5f fe 90 0f 0b e8 93 1a 5f fe 90 <0f> 0b e8 8b 1a 5f fe 90 0f 0b 90 e9 de f1 ff ff e8 7d 1a 5f fe 90
+RSP: 0018:ffa00000038b7930 EFLAGS: 00010246
+RAX: 000000000000e000 RBX: ff11000039860e00 RCX: ffffffffa9ca731d
+RDX: 0000000000000e00 RSI: ff11000024ec8000 RDI: 0000000000000002
+RBP: 00000000005805e4 R08: 000000000000e000 R09: 0000000000580113
+R10: fffffbfff68b7b5a R11: ffffffffb45bdad7 R12: 000000000000e000
+R13: 0000000000000e00 R14: 0000000000000e00 R15: ff1100002a625df8
+FS:  0000555574596a00(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000002007d000 CR3: 000000000c31a003 CR4: 0000000000771ef0
+PKRU: 00000000

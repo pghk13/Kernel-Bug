@@ -1,0 +1,1088 @@
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff110000055e0e00 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff1100000262e200 R14: ff110000055e0e7c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fc67b430410 CR3: 0000000003fe8001 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd3f/0x1a20 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5523 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5663 [inline]
+ port_event drivers/usb/core/hub.c:5823 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5905
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 22549
+hardirqs last  enabled at (22561): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (22574): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (22592): [<ffffffffa1f0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (22592): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (22583): [<ffffffffa1f1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (22583): [<ffffffffa1f1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (22583): [<ffffffffa1f1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (22583): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+ (null): radio-mr800 - initialization failed
+radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+usb 1-1: USB disconnect, device number 2
+usb 1-1: new high-speed USB device number 3 using dummy_hcd
+usb 1-1: unable to get BOS descriptor or descriptor too short
+usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+usb 1-1: config 128 has no interface number 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+usb 1-1: config 128 interface 48 has no altsetting 0
+usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff110000055d1700 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff110000069ccd80 R14: ff110000055d177c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fc67b430410 CR3: 0000000007d34003 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd3f/0x1a20 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5523 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5663 [inline]
+ port_event drivers/usb/core/hub.c:5823 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5905
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 30493
+hardirqs last  enabled at (30505): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (30526): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (30540): [<ffffffffa1f0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (30540): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (30535): [<ffffffffa1f1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (30535): [<ffffffffa1f1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (30535): [<ffffffffa1f1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (30535): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+ (null): radio-mr800 - initialization failed
+radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+usb 1-1: USB disconnect, device number 3
+usb 1-1: new high-speed USB device number 4 using dummy_hcd
+usb 1-1: unable to get BOS descriptor or descriptor too short
+usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+usb 1-1: config 128 has no interface number 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+usb 1-1: config 128 interface 48 has no altsetting 0
+usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff1100000581c400 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff110000026cad80 R14: ff1100000581c47c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fc67b430410 CR3: 000000000d574004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd3f/0x1a20 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5523 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5663 [inline]
+ port_event drivers/usb/core/hub.c:5823 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5905
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 38939
+hardirqs last  enabled at (38951): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (38972): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (38968): [<ffffffffa1f0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (38968): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (38959): [<ffffffffa1f1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (38959): [<ffffffffa1f1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (38959): [<ffffffffa1f1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (38959): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+ (null): radio-mr800 - initialization failed
+radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+usb 1-1: USB disconnect, device number 4
+usb 1-1: new high-speed USB device number 5 using dummy_hcd
+usb 1-1: unable to get BOS descriptor or descriptor too short
+usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+usb 1-1: config 128 has no interface number 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+usb 1-1: config 128 interface 48 has no altsetting 0
+usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff11000005851e00 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff110000026ca1c0 R14: ff11000005851e7c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffec85bc2c8 CR3: 0000000004f08006 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd3f/0x1a20 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5523 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5663 [inline]
+ port_event drivers/usb/core/hub.c:5823 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5905
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 46357
+hardirqs last  enabled at (46369): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (46380): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (46352): [<ffffffffa1f0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (46352): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (46401): [<ffffffffa1f1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (46401): [<ffffffffa1f1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (46401): [<ffffffffa1f1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (46401): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+ (null): radio-mr800 - initialization failed
+radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+usb 1-1: USB disconnect, device number 5
+usb 1-1: new high-speed USB device number 6 using dummy_hcd
+usb 1-1: unable to get BOS descriptor or descriptor too short
+usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+usb 1-1: config 128 has no interface number 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+usb 1-1: config 128 interface 48 has no altsetting 0
+usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff11000005809500 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff11000005729540 R14: ff1100000580957c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffec85bc2c8 CR3: 000000000d574004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd3f/0x1a20 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5523 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5663 [inline]
+ port_event drivers/usb/core/hub.c:5823 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5905
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 53939
+hardirqs last  enabled at (53951): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (53964): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (53982): [<ffffffffa1f0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (53982): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (53973): [<ffffffffa1f1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (53973): [<ffffffffa1f1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (53973): [<ffffffffa1f1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (53973): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+ (null): radio-mr800 - initialization failed
+radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+usb 1-1: USB disconnect, device number 6
+usb 1-1: new high-speed USB device number 7 using dummy_hcd
+usb 1-1: unable to get BOS descriptor or descriptor too short
+usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+usb 1-1: config 128 has no interface number 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+usb 1-1: config 128 interface 48 has no altsetting 0
+usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff110000057a4f00 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff110000095b5d20 R14: ff110000057a4f7c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ffec85bc2c8 CR3: 0000000007d34004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd3f/0x1a20 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5523 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5663 [inline]
+ port_event drivers/usb/core/hub.c:5823 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5905
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 61665
+hardirqs last  enabled at (61677): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (61688): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (61706): [<ffffffffa1f0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (61706): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (61697): [<ffffffffa1f1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (61697): [<ffffffffa1f1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (61697): [<ffffffffa1f1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (61697): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+ (null): radio-mr800 - initialization failed
+radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+usb 1-1: USB disconnect, device number 7
+usb 1-1: new high-speed USB device number 8 using dummy_hcd
+usb 1-1: unable to get BOS descriptor or descriptor too short
+usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+usb 1-1: config 128 has no interface number 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+usb 1-1: config 128 interface 48 has no altsetting 0
+usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff110000057c9700 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff110000095b5ec0 R14: ff110000057c977c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff4cb141528 CR3: 000000000408e005 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd3f/0x1a20 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5523 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5663 [inline]
+ port_event drivers/usb/core/hub.c:5823 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5905
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 69533
+hardirqs last  enabled at (69545): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (69558): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (69576): [<ffffffffa1f0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (69576): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (69567): [<ffffffffa1f1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (69567): [<ffffffffa1f1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (69567): [<ffffffffa1f1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (69567): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+ (null): radio-mr800 - initialization failed
+radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+usb 1-1: USB disconnect, device number 8
+usb 1-1: new high-speed USB device number 9 using dummy_hcd
+usb 1-1: unable to get BOS descriptor or descriptor too short
+usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+usb 1-1: config 128 has no interface number 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+usb 1-1: config 128 interface 48 has no altsetting 0
+usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000001 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff110000057b5400 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff11000002378660 R14: ff110000057b547c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff4cb141528 CR3: 000000000b608006 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd3f/0x1a20 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5523 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5663 [inline]
+ port_event drivers/usb/core/hub.c:5823 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5905
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 76783
+hardirqs last  enabled at (76801): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (76822): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (76818): [<ffffffffa1f0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (76818): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (76845): [<ffffffffa1f1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (76845): [<ffffffffa1f1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (76845): [<ffffffffa1f1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (76845): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+ (null): radio-mr800 - initialization failed
+radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+usb 1-1: USB disconnect, device number 9
+usb 1-1: new high-speed USB device number 10 using dummy_hcd
+usb 1-1: unable to get BOS descriptor or descriptor too short
+usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+usb 1-1: config 128 has no interface number 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+usb 1-1: config 128 interface 48 has no altsetting 0
+usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff110000079d1800 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff11000003c4f320 R14: ff110000079d187c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff4cb141528 CR3: 0000000010c54002 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd3f/0x1a20 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5523 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5663 [inline]
+ port_event drivers/usb/core/hub.c:5823 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5905
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 84425
+hardirqs last  enabled at (84447): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (84458): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (84442): [<ffffffffa1f0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (84442): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (84479): [<ffffffffa1f1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (84479): [<ffffffffa1f1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (84479): [<ffffffffa1f1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (84479): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+ (null): radio-mr800 - initialization failed
+radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+usb 1-1: USB disconnect, device number 10
+usb 1-1: new high-speed USB device number 11 using dummy_hcd
+usb 1-1: unable to get BOS descriptor or descriptor too short
+usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+usb 1-1: config 128 has no interface number 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+usb 1-1: config 128 interface 48 has no altsetting 0
+usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff11000007ae0500 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff1100000235a580 R14: ff11000007ae057c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff4cb141528 CR3: 0000000007d34004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd3f/0x1a20 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5523 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5663 [inline]
+ port_event drivers/usb/core/hub.c:5823 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5905
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 91679
+hardirqs last  enabled at (91691): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (91702): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (91674): [<ffffffffa1f0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (91674): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (91723): [<ffffffffa1f1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (91723): [<ffffffffa1f1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (91723): [<ffffffffa1f1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (91723): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+ (null): radio-mr800 - initialization failed
+radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+usb 1-1: USB disconnect, device number 11
+usb 1-1: new high-speed USB device number 12 using dummy_hcd
+usb 1-1: unable to get BOS descriptor or descriptor too short
+usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+usb 1-1: config 128 has no interface number 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+usb 1-1: config 128 interface 48 has no altsetting 0
+usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000000 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff11000007abb100 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff11000009d1ac80 R14: ff11000007abb17c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff4cb141528 CR3: 0000000007d34004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_new_device+0xd3f/0x1a20 drivers/usb/core/hub.c:2651
+ hub_port_connect drivers/usb/core/hub.c:5523 [inline]
+ hub_port_connect_change drivers/usb/core/hub.c:5663 [inline]
+ port_event drivers/usb/core/hub.c:5823 [inline]
+ hub_event+0x2a3a/0x4800 drivers/usb/core/hub.c:5905
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+irq event stamp: 99067
+hardirqs last  enabled at (99081): [<ffffffffa209ddbe>] __up_console_sem+0xae/0xc0 kernel/printk/printk.c:344
+hardirqs last disabled at (99102): [<ffffffffa209dda3>] __up_console_sem+0x93/0xc0 kernel/printk/printk.c:342
+softirqs last  enabled at (99098): [<ffffffffa1f0f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (99098): [<ffffffffa1f0f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (99089): [<ffffffffa1f1120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (99089): [<ffffffffa1f1120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (99089): [<ffffffffa1f1120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (99089): [<ffffffffa1f1120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---
+ (null): radio-mr800 - initialization failed
+radio-mr800 1-1:128.48: probe with driver radio-mr800 failed with error -71
+usb 1-1: USB disconnect, device number 12
+usb 1-1: new high-speed USB device number 13 using dummy_hcd
+usb 1-1: unable to get BOS descriptor or descriptor too short
+usb 1-1: config 128 has an invalid interface number: 48 but max is 0
+usb 1-1: config 128 contains an unexpected descriptor of type 0x1, skipping
+usb 1-1: config 128 has no interface number 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8B has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x6 has an invalid bInterval 255, changing to 7
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0x8F has invalid maxpacket 4096, setting to 1024
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x8F has invalid maxpacket 1024
+usb 1-1: config 128 interface 48 altsetting 138 endpoint 0xE has invalid wMaxPacketSize 0
+usb 1-1: config 128 interface 48 altsetting 138 has an invalid descriptor for endpoint zero, skipping
+usb 1-1: config 128 interface 48 altsetting 138 bulk endpoint 0x2 has invalid maxpacket 128
+usb 1-1: config 128 interface 48 altsetting 138 has a duplicate endpoint with address 0x2, skipping
+usb 1-1: config 128 interface 48 has no altsetting 0
+usb 1-1: New USB device found, idVendor=07ca, idProduct=b800, bcdDevice=d3.2a
+usb 1-1: New USB device strings: Mfr=5, Product=3, SerialNumber=255
+usb 1-1: Product: syz
+usb 1-1: Manufacturer: syz
+usb 1-1: SerialNumber: syz
+------------[ cut here ]------------
+usb 1-1: BOGUS urb xfer, pipe 1 != type 3
+WARNING: CPU: 3 PID: 75 at drivers/usb/core/urb.c:503 usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Modules linked in:
+CPU: 3 UID: 0 PID: 75 Comm: kworker/3:1 Tainted: G        W          6.13.0-rc7 #1
+Tainted: [W]=WARN
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+RIP: 0010:usb_submit_urb+0x1458/0x1760 drivers/usb/core/urb.c:503
+Code: 24 10 e8 9b 32 46 fb 48 8b 7c 24 10 e8 21 1e 1a ff 41 89 d8 44 89 e1 4c 89 ea 48 89 c6 48 c7 c7 00 fb d1 aa e8 59 be 0b fb 90 <0f> 0b 90 90 e9 d9 f2 ff ff e8 6a 32 46 fb 0f 1f 44 00 00 e9 4c fa
+RSP: 0018:ffa0000000506e80 EFLAGS: 00010286
+RAX: 0000000000000000 RBX: 0000000000000003 RCX: ffffffffa1ef295a
+RDX: 0000000000000001 RSI: ff11000002ce4680 RDI: 0000000000000002
+RBP: ff11000005784e00 R08: fffffbfff58b8800 R09: fff3fc00000a0d81
+R10: fff3fc00000a0d80 R11: ffa0000000506c07 R12: 0000000000000001
+R13: ff11000002624580 R14: ff11000005784e7c R15: 0000000000000002
+FS:  0000000000000000(0000) GS:ff11000053b80000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff4cb141528 CR3: 0000000007d34004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ usb_start_wait_urb+0x101/0x4b0 drivers/usb/core/message.c:59
+ usb_bulk_msg+0x22b/0x550 drivers/usb/core/message.c:388
+ amradio_send_cmd+0x2dc/0x810 drivers/media/radio/radio-mr800.c:150
+ amradio_set_mute drivers/media/radio/radio-mr800.c:182 [inline]
+ usb_amradio_init drivers/media/radio/radio-mr800.c:411 [inline]
+ usb_amradio_probe+0x4a2/0x8b0 drivers/media/radio/radio-mr800.c:554
+ usb_probe_interface+0x309/0xa10 drivers/usb/core/driver.c:396
+ call_driver_probe drivers/base/dd.c:579 [inline]
+ really_probe+0x253/0x990 drivers/base/dd.c:658
+ __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+ driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+ __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+ bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+ __device_attach+0x287/0x490 drivers/base/dd.c:1030
+ bus_probe_device+0x17e/0x1c0 drivers/base/bus.c:534
+ device_add+0x10af/0x17e0 drivers/base/core.c:3665
+ usb_set_configuration+0x1081/0x1b20 drivers/usb/core/message.c:2210
+ usb_generic_driver_probe+0xb7/0x110 drivers/usb/core/generic.c:254
+ usb_probe_device+0xec/0x3e0 drivers/usb/core/driver.c:291

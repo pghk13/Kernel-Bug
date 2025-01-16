@@ -1,0 +1,75 @@
+[  178.040187][  T708] Oops: general protection fault, probably for non-canonical address 0xdffffc0000000006: 0000 [#1] PREEMPT SMP KASAN NOPTI
+[  178.041525][  T708] KASAN: null-ptr-deref in range [0x0000000000000030-0x0000000000000037]
+[  178.041525][  T708] CPU: 1 UID: 0 PID: 708 Comm: syz-executor Not tainted 6.13.0-rc7 #1
+[  178.048588][  T708] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  178.048588][  T708] RIP: 0010:write_special_inodes+0xa8/0x170
+[  178.048588][  T708] Code: 30 e8 dc 67 8b 06 48 8d 7b 28 48 89 f8 48 c1 e8 03 80 3c 28 00 0f 85 af 00 00 00 4c 8b 6b 28 49 8d 7d 30 48 89 f8 48 c1 e8 03 <80> 3c 28 00 0f 85 8c 00 00 00 49 8b 7d 30 e8 a5 67 8b 06 48 8d bb
+[  178.048588][  T708] RSP: 0018:ffa000000c9c7be0 EFLAGS: 00010216
+[  178.048588][  T708] RAX: 0000000000000006 RBX: ff11000040a2d200 RCX: ffffffff88e2048d
+[  178.048588][  T708] RDX: 0000000000000000 RSI: ff1100003d958000 RDI: 0000000000000030
+[  178.048588][  T708] RBP: dffffc0000000000 R08: 0000000000000000 R09: ffe21c0006e5f209
+[  178.048588][  T708] R10: ffe21c0006e5f208 R11: ff110000372f9047 R12: ffffffff88e322a0
+[  178.072079][  T755] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  178.071166][  T708] R13: 0000000000000000 R14: ff110000372f9000 R15: ff110000084791c0
+[  178.074625][  T755] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  178.071166][  T708] FS:  000055556e68ba00(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+[  178.071166][  T708] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  178.071166][  T708] CR2: 000055556e6a6928 CR3: 000000003e3a4003 CR4: 0000000000771ef0
+[  178.071166][  T708] PKRU: 00000000
+[  178.071166][  T708] Call Trace:
+[  178.071166][  T708]  <TASK>
+[  178.071166][  T708]  ? __die_body+0x1a/0x60
+[  178.071166][  T708]  ? die_addr+0x42/0x70
+[  178.071166][  T708]  ? exc_general_protection+0x1a3/0x330
+[  178.071166][  T708]  ? asm_exc_general_protection+0x26/0x30
+[  178.071166][  T708]  ? __pfx_filemap_flush+0x10/0x10
+[  178.071166][  T708]  ? filemap_fdatawrite_wbc+0xbd/0x120
+[  178.099331][  T708]  ? write_special_inodes+0xa8/0x170
+[  178.099331][  T708]  lmLogSync+0x46b/0x840
+[  178.099331][  T708]  ? __pfx_lmLogSync+0x10/0x10
+[  178.099331][  T708]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  178.099331][  T708]  ? __pfx_jfs_flush_journal+0x10/0x10
+[  178.099331][  T708]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  178.099331][  T708]  ? __pfx_dquot_writeback_dquots+0x10/0x10
+[  178.099331][  T708]  jfs_syncpt+0x8d/0xa0
+[  178.099331][  T708]  jfs_sync_fs+0x84/0xb0
+[  178.113409][ T1963] loop0: detected capacity change from 0 to 32768
+[  178.099331][  T708]  ? __pfx_jfs_sync_fs+0x10/0x10
+[  178.099331][  T708]  sync_filesystem+0x110/0x2a0
+[  178.099331][  T708]  generic_shutdown_super+0x74/0x380
+[  178.099331][  T708]  kill_block_super+0x3b/0x90
+[  178.099331][  T708]  deactivate_locked_super+0xbb/0x130
+[  178.099331][  T708]  deactivate_super+0xb1/0xd0
+[  178.099331][  T708]  cleanup_mnt+0x378/0x510
+[  178.099331][  T708]  task_work_run+0x173/0x280
+[  178.099331][  T708]  ? __pfx_task_work_run+0x10/0x10
+[  178.099331][  T708]  ? syscall_exit_to_user_mode+0x1b4/0x270
+[  178.099331][  T708]  syscall_exit_to_user_mode+0x261/0x270
+[  178.133578][  T708]  do_syscall_64+0xd0/0x1d0
+[  178.133578][  T708]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  178.133578][  T708] RIP: 0033:0x7f26e21fe44b
+[  178.133578][  T708] Code: ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 90 f3 0f 1e fa 31 f6 e9 05 00 00 00 0f 1f 44 00 00 f3 0f 1e fa b8 a6 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  178.133578][  T708] RSP: 002b:00007ffcc55b9a58 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+[  178.133578][  T708] RAX: 0000000000000000 RBX: 0000000000000000 RCX: 00007f26e21fe44b
+[  178.133578][  T708] RDX: 00007f26e2097d40 RSI: 0000000000000009 RDI: 00007ffcc55b9b20
+[  178.133578][  T708] RBP: 00007ffcc55b9b20 R08: 00007f26e227974d R09: 00007ffcc55b98e0
+[  178.133578][  T708] R10: 00000000fffffffd R11: 0000000000000246 R12: 00007f26e2279729
+[  178.133578][  T708] R13: 00007ffcc55babc0 R14: 000055556e69e8f0 R15: 00007ffcc55bac00
+[  178.133578][  T708]  </TASK>
+[  178.133578][  T708] Modules linked in:
+[  178.163608][  T708] ---[ end trace 0000000000000000 ]---
+[  178.165600][  T708] RIP: 0010:write_special_inodes+0xa8/0x170
+[  178.167661][  T708] Code: 30 e8 dc 67 8b 06 48 8d 7b 28 48 89 f8 48 c1 e8 03 80 3c 28 00 0f 85 af 00 00 00 4c 8b 6b 28 49 8d 7d 30 48 89 f8 48 c1 e8 03 <80> 3c 28 00 0f 85 8c 00 00 00 49 8b 7d 30 e8 a5 67 8b 06 48 8d bb
+[  178.173868][  T708] RSP: 0018:ffa000000c9c7be0 EFLAGS: 00010216
+[  178.176039][  T708] RAX: 0000000000000006 RBX: ff11000040a2d200 RCX: ffffffff88e2048d
+[  178.178626][  T708] RDX: 0000000000000000 RSI: ff1100003d958000 RDI: 0000000000000030
+[  178.181164][  T708] RBP: dffffc0000000000 R08: 0000000000000000 R09: ffe21c0006e5f209
+[  178.183732][  T708] R10: ffe21c0006e5f208 R11: ff110000372f9047 R12: ffffffff88e322a0
+[  178.186467][  T708] R13: 0000000000000000 R14: ff110000372f9000 R15: ff110000084791c0
+[  178.189150][  T708] FS:  000055556e68ba00(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+[  178.191971][  T708] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  178.194123][  T708] CR2: 000055556e6a6928 CR3: 000000003e3a4003 CR4: 0000000000771ef0
+[  178.196709][  T708] PKRU: 00000000
+[  178.197983][  T708] Kernel panic - not syncing: Fatal exception
+[  178.198933][  T708] Kernel Offset: 0x7600000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+

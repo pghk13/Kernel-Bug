@@ -1,0 +1,60 @@
+==================================================================
+BUG: KASAN: out-of-bounds in ocfs2_find_smallest_chain fs/ocfs2/suballoc.c:413 [inline]
+BUG: KASAN: out-of-bounds in ocfs2_block_group_alloc_contig fs/ocfs2/suballoc.c:430 [inline]
+BUG: KASAN: out-of-bounds in ocfs2_block_group_alloc+0x1c96/0x1ec0 fs/ocfs2/suballoc.c:699
+Read of size 4 at addr ff1100004b3af004 by task syz.3.203/2814
+
+CPU: 3 UID: 0 PID: 2814 Comm: syz.3.203 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 mm/kasan/report.c:489
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ ocfs2_find_smallest_chain fs/ocfs2/suballoc.c:413 [inline]
+ ocfs2_block_group_alloc_contig fs/ocfs2/suballoc.c:430 [inline]
+ ocfs2_block_group_alloc+0x1c96/0x1ec0 fs/ocfs2/suballoc.c:699
+ ocfs2_reserve_suballoc_bits+0x3c3/0xe60 fs/ocfs2/suballoc.c:832
+ ocfs2_reserve_new_metadata_blocks+0x60e/0xa70 fs/ocfs2/suballoc.c:982
+ ocfs2_expand_inline_dir+0x18f8/0x41a0 fs/ocfs2/dir.c:2820
+ ocfs2_extend_dir+0x1bc/0x1cf0 fs/ocfs2/dir.c:3182
+ ocfs2_prepare_dir_for_insert+0xce4/0x18e0 fs/ocfs2/dir.c:4287
+ ocfs2_mknod+0x938/0x25d0 fs/ocfs2/namei.c:294
+ ocfs2_create+0x105/0x490 fs/ocfs2/namei.c:674
+ vfs_create fs/namei.c:3348 [inline]
+ vfs_create+0x44d/0x740 fs/namei.c:3332
+ do_mknodat+0x481/0x540 fs/namei.c:4239
+ __do_sys_mknod fs/namei.c:4272 [inline]
+ __se_sys_mknod fs/namei.c:4270 [inline]
+ __x64_sys_mknod+0x87/0xb0 fs/namei.c:4270
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fefa828971d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fefa6ebbba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000085
+RAX: ffffffffffffffda RBX: 00007fefa844c058 RCX: 00007fefa828971d
+RDX: 0000000000000707 RSI: 0000000000000000 RDI: 0000000020000000
+RBP: 00007fefa82fe425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fefa844c064 R14: 00007fefa844c0f0 R15: 00007fefa6ebbd40
+ </TASK>
+
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:000000005ff56b1a index:0x40 pfn:0x4b3af
+aops:shmem_aops ino:857 dentry name(?):"memfd:syzkaller"
+flags: 0x10000000002003c(referenced|uptodate|dirty|lru|swapbacked|node=0|zone=1)
+raw: 010000000002003c ffd400000117f408 ffd40000012ceb08 ff1100004567f770
+raw: 0000000000000040 0000000000000000 00000001ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ff1100004b3aef00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ff1100004b3aef80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+>ff1100004b3af000: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+                      ^
+ ff1100004b3af080: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ff1100004b3af100: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+==================================================================

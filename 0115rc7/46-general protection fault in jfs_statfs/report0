@@ -1,0 +1,67 @@
+Oops: general protection fault, probably for non-canonical address 0xdffffc0000000000: 0000 [#1] PREEMPT SMP KASAN NOPTI
+KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]
+CPU: 1 UID: 0 PID: 1665 Comm: syz.7.8 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:jfs_statfs+0x184/0x600 fs/jfs/super.c:128
+Code: 48 89 ea 48 c1 ea 03 80 3c 02 00 0f 85 79 04 00 00 4d 8b b4 24 a0 00 00 00 48 b8 00 00 00 00 00 fc ff df 4c 89 f2 48 c1 ea 03 <80> 3c 02 00 0f 85 49 04 00 00 48 8d 7b 10 4d 8b 36 48 b8 00 00 00
+RSP: 0018:ffa0000014fefcf0 EFLAGS: 00010256
+RAX: dffffc0000000000 RBX: ffa0000014fefe48 RCX: 0000000000040000
+RDX: 0000000000000000 RSI: ff11000028dcc680 RDI: ffa0000014fefe50
+RBP: ff110000088a68a0 R08: 0000000000000001 R09: ff11000028dcd0b8
+R10: fffffbfff4cb7b5a R11: ffffffffa65bdad7 R12: ff110000088a6800
+R13: ff1100002b740000 R14: 0000000000000000 R15: 0000000000000002
+FS:  00007f0357712700(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000020775000 CR3: 0000000029f3c001 CR4: 0000000000771ef0
+PKRU: 80000000
+Call Trace:
+ <TASK>
+ statfs_by_dentry+0x138/0x220 fs/statfs.c:66
+ vfs_statfs+0x44/0x2f0 fs/statfs.c:90
+ user_statfs+0xaa/0x140 fs/statfs.c:105
+ __do_sys_statfs+0x7a/0xf0 fs/statfs.c:193
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f0358adf71d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f0357711ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000089
+RAX: ffffffffffffffda RBX: 00007f0358ca2058 RCX: 00007f0358adf71d
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 00000000200003c0
+RBP: 00007f0358b54425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f0358ca2064 R14: 00007f0358ca20f0 R15: 00007f0357711d40
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:jfs_statfs+0x184/0x600 fs/jfs/super.c:128
+Code: 48 89 ea 48 c1 ea 03 80 3c 02 00 0f 85 79 04 00 00 4d 8b b4 24 a0 00 00 00 48 b8 00 00 00 00 00 fc ff df 4c 89 f2 48 c1 ea 03 <80> 3c 02 00 0f 85 49 04 00 00 48 8d 7b 10 4d 8b 36 48 b8 00 00 00
+RSP: 0018:ffa0000014fefcf0 EFLAGS: 00010256
+RAX: dffffc0000000000 RBX: ffa0000014fefe48 RCX: 0000000000040000
+RDX: 0000000000000000 RSI: ff11000028dcc680 RDI: ffa0000014fefe50
+RBP: ff110000088a68a0 R08: 0000000000000001 R09: ff11000028dcd0b8
+R10: fffffbfff4cb7b5a R11: ffffffffa65bdad7 R12: ff110000088a6800
+R13: ff1100002b740000 R14: 0000000000000000 R15: 0000000000000002
+FS:  00007f0357712700(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000020775000 CR3: 0000000029f3c001 CR4: 0000000000771ef0
+PKRU: 80000000
+----------------
+Code disassembly (best guess):
+   0:	48 89 ea             	mov    %rbp,%rdx
+   3:	48 c1 ea 03          	shr    $0x3,%rdx
+   7:	80 3c 02 00          	cmpb   $0x0,(%rdx,%rax,1)
+   b:	0f 85 79 04 00 00    	jne    0x48a
+  11:	4d 8b b4 24 a0 00 00 	mov    0xa0(%r12),%r14
+  18:	00
+  19:	48 b8 00 00 00 00 00 	movabs $0xdffffc0000000000,%rax
+  20:	fc ff df
+  23:	4c 89 f2             	mov    %r14,%rdx
+  26:	48 c1 ea 03          	shr    $0x3,%rdx
+* 2a:	80 3c 02 00          	cmpb   $0x0,(%rdx,%rax,1) <-- trapping instruction
+  2e:	0f 85 49 04 00 00    	jne    0x47d
+  34:	48 8d 7b 10          	lea    0x10(%rbx),%rdi
+  38:	4d 8b 36             	mov    (%r14),%r14
+  3b:	48                   	rex.W
+  3c:	b8                   	.byte 0xb8
+  3d:	00 00                	add    %al,(%rax)

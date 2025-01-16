@@ -1,0 +1,852 @@
+Warning: Permanently added '[localhost]:22082' (ECDSA) to the list of known hosts.
+2025/01/13 12:11:39 ignoring optional flag "sandboxArg"="0"
+2025/01/13 12:11:40 parsed 1 programs
+[   89.545634][  T430] cgroup: Unknown subsys name 'net'
+[   89.620520][  T430] cgroup: Unknown subsys name 'cpuset'
+[   89.629801][  T430] cgroup: Unknown subsys name 'rlimit'
+[   89.631926][  T430] cgroup: Unknown subsys name 'memory'
+[   89.926899][  T430] Adding 124996k swap on ./swap-file.  Priority:0 extents:1 across:124996k 
+[   91.469388][   T44] audit: type=1400 audit(1736770310.152:9): avc:  denied  { execmem } for  pid=438 comm="syz-executor" scontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tcontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tclass=process permissive=1
+[   91.725823][   T44] audit: type=1400 audit(1736770310.409:10): avc:  denied  { execmem } for  pid=461 comm="syz.0.1" scontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tcontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tclass=process permissive=1
+[   91.918086][   T59] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   91.920633][   T59] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   92.080986][  T194] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   92.083405][  T194] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   92.095112][  T488] modprobe (488) used greatest stack depth: 24448 bytes left
+[   92.176154][   T44] audit: type=1401 audit(1736770310.859:11): op=setxattr invalid_context="u:object_r:app_data_file:s0:c512,c768"
+[   93.272268][  T451] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   93.280284][  T451] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   93.315985][  T451] team0: Port device team_slave_0 added
+[   93.320500][  T451] team0: Port device team_slave_1 added
+[   93.868549][  T451] netdevsim netdevsim5 netdevsim0: renamed from eth0
+[   93.875660][  T451] netdevsim netdevsim5 netdevsim1: renamed from eth1
+[   93.881422][  T451] netdevsim netdevsim5 netdevsim2: renamed from eth2
+[   93.886933][  T451] netdevsim netdevsim5 netdevsim3: renamed from eth3
+[   99.197178][  T451] veth1_vlan: entered promiscuous mode
+[   99.227453][  T451] veth0_macvtap: entered promiscuous mode
+[   99.234067][  T451] veth1_macvtap: entered promiscuous mode
+[   99.264458][  T451] netdevsim netdevsim5 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[   99.267287][  T451] netdevsim netdevsim5 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[   99.269875][  T451] netdevsim netdevsim5 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[   99.272314][  T451] netdevsim netdevsim5 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+2025/01/13 12:11:58 executed programs: 0
+[   99.970035][   T11] netdevsim netdevsim5 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  100.024014][   T11] netdevsim netdevsim5 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  100.075617][   T11] netdevsim netdevsim5 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  100.128444][   T11] netdevsim netdevsim5 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  100.528602][   T11] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  100.540665][   T11] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  100.550941][   T11] bond0 (unregistering): Released all slaves
+[  100.655899][  T710] netdevsim netdevsim5 eni5np1: renamed from eth0
+[  100.678092][  T764] netdevsim netdevsim5 eni5np4: renamed from eth3
+[  100.707113][  T763] netdevsim netdevsim5 eni5np3: renamed from eth2
+[  100.979302][   T11] veth1_macvtap: left promiscuous mode
+[  100.981084][   T11] veth0_macvtap: left promiscuous mode
+[  100.982923][   T11] veth1_vlan: left promiscuous mode
+[  102.376358][   T11] team0 (unregistering): Port device team_slave_1 removed
+[  102.563843][   T11] team0 (unregistering): Port device team_slave_0 removed
+[  103.857141][  T715] netdevsim netdevsim5 eni5np2: renamed from eth1
+[  105.555779][  T723] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  105.596466][  T707] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  105.635627][  T723] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  105.705729][  T707] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  105.712633][  T716] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  105.717269][  T729] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  105.722057][  T716] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  105.759456][  T935] modprobe (935) used greatest stack depth: 24016 bytes left
+[  105.776039][  T708] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  105.781990][  T723] team0: Port device team_slave_0 added
+[  105.815072][  T729] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  105.868697][  T708] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  105.886765][  T723] team0: Port device team_slave_1 added
+[  105.906587][  T707] team0: Port device team_slave_0 added
+[  105.940720][  T726] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  105.947750][  T716] team0: Port device team_slave_0 added
+[  105.982005][  T707] team0: Port device team_slave_1 added
+[  106.019108][  T726] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  106.024334][  T716] team0: Port device team_slave_1 added
+[  106.056617][  T708] team0: Port device team_slave_0 added
+[  106.061891][  T726] team0: Port device team_slave_0 added
+[  106.110002][  T729] team0: Port device team_slave_0 added
+[  106.181534][  T708] team0: Port device team_slave_1 added
+[  106.200961][  T726] team0: Port device team_slave_1 added
+[  106.206023][  T745] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  106.210772][  T729] team0: Port device team_slave_1 added
+[  106.231017][  T739] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[  106.286793][  T745] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  106.307913][  T739] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[  106.386372][  T739] team0: Port device team_slave_0 added
+[  106.394769][  T745] team0: Port device team_slave_0 added
+[  106.402574][  T739] team0: Port device team_slave_1 added
+[  106.457552][  T745] team0: Port device team_slave_1 added
+[  107.425819][  T723] netdevsim netdevsim3 netdevsim0: renamed from eth0
+[  107.431663][  T723] netdevsim netdevsim3 netdevsim1: renamed from eth1
+[  107.437428][  T723] netdevsim netdevsim3 netdevsim2: renamed from eth2
+[  107.460270][  T723] netdevsim netdevsim3 netdevsim3: renamed from eth3
+[  107.563296][  T708] netdevsim netdevsim1 netdevsim0: renamed from eth0
+[  107.582373][  T708] netdevsim netdevsim1 netdevsim1: renamed from eth1
+[  107.592155][  T708] netdevsim netdevsim1 netdevsim2: renamed from eth2
+[  107.597489][  T708] netdevsim netdevsim1 netdevsim3: renamed from eth3
+[  107.649283][  T707] netdevsim netdevsim0 netdevsim0: renamed from eth0
+[  107.658020][  T707] netdevsim netdevsim0 netdevsim1: renamed from eth1
+[  107.664475][  T707] netdevsim netdevsim0 netdevsim2: renamed from eth2
+[  107.679809][  T707] netdevsim netdevsim0 netdevsim3: renamed from eth3
+[  107.714118][  T716] netdevsim netdevsim2 netdevsim0: renamed from eth0
+[  107.722927][  T716] netdevsim netdevsim2 netdevsim1: renamed from eth1
+[  107.729594][  T716] netdevsim netdevsim2 netdevsim2: renamed from eth2
+[  107.741074][  T716] netdevsim netdevsim2 netdevsim3: renamed from eth3
+[  107.795434][  T726] netdevsim netdevsim8 netdevsim0: renamed from eth0
+[  107.828279][  T726] netdevsim netdevsim8 netdevsim1: renamed from eth1
+[  107.840683][  T726] netdevsim netdevsim8 netdevsim2: renamed from eth2
+[  107.869646][  T726] netdevsim netdevsim8 netdevsim3: renamed from eth3
+[  108.169335][  T729] netdevsim netdevsim5 netdevsim0: renamed from eth0
+[  108.212446][  T729] netdevsim netdevsim5 netdevsim1: renamed from eth1
+[  108.229881][  T729] netdevsim netdevsim5 netdevsim2: renamed from eth2
+[  108.264523][  T729] netdevsim netdevsim5 netdevsim3: renamed from eth3
+[  108.331501][  T745] netdevsim netdevsim7 netdevsim0: renamed from eth0
+[  108.376435][  T745] netdevsim netdevsim7 netdevsim1: renamed from eth1
+[  108.414983][  T745] netdevsim netdevsim7 netdevsim2: renamed from eth2
+[  108.428752][  T745] netdevsim netdevsim7 netdevsim3: renamed from eth3
+[  108.506385][  T739] netdevsim netdevsim6 netdevsim0: renamed from eth0
+[  108.535521][  T739] netdevsim netdevsim6 netdevsim1: renamed from eth1
+[  108.549459][  T739] netdevsim netdevsim6 netdevsim2: renamed from eth2
+[  108.563632][  T739] netdevsim netdevsim6 netdevsim3: renamed from eth3
+[  117.286573][  T708] veth1_vlan: entered promiscuous mode
+[  117.346420][  T708] veth0_macvtap: entered promiscuous mode
+[  117.358575][  T708] veth1_macvtap: entered promiscuous mode
+[  117.433552][  T708] netdevsim netdevsim1 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  117.436111][  T708] netdevsim netdevsim1 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  117.438630][  T708] netdevsim netdevsim1 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  117.440920][  T708] netdevsim netdevsim1 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  117.581071][   T69] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  117.583310][   T69] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  117.675562][ T1076] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  117.677718][ T1076] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  117.949876][  T716] veth1_vlan: entered promiscuous mode
+[  117.994519][  T716] veth0_macvtap: entered promiscuous mode
+[  118.018950][  T716] veth1_macvtap: entered promiscuous mode
+[  118.112364][  T707] veth1_vlan: entered promiscuous mode
+[  118.141731][  T716] netdevsim netdevsim2 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.147327][  T716] netdevsim netdevsim2 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.150324][  T716] netdevsim netdevsim2 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.153449][  T716] netdevsim netdevsim2 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.215945][  T723] veth1_vlan: entered promiscuous mode
+2025/01/13 12:12:16 executed programs: 16
+[  118.286175][  T707] veth0_macvtap: entered promiscuous mode
+[  118.404336][  T707] veth1_macvtap: entered promiscuous mode
+[  118.451759][   T37] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  118.454386][   T37] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  118.499658][  T723] veth0_macvtap: entered promiscuous mode
+[  118.561014][  T723] veth1_macvtap: entered promiscuous mode
+[  118.565910][ T1903] loop1: detected capacity change from 0 to 32768
+[  118.575606][   T37] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  118.578241][   T37] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  118.662703][  T707] netdevsim netdevsim0 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.666824][  T707] netdevsim netdevsim0 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.669971][  T707] netdevsim netdevsim0 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.672734][  T707] netdevsim netdevsim0 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.818793][  T723] netdevsim netdevsim3 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.822106][  T723] netdevsim netdevsim3 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.825285][  T723] netdevsim netdevsim3 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.827986][  T723] netdevsim netdevsim3 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  118.988945][  T726] veth1_vlan: entered promiscuous mode
+[  119.018818][  T872] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  119.021347][  T872] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  119.051311][   T66] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  119.053790][   T66] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  119.174084][  T872] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  119.176529][  T872] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  119.177031][ T1931] loop1: detected capacity change from 0 to 32768
+[  119.181826][  T726] veth0_macvtap: entered promiscuous mode
+[  119.200273][   T56] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  119.202895][   T56] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  119.207009][  T726] veth1_macvtap: entered promiscuous mode
+[  119.282294][  T729] veth1_vlan: entered promiscuous mode
+[  119.344455][  T745] veth1_vlan: entered promiscuous mode
+[  119.388367][  T729] veth0_macvtap: entered promiscuous mode
+[  119.394654][  T726] netdevsim netdevsim8 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.397382][  T726] netdevsim netdevsim8 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.400105][  T726] netdevsim netdevsim8 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.402964][  T726] netdevsim netdevsim8 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.443809][  T729] veth1_macvtap: entered promiscuous mode
+[  119.580816][ T1954] loop2: detected capacity change from 0 to 32768
+[  119.649931][  T745] veth0_macvtap: entered promiscuous mode
+[  119.654687][  T739] veth1_vlan: entered promiscuous mode
+[  119.693994][ T1960] loop1: detected capacity change from 0 to 32768
+[  119.700039][  T745] veth1_macvtap: entered promiscuous mode
+[  119.714552][  T729] netdevsim netdevsim5 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.717526][  T729] netdevsim netdevsim5 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.720485][  T729] netdevsim netdevsim5 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.723536][  T729] netdevsim netdevsim5 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.807087][ T1076] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  119.809133][ T1076] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  119.898374][  T774] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  119.901019][  T774] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  119.924694][  T745] netdevsim netdevsim7 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.927880][  T745] netdevsim netdevsim7 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.931111][  T745] netdevsim netdevsim7 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.933874][  T745] netdevsim netdevsim7 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  119.993921][  T739] veth0_macvtap: entered promiscuous mode
+[  120.010879][ T1975] loop2: detected capacity change from 0 to 32768
+[  120.081077][  T739] veth1_macvtap: entered promiscuous mode
+[  120.225112][ T1977] loop0: detected capacity change from 0 to 32768
+[  120.255397][ T1979] loop3: detected capacity change from 0 to 32768
+[  120.258381][ T1977] loop0: detected capacity change from 32768 to 32639
+[  120.268140][ T1977] ==================================================================
+[  120.269504][ T1977] BUG: KASAN: slab-use-after-free in dbAllocBits+0x629/0x640
+[  120.269504][ T1977] Read of size 8 at addr ff1100002116d038 by task syz.0.15/1977
+[  120.269504][ T1977] 
+[  120.269504][ T1977] CPU: 2 UID: 0 PID: 1977 Comm: syz.0.15 Not tainted 6.13.0-rc7 #1
+[  120.269504][ T1977] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  120.269504][ T1977] Call Trace:
+[  120.269504][ T1977]  <TASK>
+[  120.269504][ T1977]  dump_stack_lvl+0x116/0x1b0
+[  120.283538][ T1977]  print_report+0xcf/0x5f0
+[  120.285029][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.285029][ T1977]  ? __phys_addr+0xeb/0x180
+[  120.285029][ T1977]  ? dbAllocBits+0x629/0x640
+[  120.289765][ T1982] loop1: detected capacity change from 0 to 32768
+[  120.285029][ T1977]  kasan_report+0x93/0xc0
+[  120.285029][ T1977]  ? dbAllocBits+0x629/0x640
+[  120.285029][ T1977]  dbAllocBits+0x629/0x640
+[  120.285029][ T1977]  dbAllocDmap+0x61/0x120
+[  120.296834][   T69] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  120.285029][ T1977]  dbAllocDmapLev+0x175/0x2f0
+[  120.285029][ T1977]  ? __pfx___sanitizer_cov_trace_pc+0x10/0x10
+[  120.299458][   T69] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  120.285029][ T1977]  ? __pfx_dbAllocDmapLev+0x10/0x10
+[  120.285029][ T1977]  ? write_comp_data+0x29/0x90
+[  120.285029][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.285029][ T1977]  dbAllocCtl+0x172/0x7f0
+[  120.285029][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.285029][ T1977]  ? __phys_addr+0xeb/0x180
+[  120.285029][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.285029][ T1977]  dbAllocAG+0x8e1/0xdc0
+[  120.316117][   T69] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  120.285029][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.285029][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.318533][   T69] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  120.285029][ T1977]  ? rcu_is_watching+0x12/0xc0
+[  120.285029][ T1977]  ? __pfx_dbAllocAG+0x10/0x10
+[  120.285029][ T1977]  ? __kmalloc_noprof+0x434/0x570
+[  120.322879][  T739] netdevsim netdevsim6 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[  120.285029][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.285029][ T1977]  ? write_comp_data+0x29/0x90
+[  120.325121][  T739] netdevsim netdevsim6 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[  120.285029][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.285029][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.327902][  T739] netdevsim netdevsim6 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[  120.285029][ T1977]  dbDiscardAG+0x24b/0x7f0
+[  120.285029][ T1977]  ? __pfx_dbDiscardAG+0x10/0x10
+[  120.331869][  T739] netdevsim netdevsim6 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[  120.285029][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.285029][ T1977]  jfs_ioc_trim+0x400/0x5c0
+[  120.285029][ T1977]  jfs_ioctl+0x31a/0x410
+[  120.350407][ T1977]  ? __pfx_jfs_ioctl+0x10/0x10
+[  120.351255][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.351255][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.351255][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.351255][ T1977]  ? write_comp_data+0x29/0x90
+[  120.351255][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.351255][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.351255][ T1977]  ? __pfx_jfs_ioctl+0x10/0x10
+[  120.351255][ T1977]  __x64_sys_ioctl+0x19e/0x210
+[  120.351255][ T1977]  do_syscall_64+0xc3/0x1d0
+[  120.351255][ T1977]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  120.351255][ T1977] RIP: 0033:0x7f9a04c6f71d
+[  120.351255][ T1977] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  120.351255][ T1977] RSP: 002b:00007f9a046caba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+[  120.351255][ T1977] RAX: ffffffffffffffda RBX: 00007f9a04e31f80 RCX: 00007f9a04c6f71d
+[  120.379135][ T1977] RDX: 00000000200000c0 RSI: 00000000c0185879 RDI: 0000000000000004
+[  120.379135][ T1977] RBP: 00007f9a04ce4425 R08: 0000000000000000 R09: 0000000000000000
+[  120.379135][ T1977] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  120.379135][ T1977] R13: 00007f9a04e31f8c R14: 00007f9a04e32018 R15: 00007f9a046cad40
+[  120.379135][ T1977]  </TASK>
+[  120.379135][ T1977] 
+[  120.379135][ T1977] Allocated by task 729:
+[  120.379135][ T1977]  kasan_save_stack+0x24/0x50
+[  120.379135][ T1977]  kasan_save_track+0x14/0x30
+[  120.379135][ T1977]  __kasan_kmalloc+0xaa/0xb0
+[  120.379135][ T1977]  __kmalloc_node_track_caller_noprof+0x1ef/0x560
+[  120.379135][ T1977]  kmalloc_reserve+0xeb/0x2b0
+[  120.379135][ T1977]  pskb_expand_head+0x22f/0x1280
+[  120.379135][ T1977]  netlink_trim+0x1f4/0x250
+[  120.379135][ T1977]  netlink_broadcast_filtered+0x6d/0xda0
+[  120.379135][ T1977]  nlmsg_notify+0x98/0x290
+[  120.379135][ T1977]  rtmsg_ifinfo_event.part.0+0x7e/0xa0
+[  120.379135][ T1977]  rtnetlink_event+0xfd/0x170
+[  120.379135][ T1977]  notifier_call_chain+0xc0/0x450
+[  120.379135][ T1977]  call_netdevice_notifiers_info+0xbe/0x140
+[  120.379135][ T1977]  dev_set_mac_address+0x372/0x4a0
+[  120.379135][ T1977]  dev_set_mac_address_user+0x31/0x50
+[  120.379135][ T1977]  do_setlink.isra.0+0x603/0x3d60
+[  120.379135][ T1977]  rtnl_newlink+0x149e/0x1cb0
+[  120.379135][ T1977]  rtnetlink_rcv_msg+0x9c8/0xfc0
+[  120.379135][ T1977]  netlink_rcv_skb+0x15d/0x450
+[  120.379135][ T1977]  netlink_unicast+0x547/0x760
+[  120.379135][ T1977]  netlink_sendmsg+0x8a2/0xd80
+[  120.379135][ T1977]  __sock_sendmsg+0x224/0x2a0
+[  120.379135][ T1977]  __sys_sendto+0x29a/0x390
+[  120.379135][ T1977]  __x64_sys_sendto+0xe1/0x1c0
+[  120.379135][ T1977]  do_syscall_64+0xc3/0x1d0
+[  120.379135][ T1977]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  120.379135][ T1977] 
+[  120.379135][ T1977] Freed by task 729:
+[  120.379135][ T1977]  kasan_save_stack+0x24/0x50
+[  120.379135][ T1977]  kasan_save_track+0x14/0x30
+[  120.379135][ T1977]  kasan_save_free_info+0x3a/0x60
+[  120.379135][ T1977]  __kasan_slab_free+0x54/0x70
+[  120.379135][ T1977]  kfree+0x120/0x3e0
+[  120.379135][ T1977]  skb_free_head+0xe0/0x1d0
+[  120.379135][ T1977]  skb_release_data+0x782/0x900
+[  120.379135][ T1977]  skb_release_all+0x4e/0x60
+[  120.379135][ T1977]  consume_skb+0xf5/0x2c0
+[  120.379135][ T1977]  netlink_broadcast_filtered+0x379/0xda0
+[  120.379135][ T1977]  nlmsg_notify+0x98/0x290
+[  120.379135][ T1977]  rtmsg_ifinfo_event.part.0+0x7e/0xa0
+[  120.379135][ T1977]  rtnetlink_event+0xfd/0x170
+[  120.379135][ T1977]  notifier_call_chain+0xc0/0x450
+[  120.379135][ T1977]  call_netdevice_notifiers_info+0xbe/0x140
+[  120.379135][ T1977]  dev_set_mac_address+0x372/0x4a0
+[  120.379135][ T1977]  dev_set_mac_address_user+0x31/0x50
+[  120.379135][ T1977]  do_setlink.isra.0+0x603/0x3d60
+[  120.379135][ T1977]  rtnl_newlink+0x149e/0x1cb0
+[  120.379135][ T1977]  rtnetlink_rcv_msg+0x9c8/0xfc0
+[  120.379135][ T1977]  netlink_rcv_skb+0x15d/0x450
+[  120.379135][ T1977]  netlink_unicast+0x547/0x760
+[  120.379135][ T1977]  netlink_sendmsg+0x8a2/0xd80
+[  120.379135][ T1977]  __sock_sendmsg+0x224/0x2a0
+[  120.379135][ T1977]  __sys_sendto+0x29a/0x390
+[  120.379135][ T1977]  __x64_sys_sendto+0xe1/0x1c0
+[  120.379135][ T1977]  do_syscall_64+0xc3/0x1d0
+[  120.379135][ T1977]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  120.379135][ T1977] 
+[  120.379135][ T1977] The buggy address belongs to the object at ff1100002116d000
+[  120.379135][ T1977]  which belongs to the cache kmalloc-2k of size 2048
+[  120.379135][ T1977] The buggy address is located 56 bytes inside of
+[  120.379135][ T1977]  freed 2048-byte region [ff1100002116d000, ff1100002116d800)
+[  120.379135][ T1977] 
+[  120.379135][ T1977] The buggy address belongs to the physical page:
+[  120.379135][ T1977] page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x21168
+[  120.379135][ T1977] head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+[  120.379135][ T1977] flags: 0x100000000000040(head|node=0|zone=1)
+[  120.379135][ T1977] page_type: f5(slab)
+[  120.379135][ T1977] raw: 0100000000000040 ff1100000103cf00 ffd40000004d8000 dead000000000002
+[  120.379135][ T1977] raw: 0000000000000000 0000000080080008 00000001f5000000 0000000000000000
+[  120.379135][ T1977] head: 0100000000000040 ff1100000103cf00 ffd40000004d8000 dead000000000002
+[  120.379135][ T1977] head: 0000000000000000 0000000080080008 00000001f5000000 0000000000000000
+[  120.379135][ T1977] head: 0100000000000003 ffd4000000845a01 ffffffffffffffff 0000000000000000
+[  120.379135][ T1977] head: 0000000000000008 0000000000000000 00000000ffffffff 0000000000000000
+[  120.379135][ T1977] page dumped because: kasan: bad access detected
+[  120.379135][ T1977] 
+[  120.379135][ T1977] Memory state around the buggy address:
+[  120.379135][ T1977]  ff1100002116cf00: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[  120.379135][ T1977]  ff1100002116cf80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+[  120.379135][ T1977] >ff1100002116d000: fa fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[  120.379135][ T1977]                                         ^
+[  120.379135][ T1977]  ff1100002116d080: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[  120.379135][ T1977]  ff1100002116d100: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[  120.379135][ T1977] ==================================================================
+[  120.526264][ T1977] Disabling lock debugging due to kernel taint
+[  120.528416][ T1977] ------------[ cut here ]------------
+[  120.530055][ T1977] UBSAN: array-index-out-of-bounds in fs/jfs/jfs_dmap.c:2260:23
+[  120.532366][ T1977] index 2048 is out of range for type 's64 [128]'
+[  120.534355][ T1977] CPU: 2 UID: 0 PID: 1977 Comm: syz.0.15 Tainted: G    B              6.13.0-rc7 #1
+[  120.535294][ T1977] Tainted: [B]=BAD_PAGE
+[  120.535294][ T1977] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  120.540298][ T1977] Call Trace:
+[  120.540298][ T1977]  <TASK>
+[  120.540298][ T1977]  dump_stack_lvl+0x180/0x1b0
+[  120.543797][ T1987] loop2: detected capacity change from 0 to 32768
+[  120.540298][ T1977]  ubsan_epilogue+0xa/0x40
+[  120.546249][ T1977]  __ubsan_handle_out_of_bounds+0xa1/0xc0
+[  120.548650][ T1977]  dbAllocBits+0x61f/0x640
+[  120.550244][ T1977]  dbAllocDmap+0x61/0x120
+[  120.550244][ T1977]  dbAllocDmapLev+0x175/0x2f0
+[  120.550244][ T1977]  ? __pfx___sanitizer_cov_trace_pc+0x10/0x10
+[  120.550244][ T1977]  ? __pfx_dbAllocDmapLev+0x10/0x10
+[  120.556251][ T1977]  ? write_comp_data+0x29/0x90
+[  120.556251][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.556251][ T1977]  dbAllocCtl+0x172/0x7f0
+[  120.560245][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.560245][ T1977]  ? __phys_addr+0xeb/0x180
+[  120.563593][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.565277][ T1977]  dbAllocAG+0x8e1/0xdc0
+[  120.566824][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.568254][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.569242][ T1977]  ? rcu_is_watching+0x12/0xc0
+[  120.571443][ T1977]  ? __pfx_dbAllocAG+0x10/0x10
+[  120.572564][ T1977]  ? __kmalloc_noprof+0x434/0x570
+[  120.574304][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.576248][ T1977]  ? write_comp_data+0x29/0x90
+[  120.577459][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.579424][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.580544][ T1977]  dbDiscardAG+0x24b/0x7f0
+[  120.581664][ T1977]  ? __pfx_dbDiscardAG+0x10/0x10
+[  120.583857][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.584688][ T1977]  jfs_ioc_trim+0x400/0x5c0
+[  120.587033][ T1977]  jfs_ioctl+0x31a/0x410
+[  120.588271][ T1977]  ? __pfx_jfs_ioctl+0x10/0x10
+[  120.589265][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.591013][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.593142][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.594278][ T1977]  ? write_comp_data+0x29/0x90
+[  120.596247][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.597749][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.599249][ T1977]  ? __pfx_jfs_ioctl+0x10/0x10
+[  120.600250][ T1977]  __x64_sys_ioctl+0x19e/0x210
+[  120.600250][ T1977]  do_syscall_64+0xc3/0x1d0
+[  120.600250][ T1977]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  120.604248][ T1977] RIP: 0033:0x7f9a04c6f71d
+[  120.607112][ T1977] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  120.609257][ T1977] RSP: 002b:00007f9a046caba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+[  120.614947][ T1977] RAX: ffffffffffffffda RBX: 00007f9a04e31f80 RCX: 00007f9a04c6f71d
+[  120.617324][ T1977] RDX: 00000000200000c0 RSI: 00000000c0185879 RDI: 0000000000000004
+[  120.619294][ T1977] RBP: 00007f9a04ce4425 R08: 0000000000000000 R09: 0000000000000000
+[  120.621738][ T1977] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  120.624019][ T1977] R13: 00007f9a04e31f8c R14: 00007f9a04e32018 R15: 00007f9a046cad40
+[  120.626268][ T1977]  </TASK>
+[  120.627964][ T1977] ---[ end trace ]---
+[  120.630023][ T1977] ------------[ cut here ]------------
+[  120.631785][ T1977] UBSAN: array-index-out-of-bounds in fs/jfs/jfs_dmap.c:2400:23
+[  120.634319][ T1977] index 2048 is out of range for type 's64 [128]'
+[  120.636354][ T1977] CPU: 2 UID: 0 PID: 1977 Comm: syz.0.15 Tainted: G    B              6.13.0-rc7 #1
+[  120.638271][ T1977] Tainted: [B]=BAD_PAGE
+[  120.638271][ T1977] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  120.642274][ T1977] Call Trace:
+[  120.644012][ T1977]  <TASK>
+[  120.644545][ T1977]  dump_stack_lvl+0x180/0x1b0
+[  120.645644][ T1977]  ubsan_epilogue+0xa/0x40
+[  120.645644][ T1977]  __ubsan_handle_out_of_bounds+0xa1/0xc0
+[  120.645644][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.645644][ T1977]  ? write_comp_data+0x29/0x90
+[  120.645644][ T1977]  dbFreeBits+0x7ba/0x8e0
+[  120.645644][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.645644][ T1977]  dbAllocDmap+0xfa/0x120
+[  120.645644][ T1977]  dbAllocDmapLev+0x175/0x2f0
+[  120.645644][ T1977]  ? __pfx___sanitizer_cov_trace_pc+0x10/0x10
+[  120.645644][ T1977]  ? __pfx_dbAllocDmapLev+0x10/0x10
+[  120.645644][ T1977]  ? write_comp_data+0x29/0x90
+[  120.645644][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.645644][ T1977]  dbAllocCtl+0x172/0x7f0
+[  120.645644][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.645644][ T1977]  ? __phys_addr+0xeb/0x180
+[  120.645644][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.645644][ T1977]  dbAllocAG+0x8e1/0xdc0
+[  120.645644][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.645644][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.645644][ T1977]  ? rcu_is_watching+0x12/0xc0
+[  120.676067][ T1977]  ? __pfx_dbAllocAG+0x10/0x10
+[  120.677241][ T1977]  ? __kmalloc_noprof+0x434/0x570
+[  120.679503][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.681783][ T1977]  ? write_comp_data+0x29/0x90
+[  120.682863][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.684241][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.685669][ T1977]  dbDiscardAG+0x24b/0x7f0
+[  120.687823][ T1977]  ? __pfx_dbDiscardAG+0x10/0x10
+[  120.689245][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.690729][ T1977]  jfs_ioc_trim+0x400/0x5c0
+[  120.692243][ T1977]  jfs_ioctl+0x31a/0x410
+[  120.693473][ T1977]  ? __pfx_jfs_ioctl+0x10/0x10
+[  120.694888][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.696853][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.696853][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.696853][ T1977]  ? write_comp_data+0x29/0x90
+[  120.700242][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.702751][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.704260][ T1977]  ? __pfx_jfs_ioctl+0x10/0x10
+[  120.704260][ T1977]  __x64_sys_ioctl+0x19e/0x210
+[  120.706988][ T1977]  do_syscall_64+0xc3/0x1d0
+[  120.708243][ T1977]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  120.708243][ T1977] RIP: 0033:0x7f9a04c6f71d
+[  120.712243][ T1977] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  120.717105][ T1977] RSP: 002b:00007f9a046caba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+[  120.720248][ T1977] RAX: ffffffffffffffda RBX: 00007f9a04e31f80 RCX: 00007f9a04c6f71d
+[  120.720248][ T1977] RDX: 00000000200000c0 RSI: 00000000c0185879 RDI: 0000000000000004
+[  120.724243][ T1977] RBP: 00007f9a04ce4425 R08: 0000000000000000 R09: 0000000000000000
+[  120.724243][ T1977] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  120.728246][ T1977] R13: 00007f9a04e31f8c R14: 00007f9a04e32018 R15: 00007f9a046cad40
+[  120.728246][ T1977]  </TASK>
+[  120.733721][ T1977] ---[ end trace ]---
+[  120.735661][ T1977] ------------[ cut here ]------------
+[  120.737345][ T1977] UBSAN: array-index-out-of-bounds in fs/jfs/jfs_dmap.c:2407:21
+[  120.739668][ T1977] index 2048 is out of range for type 's64 [128]'
+[  120.741625][ T1977] CPU: 2 UID: 0 PID: 1977 Comm: syz.0.15 Tainted: G    B              6.13.0-rc7 #1
+[  120.742568][ T1977] Tainted: [B]=BAD_PAGE
+[  120.742568][ T1977] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  120.742568][ T1977] Call Trace:
+[  120.742568][ T1977]  <TASK>
+[  120.742568][ T1977]  dump_stack_lvl+0x180/0x1b0
+[  120.742568][ T1977]  ubsan_epilogue+0xa/0x40
+[  120.742568][ T1977]  __ubsan_handle_out_of_bounds+0xa1/0xc0
+[  120.742568][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.742568][ T1977]  ? write_comp_data+0x29/0x90
+[  120.757260][ T1977]  dbFreeBits+0x764/0x8e0
+[  120.757260][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.757260][ T1977]  dbAllocDmap+0xfa/0x120
+[  120.757260][ T1977]  dbAllocDmapLev+0x175/0x2f0
+[  120.757260][ T1977]  ? __pfx___sanitizer_cov_trace_pc+0x10/0x10
+[  120.757260][ T1977]  ? __pfx_dbAllocDmapLev+0x10/0x10
+[  120.757260][ T1977]  ? write_comp_data+0x29/0x90
+[  120.757260][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.757260][ T1977]  dbAllocCtl+0x172/0x7f0
+[  120.757260][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.757260][ T1977]  ? __phys_addr+0xeb/0x180
+[  120.757260][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.757260][ T1977]  dbAllocAG+0x8e1/0xdc0
+[  120.757260][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.757260][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.757260][ T1977]  ? rcu_is_watching+0x12/0xc0
+[  120.757260][ T1977]  ? __pfx_dbAllocAG+0x10/0x10
+[  120.757260][ T1977]  ? __kmalloc_noprof+0x434/0x570
+[  120.757260][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.757260][ T1977]  ? write_comp_data+0x29/0x90
+[  120.757260][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.757260][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.757260][ T1977]  dbDiscardAG+0x24b/0x7f0
+[  120.757260][ T1977]  ? __pfx_dbDiscardAG+0x10/0x10
+[  120.757260][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.795247][ T1977]  jfs_ioc_trim+0x400/0x5c0
+[  120.795247][ T1977]  jfs_ioctl+0x31a/0x410
+[  120.795247][ T1977]  ? __pfx_jfs_ioctl+0x10/0x10
+[  120.795247][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.795247][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.795247][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.795247][ T1977]  ? write_comp_data+0x29/0x90
+[  120.795247][ T1977]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  120.795247][ T1977]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[  120.795247][ T1977]  ? __pfx_jfs_ioctl+0x10/0x10
+[  120.795247][ T1977]  __x64_sys_ioctl+0x19e/0x210
+[  120.795247][ T1977]  do_syscall_64+0xc3/0x1d0
+[  120.795247][ T1977]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  120.795247][ T1977] RIP: 0033:0x7f9a04c6f71d
+[  120.795247][ T1977] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  120.820252][ T1977] RSP: 002b:00007f9a046caba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+[  120.820252][ T1977] RAX: ffffffffffffffda RBX: 00007f9a04e31f80 RCX: 00007f9a04c6f71d
+[  120.820252][ T1977] RDX: 00000000200000c0 RSI: 00000000c0185879 RDI: 0000000000000004
+[  120.820252][ T1977] RBP: 00007f9a04ce4425 R08: 0000000000000000 R09: 0000000000000000
+[  120.820252][ T1977] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  120.820252][ T1977] R13: 00007f9a04e31f8c R14: 00007f9a04e32018 R15: 00007f9a046cad40
+[  120.820252][ T1977]  </TASK>
+[  120.838282][ T1977] ---[ end trace ]---
+[  120.840451][ T1977] ERROR: (device loop0): dbDiscardAG: -EIO
+[  120.840451][ T1977] 
+[  120.843170][ T1977] ERROR: (device loop0): remounting filesystem as read-only
+[  120.901748][  T774] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  120.904140][  T774] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  120.924912][  T194] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  120.927268][  T194] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  121.030357][  T475] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  121.032800][  T475] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  121.101747][ T1999] loop3: detected capacity change from 0 to 32768
+[  121.126965][  T475] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  121.129382][  T475] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  121.137276][ T2005] loop1: detected capacity change from 0 to 32768
+[  121.187355][ T2001] loop2: detected capacity change from 0 to 32768
+[  121.408723][ T2008] loop0: detected capacity change from 0 to 32768
+[  121.427416][ T2008] loop0: detected capacity change from 32768 to 32639
+[  121.435937][ T2008] ERROR: (device loop0): dbDiscardAG: -EIO
+[  121.435937][ T2008] 
+[  121.439847][ T2008] ERROR: (device loop0): remounting filesystem as read-only
+[  121.675293][ T2031] loop2: detected capacity change from 0 to 32768
+[  121.683107][ T2021] loop1: detected capacity change from 0 to 32768
+[  121.713780][ T2017] loop3: detected capacity change from 0 to 32768
+[  121.889373][ T2036] loop5: detected capacity change from 0 to 32768
+[  121.910329][ T2034] loop7: detected capacity change from 0 to 32768
+[  121.980980][ T2042] loop0: detected capacity change from 0 to 32768
+[  122.060668][ T2040] loop6: detected capacity change from 0 to 32768
+[  122.080728][ T2042] loop0: detected capacity change from 32768 to 32639
+[  122.089111][ T2044] loop1: detected capacity change from 0 to 32768
+[  122.343024][ T2049] loop2: detected capacity change from 0 to 32768
+[  122.345713][ T2050] loop3: detected capacity change from 0 to 32768
+[  122.396611][ T2053] loop5: detected capacity change from 0 to 32768
+[  122.444783][ T2055] loop7: detected capacity change from 0 to 32768
+[  122.629110][ T2057] loop0: detected capacity change from 0 to 32768
+[  122.641562][ T2057] loop0: detected capacity change from 32768 to 32639
+[  122.648372][ T2057] ERROR: (device loop0): dbDiscardAG: -EIO
+[  122.648372][ T2057] 
+[  122.652521][ T2057] ERROR: (device loop0): remounting filesystem as read-only
+[  122.731708][ T2061] loop1: detected capacity change from 0 to 32768
+[  122.739379][ T2059] loop6: detected capacity change from 0 to 32768
+[  122.859706][ T2063] loop2: detected capacity change from 0 to 32768
+[  122.922479][ T2067] loop3: detected capacity change from 0 to 32768
+[  122.964761][ T2069] loop5: detected capacity change from 0 to 32768
+[  122.997400][ T2071] loop7: detected capacity change from 0 to 32768
+[  123.135346][ T2073] loop0: detected capacity change from 0 to 32768
+[  123.159263][ T2073] loop0: detected capacity change from 32768 to 32639
+[  123.165147][ T2073] ERROR: (device loop0): dbDiscardAG: -EIO
+[  123.165147][ T2073] 
+[  123.169513][ T2073] ERROR: (device loop0): remounting filesystem as read-only
+[  123.226665][ T2076] loop1: detected capacity change from 0 to 32768
+[  123.374593][ T2077] loop6: detected capacity change from 0 to 32768
+[  123.389404][ T2085] loop3: detected capacity change from 0 to 32768
+2025/01/13 12:12:22 executed programs: 62
+[  123.447818][ T2083] loop5: detected capacity change from 0 to 32768
+[  123.480795][ T2079] loop2: detected capacity change from 0 to 32768
+[  123.607743][ T2087] loop7: detected capacity change from 0 to 32768
+[  123.672545][ T2089] loop0: detected capacity change from 0 to 32768
+[  123.698270][ T2089] loop0: detected capacity change from 32768 to 32639
+[  123.705691][ T2089] ERROR: (device loop0): dbDiscardAG: -EIO
+[  123.705691][ T2089] 
+[  123.712965][ T2089] ERROR: (device loop0): remounting filesystem as read-only
+[  123.797122][ T2091] loop1: detected capacity change from 0 to 32768
+[  123.876929][ T2093] loop3: detected capacity change from 0 to 32768
+[  123.979978][ T2096] loop6: detected capacity change from 0 to 32768
+[  124.031862][ T2099] loop5: detected capacity change from 0 to 32768
+[  124.053712][ T2101] loop2: detected capacity change from 0 to 32768
+[  124.168506][ T2103] loop0: detected capacity change from 0 to 32768
+[  124.187243][ T2103] loop0: detected capacity change from 32768 to 32639
+[  124.193327][ T2103] ERROR: (device loop0): dbDiscardAG: -EIO
+[  124.193327][ T2103] 
+[  124.198681][ T2103] ERROR: (device loop0): remounting filesystem as read-only
+[  124.359828][ T2105] loop7: detected capacity change from 0 to 32768
+[  124.394680][ T2115] loop6: detected capacity change from 0 to 32768
+[  124.399874][ T2109] loop3: detected capacity change from 0 to 32768
+[  124.433642][ T2107] loop1: detected capacity change from 0 to 32768
+[  124.567517][ T2117] loop0: detected capacity change from 0 to 32768
+[  124.591292][ T2117] loop0: detected capacity change from 32768 to 32639
+[  124.596814][ T2117] ERROR: (device loop0): dbDiscardAG: -EIO
+[  124.596814][ T2117] 
+[  124.601511][ T2117] ERROR: (device loop0): remounting filesystem as read-only
+[  124.660646][ T2113] loop5: detected capacity change from 0 to 32768
+[  124.824345][ T2119] loop2: detected capacity change from 0 to 32768
+[  124.890831][ T2123] loop6: detected capacity change from 0 to 32768
+[  124.992582][ T2126] loop1: detected capacity change from 0 to 32768
+[  125.002802][ T2122] loop7: detected capacity change from 0 to 32768
+[  125.081028][ T2129] loop0: detected capacity change from 0 to 32768
+[  125.096292][ T2129] loop0: detected capacity change from 32768 to 32639
+[  125.102140][ T2129] ERROR: (device loop0): dbDiscardAG: -EIO
+[  125.102140][ T2129] 
+[  125.105020][ T2129] ERROR: (device loop0): remounting filesystem as read-only
+[  125.130250][ T2133] loop5: detected capacity change from 0 to 32768
+[  125.133796][ T2127] loop3: detected capacity change from 0 to 32768
+[  125.330383][ T2136] loop2: detected capacity change from 0 to 32768
+[  125.526499][ T2144] loop7: detected capacity change from 0 to 32768
+[  125.533702][ T2138] loop0: detected capacity change from 0 to 32768
+[  125.541377][ T2144] loop0: detected capacity change from 32768 to 32639
+[  125.546536][ T2138] Mount JFS Failure: -22
+[  125.547873][ T2138] jfs_mount failed w/return code = -22
+[  125.572425][ T2141] loop6: detected capacity change from 0 to 32768
+[  125.636732][ T2142] loop1: detected capacity change from 0 to 32768
+[  125.752360][ T2148] loop5: detected capacity change from 0 to 32768
+[  125.863877][ T2150] loop3: detected capacity change from 0 to 32768
+[  125.874763][ T2152] loop2: detected capacity change from 0 to 32768
+[  126.087684][ T2154] loop0: detected capacity change from 0 to 32768
+[  126.109270][ T2154] loop0: detected capacity change from 32768 to 32639
+[  126.117820][ T2154] ERROR: (device loop0): dbDiscardAG: -EIO
+[  126.117820][ T2154] 
+[  126.124492][ T2154] ERROR: (device loop0): remounting filesystem as read-only
+[  126.135078][ T2162] loop1: detected capacity change from 0 to 32768
+[  126.154812][ T2158] loop6: detected capacity change from 0 to 32768
+[  126.155801][ T2156] loop7: detected capacity change from 0 to 32768
+[  126.392699][ T2164] loop5: detected capacity change from 0 to 32768
+[  126.424518][ T2168] loop2: detected capacity change from 0 to 32768
+[  126.451808][ T2167] loop3: detected capacity change from 0 to 32768
+[  126.664014][ T2173] loop7: detected capacity change from 0 to 32768
+[  126.675778][ T2176] loop1: detected capacity change from 0 to 32768
+[  126.761723][ T2170] loop6: detected capacity change from 0 to 32768
+[  126.800168][ T2175] loop0: detected capacity change from 0 to 32768
+[  126.838343][ T2175] loop0: detected capacity change from 32768 to 32639
+[  126.842632][ T2175] ERROR: (device loop0): dbDiscardAG: -EIO
+[  126.842632][ T2175] 
+[  126.851687][ T2175] ERROR: (device loop0): remounting filesystem as read-only
+[  126.929480][ T2182] loop2: detected capacity change from 0 to 32768
+[  126.979412][ T2180] loop5: detected capacity change from 0 to 32768
+[  126.987523][ T2184] loop3: detected capacity change from 0 to 32768
+[  127.273915][ T2194] loop0: detected capacity change from 0 to 32768
+[  127.274255][ T2186] loop7: detected capacity change from 0 to 32768
+[  127.278472][ T2188] loop1: detected capacity change from 0 to 32768
+[  127.294280][ T2194] loop0: detected capacity change from 32768 to 32639
+[  127.307050][ T2194] ERROR: (device loop0): dbDiscardAG: -EIO
+[  127.307050][ T2194] 
+[  127.313711][ T2194] ERROR: (device loop0): remounting filesystem as read-only
+[  127.313826][ T2192] loop6: detected capacity change from 0 to 32768
+[  127.445722][ T2197] loop5: detected capacity change from 0 to 32768
+[  127.525618][ T2198] loop2: detected capacity change from 0 to 32768
+[  127.581136][ T2200] loop3: detected capacity change from 0 to 32768
+[  127.784869][ T2202] loop0: detected capacity change from 0 to 32768
+[  127.834261][ T2202] loop0: detected capacity change from 32768 to 32639
+[  127.846975][ T2202] ERROR: (device loop0): dbDiscardAG: -EIO
+[  127.846975][ T2202] 
+[  127.850065][ T2214] loop2: detected capacity change from 0 to 32768
+[  127.855094][ T2202] ERROR: (device loop0): remounting filesystem as read-only
+[  127.878368][ T2206] loop1: detected capacity change from 0 to 32768
+[  127.878420][ T2208] loop7: detected capacity change from 0 to 32768
+[  127.987153][ T2210] loop6: detected capacity change from 0 to 32768
+[  128.094775][ T2212] loop5: detected capacity change from 0 to 32768
+[  128.297174][ T2218] loop3: detected capacity change from 0 to 32768
+[  128.338984][ T2226] loop1: detected capacity change from 0 to 32768
+[  128.375392][ T2220] loop0: detected capacity change from 0 to 32768
+[  128.412329][ T2216] loop0: detected capacity change from 32768 to 32639
+[  128.420344][ T2220] jfs_mount: diMount failed w/rc = -5
+[  128.422524][ T2220] Mount JFS Failure: -5
+[  128.423906][ T2220] jfs_mount failed w/return code = -5
+[  128.442635][ T2224] loop7: detected capacity change from 0 to 32768
+2025/01/13 12:12:27 executed programs: 132
+[  128.491431][ T2222] loop2: detected capacity change from 0 to 32768
+[  128.706065][ T2229] loop6: detected capacity change from 0 to 32768
+[  128.741469][ T2230] loop5: detected capacity change from 0 to 32768
+[  128.763841][ T2234] loop3: detected capacity change from 0 to 32768
+[  128.839057][ T2238] loop1: detected capacity change from 0 to 32768
+[  128.954556][ T2237] loop0: detected capacity change from 0 to 32768
+[  128.995261][ T2237] loop0: detected capacity change from 32768 to 32639
+[  129.008723][ T2237] ERROR: (device loop0): dbDiscardAG: -EIO
+[  129.008723][ T2237] 
+[  129.014599][ T2237] ERROR: (device loop0): remounting filesystem as read-only
+[  129.097043][ T2240] loop7: detected capacity change from 0 to 32768
+[  129.148735][ T2244] loop2: detected capacity change from 0 to 32768
+[  129.280594][ T2242] loop6: detected capacity change from 0 to 32768
+[  129.321359][ T2250] loop1: detected capacity change from 0 to 32768
+[  129.324055][ T2247] loop5: detected capacity change from 0 to 32768
+[  129.341489][ T2248] loop3: detected capacity change from 0 to 32768
+[  129.630810][ T2254] loop0: detected capacity change from 0 to 32768
+[  129.680467][ T2258] loop2: detected capacity change from 0 to 32768
+[  129.689284][ T2254] loop0: detected capacity change from 32768 to 32639
+[  129.698075][ T2256] loop7: detected capacity change from 0 to 32768
+[  129.702814][ T2254] ERROR: (device loop0): dbDiscardAG: -EIO
+[  129.702814][ T2254] 
+[  129.709031][ T2254] ERROR: (device loop0): remounting filesystem as read-only
+[  129.873131][ T2260] loop6: detected capacity change from 0 to 32768
+[  129.899701][ T2263] loop5: detected capacity change from 0 to 32768
+[  130.040898][ T2264] loop3: detected capacity change from 0 to 32768
+[  130.119395][ T2270] loop0: detected capacity change from 0 to 32768
+[  130.138556][ T2268] loop1: detected capacity change from 0 to 32768
+[  130.144361][ T2270] loop0: detected capacity change from 32768 to 32639
+[  130.151252][ T2270] ERROR: (device loop0): dbDiscardAG: -EIO
+[  130.151252][ T2270] 
+[  130.164841][ T2270] ERROR: (device loop0): remounting filesystem as read-only
+
+VM DIAGNOSIS:
+20:12:19  Registers:
+info registers vcpu 0
+RAX=0000000000000000 RBX=ffffffffad89fa96 RCX=ffffffffad89fa96 RDX=0000000000000001
+RSI=ff11000001770000 RDI=0000000000000003 RBP=0000000000000001 RSP=ffa00000000075f0
+R8 =0000000000000000 R9 =ffa00000000077e8 R10=fffffbfff711f0d4 R11=ffffffffb88f86a7
+R12=0000000000000000 R13=0000000000000005 R14=ff11000001770000 R15=ff11000014df88b8
+RIP=ffffffffa6699c9b RFL=00000246 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff1100006a200000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe0b08476000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0b08474000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000001b30b5ffff CR3=000000001dcb0005 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=000000000000000000000000000000ff XMM01=25252525252525252525252525252525
+XMM02=00007fdb4481031800007fdb448102f0 XMM03=00000000000000000000000000000000
+XMM04=000000000000000000000000000000ff XMM05=00007fdb448102f800007fdb44810340
+XMM06=00007fdb4481033800007fdb44810330 XMM07=00007fdb4481032800007fdb44810320
+XMM08=6ebc7feec8db0000000ffd9b7563ff76 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 1
+RAX=0000000000000000 RBX=ff110000292d0000 RCX=0000000000001000 RDX=0000000000000200
+RSI=0000000000000001 RDI=ff110000292d0000 RBP=ffd4000000a4b400 RSP=ffa0000009a67858
+R8 =0000000000001000 R9 =0000000000000001 R10=fffa7c0000149686 R11=ffd4000000a4b437
+R12=fffffbfff6090640 R13=fffffbfff609063e R14=ffd4000000a4b440 R15=0000000000000000
+RIP=ffffffffae2bea4b RFL=00000246 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0000 0000000000000000 00000000 00000000
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007fda1ec2d540 00000000 00000000
+GS =0000 ff1100006a280000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe6ed95cd000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe6ed95cb000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000560218fbbf98 CR3=0000000059344004 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=0000000000000000756e20796d6d7564 XMM01=00000000000000000000616573002009
+XMM02=ffffffffffffffff0f0e0d0c0b0a0908 XMM03=756e20796d6d756420736e6f6974706f
+XMM04=00000000000000000000000000000000 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 2
+RAX=000000000000003a RBX=0000000000000000 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ff1100000acd8000 RDI=ffffffffbc54f0c0 RBP=ffffffffbc54f080 RSP=ffa0000009a77398
+R8 =fff3fc000134ee00 R9 =ffe21c0000ecb047 R10=ffe21c0000ecb046 R11=ff11000007658237
+R12=0000000000000000 R13=000000000000003a R14=0000000000000000 R15=0000000000000010
+RIP=ffffffffa995addf RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007f9a046cb700 00000000 00000000
+GS =0000 ff1100006a300000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe6df11f3000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe6df11f1000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f9a04c25960 CR3=000000001c990002 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=ffffffffffff00000000000000000000 XMM01=23232323232323232323232323232323
+XMM02=ffffffffffffffffffffffffffffffff XMM03=00000000000000000000000000000000
+XMM04=ffffffffffff00000000000000000000 XMM05=00007f9a04dfa2f800007f9a04dfa340
+XMM06=00007f9a04dfa33800007f9a04dfa330 XMM07=00007f9a04dfa32800007f9a04dfa320
+XMM08=6ebc7feec8db0000000ffd9b7563ff76 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 3
+RAX=ff11000021bb2fc0 RBX=ff11000021cb0f60 RCX=ffffffffa647d914 RDX=1fe22000043961ee
+RSI=0000000000000004 RDI=ffa0000004f57bc8 RBP=dffffc0000000000 RSP=ffa0000004f57c38
+R8 =fff3fc00009eaf79 R9 =fff3fc00009eaf7a R10=fff3fc00009eaf79 R11=0000000000000003
+R12=ff11000021bb2fc0 R13=ff110000076d1f10 R14=1ff40000009eaf8b R15=00007f1aff1e2000
+RIP=ffffffffa6971c34 RFL=00000282 [--S----] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0000 0000000000000000 00000000 00000000
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007f1b07195700 00000000 00000000
+GS =0000 ff1100006a380000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe3c068b1000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe3c068af000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007f1aff1e2000 CR3=00000000113fc002 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=000000000000000000000000000000ff XMM01=25252525252525252525252525252525
+XMM02=00007f1b078c431800007f1b078c42f0 XMM03=00000000000000000000000000000000
+XMM04=000000000000000000000000000000ff XMM05=00007f1b078c42f800007f1b078c4340
+XMM06=00007f1b078c433800007f1b078c4330 XMM07=00007f1b078c432800007f1b078c4320
+XMM08=6ebc7feec8db0000000ffd9b7563ff76 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

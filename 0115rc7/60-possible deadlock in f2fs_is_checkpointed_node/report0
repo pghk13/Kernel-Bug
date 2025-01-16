@@ -1,0 +1,296 @@
+======================================================
+WARNING: possible circular locking dependency detected
+6.13.0-rc7 #1 Not tainted
+------------------------------------------------------
+syz.3.3754/19996 is trying to acquire lock:
+ff110000164c6930 (&nm_i->nat_tree_lock){++++}-{4:4}, at: f2fs_down_read fs/f2fs/f2fs.h:2188 [inline]
+ff110000164c6930 (&nm_i->nat_tree_lock){++++}-{4:4}, at: f2fs_is_checkpointed_node+0x4d/0xd0 fs/f2fs/node.c:403
+
+but task is already holding lock:
+ff11000035cb9f10 (&fi->i_sem){++++}-{4:4}, at: f2fs_down_read fs/f2fs/f2fs.h:2188 [inline]
+ff11000035cb9f10 (&fi->i_sem){++++}-{4:4}, at: f2fs_do_sync_file+0xbe2/0x2620 fs/f2fs/file.c:324
+
+which lock already depends on the new lock.
+
+
+the existing dependency chain (in reverse order) is:
+
+-> #8 (&fi->i_sem){++++}-{4:4}:
+       down_read+0x9c/0x480 kernel/locking/rwsem.c:1524
+       f2fs_down_read fs/f2fs/f2fs.h:2188 [inline]
+       f2fs_file_mmap+0x1d1/0x290 fs/f2fs/file.c:548
+       call_mmap include/linux/fs.h:2183 [inline]
+       mmap_file mm/internal.h:124 [inline]
+       __mmap_new_file_vma mm/vma.c:2291 [inline]
+       __mmap_new_vma mm/vma.c:2355 [inline]
+       __mmap_region+0x1a5c/0x2840 mm/vma.c:2456
+       mmap_region+0x265/0x300 mm/mmap.c:1352
+       do_mmap+0xa65/0x1090 mm/mmap.c:500
+       vm_mmap_pgoff+0x1b3/0x380 mm/util.c:575
+       ksys_mmap_pgoff+0x477/0x600 mm/mmap.c:546
+       __do_sys_mmap arch/x86/kernel/sys_x86_64.c:89 [inline]
+       __se_sys_mmap arch/x86/kernel/sys_x86_64.c:82 [inline]
+       __x64_sys_mmap+0x127/0x190 arch/x86/kernel/sys_x86_64.c:82
+       do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+       do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #7 (&mm->mmap_lock){++++}-{4:4}:
+       __might_fault mm/memory.c:6751 [inline]
+       __might_fault+0x110/0x190 mm/memory.c:6744
+       _inline_copy_from_user include/linux/uaccess.h:162 [inline]
+       _copy_from_user+0x2b/0xd0 lib/usercopy.c:18
+       copy_from_user include/linux/uaccess.h:212 [inline]
+       __blk_trace_setup+0x96/0x180 kernel/trace/blktrace.c:626
+       blk_trace_setup+0x47/0x70 kernel/trace/blktrace.c:648
+       sg_ioctl_common drivers/scsi/sg.c:1114 [inline]
+       sg_ioctl+0x622/0x25f0 drivers/scsi/sg.c:1156
+       vfs_ioctl fs/ioctl.c:51 [inline]
+       __do_sys_ioctl fs/ioctl.c:906 [inline]
+       __se_sys_ioctl fs/ioctl.c:892 [inline]
+       __x64_sys_ioctl+0x19e/0x210 fs/ioctl.c:892
+       do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+       do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #6 (&q->debugfs_mutex){+.+.}-{4:4}:
+       __mutex_lock_common kernel/locking/mutex.c:585 [inline]
+       __mutex_lock+0x16f/0x1eb0 kernel/locking/mutex.c:735
+       blk_mq_init_sched+0x429/0x670 block/blk-mq-sched.c:473
+       elevator_init_mq+0x26a/0x390 block/elevator.c:610
+       add_disk_fwnode+0x113/0x1330 block/genhd.c:413
+       sd_probe+0xa6a/0xef0 drivers/scsi/sd.c:4024
+       call_driver_probe drivers/base/dd.c:579 [inline]
+       really_probe+0x253/0x990 drivers/base/dd.c:658
+       __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+       driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+       __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+       bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+       __device_attach_async_helper+0x1e1/0x2a0 drivers/base/dd.c:987
+       async_run_entry_fn+0x9e/0x540 kernel/async.c:129
+       process_one_work kernel/workqueue.c:3236 [inline]
+       process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+       worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+       kthread+0x345/0x450 kernel/kthread.c:389
+       ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+
+-> #5 (&q->q_usage_counter(queue)){++++}-{0:0}:
+       blk_queue_enter+0x26c/0xca0 block/blk-core.c:328
+       blk_mq_alloc_request+0x415/0x870 block/blk-mq.c:652
+       scsi_alloc_request drivers/scsi/scsi_lib.c:1222 [inline]
+       scsi_execute_cmd+0x1f2/0xe30 drivers/scsi/scsi_lib.c:304
+       read_capacity_16.isra.0+0x1fb/0xc90 drivers/scsi/sd.c:2655
+       sd_read_capacity drivers/scsi/sd.c:2824 [inline]
+       sd_revalidate_disk+0x1840/0xab30 drivers/scsi/sd.c:3734
+       sd_probe+0x8f3/0xef0 drivers/scsi/sd.c:4010
+       call_driver_probe drivers/base/dd.c:579 [inline]
+       really_probe+0x253/0x990 drivers/base/dd.c:658
+       __driver_probe_device+0x1df/0x450 drivers/base/dd.c:800
+       driver_probe_device+0x4c/0x1a0 drivers/base/dd.c:830
+       __device_attach_driver+0x1e4/0x2d0 drivers/base/dd.c:958
+       bus_for_each_drv+0x14c/0x1d0 drivers/base/bus.c:459
+       __device_attach_async_helper+0x1e1/0x2a0 drivers/base/dd.c:987
+       async_run_entry_fn+0x9e/0x540 kernel/async.c:129
+       process_one_work kernel/workqueue.c:3236 [inline]
+       process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+       worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+       kthread+0x345/0x450 kernel/kthread.c:389
+       ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+
+-> #4 (&q->limits_lock){+.+.}-{4:4}:
+       __mutex_lock_common kernel/locking/mutex.c:585 [inline]
+       __mutex_lock+0x16f/0x1eb0 kernel/locking/mutex.c:735
+       queue_limits_start_update include/linux/blkdev.h:947 [inline]
+       loop_reconfigure_limits+0x2b5/0x8d0 drivers/block/loop.c:998
+       loop_set_block_size drivers/block/loop.c:1473 [inline]
+       lo_simple_ioctl drivers/block/loop.c:1496 [inline]
+       lo_ioctl+0xe5b/0x1760 drivers/block/loop.c:1559
+       blkdev_ioctl+0x27e/0x6d0 block/ioctl.c:693
+       vfs_ioctl fs/ioctl.c:51 [inline]
+       __do_sys_ioctl fs/ioctl.c:906 [inline]
+       __se_sys_ioctl fs/ioctl.c:892 [inline]
+       __x64_sys_ioctl+0x19e/0x210 fs/ioctl.c:892
+       do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+       do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #3 (&q->q_usage_counter(io)#9){++++}-{0:0}:
+       bio_queue_enter block/blk.h:75 [inline]
+       blk_mq_submit_bio+0x18eb/0x1fe0 block/blk-mq.c:3090
+       __submit_bio+0x1ac/0xed0 block/blk-core.c:629
+       __submit_bio_noacct_mq block/blk-core.c:710 [inline]
+       submit_bio_noacct_nocheck block/blk-core.c:739 [inline]
+       submit_bio_noacct_nocheck+0x67e/0xd40 block/blk-core.c:716
+       submit_bio_noacct+0x649/0x13a0 block/blk-core.c:868
+       submit_bio_wait+0x10c/0x240 block/bio.c:1391
+       __f2fs_commit_super+0x28b/0x530 fs/f2fs/super.c:3390
+       f2fs_commit_super+0x54d/0xc50 fs/f2fs/super.c:4069
+       f2fs_record_errors fs/f2fs/super.c:4160 [inline]
+       f2fs_handle_error+0x10a/0x1a0 fs/f2fs/super.c:4172
+       check_block_count fs/f2fs/segment.h:825 [inline]
+       build_sit_entries+0x1fee/0x25f0 fs/f2fs/segment.c:4921
+       f2fs_build_segment_manager+0x55e4/0x93f0 fs/f2fs/segment.c:5593
+       f2fs_fill_super+0x5171/0x8bb0 fs/f2fs/super.c:4649
+       mount_bdev+0x1e9/0x2d0 fs/super.c:1693
+       legacy_get_tree+0x109/0x220 fs/fs_context.c:662
+       vfs_get_tree+0x93/0x340 fs/super.c:1814
+       do_new_mount fs/namespace.c:3511 [inline]
+       path_mount+0x1272/0x1ba0 fs/namespace.c:3838
+       do_mount+0xf8/0x110 fs/namespace.c:3851
+       __do_sys_mount fs/namespace.c:4061 [inline]
+       __se_sys_mount fs/namespace.c:4038 [inline]
+       __x64_sys_mount+0x193/0x230 fs/namespace.c:4038
+       do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+       do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #2 (&sbi->sb_lock){++++}-{4:4}:
+       down_write+0x92/0x200 kernel/locking/rwsem.c:1577
+       f2fs_down_write fs/f2fs/f2fs.h:2204 [inline]
+       f2fs_record_errors fs/f2fs/super.c:4155 [inline]
+       f2fs_handle_error+0x46/0x1a0 fs/f2fs/super.c:4172
+       check_block_count fs/f2fs/segment.h:825 [inline]
+       build_sit_entries+0x1fee/0x25f0 fs/f2fs/segment.c:4921
+       f2fs_build_segment_manager+0x55e4/0x93f0 fs/f2fs/segment.c:5593
+       f2fs_fill_super+0x5171/0x8bb0 fs/f2fs/super.c:4649
+       mount_bdev+0x1e9/0x2d0 fs/super.c:1693
+       legacy_get_tree+0x109/0x220 fs/fs_context.c:662
+       vfs_get_tree+0x93/0x340 fs/super.c:1814
+       do_new_mount fs/namespace.c:3511 [inline]
+       path_mount+0x1272/0x1ba0 fs/namespace.c:3838
+       do_mount+0xf8/0x110 fs/namespace.c:3851
+       __do_sys_mount fs/namespace.c:4061 [inline]
+       __se_sys_mount fs/namespace.c:4038 [inline]
+       __x64_sys_mount+0x193/0x230 fs/namespace.c:4038
+       do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+       do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #1 (&array[i].journal_rwsem){++++}-{4:4}:
+       down_read+0x9c/0x480 kernel/locking/rwsem.c:1524
+       scan_curseg_cache+0xa9/0x390 fs/f2fs/node.c:2445
+       __f2fs_build_free_nids fs/f2fs/node.c:2564 [inline]
+       f2fs_build_free_nids+0xe28/0x16d0 fs/f2fs/node.c:2579
+       f2fs_build_node_manager+0x27fe/0x32b0 fs/f2fs/node.c:3364
+       f2fs_fill_super+0x5194/0x8bb0 fs/f2fs/super.c:4655
+       mount_bdev+0x1e9/0x2d0 fs/super.c:1693
+       legacy_get_tree+0x109/0x220 fs/fs_context.c:662
+       vfs_get_tree+0x93/0x340 fs/super.c:1814
+       do_new_mount fs/namespace.c:3511 [inline]
+       path_mount+0x1272/0x1ba0 fs/namespace.c:3838
+       do_mount+0xf8/0x110 fs/namespace.c:3851
+       __do_sys_mount fs/namespace.c:4061 [inline]
+       __se_sys_mount fs/namespace.c:4038 [inline]
+       __x64_sys_mount+0x193/0x230 fs/namespace.c:4038
+       do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+       do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #0 (&nm_i->nat_tree_lock){++++}-{4:4}:
+       check_prev_add kernel/locking/lockdep.c:3161 [inline]
+       check_prevs_add kernel/locking/lockdep.c:3280 [inline]
+       validate_chain kernel/locking/lockdep.c:3904 [inline]
+       __lock_acquire+0x29fe/0x4a10 kernel/locking/lockdep.c:5226
+       lock_acquire kernel/locking/lockdep.c:5849 [inline]
+       lock_acquire+0x1b1/0x580 kernel/locking/lockdep.c:5814
+       down_read+0x9c/0x480 kernel/locking/rwsem.c:1524
+       f2fs_down_read fs/f2fs/f2fs.h:2188 [inline]
+       f2fs_is_checkpointed_node+0x4d/0xd0 fs/f2fs/node.c:403
+       need_do_checkpoint fs/f2fs/file.c:209 [inline]
+       f2fs_do_sync_file+0x12e0/0x2620 fs/f2fs/file.c:325
+       f2fs_sync_file+0x13a/0x190 fs/f2fs/file.c:395
+       vfs_fsync_range+0x13d/0x230 fs/sync.c:187
+       generic_write_sync include/linux/fs.h:2904 [inline]
+       iomap_dio_complete+0x700/0xa00 fs/iomap/direct-io.c:133
+       f2fs_dio_write_iter fs/f2fs/file.c:4949 [inline]
+       f2fs_file_write_iter+0x19c0/0x2950 fs/f2fs/file.c:5063
+       iter_file_splice_write+0xa22/0x1030 fs/splice.c:743
+       do_splice_from+0x80/0xd0 fs/splice.c:941
+       direct_splice_actor+0x12a/0x620 fs/splice.c:1164
+       splice_direct_to_actor+0x368/0xa10 fs/splice.c:1108
+       do_splice_direct_actor+0x181/0x250 fs/splice.c:1207
+       do_splice_direct+0x41/0x60 fs/splice.c:1233
+       do_sendfile+0xac1/0xde0 fs/read_write.c:1363
+       __do_sys_sendfile64 fs/read_write.c:1424 [inline]
+       __se_sys_sendfile64 fs/read_write.c:1410 [inline]
+       __x64_sys_sendfile64+0x1d5/0x210 fs/read_write.c:1410
+       do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+       do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+other info that might help us debug this:
+
+Chain exists of:
+  &nm_i->nat_tree_lock --> &mm->mmap_lock --> &fi->i_sem
+
+ Possible unsafe locking scenario:
+
+       CPU0                    CPU1
+       ----                    ----
+  rlock(&fi->i_sem);
+                               lock(&mm->mmap_lock);
+                               lock(&fi->i_sem);
+  rlock(&nm_i->nat_tree_lock);
+
+ *** DEADLOCK ***
+
+4 locks held by syz.3.3754/19996:
+ #0: ff110000660ea420 (sb_writers#26){.+.+}-{0:0}, at: splice_direct_to_actor+0x368/0xa10 fs/splice.c:1108
+ #1: ff11000035cb9b58 (&sb->s_type->i_mutex_key#31){+.+.}-{4:4}, at: inode_lock include/linux/fs.h:818 [inline]
+ #1: ff11000035cb9b58 (&sb->s_type->i_mutex_key#31){+.+.}-{4:4}, at: f2fs_file_write_iter+0x298/0x2950 fs/f2fs/file.c:5029
+ #2: ff11000035cba118 (&fi->i_gc_rwsem[WRITE]){++++}-{4:4}, at: f2fs_down_read fs/f2fs/f2fs.h:2188 [inline]
+ #2: ff11000035cba118 (&fi->i_gc_rwsem[WRITE]){++++}-{4:4}, at: f2fs_dio_write_iter fs/f2fs/file.c:4926 [inline]
+ #2: ff11000035cba118 (&fi->i_gc_rwsem[WRITE]){++++}-{4:4}, at: f2fs_file_write_iter+0x1c12/0x2950 fs/f2fs/file.c:5063
+ #3: ff11000035cb9f10 (&fi->i_sem){++++}-{4:4}, at: f2fs_down_read fs/f2fs/f2fs.h:2188 [inline]
+ #3: ff11000035cb9f10 (&fi->i_sem){++++}-{4:4}, at: f2fs_do_sync_file+0xbe2/0x2620 fs/f2fs/file.c:324
+
+stack backtrace:
+CPU: 3 UID: 0 PID: 19996 Comm: syz.3.3754 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_circular_bug.isra.0+0x5b5/0x9c0 kernel/locking/lockdep.c:2074
+ check_noncircular+0x2f3/0x3d0 kernel/locking/lockdep.c:2206
+ check_prev_add kernel/locking/lockdep.c:3161 [inline]
+ check_prevs_add kernel/locking/lockdep.c:3280 [inline]
+ validate_chain kernel/locking/lockdep.c:3904 [inline]
+ __lock_acquire+0x29fe/0x4a10 kernel/locking/lockdep.c:5226
+ lock_acquire kernel/locking/lockdep.c:5849 [inline]
+ lock_acquire+0x1b1/0x580 kernel/locking/lockdep.c:5814
+ down_read+0x9c/0x480 kernel/locking/rwsem.c:1524
+ f2fs_down_read fs/f2fs/f2fs.h:2188 [inline]
+ f2fs_is_checkpointed_node+0x4d/0xd0 fs/f2fs/node.c:403
+ need_do_checkpoint fs/f2fs/file.c:209 [inline]
+ f2fs_do_sync_file+0x12e0/0x2620 fs/f2fs/file.c:325
+ f2fs_sync_file+0x13a/0x190 fs/f2fs/file.c:395
+ vfs_fsync_range+0x13d/0x230 fs/sync.c:187
+ generic_write_sync include/linux/fs.h:2904 [inline]
+ iomap_dio_complete+0x700/0xa00 fs/iomap/direct-io.c:133
+ f2fs_dio_write_iter fs/f2fs/file.c:4949 [inline]
+ f2fs_file_write_iter+0x19c0/0x2950 fs/f2fs/file.c:5063
+ iter_file_splice_write+0xa22/0x1030 fs/splice.c:743
+ do_splice_from+0x80/0xd0 fs/splice.c:941
+ direct_splice_actor+0x12a/0x620 fs/splice.c:1164
+ splice_direct_to_actor+0x368/0xa10 fs/splice.c:1108
+ do_splice_direct_actor+0x181/0x250 fs/splice.c:1207
+ do_splice_direct+0x41/0x60 fs/splice.c:1233
+ do_sendfile+0xac1/0xde0 fs/read_write.c:1363
+ __do_sys_sendfile64 fs/read_write.c:1424 [inline]
+ __se_sys_sendfile64 fs/read_write.c:1410 [inline]
+ __x64_sys_sendfile64+0x1d5/0x210 fs/read_write.c:1410
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fb5d5a4c71d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fb5d467eba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000028
+RAX: ffffffffffffffda RBX: 00007fb5d5c0f058 RCX: 00007fb5d5a4c71d
+RDX: 0000000000000000 RSI: 0000000000000006 RDI: 0000000000000006
+RBP: 00007fb5d5ac1425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000080000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fb5d5c0f064 R14: 00007fb5d5c0f0f0 R15: 00007fb5d467ed40
+ </TASK>

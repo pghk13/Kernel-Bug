@@ -1,0 +1,106 @@
+[ 1959.479170][  T805] veth1_vlan: entered promiscuous mode
+[ 1959.501591][  T780] ------------[ cut here ]------------
+[ 1959.503360][  T780] kernel BUG at fs/ocfs2/suballoc.c:2543!
+[ 1959.505274][  T780] Oops: invalid opcode: 0000 [#1] PREEMPT SMP KASAN NOPTI
+[ 1959.506198][  T780] CPU: 2 UID: 0 PID: 780 Comm: syz-executor Not tainted 6.13.0-rc7 #1
+[ 1959.506198][  T780] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[ 1959.506198][  T780] RIP: 0010:_ocfs2_free_suballoc_bits+0xfce/0x13c0
+[ 1959.506198][  T780] Code: 50 44 8b 4c 24 14 44 8b 44 24 58 48 8b 7c 24 28 e8 77 e6 ff ff 58 5a e9 2c f8 ff ff e8 9b 1a 5f fe 90 0f 0b e8 93 1a 5f fe 90 <0f> 0b e8 8b 1a 5f fe 90 0f 0b 90 e9 de f1 ff ff e8 7d 1a 5f fe 90
+[ 1959.506198][  T780] RSP: 0018:ffa000000ca2f930 EFLAGS: 00010246
+[ 1959.506198][  T780] RAX: 00000000aaa9c000 RBX: ff11000047f4be00 RCX: ffffffffa82a731d
+[ 1959.506198][  T780] RDX: 0000000000000e00 RSI: ff110000077bc680 RDI: 0000000000000002
+[ 1959.506198][  T780] RBP: 0000000055555caa R08: 0000000aaaa9c000 R09: 0000000055555555
+[ 1959.506198][  T780] R10: fffffbfff6577b5a R11: ffffffffb2bbdad7 R12: 0000000aaaa9c000
+[ 1959.506198][  T780] R13: 0000000000000e00 R14: 0000000000000e00 R15: ff110000196e96b8
+[ 1959.535801][  T780] FS:  000055555ffcaa00(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+[ 1959.535801][  T780] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[ 1959.535801][  T780] CR2: 000055555ffe5928 CR3: 0000000040d72002 CR4: 0000000000771ef0
+[ 1959.535801][  T780] PKRU: 00000000
+[ 1959.535801][  T780] Call Trace:
+[ 1959.545530][  T780]  <TASK>
+[ 1959.545530][  T780]  ? __die_body+0x1a/0x60
+[ 1959.545530][  T780]  ? die+0x38/0x60
+[ 1959.545530][  T780]  ? do_trap+0x20d/0x270
+[ 1959.545530][  T780]  ? _ocfs2_free_suballoc_bits+0xfce/0x13c0
+[ 1959.545530][  T780]  ? do_error_trap+0xf9/0x240
+[ 1959.545530][  T780]  ? _ocfs2_free_suballoc_bits+0xfce/0x13c0
+[ 1959.545530][  T780]  ? _ocfs2_free_suballoc_bits+0xfce/0x13c0
+[ 1959.545530][  T780]  ? handle_invalid_op+0x34/0x40
+[ 1959.545530][  T780]  ? _ocfs2_free_suballoc_bits+0xfce/0x13c0
+[ 1959.545530][  T780]  ? exc_invalid_op+0x5d/0x80
+[ 1959.545530][  T780]  ? asm_exc_invalid_op+0x1a/0x20
+[ 1959.545530][  T780]  ? _ocfs2_free_suballoc_bits+0x17d/0x13c0
+[ 1959.545530][  T780]  ? _ocfs2_free_suballoc_bits+0xfce/0x13c0
+[ 1959.545530][  T780]  ? __pfx__ocfs2_set_bit+0x10/0x10
+[ 1959.545530][  T780]  ? srso_alias_return_thunk+0x5/0xfbef5
+[ 1959.545530][  T780]  ? __pfx__ocfs2_free_suballoc_bits+0x10/0x10
+[ 1959.545530][  T780]  ? __jbd2_journal_file_buffer+0x5e2/0x860
+[ 1959.545530][  T780]  ? srso_alias_return_thunk+0x5/0xfbef5
+[ 1959.545530][  T780]  ? srso_alias_return_thunk+0x5/0xfbef5
+[ 1959.545530][  T780]  ? write_comp_data+0x29/0x90
+[ 1959.545530][  T780]  ? srso_alias_return_thunk+0x5/0xfbef5
+[ 1959.545530][  T780]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[ 1959.545530][  T780]  _ocfs2_free_clusters+0x50f/0x970
+[ 1959.545530][  T780]  ? __pfx__ocfs2_set_bit+0x10/0x10
+[ 1959.545530][  T780]  ? __pfx__ocfs2_set_bit+0x10/0x10
+[ 1959.545530][  T780]  ? __pfx__ocfs2_free_clusters+0x10/0x10
+[ 1959.545530][  T780]  ? __pfx_down_write+0x10/0x10
+[ 1959.545530][  T780]  ? srso_alias_return_thunk+0x5/0xfbef5
+[ 1959.545530][  T780]  ? srso_alias_return_thunk+0x5/0xfbef5
+[ 1959.545530][  T780]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[ 1959.545530][  T780]  ? srso_alias_return_thunk+0x5/0xfbef5
+[ 1959.545530][  T780]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[ 1959.545530][  T780]  __ocfs2_flush_truncate_log+0x475/0x1250
+[ 1959.545530][  T780]  ? __pfx___ocfs2_flush_truncate_log+0x10/0x10
+[ 1959.545530][  T780]  ? down_write+0x14e/0x200
+[ 1959.545530][  T780]  ? __pfx_down_write+0x10/0x10
+[ 1959.545530][  T780]  ? __pfx_do_raw_spin_lock+0x10/0x10
+[ 1959.613615][  T780]  ocfs2_flush_truncate_log+0x4d/0x70
+[ 1959.613615][  T780]  ocfs2_sync_fs+0x1cb/0x3d0
+[ 1959.613615][  T780]  ? __pfx_ocfs2_sync_fs+0x10/0x10
+[ 1959.613615][  T780]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[ 1959.613615][  T780]  ? srso_alias_return_thunk+0x5/0xfbef5
+[ 1959.613615][  T780]  ? get_nr_dirty_inodes+0x135/0x1e0
+[ 1959.613615][  T780]  ? __pfx_ocfs2_sync_fs+0x10/0x10
+[ 1959.613615][  T780]  sync_filesystem+0x1d5/0x2a0
+[ 1959.613615][  T780]  generic_shutdown_super+0x74/0x380
+[ 1959.613615][  T780]  kill_block_super+0x3b/0x90
+[ 1959.613615][  T780]  deactivate_locked_super+0xbb/0x130
+[ 1959.613615][  T780]  deactivate_super+0xb1/0xd0
+[ 1959.613615][  T780]  cleanup_mnt+0x378/0x510
+[ 1959.637007][  T780]  task_work_run+0x173/0x280
+[ 1959.637007][  T780]  ? __pfx_task_work_run+0x10/0x10
+[ 1959.637007][  T780]  ? syscall_exit_to_user_mode+0x1b4/0x270
+[ 1959.637007][  T780]  syscall_exit_to_user_mode+0x261/0x270
+[ 1959.637007][  T780]  do_syscall_64+0xd0/0x1d0
+[ 1959.637007][  T780]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[ 1959.637007][  T780] RIP: 0033:0x7f7347a1d44b
+[ 1959.637007][  T780] Code: ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 90 f3 0f 1e fa 31 f6 e9 05 00 00 00 0f 1f 44 00 00 f3 0f 1e fa b8 a6 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[ 1959.637007][  T780] RSP: 002b:00007ffd7b6b3c88 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+[ 1959.637007][  T780] RAX: 0000000000000000 RBX: 0000000000000000 RCX: 00007f7347a1d44b
+[ 1959.637007][  T780] RDX: 00007f73478b6d40 RSI: 0000000000000009 RDI: 00007ffd7b6b3d50
+[ 1959.637007][  T780] RBP: 00007ffd7b6b3d50 R08: 00007f7347a9874d R09: 00007ffd7b6b3b10
+[ 1959.637007][  T780] R10: 00000000fffffffb R11: 0000000000000246 R12: 00007f7347a98729
+[ 1959.637007][  T780] R13: 00007ffd7b6b4df0 R14: 000055555ffdd8f0 R15: 00007ffd7b6b4e30
+[ 1959.637007][  T780]  </TASK>
+[ 1959.637007][  T780] Modules linked in:
+[ 1959.671592][  T811] netdevsim netdevsim7 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[ 1959.672676][  T780] ---[ end trace 0000000000000000 ]---
+[ 1959.674988][  T811] netdevsim netdevsim7 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[ 1959.675071][  T811] netdevsim netdevsim7 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[ 1959.675149][  T811] netdevsim netdevsim7 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[ 1959.676904][  T780] RIP: 0010:_ocfs2_free_suballoc_bits+0xfce/0x13c0
+[ 1959.676977][  T780] Code: 50 44 8b 4c 24 14 44 8b 44 24 58 48 8b 7c 24 28 e8 77 e6 ff ff 58 5a e9 2c f8 ff ff e8 9b 1a 5f fe 90 0f 0b e8 93 1a 5f fe 90 <0f> 0b e8 8b 1a 5f fe 90 0f 0b 90 e9 de f1 ff ff e8 7d 1a 5f fe 90
+[ 1959.693331][  T780] RSP: 0018:ffa000000ca2f930 EFLAGS: 00010246
+[ 1959.695528][ T2030] loop3: detected capacity change from 0 to 32768
+[ 1959.695652][  T780] RAX: 00000000aaa9c000 RBX: ff11000047f4be00 RCX: ffffffffa82a731d
+[ 1959.700631][  T780] RDX: 0000000000000e00 RSI: ff110000077bc680 RDI: 0000000000000002
+[ 1959.703497][  T780] RBP: 0000000055555caa R08: 0000000aaaa9c000 R09: 0000000055555555
+[ 1959.706162][  T780] R10: fffffbfff6577b5a R11: ffffffffb2bbdad7 R12: 0000000aaaa9c000
+[ 1959.708813][  T780] R13: 0000000000000e00 R14: 0000000000000e00 R15: ff110000196e96b8
+[ 1959.711409][  T780] FS:  000055555ffcaa00(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+[ 1959.714517][  T780] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[ 1959.716816][  T780] CR2: 000055555ffe5928 CR3: 0000000040d72002 CR4: 0000000000771ef0
+[ 1959.719420][  T780] PKRU: 00000000
+[ 1959.720887][  T780] Kernel panic - not syncing: Fatal exception
+[ 1959.721748][  T780] Kernel Offset: 0x25200000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)

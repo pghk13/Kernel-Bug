@@ -1,0 +1,71 @@
+INFO: task syz.2.16:1729 blocked for more than 143 seconds.
+      Tainted: G    B              6.13.0-rc7 #1
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:syz.2.16        state:D stack:24008 pid:1729  tgid:1728  ppid:421    flags:0x00004004
+Call Trace:
+ <TASK>
+ context_switch kernel/sched/core.c:5369 [inline]
+ __schedule+0xe60/0x4120 kernel/sched/core.c:6756
+ __schedule_loop kernel/sched/core.c:6833 [inline]
+ schedule+0xd4/0x210 kernel/sched/core.c:6848
+ io_schedule+0x1a/0x70 kernel/sched/core.c:7681
+ folio_wait_bit_common+0x3cc/0x970 mm/filemap.c:1299
+ folio_lock include/linux/pagemap.h:1151 [inline]
+ bch2_mark_pagecache_unallocated+0x3ca/0x570 fs/bcachefs/fs-io-pagecache.c:275
+ bch2_remap_file_range+0x86f/0x1140 fs/bcachefs/fs-io.c:877
+ vfs_copy_file_range+0xe28/0x1530 fs/read_write.c:1584
+ __do_sys_copy_file_range fs/read_write.c:1670 [inline]
+ __se_sys_copy_file_range fs/read_write.c:1637 [inline]
+ __x64_sys_copy_file_range+0x267/0x560 fs/read_write.c:1637
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fda2421271d
+RSP: 002b:00007fda22e65ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000146
+RAX: ffffffffffffffda RBX: 00007fda243d4f80 RCX: 00007fda2421271d
+RDX: 0000000000000008 RSI: 0000000000000000 RDI: 0000000000000009
+RBP: 00007fda24287425 R08: ffffffffa003e459 R09: 0700000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fda243d4f8c R14: 00007fda243d5018 R15: 00007fda22e65d40
+ </TASK>
+INFO: task syz.2.16:1804 blocked for more than 143 seconds.
+      Tainted: G    B              6.13.0-rc7 #1
+"echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+task:syz.2.16        state:D stack:24400 pid:1804  tgid:1728  ppid:421    flags:0x00004004
+Call Trace:
+ <TASK>
+ context_switch kernel/sched/core.c:5369 [inline]
+ __schedule+0xe60/0x4120 kernel/sched/core.c:6756
+ __schedule_loop kernel/sched/core.c:6833 [inline]
+ schedule+0xd4/0x210 kernel/sched/core.c:6848
+ __bch2_two_state_lock+0x1ee/0x240 fs/bcachefs/two_state_shared_lock.c:7
+ bch2_two_state_lock fs/bcachefs/two_state_shared_lock.h:55 [inline]
+ bch2_readahead+0xf09/0x1330 fs/bcachefs/fs-io-buffered.c:258
+ read_pages+0x1af/0xcf0 mm/readahead.c:160
+ page_cache_ra_unbounded+0x365/0x690 mm/readahead.c:295
+ do_page_cache_ra+0xf9/0x130 mm/readahead.c:325
+ page_cache_sync_ra+0x48a/0x940 mm/readahead.c:612
+ page_cache_sync_readahead include/linux/pagemap.h:1397 [inline]
+ filemap_get_pages+0x335/0x1970 mm/filemap.c:2537
+ filemap_splice_read+0x5b5/0xc80 mm/filemap.c:2913
+ do_splice_read.part.0+0x18a/0x230 fs/splice.c:985
+ do_splice_read fs/splice.c:967 [inline]
+ splice_direct_to_actor+0x2c4/0xa10 fs/splice.c:1089
+ do_splice_direct_actor+0x181/0x250 fs/splice.c:1207
+ do_splice_direct+0x41/0x60 fs/splice.c:1233
+ vfs_copy_file_range+0x5d4/0x1530 fs/read_write.c:1620
+ __do_sys_copy_file_range fs/read_write.c:1670 [inline]
+ __se_sys_copy_file_range fs/read_write.c:1637 [inline]
+ __x64_sys_copy_file_range+0x267/0x560 fs/read_write.c:1637
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fda2421271d
+RSP: 002b:00007fda22e44ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000146
+RAX: ffffffffffffffda RBX: 00007fda243d5058 RCX: 00007fda2421271d
+RDX: 0000000000000008 RSI: 0000000000000000 RDI: 0000000000000009
+RBP: 00007fda24287425 R08: ffffffffa003e459 R09: 0700000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fda243d5064 R14: 00007fda243d50f0 R15: 00007fda22e44d40
+ </TASK>
+INFO: lockdep is turned off.

@@ -1,0 +1,1 @@
+possible deadlock in hfsplus_find_init

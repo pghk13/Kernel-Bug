@@ -1,0 +1,165 @@
+[  749.207679][T15804] ERROR: (device loop0): remounting filesystem as read-only
+[  749.285779][T15807] loop6: detected capacity change from 0 to 32768
+[  749.452819][T15810] loop2: detected capacity change from 0 to 32768
+[  749.514835][T15814] loop0: detected capacity change from 0 to 32768
+[  749.528517][T15814] loop0: detected capacity change from 32768 to 32639
+[  749.536043][T15814] ERROR: (device loop0): dbDiscardAG: -EIO
+[  749.536043][T15814] 
+[  749.547153][T15814] ERROR: (device loop0): remounting filesystem as read-only
+[  749.560664][T15812] loop3: detected capacity change from 0 to 32768
+[  749.649162][T15816] loop1: detected capacity change from 0 to 32768
+[  749.748837][T15818] loop4: detected capacity change from 0 to 32768
+[  749.857798][T15820] loop5: detected capacity change from 0 to 32768
+[  749.960707][T15828] loop2: detected capacity change from 0 to 32768
+[  750.008878][T15826] loop6: detected capacity change from 0 to 32768
+[  750.192815][T15832] loop1: detected capacity change from 0 to 32768
+[  750.205690][T15830] loop3: detected capacity change from 0 to 32768
+[  750.344454][T15834] loop4: detected capacity change from 0 to 32768
+[  750.437716][T15836] loop5: detected capacity change from 0 to 32768
+[  750.452178][T15842] loop2: detected capacity change from 0 to 32768
+[  750.569225][T15840] loop0: detected capacity change from 0 to 32768
+[  750.582366][T15840] loop0: detected capacity change from 32768 to 32639
+[  750.586874][T15840] ERROR: (device loop0): dbDiscardAG: -EIO
+[  750.586874][T15840] 
+[  750.591597][T15840] ERROR: (device loop0): remounting filesystem as read-only
+[  750.714721][T15844] loop6: detected capacity change from 0 to 32768
+[  750.765880][T15848] loop3: detected capacity change from 0 to 32768
+[  750.808982][T15846] loop1: detected capacity change from 0 to 32768
+[  750.817869][T15850] loop4: detected capacity change from 0 to 32768
+[  750.887102][  T416] syz-executor (416) used greatest stack depth: 24008 bytes left
+[  751.115124][T12555] netdevsim netdevsim0 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  751.153083][T12555] netdevsim netdevsim0 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  751.184153][T12555] netdevsim netdevsim0 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  751.226597][T12555] netdevsim netdevsim0 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  751.680515][T12555] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  751.701638][T12555] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  751.716862][T12555] bond0 (unregistering): Released all slaves
+[  751.987626][T12555] veth1_macvtap: left promiscuous mode
+[  751.989897][T12555] veth0_macvtap: left promiscuous mode
+[  751.992154][T12555] veth1_vlan: left promiscuous mode
+[  752.643968][T12555] team0 (unregistering): Port device team_slave_1 removed
+[  752.728644][T12555] team0 (unregistering): Port device team_slave_0 removed
+[  753.742212][T12555] netdevsim netdevsim5 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  753.785162][T12555] netdevsim netdevsim5 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  753.822227][T12555] netdevsim netdevsim5 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  753.849656][T12555] netdevsim netdevsim5 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  753.911248][T12555] netdevsim netdevsim4 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  753.959085][T12555] netdevsim netdevsim4 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  753.998091][T12555] netdevsim netdevsim4 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.020222][T12555] netdevsim netdevsim4 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.121246][T12555] netdevsim netdevsim1 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.153396][T12555] netdevsim netdevsim1 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.201823][T12555] netdevsim netdevsim1 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.227188][T12555] netdevsim netdevsim1 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.305636][T12555] netdevsim netdevsim3 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.349186][T12555] netdevsim netdevsim3 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.369532][T12555] netdevsim netdevsim3 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.434370][T12555] netdevsim netdevsim3 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.516208][T12555] netdevsim netdevsim2 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.552219][T12555] netdevsim netdevsim2 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.591200][T12555] netdevsim netdevsim2 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.643181][T12555] netdevsim netdevsim2 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.730185][T12555] netdevsim netdevsim8 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.788170][T12555] netdevsim netdevsim8 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.818103][T12555] netdevsim netdevsim8 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.863503][T12555] netdevsim netdevsim8 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.927218][T12555] netdevsim netdevsim6 netdevsim3 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  754.988523][T12555] netdevsim netdevsim6 netdevsim2 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  755.020218][T12555] netdevsim netdevsim6 netdevsim1 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  755.066151][T12555] netdevsim netdevsim6 netdevsim0 (unregistering): unset [1, 0] type 2 family 0 port 6081 - 0
+[  755.723553][T12555] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  755.741194][T12555] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  755.752062][T12555] bond0 (unregistering): Released all slaves
+[  755.860490][T12555] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  755.871716][T12555] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  755.881496][T12555] bond0 (unregistering): Released all slaves
+[  756.004686][T12555] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  756.020698][T12555] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  756.035417][T12555] bond0 (unregistering): Released all slaves
+[  756.157198][T12555] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  756.170729][T12555] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  756.179841][T12555] bond0 (unregistering): Released all slaves
+[  756.303789][T12555] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  756.323234][T12555] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  756.334930][T12555] bond0 (unregistering): Released all slaves
+[  756.470223][T12555] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  756.492998][T12555] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  756.499794][T12555] bond0 (unregistering): Released all slaves
+[  756.668589][T12555] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[  756.681586][T12555] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[  756.693077][T12555] bond0 (unregistering): Released all slaves
+[  757.563250][T12555] veth1_macvtap: left promiscuous mode
+[  757.565146][T12555] veth0_macvtap: left promiscuous mode
+[  757.567047][T12555] veth1_vlan: left promiscuous mode
+[  757.576355][T12555] veth1_macvtap: left promiscuous mode
+[  757.578134][T12555] veth0_macvtap: left promiscuous mode
+[  757.580041][T12555] veth1_vlan: left promiscuous mode
+[  757.585400][T12555] veth1_macvtap: left promiscuous mode
+[  757.587215][T12555] veth0_macvtap: left promiscuous mode
+[  757.589168][T12555] veth1_vlan: left promiscuous mode
+[  757.595622][T12555] veth1_macvtap: left promiscuous mode
+[  757.597439][T12555] veth0_macvtap: left promiscuous mode
+[  757.599460][T12555] veth1_vlan: left promiscuous mode
+[  757.605115][T12555] veth1_macvtap: left promiscuous mode
+[  757.607384][T12555] veth0_macvtap: left promiscuous mode
+[  757.609431][T12555] veth1_vlan: left promiscuous mode
+[  757.613899][T12555] veth1_macvtap: left promiscuous mode
+[  757.615751][T12555] veth0_macvtap: left promiscuous mode
+[  757.617649][T12555] veth1_vlan: left promiscuous mode
+[  757.624965][T12555] veth1_macvtap: left promiscuous mode
+[  757.626808][T12555] veth0_macvtap: left promiscuous mode
+[  757.628681][T12555] veth1_vlan: left promiscuous mode
+[  758.619699][T12555] team0 (unregistering): Port device team_slave_1 removed
+[  758.692601][T12555] team0 (unregistering): Port device team_slave_0 removed
+[  759.935627][T12555] team0 (unregistering): Port device team_slave_1 removed
+[  759.992625][T12555] team0 (unregistering): Port device team_slave_0 removed
+[  761.138651][T12555] team0 (unregistering): Port device team_slave_1 removed
+[  761.226489][T12555] team0 (unregistering): Port device team_slave_0 removed
+[  762.370509][T12555] team0 (unregistering): Port device team_slave_1 removed
+[  762.436514][T12555] team0 (unregistering): Port device team_slave_0 removed
+[  763.635768][T12555] team0 (unregistering): Port device team_slave_1 removed
+[  763.721500][T12555] team0 (unregistering): Port device team_slave_0 removed
+[  764.833507][T12555] team0 (unregistering): Port device team_slave_1 removed
+[  764.919431][T12555] team0 (unregistering): Port device team_slave_0 removed
+[  766.163431][T12555] team0 (unregistering): Port device team_slave_1 removed
+[  766.230425][T12555] team0 (unregistering): Port device team_slave_0 removed
+[  809.091530][  T793] kworker/u20:3 (793) used greatest stack depth: 23976 bytes left
+[  832.349176][ T1860] netdevsim netdevsim0 eni0np1: renamed from eth0
+[  832.373534][ T1958] netdevsim netdevsim0 eni0np2: renamed from eth1
+[  832.437403][T15853] netdevsim netdevsim0 eni0np3: renamed from eth2
+[  832.468190][T15874] netdevsim netdevsim0 eni0np4: renamed from eth3
+[  832.719074][T15856] netdevsim netdevsim5 eni5np1: renamed from eth4
+[  832.753092][T15855] netdevsim netdevsim5 eni5np2: renamed from eth5
+[  833.111149][ T1958] netdevsim netdevsim5 eni5np3: renamed from eth6
+[  833.253751][T15853] netdevsim netdevsim5 eni5np4: renamed from eth7
+[  833.302900][T15874] netdevsim netdevsim4 eni4np2: renamed from eth9
+[  833.315376][ T1860] netdevsim netdevsim4 eni4np1: renamed from eth8
+[  833.501947][T15855] netdevsim netdevsim4 eni4np3: renamed from eth10
+[  833.615344][T15856] netdevsim netdevsim4 eni4np4: renamed from eth11
+[  833.878632][ T1958] netdevsim netdevsim1 eni1np1: renamed from eth12
+[  834.013952][ T1860] netdevsim netdevsim1 eni1np2: renamed from eth13
+[  834.039882][T15853] netdevsim netdevsim1 eni1np3: renamed from eth14
+[  834.120053][ T1848] netdevsim netdevsim1 eni1np4: renamed from eth15
+[  834.358605][T15855] netdevsim netdevsim3 eni3np1: renamed from eth16
+[  834.368970][T15874] netdevsim netdevsim3 eni3np3: renamed from eth18
+[  834.376867][T15856] netdevsim netdevsim3 eni3np2: renamed from eth17
+[  834.686529][T15853] netdevsim netdevsim3 eni3np4: renamed from eth19
+[  834.840871][ T1958] netdevsim netdevsim2 eni2np1: renamed from eth20
+[  834.874843][ T1848] netdevsim netdevsim2 eni2np2: renamed from eth21
+[  834.882621][ T1860] netdevsim netdevsim2 eni2np3: renamed from eth22
+[  835.196684][T15855] netdevsim netdevsim2 eni2np4: renamed from eth23
+[  835.340505][T15856] netdevsim netdevsim8 eni8np1: renamed from eth24
+[  835.359098][T15874] netdevsim netdevsim8 eni8np3: renamed from eth26
+[  835.373994][T15853] netdevsim netdevsim8 eni8np2: renamed from eth25
+[  835.516792][ T1860] netdevsim netdevsim6 eni6np1: renamed from eth28
+[  835.530727][ T1958] netdevsim netdevsim8 eni8np4: renamed from eth27
+[  835.845462][ T1848] netdevsim netdevsim6 eni6np2: renamed from eth29
+[  835.927992][T15855] netdevsim netdevsim6 eni6np3: renamed from eth30
+[  836.198577][T15856] netdevsim netdevsim6 eni6np4: renamed from eth31
+[  927.931025][   T66] kworker/u19:1 (66) used greatest stack depth: 23808 bytes left
+[ 1035.973849][  T111] kworker/u18:2 (111) used greatest stack depth: 23704 bytes left
+
+
+
+
+

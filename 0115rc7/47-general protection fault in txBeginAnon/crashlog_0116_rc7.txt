@@ -1,0 +1,251 @@
+[15074.482922][ T2277] loop3: detected capacity change from 0 to 32768
+[15074.484222][ T1108] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[15074.487957][ T1108] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[15074.502954][ T2277] 
+[15074.502954][ T2277]  ... Log Wrap ... Log Wrap ... Log Wrap ...
+[15074.502954][ T2277] 
+[15074.516133][ T2277] find_entry called with index = 0
+[15074.518369][ T2277] read_mapping_page failed!
+[15074.520162][ T2277] ERROR: (device loop3): txAbort: 
+[15074.520162][ T2277] 
+[15074.536883][ T2277] 
+[15074.536883][ T2277]  ... Log Wrap ... Log Wrap ... Log Wrap ...
+[15074.536883][ T2277] 
+[15074.543530][ T2277] 
+[15074.543530][ T2277]  ... Log Wrap ... Log Wrap ... Log Wrap ...
+[15074.543530][ T2277] 
+[15074.547330][ T1108] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[15074.550020][ T1108] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[15074.559354][ T2277] jfs_dirty_inode called on read-only volume
+[15074.561553][ T2277] Is remount racy?
+[15074.565230][ T2277] ==================================================================
+[15074.565736][ T2277] BUG: KASAN: null-ptr-deref in txBeginAnon+0x108/0x400
+[15074.565736][ T2277] Read of size 8 at addr 0000000000000040 by task syz.3.19/2277
+[15074.565736][ T2277] 
+[15074.565736][ T2277] CPU: 2 UID: 0 PID: 2277 Comm: syz.3.19 Not tainted 6.13.0-rc7 #1
+[15074.575160][ T2277] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[15074.575160][ T2277] Call Trace:
+[15074.575160][ T2277]  <TASK>
+[15074.575160][ T2277]  dump_stack_lvl+0x116/0x1b0
+[15074.582567][ T2277]  print_report+0x3f0/0x5f0
+[15074.582764][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.585337][ T2277]  ? __virt_addr_valid+0x127/0x610
+[15074.585337][ T2277]  ? txBeginAnon+0x108/0x400
+[15074.588127][   T47] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[15074.585337][ T2277]  kasan_report+0x93/0xc0
+[15074.591752][   T47] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[15074.585337][ T2277]  ? txBeginAnon+0x108/0x400
+[15074.585337][ T2277]  kasan_check_range+0xf6/0x1b0
+[15074.585337][ T2277]  txBeginAnon+0x108/0x400
+[15074.599311][ T2277]  ? __pfx_txBeginAnon+0x10/0x10
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  extAlloc+0xd7/0xf20
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? write_comp_data+0x29/0x90
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? extHint+0x22e/0x4f0
+[15074.599311][ T2277]  ? __pfx_extAlloc+0x10/0x10
+[15074.599311][ T2277]  ? down_write_nested+0x152/0x210
+[15074.599311][ T2277]  ? create_empty_buffers+0x22f/0x480
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  jfs_get_block+0x66a/0xab0
+[15074.599311][ T2277]  ? __pfx_jfs_get_block+0x10/0x10
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? do_raw_spin_unlock+0x53/0x250
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? _raw_spin_unlock+0x28/0x50
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[15074.599311][ T2277]  ? __pfx_jfs_get_block+0x10/0x10
+[15074.599311][ T2277]  __block_write_begin_int+0x4b2/0x18c0
+[15074.599311][ T2277]  ? __pfx_jfs_get_block+0x10/0x10
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? __pfx___block_write_begin_int+0x10/0x10
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? __filemap_get_folio+0x280/0x870
+[15074.599311][ T2277]  ? __pfx_jfs_get_block+0x10/0x10
+[15074.599311][ T2277]  block_write_begin+0xa3/0x1e0
+[15074.599311][ T2277]  jfs_write_begin+0x35/0xa0
+[15074.599311][ T2277]  generic_perform_write+0x290/0x850
+[15074.599311][ T2277]  ? __mark_inode_dirty+0x55f/0xdd0
+[15074.599311][ T2277]  ? __pfx_generic_perform_write+0x10/0x10
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? __file_update_time+0x51/0x90
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[15074.599311][ T2277]  __generic_file_write_iter+0x160/0x1a0
+[15074.599311][ T2277]  generic_file_write_iter+0xe1/0x340
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  do_iter_readv_writev+0x51f/0x7e0
+[15074.599311][ T2277]  ? __pfx_do_iter_readv_writev+0x10/0x10
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? rcu_read_lock_any_held+0xd5/0x100
+[15074.599311][ T2277]  ? __pfx_rcu_read_lock_any_held+0x10/0x10
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.599311][ T2277]  vfs_writev+0x30e/0xd70
+[15074.599311][ T2277]  ? __pfx_vfs_writev+0x10/0x10
+[15074.693197][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.693861][ T1264] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[15074.693197][ T2277]  ? find_held_lock+0x2c/0x110
+[15074.693197][ T2277]  ? __fget_files+0x1fb/0x3b0
+[15074.697810][ T1264] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[15074.693197][ T2277]  ? __pfx_lock_release+0x10/0x10
+[15074.693197][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.706077][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.706077][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.706077][ T2277]  ? __fget_files+0x205/0x3b0
+[15074.706077][ T2277]  ? do_pwritev+0x1b1/0x270
+[15074.706077][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.706077][ T2277]  do_pwritev+0x1b1/0x270
+[15074.706077][ T2277]  ? __pfx_do_pwritev+0x10/0x10
+[15074.706077][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.706077][ T2277]  ? syscall_exit_to_user_mode+0xd0/0x270
+[15074.706077][ T2277]  __x64_sys_pwritev2+0xef/0x160
+[15074.706077][ T2277]  do_syscall_64+0xc3/0x1d0
+[15074.706077][ T2277]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[15074.706077][ T2277] RIP: 0033:0x7f50eb8e3add
+[15074.706077][ T2277] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[15074.734777][ T2277] RSP: 002b:00007f50eb335ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000148
+[15074.734777][ T2277] RAX: ffffffffffffffda RBX: 00007f50ebadcfa0 RCX: 00007f50eb8e3add
+[15074.734777][ T2277] RDX: 0000000000000001 RSI: 0000000020000300 RDI: 0000000000000006
+[15074.740820][ T2277] RBP: 00007f50eb961b8f R08: 0000000000000000 R09: 0000000000000000
+[15074.740820][ T2277] R10: 0000000000001000 R11: 0000000000000246 R12: 0000000000000000
+[15074.740820][ T2277] R13: 00007f50ebadcfac R14: 00007f50ebadd038 R15: 00007f50eb335d40
+[15074.740820][ T2277]  </TASK>
+[15074.740820][ T2277] ==================================================================
+[15074.755990][ T2277] Disabling lock debugging due to kernel taint
+[15074.759029][ T2277] Oops: general protection fault, probably for non-canonical address 0xdffffc0000000008: 0000 [#1] PREEMPT SMP KASAN NOPTI
+[15074.759719][ T2277] KASAN: null-ptr-deref in range [0x0000000000000040-0x0000000000000047]
+[15074.763935][ T2277] CPU: 2 UID: 0 PID: 2277 Comm: syz.3.19 Tainted: G    B              6.13.0-rc7 #1
+[15074.767488][ T1071] veth1_vlan: entered promiscuous mode
+[15074.763935][ T2277] Tainted: [B]=BAD_PAGE
+[15074.763935][ T2277] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[15074.763935][ T2277] RIP: 0010:txBeginAnon+0x119/0x400
+[15074.763935][ T2277] Code: 24 24 48 89 44 24 08 e8 a5 30 c4 fe be 08 00 00 00 48 89 df e8 68 73 00 ff 48 89 da 48 b8 00 00 00 00 00 fc ff df 48 c1 ea 03 <80> 3c 02 00 0f 85 77 02 00 00 48 8b 45 40 31 ff 48 c1 e8 02 41 89
+[15074.763935][ T2277] RSP: 0018:ffa0000003e27508 EFLAGS: 00010212
+[15074.763935][ T2277] RAX: dffffc0000000000 RBX: 0000000000000040 RCX: ffffffff9dcf3c9f
+[15074.763935][ T2277] RDX: 0000000000000008 RSI: ff110000124e8000 RDI: 0000000000000002
+[15074.763935][ T2277] RBP: 0000000000000000 R08: fffffbfff5078800 R09: fffffbfff598c53d
+[15074.763935][ T2277] R10: fffffbfff598c53c R11: ffffffffacc629e7 R12: ff110000124e8000
+[15074.763935][ T2277] R13: ff110000127ce000 R14: ff1100003f259400 R15: 1ff40000007c4ea6
+[15074.763935][ T2277] FS:  00007f50eb336700(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+[15074.763935][ T2277] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[15074.763935][ T2277] CR2: 00007f50eb8a1910 CR3: 000000001ea6c004 CR4: 0000000000771ef0
+[15074.763935][ T2277] PKRU: 00000000
+[15074.763935][ T2277] Call Trace:
+[15074.763935][ T2277]  <TASK>
+[15074.763935][ T2277]  ? __die_body+0x1a/0x60
+[15074.763935][ T2277]  ? die_addr+0x42/0x70
+[15074.763935][ T2277]  ? exc_general_protection+0x1a3/0x330
+[15074.763935][ T2277]  ? asm_exc_general_protection+0x26/0x30
+[15074.763935][ T2277]  ? add_taint+0x5f/0xd0
+[15074.763935][ T2277]  ? txBeginAnon+0x119/0x400
+[15074.763935][ T2277]  ? txBeginAnon+0x108/0x400
+[15074.763935][ T2277]  ? __pfx_txBeginAnon+0x10/0x10
+[15074.763935][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.763935][ T2277]  extAlloc+0xd7/0xf20
+[15074.763935][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.763935][ T2277]  ? write_comp_data+0x29/0x90
+[15074.763935][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.763935][ T2277]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[15074.763935][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.763935][ T2277]  ? extHint+0x22e/0x4f0
+[15074.763935][ T2277]  ? __pfx_extAlloc+0x10/0x10
+[15074.763935][ T2277]  ? down_write_nested+0x152/0x210
+[15074.763935][ T2277]  ? create_empty_buffers+0x22f/0x480
+[15074.763935][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.763935][ T2277]  jfs_get_block+0x66a/0xab0
+[15074.763935][ T2277]  ? __pfx_jfs_get_block+0x10/0x10
+[15074.763935][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.763935][ T2277]  ? do_raw_spin_unlock+0x53/0x250
+[15074.763935][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.763935][ T2277]  ? _raw_spin_unlock+0x28/0x50
+[15074.763935][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.860176][ T2277]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[15074.860176][ T2277]  ? __pfx_jfs_get_block+0x10/0x10
+[15074.860176][ T2277]  __block_write_begin_int+0x4b2/0x18c0
+[15074.860176][ T2277]  ? __pfx_jfs_get_block+0x10/0x10
+[15074.860176][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.860176][ T2277]  ? __pfx___block_write_begin_int+0x10/0x10
+[15074.860176][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.860176][ T2277]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[15074.860176][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.860176][ T2277]  ? __filemap_get_folio+0x280/0x870
+[15074.881084][ T2277]  ? __pfx_jfs_get_block+0x10/0x10
+[15074.881084][ T2277]  block_write_begin+0xa3/0x1e0
+[15074.884198][ T2277]  jfs_write_begin+0x35/0xa0
+[15074.884198][ T2277]  generic_perform_write+0x290/0x850
+[15074.884198][ T2277]  ? __mark_inode_dirty+0x55f/0xdd0
+[15074.884198][ T2277]  ? __pfx_generic_perform_write+0x10/0x10
+[15074.891517][ T1071] veth0_macvtap: entered promiscuous mode
+[15074.884198][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.884198][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.897319][ T1071] veth1_macvtap: entered promiscuous mode
+[15074.884198][ T2277]  ? __file_update_time+0x51/0x90
+[15074.884198][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.884198][ T2277]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[15074.884198][ T2277]  __generic_file_write_iter+0x160/0x1a0
+[15074.884198][ T2277]  generic_file_write_iter+0xe1/0x340
+[15074.884198][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.884198][ T2277]  do_iter_readv_writev+0x51f/0x7e0
+[15074.884198][ T2277]  ? __pfx_do_iter_readv_writev+0x10/0x10
+[15074.884198][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.884198][ T2277]  ? rcu_read_lock_any_held+0xd5/0x100
+[15074.917114][ T1071] netdevsim netdevsim8 netdevsim0: set [1, 0] type 2 family 0 port 6081 - 0
+[15074.884198][ T2277]  ? __pfx_rcu_read_lock_any_held+0x10/0x10
+[15074.920358][ T1071] netdevsim netdevsim8 netdevsim1: set [1, 0] type 2 family 0 port 6081 - 0
+[15074.884198][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.884198][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.925015][ T1071] netdevsim netdevsim8 netdevsim2: set [1, 0] type 2 family 0 port 6081 - 0
+[15074.884198][ T2277]  vfs_writev+0x30e/0xd70
+[15074.884198][ T2277]  ? __pfx_vfs_writev+0x10/0x10
+[15074.928577][ T1071] netdevsim netdevsim8 netdevsim3: set [1, 0] type 2 family 0 port 6081 - 0
+[15074.884198][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.938747][ T2277]  ? find_held_lock+0x2c/0x110
+[15074.940282][ T2277]  ? __fget_files+0x1fb/0x3b0
+[15074.940282][ T2277]  ? __pfx_lock_release+0x10/0x10
+[15074.940282][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.940282][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.940282][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.940282][ T2277]  ? __fget_files+0x205/0x3b0
+[15074.940282][ T2277]  ? do_pwritev+0x1b1/0x270
+[15074.940282][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.954069][ T1073] veth1_vlan: entered promiscuous mode
+[15074.940282][ T2277]  do_pwritev+0x1b1/0x270
+[15074.940282][ T2277]  ? __pfx_do_pwritev+0x10/0x10
+[15074.958765][ T2277]  ? srso_alias_return_thunk+0x5/0xfbef5
+[15074.958765][ T2277]  ? syscall_exit_to_user_mode+0xd0/0x270
+[15074.961428][ T2277]  __x64_sys_pwritev2+0xef/0x160
+[15074.961428][ T2277]  do_syscall_64+0xc3/0x1d0
+[15074.961428][ T2277]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[15074.966774][ T2277] RIP: 0033:0x7f50eb8e3add
+[15074.966774][ T2277] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[15074.966774][ T2277] RSP: 002b:00007f50eb335ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000148
+[15074.966774][ T2277] RAX: ffffffffffffffda RBX: 00007f50ebadcfa0 RCX: 00007f50eb8e3add
+[15074.966774][ T2277] RDX: 0000000000000001 RSI: 0000000020000300 RDI: 0000000000000006
+[15074.966774][ T2277] RBP: 00007f50eb961b8f R08: 0000000000000000 R09: 0000000000000000
+[15074.966774][ T2277] R10: 0000000000001000 R11: 0000000000000246 R12: 0000000000000000
+[15074.966774][ T2277] R13: 00007f50ebadcfac R14: 00007f50ebadd038 R15: 00007f50eb335d40
+[15074.966774][ T2277]  </TASK>
+[15074.966774][ T2277] Modules linked in:
+[15074.993445][ T2277] ---[ end trace 0000000000000000 ]---
+[15074.998042][ T2277] RIP: 0010:txBeginAnon+0x119/0x400
+[15075.001592][ T2277] Code: 24 24 48 89 44 24 08 e8 a5 30 c4 fe be 08 00 00 00 48 89 df e8 68 73 00 ff 48 89 da 48 b8 00 00 00 00 00 fc ff df 48 c1 ea 03 <80> 3c 02 00 0f 85 77 02 00 00 48 8b 45 40 31 ff 48 c1 e8 02 41 89
+[15075.008293][ T2277] RSP: 0018:ffa0000003e27508 EFLAGS: 00010212
+[15075.010562][ T2277] RAX: dffffc0000000000 RBX: 0000000000000040 RCX: ffffffff9dcf3c9f
+[15075.013188][ T2277] RDX: 0000000000000008 RSI: ff110000124e8000 RDI: 0000000000000002
+[15075.015862][ T2277] RBP: 0000000000000000 R08: fffffbfff5078800 R09: fffffbfff598c53d
+[15075.018603][ T2277] R10: fffffbfff598c53c R11: ffffffffacc629e7 R12: ff110000124e8000
+[15075.021229][ T2277] R13: ff110000127ce000 R14: ff1100003f259400 R15: 1ff40000007c4ea6
+[15075.023887][ T2277] FS:  00007f50eb336700(0000) GS:ff1100006a300000(0000) knlGS:0000000000000000
+[15075.026866][ T2277] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[15075.029094][ T2277] CR2: 00007f50eb8a1910 CR3: 000000001ea6c004 CR4: 0000000000771ef0
+[15075.031785][ T2277] PKRU: 00000000
+[15075.033068][ T2277] Kernel panic - not syncing: Fatal exception
+[15075.034011][ T2277] Kernel Offset: 0x1ca00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)

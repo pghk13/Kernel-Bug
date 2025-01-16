@@ -1,0 +1,427 @@
+Warning: Permanently added '[localhost]:40185' (ECDSA) to the list of known hosts.
+[   80.648271][   T44] audit: type=1400 audit(1736774630.200:9): avc:  denied  { execmem } for  pid=421 comm="syz-executor186" scontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tcontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tclass=process permissive=1
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   80.694474][  T435] loop6: detected capacity change from 0 to 512
+[   80.694514][  T431] loop2: detected capacity change from 0 to 512
+[   80.696592][  T433] loop4: detected capacity change from 0 to 512
+[   80.697070][  T434] loop0: detected capacity change from 0 to 512
+[   80.699132][  T437] loop3: detected capacity change from 0 to 512
+[   80.699261][  T436] loop7: detected capacity change from 0 to 512
+[   80.701011][  T428] loop1: detected capacity change from 0 to 512
+[   80.713282][  T438] loop5: detected capacity change from 0 to 512
+[   80.715110][  T435] EXT4-fs error (device loop6): ext4_xattr_ibody_find:2240: inode #15: comm syz-executor186: corrupted in-inode xattr: bad e_name length
+[   80.715151][  T436] EXT4-fs error (device loop7): ext4_xattr_ibody_find:2240: inode #15: comm syz-executor186: corrupted in-inode xattr: bad e_name length
+[   80.715423][  T434] EXT4-fs error (device loop0): ext4_xattr_ibody_find:2240: inode #15: comm syz-executor186: corrupted in-inode xattr: bad e_name length
+[   80.715567][  T436] EXT4-fs error (device loop7): ext4_orphan_get:1392: comm syz-executor186: couldn't read orphan inode 15 (err -117)
+[   80.717123][  T436] EXT4-fs (loop7): mounted filesystem 00000007-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   80.718928][  T433] EXT4-fs error (device loop4): ext4_xattr_ibody_find:2240: inode #15: comm syz-executor186: corrupted in-inode xattr: bad e_name length
+[   80.719142][  T435] EXT4-fs error (device loop6): ext4_orphan_get:1392: comm syz-executor186: couldn't read orphan inode 15 (err -117)
+[   80.720549][  T435] EXT4-fs (loop6): mounted filesystem 00000007-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   80.722157][  T433] EXT4-fs error (device loop4): ext4_orphan_get:1392: comm syz-executor186: couldn't read orphan inode 15 (err -117)
+[   80.723592][  T433] EXT4-fs (loop4): mounted filesystem 00000007-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   80.727371][  T437] EXT4-fs error (device loop3): ext4_xattr_ibody_find:2240: inode #15: comm syz-executor186: corrupted in-inode xattr: bad e_name length
+[   80.731772][  T431] EXT4-fs error (device loop2): ext4_xattr_ibody_find:2240: inode #15: comm syz-executor186: corrupted in-inode xattr: bad e_name length
+[   80.735334][  T434] EXT4-fs error (device loop0): ext4_orphan_get:1392: comm syz-executor186: couldn't read orphan inode 15 (err -117)
+[   80.743223][  T436] ==================================================================
+[   80.745892][  T428] EXT4-fs error (device loop1): ext4_xattr_ibody_find:2240: inode #15: comm syz-executor186: corrupted in-inode xattr: bad e_name length
+[   80.746686][  T437] EXT4-fs error (device loop3): ext4_orphan_get:1392: comm syz-executor186: couldn't read orphan inode 15 (err -117)
+[   80.743846][  T436] BUG: KASAN: slab-use-after-free in ext4_insert_dentry+0x44e/0x6f0
+executing program
+[   80.749247][  T437] EXT4-fs (loop3): mounted filesystem 00000007-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   80.758320][  T434] EXT4-fs (loop0): mounted filesystem 00000007-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   80.759305][  T428] EXT4-fs error (device loop1): ext4_orphan_get:1392: comm syz-executor186: couldn't read orphan inode 15 (err -117)
+[   80.760097][  T431] EXT4-fs error (device loop2): ext4_orphan_get:1392: comm syz-executor186: couldn't read orphan inode 15 (err -117)
+[   80.760673][  T428] EXT4-fs (loop1): mounted filesystem 00000007-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   80.743846][  T436] Write of size 251 at addr ff1100000b6d7f14 by task syz-executor186/436
+[   80.743846][  T436] 
+executing program
+executing program
+[   80.743846][  T436] CPU: 1 UID: 0 PID: 436 Comm: syz-executor186 Not tainted 6.13.0-rc7 #1
+[   80.763975][  T438] EXT4-fs error (device loop5): ext4_xattr_ibody_find:2240: inode #15: comm syz-executor186: corrupted in-inode xattr: bad e_name length
+[   80.764441][  T438] EXT4-fs error (device loop5): ext4_orphan_get:1392: comm syz-executor186: couldn't read orphan inode 15 (err -117)
+[   80.768257][  T431] EXT4-fs (loop2): mounted filesystem 00000007-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   80.743846][  T436] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   80.743846][  T436] Call Trace:
+[   80.743846][  T436]  <TASK>
+[   80.743846][  T436]  dump_stack_lvl+0x116/0x1b0
+[   80.782194][  T438] EXT4-fs (loop5): mounted filesystem 00000007-0000-0000-0000-000000000000 r/w without journal. Quota mode: none.
+[   80.743846][  T436]  print_report+0xcf/0x5f0
+[   80.743846][  T436]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.743846][  T436]  ? __phys_addr+0xeb/0x180
+[   80.824958][  T436]  ? ext4_insert_dentry+0x44e/0x6f0
+[   80.824958][  T436]  kasan_report+0x93/0xc0
+[   80.824958][  T436]  ? ext4_insert_dentry+0x44e/0x6f0
+[   80.824958][  T436]  kasan_check_range+0xf6/0x1b0
+[   80.824958][  T436]  __asan_memcpy+0x3d/0x60
+[   80.824958][  T436]  ext4_insert_dentry+0x44e/0x6f0
+[   80.824958][  T436]  add_dirent_to_buf+0x257/0x800
+[   80.824958][  T436]  ? __pfx_add_dirent_to_buf+0x10/0x10
+[   80.824958][  T436]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.824958][  T436]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   80.824958][  T436]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.824958][  T436]  ? __ext4_handle_dirty_metadata+0x263/0x8f0
+[   80.824958][  T436]  make_indexed_dir+0x12fa/0x1680
+[   80.824958][  T436]  ? __pfx_make_indexed_dir+0x10/0x10
+[   80.824958][  T436]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.824958][  T436]  ? add_dirent_to_buf+0x3c5/0x800
+[   80.824958][  T436]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.824958][  T436]  ? __ext4_read_dirblock+0x3e2/0xd60
+[   80.824958][  T436]  ext4_add_entry+0xc87/0xe30
+[   80.824958][  T436]  ? __pfx_ext4_add_entry+0x10/0x10
+[   80.824958][  T436]  ? __pfx___ext4_new_inode+0x10/0x10
+[   80.824958][  T436]  ? avc_has_perm+0xfe/0x1a0
+[   80.824958][  T436]  ext4_add_nondir+0x90/0x2b0
+[   80.824958][  T436]  ext4_symlink+0x7b1/0xa30
+[   80.824958][  T436]  ? __pfx_ext4_symlink+0x10/0x10
+[   80.824958][  T436]  ? srso_alias_safe_ret+0x6/0x7
+[   80.824958][  T436]  ? write_comp_data+0x29/0x90
+[   80.824958][  T436]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.824958][  T436]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   80.824958][  T436]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.824958][  T436]  ? write_comp_data+0x29/0x90
+[   80.824958][  T436]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.824958][  T436]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   80.824958][  T436]  vfs_symlink+0x378/0x620
+[   80.824958][  T436]  do_symlinkat+0x261/0x310
+[   80.824958][  T436]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.824958][  T436]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   80.824958][  T436]  ? __pfx_do_symlinkat+0x10/0x10
+[   80.824958][  T436]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.824958][  T436]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   80.824958][  T436]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   80.824958][  T436]  __x64_sys_symlink+0x75/0x90
+[   80.824958][  T436]  do_syscall_64+0xc3/0x1d0
+[   80.902489][  T436]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[   80.902489][  T436] RIP: 0033:0x7fec712ce2ed
+[   80.902489][  T436] Code: c3 e8 57 2c 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+[   80.902489][  T436] RSP: 002b:00007ffcacc82268 EFLAGS: 00000246 ORIG_RAX: 0000000000000058
+[   80.902489][  T436] RAX: ffffffffffffffda RBX: 0030656c69662f2e RCX: 00007fec712ce2ed
+[   80.902489][  T436] RDX: 0000000000000000 RSI: 0000000020000cc0 RDI: 0000000020000dc0
+[   80.902489][  T436] RBP: 0000000000000000 R08: 0000005b0000006e R09: 0000005b0000006e
+[   80.902489][  T436] R10: 0000005b0000006e R11: 0000000000000246 R12: 00007ffcacc82360
+[   80.902489][  T436] R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+[   80.902489][  T436]  </TASK>
+[   80.902489][  T436] 
+[   80.902489][  T436] The buggy address belongs to the physical page:
+[   80.902489][  T436] page: refcount:3 mapcount:0 mapping:0000000046369545 index:0x3f pfn:0xb6d7
+[   80.902489][  T436] aops:def_blk_aops ino:700007 dentry name(?):""
+[   80.902489][  T436] flags: 0x100000000004114(referenced|dirty|active|private|node=0|zone=1)
+[   80.902489][  T436] raw: 0100000000004114 0000000000000000 dead000000000122 ff11000001ac5718
+[   80.902489][  T436] raw: 000000000000003f ff11000015133cb0 00000003ffffffff 0000000000000000
+[   80.902489][  T436] page dumped because: kasan: bad access detected
+[   80.902489][  T436] 
+[   80.902489][  T436] Memory state around the buggy address:
+[   80.902489][  T436]  ff1100000b6d7f00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   80.902489][  T436]  ff1100000b6d7f80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[   80.902489][  T436] >ff1100000b6d8000: fa fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[   80.902489][  T436]                    ^
+[   80.902489][  T436]  ff1100000b6d8080: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[   80.955867][    T1] ------------[ cut here ]------------
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   80.902489][  T436]  ff1100000b6d8100: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+[   80.902489][  T436] ==================================================================
+[   80.957004][  T436] Disabling lock debugging due to kernel taint
+[   80.958410][    T1] kernel BUG at arch/x86/mm/physaddr.c:28!
+[   80.958460][    T1] Oops: invalid opcode: 0000 [#1] PREEMPT SMP KASAN NOPTI
+[   80.958539][    T1] CPU: 3 UID: 0 PID: 1 Comm: systemd Not tainted 6.13.0-rc7 #1
+[   80.958611][    T1] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   80.958649][    T1] RIP: 0010:__phys_addr+0xff/0x180
+[   80.958722][    T1] Code: ff 48 d3 eb 48 89 de e8 5f f8 48 00 48 85 db 75 13 e8 f5 f5 48 00 4c 89 e8 5b 5d 41 5c 41 5d e9 f2 9a 2f 08 e8 e2 f5 48 00 90 <0f> 0b e8 da f5 48 00 48 c7 c0 10 90 71 8e 48 ba 00 00 00 00 00 fc
+[   80.958798][    T1] RSP: 0018:ffa000000001fa88 EFLAGS: 00010246
+[   80.958872][    T1] RAX: 0000000000000000 RBX: 61616161e1616161 RCX: ffffffff8400a595
+[   80.958919][    T1] RDX: 6250616161616161 RSI: ff110000016c8000 RDI: 0000000000000002
+[   80.958966][    T1] RBP: 6161616161616161 R08: 0000000000000000 R09: ffffffff8485e617
+[   80.959012][    T1] R10: ffd4000000380dc0 R11: 0000000000000001 R12: 0000000000000000
+[   80.959055][    T1] R13: 6250616161616161 R14: ffa000000001fae8 R15: ff1100000e037000
+[   80.959118][    T1] FS:  00007fcdcc9bf900(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+[   80.959194][    T1] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   80.959244][    T1] CR2: 00007fec68eaf000 CR3: 0000000048e04002 CR4: 0000000000771ef0
+[   80.959290][    T1] PKRU: 55555554
+[   80.959315][    T1] Call Trace:
+[   80.959333][    T1]  <TASK>
+[   80.959354][    T1]  ? __die_body+0x1a/0x60
+[   80.959354][    T1]  ? die+0x38/0x60
+[   81.001084][    T1]  ? do_trap+0x20d/0x270
+[   81.001084][    T1]  ? __phys_addr+0xff/0x180
+[   81.001084][    T1]  ? do_error_trap+0xf9/0x240
+[   81.001084][    T1]  ? __phys_addr+0xff/0x180
+[   81.001084][    T1]  ? __phys_addr+0xff/0x180
+[   81.001084][    T1]  ? handle_invalid_op+0x34/0x40
+[   81.001084][    T1]  ? __phys_addr+0xff/0x180
+[   81.001084][    T1]  ? exc_invalid_op+0x5d/0x80
+[   81.001084][    T1]  ? asm_exc_invalid_op+0x1a/0x20
+[   81.001084][    T1]  ? qlist_free_all+0x47/0x120
+[   81.001084][    T1]  ? __phys_addr+0x75/0x180
+[   81.001084][    T1]  ? __phys_addr+0xff/0x180
+[   81.001084][    T1]  ? __phys_addr+0xfe/0x180
+[   81.001084][    T1]  qlist_free_all+0x64/0x120
+[   81.001084][    T1]  ? tomoyo_realpath_from_path+0xc3/0x600
+[   81.001084][    T1]  kasan_quarantine_reduce+0x168/0x1c0
+[   81.001084][    T1]  __kasan_slab_alloc+0x67/0x90
+[   81.001084][    T1]  __kmalloc_noprof+0x1b9/0x570
+[   81.001084][    T1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.001084][    T1]  ? rcu_is_watching+0x12/0xc0
+[   81.001084][    T1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.001084][    T1]  ? kfree+0x1e1/0x3e0
+[   81.001084][    T1]  ? tomoyo_realpath_from_path+0xc3/0x600
+[   81.001084][    T1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.001084][    T1]  tomoyo_realpath_from_path+0xc3/0x600
+[   81.001084][    T1]  ? __sanitizer_cov_trace_pc+0x20/0x60
+[   81.001084][    T1]  tomoyo_path_number_perm+0x21c/0x580
+[   81.001084][    T1]  ? tomoyo_path_number_perm+0x208/0x580
+[   81.001084][    T1]  ? write_comp_data+0x29/0x90
+[   81.001084][    T1]  ? __pfx_tomoyo_path_number_perm+0x10/0x10
+[   81.001084][    T1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.001084][    T1]  ? __sanitizer_cov_trace_switch+0x54/0x90
+[   81.001084][    T1]  ? __pfx___ext4_ioctl+0x10/0x10
+[   81.001084][    T1]  ? write_comp_data+0x29/0x90
+[   81.001084][    T1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.001084][    T1]  ? __pfx___do_sys_newfstat+0x10/0x10
+[   81.001084][    T1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.001084][    T1]  ? write_comp_data+0x29/0x90
+[   81.001084][    T1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.001084][    T1]  ? write_comp_data+0x29/0x90
+[   81.001084][    T1]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.001084][    T1]  security_file_ioctl+0xd1/0x220
+[   81.001084][    T1]  __x64_sys_ioctl+0xb7/0x210
+[   81.001084][    T1]  do_syscall_64+0xc3/0x1d0
+[   81.001084][    T1]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[   81.001084][    T1] RIP: 0033:0x7fcdcd18ea06
+[   81.001084][    T1] Code: 01 00 66 90 48 83 ec 38 49 89 f0 be 01 54 00 00 64 48 8b 04 25 28 00 00 00 48 89 44 24 28 31 c0 48 89 e2 b8 10 00 00 00 0f 05 <48> 3d 00 f0 ff ff 0f 87 7e 00 00 00 41 89 c1 85 c0 75 5d 48 8b 04
+[   81.001084][    T1] RSP: 002b:00007ffc4ec4c670 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+[   81.001084][    T1] RAX: ffffffffffffffda RBX: 0000000000000046 RCX: 00007fcdcd18ea06
+[   81.001084][    T1] RDX: 00007ffc4ec4c670 RSI: 0000000000005401 RDI: 0000000000000004
+[   81.001084][    T1] RBP: 0000000000000000 R08: 00007ffc4ec4c6b0 R09: 00000000ffffffff
+[   81.001084][    T1] R10: 0000000004000000 R11: 0000000000000246 R12: 0000559a210a7bc0
+[   81.099379][  T233] ------------[ cut here ]------------
+[   81.001084][    T1] R13: 0000000000000000 R14: 00007ffc4ec4c737 R15: 0000000000000047
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+executing program
+[   81.001084][    T1]  </TASK>
+[   81.001084][    T1] Modules linked in:
+[   81.103155][  T233] kernel BUG at arch/x86/mm/physaddr.c:28!
+[   81.001084][    T1] 
+[   81.106313][    T1] ---[ end trace 0000000000000000 ]---
+[   81.107601][  T233] Oops: invalid opcode: 0000 [#2] PREEMPT SMP KASAN NOPTI
+[   81.108273][    T1] RIP: 0010:__phys_addr+0xff/0x180
+[   81.107850][  T233] CPU: 1 UID: 0 PID: 233 Comm: systemd-udevd Tainted: G    B D            6.13.0-rc7 #1
+[   81.107850][  T233] Tainted: [B]=BAD_PAGE, [D]=DIE
+executing program
+executing program
+executing program
+executing program
+[   81.110671][    T1] Code: ff 48 d3 eb 48 89 de e8 5f f8 48 00 48 85 db 75 13 e8 f5 f5 48 00 4c 89 e8 5b 5d 41 5c 41 5d e9 f2 9a 2f 08 e8 e2 f5 48 00 90 <0f> 0b e8 da f5 48 00 48 c7 c0 10 90 71 8e 48 ba 00 00 00 00 00 fc
+[   81.107850][  T233] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[   81.107850][  T233] RIP: 0010:__phys_addr+0xff/0x180
+[   81.114229][    T1] RSP: 0018:ffa000000001fa88 EFLAGS: 00010246
+[   81.114345][  T233] Code: ff 48 d3 eb 48 89 de e8 5f f8 48 00 48 85 db 75 13 e8 f5 f5 48 00 4c 89 e8 5b 5d 41 5c 41 5d e9 f2 9a 2f 08 e8 e2 f5 48 00 90 <0f> 0b e8 da f5 48 00 48 c7 c0 10 90 71 8e 48 ba 00 00 00 00 00 fc
+[   81.114345][  T233] RSP: 0018:ffa0000003597958 EFLAGS: 00010246
+[   81.114345][  T233] RAX: 0000000000000000 RBX: 61616161e1616161 RCX: ffffffff8400a595
+[   81.118386][    T1] 
+[   81.119418][  T233] RDX: 6250616161616161 RSI: ff1100000ac38000 RDI: 0000000000000002
+[   81.119418][  T233] RBP: 6161616161616161 R08: 0000000000000000 R09: 0000000000000000
+[   81.119418][  T233] R10: fffffbfff20f7b5a R11: ffffffff907bdad7 R12: 0000000000000000
+[   81.119418][  T233] R13: 6250616161616161 R14: ffa00000035979b8 R15: ff1100000c3d0000
+[   81.125584][    T1] RAX: 0000000000000000 RBX: 61616161e1616161 RCX: ffffffff8400a595
+[   81.119993][  T233] FS:  00007fb7b51cc8c0(0000) GS:ff1100006a280000(0000) knlGS:0000000000000000
+[   81.119993][  T233] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   81.119993][  T233] CR2: 0000560bec4fc3c0 CR3: 0000000008fd4005 CR4: 0000000000771ef0
+[   81.119993][  T233] PKRU: 55555554
+[   81.119993][  T233] Call Trace:
+[   81.119993][  T233]  <TASK>
+[   81.119993][  T233]  ? __die_body+0x1a/0x60
+[   81.119993][  T233]  ? die+0x38/0x60
+[   81.119993][  T233]  ? do_trap+0x20d/0x270
+[   81.130868][    T1] RDX: 6250616161616161 RSI: ff110000016c8000 RDI: 0000000000000002
+[   81.129416][  T233]  ? __phys_addr+0xff/0x180
+[   81.129416][  T233]  ? do_error_trap+0xf9/0x240
+[   81.129416][  T233]  ? __phys_addr+0xff/0x180
+[   81.138677][    T1] RBP: 6161616161616161 R08: 0000000000000000 R09: ffffffff8485e617
+[   81.129416][  T233]  ? __phys_addr+0xff/0x180
+[   81.129416][  T233]  ? handle_invalid_op+0x34/0x40
+[   81.129416][  T233]  ? __phys_addr+0xff/0x180
+[   81.143230][    T1] R10: ffd4000000380dc0 R11: 0000000000000001 R12: 0000000000000000
+[   81.129416][  T233]  ? exc_invalid_op+0x5d/0x80
+[   81.129416][  T233]  ? asm_exc_invalid_op+0x1a/0x20
+[   81.146874][    T1] R13: 6250616161616161 R14: ffa000000001fae8 R15: ff1100000e037000
+[   81.145971][  T233]  ? __phys_addr+0x75/0x180
+[   81.145971][  T233]  ? __phys_addr+0xff/0x180
+[   81.151364][    T1] FS:  00007fcdcc9bf900(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+[   81.145971][  T233]  ? __phys_addr+0xfe/0x180
+[   81.145971][  T233]  qlist_free_all+0x64/0x120
+[   81.155949][    T1] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[   81.145971][  T233]  ? tomoyo_realpath_from_path+0xc3/0x600
+[   81.145971][  T233]  kasan_quarantine_reduce+0x168/0x1c0
+[   81.160497][    T1] CR2: 00007fec68eaf000 CR3: 0000000048e04002 CR4: 0000000000771ef0
+[   81.159208][  T233]  __kasan_slab_alloc+0x67/0x90
+[   81.159208][  T233]  __kmalloc_noprof+0x1b9/0x570
+[   81.163868][    T1] PKRU: 55555554
+[   81.164346][  T233]  ? srso_alias_return_thunk+0x5/0xfbef5
+[   81.165760][    T1] Kernel panic - not syncing: Fatal exception
+[   81.166731][    T1] Kernel Offset: 0x2e00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   81.166731][    T1] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+21:23:51  Registers:
+info registers vcpu 0
+RAX=0000000000000000 RBX=0000000000000003 RCX=ffffffff86c82c94 RDX=0000000000000000
+RSI=ff1100000b288000 RDI=0000000000000003 RBP=dffffc0000000000 RSP=ffa00000035b7ad0
+R8 =fffffbfff1939f00 R9 =ffe21c0001b8dfe7 R10=ffe21c0001b8dfe6 R11=ff1100000dc6ff37
+R12=ffa00000035b7b90 R13=ff1100000dc6ff30 R14=0000000000000003 R15=0000000000000004
+RIP=ffffffff86c82c99 RFL=00000246 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000555567ca8880 00000000 00000000
+GS =0000 ff1100006a200000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe65247be000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe65247bc000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fec68eaf000 CR3=0000000009fc6003 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=7864696f6972702e6f6972705f74656e XMM01=65656565656565656565656565656565
+XMM02=756f6d65723d73726f72726500747865 XMM03=00000000000000000000000000000000
+XMM04=ffffffffffffffffffffffffffffffff XMM05=0000ff0000000000ff00000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 1
+RAX=dffffc0000000060 RBX=0000000000000005 RCX=0000000000000000 RDX=00000000000003fd
+RSI=ff1100000e3ba340 RDI=ffffffff9a34f0c0 RBP=ffffffff9a34f080 RSP=ffa0000003877130
+R8 =fff3fc000070ee00 R9 =ffe21c0000e3f047 R10=ffe21c0000e3f046 R11=ff110000071f8237
+R12=0000000000000000 R13=0000000000000020 R14=fffffbfff3469e6a R15=dffffc0000000000
+RIP=ffffffff8775ae97 RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000555567ca8880 00000000 00000000
+GS =0000 ff1100006a280000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe4f82c2e000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe4f82c2c000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=0000559a210a8dc0 CR3=0000000004c2a005 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000009896800000000000000000 XMM01=00000000000000000000000000989680
+XMM02=0000000000ff00000000000000000000 XMM03=00000000000000000000000000000000
+XMM04=0000000000ff000000000000000000ff XMM05=0000ff0000000000ff00000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 2
+RAX=0000000000000000 RBX=0000000000000000 RCX=ffffffff87056e8a RDX=00000000000101f1
+RSI=ff11000002bfc680 RDI=0000000000000002 RBP=ff11000007d501a0 RSP=ffa0000000527778
+R8 =0000000000000000 R9 =fffffbfff20f7b5b R10=fffffbfff20f7b5a R11=ffffffff907bdad7
+R12=00000000000101f1 R13=ff11000007d50050 R14=ff11000007d50048 R15=ff11000007d50060
+RIP=ffffffff87056e9e RFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ff1100006a300000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe520ab03000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe520ab01000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fec7134a028 CR3=00000000081be003 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=7864696f6972702e6f6972705f74656e XMM01=65656565656565656565656565656565
+XMM02=756f6d65723d73726f72726500747865 XMM03=00000000000000000000000000000000
+XMM04=ffffffffffffffffffffffffffffffff XMM05=0000ff0000000000ff00000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 3
+RAX=0000000000000004 RBX=0000000000000004 RCX=ffffffff87056e8a RDX=000000000001c062
+RSI=ff110000029f0000 RDI=0000000000000002 RBP=000000000001c062 RSP=ffa0000000298d20
+R8 =0000000000000000 R9 =fffffbfff20f7b5b R10=fffffbfff20f7b5a R11=ffffffff907bdad7
+R12=000000000001c062 R13=ff11000007d50180 R14=ffffffff88492a80 R15=ff11000007d544c0
+RIP=ffffffff87056e9e RFL=00000046 [---Z-P-] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000555567ca8880 00000000 00000000
+GS =0000 ff1100006a380000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe081ae9d000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe081ae9b000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007ffcacc82248 CR3=000000000b488005 CR4=00771ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000000d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=7864696f6972702e6f6972705f74656e XMM01=65656565656565656565656565656565
+XMM02=756f6d65723d73726f72726500747865 XMM03=00000000000000000000000000000000
+XMM04=ffffffffffffffffffffffffffffffff XMM05=0000ff0000000000ff00000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

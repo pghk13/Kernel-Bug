@@ -1,0 +1,179 @@
+hfsplus: request for non-existent node 16777216 in B*Tree
+======================================================
+WARNING: possible circular locking dependency detected
+6.13.0-rc7 #1 Not tainted
+------------------------------------------------------
+syz.4.88/2177 is trying to acquire lock:
+ff1100002ba5df88 (&hip->extents_lock){+.+.}-{4:4}, at: hfsplus_ext_write_extent+0x23/0xa0 fs/hfsplus/extents.c:149
+
+but task is already holding lock:
+ff1100002ba5e178 (&sb->s_type->i_mutex_key#23){+.+.}-{4:4}, at: inode_lock include/linux/fs.h:818 [inline]
+ff1100002ba5e178 (&sb->s_type->i_mutex_key#23){+.+.}-{4:4}, at: hfsplus_file_fsync+0x101/0x5c0 fs/hfsplus/inode.c:311
+
+which lock already depends on the new lock.
+
+
+the existing dependency chain (in reverse order) is:
+
+-> #3 (&sb->s_type->i_mutex_key#23){+.+.}-{4:4}:
+       down_write+0x92/0x200 kernel/locking/rwsem.c:1577
+       inode_lock include/linux/fs.h:818 [inline]
+       hfsplus_file_fsync+0x101/0x5c0 fs/hfsplus/inode.c:311
+       vfs_fsync_range+0x13d/0x230 fs/sync.c:187
+       __loop_update_dio+0x18f/0x5d0 drivers/block/loop.c:204
+       loop_set_status+0x4c0/0x740 drivers/block/loop.c:1289
+       loop_set_status64 drivers/block/loop.c:1398 [inline]
+       lo_ioctl+0xa19/0x1760 drivers/block/loop.c:1548
+       blkdev_ioctl+0x27e/0x6d0 block/ioctl.c:693
+       vfs_ioctl fs/ioctl.c:51 [inline]
+       __do_sys_ioctl fs/ioctl.c:906 [inline]
+       __se_sys_ioctl fs/ioctl.c:892 [inline]
+       __x64_sys_ioctl+0x19e/0x210 fs/ioctl.c:892
+       do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+       do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #2 (&q->q_usage_counter(io)#6){++++}-{0:0}:
+       bio_queue_enter block/blk.h:75 [inline]
+       blk_mq_submit_bio+0x18eb/0x1fe0 block/blk-mq.c:3090
+       __submit_bio+0x1ac/0xed0 block/blk-core.c:629
+       __submit_bio_noacct_mq block/blk-core.c:710 [inline]
+       submit_bio_noacct_nocheck block/blk-core.c:739 [inline]
+       submit_bio_noacct_nocheck+0x67e/0xd40 block/blk-core.c:716
+       submit_bio_noacct+0x649/0x13a0 block/blk-core.c:868
+       submit_bio_wait+0x10c/0x240 block/bio.c:1391
+       hfsplus_submit_bio+0x222/0x2c0 fs/hfsplus/wrapper.c:88
+       hfsplus_sync_fs+0x8f8/0xb20 fs/hfsplus/super.c:223
+       hfsplus_fill_super+0x156b/0x1cf0 fs/hfsplus/super.c:551
+       get_tree_bdev_flags+0x38c/0x620 fs/super.c:1636
+       vfs_get_tree+0x93/0x340 fs/super.c:1814
+       do_new_mount fs/namespace.c:3511 [inline]
+       path_mount+0x1272/0x1ba0 fs/namespace.c:3838
+       do_mount+0xf8/0x110 fs/namespace.c:3851
+       __do_sys_mount fs/namespace.c:4061 [inline]
+       __se_sys_mount fs/namespace.c:4038 [inline]
+       __x64_sys_mount+0x193/0x230 fs/namespace.c:4038
+       do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+       do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #1 (&sbi->alloc_mutex){+.+.}-{4:4}:
+       __mutex_lock_common kernel/locking/mutex.c:585 [inline]
+       __mutex_lock+0x16f/0x1eb0 kernel/locking/mutex.c:735
+       hfsplus_block_allocate+0xe8/0x9f0 fs/hfsplus/bitmap.c:35
+       hfsplus_file_extend+0x425/0xfa0 fs/hfsplus/extents.c:469
+       hfsplus_get_block+0x1b3/0x9a0 fs/hfsplus/extents.c:245
+       __block_write_begin_int+0x4b2/0x18c0 fs/buffer.c:2116
+       block_write_begin+0xa3/0x1e0 fs/buffer.c:2226
+       cont_write_begin+0x7da/0xf60 fs/buffer.c:2577
+       hfsplus_write_begin+0x62/0x120 fs/hfsplus/inode.c:46
+       generic_perform_write+0x290/0x850 mm/filemap.c:4046
+       __generic_file_write_iter+0x160/0x1a0 mm/filemap.c:4147
+       generic_file_write_iter+0xe1/0x340 mm/filemap.c:4173
+       new_sync_write fs/read_write.c:586 [inline]
+       vfs_write fs/read_write.c:679 [inline]
+       vfs_write+0xb9b/0x10f0 fs/read_write.c:659
+       ksys_write+0x122/0x240 fs/read_write.c:731
+       do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+       do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #0 (&hip->extents_lock){+.+.}-{4:4}:
+       check_prev_add kernel/locking/lockdep.c:3161 [inline]
+       check_prevs_add kernel/locking/lockdep.c:3280 [inline]
+       validate_chain kernel/locking/lockdep.c:3904 [inline]
+       __lock_acquire+0x29fe/0x4a10 kernel/locking/lockdep.c:5226
+       lock_acquire kernel/locking/lockdep.c:5849 [inline]
+       lock_acquire+0x1b1/0x580 kernel/locking/lockdep.c:5814
+       __mutex_lock_common kernel/locking/mutex.c:585 [inline]
+       __mutex_lock+0x16f/0x1eb0 kernel/locking/mutex.c:735
+       hfsplus_ext_write_extent+0x23/0xa0 fs/hfsplus/extents.c:149
+       hfsplus_write_inode+0x22/0x520 fs/hfsplus/super.c:155
+       write_inode fs/fs-writeback.c:1525 [inline]
+       __writeback_single_inode+0xb09/0x1010 fs/fs-writeback.c:1745
+       writeback_single_inode+0x2c1/0x570 fs/fs-writeback.c:1801
+       sync_inode_metadata+0xac/0xf0 fs/fs-writeback.c:2871
+       hfsplus_file_fsync+0x10e/0x5c0 fs/hfsplus/inode.c:316
+       vfs_fsync_range+0x13d/0x230 fs/sync.c:187
+       __loop_update_dio+0x18f/0x5d0 drivers/block/loop.c:204
+       loop_set_status+0x4c0/0x740 drivers/block/loop.c:1289
+       loop_set_status64 drivers/block/loop.c:1398 [inline]
+       lo_ioctl+0xa19/0x1760 drivers/block/loop.c:1548
+       blkdev_ioctl+0x27e/0x6d0 block/ioctl.c:693
+       vfs_ioctl fs/ioctl.c:51 [inline]
+       __do_sys_ioctl fs/ioctl.c:906 [inline]
+       __se_sys_ioctl fs/ioctl.c:892 [inline]
+       __x64_sys_ioctl+0x19e/0x210 fs/ioctl.c:892
+       do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+       do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+other info that might help us debug this:
+
+Chain exists of:
+  &hip->extents_lock --> &q->q_usage_counter(io)#6 --> &sb->s_type->i_mutex_key#23
+
+ Possible unsafe locking scenario:
+
+       CPU0                    CPU1
+       ----                    ----
+  lock(&sb->s_type->i_mutex_key#23);
+                               lock(&q->q_usage_counter(io)#6);
+                               lock(&sb->s_type->i_mutex_key#23);
+  lock(&hip->extents_lock);
+
+ *** DEADLOCK ***
+
+4 locks held by syz.4.88/2177:
+ #0: ff110000042ccb60 (&lo->lo_mutex){+.+.}-{4:4}, at: loop_set_status+0x2a/0x740 drivers/block/loop.c:1251
+ #1: ff110000081800a8 (&q->q_usage_counter(io)#6){++++}-{0:0}, at: blk_mq_freeze_queue+0x15/0x20 block/blk-mq.c:213
+ #2: ff110000081800e0 (&q->q_usage_counter(queue)#3){+.+.}-{0:0}, at: blk_mq_freeze_queue+0x15/0x20 block/blk-mq.c:213
+ #3: ff1100002ba5e178 (&sb->s_type->i_mutex_key#23){+.+.}-{4:4}, at: inode_lock include/linux/fs.h:818 [inline]
+ #3: ff1100002ba5e178 (&sb->s_type->i_mutex_key#23){+.+.}-{4:4}, at: hfsplus_file_fsync+0x101/0x5c0 fs/hfsplus/inode.c:311
+
+stack backtrace:
+CPU: 1 UID: 0 PID: 2177 Comm: syz.4.88 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_circular_bug.isra.0+0x5b5/0x9c0 kernel/locking/lockdep.c:2074
+ check_noncircular+0x2f3/0x3d0 kernel/locking/lockdep.c:2206
+ check_prev_add kernel/locking/lockdep.c:3161 [inline]
+ check_prevs_add kernel/locking/lockdep.c:3280 [inline]
+ validate_chain kernel/locking/lockdep.c:3904 [inline]
+ __lock_acquire+0x29fe/0x4a10 kernel/locking/lockdep.c:5226
+ lock_acquire kernel/locking/lockdep.c:5849 [inline]
+ lock_acquire+0x1b1/0x580 kernel/locking/lockdep.c:5814
+ __mutex_lock_common kernel/locking/mutex.c:585 [inline]
+ __mutex_lock+0x16f/0x1eb0 kernel/locking/mutex.c:735
+ hfsplus_ext_write_extent+0x23/0xa0 fs/hfsplus/extents.c:149
+ hfsplus_write_inode+0x22/0x520 fs/hfsplus/super.c:155
+ write_inode fs/fs-writeback.c:1525 [inline]
+ __writeback_single_inode+0xb09/0x1010 fs/fs-writeback.c:1745
+ writeback_single_inode+0x2c1/0x570 fs/fs-writeback.c:1801
+ sync_inode_metadata+0xac/0xf0 fs/fs-writeback.c:2871
+ hfsplus_file_fsync+0x10e/0x5c0 fs/hfsplus/inode.c:316
+ vfs_fsync_range+0x13d/0x230 fs/sync.c:187
+ __loop_update_dio+0x18f/0x5d0 drivers/block/loop.c:204
+ loop_set_status+0x4c0/0x740 drivers/block/loop.c:1289
+ loop_set_status64 drivers/block/loop.c:1398 [inline]
+ lo_ioctl+0xa19/0x1760 drivers/block/loop.c:1548
+ blkdev_ioctl+0x27e/0x6d0 block/ioctl.c:693
+ vfs_ioctl fs/ioctl.c:51 [inline]
+ __do_sys_ioctl fs/ioctl.c:906 [inline]
+ __se_sys_ioctl fs/ioctl.c:892 [inline]
+ __x64_sys_ioctl+0x19e/0x210 fs/ioctl.c:892
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fccaf5b771d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fccae20aba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 00007fccaf779f80 RCX: 00007fccaf5b771d
+RDX: 0000000020001300 RSI: 0000000000004c04 RDI: 0000000000000007
+RBP: 00007fccaf62c425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fccaf779f8c R14: 00007fccaf77a018 R15: 00007fccae20ad40
+ </TASK>
