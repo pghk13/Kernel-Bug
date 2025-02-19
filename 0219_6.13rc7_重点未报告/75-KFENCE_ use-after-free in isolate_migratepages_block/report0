@@ -1,0 +1,52 @@
+==================================================================
+BUG: KFENCE: use-after-free read in constant_test_bit arch/x86/include/asm/bitops.h:206 [inline]
+BUG: KFENCE: use-after-free read in arch_test_bit arch/x86/include/asm/bitops.h:238 [inline]
+BUG: KFENCE: use-after-free read in _test_bit include/asm-generic/bitops/instrumented-non-atomic.h:142 [inline]
+BUG: KFENCE: use-after-free read in mapping_inaccessible include/linux/pagemap.h:335 [inline]
+BUG: KFENCE: use-after-free read in isolate_migratepages_block+0x31ee/0x43c0 mm/compaction.c:1180
+
+Use-after-free read at 0x00000000ad50397e (in kfence-#54):
+ constant_test_bit arch/x86/include/asm/bitops.h:206 [inline]
+ arch_test_bit arch/x86/include/asm/bitops.h:238 [inline]
+ _test_bit include/asm-generic/bitops/instrumented-non-atomic.h:142 [inline]
+ mapping_inaccessible include/linux/pagemap.h:335 [inline]
+ isolate_migratepages_block+0x31ee/0x43c0 mm/compaction.c:1180
+ isolate_migratepages mm/compaction.c:2164 [inline]
+ compact_zone+0x1987/0x3ee0 mm/compaction.c:2611
+ compact_node+0x19c/0x2d0 mm/compaction.c:2910
+ kcompactd+0x3ca/0xa00 mm/compaction.c:3208
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+
+kfence-#54: 0x0000000093cee1ee-0x00000000df555857, size=232, cache=skbuff_head_cache
+
+allocated by task 116 on cpu 2 at 370.001377s (7.089569s ago):
+ __alloc_skb+0x2ad/0x370 net/core/skbuff.c:668
+ alloc_skb include/linux/skbuff.h:1323 [inline]
+ nsim_dev_trap_skb_build drivers/net/netdevsim/dev.c:748 [inline]
+ nsim_dev_trap_report drivers/net/netdevsim/dev.c:805 [inline]
+ nsim_dev_trap_report_work+0x358/0xd20 drivers/net/netdevsim/dev.c:851
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+
+freed by task 116 on cpu 2 at 370.001438s (7.089507s ago):
+ __kfree_skb net/core/skbuff.c:1205 [inline]
+ consume_skb net/core/skbuff.c:1436 [inline]
+ consume_skb+0xfd/0x2c0 net/core/skbuff.c:1430
+ nsim_dev_trap_report drivers/net/netdevsim/dev.c:821 [inline]
+ nsim_dev_trap_report_work+0x263/0xd20 drivers/net/netdevsim/dev.c:851
+ process_one_work kernel/workqueue.c:3236 [inline]
+ process_scheduled_works+0x5ee/0x1ba0 kernel/workqueue.c:3317
+ worker_thread+0x59f/0xcf0 kernel/workqueue.c:3398
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+
+CPU: 3 UID: 0 PID: 48 Comm: kcompactd0 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+==================================================================
