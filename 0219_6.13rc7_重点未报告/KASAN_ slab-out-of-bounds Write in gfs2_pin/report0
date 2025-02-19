@@ -1,0 +1,184 @@
+==================================================================
+BUG: KASAN: slab-out-of-bounds in instrument_atomic_read_write include/linux/instrumented.h:96 [inline]
+BUG: KASAN: slab-out-of-bounds in atomic_inc include/linux/atomic/atomic-instrumented.h:435 [inline]
+BUG: KASAN: slab-out-of-bounds in get_bh include/linux/buffer_head.h:296 [inline]
+BUG: KASAN: slab-out-of-bounds in gfs2_pin+0x2f5/0x660 fs/gfs2/lops.c:61
+Write of size 4 at addr ff11000022c1ea60 by task syz-executor/9623
+
+CPU: 0 UID: 0 PID: 9623 Comm: syz-executor Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 mm/kasan/report.c:489
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ check_region_inline mm/kasan/generic.c:183 [inline]
+ kasan_check_range+0xf6/0x1b0 mm/kasan/generic.c:189
+ instrument_atomic_read_write include/linux/instrumented.h:96 [inline]
+ atomic_inc include/linux/atomic/atomic-instrumented.h:435 [inline]
+ get_bh include/linux/buffer_head.h:296 [inline]
+ gfs2_pin+0x2f5/0x660 fs/gfs2/lops.c:61
+ gfs2_trans_add_data+0x28a/0x560 fs/gfs2/trans.c:220
+ gfs2_write_buf_to_page+0x3e9/0xb70 fs/gfs2/quota.c:770
+ gfs2_write_disk_quota fs/gfs2/quota.c:818 [inline]
+ gfs2_adjust_quota+0x632/0x890 fs/gfs2/quota.c:881
+ do_sync+0x9eb/0xd10 fs/gfs2/quota.c:963
+ gfs2_quota_sync+0x301/0x500 fs/gfs2/quota.c:1359
+ gfs2_sync_fs+0x44/0xb0 fs/gfs2/super.c:670
+ sync_filesystem fs/sync.c:56 [inline]
+ sync_filesystem+0x110/0x2a0 fs/sync.c:30
+ generic_shutdown_super+0x74/0x380 fs/super.c:621
+ kill_block_super+0x3b/0x90 fs/super.c:1710
+ gfs2_kill_sb+0x375/0x420 fs/gfs2/ops_fstype.c:1793
+ deactivate_locked_super+0xbb/0x130 fs/super.c:473
+ deactivate_super fs/super.c:506 [inline]
+ deactivate_super+0xb1/0xd0 fs/super.c:502
+ cleanup_mnt+0x378/0x510 fs/namespace.c:1373
+ task_work_run+0x173/0x280 kernel/task_work.c:239
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ exit_to_user_mode_loop kernel/entry/common.c:114 [inline]
+ exit_to_user_mode_prepare include/linux/entry-common.h:329 [inline]
+ __syscall_exit_to_user_mode_work kernel/entry/common.c:207 [inline]
+ syscall_exit_to_user_mode+0x261/0x270 kernel/entry/common.c:218
+ do_syscall_64+0xd0/0x1d0 arch/x86/entry/common.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f4c1535508b
+Code: ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 90 f3 0f 1e fa 31 f6 e9 05 00 00 00 0f 1f 44 00 00 f3 0f 1e fa b8 a6 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc875a7e48 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 00007f4c1535508b
+RDX: 00007f4c151efc50 RSI: 0000000000000009 RDI: 00007ffc875a7f10
+RBP: 00007ffc875a7f10 R08: 00007f4c153c7095 R09: 00007ffc875a7cd0
+R10: 00000000fffffffb R11: 0000000000000246 R12: 00007f4c153c7071
+R13: 00007ffc875a8fb0 R14: 00005555636098f0 R15: 00007ffc875a8ff0
+ </TASK>
+
+Allocated by task 9623:
+ kasan_save_stack+0x24/0x50 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ poison_kmalloc_redzone mm/kasan/common.c:377 [inline]
+ __kasan_kmalloc+0xaa/0xb0 mm/kasan/common.c:394
+ kasan_kmalloc include/linux/kasan.h:260 [inline]
+ __do_kmalloc_node mm/slub.c:4298 [inline]
+ __kmalloc_noprof+0x1ef/0x570 mm/slub.c:4310
+ kmalloc_noprof include/linux/slab.h:905 [inline]
+ kzalloc_noprof include/linux/slab.h:1037 [inline]
+ ifs_alloc+0x1c9/0x400 fs/iomap/buffered-io.c:202
+ iomap_dirty_folio+0xeb/0x170 fs/iomap/buffered-io.c:652
+ folio_mark_dirty+0xcf/0x150 mm/page-writeback.c:2920
+ gfs2_unstuffer_folio fs/gfs2/bmap.c:83 [inline]
+ __gfs2_unstuff_inode fs/gfs2/bmap.c:119 [inline]
+ gfs2_unstuff_dinode+0xe7a/0x1560 fs/gfs2/bmap.c:166
+ gfs2_adjust_quota+0x104/0x890 fs/gfs2/quota.c:849
+ do_sync+0x9eb/0xd10 fs/gfs2/quota.c:963
+ gfs2_quota_sync+0x301/0x500 fs/gfs2/quota.c:1359
+ gfs2_sync_fs+0x44/0xb0 fs/gfs2/super.c:670
+ sync_filesystem fs/sync.c:56 [inline]
+ sync_filesystem+0x110/0x2a0 fs/sync.c:30
+ generic_shutdown_super+0x74/0x380 fs/super.c:621
+ kill_block_super+0x3b/0x90 fs/super.c:1710
+ gfs2_kill_sb+0x375/0x420 fs/gfs2/ops_fstype.c:1793
+ deactivate_locked_super+0xbb/0x130 fs/super.c:473
+ deactivate_super fs/super.c:506 [inline]
+ deactivate_super+0xb1/0xd0 fs/super.c:502
+ cleanup_mnt+0x378/0x510 fs/namespace.c:1373
+ task_work_run+0x173/0x280 kernel/task_work.c:239
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ exit_to_user_mode_loop kernel/entry/common.c:114 [inline]
+ exit_to_user_mode_prepare include/linux/entry-common.h:329 [inline]
+ __syscall_exit_to_user_mode_work kernel/entry/common.c:207 [inline]
+ syscall_exit_to_user_mode+0x261/0x270 kernel/entry/common.c:218
+ do_syscall_64+0xd0/0x1d0 arch/x86/entry/common.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+The buggy address belongs to the object at ff11000022c1ea00
+ which belongs to the cache kmalloc-96 of size 96
+The buggy address is located 16 bytes to the right of
+ allocated 80-byte region [ff11000022c1ea00, ff11000022c1ea50)
+
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x22c1e
+anon flags: 0x100000000000000(node=0|zone=1)
+page_type: f5(slab)
+raw: 0100000000000000 ff1100000103c280 ffd400000088ab00 dead000000000007
+raw: 0000000000000000 0000000080200020 00000001f5000000 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ff11000022c1e900: fa fb fb fb fb fb fb fb fb fb fb fb fc fc fc fc
+ ff11000022c1e980: 00 00 00 00 00 00 00 00 00 00 fc fc fc fc fc fc
+>ff11000022c1ea00: 00 00 00 00 00 00 00 00 00 00 fc fc fc fc fc fc
+                                                       ^
+ ff11000022c1ea80: fa fb fb fb fb fb fb fb fb fb fb fb fc fc fc fc
+ ff11000022c1eb00: fa fb fb fb fb fb fb fb fb fb fb fb fc fc fc fc
+==================================================================
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 9623 at fs/iomap/buffered-io.c:1992 iomap_writepage_map fs/iomap/buffered-io.c:1992 [inline]
+WARNING: CPU: 0 PID: 9623 at fs/iomap/buffered-io.c:1992 iomap_writepages fs/iomap/buffered-io.c:2061 [inline]
+WARNING: CPU: 0 PID: 9623 at fs/iomap/buffered-io.c:1992 iomap_writepages+0x259e/0x2e50 fs/iomap/buffered-io.c:2044
+Modules linked in:
+CPU: 0 UID: 0 PID: 9623 Comm: syz-executor Tainted: G    B              6.13.0-rc7 #1
+Tainted: [B]=BAD_PAGE
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:iomap_writepage_map fs/iomap/buffered-io.c:1992 [inline]
+RIP: 0010:iomap_writepages fs/iomap/buffered-io.c:2061 [inline]
+RIP: 0010:iomap_writepages+0x259e/0x2e50 fs/iomap/buffered-io.c:2044
+Code: 41 bc 00 10 00 00 bd 00 10 00 00 e9 65 f4 ff ff e8 f7 d2 9e ff 90 0f 0b 90 41 bc fb ff ff ff e9 95 fe ff ff e8 e3 d2 9e ff 90 <0f> 0b 90 e9 bd e0 ff ff e8 d5 d2 9e ff 48 8b 44 24 10 48 8d 78 30
+RSP: 0018:ffa0000003907380 EFLAGS: 00010246
+RAX: 00000000023ec000 RBX: ff11000022c1ea44 RCX: ffffffff82caa9db
+RDX: 00000000ff110000 RSI: ff1100002df84680 RDI: 0000000000000002
+RBP: 00000000ff110000 R08: ffe21c00023ec000 R09: ffe21c0004583d49
+R10: ffe21c0004583d48 R11: ff11000022c1ea47 R12: 000000000000000a
+R13: ffd400000047d7c0 R14: 0000000000000000 R15: dffffc0000000000
+FS:  00005555635f6a00(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f87ed0a20c0 CR3: 000000002c73e001 CR4: 0000000000771ef0
+PKRU: 00000000
+Call Trace:
+ <TASK>
+ gfs2_writepages+0x159/0x2a0 fs/gfs2/aops.c:161
+ do_writepages+0x19d/0x7d0 mm/page-writeback.c:2702
+ filemap_fdatawrite_wbc+0xe9/0x120 mm/filemap.c:388
+ __filemap_fdatawrite_range+0xc1/0x110 mm/filemap.c:421
+ gfs2_ordered_write fs/gfs2/log.c:728 [inline]
+ gfs2_log_flush+0x79a/0x2cc0 fs/gfs2/log.c:1097
+ do_sync+0x56a/0xd10 fs/gfs2/quota.c:983
+ gfs2_quota_sync+0x301/0x500 fs/gfs2/quota.c:1359
+ gfs2_sync_fs+0x44/0xb0 fs/gfs2/super.c:670
+ sync_filesystem fs/sync.c:56 [inline]
+ sync_filesystem+0x110/0x2a0 fs/sync.c:30
+ generic_shutdown_super+0x74/0x380 fs/super.c:621
+ kill_block_super+0x3b/0x90 fs/super.c:1710
+ gfs2_kill_sb+0x375/0x420 fs/gfs2/ops_fstype.c:1793
+ deactivate_locked_super+0xbb/0x130 fs/super.c:473
+ deactivate_super fs/super.c:506 [inline]
+ deactivate_super+0xb1/0xd0 fs/super.c:502
+ cleanup_mnt+0x378/0x510 fs/namespace.c:1373
+ task_work_run+0x173/0x280 kernel/task_work.c:239
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ exit_to_user_mode_loop kernel/entry/common.c:114 [inline]
+ exit_to_user_mode_prepare include/linux/entry-common.h:329 [inline]
+ __syscall_exit_to_user_mode_work kernel/entry/common.c:207 [inline]
+ syscall_exit_to_user_mode+0x261/0x270 kernel/entry/common.c:218
+ do_syscall_64+0xd0/0x1d0 arch/x86/entry/common.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f4c1535508b
+Code: ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 90 f3 0f 1e fa 31 f6 e9 05 00 00 00 0f 1f 44 00 00 f3 0f 1e fa b8 a6 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc875a7e48 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 00007f4c1535508b
+RDX: 00007f4c151efc50 RSI: 0000000000000009 RDI: 00007ffc875a7f10
+RBP: 00007ffc875a7f10 R08: 00007f4c153c7095 R09: 00007ffc875a7cd0
+R10: 00000000fffffffb R11: 0000000000000246 R12: 00007f4c153c7071
+R13: 00007ffc875a8fb0 R14: 00005555636098f0 R15: 00007ffc875a8ff0
+ </TASK>
+irq event stamp: 1419185
+hardirqs last  enabled at (1419185): [<ffffffff8a2d283b>] irqentry_exit+0x3b/0x90 kernel/entry/common.c:357
+hardirqs last disabled at (1419184): [<ffffffff8230f6b4>] handle_softirqs+0x6a4/0x870 kernel/softirq.c:576
+softirqs last  enabled at (1418912): [<ffffffff8230f554>] softirq_handle_end kernel/softirq.c:407 [inline]
+softirqs last  enabled at (1418912): [<ffffffff8230f554>] handle_softirqs+0x544/0x870 kernel/softirq.c:589
+softirqs last disabled at (1418903): [<ffffffff8231120e>] __do_softirq kernel/softirq.c:595 [inline]
+softirqs last disabled at (1418903): [<ffffffff8231120e>] invoke_softirq kernel/softirq.c:435 [inline]
+softirqs last disabled at (1418903): [<ffffffff8231120e>] __irq_exit_rcu kernel/softirq.c:662 [inline]
+softirqs last disabled at (1418903): [<ffffffff8231120e>] irq_exit_rcu+0xee/0x140 kernel/softirq.c:678
+---[ end trace 0000000000000000 ]---

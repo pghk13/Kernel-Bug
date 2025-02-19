@@ -1,0 +1,81 @@
+gfs2: fsid=syz:syz.0: first mount done, others may mount
+Oops: general protection fault, probably for non-canonical address 0xdffffc0020000003: 0000 [#1] PREEMPT SMP KASAN NOPTI
+KASAN: probably user-memory-access in range [0x0000000100000018-0x000000010000001f]
+CPU: 0 UID: 0 PID: 2896 Comm: syz.1.198 Tainted: G    B              6.13.0-rc7 #1
+Tainted: [B]=BAD_PAGE
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:gfs2_invalidate_folio+0x1c5/0x7f0 fs/gfs2/aops.c:621
+Code: 80 3c 30 00 0f 85 e9 04 00 00 48 8b 5b 08 48 3b 5c 24 08 0f 84 8f 04 00 00 e8 b7 ff 11 fe 48 8d 43 20 48 89 04 24 48 c1 e8 03 <42> 80 3c 30 00 0f 85 b0 04 00 00 4c 8b 6b 20 4c 89 e6 49 01 ed 4c
+RSP: 0018:ffa000001405f288 EFLAGS: 00010217
+RAX: 0000000020000003 RBX: 00000000ffffffff RCX: 0000000000040000
+RDX: ffa0000003f8c000 RSI: ff110000083a0000 RDI: 0000000000000002
+RBP: 0000000000000000 R08: 0000000000000001 R09: ffe21c0005ce1291
+R10: ffe21c0005ce1290 R11: ff1100002e709487 R12: 0000000000001000
+R13: 0000000000000000 R14: dffffc0000000000 R15: 0000000000000000
+FS:  00007f4c73bd2700(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000020000000 CR3: 000000001765a005 CR4: 0000000000771ef0
+PKRU: 80000000
+Call Trace:
+ <TASK>
+ folio_invalidate mm/truncate.c:126 [inline]
+ truncate_cleanup_folio+0x2ea/0x480 mm/truncate.c:146
+ truncate_inode_pages_range+0x214/0xe60 mm/truncate.c:326
+ truncate_inode_pages mm/truncate.c:407 [inline]
+ truncate_pagecache+0x67/0x90 mm/truncate.c:715
+ gfs2_journaled_truncate fs/gfs2/bmap.c:1338 [inline]
+ trunc_start fs/gfs2/bmap.c:1396 [inline]
+ do_shrink fs/gfs2/bmap.c:2028 [inline]
+ gfs2_setattr_size+0xcfc/0x1150 fs/gfs2/bmap.c:2150
+ gfs2_setattr+0x78d/0x8a0 fs/gfs2/inode.c:2026
+ notify_change+0x677/0x1240 fs/attr.c:552
+ do_truncate+0x143/0x200 fs/open.c:65
+ handle_truncate fs/namei.c:3449 [inline]
+ do_open fs/namei.c:3832 [inline]
+ path_openat+0x22d6/0x2970 fs/namei.c:3987
+ do_filp_open+0x1fa/0x2f0 fs/namei.c:4014
+ do_sys_openat2+0x641/0x6e0 fs/open.c:1402
+ do_sys_open+0xc7/0x150 fs/open.c:1417
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f4c74f7e71d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f4c73bd1ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000055
+RAX: ffffffffffffffda RBX: 00007f4c75140f80 RCX: 00007f4c74f7e71d
+RDX: 0000000000000000 RSI: 000000000000014c RDI: 0000000020000280
+RBP: 00007f4c74ff3425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f4c75140f8c R14: 00007f4c75141018 R15: 00007f4c73bd1d40
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:gfs2_invalidate_folio+0x1c5/0x7f0 fs/gfs2/aops.c:621
+Code: 80 3c 30 00 0f 85 e9 04 00 00 48 8b 5b 08 48 3b 5c 24 08 0f 84 8f 04 00 00 e8 b7 ff 11 fe 48 8d 43 20 48 89 04 24 48 c1 e8 03 <42> 80 3c 30 00 0f 85 b0 04 00 00 4c 8b 6b 20 4c 89 e6 49 01 ed 4c
+RSP: 0018:ffa000001405f288 EFLAGS: 00010217
+RAX: 0000000020000003 RBX: 00000000ffffffff RCX: 0000000000040000
+RDX: ffa0000003f8c000 RSI: ff110000083a0000 RDI: 0000000000000002
+RBP: 0000000000000000 R08: 0000000000000001 R09: ffe21c0005ce1291
+R10: ffe21c0005ce1290 R11: ff1100002e709487 R12: 0000000000001000
+R13: 0000000000000000 R14: dffffc0000000000 R15: 0000000000000000
+FS:  00007f4c73bd2700(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000020000000 CR3: 000000001765a005 CR4: 0000000000771ef0
+PKRU: 80000000
+----------------
+Code disassembly (best guess):
+   0:	80 3c 30 00          	cmpb   $0x0,(%rax,%rsi,1)
+   4:	0f 85 e9 04 00 00    	jne    0x4f3
+   a:	48 8b 5b 08          	mov    0x8(%rbx),%rbx
+   e:	48 3b 5c 24 08       	cmp    0x8(%rsp),%rbx
+  13:	0f 84 8f 04 00 00    	je     0x4a8
+  19:	e8 b7 ff 11 fe       	callq  0xfe11ffd5
+  1e:	48 8d 43 20          	lea    0x20(%rbx),%rax
+  22:	48 89 04 24          	mov    %rax,(%rsp)
+  26:	48 c1 e8 03          	shr    $0x3,%rax
+* 2a:	42 80 3c 30 00       	cmpb   $0x0,(%rax,%r14,1) <-- trapping instruction
+  2f:	0f 85 b0 04 00 00    	jne    0x4e5
+  35:	4c 8b 6b 20          	mov    0x20(%rbx),%r13
+  39:	4c 89 e6             	mov    %r12,%rsi
+  3c:	49 01 ed             	add    %rbp,%r13
+  3f:	4c                   	rex.WR

@@ -1,0 +1,77 @@
+BUG: unable to handle page fault for address: 00000000ffffffff
+#PF: supervisor write access in kernel mode
+#PF: error_code(0x0002) - not-present page
+PGD 2a0f8067 P4D 43fd0067 PUD 0 
+Oops: Oops: 0002 [#1] PREEMPT SMP KASAN NOPTI
+CPU: 3 UID: 0 PID: 48 Comm: kcompactd0 Tainted: G    B              6.13.0-rc7 #1
+Tainted: [B]=BAD_PAGE
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:arch_test_and_set_bit arch/x86/include/asm/bitops.h:137 [inline]
+RIP: 0010:arch_test_and_set_bit_lock arch/x86/include/asm/bitops.h:143 [inline]
+RIP: 0010:test_and_set_bit_lock include/asm-generic/bitops/instrumented-lock.h:58 [inline]
+RIP: 0010:trylock_buffer include/linux/buffer_head.h:419 [inline]
+RIP: 0010:buffer_migrate_lock_buffers mm/migrate.c:812 [inline]
+RIP: 0010:__buffer_migrate_folio+0x133/0x680 mm/migrate.c:854
+Code: 42 80 3c 28 00 0f 85 aa 04 00 00 48 8b 5b 08 48 39 dd 0f 84 ea 00 00 00 e8 4a e4 c2 ff be 08 00 00 00 48 89 df e8 3d 27 ff ff <f0> 48 0f ba 2b 02 41 0f 92 c7 31 ff 44 89 fe e8 f9 e5 c2 ff 45 84
+RSP: 0018:ffa0000000357498 EFLAGS: 00010202
+RAX: 0000000000000001 RBX: 00000000ffffffff RCX: ffffffffa6a6b7c3
+RDX: 0000000000000001 RSI: 0000000000000008 RDI: 00000000ffffffff
+RBP: ff11000043e77b80 R08: 0000000000000000 R09: ffe21c00087cef71
+R10: ffe21c00087cef70 R11: ff11000043e77b87 R12: 0000000000000000
+R13: dffffc0000000000 R14: ffd40000004beec0 R15: ffd40000004bee00
+FS:  0000000000000000(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00000000ffffffff CR3: 000000004526c004 CR4: 0000000000771ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ move_to_new_folio+0x1d4/0x720 mm/migrate.c:1060
+ migrate_folio_move mm/migrate.c:1368 [inline]
+ migrate_pages_batch+0x1861/0x2590 mm/migrate.c:1899
+ migrate_pages_sync+0x10d/0x8d0 mm/migrate.c:1965
+ migrate_pages+0x1988/0x2130 mm/migrate.c:2074
+ compact_zone+0x1bac/0x3ee0 mm/compaction.c:2641
+ compact_node+0x19c/0x2d0 mm/compaction.c:2910
+ kcompactd+0x3ca/0xa00 mm/compaction.c:3208
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+ </TASK>
+Modules linked in:
+CR2: 00000000ffffffff
+---[ end trace 0000000000000000 ]---
+RIP: 0010:arch_test_and_set_bit arch/x86/include/asm/bitops.h:137 [inline]
+RIP: 0010:arch_test_and_set_bit_lock arch/x86/include/asm/bitops.h:143 [inline]
+RIP: 0010:test_and_set_bit_lock include/asm-generic/bitops/instrumented-lock.h:58 [inline]
+RIP: 0010:trylock_buffer include/linux/buffer_head.h:419 [inline]
+RIP: 0010:buffer_migrate_lock_buffers mm/migrate.c:812 [inline]
+RIP: 0010:__buffer_migrate_folio+0x133/0x680 mm/migrate.c:854
+Code: 42 80 3c 28 00 0f 85 aa 04 00 00 48 8b 5b 08 48 39 dd 0f 84 ea 00 00 00 e8 4a e4 c2 ff be 08 00 00 00 48 89 df e8 3d 27 ff ff <f0> 48 0f ba 2b 02 41 0f 92 c7 31 ff 44 89 fe e8 f9 e5 c2 ff 45 84
+RSP: 0018:ffa0000000357498 EFLAGS: 00010202
+RAX: 0000000000000001 RBX: 00000000ffffffff RCX: ffffffffa6a6b7c3
+RDX: 0000000000000001 RSI: 0000000000000008 RDI: 00000000ffffffff
+RBP: ff11000043e77b80 R08: 0000000000000000 R09: ffe21c00087cef71
+R10: ffe21c00087cef70 R11: ff11000043e77b87 R12: 0000000000000000
+R13: dffffc0000000000 R14: ffd40000004beec0 R15: ffd40000004bee00
+FS:  0000000000000000(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00000000ffffffff CR3: 000000004526c004 CR4: 0000000000771ef0
+PKRU: 55555554
+----------------
+Code disassembly (best guess):
+   0:	42 80 3c 28 00       	cmpb   $0x0,(%rax,%r13,1)
+   5:	0f 85 aa 04 00 00    	jne    0x4b5
+   b:	48 8b 5b 08          	mov    0x8(%rbx),%rbx
+   f:	48 39 dd             	cmp    %rbx,%rbp
+  12:	0f 84 ea 00 00 00    	je     0x102
+  18:	e8 4a e4 c2 ff       	callq  0xffc2e467
+  1d:	be 08 00 00 00       	mov    $0x8,%esi
+  22:	48 89 df             	mov    %rbx,%rdi
+  25:	e8 3d 27 ff ff       	callq  0xffff2767
+* 2a:	f0 48 0f ba 2b 02    	lock btsq $0x2,(%rbx) <-- trapping instruction
+  30:	41 0f 92 c7          	setb   %r15b
+  34:	31 ff                	xor    %edi,%edi
+  36:	44 89 fe             	mov    %r15d,%esi
+  39:	e8 f9 e5 c2 ff       	callq  0xffc2e637
+  3e:	45                   	rex.RB
+  3f:	84                   	.byte 0x84

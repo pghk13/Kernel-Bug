@@ -1,0 +1,144 @@
+==================================================================
+BUG: KASAN: user-memory-access in instrument_atomic_read include/linux/instrumented.h:68 [inline]
+BUG: KASAN: user-memory-access in _test_bit_acquire include/asm-generic/bitops/instrumented-non-atomic.h:153 [inline]
+BUG: KASAN: user-memory-access in buffer_uptodate include/linux/buffer_head.h:171 [inline]
+BUG: KASAN: user-memory-access in __block_write_begin_int+0x7bc/0x18c0 fs/buffer.c:2106
+Read of size 8 at addr 00000000ffffffff by task syz.4.202/4075
+
+CPU: 3 UID: 0 PID: 4075 Comm: syz.4.202 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_report+0x3f0/0x5f0 mm/kasan/report.c:492
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ check_region_inline mm/kasan/generic.c:183 [inline]
+ kasan_check_range+0xf6/0x1b0 mm/kasan/generic.c:189
+ instrument_atomic_read include/linux/instrumented.h:68 [inline]
+ _test_bit_acquire include/asm-generic/bitops/instrumented-non-atomic.h:153 [inline]
+ buffer_uptodate include/linux/buffer_head.h:171 [inline]
+ __block_write_begin_int+0x7bc/0x18c0 fs/buffer.c:2106
+ iomap_write_begin+0x581/0x18d0 fs/iomap/buffered-io.c:827
+ iomap_write_iter fs/iomap/buffered-io.c:955 [inline]
+ iomap_file_buffered_write+0x402/0xbe0 fs/iomap/buffered-io.c:1039
+ gfs2_file_buffered_write+0x40b/0xb10 fs/gfs2/file.c:1060
+ gfs2_file_write_iter+0x6c9/0x1080 fs/gfs2/file.c:1164
+ iter_file_splice_write+0xa22/0x1030 fs/splice.c:743
+ do_splice_from+0x80/0xd0 fs/splice.c:941
+ direct_splice_actor+0x12a/0x620 fs/splice.c:1164
+ splice_direct_to_actor+0x368/0xa10 fs/splice.c:1108
+ do_splice_direct_actor+0x181/0x250 fs/splice.c:1207
+ do_splice_direct+0x41/0x60 fs/splice.c:1233
+ do_sendfile+0xac1/0xde0 fs/read_write.c:1363
+ __do_sys_sendfile64 fs/read_write.c:1424 [inline]
+ __se_sys_sendfile64 fs/read_write.c:1410 [inline]
+ __x64_sys_sendfile64+0x1d5/0x210 fs/read_write.c:1410
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f409189671d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f40904e9ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000028
+RAX: ffffffffffffffda RBX: 00007f4091a58f80 RCX: 00007f409189671d
+RDX: 0000000000000000 RSI: 0000000000000006 RDI: 0000000000000007
+RBP: 00007f409190b425 R08: 0000000000000000 R09: 0000000000000000
+R10: 000000000001ffff R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f4091a58f8c R14: 00007f4091a59018 R15: 00007f40904e9d40
+ </TASK>
+==================================================================
+BUG: unable to handle page fault for address: 00000000ffffffff
+#PF: supervisor read access in kernel mode
+#PF: error_code(0x0000) - not-present page
+PGD df80067 P4D 54a3a067 
+PUD 0 
+Oops: Oops: 0000 [#1] PREEMPT SMP KASAN NOPTI
+CPU: 3 UID: 0 PID: 4075 Comm: syz.4.202 Tainted: G    B              6.13.0-rc7 #1
+Tainted: [B]=BAD_PAGE
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:constant_test_bit_acquire arch/x86/include/asm/bitops.h:213 [inline]
+RIP: 0010:arch_test_bit_acquire arch/x86/include/asm/bitops.h:245 [inline]
+RIP: 0010:_test_bit_acquire include/asm-generic/bitops/instrumented-non-atomic.h:154 [inline]
+RIP: 0010:buffer_uptodate include/linux/buffer_head.h:171 [inline]
+RIP: 0010:__block_write_begin_int+0x7bc/0x18c0 fs/buffer.c:2106
+Code: 31 ff 48 c1 eb 03 83 e3 01 89 de e8 0e 56 ac ff 84 db 0f 84 18 fe ff ff e8 31 54 ac ff be 08 00 00 00 4c 89 ff e8 f4 96 e8 ff <41> f6 07 01 0f 95 c3 31 ff 89 de e8 e4 55 ac ff 84 db 0f 85 ee fd
+RSP: 0018:ffa00000080cf1f0 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 0000000000000001 RCX: 0000000000040000
+RDX: ffa000000437e000 RSI: ff110000047da340 RDI: 0000000000000002
+RBP: ffffffff65ad3390 R08: 0000000000000001 R09: fffffbfff5ecc53d
+R10: fffffbfff5ecc53c R11: ffffffffaf6629e7 R12: ffffffffb2d699c8
+R13: dffffc0000000000 R14: ffd40000004da1c0 R15: 00000000ffffffff
+FS:  00007f40904ea700(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00000000ffffffff CR3: 0000000004556002 CR4: 0000000000771ef0
+PKRU: 80000000
+Call Trace:
+ <TASK>
+ iomap_write_begin+0x581/0x18d0 fs/iomap/buffered-io.c:827
+ iomap_write_iter fs/iomap/buffered-io.c:955 [inline]
+ iomap_file_buffered_write+0x402/0xbe0 fs/iomap/buffered-io.c:1039
+ gfs2_file_buffered_write+0x40b/0xb10 fs/gfs2/file.c:1060
+ gfs2_file_write_iter+0x6c9/0x1080 fs/gfs2/file.c:1164
+ iter_file_splice_write+0xa22/0x1030 fs/splice.c:743
+ do_splice_from+0x80/0xd0 fs/splice.c:941
+ direct_splice_actor+0x12a/0x620 fs/splice.c:1164
+ splice_direct_to_actor+0x368/0xa10 fs/splice.c:1108
+ do_splice_direct_actor+0x181/0x250 fs/splice.c:1207
+ do_splice_direct+0x41/0x60 fs/splice.c:1233
+ do_sendfile+0xac1/0xde0 fs/read_write.c:1363
+ __do_sys_sendfile64 fs/read_write.c:1424 [inline]
+ __se_sys_sendfile64 fs/read_write.c:1410 [inline]
+ __x64_sys_sendfile64+0x1d5/0x210 fs/read_write.c:1410
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f409189671d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f40904e9ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000028
+RAX: ffffffffffffffda RBX: 00007f4091a58f80 RCX: 00007f409189671d
+RDX: 0000000000000000 RSI: 0000000000000006 RDI: 0000000000000007
+RBP: 00007f409190b425 R08: 0000000000000000 R09: 0000000000000000
+R10: 000000000001ffff R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f4091a58f8c R14: 00007f4091a59018 R15: 00007f40904e9d40
+ </TASK>
+Modules linked in:
+CR2: 00000000ffffffff
+---[ end trace 0000000000000000 ]---
+RIP: 0010:constant_test_bit_acquire arch/x86/include/asm/bitops.h:213 [inline]
+RIP: 0010:arch_test_bit_acquire arch/x86/include/asm/bitops.h:245 [inline]
+RIP: 0010:_test_bit_acquire include/asm-generic/bitops/instrumented-non-atomic.h:154 [inline]
+RIP: 0010:buffer_uptodate include/linux/buffer_head.h:171 [inline]
+RIP: 0010:__block_write_begin_int+0x7bc/0x18c0 fs/buffer.c:2106
+Code: 31 ff 48 c1 eb 03 83 e3 01 89 de e8 0e 56 ac ff 84 db 0f 84 18 fe ff ff e8 31 54 ac ff be 08 00 00 00 4c 89 ff e8 f4 96 e8 ff <41> f6 07 01 0f 95 c3 31 ff 89 de e8 e4 55 ac ff 84 db 0f 85 ee fd
+RSP: 0018:ffa00000080cf1f0 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 0000000000000001 RCX: 0000000000040000
+RDX: ffa000000437e000 RSI: ff110000047da340 RDI: 0000000000000002
+RBP: ffffffff65ad3390 R08: 0000000000000001 R09: fffffbfff5ecc53d
+R10: fffffbfff5ecc53c R11: ffffffffaf6629e7 R12: ffffffffb2d699c8
+R13: dffffc0000000000 R14: ffd40000004da1c0 R15: 00000000ffffffff
+FS:  00007f40904ea700(0000) GS:ff1100006a380000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00000000ffffffff CR3: 0000000004556002 CR4: 0000000000771ef0
+PKRU: 80000000
+----------------
+Code disassembly (best guess):
+   0:	31 ff                	xor    %edi,%edi
+   2:	48 c1 eb 03          	shr    $0x3,%rbx
+   6:	83 e3 01             	and    $0x1,%ebx
+   9:	89 de                	mov    %ebx,%esi
+   b:	e8 0e 56 ac ff       	callq  0xffac561e
+  10:	84 db                	test   %bl,%bl
+  12:	0f 84 18 fe ff ff    	je     0xfffffe30
+  18:	e8 31 54 ac ff       	callq  0xffac544e
+  1d:	be 08 00 00 00       	mov    $0x8,%esi
+  22:	4c 89 ff             	mov    %r15,%rdi
+  25:	e8 f4 96 e8 ff       	callq  0xffe8971e
+* 2a:	41 f6 07 01          	testb  $0x1,(%r15) <-- trapping instruction
+  2e:	0f 95 c3             	setne  %bl
+  31:	31 ff                	xor    %edi,%edi
+  33:	89 de                	mov    %ebx,%esi
+  35:	e8 e4 55 ac ff       	callq  0xffac561e
+  3a:	84 db                	test   %bl,%bl
+  3c:	0f                   	.byte 0xf
+  3d:	85 ee                	test   %ebp,%esi
+  3f:	fd                   	std

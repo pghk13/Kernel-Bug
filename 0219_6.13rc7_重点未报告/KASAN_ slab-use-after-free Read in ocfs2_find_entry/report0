@@ -1,0 +1,124 @@
+JBD2: Ignoring recovery information on journal
+ocfs2: Mounting device (7,5) on (node local, slot 0) with ordered data mode.
+==================================================================
+BUG: KASAN: slab-use-after-free in ocfs2_match fs/ocfs2/dir.c:334 [inline]
+BUG: KASAN: slab-use-after-free in ocfs2_search_dirblock fs/ocfs2/dir.c:367 [inline]
+BUG: KASAN: slab-use-after-free in ocfs2_find_entry_id fs/ocfs2/dir.c:414 [inline]
+BUG: KASAN: slab-use-after-free in ocfs2_find_entry+0x1939/0x1a60 fs/ocfs2/dir.c:1078
+Read of size 1 at addr ff1100004440b982 by task syz.5.370/4323
+
+CPU: 1 UID: 0 PID: 4323 Comm: syz.5.370 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 mm/kasan/report.c:489
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ ocfs2_match fs/ocfs2/dir.c:334 [inline]
+ ocfs2_search_dirblock fs/ocfs2/dir.c:367 [inline]
+ ocfs2_find_entry_id fs/ocfs2/dir.c:414 [inline]
+ ocfs2_find_entry+0x1939/0x1a60 fs/ocfs2/dir.c:1078
+ ocfs2_find_files_on_disk+0xad/0x3b0 fs/ocfs2/dir.c:1981
+ ocfs2_lookup_ino_from_name+0x9e/0xf0 fs/ocfs2/dir.c:2003
+ ocfs2_lookup+0x52e/0xa10 fs/ocfs2/namei.c:122
+ lookup_open+0x9ad/0x14e0 fs/namei.c:3627
+ open_last_lookups fs/namei.c:3748 [inline]
+ path_openat+0xec9/0x2970 fs/namei.c:3984
+ do_filp_open+0x1fa/0x2f0 fs/namei.c:4014
+ do_sys_openat2+0x641/0x6e0 fs/open.c:1402
+ do_sys_open+0xc7/0x150 fs/open.c:1417
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f9eb344271d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f9eb2095ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000101
+RAX: ffffffffffffffda RBX: 00007f9eb3604f80 RCX: 00007f9eb344271d
+RDX: 000000000000275a RSI: 0000000020000080 RDI: ffffffffffffff9c
+RBP: 00007f9eb34b7425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f9eb3604f8c R14: 00007f9eb3605018 R15: 00007f9eb2095d40
+ </TASK>
+
+Allocated by task 3523:
+ kasan_save_stack+0x24/0x50 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ unpoison_slab_object mm/kasan/common.c:319 [inline]
+ __kasan_slab_alloc+0x87/0x90 mm/kasan/common.c:345
+ kasan_slab_alloc include/linux/kasan.h:250 [inline]
+ slab_post_alloc_hook mm/slub.c:4119 [inline]
+ slab_alloc_node mm/slub.c:4168 [inline]
+ kmem_cache_alloc_noprof+0x154/0x420 mm/slub.c:4175
+ alloc_buffer_head+0x24/0x110 fs/buffer.c:3015
+ folio_alloc_buffers+0x172/0x220 fs/buffer.c:924
+ create_empty_buffers+0x2c/0x480 fs/buffer.c:1662
+ folio_create_buffers+0x10d/0x140 fs/buffer.c:1773
+ block_read_full_folio+0x1f4/0xd00 fs/buffer.c:2377
+ filemap_read_folio+0x56/0x210 mm/filemap.c:2357
+ do_read_cache_folio+0x1f4/0x520 mm/filemap.c:3817
+ read_mapping_folio include/linux/pagemap.h:1011 [inline]
+ dir_get_folio.isra.0+0x21/0xe0 fs/minix/dir.c:70
+ sysv_find_entry+0x1bc/0x5f0 fs/sysv/dir.c:154
+ sysv_inode_by_name+0x71/0x280 fs/sysv/dir.c:370
+ sysv_lookup fs/sysv/namei.c:38 [inline]
+ sysv_lookup+0x84/0x100 fs/sysv/namei.c:31
+ lookup_one_qstr_excl+0x125/0x190 fs/namei.c:1692
+ do_unlinkat+0x29d/0x750 fs/namei.c:4575
+ do_coredump+0x102d/0x4800 fs/coredump.c:669
+ get_signal+0x1a4a/0x2790 kernel/signal.c:3002
+ arch_do_signal_or_restart+0x81/0x870 arch/x86/kernel/signal.c:337
+ exit_to_user_mode_loop kernel/entry/common.c:111 [inline]
+ exit_to_user_mode_prepare include/linux/entry-common.h:329 [inline]
+ irqentry_exit_to_user_mode+0x1de/0x250 kernel/entry/common.c:231
+ exc_page_fault+0xc5/0x1a0 arch/x86/mm/fault.c:1542
+ asm_exc_page_fault+0x26/0x30 arch/x86/include/asm/idtentry.h:623
+
+Freed by task 82:
+ kasan_save_stack+0x24/0x50 mm/kasan/common.c:47
+ kasan_save_track+0x14/0x30 mm/kasan/common.c:68
+ kasan_save_free_info+0x3a/0x60 mm/kasan/generic.c:582
+ poison_slab_object mm/kasan/common.c:247 [inline]
+ __kasan_slab_free+0x54/0x70 mm/kasan/common.c:264
+ kasan_slab_free include/linux/kasan.h:233 [inline]
+ slab_free_hook mm/slub.c:2353 [inline]
+ slab_free mm/slub.c:4613 [inline]
+ kmem_cache_free+0x126/0x4d0 mm/slub.c:4715
+ free_buffer_head+0x46/0xb0 fs/buffer.c:3031
+ try_to_free_buffers+0x1bb/0x2d0 fs/buffer.c:2972
+ filemap_release_folio+0x223/0x290 mm/filemap.c:4211
+ shrink_folio_list+0x1a29/0x3b80 mm/vmscan.c:1440
+ shrink_inactive_list+0x3ec/0xba0 mm/vmscan.c:1967
+ shrink_list mm/vmscan.c:2205 [inline]
+ shrink_lruvec+0x5ee/0x1060 mm/vmscan.c:5734
+ shrink_node_memcgs mm/vmscan.c:5936 [inline]
+ shrink_node+0x5f2/0x1790 mm/vmscan.c:5977
+ kswapd_shrink_node mm/vmscan.c:6792 [inline]
+ balance_pgdat+0x60c/0xe80 mm/vmscan.c:6984
+ kswapd+0x534/0xc70 mm/vmscan.c:7253
+ kthread+0x345/0x450 kernel/kthread.c:389
+ ret_from_fork+0x48/0x80 arch/x86/kernel/process.c:147
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:244
+
+The buggy address belongs to the object at ff1100004440b910
+ which belongs to the cache buffer_head of size 168
+The buggy address is located 114 bytes inside of
+ freed 168-byte region [ff1100004440b910, ff1100004440b9b8)
+
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x4440b
+flags: 0x100000000000000(node=0|zone=1)
+page_type: f5(slab)
+raw: 0100000000000000 ff11000001718280 dead000000000122 0000000000000000
+raw: 0000000000000000 0000000000110011 00000001f5000000 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ff1100004440b880: fb fb fb fb fb fb fb fb fb fb fc fc fc fc fc fc
+ ff1100004440b900: fc fc fa fb fb fb fb fb fb fb fb fb fb fb fb fb
+>ff1100004440b980: fb fb fb fb fb fb fb fc fc fc fc fc fc fc fc fa
+                   ^
+ ff1100004440ba00: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ff1100004440ba80: fb fb fb fb fc fc fc fc fc fc fc fc fa fb fb fb
+==================================================================

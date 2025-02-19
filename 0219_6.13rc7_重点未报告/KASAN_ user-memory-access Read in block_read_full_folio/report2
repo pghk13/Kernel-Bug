@@ -1,0 +1,140 @@
+==================================================================
+BUG: KASAN: user-memory-access in instrument_atomic_read include/linux/instrumented.h:68 [inline]
+BUG: KASAN: user-memory-access in _test_bit_acquire include/asm-generic/bitops/instrumented-non-atomic.h:153 [inline]
+BUG: KASAN: user-memory-access in buffer_uptodate include/linux/buffer_head.h:171 [inline]
+BUG: KASAN: user-memory-access in block_read_full_folio+0x2cc/0xd00 fs/buffer.c:2387
+Read of size 8 at addr 00000000ffffffff by task syz.3.58/2009
+
+CPU: 0 UID: 0 PID: 2009 Comm: syz.3.58 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_report+0x3f0/0x5f0 mm/kasan/report.c:492
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ check_region_inline mm/kasan/generic.c:183 [inline]
+ kasan_check_range+0xf6/0x1b0 mm/kasan/generic.c:189
+ instrument_atomic_read include/linux/instrumented.h:68 [inline]
+ _test_bit_acquire include/asm-generic/bitops/instrumented-non-atomic.h:153 [inline]
+ buffer_uptodate include/linux/buffer_head.h:171 [inline]
+ block_read_full_folio+0x2cc/0xd00 fs/buffer.c:2387
+ do_mpage_readpage+0x348/0x1a30 fs/mpage.c:317
+ mpage_read_folio+0xa9/0x140 fs/mpage.c:392
+ gfs2_read_folio+0x217/0x7c0 fs/gfs2/aops.c:429
+ filemap_read_folio+0x56/0x210 mm/filemap.c:2357
+ filemap_fault+0x2007/0x2ec0 mm/filemap.c:3427
+ gfs2_fault+0x1f4/0x240 fs/gfs2/file.c:565
+ __do_fault+0x10b/0x490 mm/memory.c:4907
+ do_cow_fault mm/memory.c:5352 [inline]
+ do_fault mm/memory.c:5458 [inline]
+ do_pte_missing mm/memory.c:3979 [inline]
+ handle_pte_fault mm/memory.c:5801 [inline]
+ __handle_mm_fault+0xa32/0x3130 mm/memory.c:5944
+ handle_mm_fault+0x2aa/0x660 mm/memory.c:6112
+ do_user_addr_fault+0x6b7/0x18b0 arch/x86/mm/fault.c:1338
+ handle_page_fault arch/x86/mm/fault.c:1481 [inline]
+ exc_page_fault+0x9c/0x1a0 arch/x86/mm/fault.c:1539
+ asm_exc_page_fault+0x26/0x30 arch/x86/include/asm/idtentry.h:623
+RIP: 0033:0x7f44d7d1e8c5
+Code: d1 00 0f 87 cc 00 00 00 0f 10 06 0f 10 4e 10 0f 10 56 20 0f 10 5e 30 48 83 c6 40 48 83 ea 40 0f 29 07 0f 29 4f 10 0f 29 57 20 <0f> 29 5f 30 48 83 c7 40 48 83 fa 40 77 d0 0f 11 29 0f 11 71 f0 0f
+RSP: 002b:00007ffe81d1d3a8 EFLAGS: 00010202
+RAX: 000000002000080b RBX: 00007f44d7efba80 RCX: 00000000200017fb
+RDX: 00000000000007fb RSI: 00007f44d77d0efb RDI: 0000000020000fd0
+RBP: 00007ffe81d1d468 R08: fffffffffffffffb R09: 00007f44d77d06f6
+R10: 0000000000000000 R11: 000000002000080b R12: 0000000000000004
+R13: 20c49ba5e353f7cf R14: 00007f44d7ef9f80 R15: 00007f44d7ef9f80
+ </TASK>
+==================================================================
+BUG: unable to handle page fault for address: 00000000ffffffff
+#PF: supervisor read access in kernel mode
+#PF: error_code(0x0000) - not-present page
+PGD 2af1c067 P4D 15500067 PUD 0 
+Oops: Oops: 0000 [#1] PREEMPT SMP KASAN NOPTI
+CPU: 0 UID: 0 PID: 2009 Comm: syz.3.58 Tainted: G    B              6.13.0-rc7 #1
+Tainted: [B]=BAD_PAGE
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:constant_test_bit_acquire arch/x86/include/asm/bitops.h:213 [inline]
+RIP: 0010:arch_test_bit_acquire arch/x86/include/asm/bitops.h:245 [inline]
+RIP: 0010:_test_bit_acquire include/asm-generic/bitops/instrumented-non-atomic.h:154 [inline]
+RIP: 0010:buffer_uptodate include/linux/buffer_head.h:171 [inline]
+RIP: 0010:block_read_full_folio+0x2cc/0xd00 fs/buffer.c:2387
+Code: 48 89 44 24 28 48 c7 c0 f0 31 e8 96 48 c1 e8 03 48 01 c1 48 89 4c 24 50 e8 71 82 ac ff be 08 00 00 00 48 89 ef e8 34 c5 e8 ff <f6> 45 00 01 0f 95 c3 31 ff 89 de e8 24 84 ac ff 84 db 0f 85 a2 01
+RSP: 0000:ffa0000014ff7620 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: ffffffff8ccf3c9f
+RDX: 0000000000000000 RSI: ff110000268f2340 RDI: 0000000000000002
+RBP: 00000000ffffffff R08: fffffbfff2e78800 R09: fffffbfff378c53d
+R10: fffffbfff378c53c R11: ffffffff9bc629e7 R12: 0000000000000001
+R13: 0000000000000001 R14: ffd40000004b0840 R15: 0000000000000001
+FS:  000055556f1a5a00(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00000000ffffffff CR3: 0000000034638003 CR4: 0000000000771ef0
+PKRU: 80000000
+Call Trace:
+ <TASK>
+ do_mpage_readpage+0x348/0x1a30 fs/mpage.c:317
+ mpage_read_folio+0xa9/0x140 fs/mpage.c:392
+ gfs2_read_folio+0x217/0x7c0 fs/gfs2/aops.c:429
+ filemap_read_folio+0x56/0x210 mm/filemap.c:2357
+ filemap_fault+0x2007/0x2ec0 mm/filemap.c:3427
+ gfs2_fault+0x1f4/0x240 fs/gfs2/file.c:565
+ __do_fault+0x10b/0x490 mm/memory.c:4907
+ do_cow_fault mm/memory.c:5352 [inline]
+ do_fault mm/memory.c:5458 [inline]
+ do_pte_missing mm/memory.c:3979 [inline]
+ handle_pte_fault mm/memory.c:5801 [inline]
+ __handle_mm_fault+0xa32/0x3130 mm/memory.c:5944
+ handle_mm_fault+0x2aa/0x660 mm/memory.c:6112
+ do_user_addr_fault+0x6b7/0x18b0 arch/x86/mm/fault.c:1338
+ handle_page_fault arch/x86/mm/fault.c:1481 [inline]
+ exc_page_fault+0x9c/0x1a0 arch/x86/mm/fault.c:1539
+ asm_exc_page_fault+0x26/0x30 arch/x86/include/asm/idtentry.h:623
+RIP: 0033:0x7f44d7d1e8c5
+Code: d1 00 0f 87 cc 00 00 00 0f 10 06 0f 10 4e 10 0f 10 56 20 0f 10 5e 30 48 83 c6 40 48 83 ea 40 0f 29 07 0f 29 4f 10 0f 29 57 20 <0f> 29 5f 30 48 83 c7 40 48 83 fa 40 77 d0 0f 11 29 0f 11 71 f0 0f
+RSP: 002b:00007ffe81d1d3a8 EFLAGS: 00010202
+RAX: 000000002000080b RBX: 00007f44d7efba80 RCX: 00000000200017fb
+RDX: 00000000000007fb RSI: 00007f44d77d0efb RDI: 0000000020000fd0
+RBP: 00007ffe81d1d468 R08: fffffffffffffffb R09: 00007f44d77d06f6
+R10: 0000000000000000 R11: 000000002000080b R12: 0000000000000004
+R13: 20c49ba5e353f7cf R14: 00007f44d7ef9f80 R15: 00007f44d7ef9f80
+ </TASK>
+Modules linked in:
+CR2: 00000000ffffffff
+---[ end trace 0000000000000000 ]---
+RIP: 0010:constant_test_bit_acquire arch/x86/include/asm/bitops.h:213 [inline]
+RIP: 0010:arch_test_bit_acquire arch/x86/include/asm/bitops.h:245 [inline]
+RIP: 0010:_test_bit_acquire include/asm-generic/bitops/instrumented-non-atomic.h:154 [inline]
+RIP: 0010:buffer_uptodate include/linux/buffer_head.h:171 [inline]
+RIP: 0010:block_read_full_folio+0x2cc/0xd00 fs/buffer.c:2387
+Code: 48 89 44 24 28 48 c7 c0 f0 31 e8 96 48 c1 e8 03 48 01 c1 48 89 4c 24 50 e8 71 82 ac ff be 08 00 00 00 48 89 ef e8 34 c5 e8 ff <f6> 45 00 01 0f 95 c3 31 ff 89 de e8 24 84 ac ff 84 db 0f 85 a2 01
+RSP: 0000:ffa0000014ff7620 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: ffffffff8ccf3c9f
+RDX: 0000000000000000 RSI: ff110000268f2340 RDI: 0000000000000002
+RBP: 00000000ffffffff R08: fffffbfff2e78800 R09: fffffbfff378c53d
+R10: fffffbfff378c53c R11: ffffffff9bc629e7 R12: 0000000000000001
+R13: 0000000000000001 R14: ffd40000004b0840 R15: 0000000000000001
+FS:  000055556f1a5a00(0000) GS:ff1100006a200000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00000000ffffffff CR3: 0000000034638003 CR4: 0000000000771ef0
+PKRU: 80000000
+----------------
+Code disassembly (best guess):
+   0:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+   5:	48 c7 c0 f0 31 e8 96 	mov    $0xffffffff96e831f0,%rax
+   c:	48 c1 e8 03          	shr    $0x3,%rax
+  10:	48 01 c1             	add    %rax,%rcx
+  13:	48 89 4c 24 50       	mov    %rcx,0x50(%rsp)
+  18:	e8 71 82 ac ff       	callq  0xffac828e
+  1d:	be 08 00 00 00       	mov    $0x8,%esi
+  22:	48 89 ef             	mov    %rbp,%rdi
+  25:	e8 34 c5 e8 ff       	callq  0xffe8c55e
+* 2a:	f6 45 00 01          	testb  $0x1,0x0(%rbp) <-- trapping instruction
+  2e:	0f 95 c3             	setne  %bl
+  31:	31 ff                	xor    %edi,%edi
+  33:	89 de                	mov    %ebx,%esi
+  35:	e8 24 84 ac ff       	callq  0xffac845e
+  3a:	84 db                	test   %bl,%bl
+  3c:	0f                   	.byte 0xf
+  3d:	85                   	.byte 0x85
+  3e:	a2                   	.byte 0xa2
+  3f:	01                   	.byte 0x1

@@ -1,0 +1,87 @@
+==================================================================
+BUG: KASAN: slab-out-of-bounds in ocfs2_find_smallest_chain fs/ocfs2/suballoc.c:413 [inline]
+BUG: KASAN: slab-out-of-bounds in ocfs2_block_group_alloc_contig fs/ocfs2/suballoc.c:430 [inline]
+BUG: KASAN: slab-out-of-bounds in ocfs2_block_group_alloc+0x1c96/0x1ec0 fs/ocfs2/suballoc.c:699
+Read of size 4 at addr ff110000154025e4 by task syz.7.11/1678
+
+CPU: 2 UID: 0 PID: 1678 Comm: syz.7.11 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x116/0x1b0 lib/dump_stack.c:120
+ print_address_description mm/kasan/report.c:378 [inline]
+ print_report+0xcf/0x5f0 mm/kasan/report.c:489
+ kasan_report+0x93/0xc0 mm/kasan/report.c:602
+ ocfs2_find_smallest_chain fs/ocfs2/suballoc.c:413 [inline]
+ ocfs2_block_group_alloc_contig fs/ocfs2/suballoc.c:430 [inline]
+ ocfs2_block_group_alloc+0x1c96/0x1ec0 fs/ocfs2/suballoc.c:699
+ ocfs2_reserve_suballoc_bits+0x3c3/0xe60 fs/ocfs2/suballoc.c:832
+ ocfs2_reserve_new_metadata_blocks+0x60e/0xa70 fs/ocfs2/suballoc.c:982
+ ocfs2_expand_inline_dir+0x18f8/0x41a0 fs/ocfs2/dir.c:2820
+ ocfs2_extend_dir+0x1bc/0x1cf0 fs/ocfs2/dir.c:3182
+ ocfs2_prepare_dir_for_insert+0xce4/0x18e0 fs/ocfs2/dir.c:4287
+ ocfs2_mknod+0x938/0x25d0 fs/ocfs2/namei.c:294
+ ocfs2_create+0x105/0x490 fs/ocfs2/namei.c:674
+ vfs_create fs/namei.c:3348 [inline]
+ vfs_create+0x44d/0x740 fs/namei.c:3332
+ do_mknodat+0x481/0x540 fs/namei.c:4239
+ __do_sys_mknod fs/namei.c:4272 [inline]
+ __se_sys_mknod fs/namei.c:4270 [inline]
+ __x64_sys_mknod+0x87/0xb0 fs/namei.c:4270
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f63bf44771d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f63be09aba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000085
+RAX: ffffffffffffffda RBX: 00007f63bf609f80 RCX: 00007f63bf44771d
+RDX: 000000000000070e RSI: 0000000000000000 RDI: 0000000020001100
+RBP: 00007f63bf4bc425 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f63bf609f8c R14: 00007f63bf60a018 R15: 00007f63be09ad40
+ </TASK>
+
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:0000000000000000 index:0xff11000015403600 pfn:0x15400
+head: order:2 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0x100000000000040(head|node=0|zone=1)
+raw: 0100000000000040 0000000000000000 dead000000000122 0000000000000000
+raw: ff11000015403600 0000000000000000 00000001ffffffff 0000000000000000
+head: 0100000000000040 0000000000000000 dead000000000122 0000000000000000
+head: ff11000015403600 0000000000000000 00000001ffffffff 0000000000000000
+head: 0100000000000002 ffd4000000550001 ffffffffffffffff 0000000000000000
+head: 0000000000000004 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ff11000015402480: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ ff11000015402500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+>ff11000015402580: 00 00 00 00 00 00 00 00 00 00 00 fe fe fe fe fe
+                                                       ^
+ ff11000015402600: fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe
+ ff11000015402680: fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe fe
+==================================================================
+OCFS2: ERROR (device loop7): ocfs2_validate_gd_parent: Group descriptor #32 has bit count of 1024
+On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+OCFS2: File system is now read-only.
+(syz.7.11,1678,2):ocfs2_search_chain:1814 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_search_chain:1926 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_claim_suballoc_bits:1995 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_claim_suballoc_bits:2038 ERROR: status = -30
+(syz.7.11,1678,2):__ocfs2_claim_clusters:2412 ERROR: status = -30
+(syz.7.11,1678,2):__ocfs2_claim_clusters:2420 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_block_group_alloc_contig:437 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_block_group_alloc:709 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_block_group_alloc:762 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_reserve_suballoc_bits:837 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_reserve_suballoc_bits:854 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_reserve_new_metadata_blocks:994 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_reserve_new_metadata_blocks:1017 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_expand_inline_dir:2822 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_extend_dir:3186 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_prepare_dir_for_insert:4291 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_mknod:298 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_mknod:502 ERROR: status = -30
+(syz.7.11,1678,2):ocfs2_create:676 ERROR: status = -30
+syz.7.11 (1678) used greatest stack depth: 23992 bytes left

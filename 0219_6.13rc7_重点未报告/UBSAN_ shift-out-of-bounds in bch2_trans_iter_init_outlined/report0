@@ -1,0 +1,331 @@
+  u64s 6 type extent 1610612736:24:U32_MAX len 24 ver 0: durability: 1 ptr: 0:34:8 gen 0
+  u64s 6 type extent 1610612736:24:U32_MAX len 24 ver 0: durability: 1 ptr: 0:34:8 gen 0
+------------[ cut here ]------------
+UBSAN: shift-out-of-bounds in fs/bcachefs/bcachefs.h:1193:41
+shift exponent 128 is too large for 32-bit type 'unsigned int'
+CPU: 1 UID: 0 PID: 7582 Comm: syz.2.945 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x180/0x1b0 lib/dump_stack.c:120
+ ubsan_epilogue+0xa/0x40 lib/ubsan.c:231
+ __ubsan_handle_shift_out_of_bounds+0xf2/0x1e0 lib/ubsan.c:468
+ btree_id_cached fs/bcachefs/bcachefs.h:1193 [inline]
+ bch2_btree_iter_flags fs/bcachefs/btree_iter.h:472 [inline]
+ bch2_trans_iter_init_outlined.cold+0x55/0x78 fs/bcachefs/btree_iter.c:2904
+ bch2_trans_iter_init fs/bcachefs/btree_iter.h:520 [inline]
+ bch2_btree_insert_trans+0x18c/0x290 fs/bcachefs/btree_update.c:647
+ drop_dev_and_update+0x3d4/0x580 fs/bcachefs/backpointers.c:456
+ check_bp_exists+0x1bd2/0x3140 fs/bcachefs/backpointers.c:603
+ check_extent_to_backpointers+0x8d4/0x11f0 fs/bcachefs/backpointers.c:688
+ bch2_check_extents_to_backpointers_pass+0xa6f/0xf20 fs/bcachefs/backpointers.c:884
+ bch2_check_extents_to_backpointers+0x352/0xac0 fs/bcachefs/backpointers.c:937
+ bch2_run_recovery_pass+0x94/0x1a0 fs/bcachefs/recovery_passes.c:191
+ bch2_run_recovery_passes+0x4a4/0x760 fs/bcachefs/recovery_passes.c:244
+ bch2_fs_recovery+0x24d0/0x4f00 fs/bcachefs/recovery.c:861
+ bch2_fs_start+0x2f6/0x610 fs/bcachefs/super.c:1037
+ bch2_fs_get_tree+0x4b6/0x2020 fs/bcachefs/fs.c:2170
+ vfs_get_tree+0x93/0x340 fs/super.c:1814
+ do_new_mount fs/namespace.c:3511 [inline]
+ path_mount+0x1272/0x1ba0 fs/namespace.c:3838
+ do_mount+0xf8/0x110 fs/namespace.c:3851
+ __do_sys_mount fs/namespace.c:4061 [inline]
+ __se_sys_mount fs/namespace.c:4038 [inline]
+ __x64_sys_mount+0x193/0x230 fs/namespace.c:4038
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f80b5fb015e
+Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f80b4c009b8 EFLAGS: 00000206 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 0000000000005b13 RCX: 00007f80b5fb015e
+RDX: 0000000020005b00 RSI: 0000000020005b40 RDI: 00007f80b4c00a10
+RBP: 00007f80b4c00a50 R08: 00007f80b4c00a50 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000020005b00
+R13: 0000000020005b40 R14: 00007f80b4c00a10 R15: 0000000020000080
+ </TASK>
+---[ end trace ]---
+------------[ cut here ]------------
+UBSAN: shift-out-of-bounds in fs/bcachefs/btree_types.h:798:9
+shift exponent 129 is too large for 64-bit type 'long long unsigned int'
+CPU: 1 UID: 0 PID: 7582 Comm: syz.2.945 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x180/0x1b0 lib/dump_stack.c:120
+ ubsan_epilogue+0xa/0x40 lib/ubsan.c:231
+ __ubsan_handle_shift_out_of_bounds+0xf2/0x1e0 lib/ubsan.c:468
+ btree_node_type_is_extents fs/bcachefs/btree_types.h:798 [inline]
+ btree_id_is_extents fs/bcachefs/btree_types.h:803 [inline]
+ __bch2_btree_iter_flags fs/bcachefs/btree_iter.h:451 [inline]
+ bch2_btree_iter_flags fs/bcachefs/btree_iter.h:478 [inline]
+ bch2_trans_iter_init_outlined.cold+0x37/0x78 fs/bcachefs/btree_iter.c:2904
+ bch2_trans_iter_init fs/bcachefs/btree_iter.h:520 [inline]
+ bch2_btree_insert_trans+0x18c/0x290 fs/bcachefs/btree_update.c:647
+ drop_dev_and_update+0x3d4/0x580 fs/bcachefs/backpointers.c:456
+ check_bp_exists+0x1bd2/0x3140 fs/bcachefs/backpointers.c:603
+ check_extent_to_backpointers+0x8d4/0x11f0 fs/bcachefs/backpointers.c:688
+ bch2_check_extents_to_backpointers_pass+0xa6f/0xf20 fs/bcachefs/backpointers.c:884
+ bch2_check_extents_to_backpointers+0x352/0xac0 fs/bcachefs/backpointers.c:937
+ bch2_run_recovery_pass+0x94/0x1a0 fs/bcachefs/recovery_passes.c:191
+ bch2_run_recovery_passes+0x4a4/0x760 fs/bcachefs/recovery_passes.c:244
+ bch2_fs_recovery+0x24d0/0x4f00 fs/bcachefs/recovery.c:861
+ bch2_fs_start+0x2f6/0x610 fs/bcachefs/super.c:1037
+ bch2_fs_get_tree+0x4b6/0x2020 fs/bcachefs/fs.c:2170
+ vfs_get_tree+0x93/0x340 fs/super.c:1814
+ do_new_mount fs/namespace.c:3511 [inline]
+ path_mount+0x1272/0x1ba0 fs/namespace.c:3838
+ do_mount+0xf8/0x110 fs/namespace.c:3851
+ __do_sys_mount fs/namespace.c:4061 [inline]
+ __se_sys_mount fs/namespace.c:4038 [inline]
+ __x64_sys_mount+0x193/0x230 fs/namespace.c:4038
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f80b5fb015e
+Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f80b4c009b8 EFLAGS: 00000206 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 0000000000005b13 RCX: 00007f80b5fb015e
+RDX: 0000000020005b00 RSI: 0000000020005b40 RDI: 00007f80b4c00a10
+RBP: 00007f80b4c00a50 R08: 00007f80b4c00a50 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000020005b00
+R13: 0000000020005b40 R14: 00007f80b4c00a10 R15: 0000000020000080
+ </TASK>
+---[ end trace ]---
+------------[ cut here ]------------
+UBSAN: shift-out-of-bounds in fs/bcachefs/btree_types.h:825:9
+shift exponent 128 is too large for 64-bit type 'long long unsigned int'
+CPU: 1 UID: 0 PID: 7582 Comm: syz.2.945 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x180/0x1b0 lib/dump_stack.c:120
+ ubsan_epilogue+0xa/0x40 lib/ubsan.c:231
+ __ubsan_handle_shift_out_of_bounds+0xf2/0x1e0 lib/ubsan.c:468
+ btree_type_has_snapshot_field fs/bcachefs/btree_types.h:825 [inline]
+ __bch2_btree_iter_flags fs/bcachefs/btree_iter.h:455 [inline]
+ bch2_btree_iter_flags fs/bcachefs/btree_iter.h:478 [inline]
+ bch2_trans_iter_init_outlined.cold+0x19/0x78 fs/bcachefs/btree_iter.c:2904
+ bch2_trans_iter_init fs/bcachefs/btree_iter.h:520 [inline]
+ bch2_btree_insert_trans+0x18c/0x290 fs/bcachefs/btree_update.c:647
+ drop_dev_and_update+0x3d4/0x580 fs/bcachefs/backpointers.c:456
+ check_bp_exists+0x1bd2/0x3140 fs/bcachefs/backpointers.c:603
+ check_extent_to_backpointers+0x8d4/0x11f0 fs/bcachefs/backpointers.c:688
+ bch2_check_extents_to_backpointers_pass+0xa6f/0xf20 fs/bcachefs/backpointers.c:884
+ bch2_check_extents_to_backpointers+0x352/0xac0 fs/bcachefs/backpointers.c:937
+ bch2_run_recovery_pass+0x94/0x1a0 fs/bcachefs/recovery_passes.c:191
+ bch2_run_recovery_passes+0x4a4/0x760 fs/bcachefs/recovery_passes.c:244
+ bch2_fs_recovery+0x24d0/0x4f00 fs/bcachefs/recovery.c:861
+ bch2_fs_start+0x2f6/0x610 fs/bcachefs/super.c:1037
+ bch2_fs_get_tree+0x4b6/0x2020 fs/bcachefs/fs.c:2170
+ vfs_get_tree+0x93/0x340 fs/super.c:1814
+ do_new_mount fs/namespace.c:3511 [inline]
+ path_mount+0x1272/0x1ba0 fs/namespace.c:3838
+ do_mount+0xf8/0x110 fs/namespace.c:3851
+ __do_sys_mount fs/namespace.c:4061 [inline]
+ __se_sys_mount fs/namespace.c:4038 [inline]
+ __x64_sys_mount+0x193/0x230 fs/namespace.c:4038
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f80b5fb015e
+Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f80b4c009b8 EFLAGS: 00000206 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 0000000000005b13 RCX: 00007f80b5fb015e
+RDX: 0000000020005b00 RSI: 0000000020005b40 RDI: 00007f80b4c00a10
+RBP: 00007f80b4c00a50 R08: 00007f80b4c00a50 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000020005b00
+R13: 0000000020005b40 R14: 00007f80b4c00a10 R15: 0000000020000080
+ </TASK>
+---[ end trace ]---
+------------[ cut here ]------------
+UBSAN: shift-out-of-bounds in fs/bcachefs/btree_types.h:814:9
+shift exponent 128 is too large for 64-bit type 'long long unsigned int'
+CPU: 1 UID: 0 PID: 7582 Comm: syz.2.945 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x180/0x1b0 lib/dump_stack.c:120
+ ubsan_epilogue+0xa/0x40 lib/ubsan.c:231
+ __ubsan_handle_shift_out_of_bounds+0xf2/0x1e0 lib/ubsan.c:468
+ btree_type_has_snapshots fs/bcachefs/btree_types.h:814 [inline]
+ __bch2_btree_iter_flags fs/bcachefs/btree_iter.h:459 [inline]
+ bch2_btree_iter_flags fs/bcachefs/btree_iter.h:478 [inline]
+ bch2_trans_iter_init_outlined.cold+0x73/0x78 fs/bcachefs/btree_iter.c:2904
+ bch2_trans_iter_init fs/bcachefs/btree_iter.h:520 [inline]
+ bch2_btree_insert_trans+0x18c/0x290 fs/bcachefs/btree_update.c:647
+ drop_dev_and_update+0x3d4/0x580 fs/bcachefs/backpointers.c:456
+ check_bp_exists+0x1bd2/0x3140 fs/bcachefs/backpointers.c:603
+ check_extent_to_backpointers+0x8d4/0x11f0 fs/bcachefs/backpointers.c:688
+ bch2_check_extents_to_backpointers_pass+0xa6f/0xf20 fs/bcachefs/backpointers.c:884
+ bch2_check_extents_to_backpointers+0x352/0xac0 fs/bcachefs/backpointers.c:937
+ bch2_run_recovery_pass+0x94/0x1a0 fs/bcachefs/recovery_passes.c:191
+ bch2_run_recovery_passes+0x4a4/0x760 fs/bcachefs/recovery_passes.c:244
+ bch2_fs_recovery+0x24d0/0x4f00 fs/bcachefs/recovery.c:861
+ bch2_fs_start+0x2f6/0x610 fs/bcachefs/super.c:1037
+ bch2_fs_get_tree+0x4b6/0x2020 fs/bcachefs/fs.c:2170
+ vfs_get_tree+0x93/0x340 fs/super.c:1814
+ do_new_mount fs/namespace.c:3511 [inline]
+ path_mount+0x1272/0x1ba0 fs/namespace.c:3838
+ do_mount+0xf8/0x110 fs/namespace.c:3851
+ __do_sys_mount fs/namespace.c:4061 [inline]
+ __se_sys_mount fs/namespace.c:4038 [inline]
+ __x64_sys_mount+0x193/0x230 fs/namespace.c:4038
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f80b5fb015e
+Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f80b4c009b8 EFLAGS: 00000206 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 0000000000005b13 RCX: 00007f80b5fb015e
+RDX: 0000000020005b00 RSI: 0000000020005b40 RDI: 00007f80b4c00a10
+RBP: 00007f80b4c00a50 R08: 00007f80b4c00a50 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000020005b00
+R13: 0000000020005b40 R14: 00007f80b4c00a10 R15: 0000000020000080
+ </TASK>
+---[ end trace ]---
+bcachefs (loop2): duplicate versions of same extent, deleting smaller
+  u64s 6 type extent 1610612736:24:U32_MAX len 24 ver 0: durability: 1 ptr: 0:34:8 gen 0
+  u64s 6 type extent 1610612736:24:U32_MAX len 24 ver 0: durability: 1 ptr: 0:34:8 gen 0
+------------[ cut here ]------------
+UBSAN: shift-out-of-bounds in fs/bcachefs/btree_types.h:814:9
+shift exponent 128 is too large for 64-bit type 'long long unsigned int'
+CPU: 1 UID: 0 PID: 7582 Comm: syz.2.945 Not tainted 6.13.0-rc7 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ __dump_stack lib/dump_stack.c:94 [inline]
+ dump_stack_lvl+0x180/0x1b0 lib/dump_stack.c:120
+ ubsan_epilogue+0xa/0x40 lib/ubsan.c:231
+ __ubsan_handle_shift_out_of_bounds+0xf2/0x1e0 lib/ubsan.c:468
+ btree_type_has_snapshots fs/bcachefs/btree_types.h:814 [inline]
+ bch2_trans_update_extent_overwrite.cold+0x1d/0x66 fs/bcachefs/btree_update.c:254
+ bch2_trans_update_extent+0x65d/0x1000 fs/bcachefs/btree_update.c:318
+ bch2_trans_update+0x360/0x5b0 fs/bcachefs/btree_update.c:518
+ bch2_btree_insert_trans+0x223/0x290 fs/bcachefs/btree_update.c:650
+ drop_dev_and_update+0x3d4/0x580 fs/bcachefs/backpointers.c:456
+ check_bp_exists+0x1bd2/0x3140 fs/bcachefs/backpointers.c:603
+ check_extent_to_backpointers+0x8d4/0x11f0 fs/bcachefs/backpointers.c:688
+ bch2_check_extents_to_backpointers_pass+0xa6f/0xf20 fs/bcachefs/backpointers.c:884
+ bch2_check_extents_to_backpointers+0x352/0xac0 fs/bcachefs/backpointers.c:937
+ bch2_run_recovery_pass+0x94/0x1a0 fs/bcachefs/recovery_passes.c:191
+ bch2_run_recovery_passes+0x4a4/0x760 fs/bcachefs/recovery_passes.c:244
+ bch2_fs_recovery+0x24d0/0x4f00 fs/bcachefs/recovery.c:861
+ bch2_fs_start+0x2f6/0x610 fs/bcachefs/super.c:1037
+ bch2_fs_get_tree+0x4b6/0x2020 fs/bcachefs/fs.c:2170
+ vfs_get_tree+0x93/0x340 fs/super.c:1814
+ do_new_mount fs/namespace.c:3511 [inline]
+ path_mount+0x1272/0x1ba0 fs/namespace.c:3838
+ do_mount+0xf8/0x110 fs/namespace.c:3851
+ __do_sys_mount fs/namespace.c:4061 [inline]
+ __se_sys_mount fs/namespace.c:4038 [inline]
+ __x64_sys_mount+0x193/0x230 fs/namespace.c:4038
+ do_syscall_x64 arch/x86/entry/common.c:52 [inline]
+ do_syscall_64+0xc3/0x1d0 arch/x86/entry/common.c:83
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f80b5fb015e
+Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f80b4c009b8 EFLAGS: 00000206 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 0000000000005b13 RCX: 00007f80b5fb015e
+RDX: 0000000020005b00 RSI: 0000000020005b40 RDI: 00007f80b4c00a10
+RBP: 00007f80b4c00a50 R08: 00007f80b4c00a50 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000020005b00
+R13: 0000000020005b40 R14: 00007f80b4c00a10 R15: 0000000020000080
+ </TASK>
+---[ end trace ]---
+bcachefs (loop2): duplicate versions of same extent, deleting smaller
+  u64s 6 type extent 1610612736:24:U32_MAX len 24 ver 0: durability: 1 ptr: 0:34:8 gen 0
+  u64s 6 type extent 1610612736:24:U32_MAX len 24 ver 0: durability: 1 ptr: 0:34:8 gen 0
+bcachefs (loop2): duplicate versions of same extent, deleting smaller
+  u64s 6 type extent 1610612736:24:U32_MAX len 24 ver 0: durability: 1 ptr: 0:34:8 gen 0
+  u64s 6 type extent 1610612736:24:U32_MAX len 24 ver 0: durability: 1 ptr: 0:34:8 gen 0
+bcachefs (loop2): duplicate versions of same extent, deleting smaller
+  u64s 6 type extent 1610612736:24:U32_MAX len 24 ver 0: durability: 1 ptr: 0:34:8 gen 0
+  u64s 6 type extent 1610612736:24:U32_MAX len 24 ver 0: durability: 1 ptr: 0:34:8 gen 0
+missing backpointer for btree=inodes l=1 u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq efdd7a26d7396dd5 written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0
+  got:   u64s 5 type deleted 0:9961472:0 len 0 ver 0
+  want:  u64s 9 type backpointer 0:9961472:0 len 0 ver 0: bucket=0:38:0 btree=inodes l=1 offset=0:0 len=256 pos=SPOS_MAX, fixing
+missing backpointer for btree=dirents l=1 u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 17c752e9adf22e73 written 24 min_key POS_MIN durability: 1 ptr: 0:41:0 gen 0
+  got:   u64s 5 type deleted 0:10747904:0 len 0 ver 0
+  want:  u64s 9 type backpointer 0:10747904:0 len 0 ver 0: bucket=0:41:0 btree=dirents l=1 offset=0:0 len=256 pos=SPOS_MAX, fixing
+missing backpointer for btree=alloc l=1 u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 56308231fb2a3a03 written 40 min_key POS_MIN durability: 1 ptr: 0:26:0 gen 0
+  got:   u64s 5 type deleted 0:6815744:0 len 0 ver 0
+  want:  u64s 9 type backpointer 0:6815744:0 len 0 ver 0: bucket=0:26:0 btree=alloc l=1 offset=0:0 len=256 pos=SPOS_MAX, fixing
+missing backpointer for btree=subvolumes l=1 u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq adc4350e9aab42a2 written 16 min_key POS_MIN durability: 1 ptr: 0:35:0 gen 0
+  got:   u64s 5 type deleted 0:9175040:0 len 0 ver 0
+  want:  u64s 9 type backpointer 0:9175040:0 len 0 ver 0: bucket=0:35:0 btree=subvolumes l=1 offset=0:0 len=256 pos=SPOS_MAX, fixing
+missing backpointer for btree=snapshots l=1 u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq ef15a85bfc7569df written 16 min_key POS_MIN durability: 1 ptr: 0:32:0 gen 0
+  got:   u64s 5 type deleted 0:8388608:0 len 0 ver 0
+  want:  u64s 9 type backpointer 0:8388608:0 len 0 ver 0: bucket=0:32:0 btree=snapshots l=1 offset=0:0 len=256 pos=SPOS_MAX, fixing
+missing backpointer for btree=freespace l=1 u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 771f68864d6973cb written 40 min_key POS_MIN durability: 1 ptr: 0:29:0 gen 0
+  got:   u64s 5 type deleted 0:7602176:0 len 0 ver 0
+  want:  u64s 9 type backpointer 0:7602176:0 len 0 ver 0: bucket=0:29:0 btree=freespace l=1 offset=0:0 len=256 pos=SPOS_MAX, fixing
+ done
+bcachefs (loop2): check_alloc_to_lru_refs... done
+bcachefs (loop2): bucket_gens_init... done
+bcachefs (loop2): check_snapshot_trees... done
+bcachefs (loop2): check_snapshots...
+snapshot points to missing/incorrect tree:
+  u64s 8 type snapshot 0:4294967295:0 len 0 ver 0: is_subvol 1 deleted 0 parent          0 children          0          0 subvol 1 tree 0, fixing
+snapshot points to missing/incorrect tree:
+  u64s 8 type snapshot 0:4294967295:0 len 0 ver 0: is_subvol 1 deleted 0 parent          0 children          0          0 subvol 1 tree 0, fixing
+ done
+bcachefs (loop2): check_subvols... done
+bcachefs (loop2): check_subvol_children... done
+bcachefs (loop2): delete_dead_snapshots... done
+bcachefs (loop2): check_inodes... done
+bcachefs (loop2): check_extents... done
+bcachefs (loop2): check_indirect_extents... done
+bcachefs (loop2): check_dirents... done
+bcachefs (loop2): check_xattrs... done
+bcachefs (loop2): check_root... done
+bcachefs (loop2): check_unreachable_inodes... done
+bcachefs (loop2): check_subvolume_structure... done
+bcachefs (loop2): check_directory_structure... done
+bcachefs (loop2): check_nlinks... done
+bcachefs (loop2): resume_logged_ops... done
+bcachefs (loop2): delete_dead_inodes... done
+bcachefs (loop2): set_fs_needs_rebalance... done
+bcachefs (loop2): Fixed errors, running fsck a second time to verify fs is clean
+bcachefs (loop2): check_alloc_info... done
+bcachefs (loop2): check_lrus... done
+bcachefs (loop2): check_btree_backpointers... done
+bcachefs (loop2): check_backpointers_to_extents... done
+bcachefs (loop2): check_extents_to_backpointers... done
+bcachefs (loop2): check_alloc_to_lru_refs...
+ done
+bcachefs (loop2): bucket_gens_init... done
+bcachefs (loop2): check_snapshot_trees... done
+bcachefs (loop2): check_snapshots... done
+bcachefs (loop2): check_subvols... done
+bcachefs (loop2): check_subvol_children... done
+bcachefs (loop2): delete_dead_snapshots... done
+bcachefs (loop2): check_inodes... done
+bcachefs (loop2): check_extents... done
+bcachefs (loop2): check_indirect_extents... done
+bcachefs (loop2): check_dirents... done
+bcachefs (loop2): check_xattrs... done
+bcachefs (loop2): check_root... done
+bcachefs (loop2): check_unreachable_inodes... done
+bcachefs (loop2): check_subvolume_structure... done
+bcachefs (loop2): check_directory_structure... done
+bcachefs (loop2): check_nlinks... done
+bcachefs (loop2): resume_logged_ops... done
+bcachefs (loop2): delete_dead_inodes... done
+bcachefs (loop2): set_fs_needs_rebalance... done
+bcachefs (loop2): bch2_copygc_start(): error creating copygc thread EINTR
+bcachefs (loop2): error starting copygc thread
+bcachefs (loop2): bch2_fs_start(): error starting filesystem EINTR
+bcachefs (loop2): shutting down
+bcachefs (loop2): going read-only
+bcachefs (loop2): finished waiting for writes to stop
+bcachefs (loop2): flushing journal and stopping allocators, journal seq 29
+bcachefs (loop2): flushing journal and stopping allocators complete, journal seq 30
+bcachefs (loop2): shutdown complete, journal seq 31
+bcachefs (loop2): marking filesystem clean
+bcachefs (loop2): shutdown complete
+bcachefs: bch2_fs_get_tree() error: EINTR
