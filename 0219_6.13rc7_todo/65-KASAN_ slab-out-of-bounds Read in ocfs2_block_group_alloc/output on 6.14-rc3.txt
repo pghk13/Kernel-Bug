@@ -1,0 +1,311 @@
+[  555.311602][T15099] =======================================================
+[  555.311602][T15099] WARNING: The mand mount option has been deprecated and
+[  555.311602][T15099]          and is ignored by this kernel. Remove the mand
+[  555.311602][T15099]          option from the mount to silence this warning.
+[  555.311602][T15099] =======================================================
+[  555.349168][T10629] veth1_vlan: entered promiscuous mode
+[  555.351434][T15099] JBD2: Ignoring recovery information on journal
+[  555.397721][T15099] ocfs2: Mounting device (7,1) on (node local, slot 0) with ordered data mode.
+[  555.410434][   T44] audit: type=1400 audit(1740393379.437:26): avc:  denied  { associate } for  pid=15098 comm="syz.1.17" name="file0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" scontext=unconfined_u:object_r:unlabeled_t:s0 tcontext=system_u:object_r:unlabeled_t:s0 tclass=filesystem permissive=1
+[  555.420153][T15099] OCFS2: ERROR (device loop1): ocfs2_validate_gd_parent: Group descriptor #32 has bit count of 1024
+[  555.427217][T15099] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  555.434260][T15104] loop2: detected capacity change from 0 to 32768
+[  555.434321][T15099] OCFS2: File system is now read-only.
+[  555.438300][T15099] (syz.1.17,15099,0):ocfs2_search_chain:1814 ERROR: status = -30
+[  555.440797][T15099] (syz.1.17,15099,0):ocfs2_search_chain:1926 ERROR: status = -30
+[  555.443276][T15099] (syz.1.17,15099,0):ocfs2_claim_suballoc_bits:1995 ERROR: status = -30
+[  555.445883][T15099] (syz.1.17,15099,0):ocfs2_claim_suballoc_bits:2038 ERROR: status = -30
+[  555.450416][T15099] (syz.1.17,15099,0):__ocfs2_claim_clusters:2412 ERROR: status = -30
+[  555.453686][T15099] (syz.1.17,15099,0):__ocfs2_claim_clusters:2420 ERROR: status = -30
+[  555.456561][T15099] (syz.1.17,15099,0):ocfs2_block_group_alloc_contig:437 ERROR: status = -30
+[  555.457897][T10541] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[  555.460407][T15099] (syz.1.17,15099,0):ocfs2_block_group_alloc:709 ERROR: status = -30
+[  555.463740][T15104] debugfs: Directory 'B1DE653C00004D88B33B244AAB9EB3E9' with parent 'ocfs2' already present!
+[  555.466444][T15099] (syz.1.17,15099,0):ocfs2_block_group_alloc:762 ERROR: status = -30
+[  555.473016][T15099] (syz.1.17,15099,0):ocfs2_reserve_suballoc_bits:837 ERROR: status = -30
+[  555.474260][T15104] JBD2: Ignoring recovery information on journal
+[  555.475750][T15099] (syz.1.17,15099,0):ocfs2_reserve_suballoc_bits:854 ERROR: status = -30
+[  555.480395][T15099] (syz.1.17,15099,0):ocfs2_reserve_new_metadata_blocks:994 ERROR: status = -30
+[  555.483690][T15099] (syz.1.17,15099,0):ocfs2_reserve_new_metadata_blocks:1017 ERROR: status = -30
+[  555.487171][T15099] (syz.1.17,15099,0):ocfs2_expand_inline_dir:2839 ERROR: status = -30
+[  555.490953][T15099] (syz.1.17,15099,0):ocfs2_extend_dir:3203 ERROR: status = -30
+[  555.494012][T15099] (syz.1.17,15099,0):ocfs2_prepare_dir_for_insert:4308 ERROR: status = -30
+[  555.494184][T10541] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[  555.496713][T15099] (syz.1.17,15099,0):ocfs2_mknod:298 ERROR: status = -30
+[  555.496775][T15099] (syz.1.17,15099,0):ocfs2_mknod:502 ERROR: status = -30
+[  555.505430][T15099] (syz.1.17,15099,0):ocfs2_create:675 ERROR: status = -30
+[  555.514305][T15104] ocfs2: Mounting device (7,2) on (node local, slot 0) with ordered data mode.
+[  555.520132][T10541] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[  555.524284][T10541] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[  555.527997][T10541] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[  555.531015][T15104] OCFS2: ERROR (device loop2): ocfs2_validate_gd_parent: Group descriptor #32 has bit count of 1024
+[  555.534671][T15104] On-disk corruption discovered. Please run fsck.ocfs2 once the filesystem is unmounted.
+[  555.537577][T15104] OCFS2: File system is now read-only.
+[  555.539464][T15104] (syz.2.18,15104,1):ocfs2_search_chain:1814 ERROR: status = -30
+[  555.541985][T15104] (syz.2.18,15104,1):ocfs2_search_chain:1926 ERROR: status = -30
+[  555.542023][T10541] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[  555.542053][T10541] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3e) already exists on: batadv_slave_0
+[  555.544424][T15104] (syz.2.18,15104,1):ocfs2_claim_suballoc_bits:1995 ERROR: status = -30
+[  555.544482][T15104] (syz.2.18,15104,1):ocfs2_claim_suballoc_bits:2038 ERROR: status = -30
+[  555.544537][T15104] (syz.2.18,15104,1):__ocfs2_claim_clusters:2412 ERROR: status = -30
+[  555.544591][T15104] (syz.2.18,15104,1):__ocfs2_claim_clusters:2420 ERROR: status = -30
+[  555.544646][T15104] (syz.2.18,15104,1):ocfs2_block_group_alloc_contig:437 ERROR: status = -30
+[  555.544701][T15104] (syz.2.18,15104,1):ocfs2_block_group_alloc:709 ERROR: status = -30
+[  555.544785][T15104] (syz.2.18,15104,1):ocfs2_block_group_alloc:762 ERROR: status = -30
+[  555.571437][T15104] (syz.2.18,15104,1):ocfs2_reserve_suballoc_bits:837 ERROR: status = -30
+[  555.574036][T15104] (syz.2.18,15104,1):ocfs2_reserve_suballoc_bits:854 ERROR: status = -30
+[  555.576603][T15104] (syz.2.18,15104,1):ocfs2_reserve_new_metadata_blocks:994 ERROR: status = -30
+[  555.578203][T10541] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[  555.579774][T15104] (syz.2.18,15104,1):ocfs2_reserve_new_metadata_blocks:1017 ERROR: status = -30
+[  555.586282][T15104] (syz.2.18,15104,1):ocfs2_expand_inline_dir:2839 ERROR: status = -30
+[  555.589916][T15104] (syz.2.18,15104,1):ocfs2_extend_dir:3203 ERROR: status = -30
+[  555.592578][T15104] (syz.2.18,15104,1):ocfs2_prepare_dir_for_insert:4308 ERROR: status = -30
+[  555.595244][T15104] (syz.2.18,15104,1):ocfs2_mknod:298 ERROR: status = -30
+[  555.597425][T15104] (syz.2.18,15104,1):ocfs2_mknod:502 ERROR: status = -30
+[  555.600083][T15104] (syz.2.18,15104,1):ocfs2_create:675 ERROR: status = -30
+[  555.620356][T10520] ocfs2: Unmounting device (7,1) on (node local)
+[  555.631134][T10541] batman_adv: batadv0: Interface activated: batadv_slave_0
+[  555.641267][T10519] ocfs2: Unmounting device (7,2) on (node local)
+[  555.653298][T11043] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[  555.655883][T11043] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[  555.658073][T10577] veth0_vlan: entered promiscuous mode
+[  555.715220][T15111] loop3: detected capacity change from 0 to 32768
+[  555.741924][T15111] JBD2: Ignoring recovery information on journal
+[  555.772806][T10541] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[  555.779123][T15111] ocfs2: Mounting device (7,3) on (node local, slot 0) with ordered data mode.
+[  555.789679][T15111] ==================================================================
+[  555.792288][T15111] BUG: KASAN: slab-out-of-bounds in ocfs2_block_group_alloc+0x1c9a/0x1ed0
+[  555.795399][T15111] Read of size 4 at addr ffff8880005d00b4 by task syz.3.19/15111
+[  555.797908][T15111] 
+[  555.798147][T15111] CPU: 0 UID: 0 PID: 15111 Comm: syz.3.19 Not tainted 6.14.0-rc3 #1
+[  555.798147][T15111] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  555.798147][T15111] Call Trace:
+[  555.798147][T15111]  <TASK>
+[  555.798147][T15111]  dump_stack_lvl+0x116/0x1b0
+[  555.798147][T15111]  print_report+0xc0/0x5e0
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? __phys_addr+0xc8/0x150
+[  555.798147][T15111]  ? ocfs2_block_group_alloc+0x1c9a/0x1ed0
+[  555.798147][T15111]  kasan_report+0x93/0xc0
+[  555.798147][T15111]  ? ocfs2_block_group_alloc+0x1c9a/0x1ed0
+[  555.798147][T15111]  ocfs2_block_group_alloc+0x1c9a/0x1ed0
+[  555.798147][T15111]  ? __pfx_ocfs2_block_group_alloc+0x10/0x10
+[  555.798147][T15111]  ? __pfx_ocfs2_inode_lock_full_nested+0x10/0x10
+[  555.798147][T15111]  ? down_write+0x14e/0x200
+[  555.798147][T15111]  ? __pfx_down_write+0x10/0x10
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ocfs2_reserve_suballoc_bits+0x3c3/0xe60
+[  555.798147][T15111]  ? __pfx_ocfs2_reserve_suballoc_bits+0x10/0x10
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? __kmalloc_cache_noprof+0x1e2/0x4d0
+[  555.798147][T15111]  ocfs2_reserve_new_metadata_blocks+0x60a/0xa60
+[  555.798147][T15111]  ? __pfx_ocfs2_reserve_new_metadata_blocks+0x10/0x10
+[  555.798147][T15111]  ? __pfx_down_write+0x10/0x10
+[  555.798147][T15111]  ? __lock_acquire+0x16f4/0x46b0
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ocfs2_expand_inline_dir+0x18fc/0x4210
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? find_held_lock+0x2d/0x120
+[  555.798147][T15111]  ? __pfx_ocfs2_expand_inline_dir+0x10/0x10
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? __mutex_unlock_slowpath+0x156/0x690
+[  555.798147][T15111]  ? write_comp_data+0x29/0x80
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  555.798147][T15111]  ? __pfx___mutex_unlock_slowpath+0x10/0x10
+[  555.798147][T15111]  ? __pfx_ocfs2_set_buffer_uptodate+0x10/0x10
+[  555.798147][T15111]  ? __pfx_ocfs2_journal_access_di+0x10/0x10
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? ocfs2_read_blocks+0x19d/0x1530
+[  555.798147][T15111]  ? __pfx_ocfs2_validate_inode_block+0x10/0x10
+[  555.798147][T15111]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  555.798147][T15111]  ocfs2_extend_dir+0x1c2/0x1ca0
+[  555.798147][T15111]  ? ocfs2_read_inode_block_full+0x105/0x180
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? __pfx_ocfs2_extend_dir+0x10/0x10
+[  555.798147][T15111]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? ocfs2_dx_dir_name_hash.isra.0+0x442/0x600
+[  555.798147][T15111]  ? write_comp_data+0x29/0x80
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? ocfs2_check_dir_entry.isra.0+0x1b6/0x370
+[  555.798147][T15111]  ? __pfx_ocfs2_check_dir_entry.isra.0+0x10/0x10
+[  555.798147][T15111]  ? __pfx_ocfs2_find_entry+0x10/0x10
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? write_comp_data+0x29/0x80
+[  555.798147][T15111]  ocfs2_prepare_dir_for_insert+0xce9/0x18f0
+[  555.798147][T15111]  ? __pfx_ocfs2_check_dir_for_entry+0x10/0x10
+[  555.798147][T15111]  ? __pfx_ocfs2_prepare_dir_for_insert+0x10/0x10
+[  555.798147][T15111]  ocfs2_mknod+0x92a/0x2540
+[  555.798147][T15111]  ? find_held_lock+0x2d/0x120
+[  555.798147][T15111]  ? avc_has_perm_noaudit+0x25f/0x520
+[  555.798147][T15111]  ? __pfx_ocfs2_mknod+0x10/0x10
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? write_comp_data+0x29/0x80
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  555.798147][T15111]  ? avc_has_perm_noaudit+0x283/0x520
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? write_comp_data+0x29/0x80
+[  555.798147][T15111]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? avc_has_perm+0xfe/0x1a0
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? may_create+0x223/0x390
+[  555.798147][T15111]  ocfs2_create+0x105/0x490
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? __pfx_ocfs2_create+0x10/0x10
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? write_comp_data+0x29/0x80
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  555.798147][T15111]  vfs_create+0x4df/0x7a0
+[  555.798147][T15111]  do_mknodat+0x3e9/0x540
+[  555.798147][T15111]  ? __pfx_do_mknodat+0x10/0x10
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  555.798147][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  555.798147][T15111]  __x64_sys_mknod+0x87/0xb0
+[  555.798147][T15111]  do_syscall_64+0xcf/0x250
+[  555.798147][T15111]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  555.798147][T15111] RIP: 0033:0x7f15a9facadd
+[  555.798147][T15111] Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+[  555.798147][T15111] RSP: 002b:00007f15aada8ba8 EFLAGS: 00000246 ORIG_RAX: 0000000000000085
+[  555.798147][T15111] RAX: ffffffffffffffda RBX: 00007f15aa1a5fa0 RCX: 00007f15a9facadd
+[  555.798147][T15111] RDX: 0000000000000706 RSI: 0000000000000000 RDI: 0000000020001100
+[  555.798147][T15111] RBP: 00007f15aa02ab8f R08: 0000000000000000 R09: 0000000000000000
+[  555.798147][T15111] R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+[  555.798147][T15111] R13: 00007f15aa1a5fac R14: 00007f15aa1a6038 R15: 00007f15aada8d40
+[  555.798147][T15111]  </TASK>
+[  555.798147][T15111] 
+[  555.809305][T10541] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[  555.798147][T15111] Allocated by task 9484:
+[  555.798147][T15111]  kasan_save_stack+0x24/0x50
+[  555.798147][T15111]  kasan_save_track+0x14/0x30
+[  555.798147][T15111]  __kasan_slab_alloc+0x87/0x90
+[  555.798147][T15111]  kmem_cache_alloc_noprof+0x167/0x4b0
+[  555.798147][T15111]  alloc_buffer_head+0x24/0x110
+[  555.798147][T15111]  folio_alloc_buffers+0x2af/0x6c0
+[  555.832303][T10541] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[  555.798147][T15111]  create_empty_buffers+0x2c/0x480
+[  555.869118][T10541] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[  555.857021][T15111]  ext4_block_write_begin+0x103e/0x1290
+[  555.857021][T15111]  ext4_da_write_begin+0x415/0x950
+[  555.857021][T15111]  generic_perform_write+0x2bc/0x8c0
+[  555.872909][T10541] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[  555.857021][T15111]  ext4_buffered_write_iter+0xdc/0x3e0
+[  555.857021][T15111]  ext4_file_write_iter+0x52e/0x1ab0
+[  555.857021][T15111]  vfs_write+0xba2/0x1100
+[  555.876973][T10541] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[  555.857021][T15111]  ksys_write+0x122/0x240
+[  555.857021][T15111]  do_syscall_64+0xcf/0x250
+[  555.857021][T15111]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  555.857021][T15111] 
+[  555.857021][T15111] The buggy address belongs to the object at ffff8880005d0000
+[  555.857021][T15111]  which belongs to the cache buffer_head of size 168
+[  555.880816][T10541] batman_adv: The newly added mac address (aa:aa:aa:aa:aa:3f) already exists on: batadv_slave_1
+[  555.857021][T15111] The buggy address is located 12 bytes to the right of
+[  555.857021][T15111]  allocated 168-byte region [ffff8880005d0000, ffff8880005d00a8)
+[  555.857021][T15111] 
+[  555.857021][T15111] The buggy address belongs to the physical page:
+[  555.857021][T15111] page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x5d0
+[  555.857021][T15111] memcg:ffff888021666101
+[  555.857021][T15111] flags: 0x7ff00000000000(node=0|zone=0|lastcpupid=0x7ff)
+[  555.884671][T10541] batman_adv: It is strongly recommended to keep mac addresses unique to avoid problems!
+[  555.857021][T15111] page_type: f5(slab)
+[  555.857021][T15111] raw: 007ff00000000000 ffff88801c29d2c0 dead000000000122 0000000000000000
+[  555.857021][T15111] raw: 0000000000000000 0000000000110011 00000000f5000000 ffff888021666101
+[  555.857021][T15111] page dumped because: kasan: bad access detected
+[  555.857021][T15111] page_owner tracks the page as allocated
+[  555.919472][T10541] batman_adv: batadv0: Interface activated: batadv_slave_1
+[  555.857021][T15111] page last allocated via order 0, migratetype Reclaimable, gfp_mask 0x52c50(GFP_NOFS|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_RECLAIMABLE), pid 9484, tgid 9484 (scp), ts 474238650119, free_ts 130186110946
+[  555.961543][T10577] veth1_vlan: entered promiscuous mode
+[  555.857021][T15111]  prep_new_page+0x1b0/0x1e0
+[  556.063395][T15133] loop2: detected capacity change from 0 to 32768
+[  555.857021][T15111]  get_page_from_freelist+0x19a2/0x3250
+[  556.107821][T10577] veth0_macvtap: entered promiscuous mode
+[  556.085775][T15111]  __alloc_frozen_pages_noprof+0x324/0x6b0
+[  556.085775][T15111]  alloc_pages_mpol+0x20a/0x550
+[  556.085775][T15111]  new_slab+0x251/0x350
+[  556.085775][T15111]  ___slab_alloc+0xe40/0x1740
+[  556.085775][T15111]  __slab_alloc.isra.0+0x56/0xb0
+[  556.085775][T15111]  kmem_cache_alloc_noprof+0x278/0x4b0
+[  556.085775][T15111]  alloc_buffer_head+0x24/0x110
+[  556.085775][T15111]  folio_alloc_buffers+0x2af/0x6c0
+[  556.085775][T15111]  create_empty_buffers+0x2c/0x480
+[  556.085775][T15111]  ext4_block_write_begin+0x103e/0x1290
+[  556.085775][T15111]  ext4_da_write_begin+0x415/0x950
+[  556.085775][T15111]  generic_perform_write+0x2bc/0x8c0
+[  556.085775][T15111]  ext4_buffered_write_iter+0xdc/0x3e0
+[  556.085775][T15111]  ext4_file_write_iter+0x52e/0x1ab0
+[  556.085775][T15111] page last free pid 49 tgid 49 stack trace:
+[  556.085775][T15111]  free_frozen_pages+0x7aa/0x1290
+[  556.085775][T15111]  __folio_put+0x304/0x3d0
+[  556.085775][T15111]  migrate_folio_done+0x29b/0x340
+[  556.085775][T15111]  migrate_pages_batch+0x1c0b/0x2f30
+[  556.085775][T15111]  migrate_pages_sync+0x110/0x8d0
+[  556.085775][T15111]  migrate_pages+0x1b19/0x22d0
+[  556.085775][T15111]  compact_zone+0x1b40/0x3ed0
+[  556.085775][T15111]  compact_node+0x19c/0x2d0
+[  556.085775][T15111]  kcompactd+0x328/0x940
+[  556.085775][T15111]  kthread+0x42a/0x880
+[  556.085775][T15111]  ret_from_fork+0x48/0x80
+[  556.085775][T15111]  ret_from_fork_asm+0x1a/0x30
+[  556.085775][T15111] 
+[  556.085775][T15111] Memory state around the buggy address:
+[  556.085775][T15111]  ffff8880005cff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[  556.085775][T15111]  ffff8880005d0000: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[  556.085775][T15111] >ffff8880005d0080: 00 00 00 00 00 fc fc fc fc fc fc fc fc 00 00 00
+[  556.085775][T15111]                                      ^
+[  556.085775][T15111]  ffff8880005d0100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[  556.085775][T15111]  ffff8880005d0180: 00 00 fc fc fc fc fc fc fc fc 00 00 00 00 00 00
+[  556.085775][T15111] ==================================================================
+[  556.183801][T15111] Kernel panic - not syncing: KASAN: panic_on_warn set ...
+[  556.186146][T15111] CPU: 2 UID: 0 PID: 15111 Comm: syz.3.19 Not tainted 6.14.0-rc3 #1
+[  556.188111][T15111] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  556.188111][T15111] Call Trace:
+[  556.188111][T15111]  <TASK>
+[  556.188111][T15111]  dump_stack_lvl+0x3d/0x1b0
+[  556.188111][T15111]  panic+0x70b/0x7c0
+[  556.188111][T15111]  ? __pfx_panic+0x10/0x10
+[  556.188111][T15111]  ? irqentry_exit+0x3b/0x90
+[  556.188111][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  556.188111][T15111]  ? preempt_schedule_thunk+0x1a/0x30
+[  556.188111][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  556.188111][T15111]  ? preempt_schedule_common+0x49/0xc0
+[  556.188111][T15111]  ? check_panic_on_warn+0x1f/0xc0
+[  556.188111][T15111]  ? ocfs2_block_group_alloc+0x1c9a/0x1ed0
+[  556.188111][T15111]  check_panic_on_warn+0xb1/0xc0
+[  556.188111][T15111]  end_report+0x117/0x180
+[  556.188111][T15111]  kasan_report+0xa1/0xc0
+[  556.188111][T15111]  ? ocfs2_block_group_alloc+0x1c9a/0x1ed0
+[  556.188111][T15111]  ocfs2_block_group_alloc+0x1c9a/0x1ed0
+[  556.188111][T15111]  ? __pfx_ocfs2_block_group_alloc+0x10/0x10
+[  556.188111][T15111]  ? __pfx_ocfs2_inode_lock_full_nested+0x10/0x10
+[  556.188111][T15111]  ? down_write+0x14e/0x200
+[  556.188111][T15111]  ? __pfx_down_write+0x10/0x10
+[  556.226445][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  556.226445][T15111]  ocfs2_reserve_suballoc_bits+0x3c3/0xe60
+[  556.226445][T15111]  ? __pfx_ocfs2_reserve_suballoc_bits+0x10/0x10
+[  556.226445][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  556.226445][T15111]  ? __kmalloc_cache_noprof+0x1e2/0x4d0
+[  556.226445][T15111]  ocfs2_reserve_new_metadata_blocks+0x60a/0xa60
+[  556.226445][T15111]  ? __pfx_ocfs2_reserve_new_metadata_blocks+0x10/0x10
+[  556.226445][T15111]  ? __pfx_down_write+0x10/0x10
+[  556.226445][T15111]  ? __lock_acquire+0x16f4/0x46b0
+[  556.226445][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  556.226445][T15111]  ocfs2_expand_inline_dir+0x18fc/0x4210
+[  556.226445][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  556.226445][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  556.226445][T15111]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  556.226445][T15111]  ? find_held_lock+0x2d/0x120
