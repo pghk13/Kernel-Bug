@@ -1,0 +1,153 @@
+veth0_macvtap: left promiscuous mode
+usb 6-1: USB disconnect, device number 121
+veth1_vlan: left promiscuous mode
+veth0_vlan: left promiscuous mode
+==================================================================
+BUG: KASAN: use-after-free in _raw_spin_trylock+0x6d/0x120
+Read of size 4 at addr ffff888064506010 by task kswapd0/117
+
+CPU: 0 UID: 0 PID: 117 Comm: kswapd0 Not tainted 6.14.0-rc2 #3
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0xab/0xe0
+ print_report+0xc1/0x600
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __virt_addr_valid+0x23a/0x350
+ ? _raw_spin_trylock+0x6d/0x120
+ kasan_report+0xb5/0xe0
+ ? _raw_spin_trylock+0x6d/0x120
+ kasan_check_range+0xed/0x1a0
+ _raw_spin_trylock+0x6d/0x120
+ ? __pfx__raw_spin_trylock+0x10/0x10
+ ? add_bits+0x1e1/0x750
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ __z3fold_alloc+0x39c/0x1160
+ ? __pfx___z3fold_alloc+0x10/0x10
+ z3fold_zpool_malloc+0xfb/0x1230
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ zswap_store+0xa15/0x22a0
+ ? __pfx_zswap_store+0x10/0x10
+ ? _raw_spin_unlock+0x38/0x70
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? swap_swapcount+0x118/0x190
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? __pfx_swp_swap_info+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ swap_writepage+0x3a3/0xd30
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ pageout+0x389/0x870
+ ? __pfx_pageout+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? arch_tlbbatch_flush+0x2ba/0x370
+ shrink_folio_list+0x153b/0x3920
+ ? __pfx_shrink_folio_list+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? __entry_text_end+0x102105/0x102109
+ ? isolate_folios+0x2d52/0x3f00
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __pfx_isolate_folios+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? reset_ctrl_pos.part.0+0x1bf/0x280
+ evict_folios+0x6e4/0x1af0
+ ? __pfx_evict_folios+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? zswap_shrinker_count+0x1b1/0x570
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ try_to_shrink_lruvec+0x5e0/0x910
+ ? __pfx_try_to_shrink_lruvec+0x10/0x10
+ ? __pfx__raw_spin_lock_irqsave+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ shrink_one+0x412/0x7d0
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ shrink_node+0x216d/0x3170
+ ? sched_clock_cpu+0x141/0x4b0
+ ? __pfx_shrink_node+0x10/0x10
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? mem_cgroup_iter+0x3b6/0x5e0
+ ? page_counter_calculate_protection+0x8c/0x6e0
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ balance_pgdat+0xa87/0x1700
+ ? __pfx_balance_pgdat+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? _raw_spin_unlock_irqrestore+0x38/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __try_to_del_timer_sync+0xf9/0x150
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? _raw_spin_lock_irqsave+0x8c/0x120
+ ? __pfx__raw_spin_lock_irqsave+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ kswapd+0x455/0x9a0
+ ? __pfx_kswapd+0x10/0x10
+ ? __pfx_autoremove_wake_function+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __kthread_parkme+0x111/0x190
+ ? __pfx_kswapd+0x10/0x10
+ kthread+0x3dd/0x850
+ ? __pfx_kthread+0x10/0x10
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __pfx_kthread+0x10/0x10
+ ret_from_fork+0x48/0x80
+ ? __pfx_kthread+0x10/0x10
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0xffff888064506e80 pfn:0x64506
+flags: 0x4fff00000000000(node=1|zone=1|lastcpupid=0x7ff)
+page_type: f0(buddy)
+raw: 04fff00000000000 ffffea0001914048 ffffea000191fb88 0000000000000000
+raw: ffff888064506e80 0000000000000000 00000000f0000000 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ffff888064505f00: fb fb fb fb fb fc fc fc fc fc fc fc fc fc fc fc
+ ffff888064505f80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+>ffff888064506000: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+                         ^
+ ffff888064506080: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ffff888064506100: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+==================================================================
