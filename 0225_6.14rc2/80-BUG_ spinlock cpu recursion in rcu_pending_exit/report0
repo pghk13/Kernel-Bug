@@ -1,0 +1,28 @@
+BUG: spinlock cpu recursion on CPU#0, syz-executor/9497
+ lock: 0xffffe8ffffc2c088, .magic: dead4ead, .owner: <none>/-1, .owner_cpu: 0
+CPU: 0 UID: 0 PID: 9497 Comm: syz-executor Not tainted 6.14.0-rc2 #10
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x116/0x1b0
+ do_raw_spin_lock+0x26e/0x2e0
+ rcu_pending_exit+0x34f/0xa30
+ bch2_fs_btree_key_cache_exit+0x820/0xa10
+ bch2_fs_release+0x10f/0x8b0
+ kobject_put+0x1b2/0x4c0
+ deactivate_locked_super+0xbb/0x130
+ deactivate_super+0xb1/0xd0
+ cleanup_mnt+0x378/0x510
+ task_work_run+0x173/0x280
+ syscall_exit_to_user_mode+0x29e/0x2a0
+ do_syscall_64+0xdc/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fa964fa608b
+Code: ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 90 f3 0f 1e fa 31 f6 e9 05 00 00 00 0f 1f 44 00 00 f3 0f 1e fa b8 a6 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffc851f9cf8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 0000000000000046 RCX: 00007fa964fa608b
+RDX: 00007fa964e40c50 RSI: 0000000000000009 RDI: 00007ffc851f9dc0
+RBP: 00007ffc851f9dc0 R08: 00007fa965018095 R09: 00007ffc851f9b80
+R10: 00000000fffffffb R11: 0000000000000246 R12: 00007fa965018071
+R13: 00007ffc851fae60 R14: 000055557b3dca10 R15: 00007ffc851faea0
+ </TASK>

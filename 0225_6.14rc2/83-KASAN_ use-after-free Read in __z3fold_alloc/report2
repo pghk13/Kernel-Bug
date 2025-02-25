@@ -1,0 +1,69 @@
+usb 3-1: USB disconnect, device number 84
+dvb-usb: bulk message failed: -22 (1/0)
+dvb-usb: error while querying for an remote control event.
+usb 7-1: USB disconnect, device number 45
+==================================================================
+BUG: KASAN: use-after-free in _raw_spin_trylock+0x6d/0x120
+Read of size 4 at addr ffff888072bce010 by task kworker/u16:4/118938
+
+CPU: 0 UID: 0 PID: 118938 Comm: kworker/u16:4 Not tainted 6.14.0-rc2 #3
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: zswap1 compact_page_work
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0xab/0xe0
+ print_report+0xc1/0x600
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __virt_addr_valid+0x23a/0x350
+ ? _raw_spin_trylock+0x6d/0x120
+ kasan_report+0xb5/0xe0
+ ? _raw_spin_trylock+0x6d/0x120
+ kasan_check_range+0xed/0x1a0
+ _raw_spin_trylock+0x6d/0x120
+ ? __pfx__raw_spin_trylock+0x10/0x10
+ ? __perf_event_task_sched_in+0x25b/0x590
+ ? __pfx___perf_event_task_sched_in+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ __z3fold_alloc+0x39c/0x1160
+ ? __pfx___z3fold_alloc+0x10/0x10
+ ? __pfx__raw_spin_lock+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __schedule+0xef4/0x6240
+ do_compact_page+0x62f/0x25a0
+ ? kick_pool+0x1da/0x620
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ process_scheduled_works+0x439/0x11c0
+ worker_thread+0x492/0xab0
+ ? __pfx__raw_spin_lock_irqsave+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __pfx_worker_thread+0x10/0x10
+ kthread+0x3dd/0x850
+ ? _raw_spin_lock_irq+0x87/0x110
+ ? __pfx_kthread+0x10/0x10
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __pfx_kthread+0x10/0x10
+ ret_from_fork+0x48/0x80
+ ? __pfx_kthread+0x10/0x10
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x64f pfn:0x72bce
+flags: 0x4fff00000000000(node=1|zone=1|lastcpupid=0x7ff)
+raw: 04fff00000000000 ffffea0001caafc8 ffff88807ee41420 0000000000000000
+raw: 000000000000064f 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ffff888072bcdf00: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ffff888072bcdf80: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+>ffff888072bce000: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+                         ^
+ ffff888072bce080: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ffff888072bce100: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+==================================================================

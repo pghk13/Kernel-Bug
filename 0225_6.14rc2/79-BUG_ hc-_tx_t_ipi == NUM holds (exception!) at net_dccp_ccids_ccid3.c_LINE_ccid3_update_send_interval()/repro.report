@@ -1,0 +1,270 @@
+BUG: "hc->tx_t_ipi == 0" holds (exception!) at net/dccp/ccids/ccid3.c:90/ccid3_update_send_interval()
+CPU: 1 UID: 0 PID: 9491 Comm: syz-executor362 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x180/0x1b0
+ ccid3_update_send_interval+0x188/0x1c0
+ ccid3_hc_tx_packet_sent+0x132/0x190
+ dccp_xmit_packet+0x278/0x710
+ dccp_write_xmit+0x174/0x1d0
+ dccp_sendmsg+0xadd/0xcb0
+ inet_sendmsg+0x121/0x150
+ __sock_sendmsg+0x1c3/0x2a0
+ ____sys_sendmsg+0x74c/0xa30
+ ___sys_sendmsg+0x11d/0x1c0
+ __sys_sendmsg+0x151/0x200
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7172da9b7d
+Code: c3 e8 37 2a 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffcf10d968 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 000000000000000a RCX: 00007f7172da9b7d
+RDX: 0000000000000000 RSI: 00000000200004c0 RDI: 0000000000000004
+RBP: 0000000000000000 R08: 0000000072d62bd0 R09: 0000000072d62bd0
+R10: 0000000072d62bd0 R11: 0000000000000246 R12: 00007fffcf10d974
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
+BUG: "hc->tx_t_ipi == 0" holds (exception!) at net/dccp/ccids/ccid3.c:90/ccid3_update_send_interval()
+CPU: 1 UID: 0 PID: 9491 Comm: syz-executor362 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x180/0x1b0
+ ccid3_update_send_interval+0x188/0x1c0
+ ccid3_hc_tx_packet_sent+0x132/0x190
+ dccp_xmit_packet+0x278/0x710
+ dccp_write_xmit+0x174/0x1d0
+ dccp_sendmsg+0xadd/0xcb0
+ inet_sendmsg+0x121/0x150
+ __sock_sendmsg+0x1c3/0x2a0
+ ____sys_sendmsg+0x74c/0xa30
+ ___sys_sendmsg+0x11d/0x1c0
+ __sys_sendmsg+0x151/0x200
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7172da9b7d
+Code: c3 e8 37 2a 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffcf10d968 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 0000000000000009 RCX: 00007f7172da9b7d
+RDX: 0000000000000000 RSI: 00000000200004c0 RDI: 0000000000000004
+RBP: 0000000000000000 R08: 0000000072d62bd0 R09: 0000000072d62bd0
+R10: 0000000072d62bd0 R11: 0000000000000246 R12: 00007fffcf10d974
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
+BUG: "hc->tx_t_ipi == 0" holds (exception!) at net/dccp/ccids/ccid3.c:90/ccid3_update_send_interval()
+CPU: 1 UID: 0 PID: 9491 Comm: syz-executor362 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x180/0x1b0
+ ccid3_update_send_interval+0x188/0x1c0
+ ccid3_hc_tx_packet_sent+0x132/0x190
+ dccp_xmit_packet+0x278/0x710
+ dccp_write_xmit+0x174/0x1d0
+ dccp_sendmsg+0xadd/0xcb0
+ inet_sendmsg+0x121/0x150
+ __sock_sendmsg+0x1c3/0x2a0
+ ____sys_sendmsg+0x74c/0xa30
+ ___sys_sendmsg+0x11d/0x1c0
+ __sys_sendmsg+0x151/0x200
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7172da9b7d
+Code: c3 e8 37 2a 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffcf10d968 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 0000000000000008 RCX: 00007f7172da9b7d
+RDX: 0000000000000000 RSI: 00000000200004c0 RDI: 0000000000000004
+RBP: 0000000000000000 R08: 0000000072d62bd0 R09: 0000000072d62bd0
+R10: 0000000072d62bd0 R11: 0000000000000246 R12: 00007fffcf10d974
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
+BUG: "hc->tx_t_ipi == 0" holds (exception!) at net/dccp/ccids/ccid3.c:90/ccid3_update_send_interval()
+CPU: 1 UID: 0 PID: 9491 Comm: syz-executor362 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x180/0x1b0
+ ccid3_update_send_interval+0x188/0x1c0
+ ccid3_hc_tx_packet_sent+0x132/0x190
+ dccp_xmit_packet+0x278/0x710
+ dccp_write_xmit+0x174/0x1d0
+ dccp_sendmsg+0xadd/0xcb0
+ inet_sendmsg+0x121/0x150
+ __sock_sendmsg+0x1c3/0x2a0
+ ____sys_sendmsg+0x74c/0xa30
+ ___sys_sendmsg+0x11d/0x1c0
+ __sys_sendmsg+0x151/0x200
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7172da9b7d
+Code: c3 e8 37 2a 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffcf10d968 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 0000000000000007 RCX: 00007f7172da9b7d
+RDX: 0000000000000000 RSI: 00000000200004c0 RDI: 0000000000000004
+RBP: 0000000000000000 R08: 0000000072d62bd0 R09: 0000000072d62bd0
+R10: 0000000072d62bd0 R11: 0000000000000246 R12: 00007fffcf10d974
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
+BUG: "hc->tx_t_ipi == 0" holds (exception!) at net/dccp/ccids/ccid3.c:90/ccid3_update_send_interval()
+CPU: 1 UID: 0 PID: 9491 Comm: syz-executor362 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x180/0x1b0
+ ccid3_update_send_interval+0x188/0x1c0
+ ccid3_hc_tx_packet_sent+0x132/0x190
+ dccp_xmit_packet+0x278/0x710
+ dccp_write_xmit+0x174/0x1d0
+ dccp_sendmsg+0xadd/0xcb0
+ inet_sendmsg+0x121/0x150
+ __sock_sendmsg+0x1c3/0x2a0
+ ____sys_sendmsg+0x74c/0xa30
+ ___sys_sendmsg+0x11d/0x1c0
+ __sys_sendmsg+0x151/0x200
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7172da9b7d
+Code: c3 e8 37 2a 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffcf10d968 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 0000000000000006 RCX: 00007f7172da9b7d
+RDX: 0000000000000000 RSI: 00000000200004c0 RDI: 0000000000000004
+RBP: 0000000000000000 R08: 0000000072d62bd0 R09: 0000000072d62bd0
+R10: 0000000072d62bd0 R11: 0000000000000246 R12: 00007fffcf10d974
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
+BUG: "hc->tx_t_ipi == 0" holds (exception!) at net/dccp/ccids/ccid3.c:90/ccid3_update_send_interval()
+CPU: 1 UID: 0 PID: 9491 Comm: syz-executor362 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x180/0x1b0
+ ccid3_update_send_interval+0x188/0x1c0
+ ccid3_hc_tx_packet_sent+0x132/0x190
+ dccp_xmit_packet+0x278/0x710
+ dccp_write_xmit+0x174/0x1d0
+ dccp_sendmsg+0xadd/0xcb0
+ inet_sendmsg+0x121/0x150
+ __sock_sendmsg+0x1c3/0x2a0
+ ____sys_sendmsg+0x74c/0xa30
+ ___sys_sendmsg+0x11d/0x1c0
+ __sys_sendmsg+0x151/0x200
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7172da9b7d
+Code: c3 e8 37 2a 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffcf10d968 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 0000000000000005 RCX: 00007f7172da9b7d
+RDX: 0000000000000000 RSI: 00000000200004c0 RDI: 0000000000000004
+RBP: 0000000000000000 R08: 0000000072d62bd0 R09: 0000000072d62bd0
+R10: 0000000072d62bd0 R11: 0000000000000246 R12: 00007fffcf10d974
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
+BUG: "hc->tx_t_ipi == 0" holds (exception!) at net/dccp/ccids/ccid3.c:90/ccid3_update_send_interval()
+CPU: 1 UID: 0 PID: 9491 Comm: syz-executor362 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x180/0x1b0
+ ccid3_update_send_interval+0x188/0x1c0
+ ccid3_hc_tx_packet_sent+0x132/0x190
+ dccp_xmit_packet+0x278/0x710
+ dccp_write_xmit+0x174/0x1d0
+ dccp_sendmsg+0xadd/0xcb0
+ inet_sendmsg+0x121/0x150
+ __sock_sendmsg+0x1c3/0x2a0
+ ____sys_sendmsg+0x74c/0xa30
+ ___sys_sendmsg+0x11d/0x1c0
+ __sys_sendmsg+0x151/0x200
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7172da9b7d
+Code: c3 e8 37 2a 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffcf10d968 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 0000000000000004 RCX: 00007f7172da9b7d
+RDX: 0000000000000000 RSI: 00000000200004c0 RDI: 0000000000000004
+RBP: 0000000000000000 R08: 0000000072d62bd0 R09: 0000000072d62bd0
+R10: 0000000072d62bd0 R11: 0000000000000246 R12: 00007fffcf10d974
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
+BUG: "hc->tx_t_ipi == 0" holds (exception!) at net/dccp/ccids/ccid3.c:90/ccid3_update_send_interval()
+CPU: 1 UID: 0 PID: 9491 Comm: syz-executor362 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x180/0x1b0
+ ccid3_update_send_interval+0x188/0x1c0
+ ccid3_hc_tx_packet_sent+0x132/0x190
+ dccp_xmit_packet+0x278/0x710
+ dccp_write_xmit+0x174/0x1d0
+ dccp_sendmsg+0xadd/0xcb0
+ inet_sendmsg+0x121/0x150
+ __sock_sendmsg+0x1c3/0x2a0
+ ____sys_sendmsg+0x74c/0xa30
+ ___sys_sendmsg+0x11d/0x1c0
+ __sys_sendmsg+0x151/0x200
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7172da9b7d
+Code: c3 e8 37 2a 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffcf10d968 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 0000000000000003 RCX: 00007f7172da9b7d
+RDX: 0000000000000000 RSI: 00000000200004c0 RDI: 0000000000000004
+RBP: 0000000000000000 R08: 0000000072d62bd0 R09: 0000000072d62bd0
+R10: 0000000072d62bd0 R11: 0000000000000246 R12: 00007fffcf10d974
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
+BUG: "hc->tx_t_ipi == 0" holds (exception!) at net/dccp/ccids/ccid3.c:90/ccid3_update_send_interval()
+CPU: 1 UID: 0 PID: 9491 Comm: syz-executor362 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x180/0x1b0
+ ccid3_update_send_interval+0x188/0x1c0
+ ccid3_hc_tx_packet_sent+0x132/0x190
+ dccp_xmit_packet+0x278/0x710
+ dccp_write_xmit+0x174/0x1d0
+ dccp_sendmsg+0xadd/0xcb0
+ inet_sendmsg+0x121/0x150
+ __sock_sendmsg+0x1c3/0x2a0
+ ____sys_sendmsg+0x74c/0xa30
+ ___sys_sendmsg+0x11d/0x1c0
+ __sys_sendmsg+0x151/0x200
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7172da9b7d
+Code: c3 e8 37 2a 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffcf10d968 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 0000000000000002 RCX: 00007f7172da9b7d
+RDX: 0000000000000000 RSI: 00000000200004c0 RDI: 0000000000000004
+RBP: 0000000000000000 R08: 0000000072d62bd0 R09: 0000000072d62bd0
+R10: 0000000072d62bd0 R11: 0000000000000246 R12: 00007fffcf10d974
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>
+BUG: "hc->tx_t_ipi == 0" holds (exception!) at net/dccp/ccids/ccid3.c:90/ccid3_update_send_interval()
+CPU: 1 UID: 0 PID: 9491 Comm: syz-executor362 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x180/0x1b0
+ ccid3_update_send_interval+0x188/0x1c0
+ ccid3_hc_tx_packet_sent+0x132/0x190
+ dccp_xmit_packet+0x278/0x710
+ dccp_write_xmit+0x174/0x1d0
+ dccp_sendmsg+0xadd/0xcb0
+ inet_sendmsg+0x121/0x150
+ __sock_sendmsg+0x1c3/0x2a0
+ ____sys_sendmsg+0x74c/0xa30
+ ___sys_sendmsg+0x11d/0x1c0
+ __sys_sendmsg+0x151/0x200
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f7172da9b7d
+Code: c3 e8 37 2a 00 00 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffcf10d968 EFLAGS: 00000246 ORIG_RAX: 000000000000002e
+RAX: ffffffffffffffda RBX: 0000000000000001 RCX: 00007f7172da9b7d
+RDX: 0000000000000000 RSI: 00000000200004c0 RDI: 0000000000000004
+RBP: 0000000000000000 R08: 0000000072d62bd0 R09: 0000000072d62bd0
+R10: 0000000072d62bd0 R11: 0000000000000246 R12: 00007fffcf10d974
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ </TASK>

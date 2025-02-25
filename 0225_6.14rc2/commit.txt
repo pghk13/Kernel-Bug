@@ -1,0 +1,6 @@
+authorLinus Torvalds <torvalds@linux-foundation.org>2025-02-09 12:45:03 -0800
+committerLinus Torvalds <torvalds@linux-foundation.org>2025-02-09 12:45:03 -0800
+commita64dcfb451e254085a7daee5fe51bf22959d52d3 (patch)
+treeda929db9d328520eac1d2c6617087d015f8ceb03
+parent69b54314c975f4dfd3a29d6b9211ab68fff46682 (diff)
+downloadlinux-6.14-rc2.tar.gz

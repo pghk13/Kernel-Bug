@@ -1,0 +1,66 @@
+Oops: general protection fault, probably for non-canonical address 0xdffffc000000000f: 0000 [#1] PREEMPT SMP KASAN NOPTI
+KASAN: null-ptr-deref in range [0x0000000000000078-0x000000000000007f]
+CPU: 0 UID: 0 PID: 12440 Comm: kworker/u16:6 Not tainted 6.14.0-rc2 #10
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: netns cleanup_net
+RIP: 0010:napi_disable_locked+0x217/0x460
+Code: 04 02 84 c0 74 08 3c 03 0f 8e f5 01 00 00 48 8d 7d 10 44 8b b3 78 01 00 00 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <0f> b6 04 02 84 c0 74 08 3c 03 0f 8e bf 01 00 00 48 8d bb 68 01 00
+RSP: 0018:ffffc90026fff950 EFLAGS: 00010216
+RAX: dffffc0000000000 RBX: ffffe8ffac6b46c8 RCX: ffffffff81a72423
+RDX: 000000000000000f RSI: ffff888075ea2480 RDI: 000000000000007a
+RBP: 000000000000006a R08: 0000000000000000 R09: fffff52004dfff30
+R10: fffff52004dfff2f R11: ffffc90026fff97f R12: ffffe8ffac6b46d8
+R13: 1ffff92004dfff2b R14: 0000000000000000 R15: ffffc90026fff978
+FS:  0000000000000000(0000) GS:ffff88802b800000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fd84aa587b0 CR3: 0000000077088000 CR4: 0000000000750ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ napi_disable+0x43/0x80
+ gro_cells_destroy+0xff/0x510
+ netdev_run_todo+0x6e0/0x1170
+ cleanup_net+0x5ac/0xb80
+ process_scheduled_works+0x5c0/0x1aa0
+ worker_thread+0x59f/0xcf0
+ kthread+0x42a/0x880
+ ret_from_fork+0x48/0x80
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:napi_disable_locked+0x217/0x460
+Code: 04 02 84 c0 74 08 3c 03 0f 8e f5 01 00 00 48 8d 7d 10 44 8b b3 78 01 00 00 48 b8 00 00 00 00 00 fc ff df 48 89 fa 48 c1 ea 03 <0f> b6 04 02 84 c0 74 08 3c 03 0f 8e bf 01 00 00 48 8d bb 68 01 00
+RSP: 0018:ffffc90026fff950 EFLAGS: 00010216
+RAX: dffffc0000000000 RBX: ffffe8ffac6b46c8 RCX: ffffffff81a72423
+RDX: 000000000000000f RSI: ffff888075ea2480 RDI: 000000000000007a
+RBP: 000000000000006a R08: 0000000000000000 R09: fffff52004dfff30
+R10: fffff52004dfff2f R11: ffffc90026fff97f R12: ffffe8ffac6b46d8
+R13: 1ffff92004dfff2b R14: 0000000000000000 R15: ffffc90026fff978
+FS:  0000000000000000(0000) GS:ffff88802b800000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055a230be5869 CR3: 00000000205fa000 CR4: 0000000000750ef0
+PKRU: 55555554
+----------------
+Code disassembly (best guess):
+   0:	04 02                	add    $0x2,%al
+   2:	84 c0                	test   %al,%al
+   4:	74 08                	je     0xe
+   6:	3c 03                	cmp    $0x3,%al
+   8:	0f 8e f5 01 00 00    	jle    0x203
+   e:	48 8d 7d 10          	lea    0x10(%rbp),%rdi
+  12:	44 8b b3 78 01 00 00 	mov    0x178(%rbx),%r14d
+  19:	48 b8 00 00 00 00 00 	movabs $0xdffffc0000000000,%rax
+  20:	fc ff df
+  23:	48 89 fa             	mov    %rdi,%rdx
+  26:	48 c1 ea 03          	shr    $0x3,%rdx
+* 2a:	0f b6 04 02          	movzbl (%rdx,%rax,1),%eax <-- trapping instruction
+  2e:	84 c0                	test   %al,%al
+  30:	74 08                	je     0x3a
+  32:	3c 03                	cmp    $0x3,%al
+  34:	0f 8e bf 01 00 00    	jle    0x1f9
+  3a:	48                   	rex.W
+  3b:	8d                   	.byte 0x8d
+  3c:	bb                   	.byte 0xbb
+  3d:	68                   	.byte 0x68
+  3e:	01 00                	add    %eax,(%rax)

@@ -1,0 +1,287 @@
+UDC core: USB Raw Gadget: couldn't find an available UDC or it's busy
+misc raw-gadget: fail, usb_gadget_register_driver returned -16
+usb 3-1: new high-speed USB device number 86 using dummy_hcd
+usb 1-1: USB disconnect, device number 18
+==================================================================
+BUG: KASAN: use-after-free in _raw_spin_trylock+0x6d/0x120
+Read of size 4 at addr ffff8880682f7010 by task syz.5.2369/55392
+
+CPU: 1 UID: 65534 PID: 55392 Comm: syz.5.2369 Not tainted 6.14.0-rc2 #3
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0xab/0xe0
+ print_report+0xc1/0x600
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __virt_addr_valid+0x23a/0x350
+ ? _raw_spin_trylock+0x6d/0x120
+ kasan_report+0xb5/0xe0
+ ? _raw_spin_trylock+0x6d/0x120
+ kasan_check_range+0xed/0x1a0
+ _raw_spin_trylock+0x6d/0x120
+ ? __pfx__raw_spin_trylock+0x10/0x10
+ ? add_bits+0x1e1/0x750
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ __z3fold_alloc+0x39c/0x1160
+ ? __pfx___z3fold_alloc+0x10/0x10
+ z3fold_zpool_malloc+0xfb/0x1230
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ zswap_store+0xa15/0x22a0
+ ? __pfx_zswap_store+0x10/0x10
+ ? _raw_spin_unlock+0x38/0x70
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? swap_swapcount+0x118/0x190
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? __pfx_swp_swap_info+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ swap_writepage+0x3a3/0xd30
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ pageout+0x389/0x870
+ ? __pfx_pageout+0x10/0x10
+ ? __pfx_folio_referenced_one+0x10/0x10
+ ? __pfx_folio_lock_anon_vma_read+0x10/0x10
+ ? __pfx_invalid_folio_referenced_vma+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ shrink_folio_list+0x153b/0x3920
+ ? __pfx_shrink_folio_list+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? __entry_text_end+0x102105/0x102109
+ ? isolate_folios+0x2d52/0x3f00
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? cgroup_rstat_updated+0x33/0x680
+ ? __pfx__raw_spin_lock_irq+0x10/0x10
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ evict_folios+0x6e4/0x1af0
+ ? __pfx_evict_folios+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? zswap_shrinker_count+0x1b1/0x570
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ try_to_shrink_lruvec+0x5e0/0x910
+ ? __pfx_try_to_shrink_lruvec+0x10/0x10
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? get_random_u8+0x211/0x310
+ shrink_one+0x412/0x7d0
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ shrink_node+0x216d/0x3170
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? is_bpf_text_address+0x23/0x30
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? kernel_text_address+0x41/0x90
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __pfx_shrink_node+0x10/0x10
+ ? write_comp_data+0x29/0x80
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ do_try_to_free_pages+0x33c/0x16f0
+ ? __pfx_do_try_to_free_pages+0x10/0x10
+ ? sched_clock_cpu+0x141/0x4b0
+ try_to_free_pages+0x219/0x560
+ ? __pfx_try_to_free_pages+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? psi_task_change+0x19a/0x210
+ __alloc_pages_slowpath.constprop.0+0x70d/0x1f30
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? ext4_es_can_be_merged+0x21d/0x280
+ ? __pfx___alloc_pages_slowpath.constprop.0+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __pfx_get_page_from_freelist+0x10/0x10
+ ? __pfx_percpu_counter_add_batch+0x10/0x10
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? ext4_has_free_clusters+0x431/0x5a0
+ __alloc_frozen_pages_noprof+0x4cd/0x5d0
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? __pfx___alloc_frozen_pages_noprof+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? policy_nodemask+0xeb/0x4b0
+ alloc_pages_mpol+0x20a/0x460
+ ? __pfx_alloc_pages_mpol+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ alloc_pages_noprof+0x1b/0x90
+ folio_alloc_noprof+0x21/0xb0
+ filemap_alloc_folio_noprof+0x1e5/0x380
+ ? __pfx_filemap_alloc_folio_noprof+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ __filemap_get_folio+0x437/0x7d0
+ ext4_da_write_begin+0x409/0x790
+ ? kcov_common_handle+0x30/0x30
+ ? __pfx_ext4_da_write_begin+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ generic_perform_write+0x2a8/0x810
+ ? __pfx_generic_perform_write+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? inode_needs_update_time.part.0+0x178/0x280
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ext4_buffered_write_iter+0xdc/0x3e0
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ext4_file_write_iter+0x52e/0x1a60
+ ? __pfx_ext4_file_write_iter+0x10/0x10
+ ? __pfx___get_user_pages+0x10/0x10
+ ? __pfx_down_read_killable+0x10/0x10
+ ? __pfx_ext4_file_write_iter+0x10/0x10
+ __kernel_write_iter+0x2a8/0x850
+ ? __pfx___kernel_write_iter+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? get_dump_page+0x153/0x230
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ dump_user_range+0x303/0x780
+ ? __pfx_dump_user_range+0x10/0x10
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? asm_sysvec_apic_timer_interrupt+0x1a/0x20
+ elf_core_dump+0x25c2/0x31a0
+ ? xstateregs_set+0x1d3/0x2b0
+ ? __pfx_elf_core_dump+0x10/0x10
+ ? do_coredump+0x17b6/0x41a0
+ ? get_signal+0x16a3/0x1f40
+ ? arch_do_signal_or_restart+0x81/0x8a0
+ ? irqentry_exit_to_user_mode+0x108/0x170
+ ? exc_page_fault+0xa5/0x150
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? stack_depot_save_flags+0x2c/0x7f0
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? sort+0x96/0xd0
+ ? __pfx_sort+0x10/0x10
+ ? __pfx_cmp_vma_size+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ do_coredump+0x335b/0x41a0
+ ? __pfx_do_coredump+0x10/0x10
+ ? __pfx_stack_trace_save+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? stack_depot_save_flags+0x2c/0x7f0
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sigqueue_free+0xc0/0x190
+ ? get_signal+0xbdd/0x1f40
+ ? arch_do_signal_or_restart+0x81/0x8a0
+ ? irqentry_exit_to_user_mode+0x108/0x170
+ ? exc_page_fault+0xa5/0x150
+ ? _raw_spin_lock_irqsave+0x8c/0x120
+ ? arch_do_signal_or_restart+0x5e1/0x8a0
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? complete_signal+0x48c/0xb20
+ ? __create_object+0x59/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? write_comp_data+0x29/0x80
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? proc_coredump_connector+0x2c3/0x360
+ ? __pfx_proc_coredump_connector+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? kmem_cache_free+0x2c2/0x4d0
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ get_signal+0x16a3/0x1f40
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? __pfx_get_signal+0x10/0x10
+ ? __pfx_signal_setup_done+0x10/0x10
+ arch_do_signal_or_restart+0x81/0x8a0
+ ? __pfx_is_prefetch.isra.0+0x10/0x10
+ ? __pfx_arch_do_signal_or_restart+0x10/0x10
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __sanitizer_cov_trace_pc+0x20/0x50
+ ? srso_alias_return_thunk+0x5/0xfbef5
+ ? __bad_area_nosemaphore+0x319/0x610
+ irqentry_exit_to_user_mode+0x108/0x170
+ exc_page_fault+0xa5/0x150
+ asm_exc_page_fault+0x26/0x30
+RIP: 0033:0x7f2acc24055b
+Code: 31 16 00 c7 44 24 0c 00 00 00 00 0f 1f 40 00 8b 44 24 0c 83 c0 01 89 44 24 0c eb f3 0f 1f 00 f3 0f 1e fa 55 89 fd 48 83 ec 10 <64> 8b 04 25 9c ff ff ff 85 c0 74 26 89 fe 31 c0 bf 3c 00 00 00 e8
+RSP: 002b:00007f2acd0e5a60 EFLAGS: 00010206
+RAX: 0000000000000000 RBX: 00007f2acc565f80 RCX: 00007f2acc3a371d
+RDX: 00007f2acd0e5a80 RSI: 00007f2acd0e5bb0 RDI: 000000000000000b
+RBP: 000000000000000b R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000206 R12: 0000000000000000
+R13: 00007f2acc565f8c R14: 00007f2acc566018 R15: 00007f2acd103d40
+ </TASK>
+
+usbhid 7-1:0.0: can't add hid device: -71
+The buggy address belongs to the physical page:
+usbhid 7-1:0.0: probe with driver usbhid failed with error -71
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0xffff8880682f71d0 pfn:0x682f7
+usb 7-1: USB disconnect, device number 109
+flags: 0x4fff00000000000(node=1|zone=1|lastcpupid=0x7ff)
+raw: 04fff00000000000 ffffea0001a09308 ffffea0001a0bd88 0000000000000000
+raw: ffff8880682f71d0 0000000000000000 00000000ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+
+Memory state around the buggy address:
+ ffff8880682f6f00: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ffff8880682f6f80: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+>ffff8880682f7000: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+                         ^
+ ffff8880682f7080: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ffff8880682f7100: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+==================================================================
