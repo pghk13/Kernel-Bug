@@ -1,0 +1,225 @@
+[  459.452364][T15273] loop7: detected capacity change from 0 to 32768
+[  459.463594][T15223] error reading btree root btree=extents level=0: btree_node_read_error, fixing
+[  459.479870][T15265] bcachefs (da441363-bb6a-4ab9-999b-c1f40db4fee2): filesystem UUID already open
+[  459.486280][T15265] bcachefs (da441363-bb6a-4ab9-999b-c1f40db4fee2): shutdown complete
+[  459.491903][T15223] bcachefs (loop6): error validating btree node on loop6 at btree inodes level 0/0
+[  459.491948][T15223]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq 7589ab5e0c11cc7a written 24 min_key POS_MIN durability: 1 ptr: 0:38:0 gen 0  
+[  459.491992][T15223]   node offset 0/24: incorrect min_key: got 1280:0:0 should be POS_MIN
+[  459.521383][T15223] bcachefs (loop6): flagging btree inodes lost data
+[  459.525018][T15223] error reading btree root btree=inodes level=0: btree_node_read_error, fixing
+[  459.580435][T15223] bcachefs (loop6): scan_for_btree_nodes...
+[  459.580930][T15052] bcachefs: bch2_fs_get_tree() error: ENOENT_inode
+[  459.599702][T15260] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  459.665308][T15330] invalid bkey in btree_node btree=inodes level=0: u64s 16 type inode_v3 0:4096:U32_MAX len 0 ver 0: 
+[  459.665351][T15330]   mode=40755
+[  459.665373][T15330]   flags=(16300000)
+[  459.665394][T15330]   journal_seq=1
+[  459.665416][T15330]   hash_seed=28e4f092a4fc58ee
+[  459.665439][T15330]   hash_type=siphash
+[  459.665460][T15330]   bi_size=11529215046068469760
+[  459.665485][T15330]   bi_sectors=0
+[  459.665505][T15330]   bi_version=0
+[  459.665527][T15330]   bi_atime=200535484
+[  459.665548][T15330]   bi_ctime=200535484
+[  459.665571][T15330]   bi_mtime=200535484
+[  459.665592][T15330]   bi_otime=200535484
+[  459.665615][T15330]   bi_uid=0
+[  459.665636][T15330]   bi_gid=0
+[  459.665655][T15330]   bi_nlink=1
+[  459.665677][T15330]   bi_generation=0
+[  459.665698][T15330]   bi_dev=0
+[  459.665718][T15330]   bi_data_checksum=0
+[  459.665740][T15330]   bi_compression=0
+[  459.665762][T15330]   bi_project=0
+[  459.665783][T15330]   bi_background_compression=0
+[  459.665807][T15330]   bi_data_replicas=0
+[  459.665828][T15330]   bi_promote_target=0
+[  459.665851][T15330]   bi_foreground_target=0
+[  459.665874][T15330]   bi_background_target=0
+[  459.665897][T15330]   bi_erasure_code=0
+[  459.665918][T15330]   bi_fields_set=0
+[  459.665946][T15330]   bi_dir=0
+[  459.665966][T15330]   bi_dir_offset=0
+[  459.665988][T15330]   bi_subvol=1
+[  459.666008][T15330]   bi_parent_subvol=0
+[  459.666031][T15330]   bi_nocow=0
+[  459.666051][T15330]   bi_depth=0
+[  459.666072][T15330]   bi_inodes_32bit=0
+[  459.666093][T15330]   key before start of btree node: delete?, fixing
+[  459.792123][T15265] bcachefs: bch2_fs_get_tree() error: EINVAL
+[  459.864041][T15223] bcachefs (loop6): btree node scan found 6 nodes after overwrites
+[  459.867571][T15223]  done
+[  459.869008][T15223] bcachefs (loop6): check_topology...
+[  459.869411][T15223] bcachefs (loop6): btree root extents unreadable, must recover from scan
+[  459.893283][T15223] bcachefs (loop6): bch2_get_scanned_nodes(): recovery btree=extents level=0 POS_MIN - SPOS_MAX
+[  459.898039][T15223] bcachefs (loop6): bch2_get_scanned_nodes(): recovering u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0
+[  459.918717][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  459.918763][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  459.918808][   T60]   node offset 0/1032 bset u64s 65535 bset byte offset 160: invalid bkey format 127, fixing
+[  459.932979][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  459.933236][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  459.933281][   T60]   node offset 0/1032 bset u64s 65038 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  459.945234][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  459.945271][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  459.945314][   T60]   node offset 0/1032 bset u64s 64796 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  459.957413][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  459.957449][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  459.957494][   T60]   node offset 0/1032 bset u64s 64554 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  459.969858][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  459.969895][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  459.969948][   T60]   node offset 0/1032 bset u64s 64312 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  459.980434][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  459.980470][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  459.980541][   T60]   node offset 0/1032 bset u64s 64070 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  459.992300][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  459.992337][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  459.992381][   T60]   node offset 0/1032 bset u64s 63828 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.003318][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.003354][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.003399][   T60]   node offset 0/1032 bset u64s 63586 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.016363][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.016400][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.016445][   T60]   node offset 0/1032 bset u64s 63344 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.032274][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.032311][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.032355][   T60]   node offset 0/1032 bset u64s 63102 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.043293][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.043329][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.043373][   T60]   node offset 0/1032 bset u64s 62860 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.054363][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.054398][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.054443][   T60]   node offset 0/1032 bset u64s 62618 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.066494][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.066531][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.066575][   T60]   node offset 0/1032 bset u64s 62376 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.077309][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.077344][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.077389][   T60]   node offset 0/1032 bset u64s 62134 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.088658][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.088695][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.088740][   T60]   node offset 0/1032 bset u64s 61892 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.099726][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.099762][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.099806][   T60]   node offset 0/1032 bset u64s 61650 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.110759][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.110796][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.110840][   T60]   node offset 0/1032 bset u64s 61408 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.121413][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.121448][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.121493][   T60]   node offset 0/1032 bset u64s 61166 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.134064][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.134100][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.134145][   T60]   node offset 0/1032 bset u64s 60924 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.135586][ T5241] BUG: kernel NULL pointer dereference, address: 0000000000000008
+[  460.144537][ T5241] #PF: supervisor read access in kernel mode
+[  460.144537][ T5241] #PF: error_code(0x0000) - not-present page
+[  460.145905][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.144537][ T5241] PGD 0 P4D 0 
+[  460.145949][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.144537][ T5241] Oops: Oops: 0000 [#1] PREEMPT SMP KASAN NOPTI
+[  460.145993][   T60]   node offset 0/1032 bset u64s 60682 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.144537][ T5241] CPU: 3 UID: 0 PID: 5241 Comm: systemd-journal Not tainted 6.14.0-rc4 #1
+[  460.163044][ T5241] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  460.163044][ T5241] RIP: 0010:qlist_free_all+0x99/0x130
+[  460.163992][   T60] bcachefs (loop6): error validating btree node at btree extents level 0/0
+[  460.163044][ T5241] Code: ea ff ff 48 c1 e8 0c 48 c1 e0 06 48 01 c8 48 8b 50 08 f6 c2 01 0f 85 8f 00 00 00 66 90 80 78 33 f5 ba 00 00 00 00 48 0f 45 c2 <48> 8b 68 08 e9 7c ff ff ff 48 83 7d 48 00 75 95 f7 45 08 04 02 00
+[  460.164037][   T60]   u64s 11 type btree_ptr_v2 SPOS_MAX len 0 ver 0: seq c6c25c03258c59c5 written 1032 min_key POS_MIN durability: 1 ptr: 0:27:0 gen 0  
+[  460.163044][ T5241] RSP: 0000:ffffc90003787730 EFLAGS: 00010206
+[  460.164090][   T60]   node offset 0/1032 bset u64s 60440 bset byte offset 160: bad k->u64s 0 (min 3 max 253), fixing
+[  460.163044][ T5241] RAX: 0000000000000000 RBX: ffffffff8e3bd260 RCX: ffffea0000000000
+[  460.163044][ T5241] RDX: 0000000000000000 RSI: ffff888024d82480 RDI: 0000000000000002
+[  460.183037][ T5241] RBP: 0000000000000000 R08: 0000000000000000 R09: ffffffff821debbb
+[  460.183037][ T5241] R10: ffffea0001182600 R11: 0000000000000001 R12: ffffffff8e3bd260
+[  460.183037][ T5241] R13: 0000000000000000 R14: ffffc90003787768 R15: ffff88804609c000
+[  460.183037][ T5241] FS:  00007faf0ef2c900(0000) GS:ffff88807ef00000(0000) knlGS:0000000000000000
+[  460.183037][ T5241] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  460.183037][ T5241] CR2: 0000000000000008 CR3: 0000000026c8a000 CR4: 0000000000750ef0
+[  460.183037][ T5241] PKRU: 55555554
+[  460.183037][ T5241] Call Trace:
+[  460.183037][ T5241]  <TASK>
+[  460.183037][ T5241]  ? __die_body+0x16/0x60
+[  460.183037][ T5241]  ? page_fault_oops+0x37c/0xb00
+[  460.183037][ T5241]  ? hlock_class+0x4e/0x130
+[  460.183037][ T5241]  ? __pfx_page_fault_oops+0x10/0x10
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ? mark_lock+0xfe/0x12c0
+[  460.183037][ T5241]  ? __pfx___lock_acquire+0x10/0x10
+[  460.183037][ T5241]  ? __pfx_mark_lock+0x10/0x10
+[  460.183037][ T5241]  ? do_user_addr_fault+0xa02/0x1910
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ? write_comp_data+0x29/0x80
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  460.183037][ T5241]  ? exc_page_fault+0x98/0x170
+[  460.183037][ T5241]  ? asm_exc_page_fault+0x26/0x30
+[  460.183037][ T5241]  ? qlist_free_all+0x4b/0x130
+[  460.183037][ T5241]  ? qlist_free_all+0x99/0x130
+[  460.183037][ T5241]  kasan_quarantine_reduce+0x168/0x1c0
+[  460.183037][ T5241]  __kasan_slab_alloc+0x67/0x90
+[  460.183037][ T5241]  kmem_cache_alloc_noprof+0x167/0x4b0
+[  460.183037][ T5241]  ? alloc_buffer_head+0x24/0x110
+[  460.183037][ T5241]  alloc_buffer_head+0x24/0x110
+[  460.183037][ T5241]  folio_alloc_buffers+0x2af/0x6c0
+[  460.183037][ T5241]  create_empty_buffers+0x2c/0x480
+[  460.183037][ T5241]  folio_create_buffers+0x10d/0x140
+[  460.183037][ T5241]  __block_write_begin_int+0x2d7/0x18a0
+[  460.183037][ T5241]  ? __pfx_lock_acquire+0x10/0x10
+[  460.183037][ T5241]  ? __pfx_ext4_da_get_block_prep+0x10/0x10
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ? __pfx___block_write_begin_int+0x10/0x10
+[  460.183037][ T5241]  ? __pfx_ext4_da_get_block_prep+0x10/0x10
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ? write_comp_data+0x29/0x80
+[  460.183037][ T5241]  ? __pfx_ext4_da_get_block_prep+0x10/0x10
+[  460.183037][ T5241]  block_page_mkwrite+0x3df/0x4c0
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ext4_page_mkwrite+0x110d/0x1550
+[  460.183037][ T5241]  ? __pfx_ext4_page_mkwrite+0x10/0x10
+[  460.183037][ T5241]  ? __pfx_lock_acquire+0x10/0x10
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ? write_comp_data+0x29/0x80
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  do_page_mkwrite+0x180/0x390
+[  460.183037][ T5241]  do_pte_missing+0x29a/0x3d70
+[  460.183037][ T5241]  ? ___pte_offset_map+0x1da/0x490
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ? write_comp_data+0x29/0x80
+[  460.183037][ T5241]  __handle_mm_fault+0xf6b/0x2a90
+[  460.183037][ T5241]  ? lock_vma_under_rcu+0x6b8/0x990
+[  460.183037][ T5241]  ? __pfx___handle_mm_fault+0x10/0x10
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  handle_mm_fault+0x403/0xe00
+[  460.183037][ T5241]  do_user_addr_fault+0x77e/0x1910
+[  460.183037][ T5241]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  460.183037][ T5241]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  460.183037][ T5241]  exc_page_fault+0x98/0x170
+[  460.183037][ T5241]  asm_exc_page_fault+0x26/0x30
+[  460.183037][ T5241] RIP: 0033:0x7faf0f7c67d0
+[  460.183037][ T5241] Code: 48 83 80 e8 00 00 00 01 66 90 48 8b 44 24 18 48 8b 4c 24 08 48 83 c0 01 48 89 01 31 c0 e9 14 ff ff ff 0f 1f 84 00 00 00 00 00 <4d> 89 74 df 18 eb d9 66 0f 1f 84 00 00 00 00 00 4c 8d 05 c9 cc 06
+[  460.183037][ T5241] RSP: 002b:00007ffc91f95270 EFLAGS: 00010297
+[  460.183037][ T5241] RAX: 00000000000018ae RBX: 0000000000000330 RCX: 00007faf0f8337e0
+[  460.183037][ T5241] RDX: 00007faf0f83320c RSI: 00007ffc91f95218 RDI: 00007faf0d6d5668
+[  460.183037][ T5241] RBP: 00005618de2f4a80 R08: 000000000000c588 R09: 00000000002d5668
+[  460.183037][ T5241] R10: 0000000000000002 R11: 0000000000000293 R12: 00000000002d5668
+[  460.183037][ T5241] R13: 00007ffc91f95298 R14: 000000000033cb60 R15: 00007faf0d6d5668
+[  460.183037][ T5241]  </TASK>
+[  460.183037][ T5241] Modules linked in:
+[  460.183037][ T5241] CR2: 0000000000000008
+[  460.183037][ T5241] ---[ end trace 0000000000000000 ]---
+[  460.183037][ T5241] RIP: 0010:qlist_free_all+0x99/0x130
+[  460.183037][ T5241] Code: ea ff ff 48 c1 e8 0c 48 c1 e0 06 48 01 c8 48 8b 50 08 f6 c2 01 0f 85 8f 00 00 00 66 90 80 78 33 f5 ba 00 00 00 00 48 0f 45 c2 <48> 8b 68 08 e9 7c ff ff ff 48 83 7d 48 00 75 95 f7 45 08 04 02 00
+[  460.183037][ T5241] RSP: 0000:ffffc90003787730 EFLAGS: 00010206
+[  460.183037][ T5241] RAX: 0000000000000000 RBX: ffffffff8e3bd260 RCX: ffffea0000000000
+[  460.183037][ T5241] RDX: 0000000000000000 RSI: ffff888024d82480 RDI: 0000000000000002
+[  460.183037][ T5241] RBP: 0000000000000000 R08: 0000000000000000 R09: ffffffff821debbb
+[  460.183037][ T5241] R10: ffffea0001182600 R11: 0000000000000001 R12: ffffffff8e3bd260
+[  460.183037][ T5241] R13: 0000000000000000 R14: ffffc90003787768 R15: ffff88804609c000
+[  460.183037][ T5241] FS:  00007faf0ef2c900(0000) GS:ffff88807ef00000(0000) knlGS:0000000000000000
+[  460.183037][ T5241] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  460.183037][ T5241] CR2: 0000000000000008 CR3: 0000000026c8a000 CR4: 0000000000750ef0
+[  460.183037][ T5241] PKRU: 55555554
+[  460.183037][ T5241] Kernel panic - not syncing: Fatal exception
+[  460.183037][ T5241] Kernel Offset: disabled
