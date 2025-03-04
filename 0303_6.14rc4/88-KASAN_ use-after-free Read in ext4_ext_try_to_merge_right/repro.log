@@ -1,0 +1,1616 @@
+68] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  159.930484][T17515] loop1: detected capacity change from 0 to 1024
+[  159.933542][T17515] EXT4-fs: Ignoring removed nobh option
+[  159.934670][   T68] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  159.934670][   T68] 
+[  159.942538][ T1945] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  159.946955][T17515] EXT4-fs: Ignoring removed bh option
+[  159.947686][ T1945] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  159.952350][T17517] loop7: detected capacity change from 0 to 1024
+[  159.952654][ T1945] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  159.952654][ T1945] 
+[  159.955410][T17518] loop5: detected capacity change from 0 to 1024
+[  159.979207][T17516] EXT4-fs: Ignoring removed nobh option
+[  159.981086][T17516] EXT4-fs: Ignoring removed bh option
+[  160.006785][T17518] EXT4-fs: Ignoring removed nobh option
+[  160.008420][T17518] EXT4-fs: Ignoring removed bh option
+[  160.009346][T17542] loop6: detected capacity change from 0 to 1024
+[  160.011577][T17517] EXT4-fs: Ignoring removed nobh option
+[  160.011625][T17517] EXT4-fs: Ignoring removed bh option
+[  160.015554][T17542] EXT4-fs: Ignoring removed nobh option
+[  160.021002][T17542] EXT4-fs: Ignoring removed bh option
+[  160.059120][T17537] loop4: detected capacity change from 0 to 1024
+[  160.061924][T17537] EXT4-fs: Ignoring removed nobh option
+[  160.063620][T17537] EXT4-fs: Ignoring removed bh option
+[  160.087159][T17546] loop2: detected capacity change from 0 to 1024
+[  160.090135][T17546] EXT4-fs: Ignoring removed nobh option
+[  160.096515][T17546] EXT4-fs: Ignoring removed bh option
+[  160.119281][   T68] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:1: bad extent address lblock: 80, depth: 1 pblock 0
+[  160.132667][   T68] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  160.138146][T17554] loop0: detected capacity change from 0 to 1024
+[  160.139339][   T40] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.148187][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.148209][T17554] EXT4-fs: Ignoring removed nobh option
+[  160.148653][   T85] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.157145][   T68] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.164932][   T88] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.167947][T17554] EXT4-fs: Ignoring removed bh option
+[  160.170165][   T40] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.175369][   T68] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:1: bad extent address lblock: 84, depth: 1 pblock 0
+[  160.186477][   T88] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.191404][   T40] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  160.191404][   T40] 
+[  160.199049][   T85] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  160.199049][   T85] 
+[  160.202068][   T88] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  160.202068][   T88] 
+[  160.206161][   T68] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  160.225835][   T88] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.235969][   T68] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.251649][   T85] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.257119][   T88] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.266226][   T68] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:1: bad extent address lblock: 96, depth: 1 pblock 0
+[  160.271073][   T85] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.274775][   T85] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  160.274775][   T85] 
+[  160.277709][   T68] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  160.280089][   T44] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:1: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.288400][   T68] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.297776][   T88] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  160.297776][   T88] 
+[  160.312338][   T44] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.314762][   T68] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:1: bad extent address lblock: 100, depth: 1 pblock 0
+[  160.315941][   T44] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  160.315941][   T44] 
+[  160.333442][   T44] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:1: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.337162][   T68] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  160.341380][   T68] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.353846][   T68] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:1: bad extent address lblock: 112, depth: 1 pblock 0
+[  160.357392][   T44] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.367736][   T68] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  160.369343][   T44] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  160.369343][   T44] 
+[  160.371463][   T68] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+2025/02/26 02:04:14 executed programs: 336
+[  160.394554][   T68] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:1: bad extent address lblock: 116, depth: 1 pblock 0
+[  160.405422][   T68] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  160.416626][   T68] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.442163][T17588] loop1: detected capacity change from 0 to 1024
+[  160.446085][T17588] EXT4-fs: Ignoring removed nobh option
+[  160.450303][T17588] EXT4-fs: Ignoring removed bh option
+[  160.459122][  T774] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.467606][T17594] loop5: detected capacity change from 0 to 1024
+[  160.470476][T17594] EXT4-fs: Ignoring removed nobh option
+[  160.480448][T17593] loop3: detected capacity change from 0 to 1024
+[  160.483140][T17593] EXT4-fs: Ignoring removed nobh option
+[  160.485026][T17593] EXT4-fs: Ignoring removed bh option
+[  160.485546][  T774] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.489778][  T774] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  160.489778][  T774] 
+[  160.490137][T17594] EXT4-fs: Ignoring removed bh option
+[  160.502517][T17596] loop4: detected capacity change from 0 to 1024
+[  160.513756][T17605] loop2: detected capacity change from 0 to 1024
+[  160.516926][T17605] EXT4-fs: Ignoring removed nobh option
+[  160.526195][T17596] EXT4-fs: Ignoring removed nobh option
+[  160.528789][T17596] EXT4-fs: Ignoring removed bh option
+[  160.530686][T17605] EXT4-fs: Ignoring removed bh option
+[  160.534532][   T37] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.544345][   T37] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.549508][   T37] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  160.549508][   T37] 
+[  160.615955][T17611] loop7: detected capacity change from 0 to 1024
+[  160.625088][T17594] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm syz.5.332: bad extent address lblock: 113, depth: 1 pblock 0
+[  160.630550][T17611] EXT4-fs: Ignoring removed nobh option
+[  160.631050][T17626] loop0: detected capacity change from 0 to 1024
+[  160.638803][T17626] EXT4-fs: Ignoring removed nobh option
+[  160.639607][   T88] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 68, depth: 1 pblock 0
+[  160.641662][T17626] EXT4-fs: Ignoring removed bh option
+[  160.651893][T17630] loop6: detected capacity change from 0 to 1024
+[  160.652052][T17611] EXT4-fs: Ignoring removed bh option
+[  160.659650][ T1945] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.665915][ T1945] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.673273][ T1945] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  160.673273][ T1945] 
+[  160.674514][T17630] EXT4-fs: Ignoring removed nobh option
+[  160.682236][T17594] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 113 with max blocks 3 with error 117
+[  160.685525][T17594] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  160.685525][T17594] 
+[  160.694452][ T3713] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:5: bad extent address lblock: 63, depth: 1 pblock 0
+[  160.710591][T17135] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.717532][   T88] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  160.717911][T17630] EXT4-fs: Ignoring removed bh option
+[  160.723352][ T3713] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 63: len 2: ext4_ext_map_blocks returned -117
+[  160.725378][   T88] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.727982][T17594] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm syz.5.332: bad extent address lblock: 112, depth: 1 pblock 0
+[  160.732111][   T88] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 80, depth: 1 pblock 0
+[  160.734259][T17135] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.741686][T17135] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  160.741686][T17135] 
+[  160.741857][ T3713] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.754881][   T88] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  160.768202][T17643] loop1: detected capacity change from 0 to 1024
+[  160.769218][T17594] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm syz.5.332: bad extent address lblock: 112, depth: 1 pblock 0
+[  160.770123][   T88] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.778382][T17643] EXT4-fs: Ignoring removed nobh option
+[  160.779977][T17643] EXT4-fs: Ignoring removed bh option
+[  160.785940][   T88] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 84, depth: 1 pblock 0
+[  160.787435][T17649] loop2: detected capacity change from 0 to 1024
+[  160.790174][   T88] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  160.792382][T17649] EXT4-fs: Ignoring removed nobh option
+[  160.794950][  T774] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 68, depth: 1 pblock 0
+[  160.795209][   T88] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.796826][   T88] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 96, depth: 1 pblock 0
+[  160.797200][   T88] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  160.804754][T17649] EXT4-fs: Ignoring removed bh option
+[  160.805103][ T3713] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:5: bad extent address lblock: 68, depth: 1 pblock 0
+[  160.809873][   T88] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.814117][T17594] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  160.814806][   T88] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 100, depth: 1 pblock 0
+[  160.820339][T17135] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.823026][   T88] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  160.830174][T17135] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.833406][   T88] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.844287][   T88] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 112, depth: 1 pblock 0
+[  160.846089][  T774] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  160.846854][T17135] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  160.846854][T17135] 
+[  160.848955][   T88] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  160.859046][   T88] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.862549][   T88] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 116, depth: 1 pblock 0
+[  160.866304][ T3713] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  160.870599][   T88] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  160.874203][T17630] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm syz.6.336: bad extent address lblock: 80, depth: 1 pblock 0
+[  160.877028][   T88] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.893883][  T774] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.905218][ T3713] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.909101][ T1945] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.909442][T17663] loop4: detected capacity change from 0 to 1024
+[  160.910222][  T774] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 80, depth: 1 pblock 0
+[  160.910610][  T774] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  160.910694][  T774] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.910849][  T774] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 84, depth: 1 pblock 0
+[  160.911344][  T774] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  160.911427][  T774] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.913736][  T774] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 96, depth: 1 pblock 0
+[  160.915299][ T1945] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.922975][T17663] EXT4-fs: Ignoring removed nobh option
+[  160.928967][ T1945] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  160.928967][ T1945] 
+[  160.933542][T17665] loop0: detected capacity change from 0 to 1024
+[  160.933851][T17663] EXT4-fs: Ignoring removed bh option
+[  160.937212][   T85] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  160.941571][T17665] EXT4-fs: Ignoring removed nobh option
+[  160.942304][ T3713] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:5: bad extent address lblock: 80, depth: 1 pblock 0
+[  160.942779][ T3713] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  160.942864][ T3713] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.943021][ T3713] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:5: bad extent address lblock: 84, depth: 1 pblock 0
+[  160.943475][ T3713] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  160.943558][ T3713] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  160.943685][ T3713] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:5: bad extent address lblock: 96, depth: 1 pblock 0
+[  160.943910][T17630] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 80 with max blocks 1 with error 117
+[  160.944475][   T85] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  160.944536][   T85] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  160.944536][   T85] 
+[  160.945329][T17665] EXT4-fs: Ignoring removed bh option
+[  160.952501][  T179] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:4: bad extent address lblock: 63, depth: 1 pblock 0
+[  160.956017][T17630] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  160.956017][T17630] 
+[  160.977708][  T774] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  160.998888][T17675] loop2: detected capacity change from 0 to 1024
+[  161.005945][ T3713] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  161.011224][  T179] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 63: len 2: ext4_ext_map_blocks returned -117
+[  161.013116][T17675] EXT4-fs: Ignoring removed nobh option
+[  161.016975][T17675] EXT4-fs: Ignoring removed bh option
+[  161.027417][   T38] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.045869][ T3713] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.046075][   T38] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.046139][ T1945] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.046797][ T1945] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.046859][ T1945] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  161.046859][ T1945] 
+[  161.049389][  T179] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.062581][   T38] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  161.062581][   T38] 
+[  161.067144][ T3713] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:5: bad extent address lblock: 100, depth: 1 pblock 0
+[  161.073768][   T85] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 63, depth: 1 pblock 0
+[  161.087010][ T3713] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  161.087386][ T1945] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.087969][  T179] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:4: bad extent address lblock: 68, depth: 1 pblock 0
+[  161.090608][  T179] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  161.090702][  T179] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.092624][   T85] EXT4-fs warning (device loop4): ext4_convert_unwritten_extents:4879: inode #15: block 63: len 2: ext4_ext_map_blocks returned -117
+[  161.095326][  T774] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.095819][ T1945] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.095882][ T1945] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  161.095882][ T1945] 
+[  161.099164][   T85] EXT4-fs (loop4): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.106720][  T774] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 100, depth: 1 pblock 0
+[  161.126829][ T3713] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.137018][  T179] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:4: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.141572][  T179] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.145070][  T179] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  161.145070][  T179] 
+[  161.146064][  T774] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  161.154027][   T85] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 68, depth: 1 pblock 0
+[  161.172371][   T85] EXT4-fs warning (device loop4): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  161.178477][   T85] EXT4-fs (loop4): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.183395][   T85] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 80, depth: 1 pblock 0
+[  161.183839][ T1945] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.192744][T17682] loop0: detected capacity change from 0 to 1024
+[  161.198639][T17682] EXT4-fs: Ignoring removed nobh option
+[  161.200268][T17682] EXT4-fs: Ignoring removed bh option
+[  161.200512][   T85] EXT4-fs warning (device loop4): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  161.202452][ T1945] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.216600][  T774] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.217219][   T85] EXT4-fs (loop4): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.220479][  T774] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 112, depth: 1 pblock 0
+[  161.225085][T17692] loop1: detected capacity change from 0 to 1024
+[  161.228641][T17695] loop3: detected capacity change from 0 to 1024
+[  161.232110][T17695] EXT4-fs: Ignoring removed nobh option
+[  161.232459][   T85] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 84, depth: 1 pblock 0
+[  161.235504][ T1945] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  161.235504][ T1945] 
+[  161.238374][T17695] EXT4-fs: Ignoring removed bh option
+[  161.244426][T17694] loop2: detected capacity change from 0 to 1024
+[  161.246570][   T85] EXT4-fs warning (device loop4): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  161.250294][  T774] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  161.259932][T17694] EXT4-fs: Ignoring removed nobh option
+[  161.260756][   T85] EXT4-fs (loop4): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.265649][   T85] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 96, depth: 1 pblock 0
+[  161.267575][T17692] EXT4-fs: Ignoring removed nobh option
+[  161.271208][  T774] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.272203][   T85] EXT4-fs warning (device loop4): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  161.281287][T17692] EXT4-fs: Ignoring removed bh option
+[  161.281298][   T85] EXT4-fs (loop4): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.287963][T17694] EXT4-fs: Ignoring removed bh option
+[  161.289190][  T774] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 116, depth: 1 pblock 0
+[  161.290747][   T85] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 100, depth: 1 pblock 0
+[  161.294496][  T774] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  161.299671][   T85] EXT4-fs warning (device loop4): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  161.306211][   T85] EXT4-fs (loop4): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.311542][   T85] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 112, depth: 1 pblock 0
+[  161.313477][  T774] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.321042][   T85] EXT4-fs warning (device loop4): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  161.324841][   T85] EXT4-fs (loop4): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.344242][   T85] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 116, depth: 1 pblock 0
+[  161.354132][T17709] loop6: detected capacity change from 0 to 1024
+[  161.354778][T17716] loop5: detected capacity change from 0 to 1024
+[  161.358459][   T85] EXT4-fs warning (device loop4): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  161.358546][   T85] EXT4-fs (loop4): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.367694][T17716] EXT4-fs: Ignoring removed nobh option
+[  161.370063][T17709] EXT4-fs: Ignoring removed nobh option
+[  161.372940][  T774] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.376633][T17716] EXT4-fs: Ignoring removed bh option
+[  161.377738][  T774] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.382478][  T774] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  161.382478][  T774] 
+[  161.382508][T17709] EXT4-fs: Ignoring removed bh option
+[  161.396700][  T774] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.405024][   T68] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:1: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.414120][  T774] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.418497][   T68] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.423738][  T774] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  161.423738][  T774] 
+[  161.430026][   T68] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  161.430026][   T68] 
+[  161.443504][T17194] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.450484][   T68] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:1: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.454872][   T85] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.463716][T17194] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.470928][   T68] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.474113][   T68] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  161.474113][   T68] 
+[  161.483031][T17194] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  161.483031][T17194] 
+[  161.487083][   T85] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.498101][   T85] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  161.498101][   T85] 
+[  161.501266][T17729] loop3: detected capacity change from 0 to 1024
+[  161.508478][T17729] EXT4-fs: Ignoring removed nobh option
+[  161.514231][T17729] EXT4-fs: Ignoring removed bh option
+[  161.530489][   T88] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.538625][   T88] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.554692][   T88] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  161.554692][   T88] 
+[  161.609508][   T44] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:1: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.614024][T17751] loop1: detected capacity change from 0 to 1024
+[  161.626572][T17751] EXT4-fs: Ignoring removed nobh option
+[  161.627907][   T44] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.628101][T17751] EXT4-fs: Ignoring removed bh option
+[  161.638707][   T44] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  161.638707][   T44] 
+[  161.646905][T17752] loop7: detected capacity change from 0 to 1024
+[  161.656347][T17757] loop4: detected capacity change from 0 to 1024
+[  161.657819][T17752] EXT4-fs: Ignoring removed nobh option
+[  161.662447][   T38] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.663466][T17752] EXT4-fs: Ignoring removed bh option
+[  161.673418][   T38] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.678233][T17757] EXT4-fs: Ignoring removed nobh option
+[  161.679421][T17758] loop0: detected capacity change from 0 to 1024
+[  161.680022][   T38] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  161.680022][   T38] 
+[  161.682769][T17757] EXT4-fs: Ignoring removed bh option
+[  161.682781][T17758] EXT4-fs: Ignoring removed nobh option
+[  161.682829][T17758] EXT4-fs: Ignoring removed bh option
+[  161.705220][T17755] loop2: detected capacity change from 0 to 1024
+[  161.708717][T17755] EXT4-fs: Ignoring removed nobh option
+[  161.710262][T17755] EXT4-fs: Ignoring removed bh option
+[  161.727928][T17771] loop5: detected capacity change from 0 to 1024
+[  161.730918][T17771] EXT4-fs: Ignoring removed nobh option
+[  161.733403][T17771] EXT4-fs: Ignoring removed bh option
+[  161.749072][T17194] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.753574][T17194] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.761769][   T38] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:0: bad extent address lblock: 116, depth: 1 pblock 0
+[  161.762121][T17194] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  161.762121][T17194] 
+[  161.775125][T17777] loop3: detected capacity change from 0 to 1024
+[  161.781177][T17777] EXT4-fs: Ignoring removed nobh option
+[  161.796923][   T38] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  161.807849][T17777] EXT4-fs: Ignoring removed bh option
+[  161.811876][T17785] loop6: detected capacity change from 0 to 1024
+[  161.812055][   T38] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.814628][T17785] EXT4-fs: Ignoring removed nobh option
+[  161.833803][T17194] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 84, depth: 1 pblock 0
+[  161.846300][T17194] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  161.850726][T17194] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.854479][T17194] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 96, depth: 1 pblock 0
+[  161.859121][   T88] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.859360][T17194] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  161.865576][   T88] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.867359][   T38] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.868739][   T44] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:1: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.869209][   T44] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.869269][   T44] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  161.869269][   T44] 
+[  161.875959][   T88] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  161.875959][   T88] 
+[  161.875983][T17785] EXT4-fs: Ignoring removed bh option
+[  161.880360][T17194] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.902685][   T44] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:1: bad extent address lblock: 0, depth: 1 pblock 0
+[  161.904180][   T38] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.911492][T17194] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 100, depth: 1 pblock 0
+[  161.915929][   T38] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  161.915929][   T38] 
+[  161.916929][T17795] loop1: detected capacity change from 0 to 1024
+[  161.923795][T17194] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  161.925536][T17795] EXT4-fs: Ignoring removed nobh option
+[  161.933605][T17194] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.940973][T17194] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 112, depth: 1 pblock 0
+[  161.941314][   T44] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  161.948346][T17795] EXT4-fs: Ignoring removed bh option
+[  161.954185][T17801] loop2: detected capacity change from 0 to 1024
+[  161.954712][   T44] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  161.954712][   T44] 
+[  161.955943][T17194] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  161.959776][T17801] EXT4-fs: Ignoring removed nobh option
+[  161.963433][T17135] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 68, depth: 1 pblock 0
+[  161.963690][T17801] EXT4-fs: Ignoring removed bh option
+[  161.964560][T17194] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.964988][T17194] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 116, depth: 1 pblock 0
+[  161.965391][T17194] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  161.965475][T17194] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  161.991579][T17135] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  162.002244][T17135] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.007793][T17135] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 80, depth: 1 pblock 0
+[  162.012923][T17135] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  162.018254][T17135] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.026695][T17135] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 84, depth: 1 pblock 0
+[  162.033019][T17135] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  162.035354][   T38] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.041158][T17135] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.046228][   T39] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.046690][T17135] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 96, depth: 1 pblock 0
+[  162.055049][   T38] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.055700][T17815] loop7: detected capacity change from 0 to 1024
+[  162.059487][   T39] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.060397][T17135] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  162.064727][   T38] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  162.064727][   T38] 
+[  162.071319][   T39] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  162.071319][   T39] 
+[  162.074760][T17815] EXT4-fs: Ignoring removed nobh option
+[  162.079506][T17135] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.092480][T17194] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.097213][T17815] EXT4-fs: Ignoring removed bh option
+[  162.099900][T17135] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 100, depth: 1 pblock 0
+[  162.100900][T17813] loop0: detected capacity change from 0 to 1024
+[  162.105111][T17194] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.107646][T17813] EXT4-fs: Ignoring removed nobh option
+[  162.112501][   T39] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.112897][T17135] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  162.119279][T17194] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  162.119279][T17194] 
+[  162.130043][T17813] EXT4-fs: Ignoring removed bh option
+[  162.130571][T17135] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.136580][   T39] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.140786][T17135] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 112, depth: 1 pblock 0
+[  162.150384][T17135] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  162.150903][T17819] loop4: detected capacity change from 0 to 1024
+[  162.153304][   T39] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  162.153304][   T39] 
+[  162.154515][T17135] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.163088][T17135] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 116, depth: 1 pblock 0
+[  162.167462][T17135] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  162.171484][T17135] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.177392][T17819] EXT4-fs: Ignoring removed nobh option
+[  162.179804][T17819] EXT4-fs: Ignoring removed bh option
+[  162.206969][T17135] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.216244][T17836] loop6: detected capacity change from 0 to 1024
+[  162.224071][T17836] EXT4-fs: Ignoring removed nobh option
+[  162.225688][T17836] EXT4-fs: Ignoring removed bh option
+[  162.238149][T17135] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.251588][T17841] loop1: detected capacity change from 0 to 1024
+[  162.254062][T17135] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  162.254062][T17135] 
+[  162.267062][T17841] EXT4-fs: Ignoring removed nobh option
+[  162.267870][   T85] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.273142][T17848] loop5: detected capacity change from 0 to 1024
+[  162.273182][T17841] EXT4-fs: Ignoring removed bh option
+[  162.278482][   T85] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.279402][T17848] EXT4-fs: Ignoring removed nobh option
+[  162.286752][   T85] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  162.286752][   T85] 
+[  162.292397][T17848] EXT4-fs: Ignoring removed bh option
+[  162.311048][T17135] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.334913][  T234] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.339964][   T39] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.352381][T17135] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.357524][   T39] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.360797][   T39] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  162.360797][   T39] 
+[  162.363490][  T234] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.366873][T17135] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  162.366873][T17135] 
+[  162.372247][  T234] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  162.372247][  T234] 
+[  162.372367][T17858] loop2: detected capacity change from 0 to 1024
+[  162.379716][T17858] EXT4-fs: Ignoring removed nobh option
+[  162.381287][T17858] EXT4-fs: Ignoring removed bh option
+[  162.425708][T17867] loop7: detected capacity change from 0 to 1024
+[  162.428623][T17867] EXT4-fs: Ignoring removed nobh option
+[  162.430266][T17867] EXT4-fs: Ignoring removed bh option
+[  162.505665][T17883] loop0: detected capacity change from 0 to 1024
+[  162.511165][   T39] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.511407][  T774] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.517301][   T39] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.519293][T17881] loop3: detected capacity change from 0 to 1024
+[  162.522287][T17883] EXT4-fs: Ignoring removed nobh option
+[  162.525062][T17883] EXT4-fs: Ignoring removed bh option
+[  162.525710][T17882] loop4: detected capacity change from 0 to 1024
+[  162.529584][  T234] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.533869][  T774] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.534457][T17884] loop6: detected capacity change from 0 to 1024
+[  162.534856][   T39] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  162.534856][   T39] 
+[  162.535199][   T39] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.540000][   T39] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.543236][T17881] EXT4-fs: Ignoring removed nobh option
+[  162.545545][  T774] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  162.545545][  T774] 
+[  162.548371][  T234] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.548435][  T234] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  162.548435][  T234] 
+[  162.558504][T17881] EXT4-fs: Ignoring removed bh option
+[  162.558964][T17884] EXT4-fs: Ignoring removed nobh option
+[  162.561732][T17884] EXT4-fs: Ignoring removed bh option
+[  162.562943][T17882] EXT4-fs: Ignoring removed nobh option
+[  162.564817][T17882] EXT4-fs: Ignoring removed bh option
+[  162.567273][   T39] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  162.567273][   T39] 
+[  162.654027][   T44] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:1: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.684482][   T44] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.689324][   T39] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 63, depth: 1 pblock 0
+[  162.704977][  T234] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.708066][T17913] loop5: detected capacity change from 0 to 1024
+[  162.709678][   T44] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  162.709678][   T44] 
+[  162.719033][T17913] EXT4-fs: Ignoring removed nobh option
+[  162.720623][T17913] EXT4-fs: Ignoring removed bh option
+[  162.724484][T17882] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm syz.4.372: bad extent address lblock: 80, depth: 1 pblock 0
+[  162.736695][  T234] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.740158][   T39] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 63: len 2: ext4_ext_map_blocks returned -117
+[  162.760353][  T234] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  162.760353][  T234] 
+[  162.765035][T17922] loop1: detected capacity change from 0 to 1024
+[  162.768807][T17882] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 80 with max blocks 1 with error 117
+[  162.775064][   T39] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.778265][T17922] EXT4-fs: Ignoring removed nobh option
+[  162.778949][   T44] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:1: bad extent address lblock: 63, depth: 1 pblock 0
+[  162.780295][T17922] EXT4-fs: Ignoring removed bh option
+[  162.792317][T17882] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  162.792317][T17882] 
+[  162.795337][   T39] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 68, depth: 1 pblock 0
+[  162.804095][   T44] EXT4-fs warning (device loop4): ext4_convert_unwritten_extents:4879: inode #15: block 63: len 2: ext4_ext_map_blocks returned -117
+[  162.810486][T17924] loop2: detected capacity change from 0 to 1024
+[  162.813383][T17924] EXT4-fs: Ignoring removed nobh option
+[  162.815037][T17924] EXT4-fs: Ignoring removed bh option
+[  162.818371][   T39] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  162.823160][T17918] loop7: detected capacity change from 0 to 1024
+[  162.831991][T17918] EXT4-fs: Ignoring removed nobh option
+[  162.834122][   T44] EXT4-fs (loop4): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.841294][ T1945] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.846554][   T39] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.860189][T17918] EXT4-fs: Ignoring removed bh option
+[  162.864271][   T44] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:1: bad extent address lblock: 68, depth: 1 pblock 0
+[  162.869727][   T39] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 80, depth: 1 pblock 0
+[  162.880376][ T1945] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.883667][ T1945] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  162.883667][ T1945] 
+[  162.900762][   T44] EXT4-fs warning (device loop4): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  162.904487][   T44] EXT4-fs (loop4): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.911526][T17135] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.917870][   T39] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  162.947192][T17135] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  162.950535][T17135] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  162.950535][T17135] 
+[  162.957200][   T39] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  162.968076][ T3019] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:4: bad extent address lblock: 0, depth: 1 pblock 0
+[  162.984342][   T39] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 84, depth: 1 pblock 0
+[  162.990210][ T3019] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.014988][   T39] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  163.016491][ T3019] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  163.016491][ T3019] 
+[  163.025612][   T39] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.026674][T17946] loop0: detected capacity change from 0 to 1024
+[  163.030260][   T39] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 96, depth: 1 pblock 0
+[  163.031785][T17946] EXT4-fs: Ignoring removed nobh option
+[  163.037782][   T39] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  163.038673][T17948] loop3: detected capacity change from 0 to 1024
+[  163.041646][ T3019] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:4: bad extent address lblock: 63, depth: 1 pblock 0
+[  163.041689][T17946] EXT4-fs: Ignoring removed bh option
+[  163.042188][   T39] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.042864][   T39] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 100, depth: 1 pblock 0
+[  163.049699][   T39] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  163.049774][ T3019] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 63: len 2: ext4_ext_map_blocks returned -117
+[  163.049933][ T3019] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.050420][ T3019] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:4: bad extent address lblock: 68, depth: 1 pblock 0
+[  163.052123][ T3019] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  163.059206][   T39] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.067718][T17948] EXT4-fs: Ignoring removed nobh option
+[  163.074285][   T39] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 112, depth: 1 pblock 0
+[  163.077759][ T3019] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.083092][   T39] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  163.091805][   T39] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.095439][   T39] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 116, depth: 1 pblock 0
+[  163.107733][  T774] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.113737][ T3019] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:4: bad extent address lblock: 80, depth: 1 pblock 0
+[  163.118113][   T39] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  163.119257][  T774] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.125787][   T39] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.126831][ T3019] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  163.128099][T17948] EXT4-fs: Ignoring removed bh option
+[  163.128706][  T774] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  163.128706][  T774] 
+[  163.161786][   T39] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.166015][T17967] loop5: detected capacity change from 0 to 1024
+[  163.169959][ T3019] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.181174][T17967] EXT4-fs: Ignoring removed nobh option
+[  163.182799][T17967] EXT4-fs: Ignoring removed bh option
+[  163.188967][   T39] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.195358][ T3019] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:4: bad extent address lblock: 84, depth: 1 pblock 0
+[  163.199643][   T39] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  163.199643][   T39] 
+[  163.199782][T17975] loop2: detected capacity change from 0 to 1024
+[  163.202975][ T3019] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  163.205453][T17975] EXT4-fs: Ignoring removed nobh option
+[  163.212375][T17975] EXT4-fs: Ignoring removed bh option
+[  163.212435][ T3019] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.222656][ T3019] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:4: bad extent address lblock: 96, depth: 1 pblock 0
+[  163.225786][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 63, depth: 1 pblock 0
+[  163.229599][ T3019] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  163.237822][ T3019] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.241418][ T3019] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:4: bad extent address lblock: 100, depth: 1 pblock 0
+[  163.245649][ T3019] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  163.249840][   T85] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 63: len 2: ext4_ext_map_blocks returned -117
+[  163.250028][T17970] loop1: detected capacity change from 0 to 1024
+[  163.250925][  T234] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.251363][  T234] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.251423][  T234] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  163.251423][  T234] 
+[  163.253810][   T85] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.258017][ T3019] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.270398][T17970] EXT4-fs: Ignoring removed nobh option
+[  163.276685][T17970] EXT4-fs: Ignoring removed bh option
+[  163.284429][ T3019] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:4: bad extent address lblock: 112, depth: 1 pblock 0
+[  163.285126][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 68, depth: 1 pblock 0
+[  163.293007][T17983] loop4: detected capacity change from 0 to 1024
+[  163.295410][   T85] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  163.301955][T17983] EXT4-fs: Ignoring removed nobh option
+[  163.303578][T17983] EXT4-fs: Ignoring removed bh option
+[  163.305512][   T85] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.308653][ T3019] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  163.313145][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 80, depth: 1 pblock 0
+[  163.324099][   T85] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  163.329270][   T85] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.331383][ T3019] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.332968][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 84, depth: 1 pblock 0
+[  163.340333][   T85] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  163.342957][ T3019] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:4: bad extent address lblock: 116, depth: 1 pblock 0
+[  163.344523][   T85] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.352859][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 96, depth: 1 pblock 0
+[  163.358170][   T85] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  163.367135][   T85] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.370888][ T3019] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  163.373433][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 100, depth: 1 pblock 0
+[  163.380147][ T3019] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.383746][   T85] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  163.388781][   T85] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.393835][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 112, depth: 1 pblock 0
+[  163.398277][   T85] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  163.400722][   T39] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.402299][   T85] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.407755][  T234] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.415936][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 116, depth: 1 pblock 0
+[  163.421071][   T85] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  163.422911][   T39] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.425488][   T85] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.436512][  T234] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.440082][  T234] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  163.440082][  T234] 
+[  163.444387][   T39] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  163.444387][   T39] 
+[  163.453338][T17998] loop6: detected capacity change from 0 to 1024
+[  163.456135][T17999] loop0: detected capacity change from 0 to 1024
+[  163.456277][T17998] EXT4-fs: Ignoring removed nobh option
+[  163.460314][T17999] EXT4-fs: Ignoring removed nobh option
+[  163.462786][T17999] EXT4-fs: Ignoring removed bh option
+[  163.463221][   T39] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.471327][T17998] EXT4-fs: Ignoring removed bh option
+[  163.474317][   T39] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.482351][   T38] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.486715][  T774] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.490319][   T39] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  163.490319][   T39] 
+[  163.496540][   T38] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.499727][   T38] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  163.499727][   T38] 
+[  163.503802][  T774] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.513885][  T774] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  163.513885][  T774] 
+[  163.520604][   T68] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:1: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.533417][   T68] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.539624][   T68] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  163.539624][   T68] 
+[  163.573741][   T68] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:1: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.581897][   T68] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.585966][   T68] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  163.585966][   T68] 
+[  163.594283][T18018] loop2: detected capacity change from 0 to 1024
+[  163.604414][T18018] EXT4-fs: Ignoring removed nobh option
+[  163.606083][T18018] EXT4-fs: Ignoring removed bh option
+[  163.617365][T17135] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.625169][T17135] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.630688][T17135] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  163.630688][T17135] 
+[  163.633616][T18020] loop5: detected capacity change from 0 to 1024
+[  163.650559][T18020] EXT4-fs: Ignoring removed nobh option
+[  163.659017][T18032] loop3: detected capacity change from 0 to 1024
+[  163.662097][T18032] EXT4-fs: Ignoring removed nobh option
+[  163.663879][T18032] EXT4-fs: Ignoring removed bh option
+[  163.666305][T18023] loop1: detected capacity change from 0 to 1024
+[  163.671110][T18023] EXT4-fs: Ignoring removed nobh option
+[  163.672705][T18023] EXT4-fs: Ignoring removed bh option
+[  163.680490][T18031] loop4: detected capacity change from 0 to 1024
+[  163.683559][T18031] EXT4-fs: Ignoring removed nobh option
+[  163.685186][T18031] EXT4-fs: Ignoring removed bh option
+[  163.707169][T18020] EXT4-fs: Ignoring removed bh option
+[  163.723586][T18045] loop6: detected capacity change from 0 to 1024
+[  163.731217][T18037] loop7: detected capacity change from 0 to 1024
+[  163.731593][T18045] EXT4-fs: Ignoring removed nobh option
+[  163.734200][T18037] EXT4-fs: Ignoring removed nobh option
+[  163.734947][T18045] EXT4-fs: Ignoring removed bh option
+[  163.740264][T18037] EXT4-fs: Ignoring removed bh option
+[  163.742586][T17135] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.752757][T17135] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.759135][T17135] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  163.759135][T17135] 
+[  163.780998][  T774] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.800527][  T774] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.801045][ T3019] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:4: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.813851][  T774] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  163.813851][  T774] 
+[  163.833928][ T3019] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.835308][T18052] loop0: detected capacity change from 0 to 1024
+[  163.839989][  T234] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.849071][   T88] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.851189][T17135] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 65, depth: 1 pblock 0
+[  163.853313][   T88] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.856545][ T3019] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  163.856545][ T3019] 
+[  163.859154][  T234] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.861183][  T774] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.863442][  T234] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  163.863442][  T234] 
+[  163.868436][T18052] EXT4-fs: Ignoring removed nobh option
+[  163.869587][   T88] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  163.869587][   T88] 
+[  163.890525][T17135] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 65: len 3: ext4_ext_map_blocks returned -117
+[  163.894228][T17135] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.896946][  T774] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.900914][  T774] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  163.900914][  T774] 
+[  163.930462][T18067] loop4: detected capacity change from 0 to 1024
+[  163.933520][T18067] EXT4-fs: Ignoring removed nobh option
+[  163.935222][T18067] EXT4-fs: Ignoring removed bh option
+[  163.937311][T18052] EXT4-fs: Ignoring removed bh option
+[  163.940609][T17135] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 68, depth: 1 pblock 0
+[  163.953764][T17135] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  163.967001][  T774] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  163.978649][T17135] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  163.987544][T18081] loop5: detected capacity change from 0 to 1024
+[  163.990595][T18081] EXT4-fs: Ignoring removed nobh option
+[  163.992178][T18081] EXT4-fs: Ignoring removed bh option
+[  163.995397][T18086] loop3: detected capacity change from 0 to 1024
+[  163.998190][  T774] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  163.998471][T18086] EXT4-fs: Ignoring removed nobh option
+[  164.000804][T18088] loop2: detected capacity change from 0 to 1024
+[  164.001373][  T774] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  164.001373][  T774] 
+[  164.001842][T18088] EXT4-fs: Ignoring removed nobh option
+[  164.003399][T17135] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 80, depth: 1 pblock 0
+[  164.005045][T18088] EXT4-fs: Ignoring removed bh option
+[  164.009513][T18080] loop1: detected capacity change from 0 to 1024
+[  164.014904][T18086] EXT4-fs: Ignoring removed bh option
+[  164.022081][T17135] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  164.025783][T17135] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.039850][T17135] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 84, depth: 1 pblock 0
+[  164.045130][T17135] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  164.046893][T18080] EXT4-fs: Ignoring removed nobh option
+[  164.050922][T17135] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.054803][T17135] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 96, depth: 1 pblock 0
+[  164.055324][T18094] loop7: detected capacity change from 0 to 1024
+[  164.061209][T17135] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  164.065547][T17135] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.074639][T17135] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 100, depth: 1 pblock 0
+[  164.076129][T18080] EXT4-fs: Ignoring removed bh option
+[  164.086362][T17135] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  164.093366][T17135] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.099472][T18094] EXT4-fs: Ignoring removed nobh option
+[  164.104944][T17135] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 112, depth: 1 pblock 0
+[  164.105242][T18094] EXT4-fs: Ignoring removed bh option
+[  164.109820][T17135] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  164.117229][T17135] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.117689][   T85] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.122209][   T37] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.122309][T17135] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 116, depth: 1 pblock 0
+[  164.122708][T17135] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  164.122792][T17135] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.156898][   T85] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.160637][ T2187] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.167927][T17194] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 63, depth: 1 pblock 0
+[  164.172572][ T2187] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.176631][   T85] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  164.176631][   T85] 
+[  164.177580][ T2187] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  164.177580][ T2187] 
+[  164.184430][   T37] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.190192][  T234] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.190264][T17194] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 63: len 2: ext4_ext_map_blocks returned -117
+[  164.201573][  T234] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.202235][   T37] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  164.202235][   T37] 
+[  164.204946][  T234] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  164.204946][  T234] 
+[  164.240116][T17194] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.264433][T18123] loop2: detected capacity change from 0 to 1024
+[  164.268251][T18123] EXT4-fs: Ignoring removed nobh option
+[  164.269709][T17194] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 68, depth: 1 pblock 0
+[  164.269845][T18123] EXT4-fs: Ignoring removed bh option
+[  164.294321][T17194] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  164.297990][   T85] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.302505][T18125] loop0: detected capacity change from 0 to 1024
+[  164.303035][   T88] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.305358][T18125] EXT4-fs: Ignoring removed nobh option
+[  164.311277][T18125] EXT4-fs: Ignoring removed bh option
+[  164.315213][T17194] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.321312][   T85] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.325224][   T88] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.335968][   T85] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  164.335968][   T85] 
+[  164.337069][T17194] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 80, depth: 1 pblock 0
+[  164.340406][   T88] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  164.340406][   T88] 
+[  164.354140][T17194] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  164.358538][T17194] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.362989][T17194] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 84, depth: 1 pblock 0
+[  164.369745][T17194] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  164.373618][T17194] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.377880][T17194] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 96, depth: 1 pblock 0
+[  164.382358][T17194] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  164.389649][T17194] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.394367][T17194] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 100, depth: 1 pblock 0
+[  164.403451][T17194] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  164.410510][T18135] loop6: detected capacity change from 0 to 1024
+[  164.413383][T18135] EXT4-fs: Ignoring removed nobh option
+[  164.413583][T17194] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.421010][T18135] EXT4-fs: Ignoring removed bh option
+[  164.423250][T17194] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 112, depth: 1 pblock 0
+[  164.427899][ T1945] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.432756][ T1945] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.433090][T17194] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  164.433965][   T88] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.434433][   T88] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.434494][   T88] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  164.434494][   T88] 
+[  164.436063][ T1945] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  164.436063][ T1945] 
+[  164.440056][T18138] loop4: detected capacity change from 0 to 1024
+[  164.459842][T18142] loop5: detected capacity change from 0 to 1024
+[  164.469094][T18142] EXT4-fs: Ignoring removed nobh option
+[  164.471521][T17194] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.476058][T18142] EXT4-fs: Ignoring removed bh option
+[  164.486044][T17194] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 116, depth: 1 pblock 0
+[  164.494803][T18138] EXT4-fs: Ignoring removed nobh option
+[  164.500638][T18138] EXT4-fs: Ignoring removed bh option
+[  164.502896][T17194] EXT4-fs warning (device loop3): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  164.510207][T18152] loop1: detected capacity change from 0 to 1024
+[  164.513037][T18152] EXT4-fs: Ignoring removed nobh option
+[  164.515391][T18152] EXT4-fs: Ignoring removed bh option
+[  164.517484][T17194] EXT4-fs (loop3): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.539581][  T234] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 97, depth: 1 pblock 0
+[  164.550632][T18150] loop7: detected capacity change from 0 to 1024
+[  164.554141][T18150] EXT4-fs: Ignoring removed nobh option
+[  164.555673][T18150] EXT4-fs: Ignoring removed bh option
+[  164.574597][  T234] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 97: len 3: ext4_ext_map_blocks returned -117
+[  164.583368][  T234] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.596147][T18166] loop2: detected capacity change from 0 to 1024
+[  164.600102][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.600931][  T234] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 100, depth: 1 pblock 0
+[  164.602867][T18166] EXT4-fs: Ignoring removed nobh option
+[  164.602914][T18166] EXT4-fs: Ignoring removed bh option
+[  164.606191][   T85] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.616055][   T85] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  164.616055][   T85] 
+[  164.621487][   T88] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.625239][  T234] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  164.627712][T18167] loop0: detected capacity change from 0 to 1024
+[  164.627960][   T88] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.628020][   T88] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  164.628020][   T88] 
+[  164.638183][   T88] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.641999][  T234] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.642234][  T234] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 112, depth: 1 pblock 0
+[  164.645689][   T88] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.657128][T18167] EXT4-fs: Ignoring removed nobh option
+[  164.658734][T18167] EXT4-fs: Ignoring removed bh option
+[  164.661953][   T88] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  164.661953][   T88] 
+[  164.663163][  T234] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  164.695263][  T234] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.699901][T17194] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.713059][T17194] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.716318][  T234] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 116, depth: 1 pblock 0
+[  164.723465][  T234] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  164.739457][  T234] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  164.740784][   T88] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.748823][  T234] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.753755][  T234] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.756472][T17194] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  164.756472][T17194] 
+[  164.762079][   T88] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.763686][  T234] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  164.763686][  T234] 
+[  164.771038][   T37] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.773231][   T88] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  164.773231][   T88] 
+[  164.801745][   T37] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.802224][T18191] loop1: detected capacity change from 0 to 1024
+[  164.808543][  T209] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.810516][T18191] EXT4-fs: Ignoring removed nobh option
+[  164.813517][  T209] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.817045][   T37] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  164.817045][   T37] 
+[  164.819732][T18191] EXT4-fs: Ignoring removed bh option
+[  164.834126][T18194] loop5: detected capacity change from 0 to 1024
+[  164.838368][  T209] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  164.838368][  T209] 
+[  164.838579][T18194] EXT4-fs: Ignoring removed nobh option
+[  164.843155][T18194] EXT4-fs: Ignoring removed bh option
+[  164.875628][T18206] loop2: detected capacity change from 0 to 1024
+[  164.888373][T18206] EXT4-fs: Ignoring removed nobh option
+[  164.894099][T18206] EXT4-fs: Ignoring removed bh option
+[  164.894284][T18189] loop3: detected capacity change from 0 to 1024
+[  164.906702][T18189] EXT4-fs: Ignoring removed nobh option
+[  164.908384][T18189] EXT4-fs: Ignoring removed bh option
+[  164.911987][T18212] loop7: detected capacity change from 0 to 1024
+[  164.914781][T18212] EXT4-fs: Ignoring removed nobh option
+[  164.923781][T18212] EXT4-fs: Ignoring removed bh option
+[  164.942139][   T88] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.951015][ T3713] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  164.958328][ T3713] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.958390][T18222] loop4: detected capacity change from 0 to 1024
+[  164.959058][   T88] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  164.959118][   T88] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  164.959118][   T88] 
+[  164.971491][T18222] EXT4-fs: Ignoring removed nobh option
+[  164.973139][T18222] EXT4-fs: Ignoring removed bh option
+[  164.977004][ T3713] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  164.977004][ T3713] 
+[  165.023367][T18230] loop6: detected capacity change from 0 to 1024
+[  165.026249][T18230] EXT4-fs: Ignoring removed nobh option
+[  165.029350][T18230] EXT4-fs: Ignoring removed bh option
+[  165.034021][  T179] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:4: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.041216][   T88] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.050560][T18233] loop0: detected capacity change from 0 to 1024
+[  165.053824][  T179] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.061311][   T88] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.063942][  T179] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  165.063942][  T179] 
+[  165.064985][   T88] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  165.064985][   T88] 
+[  165.083767][  T234] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.083804][T18233] EXT4-fs: Ignoring removed nobh option
+[  165.084312][  T234] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.110730][  T234] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  165.110730][  T234] 
+[  165.116762][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  165.130515][T18233] EXT4-fs: Ignoring removed bh option
+[  165.143453][T18243] loop5: detected capacity change from 0 to 1024
+[  165.146293][T18243] EXT4-fs: Ignoring removed nobh option
+[  165.148612][T18243] EXT4-fs: Ignoring removed bh option
+[  165.148881][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  165.174762][T17194] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.182205][T17194] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.190645][T17194] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  165.190645][T17194] 
+[  165.200475][T18253] loop2: detected capacity change from 0 to 1024
+[  165.218434][T18253] EXT4-fs: Ignoring removed nobh option
+[  165.219300][T18248] loop1: detected capacity change from 0 to 1024
+[  165.220053][T18253] EXT4-fs: Ignoring removed bh option
+[  165.222792][T18248] EXT4-fs: Ignoring removed nobh option
+[  165.227760][T18264] loop3: detected capacity change from 0 to 1024
+[  165.229519][T18248] EXT4-fs: Ignoring removed bh option
+[  165.232802][T18264] EXT4-fs: Ignoring removed nobh option
+[  165.234417][T18264] EXT4-fs: Ignoring removed bh option
+[  165.274043][   T39] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 63, depth: 1 pblock 0
+[  165.292025][T18272] loop4: detected capacity change from 0 to 1024
+[  165.296733][T18270] loop7: detected capacity change from 0 to 1024
+[  165.299587][T18270] EXT4-fs: Ignoring removed nobh option
+[  165.301167][T18270] EXT4-fs: Ignoring removed bh option
+[  165.303468][  T209] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.304957][T18272] EXT4-fs: Ignoring removed nobh option
+[  165.305649][   T39] EXT4-fs warning (device loop0): ext4_convert_unwritten_extents:4879: inode #15: block 63: len 2: ext4_ext_map_blocks returned -117
+[  165.305780][   T39] EXT4-fs (loop0): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  165.306938][   T39] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 68, depth: 1 pblock 0
+[  165.308661][   T39] EXT4-fs warning (device loop0): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  165.311407][  T209] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.314199][T18272] EXT4-fs: Ignoring removed bh option
+[  165.316688][  T209] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  165.316688][  T209] 
+[  165.320866][   T39] EXT4-fs (loop0): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  165.355287][   T39] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 80, depth: 1 pblock 0
+[  165.355899][   T85] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.365680][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  165.368898][   T68] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:1: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.369566][   T39] EXT4-fs warning (device loop0): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  165.382348][   T39] EXT4-fs (loop0): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  165.383724][   T68] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.388741][   T39] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 84, depth: 1 pblock 0
+[  165.395624][   T85] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.398259][   T39] EXT4-fs warning (device loop0): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  165.399385][T18287] loop6: detected capacity change from 0 to 1024
+[  165.399486][   T68] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  165.399486][   T68] 
+[  165.402329][   T39] EXT4-fs (loop0): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  165.403636][   T85] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  165.403636][   T85] 
+[  165.405298][T18287] EXT4-fs: Ignoring removed nobh option
+[  165.408080][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.412083][T18287] EXT4-fs: Ignoring removed bh option
+[  165.419203][   T39] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 96, depth: 1 pblock 0
+[  165.431810][   T39] EXT4-fs warning (device loop0): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  165.435230][   T85] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.435248][   T38] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.440238][   T38] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.446935][   T39] EXT4-fs (loop0): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  165.449172][   T38] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  165.449172][   T38] 
+[  165.450917][   T39] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 100, depth: 1 pblock 0
+[  165.455024][   T85] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  165.455024][   T85] 
+[  165.466807][   T39] EXT4-fs warning (device loop0): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  165.470640][   T39] EXT4-fs (loop0): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  165.480048][   T39] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 112, depth: 1 pblock 0
+[  165.480419][   T85] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.494529][   T39] EXT4-fs warning (device loop0): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  165.498598][   T85] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.503066][   T39] EXT4-fs (loop0): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  165.506692][   T85] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  165.506692][   T85] 
+[  165.511675][ T3713] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.519959][   T39] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 116, depth: 1 pblock 0
+[  165.528566][   T39] EXT4-fs warning (device loop0): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  165.529665][ T3713] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.535409][ T3713] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  165.535409][ T3713] 
+[  165.536547][   T39] EXT4-fs (loop0): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  165.549784][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+2025/02/26 02:04:19 executed programs: 426
+[  165.607343][T18306] loop2: detected capacity change from 0 to 1024
+[  165.607365][  T209] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.610065][T18306] EXT4-fs: Ignoring removed nobh option
+[  165.614375][T18306] EXT4-fs: Ignoring removed bh option
+[  165.625281][T18314] loop7: detected capacity change from 0 to 1024
+[  165.625762][T18309] loop3: detected capacity change from 0 to 1024
+[  165.626539][  T209] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.626602][  T209] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  165.626602][  T209] 
+[  165.628486][T18315] loop4: detected capacity change from 0 to 1024
+[  165.630403][T18316] loop5: detected capacity change from 0 to 1024
+[  165.633320][T18309] EXT4-fs: Ignoring removed nobh option
+[  165.634364][T18315] EXT4-fs: Ignoring removed nobh option
+[  165.634411][T18315] EXT4-fs: Ignoring removed bh option
+[  165.637435][T18314] EXT4-fs: Ignoring removed nobh option
+[  165.639893][T18304] loop1: detected capacity change from 0 to 1024
+[  165.641512][T18314] EXT4-fs: Ignoring removed bh option
+[  165.643127][   T37] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.645238][T18309] EXT4-fs: Ignoring removed bh option
+[  165.648060][T18304] EXT4-fs: Ignoring removed nobh option
+[  165.648107][T18304] EXT4-fs: Ignoring removed bh option
+[  165.650215][T18316] EXT4-fs: Ignoring removed nobh option
+[  165.656294][   T37] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.662833][   T37] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  165.662833][   T37] 
+[  165.679820][   T38] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.684482][   T38] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.685613][T18316] EXT4-fs: Ignoring removed bh option
+[  165.689513][   T38] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  165.689513][   T38] 
+[  165.734538][ T3713] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:5: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.745041][ T3713] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.750754][ T3713] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  165.750754][ T3713] 
+[  165.778477][T18334] loop6: detected capacity change from 0 to 1024
+[  165.781304][T18334] EXT4-fs: Ignoring removed nobh option
+[  165.782948][T18334] EXT4-fs: Ignoring removed bh option
+[  165.807598][T17194] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.813109][   T38] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.814600][T17194] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.822941][   T85] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.827918][   T38] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.830219][T17194] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  165.830219][T17194] 
+[  165.831257][   T38] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  165.831257][   T38] 
+[  165.834783][T18343] loop0: detected capacity change from 0 to 1024
+[  165.845196][   T85] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.859243][   T85] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  165.859243][   T85] 
+[  165.861510][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  165.865135][   T39] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.879085][T18343] EXT4-fs: Ignoring removed nobh option
+[  165.881826][   T39] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.886029][   T39] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  165.886029][   T39] 
+[  165.890684][T18343] EXT4-fs: Ignoring removed bh option
+[  165.900740][T18352] loop2: detected capacity change from 0 to 1024
+[  165.914194][T18348] loop4: detected capacity change from 0 to 1024
+[  165.917733][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  165.934690][T18348] EXT4-fs: Ignoring removed nobh option
+[  165.939977][T18352] EXT4-fs: Ignoring removed nobh option
+[  165.947212][   T37] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 63, depth: 1 pblock 0
+[  165.950294][T18352] EXT4-fs: Ignoring removed bh option
+[  165.956057][T18348] EXT4-fs: Ignoring removed bh option
+[  165.971009][  T234] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  165.976269][T18364] loop7: detected capacity change from 0 to 1024
+[  165.980220][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  165.980853][   T37] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 63: len 2: ext4_ext_map_blocks returned -117
+[  165.984949][  T234] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  165.986231][T18364] EXT4-fs: Ignoring removed nobh option
+[  165.986278][T18364] EXT4-fs: Ignoring removed bh option
+[  165.987565][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  165.990281][  T234] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  165.990281][  T234] 
+[  166.003446][   T37] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.011073][T18371] loop1: detected capacity change from 0 to 1024
+[  166.013954][   T37] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 68, depth: 1 pblock 0
+[  166.017499][T18371] EXT4-fs: Ignoring removed nobh option
+[  166.021654][   T37] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  166.022796][T18371] EXT4-fs: Ignoring removed bh option
+[  166.038929][   T37] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.043219][T18384] loop3: detected capacity change from 0 to 1024
+[  166.046704][   T37] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 80, depth: 1 pblock 0
+[  166.055216][   T37] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  166.060852][   T37] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.064828][   T37] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 84, depth: 1 pblock 0
+[  166.065065][T18384] EXT4-fs: Ignoring removed nobh option
+[  166.068945][   T37] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  166.073942][   T37] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.074263][T18385] loop5: detected capacity change from 0 to 1024
+[  166.077326][T18384] EXT4-fs: Ignoring removed bh option
+[  166.077924][   T37] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 96, depth: 1 pblock 0
+[  166.082297][T18385] EXT4-fs: Ignoring removed nobh option
+[  166.084962][T17194] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.086275][T18385] EXT4-fs: Ignoring removed bh option
+[  166.091527][T17194] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.095373][T17194] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  166.095373][T17194] 
+[  166.098580][   T37] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  166.102419][   T37] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.110424][   T37] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 100, depth: 1 pblock 0
+[  166.110742][  T234] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.114712][   T37] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  166.120938][ T1140] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:6: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.125258][   T37] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.129066][  T234] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.133727][   T37] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 112, depth: 1 pblock 0
+[  166.136199][T18396] loop0: detected capacity change from 0 to 1024
+[  166.141521][T18396] EXT4-fs: Ignoring removed nobh option
+[  166.143048][T18396] EXT4-fs: Ignoring removed bh option
+[  166.144061][  T209] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.147120][ T1140] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.149488][   T37] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  166.152274][ T1140] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  166.152274][ T1140] 
+[  166.155812][  T209] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.156713][  T234] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  166.156713][  T234] 
+[  166.165884][  T209] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  166.165884][  T209] 
+[  166.169151][   T37] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.187830][   T37] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:0: bad extent address lblock: 116, depth: 1 pblock 0
+[  166.205906][   T37] EXT4-fs warning (device loop6): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  166.207211][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  166.212864][ T1140] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:6: bad extent address lblock: 81, depth: 1 pblock 0
+[  166.222446][   T37] EXT4-fs (loop6): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.223772][  T234] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:2: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.247445][ T1140] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 81: len 3: ext4_ext_map_blocks returned -117
+[  166.251738][ T1140] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.256336][   T39] EXT4-fs error (device loop3): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:0: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.263257][ T1140] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:6: bad extent address lblock: 84, depth: 1 pblock 0
+[  166.271778][T17135] EXT4-fs error (device loop6): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.275505][ T1140] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 84: len 12: ext4_ext_map_blocks returned -117
+[  166.279978][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  166.280669][ T1140] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.285982][  T234] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.296184][T18417] loop1: detected capacity change from 0 to 1024
+[  166.298011][T17135] EXT4-fs (loop6): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.298076][T17135] EXT4-fs (loop6): This should not happen!! Data will be lost
+[  166.298076][T17135] 
+[  166.299570][   T39] EXT4-fs (loop3): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.301916][ T1140] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:6: bad extent address lblock: 96, depth: 1 pblock 0
+[  166.312217][   T39] EXT4-fs (loop3): This should not happen!! Data will be lost
+[  166.312217][   T39] 
+[  166.313963][ T1140] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 96: len 1: ext4_ext_map_blocks returned -117
+[  166.320197][  T234] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  166.320197][  T234] 
+[  166.320354][ T1140] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.323085][T18419] loop2: detected capacity change from 0 to 1024
+[  166.325783][T18419] EXT4-fs: Ignoring removed nobh option
+[  166.328353][T18417] EXT4-fs: Ignoring removed nobh option
+[  166.329185][T18419] EXT4-fs: Ignoring removed bh option
+[  166.333240][T18417] EXT4-fs: Ignoring removed bh option
+[  166.337254][ T1140] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:6: bad extent address lblock: 100, depth: 1 pblock 0
+[  166.343220][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  166.343725][ T1140] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 100: len 12: ext4_ext_map_blocks returned -117
+[  166.350579][ T1140] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.357885][ T1140] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:6: bad extent address lblock: 112, depth: 1 pblock 0
+[  166.366555][ T1140] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 112: len 1: ext4_ext_map_blocks returned -117
+[  166.371105][ T1140] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.371582][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  166.374772][ T1140] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:6: bad extent address lblock: 116, depth: 1 pblock 0
+[  166.381563][ T1140] EXT4-fs warning (device loop5): ext4_convert_unwritten_extents:4879: inode #15: block 116: len 12: ext4_ext_map_blocks returned -117
+[  166.385297][ T1140] EXT4-fs (loop5): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.406865][T18421] loop4: detected capacity change from 0 to 1024
+[  166.413127][T18421] EXT4-fs: Ignoring removed nobh option
+[  166.414914][T18421] EXT4-fs: Ignoring removed bh option
+[  166.430304][T18428] loop7: detected capacity change from 0 to 1024
+[  166.437608][T18428] EXT4-fs: Ignoring removed nobh option
+[  166.439212][T18428] EXT4-fs: Ignoring removed bh option
+[  166.446888][  T179] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u18:4: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.452664][  T179] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.456180][  T179] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  166.456180][  T179] 
+[  166.475225][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  166.484039][   T88] EXT4-fs error (device loop5): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.493973][ T3019] EXT4-fs error (device loop2): ext4_ext_map_blocks:4219: inode #15: comm kworker/u19:4: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.502628][   T88] EXT4-fs (loop5): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.505996][   T88] EXT4-fs (loop5): This should not happen!! Data will be lost
+[  166.505996][   T88] 
+[  166.506051][ T3019] EXT4-fs (loop2): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.532225][ T3019] EXT4-fs (loop2): This should not happen!! Data will be lost
+[  166.532225][ T3019] 
+[  166.562430][T18448] loop0: detected capacity change from 0 to 1024
+[  166.566766][T18446] loop1: detected capacity change from 0 to 1024
+[  166.569602][T18446] EXT4-fs: Ignoring removed nobh option
+[  166.571180][T18446] EXT4-fs: Ignoring removed bh option
+[  166.573081][T18449] loop3: detected capacity change from 0 to 1024
+[  166.573821][T18448] EXT4-fs: Ignoring removed nobh option
+[  166.577677][T18448] EXT4-fs: Ignoring removed bh option
+[  166.589614][T18428] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm syz.7.439: bad extent address lblock: 81, depth: 1 pblock 0
+[  166.590636][T18449] EXT4-fs: Ignoring removed nobh option
+[  166.591398][   T88] EXT4-fs error (device loop4): ext4_ext_map_blocks:4219: inode #15: comm kworker/u20:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.591846][   T88] EXT4-fs (loop4): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.591906][   T88] EXT4-fs (loop4): This should not happen!! Data will be lost
+[  166.591906][   T88] 
+[  166.598358][T18428] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 81 with max blocks 3 with error 117
+[  166.599097][T17194] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 63, depth: 1 pblock 0
+[  166.601946][T18428] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  166.601946][T18428] 
+[  166.606007][T17194] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 63: len 2: ext4_ext_map_blocks returned -117
+[  166.620433][T18428] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm syz.7.439: bad extent address lblock: 80, depth: 1 pblock 0
+[  166.631910][T18428] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm syz.7.439: bad extent address lblock: 80, depth: 1 pblock 0
+[  166.636020][T18428] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 80: len 1: ext4_ext_map_blocks returned -117
+[  166.636486][T18449] EXT4-fs: Ignoring removed bh option
+[  166.637249][T17194] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.641506][T17194] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 68, depth: 1 pblock 0
+[  166.641916][T17194] EXT4-fs warning (device loop7): ext4_convert_unwritten_extents:4879: inode #15: block 68: len 12: ext4_ext_map_blocks returned -117
+[  166.648731][ T5246] systemd-journald[5246]: /dev/kmsg buffer overrun, some messages lost.
+[  166.649994][T17194] EXT4-fs (loop7): failed to convert unwritten extents to written extents -- potential data loss!  (inode 15, error -117)
+[  166.693992][T17194] EXT4-fs error (device loop7): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.703534][T18450] loop6: detected capacity change from 0 to 1024
+[  166.706544][T17194] EXT4-fs (loop7): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.709863][T17194] EXT4-fs (loop7): This should not happen!! Data will be lost
+[  166.709863][T17194] 
+[  166.712512][T18450] EXT4-fs: Ignoring removed nobh option
+[  166.724073][T18450] EXT4-fs: Ignoring removed bh option
+[  166.731707][T18459] loop5: detected capacity change from 0 to 1024
+[  166.734506][T18459] EXT4-fs: Ignoring removed nobh option
+[  166.746791][T18459] EXT4-fs: Ignoring removed bh option
+[  166.780884][T17194] EXT4-fs error (device loop0): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:7: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.787040][T17194] EXT4-fs (loop0): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.813081][T17194] EXT4-fs (loop0): This should not happen!! Data will be lost
+[  166.813081][T17194] 
+[  166.821146][  T209] EXT4-fs error (device loop1): ext4_ext_map_blocks:4219: inode #15: comm kworker/u17:3: bad extent address lblock: 0, depth: 1 pblock 0
+[  166.822445][ T1140] ==================================================================
+[  166.826651][ T1140] BUG: KASAN: use-after-free in ext4_ext_try_to_merge_right+0x27e/0x400
+[  166.826651][ T1140] Read of size 786372 at addr ffff888068af543c by task kworker/u18:6/1140
+[  166.831174][T18476] loop4: detected capacity change from 0 to 1024
+[  166.826651][ T1140] 
+[  166.826651][ T1140] CPU: 1 UID: 0 PID: 1140 Comm: kworker/u18:6 Not tainted 6.14.0-rc4 #1
+[  166.826651][ T1140] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  166.826651][ T1140] Workqueue: ext4-rsv-conversion ext4_end_io_rsv_work
+[  166.826651][ T1140] Call Trace:
+[  166.826651][ T1140]  <TASK>
+[  166.826651][ T1140]  dump_stack_lvl+0x116/0x1b0
+[  166.826651][ T1140]  print_report+0xc1/0x630
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? __phys_addr+0xc8/0x150
+[  166.826651][ T1140]  ? ext4_ext_try_to_merge_right+0x27e/0x400
+[  166.826651][ T1140]  kasan_report+0x93/0xc0
+[  166.826651][ T1140]  ? ext4_ext_try_to_merge_right+0x27e/0x400
+[  166.826651][ T1140]  kasan_check_range+0xed/0x1a0
+[  166.826651][ T1140]  __asan_memmove+0x24/0x60
+[  166.826651][ T1140]  ext4_ext_try_to_merge_right+0x27e/0x400
+[  166.826651][ T1140]  ext4_ext_try_to_merge+0x5d0/0x740
+[  166.826651][ T1140]  ? write_comp_data+0x29/0x80
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ext4_ext_map_blocks+0x22fb/0x3ea0
+[  166.826651][ T1140]  ? __pfx_ext4_ext_map_blocks+0x10/0x10
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? down_write+0x14e/0x200
+[  166.826651][ T1140]  ? __pfx_down_write+0x10/0x10
+[  166.826651][ T1140]  ext4_map_blocks+0x3ee/0x1400
+[  166.826651][ T1140]  ? __pfx_ext4_map_blocks+0x10/0x10
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? write_comp_data+0x29/0x80
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? write_comp_data+0x29/0x80
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? __ext4_journal_start_sb+0x203/0x6c0
+[  166.826651][ T1140]  ? ext4_convert_unwritten_extents+0x1df/0x5d0
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ext4_convert_unwritten_extents+0x219/0x5d0
+[  166.826651][ T1140]  ? __pfx_ext4_convert_unwritten_extents+0x10/0x10
+[  166.826651][ T1140]  ? kasan_quarantine_put+0x135/0x1e0
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? lockdep_hardirqs_on+0x7c/0x110
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ext4_convert_unwritten_io_end_vec+0x126/0x270
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ext4_end_io_rsv_work+0x2e0/0x6d0
+[  166.826651][ T1140]  ? __pfx_lock_release+0x10/0x10
+[  166.826651][ T1140]  ? __pfx_ext4_end_io_rsv_work+0x10/0x10
+[  166.826651][ T1140]  ? write_comp_data+0x29/0x80
+[  166.826651][ T1140]  ? _raw_spin_unlock_irq+0x23/0x50
+[  166.826651][ T1140]  ? _raw_spin_unlock_irq+0x23/0x50
+[  166.826651][ T1140]  process_scheduled_works+0x5c0/0x1aa0
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? __pfx_process_scheduled_works+0x10/0x10
+[  166.826651][ T1140]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  166.826651][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  166.826651][ T1140]  ? assign_work+0x195/0x240
+[  166.826651][ T1140]  worker_thread+0x59f/0xcf0
+[  166.826651][ T1140]  ? __pfx_worker_thread+0x10/0x10
+[  166.826651][ T1140]  kthread+0x42a/0x880
+[  166.826651][ T1140]  ? __pfx_kthread+0x10/0x10
+[  166.826651][ T1140]  ? write_comp_data+0x29/0x80
+[  166.826651][ T1140]  ? _raw_spin_unlock_irq+0x23/0x50
+[  166.826651][ T1140]  ? _raw_spin_unlock_irq+0x23/0x50
+[  166.826651][ T1140]  ? __pfx_kthread+0x10/0x10
+[  166.826651][ T1140]  ret_from_fork+0x48/0x80
+[  166.826651][ T1140]  ? __pfx_kthread+0x10/0x10
+[  166.826651][ T1140]  ret_from_fork_asm+0x1a/0x30
+[  166.826651][ T1140]  </TASK>
+[  166.826651][ T1140] 
+[  166.839687][  T209] EXT4-fs (loop1): Delayed block allocation failed for inode 15 at logical offset 0 with max blocks 1 with error 117
+[  166.826651][ T1140] The buggy address belongs to the physical page:
+[  166.826651][ T1140] page: refcount:2 mapcount:0 mapping:ffff88801d9ac1f8 index:0x3c pfn:0x68af5
+[  166.842598][  T209] EXT4-fs (loop1): This should not happen!! Data will be lost
+[  166.842598][  T209] 
+[  166.826651][ T1140] memcg:ffff888043dda000
+[  166.826651][ T1140] aops:def_blk_aops ino:700006 dentry name(?):""
+[  166.826651][ T1140] flags: 0x4fff58000004234(referenced|dirty|lru|workingset|private|node=1|zone=1|lastcpupid=0x7ff)
+[  166.826651][ T1140] raw: 04fff58000004234 ffffea000128f248 ffff8880538ab240 ffff88801d9ac1f8
+[  166.826651][ T1140] raw: 000000000000003c ffff888059a1b488 00000002ffffffff ffff888043dda000
+[  166.826651][ T1140] page dumped because: kasan: bad access detected
+[  166.826651][ T1140] page_owner tracks the page as allocated
+[  166.826651][ T1140] page last allocated via order 0, migratetype Movable, gfp_mask 0x40c48(GFP_NOFS|__GFP_COMP|__GFP_MOVABLE), pid 18450, tgid 18445 (syz.6.444), ts 166771584028, free_ts 165699402734
+[  166.826651][ T1140]  prep_new_page+0x1b0/0x1e0
+[  166.826651][ T1140]  get_page_from_freelist+0x19a2/0x3250
+[  166.826651][ T1140]  __alloc_frozen_pages_noprof+0x324/0x6b0
+[  166.826651][ T1140]  alloc_pages_mpol+0x20a/0x550
+[  166.863190][T18476] EXT4-fs: Ignoring removed nobh option
+[  166.863236][T18476] EXT4-fs: Ignoring removed bh option
+[  166.826651][ T1140]  folio_alloc_noprof+0x22/0x2d0
+[  166.976573][ T1140]  filemap_alloc_folio_noprof+0x356/0x490
+[  166.976573][ T1140]  __filemap_get_folio+0x5e6/0xa10
+[  166.976573][ T1140]  bdev_getblk+0x1f0/0x640
+[  166.976573][ T1140]  ext4_ext_insert_extent+0x10a3/0x4250
+[  166.976573][ T1140]  ext4_ext_map_blocks+0x1a0b/0x3ea0
+[  166.976573][ T1140]  ext4_map_blocks+0x3ee/0x1400
+[  166.976573][ T1140]  _ext4_get_block+0x1ec/0x580
+[  166.976573][ T1140]  ext4_get_block_unwritten+0x29/0x110
+[  166.976573][ T1140]  ext4_block_write_begin+0x425/0x1290
+[  166.976573][ T1140]  ext4_write_begin+0x5e6/0xf80
+[  166.976573][ T1140]  ext4_da_write_begin+0x221/0x950
+[  166.976573][ T1140] page last free pid 10574 tgid 10574 stack trace:
+[  166.976573][ T1140]  free_unref_folios+0xa87/0x1730
+[  166.976573][ T1140]  folios_put_refs+0x4bd/0x760
+[  166.976573][ T1140]  shmem_undo_range+0x565/0x11b0
+[  166.976573][ T1140]  shmem_truncate_range+0x30/0xd0
+[  166.976573][ T1140]  shmem_evict_inode+0x2ec/0xa00
+[  166.976573][ T1140]  evict+0x3f2/0x860
+[  166.976573][ T1140]  iput+0x51c/0x830
+[  166.976573][ T1140]  dentry_unlink_inode+0x2cd/0x4c0
+[  166.976573][ T1140]  __dentry_kill+0x186/0x5b0
+[  166.976573][ T1140]  dput.part.0+0x49e/0x990
+[  166.976573][ T1140]  dput+0x1f/0x30
+[  166.976573][ T1140]  __fput+0x52b/0xb60
+[  166.976573][ T1140]  task_work_run+0x173/0x280
+[  166.976573][ T1140]  syscall_exit_to_user_mode+0x29e/0x2a0
+[  166.976573][ T1140]  do_syscall_64+0xdc/0x250
+[  166.976573][ T1140]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  166.976573][ T1140] 
+[  166.976573][ T1140] Memory state around the buggy address:
+[  167.026815][ T1140]  ffff888068afbf00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[  167.026815][ T1140]  ffff888068afbf80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[  167.031297][ T1140] >ffff888068afc000: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[  167.031297][ T1140]                    ^
+[  167.031297][ T1140]  ffff888068afc080: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[  167.031297][ T1140]  ffff888068afc100: ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+[  167.031297][ T1140] ==================================================================
+[  167.044485][ T1140] Kernel panic - not syncing: KASAN: panic_on_warn set ...
+[  167.046426][ T1140] CPU: 1 UID: 0 PID: 1140 Comm: kworker/u18:6 Not tainted 6.14.0-rc4 #1
+[  167.048730][ T1140] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+[  167.051230][ T1140] Workqueue: ext4-rsv-conversion ext4_end_io_rsv_work
+[  167.051230][ T1140] Call Trace:
+[  167.051230][ T1140]  <TASK>
+[  167.051230][ T1140]  dump_stack_lvl+0x3d/0x1b0
+[  167.051230][ T1140]  panic+0x70b/0x7c0
+[  167.051230][ T1140]  ? __pfx_panic+0x10/0x10
+[  167.051230][ T1140]  ? irqentry_exit+0x3b/0x90
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? preempt_schedule_thunk+0x1a/0x30
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? preempt_schedule_common+0x49/0xc0
+[  167.051230][ T1140]  ? check_panic_on_warn+0x1f/0xc0
+[  167.051230][ T1140]  ? ext4_ext_try_to_merge_right+0x27e/0x400
+[  167.051230][ T1140]  check_panic_on_warn+0xb1/0xc0
+[  167.051230][ T1140]  end_report+0x117/0x180
+[  167.051230][ T1140]  kasan_report+0xa1/0xc0
+[  167.051230][ T1140]  ? ext4_ext_try_to_merge_right+0x27e/0x400
+[  167.051230][ T1140]  kasan_check_range+0xed/0x1a0
+[  167.051230][ T1140]  __asan_memmove+0x24/0x60
+[  167.051230][ T1140]  ext4_ext_try_to_merge_right+0x27e/0x400
+[  167.051230][ T1140]  ext4_ext_try_to_merge+0x5d0/0x740
+[  167.051230][ T1140]  ? write_comp_data+0x29/0x80
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ext4_ext_map_blocks+0x22fb/0x3ea0
+[  167.051230][ T1140]  ? __pfx_ext4_ext_map_blocks+0x10/0x10
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? down_write+0x14e/0x200
+[  167.051230][ T1140]  ? __pfx_down_write+0x10/0x10
+[  167.051230][ T1140]  ext4_map_blocks+0x3ee/0x1400
+[  167.051230][ T1140]  ? __pfx_ext4_map_blocks+0x10/0x10
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? write_comp_data+0x29/0x80
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? write_comp_data+0x29/0x80
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? __ext4_journal_start_sb+0x203/0x6c0
+[  167.051230][ T1140]  ? ext4_convert_unwritten_extents+0x1df/0x5d0
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ext4_convert_unwritten_extents+0x219/0x5d0
+[  167.051230][ T1140]  ? __pfx_ext4_convert_unwritten_extents+0x10/0x10
+[  167.051230][ T1140]  ? kasan_quarantine_put+0x135/0x1e0
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? lockdep_hardirqs_on+0x7c/0x110
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ext4_convert_unwritten_io_end_vec+0x126/0x270
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ext4_end_io_rsv_work+0x2e0/0x6d0
+[  167.051230][ T1140]  ? __pfx_lock_release+0x10/0x10
+[  167.051230][ T1140]  ? __pfx_ext4_end_io_rsv_work+0x10/0x10
+[  167.051230][ T1140]  ? write_comp_data+0x29/0x80
+[  167.051230][ T1140]  ? _raw_spin_unlock_irq+0x23/0x50
+[  167.051230][ T1140]  ? _raw_spin_unlock_irq+0x23/0x50
+[  167.051230][ T1140]  process_scheduled_works+0x5c0/0x1aa0
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? __pfx_process_scheduled_works+0x10/0x10
+[  167.051230][ T1140]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? __sanitizer_cov_trace_pc+0x20/0x50
+[  167.051230][ T1140]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  167.051230][ T1140]  ? assign_work+0x195/0x240
+[  167.051230][ T1140]  worker_thread+0x59f/0xcf0
+[  167.051230][ T1140]  ? __pfx_worker_thread+0x10/0x10
+[  167.051230][ T1140]  kthread+0x42a/0x880
+[  167.051230][ T1140]  ? __pfx_kthread+0x10/0x10
+[  167.051230][ T1140]  ? write_comp_data+0x29/0x80
+[  167.051230][ T1140]  ? _raw_spin_unlock_irq+0x23/0x50
+[  167.051230][ T1140]  ? _raw_spin_unlock_irq+0x23/0x50
+[  167.051230][ T1140]  ? __pfx_kthread+0x10/0x10
+[  167.051230][ T1140]  ret_from_fork+0x48/0x80
+[  167.051230][ T1140]  ? __pfx_kthread+0x10/0x10
+[  167.051230][ T1140]  ret_from_fork_asm+0x1a/0x30
+[  167.051230][ T1140]  </TASK>
+[  167.051230][ T1140] Kernel Offset: disabled
+[  167.051230][ T1140] Rebooting in 86400 seconds..
+
+VM DIAGNOSIS:
+10:04:20  Registers:
+info registers vcpu 0
+RAX=0000000000000001 RBX=1ffff92002975ef2 RCX=ffffffff81962a9e RDX=0000000000000000
+RSI=0000000000000008 RDI=ffffffff96f36cd0 RBP=ffffc90014baf898 RSP=ffffc90014baf750
+R8 =0000000000000001 R9 =fffffbfff2de6d9b R10=fffffbfff2de6d9a R11=ffffffff96f36cd7
+R12=0000000000000008 R13=0000000000000100 R14=ffff88802334d440 R15=0000000000000080
+RIP=ffffffff81962aa6 RFL=00000047 [---Z-PC] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000555581ec5a00 00000000 00000000
+GS =0000 ffff88802b800000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe0000003000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000001000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=000055e02a6a91c8 CR3=000000006dee0000 CR4=00750ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000001d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=000000000000000000006c696146002f XMM01=00007fff5bbeae000000003000000028
+XMM02=ffffffffffffffffffffff0f0e0d0c0b XMM03=696e656420737365636341002f737973
+XMM04=00000000000000000000000000000000 XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=0000ff00000000000000ff0000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 1
+RAX=0000000006af6a00 RBX=0000000000000001 RCX=ffffffff81ae5281 RDX=0000000000000001
+RSI=ffff88804076a480 RDI=0000000000000003 RBP=0000000000000000 RSP=ffffc90006af69d8
+R8 =ffffc90006af6a00 R9 =ffffc90006af6b90 R10=fffffbfff3520664 R11=ffffffff9a903322
+R12=0000000000000001 R13=ffffc90006af6ba7 R14=00000000000001e9 R15=dffffc0000000000
+RIP=ffffffff81ae5283 RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ffff88807ee00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe000004a000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe0000048000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=000000002000f000 CR3=0000000000492000 CR4=00750ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000001d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00000000a60ce07b00000000cec3662e XMM01=00000000000000000d165056592644fc
+XMM02=00000000000000000000000000000000 XMM03=33706f6f6c2f6b636f6c622f6c617574
+XMM04=0000000000000000000000000000000c XMM05=00000000000000000000000000000000
+XMM06=00000000000000000000000000000000 XMM07=00000000000000000000000000000000
+XMM08=00000000000000000000000000000000 XMM09=0000ff00000000000000ff0000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 2
+RAX=0000000000065a25 RBX=0000000000000002 RCX=ffffffff8b58c5a7 RDX=0000000000000000
+RSI=0000000000000001 RDI=0000000000000000 RBP=dffffc0000000000 RSP=ffffc9000048fe00
+R8 =0000000000000001 R9 =ffffed1005726f86 R10=ffffed1005726f85 R11=ffff88802b937c2b
+R12=0000000000000002 R13=ffffffff90616610 R14=0000000000000000 R15=0000000000000000
+RIP=ffffffff8b58df5e RFL=00000202 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=1
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 0000000000000000 00000000 00000000
+GS =0000 ffff88802b900000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe0000091000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe000008f000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fb09f367a8c CR3=000000000df80000 CR4=00750ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000001d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=00007fb09ff1d9e000007fb09ff1d9e0 XMM01=00000000000000000000000000000000
+XMM02=00007fb09f32e31800007fb09f32e2f0 XMM03=00007fb09f32e32800007fb09f32e320
+XMM04=00007fb09fe9ca4000007fb09f32e2e0 XMM05=00007fb09f32e2f800007fb09f32e340
+XMM06=00007fb09f32e33800007fb09f32e330 XMM07=00007fb09f32e32800007fb09f32e320
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000
+info registers vcpu 3
+RAX=0000000000000036 RBX=0000000000000000 RCX=0000000000000000 RDX=00000000000003f8
+RSI=ffff888045cfc900 RDI=ffffffff9abf4780 RBP=ffffffff9abf4740 RSP=ffffc900032d7308
+R8 =fffff5200065ae00 R9 =ffffed10043c5047 R10=ffffed10043c5046 R11=ffff888021e28237
+R12=0000000000000000 R13=0000000000000036 R14=0000000000000000 R15=0000000000000010
+RIP=ffffffff85493eaf RFL=00000002 [-------] CPL=0 II=0 A20=1 SMM=0 HLT=0
+ES =0000 0000000000000000 00000000 00000000
+CS =0010 0000000000000000 ffffffff 00a09b00 DPL=0 CS64 [-RA]
+SS =0018 0000000000000000 ffffffff 00c09300 DPL=0 DS   [-WA]
+DS =0000 0000000000000000 00000000 00000000
+FS =0000 00007fb09ff1d700 00000000 00000000
+GS =0000 ffff88807ef00000 00000000 00000000
+LDT=0000 0000000000000000 00000000 00000000
+TR =0040 fffffe00000d8000 00004087 00008b00 DPL=0 TSS64-busy
+GDT=     fffffe00000d6000 0000007f
+IDT=     fffffe0000000000 00000fff
+CR0=80050033 CR2=00007fb095e7f000 CR3=0000000000996000 CR4=00750ef0
+DR0=0000000000000000 DR1=0000000000000000 DR2=0000000000000000 DR3=0000000000000000 
+DR6=00000000ffff0ff0 DR7=0000000000000400
+EFER=0000000000001d01
+FCW=037f FSW=0000 [ST=0] FTW=00 MXCSR=00001f80
+FPR0=0000000000000000 0000 FPR1=0000000000000000 0000
+FPR2=0000000000000000 0000 FPR3=0000000000000000 0000
+FPR4=0000000000000000 0000 FPR5=0000000000000000 0000
+FPR6=0000000000000000 0000 FPR7=0000000000000000 0000
+XMM00=000000000000000000000000000000ff XMM01=25252525252525252525252525252525
+XMM02=00007fb09f32e31800007fb09f32e2f0 XMM03=00000000000000000000000000000000
+XMM04=000000000000000000000000000000ff XMM05=00007fb09f32e2f800007fb09f32e340
+XMM06=00007fb09f32e33800007fb09f32e330 XMM07=00007fb09f32e32800007fb09f32e320
+XMM08=00000000000000000000000000000000 XMM09=00000000000000000000000000000000
+XMM10=00000000000000000000000000000000 XMM11=00000000000000000000000000000000
+XMM12=00000000000000000000000000000000 XMM13=00000000000000000000000000000000
+XMM14=00000000000000000000000000000000 XMM15=00000000000000000000000000000000

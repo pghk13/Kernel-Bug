@@ -1,0 +1,78 @@
+rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+rcu: 	2-...!: (3 ticks this GP) idle=b9a4/1/0x4000000000000000 softirq=14532/14532 fqs=0
+rcu: 	(detected by 1, t=10502 jiffies, g=10537, q=66589 ncpus=4)
+Sending NMI from CPU 1 to CPUs 2:
+NMI backtrace for cpu 2
+CPU: 2 UID: 0 PID: 13509 Comm: systemd-udevd Not tainted 6.14.0-rc4 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:write_comp_data+0x73/0x80
+Code: 00 48 8d 14 fd 28 00 00 00 48 39 d6 72 1b 48 83 c1 01 48 89 08 4c 89 6c 10 e0 4c 89 64 10 e8 48 89 6c 10 f0 48 89 5c f8 20 5b <5d> 41 5c 41 5d 41 5e e9 3c 4c 56 ff 90 90 90 90 90 90 90 90 90 90
+RSP: 0018:ffffc90000558df0 EFLAGS: 00000046
+RAX: 0000000000000000 RBX: ffff888074029340 RCX: ffffffff81a72d5f
+RDX: 18276f3588fb0001 RSI: ffff888021254900 RDI: 0000000000000003
+RBP: 18276f3588fb0001 R08: 0000000000000000 R09: fffffbfff20c2cc3
+R10: fffffbfff20c2cc2 R11: ffffffff90616617 R12: 18276f3507388340
+R13: 0000000000000006 R14: ffff888021254900 R15: ffffffff8963e7d0
+FS:  00007efe867f78c0(0000) GS:ffff88802b900000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000055b98bf0ad58 CR3: 00000000772aa000 CR4: 0000000000750ef0
+PKRU: 55555554
+Call Trace:
+ <NMI>
+ </NMI>
+ <IRQ>
+ __hrtimer_run_queues+0x3af/0xc30
+ hrtimer_interrupt+0x398/0x890
+ __sysvec_apic_timer_interrupt+0x114/0x400
+ sysvec_apic_timer_interrupt+0xa3/0xc0
+ </IRQ>
+ <TASK>
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20
+RIP: 0010:write_comp_data+0x2/0x80
+Code: 48 39 c1 76 07 48 89 02 48 89 2c c2 5b 5d e9 d0 4c 56 ff 0f 1f 44 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 41 56 <65> 4c 8b 35 e6 e4 49 7e 41 55 49 89 fd bf 03 00 00 00 41 54 49 89
+RSP: 0018:ffffc90024727ac0 EFLAGS: 00000256
+RAX: 0000000000000000 RBX: 000000000007a5e4 RCX: ffffffff82297514
+RDX: 000000000000000f RSI: 000000000007ffff RDI: 0000000000000007
+RBP: 000000000000000f R08: 0000000000000000 R09: fffffbfff2de6d99
+R10: fffffbfff2de6d98 R11: ffffffff96f36cc7 R12: 0000000000000000
+R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000
+ page_ext_get+0x84/0x320
+ __reset_page_owner+0x35/0x3f0
+ free_frozen_pages+0x7aa/0x1290
+ __put_partials+0x151/0x170
+ qlist_free_all+0x50/0x130
+ kasan_quarantine_reduce+0x168/0x1c0
+ __kasan_slab_alloc+0x67/0x90
+ __kmalloc_cache_noprof+0x161/0x4d0
+ kernfs_iop_get_link+0x6c/0x740
+ vfs_readlink+0x216/0x440
+ do_readlinkat.part.0+0x214/0x350
+ __x64_sys_readlinkat+0xbb/0x100
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7efe86ca613a
+Code: 48 8b 0d 59 0d 0e 00 f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 49 89 ca b8 0b 01 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 26 0d 0e 00 f7 d8 64 89 01 48
+RSP: 002b:00007ffcc5d9a578 EFLAGS: 00000206 ORIG_RAX: 000000000000010b
+RAX: ffffffffffffffda RBX: 0000000000001001 RCX: 00007efe86ca613a
+RDX: 000055b98bf8d450 RSI: 00007ffcc5d9a600 RDI: 00000000ffffff9c
+RBP: 000055b98bf8d450 R08: 000055b98bf8d450 R09: 00007efe86d87be0
+R10: 0000000000001000 R11: 0000000000000206 R12: 00007ffcc5d9a600
+R13: 00000000ffffff9c R14: 0000000000000001 R15: 0000000000001000
+ </TASK>
+rcu: rcu_preempt kthread timer wakeup didn't happen for 10501 jiffies! g10537 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402
+rcu: 	Possible timer handling issue on cpu=2 timer-softirq=2256
+rcu: rcu_preempt kthread starved for 10518 jiffies! g10537 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x402 ->cpu=2
+rcu: 	Unless rcu_preempt kthread gets sufficient CPU time, OOM is now expected behavior.
+rcu: RCU grace-period kthread stack dump:
+task:rcu_preempt     state:I stack:27176 pid:17    tgid:17    ppid:2      task_flags:0x208040 flags:0x00004000
+Call Trace:
+ <TASK>
+ __schedule+0x1074/0x4d30
+ schedule+0xd4/0x210
+ schedule_timeout+0x11b/0x280
+ rcu_gp_fqs_loop+0x624/0xa30
+ rcu_gp_kthread+0x258/0x360
+ kthread+0x42a/0x880
+ ret_from_fork+0x48/0x80
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>

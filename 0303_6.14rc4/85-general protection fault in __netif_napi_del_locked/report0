@@ -1,0 +1,65 @@
+Oops: general protection fault, probably for non-canonical address 0xf31ffbfd1ffff955: 0000 [#1] PREEMPT SMP KASAN NOPTI
+KASAN: maybe wild-memory-access in range [0x98ffffe8ffffcaa8-0x98ffffe8ffffcaaf]
+CPU: 2 UID: 0 PID: 9328 Comm: kworker/u16:2 Not tainted 6.14.0-rc4 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: netns cleanup_net
+RIP: 0010:__netif_napi_del_locked+0x2de/0x5a0
+Code: 75 05 eb 46 48 89 d0 48 89 04 24 e8 7c c0 8e f8 ba 02 00 00 00 31 ff 4c 89 e6 e8 0d 2c fa ff 48 8b 04 24 48 89 c2 48 c1 ea 03 <42> 80 3c 3a 00 0f 85 97 01 00 00 49 83 fe 07 48 8b 10 0f 87 64 01
+RSP: 0018:ffffc900142979b0 EFLAGS: 00010216
+RAX: 98ffffe8ffffcaa8 RBX: ffffe8ffffcaa858 RCX: ffffffff89255ff9
+RDX: 131ffffd1ffff955 RSI: ffff888043fb0000 RDI: 0000000000000002
+RBP: ffffe8ffffcaa898 R08: 0000000000000000 R09: fffff91ffff95531
+R10: fffff91ffff95530 R11: ffffe8ffffcaa980 R12: ffffe8ffffcaa899
+R13: 0000000000000000 R14: 0000000000000000 R15: dffffc0000000000
+FS:  0000000000000000(0000) GS:ffff88802b900000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff4330956c0 CR3: 00000000757fa000 CR4: 0000000000750ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ gro_cells_destroy+0x12d/0x510
+ ip_tunnel_dev_free+0x19/0x30
+ netdev_run_todo+0x6e0/0x1170
+ cleanup_net+0x5ac/0xb80
+ process_scheduled_works+0x5c0/0x1aa0
+ worker_thread+0x59f/0xcf0
+ kthread+0x42a/0x880
+ ret_from_fork+0x48/0x80
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:__netif_napi_del_locked+0x2de/0x5a0
+Code: 75 05 eb 46 48 89 d0 48 89 04 24 e8 7c c0 8e f8 ba 02 00 00 00 31 ff 4c 89 e6 e8 0d 2c fa ff 48 8b 04 24 48 89 c2 48 c1 ea 03 <42> 80 3c 3a 00 0f 85 97 01 00 00 49 83 fe 07 48 8b 10 0f 87 64 01
+RSP: 0018:ffffc900142979b0 EFLAGS: 00010216
+RAX: 98ffffe8ffffcaa8 RBX: ffffe8ffffcaa858 RCX: ffffffff89255ff9
+RDX: 131ffffd1ffff955 RSI: ffff888043fb0000 RDI: 0000000000000002
+RBP: ffffe8ffffcaa898 R08: 0000000000000000 R09: fffff91ffff95531
+R10: fffff91ffff95530 R11: ffffe8ffffcaa980 R12: ffffe8ffffcaa899
+R13: 0000000000000000 R14: 0000000000000000 R15: dffffc0000000000
+FS:  0000000000000000(0000) GS:ffff88802b900000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f259f8ff000 CR3: 0000000079f88000 CR4: 0000000000750ef0
+PKRU: 55555554
+----------------
+Code disassembly (best guess):
+   0:	75 05                	jne    0x7
+   2:	eb 46                	jmp    0x4a
+   4:	48 89 d0             	mov    %rdx,%rax
+   7:	48 89 04 24          	mov    %rax,(%rsp)
+   b:	e8 7c c0 8e f8       	callq  0xf88ec08c
+  10:	ba 02 00 00 00       	mov    $0x2,%edx
+  15:	31 ff                	xor    %edi,%edi
+  17:	4c 89 e6             	mov    %r12,%rsi
+  1a:	e8 0d 2c fa ff       	callq  0xfffa2c2c
+  1f:	48 8b 04 24          	mov    (%rsp),%rax
+  23:	48 89 c2             	mov    %rax,%rdx
+  26:	48 c1 ea 03          	shr    $0x3,%rdx
+* 2a:	42 80 3c 3a 00       	cmpb   $0x0,(%rdx,%r15,1) <-- trapping instruction
+  2f:	0f 85 97 01 00 00    	jne    0x1cc
+  35:	49 83 fe 07          	cmp    $0x7,%r14
+  39:	48 8b 10             	mov    (%rax),%rdx
+  3c:	0f                   	.byte 0xf
+  3d:	87                   	.byte 0x87
+  3e:	64                   	fs
+  3f:	01                   	.byte 0x1
