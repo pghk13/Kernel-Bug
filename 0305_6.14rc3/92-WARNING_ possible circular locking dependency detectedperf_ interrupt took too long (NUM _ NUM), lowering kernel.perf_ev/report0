@@ -1,0 +1,95 @@
+======================================================
+WARNING: possible circular locking dependency detectedperf: interrupt took too long (11676 > 11398), lowering kernel.perf_event_max_sample_rate to 17100
+6.14.0-rc3 #1 Not tainted
+------------------------------------------------------
+ffff88805d811628 (&smc->clcsock_release_lock){+.+.}-{4:4}, at: smc_switch_to_fallback+0x2d/0xa10
+but task is already holding lock:
+ffff88805d810dd8 (sk_lock-AF_INET){+.+.}-{0:0}, at: smc_sendmsg+0x4b/0x5a0
+
+which perf: interrupt took too long (23379 > 23187), lowering kernel.perf_event_max_sample_rate to 8500
+
+
+the existing dependency chain (in reverse order) is:
+
+-> #2 (sk_lock-AF_INET){+.+.}-{0:0}:
+       lock_sock_nested+0x3a/0xf0
+       sockopt_lock_sock+0x54/0x70
+       do_ip_setsockopt+0x16a4/0x33a0
+       ip_setsockopt+0x59/0x110
+       udp_setsockopt+0x84/0xd0
+       do_sock_setsockopt+0x226/0x480
+       __sys_setsockopt+0x19b/0x230
+       __x64_sys_setsockopt+0xbe/0x160
+       do_syscall_64+0xcf/0x250
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #1 (rtnl_mutex){+.+.}-{4:4}:
+       __mutex_lock+0x16f/0x2020
+       do_ip_setsockopt+0x169c/0x33a0
+       ip_setsockopt+0x59/0x110
+       tcp_setsockopt+0xa9/0x110
+       smc_setsockopt+0x1ab/0xb80
+       do_sock_setsockopt+0x226/0x480
+       __sys_setsockopt+0x19b/0x230
+       __x64_sys_setsockopt+0xbe/0x160
+       do_syscall_64+0xcf/0x250
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #0 (&smc->clcsock_release_lock){+.+.}-{4:4}:
+       __lock_acquire+0x2846/0x46b0
+       lock_acquire+0x1b6/0x570
+       __mutex_lock+0x16f/0x2020
+       smc_switch_to_fallback+0x2d/0xa10
+       smc_sendmsg+0x144/0x5a0
+       __sock_sendmsg+0x224/0x2a0
+       __sys_sendto+0x29a/0x390
+       __x64_sys_sendto+0xe1/0x1c0
+       do_syscall_64+0xcf/0x250
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+other info that might help us debug this:
+
+Chain exists of:
+  &smc->clcsock_release_lock --> rtnl_mutex --> sk_lock-AF_INET
+
+ Possible unsafe locking scenario:
+
+       CPU0                    CPU1
+       ----                    ----
+  lock(sk_lock-AF_INET);
+                               lock(rtnl_mutex);
+                               lock(sk_lock-AF_INET);
+  lock(&smc->clcsock_release_lock);
+
+ *** DEADLOCK ***
+
+1 lock held by syz.5.1127/30573:
+ #0: ffff88805d810dd8 (sk_lock-AF_INET){+.+.}-{0:0}, at: smc_sendmsg+0x4b/0x5a0
+
+stack backtrace:
+CPU: 0 UID: 65534 PID: 30573 Comm: syz.5.1127 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x116/0x1b0
+ print_circular_bug.isra.0+0x505/0x740
+ check_noncircular+0x2f1/0x3d0
+ __lock_acquire+0x2846/0x46b0
+ lock_acquire+0x1b6/0x570
+ __mutex_lock+0x16f/0x2020
+ smc_switch_to_fallback+0x2d/0xa10
+ smc_sendmsg+0x144/0x5a0
+ __sock_sendmsg+0x224/0x2a0
+ __sys_sendto+0x29a/0x390
+ __x64_sys_sendto+0xe1/0x1c0
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fb8feda371d
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fb8ffb4eba8 EFLAGS: 00000246 ORIG_RAX: 000000000000002c
+RAX: ffffffffffffffda RBX: 00007fb8fef65f80 RCX: 00007fb8feda371d
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000003
+RBP: 00007fb8fee18425 R08: 0000000020000040 R09: 0000000000000010
+R10: 00000000200007fd R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fb8fef65f8c R14: 00007fb8fef66018 R15: 00007fb8ffb4ed40
+ </TASK>

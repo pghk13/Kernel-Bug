@@ -1,0 +1,79 @@
+bcachefs (loop4): accounting_read... done
+bcachefs (loop4): alloc_read... done
+bcachefs (loop4): stripes_read... done
+bcachefs (loop4): snapshots_read... done
+bcachefs (loop4): done starting filesystem
+Oops: general protection fault, probably for non-canonical address 0xdffffc0000000000: 0000 [#1] PREEMPT SMP KASAN NOPTI
+KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]
+CPU: 1 UID: 0 PID: 19553 Comm: syz.4.610 Not tainted 6.14.0-rc3 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:rcu_pending_pcpu_dequeue+0x1f7/0x2b0
+Code: eb 89 e8 8c 11 64 fd 48 89 ef e8 b4 33 77 00 e9 77 ff ff ff e8 7a 11 64 fd 4c 89 e2 48 b8 00 00 00 00 00 fc ff df 48 c1 ea 03 <80> 3c 02 00 75 72 49 8b 04 24 48 85 c0 48 89 03 0f 85 4b ff ff ff
+RSP: 0018:ffffc900043fed78 EFLAGS: 00010056
+RAX: dffffc0000000000 RBX: ffffe8ffffcae980 RCX: 0000000000040000
+RDX: 0000000000000000 RSI: ffff8880238b4900 RDI: 0000000000000002
+RBP: dffffc0000000000 R08: fffff5200087fd01 R09: fffff5200087fda2
+R10: fffff5200087fda1 R11: 0000000000000003 R12: 0000000000000001
+R13: 0000000000000000 R14: ffffe8ffffcae9b0 R15: ffff88804eda42f0
+FS:  00007f87d31f6700(0000) GS:ffff88807ee00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000555595016a48 CR3: 000000002603e000 CR4: 0000000000750ef0
+PKRU: 80000000
+Call Trace:
+ <TASK>
+ btree_key_cache_create+0x21a/0x3110
+ btree_key_cache_fill+0x3cd/0xa10
+ bch2_btree_path_traverse_cached+0x754/0xd90
+ bch2_btree_path_traverse_one+0x13f6/0x3480
+ bch2_btree_iter_peek_slot+0x7ed/0x28e0
+ __bch2_inode_peek+0x1f6/0x420
+ bch2_inode_find_by_inum_trans+0xab/0x120
+ bch2_vfs_inode_get+0x2ee/0x370
+ bch2_fs_get_tree+0x1418/0x2080
+ vfs_get_tree+0x93/0x340
+ path_mount+0x1290/0x1bc0
+ do_mount+0xb4/0x110
+ __x64_sys_mount+0x193/0x230
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f87d4da615e
+Code: ff ff ff 64 c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f87d31f59b8 EFLAGS: 00000206 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 0000000000005903 RCX: 00007f87d4da615e
+RDX: 00000000200000c0 RSI: 0000000020000000 RDI: 00007f87d31f5a10
+RBP: 00007f87d31f5a50 R08: 00007f87d31f5a50 R09: 0000000000800000
+R10: 0000000000800000 R11: 0000000000000206 R12: 00000000200000c0
+R13: 0000000020000000 R14: 00007f87d31f5a10 R15: 0000000020000480
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:rcu_pending_pcpu_dequeue+0x1f7/0x2b0
+Code: eb 89 e8 8c 11 64 fd 48 89 ef e8 b4 33 77 00 e9 77 ff ff ff e8 7a 11 64 fd 4c 89 e2 48 b8 00 00 00 00 00 fc ff df 48 c1 ea 03 <80> 3c 02 00 75 72 49 8b 04 24 48 85 c0 48 89 03 0f 85 4b ff ff ff
+RSP: 0018:ffffc900043fed78 EFLAGS: 00010056
+RAX: dffffc0000000000 RBX: ffffe8ffffcae980 RCX: 0000000000040000
+RDX: 0000000000000000 RSI: ffff8880238b4900 RDI: 0000000000000002
+RBP: dffffc0000000000 R08: fffff5200087fd01 R09: fffff5200087fda2
+R10: fffff5200087fda1 R11: 0000000000000003 R12: 0000000000000001
+R13: 0000000000000000 R14: ffffe8ffffcae9b0 R15: ffff88804eda42f0
+FS:  00007f87d31f6700(0000) GS:ffff88807ee00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000555595016a48 CR3: 000000002603e000 CR4: 0000000000750ef0
+PKRU: 80000000
+----------------
+Code disassembly (best guess):
+   0:	eb 89                	jmp    0xffffff8b
+   2:	e8 8c 11 64 fd       	callq  0xfd641193
+   7:	48 89 ef             	mov    %rbp,%rdi
+   a:	e8 b4 33 77 00       	callq  0x7733c3
+   f:	e9 77 ff ff ff       	jmpq   0xffffff8b
+  14:	e8 7a 11 64 fd       	callq  0xfd641193
+  19:	4c 89 e2             	mov    %r12,%rdx
+  1c:	48 b8 00 00 00 00 00 	movabs $0xdffffc0000000000,%rax
+  23:	fc ff df
+  26:	48 c1 ea 03          	shr    $0x3,%rdx
+* 2a:	80 3c 02 00          	cmpb   $0x0,(%rdx,%rax,1) <-- trapping instruction
+  2e:	75 72                	jne    0xa2
+  30:	49 8b 04 24          	mov    (%r12),%rax
+  34:	48 85 c0             	test   %rax,%rax
+  37:	48 89 03             	mov    %rax,(%rbx)
+  3a:	0f 85 4b ff ff ff    	jne    0xffffff8b
