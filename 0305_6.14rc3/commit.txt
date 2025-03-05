@@ -1,0 +1,8 @@
+authorLinus Torvalds <torvalds@linux-foundation.org>2025-02-18 09:00:31 -0800
+committerLinus Torvalds <torvalds@linux-foundation.org>2025-02-18 09:00:31 -0800
+commit6537cfb395f352782918d8ee7b7f10ba2cc3cbf2 (patch)
+treee33d95a6f4e9bedce6e788e8fe79676b85abc0b8
+parent2408a807bfc3f738850ef5ad5e3fd59d66168996 (diff)
+parente77aa4b2eaa7fb31b2a7a50214ecb946b2a8b0f6 (diff)
+downloadlinux-6537cfb395f352782918d8ee7b7f10ba2cc3cbf2.tar.gz
+Merge tag 'sound-6.14-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/tiwai/sound
