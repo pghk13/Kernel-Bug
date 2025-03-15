@@ -1,1 +1,1 @@
-general protection fault in __d_alloc
+KASAN: slab-use-after-free in find_lock_entries+0x21e/0x1160
