@@ -1,0 +1,87 @@
+==================================================================
+BUG: KASAN: slab-use-after-free in find_lock_entries+0x21e/0x1160
+Read of size 4 at addr ffff88807917d8f4 by task syz.0.32/15410
+
+CPU: 3 UID: 0 PID: 15410 Comm: syz.0.32 Not tainted 6.14.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x116/0x1b0
+ print_report+0xc1/0x630
+ kasan_report+0x93/0xc0
+ kasan_check_range+0xed/0x1a0
+ find_lock_entries+0x21e/0x1160
+ shmem_undo_range+0x205/0x11b0
+ shmem_truncate_range+0x30/0xd0
+ shmem_evict_inode+0x2ec/0xa00
+ evict+0x3f2/0x860
+ iput+0x51c/0x830
+ dentry_unlink_inode+0x2cd/0x4c0
+ __dentry_kill+0x186/0x5b0
+ dput.part.0+0x49e/0x990
+ dput+0x1f/0x30
+ __fput+0x52b/0xb60
+ task_work_run+0x173/0x280
+ syscall_exit_to_user_mode+0x29e/0x2a0
+ do_syscall_64+0xdc/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f2da111ebdb
+Code: 03 00 00 00 0f 05 48 3d 00 f0 ff ff 77 41 c3 48 83 ec 18 89 7c 24 0c e8 63 fc ff ff 8b 7c 24 0c 41 89 c0 b8 03 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 2f 44 89 c7 89 44 24 0c e8 a1 fc ff ff 8b 44
+RSP: 002b:00007f2da20839a0 EFLAGS: 00000293 ORIG_RAX: 0000000000000003
+RAX: 0000000000000000 RBX: 000000000000597f RCX: 00007f2da111ebdb
+RDX: 0000000000000000 RSI: 0000000000004c01 RDI: 0000000000000003
+RBP: 00007f2da20846b0 R08: 0000000000000000 R09: 0000000000800000
+R10: 0000000000000000 R11: 0000000000000293 R12: ffffffffffffffff
+R13: 0000000000000016 R14: 0000000000000003 R15: 0000000020005bc0
+ </TASK>
+
+Allocated by task 30372096:
+------------[ cut here ]------------
+pool index 125439 out of bounds (850) for stack id ffffea00
+WARNING: CPU: 3 PID: 15410 at lib/stackdepot.c:451 depot_fetch_stack+0x96/0xc0
+Modules linked in:
+CPU: 3 UID: 0 PID: 15410 Comm: syz.0.32 Not tainted 6.14.0-rc5 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:depot_fetch_stack+0x96/0xc0
+Code: f8 7a d7 8e e8 6b ee 5a 06 83 f8 01 75 b8 90 0f 0b 90 eb b2 90 48 c7 c7 b8 66 90 8d 44 89 e1 44 89 ea 89 ee e8 bb 03 7c fc 90 <0f> 0b 90 90 31 c0 eb bb 90 0f 0b 90 eb b5 90 0f 0b 90 31 c0 eb ad
+RSP: 0018:ffffc900024f7480 EFLAGS: 00010086
+RAX: 0000000000000000 RBX: 0000000000003ff0 RCX: ffffffff8179ec7a
+RDX: 0000000000000000 RSI: ffff88806f728000 RDI: 0000000000000002
+RBP: 000000000001e9ff R08: fffffbfff1c0b800 R09: ffffed100fde5182
+R10: ffffed100fde5181 R11: ffff88807ef28c0b R12: 00000000ffffea00
+R13: 0000000000000352 R14: ffffffff81f0b71e R15: 0000000000000001
+FS:  00007f2da2084700(0000) GS:ffff88807ef00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f52e19ff000 CR3: 000000006aa74000 CR4: 0000000000750ef0
+PKRU: 00000000
+Call Trace:
+ <TASK>
+ stack_depot_fetch.part.0+0x9/0x40
+ stack_depot_print+0x4e/0x70
+ print_report+0x5ff/0x630
+ kasan_report+0x93/0xc0
+ kasan_check_range+0xed/0x1a0
+ find_lock_entries+0x21e/0x1160
+ shmem_undo_range+0x205/0x11b0
+ shmem_truncate_range+0x30/0xd0
+ shmem_evict_inode+0x2ec/0xa00
+ evict+0x3f2/0x860
+ iput+0x51c/0x830
+ dentry_unlink_inode+0x2cd/0x4c0
+ __dentry_kill+0x186/0x5b0
+ dput.part.0+0x49e/0x990
+ dput+0x1f/0x30
+ __fput+0x52b/0xb60
+ task_work_run+0x173/0x280
+ syscall_exit_to_user_mode+0x29e/0x2a0
+ do_syscall_64+0xdc/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f2da111ebdb
+Code: 03 00 00 00 0f 05 48 3d 00 f0 ff ff 77 41 c3 48 83 ec 18 89 7c 24 0c e8 63 fc ff ff 8b 7c 24 0c 41 89 c0 b8 03 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 2f 44 89 c7 89 44 24 0c e8 a1 fc ff ff 8b 44
+RSP: 002b:00007f2da20839a0 EFLAGS: 00000293 ORIG_RAX: 0000000000000003
+RAX: 0000000000000000 RBX: 000000000000597f RCX: 00007f2da111ebdb
+RDX: 0000000000000000 RSI: 0000000000004c01 RDI: 0000000000000003
+RBP: 00007f2da20846b0 R08: 0000000000000000 R09: 0000000000800000
+R10: 0000000000000000 R11: 0000000000000293 R12: ffffffffffffffff
+R13: 0000000000000016 R14: 0000000000000003 R15: 0000000020005bc0
+
