@@ -1,0 +1,45 @@
+------------------------
+Looking for class "p->lock" with key __key.50983, but found a different class "&p->lock" with the same key
+WARNING: CPU: 3 PID: 14000 at kernel/locking/lockdep.c:938 look_up_lock_class.isra.0+0xb6/0x150
+Modules linked in:
+CPU: 3 UID: 0 PID: 14000 Comm: syz-executor242 Not tainted 6.14.0 #2
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:look_up_lock_class.isra.0+0xb6/0x150
+Code: 8b 55 00 48 81 fa e0 c7 8a 93 74 55 80 3d a0 2c f0 04 00 75 4c c6 05 97 2c f0 04 01 90 48 c7 c7 40 02 6d 8b e8 1b 47 20 f6 90 <0f> 0b 90 90 eb 31 90 e8 be c2 70 f9 85 c0 74 23 8b 05 f4 db 07 05
+RSP: 0018:ffffc90002b06ea0 EFLAGS: 00010082
+RAX: 0000000000000000 RBX: ffffffff9aa71900 RCX: ffffffff817a1c9a
+RDX: 0000000000000000 RSI: ffff888045848000 RDI: 0000000000000002
+RBP: ffffe8ffffc740a8 R08: fffffbfff1c0b900 R09: ffffed100fde5182
+R10: ffffed100fde5181 R11: ffff88807ef28c0b R12: ffffffff96fb4320
+R13: ffffe8ffffc740c0 R14: 0000000000000000 R15: ffffe8ffffc740c0
+FS:  00007fe3f7583700(0000) GS:ffff88807ef00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fe3effff000 CR3: 0000000042fc8000 CR4: 0000000000750ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ register_lock_class+0xbb/0xf60
+ __lock_acquire+0x136/0x46b0
+ lock_acquire+0x1b6/0x570
+ _raw_spin_lock_irq+0x36/0x50
+ rcu_pending_exit+0x34f/0xa30
+ bch2_fs_btree_key_cache_exit+0x82c/0xa10
+ bch2_fs_release+0x10f/0x8b0
+ kobject_put+0x1b2/0x4c0
+ bch2_fs_alloc+0xd00/0x2950
+ bch2_fs_open+0x927/0x1170
+ bch2_fs_get_tree+0x3be/0x2080
+ vfs_get_tree+0x93/0x340
+ path_mount+0x1290/0x1bc0
+ do_mount+0xb4/0x110
+ __x64_sys_mount+0x193/0x230
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fe3f7df1d3e
+Code: 48 c7 c1 b8 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fe3f7582bd8 EFLAGS: 00000286 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 0000000000000003 RCX: 00007fe3f7df1d3e
+RDX: 0000000020011a00 RSI: 0000000020011a40 RDI: 00007fe3f7582bf0
+RBP: 00007fe3f75836b8 R08: 00007fe3f7582c30 R09: 00000000000119ed
+R10: 0000000001200014 R11: 0000000000000286 R12: 00007fe3f7582bf0
+R13: 00007fe3f7582c30 R14: 0000000001200014 R15: 0000000000000000
