@@ -1,0 +1,30 @@
+BUG: Bad page map in process systemd-udevd  pte:6161616161616161 pmd:6c032067
+addr:00007f7520400000 vm_flags:08000071 anon_vma:0000000000000000 mapping:ffff88802274ca28 index:0
+file:file_contexts.bin fault:filemap_fault mmap:ext4_file_mmap read_folio:ext4_read_folio
+CPU: 3 UID: 0 PID: 9650 Comm: systemd-udevd Not tainted 6.14.0 #2
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x180/0x1b0
+ print_bad_pte+0x498/0x700
+ vm_normal_page+0x110/0x2e0
+ unmap_page_range+0xac8/0x4af0
+ unmap_single_vma+0x19a/0x2b0
+ unmap_vmas+0x1fe/0x450
+ exit_mmap+0x1b4/0xbf0
+ mmput+0x178/0x450
+ do_exit+0x94b/0x30c0
+ do_group_exit+0xd3/0x2a0
+ get_signal+0x261f/0x2790
+ arch_do_signal_or_restart+0x81/0x8b0
+ irqentry_exit_to_user_mode+0x20d/0x290
+ exc_page_fault+0xc1/0x170
+ asm_exc_page_fault+0x26/0x30
+RIP: 0033:0x7f7521150815
+Code: Unable to access opcode bytes at 0x7f75211507eb.
+RSP: 002b:00007fffba3c6a88 EFLAGS: 00010283
+RAX: 0000000000000ebe RBX: 0000000000000000 RCX: 0000000000000e91
+RDX: 0000000000000000 RSI: 00007f752040002e RDI: 000055937f8f9e90
+RBP: 0000000000000004 R08: 000055937f90e3f0 R09: 0000000000000014
+R10: 0000000000000000 R11: 0000000000000004 R12: 000055937f8f9e90
+R13: 000055937f08a4c0 R14: 0000000000000014 R15: 0000000000000004
