@@ -1,0 +1,32 @@
+WARNING: CPU: 2 PID: 9494 at ./include/linux/backing-dev.h:251 __folio_mark_dirty+0xb50/0xf10
+Modules linked in:
+CPU: 2 UID: 0 PID: 9494 Comm: gfs2_logd/syz:s Not tainted 6.15.0-rc1 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:__folio_mark_dirty+0xb50/0xf10
+Code: ff ff 48 8d 78 70 e8 af e3 76 09 31 ff 89 c6 89 44 24 08 e8 72 d3 c5 ff 8b 44 24 08 85 c0 0f 85 af f9 ff ff e8 51 d1 c5 ff 90 <0f> 0b 90 e9 a1 f9 ff ff e8 43 d1 c5 ff 90 0f 0b 90 e9 59 f5 ff ff
+RSP: 0018:ffffc90014bb7b18 EFLAGS: 00010046
+RAX: 0000000000000000 RBX: ffff88804298cb58 RCX: ffffffff81f5408e
+RDX: 0000000000000000 RSI: ffff888023edc900 RDI: 0000000000000002
+RBP: ffffea00015c9d80 R08: 0000000000000000 R09: ffffed10085319a0
+R10: ffffed100853199f R11: ffff88804298ccff R12: 0000000000000246
+R13: ffff888049bd8bc8 R14: 0000000000000001 R15: 0000000000000001
+FS:  0000000000000000(0000) GS:ffff888097c6b000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007ff2c7be9028 CR3: 000000000e180000 CR4: 0000000000750ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ mark_buffer_dirty+0x358/0x410
+ gfs2_unpin+0x106/0xef0
+ buf_lo_after_commit+0x155/0x230
+ gfs2_log_flush+0xd95/0x2cb0
+ gfs2_logd+0x29b/0x12c0
+ kthread+0x447/0x8a0
+ ret_from_fork+0x48/0x80
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
+extracting prog: 1h56m11.644263162s
+minimizing prog: 14m12.695891417s
+simplifying prog options: 0s
+extracting C: 32.234365976s
+simplifying C: 9m50.565845853s
