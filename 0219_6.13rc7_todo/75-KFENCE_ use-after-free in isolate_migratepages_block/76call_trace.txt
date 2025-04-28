@@ -1,0 +1,35 @@
+WARNING: CPU: 3 PID: 3051 at ./include/linux/backing-dev.h:251 __folio_mark_dirty+0xb50/0xf10
+Modules linked in:
+CPU: 3 UID: 0 PID: 3051 Comm: kworker/u18:5 Not tainted 6.15.0-rc1 #1 PREEMPT(full)
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: writeback wb_workfn (flush-7:0)
+RIP: 0010:__folio_mark_dirty+0xb50/0xf10
+Code: ff ff 48 8d 78 70 e8 af e3 76 09 31 ff 89 c6 89 44 24 08 e8 72 d3 c5 ff 8b 44 24 08 85 c0 0f 85 af f9 ff ff e8 51 d1 c5 ff 90 <0f> 0b 90 e9 a1 f9 ff ff e8 43 d1 c5 ff 90 0f 0b 90 e9 59 f5 ff ff
+RSP: 0018:ffffc90011e2f410 EFLAGS: 00010046
+RAX: 0000000000000000 RBX: ffff88804266bfd8 RCX: ffffffff81f5408e
+RDX: 0000000000000000 RSI: ffff888043e48000 RDI: 0000000000000002
+RBP: ffffea000086e9c0 R08: 0000000000000000 R09: ffffed10084cd830
+R10: ffffed10084cd82f R11: ffff88804266c17f R12: 0000000000000246
+R13: ffff888012bf87f0 R14: 0000000000000001 R15: 0000000000000001
+FS: 0000000000000000(0000) GS:ffff8880eb46b000(0000) knlGS:0000000000000000
+CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f6410e8e140 CR3: 0000000023648000 CR4: 0000000000750ef0
+PKRU: 55555554
+Call Trace:
+<TASK>
+mark_buffer_dirty+0x358/0x410
+gfs2_unpin+0x106/0xef0
+buf_lo_after_commit+0x155/0x230
+gfs2_log_flush+0xd95/0x2cb0
+gfs2_write_inode+0x371/0x450
+__writeback_single_inode+0xad7/0xf50
+writeback_sb_inodes+0x5f5/0xee0
+__writeback_inodes_wb+0xbe/0x270
+wb_writeback+0x728/0xb50
+wb_workfn+0x96e/0xe90
+process_scheduled_works+0x5de/0x1bd0
+worker_thread+0x5a9/0xd10
+kthread+0x447/0x8a0
+ret_from_fork+0x48/0x80
+ret_from_fork_asm+0x1a/0x30
+</TASK>
