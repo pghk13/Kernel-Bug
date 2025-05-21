@@ -1,0 +1,131 @@
+==================================================================
+BUG: KASAN: slab-use-after-free in hdm_disconnect+0x227/0x250
+Read of size 8 at addr ffff88807c3f5898 by task kworker/0:1/10
+
+CPU: 0 UID: 0 PID: 10 Comm: kworker/0:1 Not tainted 6.15.0-rc6 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Workqueue: usb_hub_wq hub_event
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x116/0x1b0
+ print_report+0xc1/0x630
+ kasan_report+0x96/0xd0
+ hdm_disconnect+0x227/0x250
+ usb_unbind_interface+0x1e5/0x980
+ device_remove+0x125/0x170
+ device_release_driver_internal+0x149/0x280
+ bus_remove_device+0x22e/0x420
+ device_del+0x46a/0xb30
+ usb_disable_device+0x21b/0x600
+ usb_disconnect+0x280/0x8d0
+ hub_event+0x18bc/0x4800
+ process_scheduled_works+0x5de/0x1bd0
+ worker_thread+0x5a9/0xd10
+ kthread+0x447/0x8a0
+ ret_from_fork+0x48/0x80
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
+
+Allocated by task 24:
+ kasan_save_stack+0x24/0x50
+ kasan_save_track+0x14/0x30
+ __kasan_kmalloc+0xaa/0xb0
+ __kmalloc_cache_noprof+0x1e1/0x4b0
+ hdm_probe+0xb3/0x19a0
+ usb_probe_interface+0x309/0xa10
+ really_probe+0x253/0x990
+ __driver_probe_device+0x1df/0x450
+ driver_probe_device+0x4c/0x1a0
+ __device_attach_driver+0x1e4/0x2d0
+ bus_for_each_drv+0x14b/0x1d0
+ __device_attach+0x285/0x480
+ bus_probe_device+0x17e/0x1c0
+ device_add+0x112d/0x1870
+ usb_set_configuration+0x11a2/0x1be0
+ usb_generic_driver_probe+0xb7/0x110
+ usb_probe_device+0xec/0x3e0
+ really_probe+0x253/0x990
+ __driver_probe_device+0x1df/0x450
+ driver_probe_device+0x4c/0x1a0
+ __device_attach_driver+0x1e4/0x2d0
+ bus_for_each_drv+0x14b/0x1d0
+ __device_attach+0x285/0x480
+ bus_probe_device+0x17e/0x1c0
+ device_add+0x112d/0x1870
+ usb_new_device+0xd3e/0x1a20
+ hub_event+0x2a38/0x4800
+ process_scheduled_works+0x5de/0x1bd0
+ worker_thread+0x5a9/0xd10
+ kthread+0x447/0x8a0
+ ret_from_fork+0x48/0x80
+ ret_from_fork_asm+0x1a/0x30
+
+Freed by task 10:
+ kasan_save_stack+0x24/0x50
+ kasan_save_track+0x14/0x30
+ kasan_save_free_info+0x3a/0x60
+ __kasan_slab_free+0x54/0x70
+ kfree+0x147/0x440
+ device_release+0xa6/0x240
+ kobject_put+0x1b2/0x4c0
+ device_unregister+0x30/0xc0
+ hdm_disconnect+0x10b/0x250
+ usb_unbind_interface+0x1e5/0x980
+ device_remove+0x125/0x170
+ device_release_driver_internal+0x149/0x280
+ bus_remove_device+0x22e/0x420
+ device_del+0x46a/0xb30
+ usb_disable_device+0x21b/0x600
+ usb_disconnect+0x280/0x8d0
+ hub_event+0x18bc/0x4800
+ process_scheduled_works+0x5de/0x1bd0
+ worker_thread+0x5a9/0xd10
+ kthread+0x447/0x8a0
+ ret_from_fork+0x48/0x80
+ ret_from_fork_asm+0x1a/0x30
+
+The buggy address belongs to the object at ffff88807c3f4000
+ which belongs to the cache kmalloc-8k of size 8192
+The buggy address is located 6296 bytes inside of
+ freed 8192-byte region [ffff88807c3f4000, ffff88807c3f6000)
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x7c3f0
+head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+flags: 0x4fff00000000040(head|node=1|zone=1|lastcpupid=0x7ff)
+page_type: f5(slab)
+raw: 04fff00000000040 ffff88801b443180 dead000000000122 0000000000000000
+raw: 0000000000000000 0000000080020002 00000000f5000000 0000000000000000
+head: 04fff00000000040 ffff88801b443180 dead000000000122 0000000000000000
+head: 0000000000000000 0000000080020002 00000000f5000000 0000000000000000
+head: 04fff00000000003 ffffea0001f0fc01 00000000ffffffff 00000000ffffffff
+head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000008
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd28c0(GFP_NOWAIT|__GFP_IO|__GFP_FS|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 14470, tgid 14470 (ifquery), ts 156477098049, free_ts 0
+ prep_new_page+0x1b0/0x1e0
+ get_page_from_freelist+0x1c80/0x3a40
+ __alloc_frozen_pages_noprof+0x2fd/0x6d0
+ alloc_pages_mpol+0x209/0x550
+ new_slab+0x254/0x350
+ ___slab_alloc+0xf0c/0x17c0
+ __slab_alloc.isra.0+0x56/0xb0
+ __kmalloc_node_track_caller_noprof+0x2d4/0x600
+ kmalloc_reserve+0xed/0x2b0
+ __alloc_skb+0x161/0x370
+ netlink_dump+0x2ba/0xc80
+ netlink_recvmsg+0xae9/0xf00
+ sock_recvmsg+0x21b/0x290
+ ____sys_recvmsg+0x20f/0x6e0
+ ___sys_recvmsg+0xfe/0x190
+ __sys_recvmsg+0x14d/0x200
+page_owner free stack trace missing
+
+Memory state around the buggy address:
+ ffff88807c3f5780: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff88807c3f5800: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+>ffff88807c3f5880: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+                            ^
+ ffff88807c3f5900: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+ ffff88807c3f5980: fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb fb
+==================================================================
