@@ -1,0 +1,118 @@
+==================================================================
+BUG: KASAN: slab-out-of-bounds in dbAllocBits+0x629/0x640
+Read of size 8 at addr ffff888000efbeb8 by task syz.4.23/14569
+
+CPU: 2 UID: 0 PID: 14569 Comm: syz.4.23 Not tainted 6.15.0-rc6 #1 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x116/0x1b0
+ print_report+0xc1/0x630
+ kasan_report+0x96/0xd0
+ dbAllocBits+0x629/0x640
+ dbAllocDmap+0x61/0x120
+ dbAlloc+0x7a1/0xac0
+ ea_get+0xc8e/0x1380
+ __jfs_setxattr+0x1af/0xfa0
+ __jfs_set_acl+0x119/0x1b0
+ jfs_set_acl+0x1e9/0x350
+ set_posix_acl+0x261/0x330
+ vfs_set_acl+0x5ad/0x920
+ do_set_acl+0xd9/0x1a0
+ do_setxattr+0xc2/0x190
+ filename_setxattr+0x159/0x1c0
+ path_setxattrat+0x1cc/0x290
+ __x64_sys_lsetxattr+0xc9/0x140
+ do_syscall_64+0xcf/0x260
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fd8b7bacadd
+Code: 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fd8b89f2ba8 EFLAGS: 00000246 ORIG_RAX: 00000000000000bd
+RAX: ffffffffffffffda RBX: 00007fd8b7da5fa0 RCX: 00007fd8b7bacadd
+RDX: 0000000020000180 RSI: 0000000020000040 RDI: 0000000020000000
+RBP: 00007fd8b7c2ab8f R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000024 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fd8b7da5fac R14: 00007fd8b7da6038 R15: 00007fd8b89f2d40
+ </TASK>
+
+Allocated by task 9812:
+ kasan_save_stack+0x24/0x50
+ kasan_save_track+0x14/0x30
+ __kasan_kmalloc+0xaa/0xb0
+ __kmalloc_noprof+0x214/0x600
+ sk_prot_alloc+0x192/0x280
+ sk_alloc+0x3a/0x1380
+ __netlink_create+0x5d/0x2c0
+ __netlink_kernel_create+0xea/0x770
+ genl_pernet_init+0xbe/0x170
+ ops_init+0x1e1/0x640
+ setup_net+0x21e/0x880
+ copy_net_ns+0x2e3/0x640
+ create_new_namespaces+0x3f6/0xaf0
+ unshare_nsproxy_namespaces+0xc0/0x200
+ ksys_unshare+0x40e/0x940
+ __x64_sys_unshare+0x31/0x40
+ do_syscall_64+0xcf/0x260
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+The buggy address belongs to the object at ffff888000efb000
+ which belongs to the cache kmalloc-2k of size 2048
+The buggy address is located 1920 bytes to the right of
+ allocated 1848-byte region [ffff888000efb000, ffff888000efb738)
+
+The buggy address belongs to the physical page:
+page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0xef8
+head: order:3 mapcount:0 entire_mapcount:0 nr_pages_mapped:0 pincount:0
+anon flags: 0x7ff00000000040(head|node=0|zone=0|lastcpupid=0x7ff)
+page_type: f5(slab)
+raw: 007ff00000000040 ffff88801b442f00 0000000000000000 dead000000000001
+raw: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
+head: 007ff00000000040 ffff88801b442f00 0000000000000000 dead000000000001
+head: 0000000000000000 0000000000080008 00000000f5000000 0000000000000000
+head: 007ff00000000003 ffffea000003be01 00000000ffffffff 00000000ffffffff
+head: ffffffffffffffff 0000000000000000 00000000ffffffff 0000000000000008
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 3, migratetype Unmovable, gfp_mask 0xd2040(__GFP_IO|__GFP_NOWARN|__GFP_NORETRY|__GFP_COMP|__GFP_NOMEMALLOC), pid 9700, tgid 9700 (dhclient-script), ts 110050809934, free_ts 90102811247
+ prep_new_page+0x1b0/0x1e0
+ get_page_from_freelist+0x1c80/0x3a40
+ __alloc_frozen_pages_noprof+0x2fd/0x6d0
+ alloc_pages_mpol+0x209/0x550
+ new_slab+0x254/0x350
+ ___slab_alloc+0xf0c/0x17c0
+ __slab_alloc.isra.0+0x56/0xb0
+ __kmalloc_noprof+0x2d3/0x600
+ tomoyo_init_log+0x1204/0x1e20
+ tomoyo_supervisor+0x2e6/0x1320
+ tomoyo_env_perm+0x185/0x200
+ tomoyo_find_next_domain+0x154c/0x20a0
+ tomoyo_bprm_check_security+0x13a/0x1d0
+ security_bprm_check+0x8b/0x210
+ bprm_execve+0x832/0x1630
+ do_execveat_common.isra.0+0x4ce/0x630
+page last free pid 7296 tgid 7296 stack trace:
+ __free_frozen_pages+0x7cd/0x1320
+ __put_partials+0x14c/0x170
+ qlist_free_all+0x50/0x130
+ kasan_quarantine_reduce+0x168/0x1c0
+ __kasan_slab_alloc+0x67/0x90
+ kmem_cache_alloc_noprof+0x166/0x4a0
+ security_inode_alloc+0x3e/0x2c0
+ inode_init_always_gfp+0xd15/0x1090
+ alloc_inode+0x8d/0x1f0
+ new_inode+0x16/0x40
+ shmem_get_inode+0x1ba/0xaa0
+ shmem_mknod+0x1a8/0x450
+ lookup_open+0x11ba/0x15f0
+ path_openat+0xed3/0x2980
+ do_filp_open+0x1f9/0x2f0
+ do_sys_openat2+0x4e3/0x710
+
+Memory state around the buggy address:
+ ffff888000efbd80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+ ffff888000efbe00: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+>ffff888000efbe80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+                                        ^
+ ffff888000efbf00: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+ ffff888000efbf80: fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc
+==================================================================
