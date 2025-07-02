@@ -1,0 +1,63 @@
+Oops: general protection fault, probably for non-canonical address 0xe8001bfff1100fde: 0000 [#1] PREEMPT SMP KASAN NOPTI
+KASAN: maybe wild-memory-access in range [0x4000ffff88807ef0-0x4000ffff88807ef7]
+CPU: 3 UID: 0 PID: 120 Comm: kswapd1 Not tainted 6.14.0 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:__mod_memcg_lruvec_state+0x31e/0x7a0
+Code: 49 8d 7e 08 48 89 f8 48 c1 e8 03 42 80 3c 38 00 0f 85 37 03 00 00 4d 8b 76 08 4d 85 f6 0f 84 5a 01 00 00 4c 89 f0 48 c1 e8 03 <42> 0f b6 04 38 84 c0 74 08 3c 03 0f 8e 1c 03 00 00 4c 89 f0 41 8b
+RSP: 0018:ffffc90001a1f218 EFLAGS: 00010017
+RAX: 08001ffff1100fde RBX: 0000000000000001 RCX: 0000000000000001
+RDX: 1ffffffff1b5ef9f RSI: 0000000000000000 RDI: ffffe8ffffd232ca
+RBP: ffff88807aa14000 R08: 0000000000000000 R09: ffffed100fde5a51
+R10: ffffed100fde5a50 R11: ffff88807ef2d283 R12: 0000000000000002
+R13: 00000000ffffffff R14: 4000ffff88807ef4 R15: dffffc0000000000
+FS:  0000000000000000(0000) GS:ffff88807ef00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00005555895a5a48 CR3: 000000004ea6a000 CR4: 0000000000750ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ isolate_folios+0xf74/0x4050
+ evict_folios+0x1a0/0x2100
+ try_to_shrink_lruvec+0x608/0x9b0
+ shrink_one+0x412/0x7d0
+ shrink_node+0x2355/0x3c10
+ balance_pgdat+0xa85/0x1740
+ kswapd+0x4c0/0xbe0
+ kthread+0x42a/0x880
+ ret_from_fork+0x48/0x80
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:__mod_memcg_lruvec_state+0x31e/0x7a0
+Code: 49 8d 7e 08 48 89 f8 48 c1 e8 03 42 80 3c 38 00 0f 85 37 03 00 00 4d 8b 76 08 4d 85 f6 0f 84 5a 01 00 00 4c 89 f0 48 c1 e8 03 <42> 0f b6 04 38 84 c0 74 08 3c 03 0f 8e 1c 03 00 00 4c 89 f0 41 8b
+RSP: 0018:ffffc90001a1f218 EFLAGS: 00010017
+RAX: 08001ffff1100fde RBX: 0000000000000001 RCX: 0000000000000001
+RDX: 1ffffffff1b5ef9f RSI: 0000000000000000 RDI: ffffe8ffffd232ca
+RBP: ffff88807aa14000 R08: 0000000000000000 R09: ffffed100fde5a51
+R10: ffffed100fde5a50 R11: ffff88807ef2d283 R12: 0000000000000002
+R13: 00000000ffffffff R14: 4000ffff88807ef4 R15: dffffc0000000000
+FS:  0000000000000000(0000) GS:ffff88807ef00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00005555895a5a48 CR3: 000000004ea6a000 CR4: 0000000000750ef0
+PKRU: 55555554
+----------------
+Code disassembly (best guess):
+   0:	49 8d 7e 08          	lea    0x8(%r14),%rdi
+   4:	48 89 f8             	mov    %rdi,%rax
+   7:	48 c1 e8 03          	shr    $0x3,%rax
+   b:	42 80 3c 38 00       	cmpb   $0x0,(%rax,%r15,1)
+  10:	0f 85 37 03 00 00    	jne    0x34d
+  16:	4d 8b 76 08          	mov    0x8(%r14),%r14
+  1a:	4d 85 f6             	test   %r14,%r14
+  1d:	0f 84 5a 01 00 00    	je     0x17d
+  23:	4c 89 f0             	mov    %r14,%rax
+  26:	48 c1 e8 03          	shr    $0x3,%rax
+* 2a:	42 0f b6 04 38       	movzbl (%rax,%r15,1),%eax <-- trapping instruction
+  2f:	84 c0                	test   %al,%al
+  31:	74 08                	je     0x3b
+  33:	3c 03                	cmp    $0x3,%al
+  35:	0f 8e 1c 03 00 00    	jle    0x357
+  3b:	4c 89 f0             	mov    %r14,%rax
+  3e:	41                   	rex.B
+  3f:	8b                   	.byte 0x8b
