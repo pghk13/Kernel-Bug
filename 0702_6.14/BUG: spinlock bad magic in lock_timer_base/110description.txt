@@ -1,0 +1,1 @@
+BUG: spinlock bad magic in lock_timer_base
