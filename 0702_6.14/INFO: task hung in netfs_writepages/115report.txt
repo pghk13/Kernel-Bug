@@ -1,0 +1,119 @@
+=============================================
+
+NMI backtrace for cpu 1
+CPU: 1 UID: 0 PID: 47 Comm: khungtaskd Not tainted 6.14.0 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0x116/0x1b0
+ nmi_cpu_backtrace+0x2a0/0x350
+ nmi_trigger_cpumask_backtrace+0x29b/0x300
+ watchdog+0xf4c/0x1210
+ kthread+0x42a/0x880
+ ret_from_fork+0x48/0x80
+ ret_from_fork_asm+0x1a/0x30
+ </TASK>
+Sending NMI from CPU 1 to CPUs 0,2-3:
+NMI backtrace for cpu 2
+CPU: 2 UID: 0 PID: 25425 Comm: syz.4.2269 Not tainted 6.14.0 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:const_folio_flags.constprop.0+0x0/0x70
+Code: e0 e8 7b 8b 4c 89 e7 e8 ae ac ec ff 90 0f 0b e8 26 3d 09 00 eb bb 0f 1f 40 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 <41> 54 49 89 fc 53 e8 e5 43 a5 ff 49 8d 7c 24 08 48 b8 00 00 00 00
+RSP: 0018:ffffc900075d7318 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: dffffc0000000000 RCX: ffffffff82150596
+RDX: 0000000000000000 RSI: ffff888043e9a480 RDI: ffffea00018f2480
+RBP: ffffea00018f2480 R08: 0000000000000000 R09: fffff9400031e489
+R10: fffff9400031e488 R11: ffffea00018f2447 R12: ffff88807c072240
+R13: ffffea00018f2480 R14: 0000000000000046 R15: 0000000000000000
+FS:  0000000000000000(0000) GS:ffff88802b900000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000000020404030 CR3: 00000000130a2000 CR4: 0000000000750ef0
+DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+DR3: 000000000000000e DR6: 00000000ffff0ff0 DR7: 0000000000000400
+PKRU: 80000000
+Call Trace:
+ <NMI>
+ </NMI>
+ <TASK>
+ free_swap_cache+0x18/0x2d0
+ free_pages_and_swap_cache+0x156/0x460
+ tlb_flush_mmu+0x168/0x750
+ unmap_page_range+0xfa9/0x4af0
+ unmap_single_vma+0x19a/0x2b0
+ unmap_vmas+0x1fe/0x450
+ exit_mmap+0x1b4/0xbf0
+ mmput+0x178/0x450
+ do_exit+0x94b/0x30c0
+ do_group_exit+0xd3/0x2a0
+ get_signal+0x261f/0x2790
+ arch_do_signal_or_restart+0x81/0x8b0
+ syscall_exit_to_user_mode+0x228/0x2a0
+ do_syscall_64+0xdc/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f9a54bacadd
+Code: Unable to access opcode bytes at 0x7f9a54bacab3.
+RSP: 002b:00007f9a55aadba8 EFLAGS: 00000246 ORIG_RAX: 000000000000012b
+RAX: 0000000000010106 RBX: 00007f9a54da6080 RCX: 00007f9a54bacadd
+RDX: 0000000000010106 RSI: 00000000200000c0 RDI: 0000000000000003
+RBP: 00007f9a54c2ab8f R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000002 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f9a54da608c R14: 00007f9a54da6118 R15: 00007f9a55aadd40
+ </TASK>
+NMI backtrace for cpu 3
+CPU: 3 UID: 0 PID: 9454 Comm: syz-executor Not tainted 6.14.0 #1
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:ioread8+0x48/0xa0
+Code: ff ff 03 00 77 60 e8 a7 12 e8 fc 4c 89 e6 bf 00 00 01 00 e8 da 14 e8 fc 49 81 fc 00 00 01 00 76 1c e8 8c 12 e8 fc 44 89 e2 ec <44> 0f b6 e0 e8 7f 12 e8 fc 44 89 e0 41 5c e9 70 32 3e fc e8 70 12
+RSP: 0018:ffffc900005c0d28 EFLAGS: 00000046
+RAX: 0000000000000004 RBX: ffff888023670000 RCX: ffffffff84d20e76
+RDX: 000000000001c062 RSI: ffff88801b29c900 RDI: 0000000000000002
+RBP: 000000000001c062 R08: 0000000000000000 R09: fffffbfff20c2fa3
+R10: fffffbfff20c2fa2 R11: ffffffff90617d17 R12: 000000000001c062
+R13: ffff888023670180 R14: ffffffff8647a4b0 R15: ffff8880236744d0
+FS:  000055558169e9c0(0000) GS:ffff88807ef00000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fc012769138 CR3: 0000000021982000 CR4: 0000000000750ef0
+PKRU: 00000000
+Call Trace:
+ <NMI>
+ </NMI>
+ <IRQ>
+ ata_bmdma_irq_clear+0x49/0x70
+ __ata_sff_port_intr+0x28c/0x660
+ ata_bmdma_port_intr+0xc0/0x810
+ ata_bmdma_interrupt+0x27f/0x6a0
+ __handle_irq_event_percpu+0x237/0x7a0
+ handle_irq_event_percpu+0x18/0xe0
+ handle_irq_event+0xa5/0x140
+ handle_edge_irq+0x254/0x8c0
+ __common_interrupt+0xe3/0x250
+ common_interrupt+0xf2/0x110
+ </IRQ>
+ <TASK>
+ asm_common_interrupt+0x26/0x40
+RIP: 0010:release_sock+0x1aa/0x220
+Code: 48 39 c5 74 1d e8 f6 1d 96 f8 48 8d bb 08 02 00 00 31 c9 ba 01 00 00 00 be 03 00 00 00 e8 8e bb 6e f8 e8 d9 1d 96 f8 4c 89 e7 <5b> 5d 41 5c 41 5d e9 fb ba 38 02 e8 c6 1d 96 f8 90 0f 0b 90 e9 53
+RSP: 0018:ffffc90002697a18 EFLAGS: 00000246
+RAX: 0000000000000000 RBX: ffff888045d08000 RCX: 1ffffffff3526f14
+RDX: 1ffff11008ba1049 RSI: ffff88801b29c900 RDI: ffff888045d081c0
+RBP: ffff888045d08248 R08: 0000000000000000 R09: fffffbfff2de79b5
+R10: fffffbfff2de79b4 R11: ffffffff96f3cda7 R12: ffff888045d081c0
+R13: 0000000000000001 R14: 0000000000000004 R15: ffffc90002697a80
+ tcp_recvmsg+0x122/0x620
+ inet_recvmsg+0x12b/0x6e0
+ sock_recvmsg+0x1b7/0x290
+ sock_read_iter+0x2c8/0x3c0
+ vfs_read+0xa48/0xbf0
+ ksys_read+0x1fe/0x240
+ do_syscall_64+0xcf/0x250
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f2acd31eb12
+Code: ff ff ff f7 d8 64 89 02 48 c7 c0 ff ff ff ff eb be 0f 1f 80 00 00 00 00 f3 0f 1e fa 64 8b 04 25 18 00 00 00 85 c0 75 10 0f 05 <48> 3d 00 f0 ff ff 77 56 c3 0f 1f 44 00 00 48 83 ec 28 48 89 54 24
+RSP: 002b:00007fffedcf6048 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f2acd31eb12
+RDX: 0000000000000004 RSI: 00007fffedcf6120 RDI: 0000000000000003
+RBP: 0000000000000000 R08: 0000000000000000 R09: 000000000000f05c
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000004
+R13: 00007fffedcf64c0 R14: 00007fffedcf6120 R15: 00007fffedcf64c0
+ </TASK>
+NMI backtrace for cpu 0 skipped: idling at default_idle+0x1e/0x30
