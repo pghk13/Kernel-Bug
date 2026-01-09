@@ -1,0 +1,96 @@
+kmem_cache of name 'f2fs_xattr_entry-7:3' already exists
+WARNING: CPU: 0 PID: 10175 at mm/slab_common.c:109 kmem_cache_sanity_check mm/slab_common.c:109 [inline]
+WARNING: CPU: 0 PID: 10175 at mm/slab_common.c:109 __kmem_cache_create_args+0xa9/0x360 mm/slab_common.c:307
+Modules linked in:
+CPU: 0 UID: 0 PID: 10175 Comm: syz-executor284 Not tainted 6.16.0-rc7 #4 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:kmem_cache_sanity_check mm/slab_common.c:109 [inline]
+RIP: 0010:__kmem_cache_create_args+0xa9/0x360 mm/slab_common.c:307
+Code: 98 48 3d 30 28 03 87 74 25 48 8b 7d 60 4c 89 e6 e8 0c b5 e2 03 85 c0 75 e0 90 48 c7 c7 b0 67 89 86 4c 89 e6 e8 28 35 c4 ff 90 <0f> 0b 90 90 be 20 00 00 00 4c 89 e7 e8 66 b5 e2 03 48 85 c0 0f 85
+RSP: 0018:ffa000000f5dbc28 EFLAGS: 00010296
+RAX: 0000000000000000 RBX: 0000000000040000 RCX: ffffffff81465fc2
+RDX: 0000000000000000 RSI: ff110000123e0000 RDI: 0000000000000002
+RBP: ff11000015631f00 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000001 R11: 0000000000000000 R12: ffa000000f5dbc88
+R13: 00000000000000cc R14: ffa000000f5dbc68 R15: ff1100001b654000
+FS:  0000555569202880(0000) GS:ff110000b5156000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f846c5f5000 CR3: 0000000043110000 CR4: 0000000000751ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ __kmem_cache_create include/linux/slab.h:353 [inline]
+ f2fs_kmem_cache_create fs/f2fs/f2fs.h:2926 [inline]
+ f2fs_init_xattr_caches+0x81/0xb0 fs/f2fs/xattr.c:843
+ f2fs_fill_super+0x12b9/0x3ba0 fs/f2fs/super.c:4677
+ mount_bdev+0x12c/0x190 fs/super.c:1738
+ legacy_get_tree+0x37/0xb0 fs/fs_context.c:666
+ vfs_get_tree+0x31/0x140 fs/super.c:1804
+ do_new_mount fs/namespace.c:3902 [inline]
+ path_mount+0xb16/0x1070 fs/namespace.c:4226
+ do_mount+0x5f/0x90 fs/namespace.c:4239
+ __do_sys_mount fs/namespace.c:4450 [inline]
+ __se_sys_mount fs/namespace.c:4427 [inline]
+ __x64_sys_mount+0x1e5/0x280 fs/namespace.c:4427
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xc1/0x480 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f84745e3f4e
+Code: 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffd11804a88 EFLAGS: 00000286 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f84745e3f4e
+RDX: 00000000200004c0 RSI: 0000000020000040 RDI: 00007ffd11804ad0
+RBP: 00007ffd11804ad0 R08: 00007ffd11804b10 R09: 0000000000000000
+R10: 0000000002008410 R11: 0000000000000286 R12: 0000000000000003
+R13: 00007ffd11804b10 R14: 0000555569202840 R15: 0000000002008410
+ </TASK>
+2026/01/09 17:15:23 reproducing crash 'BUG: spinlock bad magic in wg_index_hashtable_insert': final repro crashed as (corrupted=false):
+F2FS-fs (loop3): Invalid log_blocksize (268), supports only 12
+F2FS-fs (loop3): Can't find valid F2FS filesystem in 1th superblock
+------------[ cut here ]------------
+kmem_cache of name 'f2fs_xattr_entry-7:3' already exists
+WARNING: CPU: 0 PID: 10175 at mm/slab_common.c:109 kmem_cache_sanity_check mm/slab_common.c:109 [inline]
+WARNING: CPU: 0 PID: 10175 at mm/slab_common.c:109 __kmem_cache_create_args+0xa9/0x360 mm/slab_common.c:307
+Modules linked in:
+CPU: 0 UID: 0 PID: 10175 Comm: syz-executor284 Not tainted 6.16.0-rc7 #4 PREEMPT(full) 
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.13.0-1ubuntu1.1 04/01/2014
+RIP: 0010:kmem_cache_sanity_check mm/slab_common.c:109 [inline]
+RIP: 0010:__kmem_cache_create_args+0xa9/0x360 mm/slab_common.c:307
+Code: 98 48 3d 30 28 03 87 74 25 48 8b 7d 60 4c 89 e6 e8 0c b5 e2 03 85 c0 75 e0 90 48 c7 c7 b0 67 89 86 4c 89 e6 e8 28 35 c4 ff 90 <0f> 0b 90 90 be 20 00 00 00 4c 89 e7 e8 66 b5 e2 03 48 85 c0 0f 85
+RSP: 0018:ffa000000f5dbc28 EFLAGS: 00010296
+RAX: 0000000000000000 RBX: 0000000000040000 RCX: ffffffff81465fc2
+RDX: 0000000000000000 RSI: ff110000123e0000 RDI: 0000000000000002
+RBP: ff11000015631f00 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000001 R11: 0000000000000000 R12: ffa000000f5dbc88
+R13: 00000000000000cc R14: ffa000000f5dbc68 R15: ff1100001b654000
+FS:  0000555569202880(0000) GS:ff110000b5156000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007f846c5f5000 CR3: 0000000043110000 CR4: 0000000000751ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ __kmem_cache_create include/linux/slab.h:353 [inline]
+ f2fs_kmem_cache_create fs/f2fs/f2fs.h:2926 [inline]
+ f2fs_init_xattr_caches+0x81/0xb0 fs/f2fs/xattr.c:843
+ f2fs_fill_super+0x12b9/0x3ba0 fs/f2fs/super.c:4677
+ mount_bdev+0x12c/0x190 fs/super.c:1738
+ legacy_get_tree+0x37/0xb0 fs/fs_context.c:666
+ vfs_get_tree+0x31/0x140 fs/super.c:1804
+ do_new_mount fs/namespace.c:3902 [inline]
+ path_mount+0xb16/0x1070 fs/namespace.c:4226
+ do_mount+0x5f/0x90 fs/namespace.c:4239
+ __do_sys_mount fs/namespace.c:4450 [inline]
+ __se_sys_mount fs/namespace.c:4427 [inline]
+ __x64_sys_mount+0x1e5/0x280 fs/namespace.c:4427
+ do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]
+ do_syscall_64+0xc1/0x480 arch/x86/entry/syscall_64.c:94
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f84745e3f4e
+Code: 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48 83 c8 ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 c0 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007ffd11804a88 EFLAGS: 00000286 ORIG_RAX: 00000000000000a5
+RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f84745e3f4e
+RDX: 00000000200004c0 RSI: 0000000020000040 RDI: 00007ffd11804ad0
+RBP: 00007ffd11804ad0 R08: 00007ffd11804b10 R09: 0000000000000000
+R10: 0000000002008410 R11: 0000000000000286 R12: 0000000000000003
+R13: 00007ffd11804b10 R14: 0000555569202840 R15: 0000000002008410
+ </TASK>
