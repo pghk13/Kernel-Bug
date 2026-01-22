@@ -1,0 +1,51 @@
+[  579.240159][   T46]  </TASK>
+[  579.241133][   T46] INFO: task syz-executor:10690 blocked for more than 183 seconds.
+[  579.243486][   T46]       Not tainted 6.19.0-rc4 #1
+[  579.245045][   T46] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" disables this message.
+[  579.247776][   T46] task:syz-executor    state:D stack:11296 pid:10690 tgid:10690 ppid:1      task_flags:0x400140 flags:0x00080002
+[  579.251394][   T46] Call Trace:
+[  579.252443][   T46]  <TASK>
+[  579.253371][   T46]  __schedule+0xe62/0x1fa0
+[  579.254791][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.256666][   T46]  ? schedule+0xb6/0xe0
+[  579.258063][   T46]  schedule+0x34/0xe0
+[  579.259368][   T46]  schedule_preempt_disabled+0xf/0x20
+[  579.261101][   T46]  __mutex_lock+0x810/0x1240
+[  579.262603][   T46]  ? __sanitizer_cov_trace_pc+0x1c/0x50
+[  579.264341][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.266153][   T46]  ? rtnl_newlink+0x4cb/0x760
+[  579.267639][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.269590][   T46]  ? rtnl_newlink+0x4cb/0x760
+[  579.271070][   T46]  rtnl_newlink+0x4cb/0x760
+[  579.272516][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.274280][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.276178][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.277919][   T46]  ? __pfx_rtnl_newlink+0x10/0x10
+[  579.279488][   T46]  rtnetlink_rcv_msg+0x6af/0xae0
+[  579.281023][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.282754][   T46]  ? __sanitizer_cov_trace_pc+0x1c/0x50
+[  579.284506][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.286346][   T46]  ? ref_tracker_free+0x157/0x2e0
+[  579.287958][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.289777][   T46]  netlink_rcv_skb+0x7d/0x1c0
+[  579.291270][   T46]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
+[  579.293003][   T46]  netlink_unicast+0x2bc/0x3d0
+[  579.294555][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.296425][   T46]  netlink_sendmsg+0x340/0x690
+[  579.298010][   T46]  __sock_sendmsg+0x11b/0x130
+[  579.299505][   T46]  __sys_sendto+0x18d/0x210
+[  579.301045][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.302777][   T46]  ? xfd_validate_state+0x3b/0xe0
+[  579.304392][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.306225][   T46]  ? __sanitizer_cov_trace_pc+0x1c/0x50
+[  579.307979][   T46]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  579.309720][   T46]  ? write_comp_data+0x29/0x80
+[  579.311228][   T46]  __x64_sys_sendto+0x26/0x30
+[  579.312726][   T46]  do_syscall_64+0xc3/0x11e0
+[  579.314233][   T46]  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+[  579.316176][   T46] RIP: 0033:0x7f947bd1ee04
+[  579.317561][   T46] RSP: 002b:00007ffca283d060 EFLAGS: 00000293 ORIG_RAX: 000000000000002c
+[  579.320127][   T46] RAX: ffffffffffffffda RBX: 00007f947cad4620 RCX: 00007f947bd1ee04
+[  579.322503][   T46] RDX: 000000000000002c RSI: 00007f947cad4670 RDI: 0000000000000003
+[  579.324925][   T46] RBP: 0000000000000000 R08: 00007ffca283d0bc R09: 000000000000000c
+[  579.327410][   T46] R10: 0000000000000000 R11: 0000000000000293 R12: 00000000000000
